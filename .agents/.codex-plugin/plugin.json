@@ -1,0 +1,11 @@
+{
+  "name": "go-elevenlabs",
+  "version": "0.1.1",
+  "description": "Unofficial Go client for the ElevenLabs REST API, generated with oapi-codegen, with one typed method per endpoint.",
+  "author": { "name": "psyb0t", "url": "https://github.com/psyb0t" },
+  "homepage": "https://github.com/psyb0t/go-elevenlabs",
+  "repository": "https://github.com/psyb0t/go-elevenlabs",
+  "license": "MIT",
+  "keywords": ["elevenlabs", "text-to-speech", "tts", "api-client", "openapi", "go-library"],
+  "skills": "./skills/"
+}

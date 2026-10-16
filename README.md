@@ -58,6 +58,34 @@ func main() {
 
 The spec also lists `xi-api-key` as an optional header parameter on most operations, so every `...Params` struct has an `XiApiKey` field. Leave it nil and let the request editor set the header. Request editors run after the params are applied, so a client-wide editor overrides a per-call `XiApiKey`. The same code lives in `example_test.go`, so it is compiled by `make test`.
 
+## Agent integrations
+
+The [skill](.agents/skills/go-elevenlabs) teaches a coding agent how to use go-elevenlabs when it writes Go. It works in any agent that reads `.agents/skills/`, and installs natively in the clients below.
+
+### Claude Code
+
+```bash
+claude plugin marketplace add psyb0t/agents
+claude plugin install go-elevenlabs@psyb0t
+```
+
+### Codex
+
+```bash
+codex plugin marketplace add psyb0t/agents
+codex plugin add go-elevenlabs@psyb0t
+```
+
+Codex also picks the skill up with no install in any checkout of this repo.
+
+### OpenClaw
+
+The skill is published to ClawHub on every release:
+
+```bash
+openclaw skills install @psyb0t/go-elevenlabs
+```
+
 ## Regenerating
 
 The ElevenLabs spec is not committed. `make generate` downloads the current OpenAPI document into the gitignored `api/` directory and regenerates the client:
