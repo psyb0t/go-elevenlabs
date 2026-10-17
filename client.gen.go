@@ -28045,6 +28045,12 @@ type CreateCustomHeaderAuthRequest struct {
 // CreateCustomHeaderAuthRequestAuthType defines model for CreateCustomHeaderAuthRequest.AuthType.
 type CreateCustomHeaderAuthRequestAuthType string
 
+// CreateEnvironmentRequest defines model for CreateEnvironmentRequest.
+type CreateEnvironmentRequest struct {
+	// Name Unique name of the environment, e.g. 'staging'.
+	Name string `json:"name"`
+}
+
 // CreateExotelPhoneNumberRequest defines model for CreateExotelPhoneNumberRequest.
 type CreateExotelPhoneNumberRequest struct {
 	// AccountSid Exotel Account SID
@@ -30202,6 +30208,18 @@ type EnvironmentAuthConnectionLocator struct {
 	EnvVarLabel string `json:"env_var_label"`
 }
 
+// EnvironmentResponse defines model for EnvironmentResponse.
+type EnvironmentResponse struct {
+	// CreatedByUserId Unset for 'production' and when the creator is not known.
+	CreatedByUserId *string `json:"created_by_user_id,omitempty"`
+
+	// Name Name of the environment, e.g. 'staging'.
+	Name string `json:"name"`
+
+	// UpdatedAtUnixSecs When the environment was created or one of its values last changed. Unset when neither is known.
+	UpdatedAtUnixSecs *int `json:"updated_at_unix_secs,omitempty"`
+}
+
 // EnvironmentVariableAuthConnectionValue defines model for EnvironmentVariableAuthConnectionValue.
 type EnvironmentVariableAuthConnectionValue struct {
 	AuthConnectionId string `json:"auth_connection_id"`
@@ -30256,6 +30274,12 @@ type EnvironmentVariablesListResponse struct {
 	EnvironmentVariables []EnvironmentVariableResponse `json:"environment_variables"`
 	HasMore              bool                          `json:"has_more"`
 	NextCursor           *string                       `json:"next_cursor,omitempty"`
+}
+
+// EnvironmentsListResponse defines model for EnvironmentsListResponse.
+type EnvironmentsListResponse struct {
+	// Environments All workspace environments, 'production' first. Variables without a value for an environment fall back to their production value.
+	Environments []EnvironmentResponse `json:"environments"`
 }
 
 // EvaluationCriteriaSummaryResult defines model for EvaluationCriteriaSummaryResult.
@@ -40998,7 +41022,7 @@ type UpdateClientParamsSmbToolType string
 
 // UpdateEnvironmentVariableRequest defines model for UpdateEnvironmentVariableRequest.
 type UpdateEnvironmentVariableRequest struct {
-	// Values Values to replace. Set to null to remove an environment (except 'production').
+	// Values Values to replace. Set to null to remove the value for an environment (except 'production').
 	Values map[string]*UpdateEnvironmentVariableRequest_Values_AdditionalProperties `json:"values"`
 }
 
@@ -45803,6 +45827,24 @@ type UpdateEnvironmentVariableParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// ListEnvironmentsParams defines parameters for ListEnvironments.
+type ListEnvironmentsParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// CreateEnvironmentParams defines parameters for CreateEnvironment.
+type CreateEnvironmentParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// DeleteEnvironmentParams defines parameters for DeleteEnvironment.
+type DeleteEnvironmentParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // HandleExotelOutboundCallParams defines parameters for HandleExotelOutboundCall.
 type HandleExotelOutboundCallParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -48876,6 +48918,9 @@ type CreateEnvironmentVariableJSONRequestBody CreateEnvironmentVariableJSONBody
 
 // UpdateEnvironmentVariableJSONRequestBody defines body for UpdateEnvironmentVariable for application/json ContentType.
 type UpdateEnvironmentVariableJSONRequestBody = UpdateEnvironmentVariableRequest
+
+// CreateEnvironmentJSONRequestBody defines body for CreateEnvironment for application/json ContentType.
+type CreateEnvironmentJSONRequestBody = CreateEnvironmentRequest
 
 // HandleExotelOutboundCallJSONRequestBody defines body for HandleExotelOutboundCall for application/json ContentType.
 type HandleExotelOutboundCallJSONRequestBody = BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost
@@ -79856,7 +79901,7 @@ type ClientInterface interface {
 
 	// UpdateEnvironmentVariableWithBody Update Environment Variable
 	//
-	// Replace an environment variable's values. Use null to remove an environment (except production).
+	// Replace an environment variable's values. Use null to remove its value for an environment (except production); delete an environment with DELETE /v1/convai/environments/{environment}.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -79865,12 +79910,44 @@ type ClientInterface interface {
 
 	// UpdateEnvironmentVariable Update Environment Variable
 	//
-	// Replace an environment variable's values. Use null to remove an environment (except production).
+	// Replace an environment variable's values. Use null to remove its value for an environment (except production); delete an environment with DELETE /v1/convai/environments/{environment}.
 	//
 	// Takes a body of the `application/json` content type.
 	//
 	// Corresponds with PATCH /v1/convai/environment-variables/{env_var_id} (the `UpdateEnvironmentVariable` operationId).
 	UpdateEnvironmentVariable(ctx context.Context, envVarId string, params *UpdateEnvironmentVariableParams, body UpdateEnvironmentVariableJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListEnvironments List Environments
+	//
+	// List the workspace environments, including 'production'.
+	//
+	// Corresponds with GET /v1/convai/environments (the `ListEnvironments` operationId).
+	ListEnvironments(ctx context.Context, params *ListEnvironmentsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateEnvironmentWithBody Create Environment
+	//
+	// Create a workspace environment. Variables without a value for it fall back to their production value.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/environments (the `CreateEnvironment` operationId).
+	CreateEnvironmentWithBody(ctx context.Context, params *CreateEnvironmentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateEnvironment Create Environment
+	//
+	// Create a workspace environment. Variables without a value for it fall back to their production value.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/environments (the `CreateEnvironment` operationId).
+	CreateEnvironment(ctx context.Context, params *CreateEnvironmentParams, body CreateEnvironmentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// DeleteEnvironment Delete Environment
+	//
+	// Delete a workspace environment and remove its values from all environment variables. 'production' cannot be deleted.
+	//
+	// Corresponds with DELETE /v1/convai/environments/{environment} (the `DeleteEnvironment` operationId).
+	DeleteEnvironment(ctx context.Context, environment string, params *DeleteEnvironmentParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// HandleExotelOutboundCallWithBody Handle An Outbound Call Via Exotel
 	//
@@ -86045,7 +86122,7 @@ func (c *Client) GetEnvironmentVariable(ctx context.Context, envVarId string, pa
 
 // UpdateEnvironmentVariableWithBody Update Environment Variable
 //
-// Replace an environment variable's values. Use null to remove an environment (except production).
+// Replace an environment variable's values. Use null to remove its value for an environment (except production); delete an environment with DELETE /v1/convai/environments/{environment}.
 //
 // Takes any type of body and a specified content type.
 //
@@ -86064,13 +86141,85 @@ func (c *Client) UpdateEnvironmentVariableWithBody(ctx context.Context, envVarId
 
 // UpdateEnvironmentVariable Update Environment Variable
 //
-// Replace an environment variable's values. Use null to remove an environment (except production).
+// Replace an environment variable's values. Use null to remove its value for an environment (except production); delete an environment with DELETE /v1/convai/environments/{environment}.
 //
 // Takes a body of the `application/json` content type.
 //
 // Corresponds with PATCH /v1/convai/environment-variables/{env_var_id} (the `UpdateEnvironmentVariable` operationId).
 func (c *Client) UpdateEnvironmentVariable(ctx context.Context, envVarId string, params *UpdateEnvironmentVariableParams, body UpdateEnvironmentVariableJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewUpdateEnvironmentVariableRequest(c.Server, envVarId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListEnvironments List Environments
+//
+// List the workspace environments, including 'production'.
+//
+// Corresponds with GET /v1/convai/environments (the `ListEnvironments` operationId).
+func (c *Client) ListEnvironments(ctx context.Context, params *ListEnvironmentsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListEnvironmentsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateEnvironmentWithBody Create Environment
+//
+// Create a workspace environment. Variables without a value for it fall back to their production value.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/environments (the `CreateEnvironment` operationId).
+func (c *Client) CreateEnvironmentWithBody(ctx context.Context, params *CreateEnvironmentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateEnvironmentRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateEnvironment Create Environment
+//
+// Create a workspace environment. Variables without a value for it fall back to their production value.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/environments (the `CreateEnvironment` operationId).
+func (c *Client) CreateEnvironment(ctx context.Context, params *CreateEnvironmentParams, body CreateEnvironmentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateEnvironmentRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// DeleteEnvironment Delete Environment
+//
+// Delete a workspace environment and remove its values from all environment variables. 'production' cannot be deleted.
+//
+// Corresponds with DELETE /v1/convai/environments/{environment} (the `DeleteEnvironment` operationId).
+func (c *Client) DeleteEnvironment(ctx context.Context, environment string, params *DeleteEnvironmentParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteEnvironmentRequest(c.Server, environment, params)
 	if err != nil {
 		return nil, err
 	}
@@ -102466,6 +102615,152 @@ func NewUpdateEnvironmentVariableRequestWithBody(server string, envVarId string,
 	}
 
 	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewListEnvironmentsRequest constructs an http.Request for the ListEnvironments method
+func NewListEnvironmentsRequest(server string, params *ListEnvironmentsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/environments")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewCreateEnvironmentRequest calls the generic CreateEnvironment builder with application/json body
+func NewCreateEnvironmentRequest(server string, params *CreateEnvironmentParams, body CreateEnvironmentJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateEnvironmentRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewCreateEnvironmentRequestWithBody constructs an http.Request for the CreateEnvironment method, with any body, and a specified content type
+func NewCreateEnvironmentRequestWithBody(server string, params *CreateEnvironmentParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/environments")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewDeleteEnvironmentRequest constructs an http.Request for the DeleteEnvironment method
+func NewDeleteEnvironmentRequest(server string, environment string, params *DeleteEnvironmentParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "environment", environment, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/environments/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
 
 	if params != nil {
 
@@ -124768,7 +125063,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateEnvironmentVariableWithBodyWithResponse Update Environment Variable
 	//
-	// Replace an environment variable's values. Use null to remove an environment (except production).
+	// Replace an environment variable's values. Use null to remove its value for an environment (except production); delete an environment with DELETE /v1/convai/environments/{environment}.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -124777,12 +125072,48 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateEnvironmentVariableWithResponse Update Environment Variable
 	//
-	// Replace an environment variable's values. Use null to remove an environment (except production).
+	// Replace an environment variable's values. Use null to remove its value for an environment (except production); delete an environment with DELETE /v1/convai/environments/{environment}.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with PATCH /v1/convai/environment-variables/{env_var_id} (the `UpdateEnvironmentVariable` operationId).
 	UpdateEnvironmentVariableWithResponse(ctx context.Context, envVarId string, params *UpdateEnvironmentVariableParams, body UpdateEnvironmentVariableJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateEnvironmentVariableResponse, error)
+
+	// ListEnvironmentsWithResponse List Environments
+	//
+	// List the workspace environments, including 'production'.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/environments (the `ListEnvironments` operationId).
+	ListEnvironmentsWithResponse(ctx context.Context, params *ListEnvironmentsParams, reqEditors ...RequestEditorFn) (*ListEnvironmentsResponse, error)
+
+	// CreateEnvironmentWithBodyWithResponse Create Environment
+	//
+	// Create a workspace environment. Variables without a value for it fall back to their production value.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/environments (the `CreateEnvironment` operationId).
+	CreateEnvironmentWithBodyWithResponse(ctx context.Context, params *CreateEnvironmentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateEnvironmentResponse, error)
+
+	// CreateEnvironmentWithResponse Create Environment
+	//
+	// Create a workspace environment. Variables without a value for it fall back to their production value.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/environments (the `CreateEnvironment` operationId).
+	CreateEnvironmentWithResponse(ctx context.Context, params *CreateEnvironmentParams, body CreateEnvironmentJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateEnvironmentResponse, error)
+
+	// DeleteEnvironmentWithResponse Delete Environment
+	//
+	// Delete a workspace environment and remove its values from all environment variables. 'production' cannot be deleted.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/convai/environments/{environment} (the `DeleteEnvironment` operationId).
+	DeleteEnvironmentWithResponse(ctx context.Context, environment string, params *DeleteEnvironmentParams, reqEditors ...RequestEditorFn) (*DeleteEnvironmentResponse, error)
 
 	// HandleExotelOutboundCallWithBodyWithResponse Handle An Outbound Call Via Exotel
 	//
@@ -133776,6 +134107,143 @@ func (r UpdateEnvironmentVariableResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r UpdateEnvironmentVariableResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListEnvironmentsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *EnvironmentsListResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListEnvironmentsResponse) GetJSON200() *EnvironmentsListResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ListEnvironmentsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ListEnvironmentsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListEnvironmentsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListEnvironmentsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListEnvironmentsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreateEnvironmentResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *EnvironmentResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r CreateEnvironmentResponse) GetJSON200() *EnvironmentResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CreateEnvironmentResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateEnvironmentResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateEnvironmentResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateEnvironmentResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateEnvironmentResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type DeleteEnvironmentResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r DeleteEnvironmentResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r DeleteEnvironmentResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r DeleteEnvironmentResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeleteEnvironmentResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r DeleteEnvironmentResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -150509,7 +150977,7 @@ func (c *ClientWithResponses) GetEnvironmentVariableWithResponse(ctx context.Con
 
 // UpdateEnvironmentVariableWithBodyWithResponse Update Environment Variable
 //
-// Replace an environment variable's values. Use null to remove an environment (except production).
+// Replace an environment variable's values. Use null to remove its value for an environment (except production); delete an environment with DELETE /v1/convai/environments/{environment}.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -150524,7 +150992,7 @@ func (c *ClientWithResponses) UpdateEnvironmentVariableWithBodyWithResponse(ctx 
 
 // UpdateEnvironmentVariableWithResponse Update Environment Variable
 //
-// Replace an environment variable's values. Use null to remove an environment (except production).
+// Replace an environment variable's values. Use null to remove its value for an environment (except production); delete an environment with DELETE /v1/convai/environments/{environment}.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -150535,6 +151003,66 @@ func (c *ClientWithResponses) UpdateEnvironmentVariableWithResponse(ctx context.
 		return nil, err
 	}
 	return ParseUpdateEnvironmentVariableResponse(rsp)
+}
+
+// ListEnvironmentsWithResponse List Environments
+//
+// List the workspace environments, including 'production'.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/environments (the `ListEnvironments` operationId).
+func (c *ClientWithResponses) ListEnvironmentsWithResponse(ctx context.Context, params *ListEnvironmentsParams, reqEditors ...RequestEditorFn) (*ListEnvironmentsResponse, error) {
+	rsp, err := c.ListEnvironments(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListEnvironmentsResponse(rsp)
+}
+
+// CreateEnvironmentWithBodyWithResponse Create Environment
+//
+// Create a workspace environment. Variables without a value for it fall back to their production value.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/environments (the `CreateEnvironment` operationId).
+func (c *ClientWithResponses) CreateEnvironmentWithBodyWithResponse(ctx context.Context, params *CreateEnvironmentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateEnvironmentResponse, error) {
+	rsp, err := c.CreateEnvironmentWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateEnvironmentResponse(rsp)
+}
+
+// CreateEnvironmentWithResponse Create Environment
+//
+// Create a workspace environment. Variables without a value for it fall back to their production value.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/environments (the `CreateEnvironment` operationId).
+func (c *ClientWithResponses) CreateEnvironmentWithResponse(ctx context.Context, params *CreateEnvironmentParams, body CreateEnvironmentJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateEnvironmentResponse, error) {
+	rsp, err := c.CreateEnvironment(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateEnvironmentResponse(rsp)
+}
+
+// DeleteEnvironmentWithResponse Delete Environment
+//
+// Delete a workspace environment and remove its values from all environment variables. 'production' cannot be deleted.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/convai/environments/{environment} (the `DeleteEnvironment` operationId).
+func (c *ClientWithResponses) DeleteEnvironmentWithResponse(ctx context.Context, environment string, params *DeleteEnvironmentParams, reqEditors ...RequestEditorFn) (*DeleteEnvironmentResponse, error) {
+	rsp, err := c.DeleteEnvironment(ctx, environment, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteEnvironmentResponse(rsp)
 }
 
 // HandleExotelOutboundCallWithBodyWithResponse Handle An Outbound Call Via Exotel
@@ -160568,6 +161096,113 @@ func ParseUpdateEnvironmentVariableResponse(rsp *http.Response) (*UpdateEnvironm
 			return nil, err
 		}
 		response.JSON200 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case rsp.StatusCode == 404:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListEnvironmentsResponse parses an HTTP response from a ListEnvironmentsWithResponse call
+func ParseListEnvironmentsResponse(rsp *http.Response) (*ListEnvironmentsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListEnvironmentsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest EnvironmentsListResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateEnvironmentResponse parses an HTTP response from a CreateEnvironmentWithResponse call
+func ParseCreateEnvironmentResponse(rsp *http.Response) (*CreateEnvironmentResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateEnvironmentResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest EnvironmentResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case rsp.StatusCode == 409:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDeleteEnvironmentResponse parses an HTTP response from a DeleteEnvironmentWithResponse call
+func ParseDeleteEnvironmentResponse(rsp *http.Response) (*DeleteEnvironmentResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeleteEnvironmentResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case rsp.StatusCode == 400:
 		break // No content-type
