@@ -56,7 +56,9 @@ func main() {
 }
 ```
 
-The spec also lists `xi-api-key` as an optional header parameter on most operations, so every `...Params` struct has an `XiApiKey` field. Leave it nil and let the request editor set the header. Request editors run after the params are applied, so a client-wide editor overrides a per-call `XiApiKey`. The same code lives in `example_test.go`, so it is compiled by `make test`.
+The spec also lists `xi-api-key` as an optional header parameter on most operations, so most `...Params` structs have an `XiApiKey` field. Leave it nil and let the request editor set the header. Request editors run after the params are applied, so a client-wide editor overrides a per-call `XiApiKey`. The same code lives in `example_test.go`, so it is compiled by `make test`.
+
+The full API, with the spec's descriptions as doc comments, is in the [Go reference](https://pkg.go.dev/github.com/psyb0t/go-elevenlabs) and in `go doc github.com/psyb0t/go-elevenlabs`.
 
 ## Agent integrations
 

@@ -41,7 +41,7 @@ Each operation `X` in the spec has:
 - `client.XWithResponse(ctx, pathParams..., params, ...)` returning `*XResponse`.
 - For operations with a JSON body, `client.XWithResponse(ctx, pathParams..., params, body)` takes the typed `XJSONRequestBody`, and `client.XWithBodyWithResponse(ctx, pathParams..., params, contentType, io.Reader)` takes raw bytes. Multipart uploads such as speech to text use the `WithBody` form with a `multipart.Writer`.
 
-Some operations, by name in `client.gen.go`:
+Some operations:
 
 | Method | Endpoint |
 |---|---|
@@ -51,7 +51,7 @@ Some operations, by name in `client.gen.go`:
 | `TextToSpeechFullWithResponse(ctx, voiceId, *TextToSpeechFullParams, TextToSpeechFullJSONRequestBody)` | `POST /v1/text-to-speech/{voice_id}` |
 | `TextToSpeechStreamWithResponse(ctx, voiceId, *TextToSpeechStreamParams, TextToSpeechStreamJSONRequestBody)` | streaming text to speech, read in full |
 
-Search `client.gen.go` for `WithResponse(` to find the rest. Do not guess a method name.
+Run `go doc github.com/psyb0t/go-elevenlabs ClientWithResponsesInterface` to list the rest. Do not guess a method name.
 
 `TextToSpeechFullJSONRequestBody` (`BodyTextToSpeechFull`) needs `Text`; `ModelId` and the voice settings are optional. `TextToSpeechFullParams.OutputFormat` picks the codec, sample rate and bitrate, formatted as `codec_sample_rate_bitrate`; some formats need a paid tier.
 
