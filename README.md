@@ -102,6 +102,8 @@ make generate
    - A component schema named like an operation's generated parameter type (`ListAssetsParams` next to operation `list_assets`) is declared twice. Such schemas get a `Schema` suffix and every `$ref` to them is rewritten.
 3. oapi-codegen runs with `config.yaml` on the patched document.
 
+`.github/workflows/regen.yml` does the same every day in CI. When the new spec changes the client, it runs `make lint`, `make test` and `make sec`. If a check fails, Claude edits the code and the checks run again, up to three times, and a review step reads the result. A passing change is committed with a CHANGELOG entry and tagged as the next release: a patch version for fixes and additions, a minor version for breaking changes.
+
 ## Development
 
 Every command runs in the `Dockerfile.dev` image. The host needs only Docker and Make.
