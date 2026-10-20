@@ -2,6 +2,17 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.2.0, 2026-10-20
+
+- Breaking: `SoundGenerationParams.OutputFormat` changes from `*AllowedOutputFormats` to an anonymous union struct, so callers that set it must change their code.
+- Breaking: the `ToolTypeApiIntegrationMcp` constant is removed from `ToolType`, and `ToolType.Valid` no longer accepts `"api_integration_mcp"`.
+- Adds `CreateRealtimeSession` and `CreateRealtimeSessionWithBody` to `Client` and `ClientInterface`, with `CreateRealtimeSessionWithResponse` and `CreateRealtimeSessionWithBodyWithResponse` on `ClientWithResponses` and `ClientWithResponsesInterface`. New types include `CreateRealtimeSessionParams`, `CreateRealtimeSessionJSONBody`, `CreateRealtimeSessionResponse`, `CreateClientSecretRequest`, `ClientSecretResponse`, `ExpiresAfter` and `RealtimeModel`.
+- Adds the OpenAI realtime session types: `OpenAISessionConfigInput`, `OpenAISessionConfigOutput`, the audio config types, `OpenAIFunctionTool`, `OpenAIMCPTool`, `OpenAITurnDetection`, `OpenAITracingConfiguration`, `AudioFormat`, `AudioInputPacing`, `Eagerness` and `TurnDetectionType`.
+- Adds `DisableServiceAccountApiKey` and `DisableServiceAccountApiKeyWithResponse` with `DisableServiceAccountApiKeyParams` and `DisableServiceAccountApiKeyResponse`.
+- Adds the `AgentSortByUpdatedAt` value, `UpdatedAtUnixSecs` on `AgentSummaryResponseModel` and `SpeechEngineSummaryResponse`, `Description` on `BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch`, `Force` on `DeleteAgentRouteParams`, and `SourceBranchId` on `RebaseBranchOntoMainParams` and `RebasePreviewRouteParams`.
+- Adds `VoiceSharingResponseModelReviewStatusDeclinedResubmittable`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.1.4, 2026-10-17
 
 - Documentation only. The agent skill explains how to look up every endpoint, parameter and model with `go doc` or on pkg.go.dev, and declares its license.

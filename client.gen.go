@@ -960,6 +960,7 @@ const (
 	AgentSortByCallCount7d AgentSortBy = "call_count_7d"
 	AgentSortByCreatedAt   AgentSortBy = "created_at"
 	AgentSortByName        AgentSortBy = "name"
+	AgentSortByUpdatedAt   AgentSortBy = "updated_at"
 )
 
 // Valid indicates whether the value is a known member of the AgentSortBy enum.
@@ -970,6 +971,8 @@ func (e AgentSortBy) Valid() bool {
 	case AgentSortByCreatedAt:
 		return true
 	case AgentSortByName:
+		return true
+	case AgentSortByUpdatedAt:
 		return true
 	default:
 		return false
@@ -1588,6 +1591,45 @@ func (e AudioAnalysisStatus) Valid() bool {
 	case AudioAnalysisStatusFailed:
 		return true
 	case AudioAnalysisStatusProcessing:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AudioFormat.
+const (
+	AudioFormatAudiopcm  AudioFormat = "audio/pcm"
+	AudioFormatAudiopcma AudioFormat = "audio/pcma"
+	AudioFormatAudiopcmu AudioFormat = "audio/pcmu"
+)
+
+// Valid indicates whether the value is a known member of the AudioFormat enum.
+func (e AudioFormat) Valid() bool {
+	switch e {
+	case AudioFormatAudiopcm:
+		return true
+	case AudioFormatAudiopcma:
+		return true
+	case AudioFormatAudiopcmu:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AudioInputPacing.
+const (
+	AudioInputPacingBursty   AudioInputPacing = "bursty"
+	AudioInputPacingRealtime AudioInputPacing = "realtime"
+)
+
+// Valid indicates whether the value is a known member of the AudioInputPacing enum.
+func (e AudioInputPacing) Valid() bool {
+	switch e {
+	case AudioInputPacingBursty:
+		return true
+	case AudioInputPacingRealtime:
 		return true
 	default:
 		return false
@@ -6652,6 +6694,27 @@ func (e DynamicVariableSchemaOverrideSource) Valid() bool {
 	}
 }
 
+// Defines values for Eagerness.
+const (
+	EagernessHigh   Eagerness = "high"
+	EagernessLow    Eagerness = "low"
+	EagernessMedium Eagerness = "medium"
+)
+
+// Valid indicates whether the value is a known member of the Eagerness enum.
+func (e Eagerness) Valid() bool {
+	switch e {
+	case EagernessHigh:
+		return true
+	case EagernessLow:
+		return true
+	case EagernessMedium:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for EditedTranscriptKind.
 const (
 	EditedTranscriptKindTranscript EditedTranscriptKind = "transcript"
@@ -7162,6 +7225,21 @@ func (e ExotelApiSubdomain) Valid() bool {
 	case ExotelApiSubdomainApiExotelCom:
 		return true
 	case ExotelApiSubdomainApiInExotelCom:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ExpiresAfterAnchor.
+const (
+	ExpiresAfterAnchorCreatedAt ExpiresAfterAnchor = "created_at"
+)
+
+// Valid indicates whether the value is a known member of the ExpiresAfterAnchor enum.
+func (e ExpiresAfterAnchor) Valid() bool {
+	switch e {
+	case ExpiresAfterAnchorCreatedAt:
 		return true
 	default:
 		return false
@@ -11047,6 +11125,159 @@ func (e OmitSchemaOverrideSource) Valid() bool {
 	}
 }
 
+// Defines values for OpenAIFunctionToolType.
+const (
+	OpenAIFunctionToolTypeFunction OpenAIFunctionToolType = "function"
+)
+
+// Valid indicates whether the value is a known member of the OpenAIFunctionToolType enum.
+func (e OpenAIFunctionToolType) Valid() bool {
+	switch e {
+	case OpenAIFunctionToolTypeFunction:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OpenAIMCPToolRequireApproval.
+const (
+	OpenAIMCPToolRequireApprovalAlways OpenAIMCPToolRequireApproval = "always"
+	OpenAIMCPToolRequireApprovalNever  OpenAIMCPToolRequireApproval = "never"
+)
+
+// Valid indicates whether the value is a known member of the OpenAIMCPToolRequireApproval enum.
+func (e OpenAIMCPToolRequireApproval) Valid() bool {
+	switch e {
+	case OpenAIMCPToolRequireApprovalAlways:
+		return true
+	case OpenAIMCPToolRequireApprovalNever:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OpenAIMCPToolType.
+const (
+	OpenAIMCPToolTypeMcp OpenAIMCPToolType = "mcp"
+)
+
+// Valid indicates whether the value is a known member of the OpenAIMCPToolType enum.
+func (e OpenAIMCPToolType) Valid() bool {
+	switch e {
+	case OpenAIMCPToolTypeMcp:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OpenAISessionConfigInputMaxResponseOutputTokens1.
+const (
+	OpenAISessionConfigInputMaxResponseOutputTokens1Inf OpenAISessionConfigInputMaxResponseOutputTokens1 = "inf"
+)
+
+// Valid indicates whether the value is a known member of the OpenAISessionConfigInputMaxResponseOutputTokens1 enum.
+func (e OpenAISessionConfigInputMaxResponseOutputTokens1) Valid() bool {
+	switch e {
+	case OpenAISessionConfigInputMaxResponseOutputTokens1Inf:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OpenAISessionConfigInputTracing0.
+const (
+	OpenAISessionConfigInputTracing0Auto OpenAISessionConfigInputTracing0 = "auto"
+)
+
+// Valid indicates whether the value is a known member of the OpenAISessionConfigInputTracing0 enum.
+func (e OpenAISessionConfigInputTracing0) Valid() bool {
+	switch e {
+	case OpenAISessionConfigInputTracing0Auto:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OpenAISessionConfigInputType.
+const (
+	OpenAISessionConfigInputTypeRealtime OpenAISessionConfigInputType = "realtime"
+)
+
+// Valid indicates whether the value is a known member of the OpenAISessionConfigInputType enum.
+func (e OpenAISessionConfigInputType) Valid() bool {
+	switch e {
+	case OpenAISessionConfigInputTypeRealtime:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OpenAISessionConfigOutputMaxResponseOutputTokens1.
+const (
+	OpenAISessionConfigOutputMaxResponseOutputTokens1Inf OpenAISessionConfigOutputMaxResponseOutputTokens1 = "inf"
+)
+
+// Valid indicates whether the value is a known member of the OpenAISessionConfigOutputMaxResponseOutputTokens1 enum.
+func (e OpenAISessionConfigOutputMaxResponseOutputTokens1) Valid() bool {
+	switch e {
+	case OpenAISessionConfigOutputMaxResponseOutputTokens1Inf:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OpenAISessionConfigOutputTracing0.
+const (
+	OpenAISessionConfigOutputTracing0Auto OpenAISessionConfigOutputTracing0 = "auto"
+)
+
+// Valid indicates whether the value is a known member of the OpenAISessionConfigOutputTracing0 enum.
+func (e OpenAISessionConfigOutputTracing0) Valid() bool {
+	switch e {
+	case OpenAISessionConfigOutputTracing0Auto:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OpenAISessionConfigOutputType.
+const (
+	OpenAISessionConfigOutputTypeRealtime OpenAISessionConfigOutputType = "realtime"
+)
+
+// Valid indicates whether the value is a known member of the OpenAISessionConfigOutputType enum.
+func (e OpenAISessionConfigOutputType) Valid() bool {
+	switch e {
+	case OpenAISessionConfigOutputTypeRealtime:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OpenAIToolChoiceFunctionType.
+const (
+	OpenAIToolChoiceFunctionTypeFunction OpenAIToolChoiceFunctionType = "function"
+)
+
+// Valid indicates whether the value is a known member of the OpenAIToolChoiceFunctionType enum.
+func (e OpenAIToolChoiceFunctionType) Valid() bool {
+	switch e {
+	case OpenAIToolChoiceFunctionTypeFunction:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for OpenOutcomeStatus.
 const (
 	OpenOutcomeStatusOpen OpenOutcomeStatus = "open"
@@ -12445,6 +12676,24 @@ func (e ReaderResourceResponseModelResourceType) Valid() bool {
 	case ReaderResourceResponseModelResourceTypeCollection:
 		return true
 	case ReaderResourceResponseModelResourceTypeRead:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for RealtimeModel.
+const (
+	RealtimeModelElevenRealtimeV1Max  RealtimeModel = "eleven_realtime_v1_max"
+	RealtimeModelElevenRealtimeV1Mini RealtimeModel = "eleven_realtime_v1_mini"
+)
+
+// Valid indicates whether the value is a known member of the RealtimeModel enum.
+func (e RealtimeModel) Valid() bool {
+	switch e {
+	case RealtimeModelElevenRealtimeV1Max:
+		return true
+	case RealtimeModelElevenRealtimeV1Mini:
 		return true
 	default:
 		return false
@@ -14826,7 +15075,6 @@ func (e ToolSortBy) Valid() bool {
 
 // Defines values for ToolType.
 const (
-	ToolTypeApiIntegrationMcp     ToolType = "api_integration_mcp"
 	ToolTypeApiIntegrationWebhook ToolType = "api_integration_webhook"
 	ToolTypeClient                ToolType = "client"
 	ToolTypeMcp                   ToolType = "mcp"
@@ -14839,8 +15087,6 @@ const (
 // Valid indicates whether the value is a known member of the ToolType enum.
 func (e ToolType) Valid() bool {
 	switch e {
-	case ToolTypeApiIntegrationMcp:
-		return true
 	case ToolTypeApiIntegrationWebhook:
 		return true
 	case ToolTypeClient:
@@ -15343,6 +15589,24 @@ const (
 func (e TriggerUserVerificationParamsSmbToolType) Valid() bool {
 	switch e {
 	case TriggerUserVerificationParamsSmbToolTypeTriggerUserVerification:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TurnDetectionType.
+const (
+	TurnDetectionTypeSemanticVad TurnDetectionType = "semantic_vad"
+	TurnDetectionTypeServerVad   TurnDetectionType = "server_vad"
+)
+
+// Valid indicates whether the value is a known member of the TurnDetectionType enum.
+func (e TurnDetectionType) Valid() bool {
+	switch e {
+	case TurnDetectionTypeSemanticVad:
+		return true
+	case TurnDetectionTypeServerVad:
 		return true
 	default:
 		return false
@@ -16659,11 +16923,12 @@ func (e VoiceSharingResponseModelCategory) Valid() bool {
 
 // Defines values for VoiceSharingResponseModelReviewStatus.
 const (
-	VoiceSharingResponseModelReviewStatusAllowed            VoiceSharingResponseModelReviewStatus = "allowed"
-	VoiceSharingResponseModelReviewStatusAllowedWithChanges VoiceSharingResponseModelReviewStatus = "allowed_with_changes"
-	VoiceSharingResponseModelReviewStatusDeclined           VoiceSharingResponseModelReviewStatus = "declined"
-	VoiceSharingResponseModelReviewStatusNotRequested       VoiceSharingResponseModelReviewStatus = "not_requested"
-	VoiceSharingResponseModelReviewStatusPending            VoiceSharingResponseModelReviewStatus = "pending"
+	VoiceSharingResponseModelReviewStatusAllowed               VoiceSharingResponseModelReviewStatus = "allowed"
+	VoiceSharingResponseModelReviewStatusAllowedWithChanges    VoiceSharingResponseModelReviewStatus = "allowed_with_changes"
+	VoiceSharingResponseModelReviewStatusDeclined              VoiceSharingResponseModelReviewStatus = "declined"
+	VoiceSharingResponseModelReviewStatusDeclinedResubmittable VoiceSharingResponseModelReviewStatus = "declined_resubmittable"
+	VoiceSharingResponseModelReviewStatusNotRequested          VoiceSharingResponseModelReviewStatus = "not_requested"
+	VoiceSharingResponseModelReviewStatusPending               VoiceSharingResponseModelReviewStatus = "pending"
 )
 
 // Valid indicates whether the value is a known member of the VoiceSharingResponseModelReviewStatus enum.
@@ -16674,6 +16939,8 @@ func (e VoiceSharingResponseModelReviewStatus) Valid() bool {
 	case VoiceSharingResponseModelReviewStatusAllowedWithChanges:
 		return true
 	case VoiceSharingResponseModelReviewStatusDeclined:
+		return true
+	case VoiceSharingResponseModelReviewStatusDeclinedResubmittable:
 		return true
 	case VoiceSharingResponseModelReviewStatusNotRequested:
 		return true
@@ -20877,6 +21144,9 @@ type AgentSummaryResponseModel struct {
 	// Tags Agent tags used to categorize the agent
 	Tags []string `json:"tags"`
 
+	// UpdatedAtUnixSecs The last time the agent's main branch or agent-level settings were updated, in unix seconds
+	UpdatedAtUnixSecs int `json:"updated_at_unix_secs"`
+
 	// VoiceId Voice ID assigned to this agent
 	VoiceId string `json:"voice_id"`
 }
@@ -21752,6 +22022,12 @@ type AudioEffectsFilterPresetResponseModel struct {
 	// Name Display name.
 	Name string `json:"name"`
 }
+
+// AudioFormat defines model for AudioFormat.
+type AudioFormat string
+
+// AudioInputPacing “BURSTY“ clients stream ahead of wall time, so decisions use the audio clock.
+type AudioInputPacing string
 
 // AudioIsolationHistoryItemResponseModel defines model for AudioIsolationHistoryItemResponseModel.
 type AudioIsolationHistoryItemResponseModel struct {
@@ -24610,6 +24886,9 @@ type BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch struct {
 	// AutoRebase When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch.
 	AutoRebase *bool `json:"auto_rebase,omitempty"`
 
+	// Description New description for the branch. Pass an empty string to clear it.
+	Description *string `json:"description,omitempty"`
+
 	// IsArchived Whether the branch should be archived
 	IsArchived *bool `json:"is_archived,omitempty"`
 
@@ -26267,6 +26546,13 @@ type CheckServiceAvailabilityParamsSmbToolType string
 
 // ClientEvent defines model for ClientEvent.
 type ClientEvent string
+
+// ClientSecretResponse defines model for ClientSecretResponse.
+type ClientSecretResponse struct {
+	ExpiresAt int                        `json:"expires_at"`
+	Session   *OpenAISessionConfigOutput `json:"session,omitempty"`
+	Value     string                     `json:"value"`
+}
 
 // ClientToolConfigInput A client tool is one that sends an event to the user's client to trigger something client side
 type ClientToolConfigInput struct {
@@ -28009,6 +28295,12 @@ type CreateClientParams struct {
 
 // CreateClientParamsSmbToolType defines model for CreateClientParams.SmbToolType.
 type CreateClientParamsSmbToolType string
+
+// CreateClientSecretRequest defines model for CreateClientSecretRequest.
+type CreateClientSecretRequest struct {
+	ExpiresAfter *ExpiresAfter             `json:"expires_after,omitempty"`
+	Session      *OpenAISessionConfigInput `json:"session,omitempty"`
+}
 
 // CreateConversationTagRequestModel defines model for CreateConversationTagRequestModel.
 type CreateConversationTagRequestModel struct {
@@ -29897,6 +30189,9 @@ type DynamicVariablesConfigWorkflowOverride struct {
 	DynamicVariablePlaceholders *map[string]interface{} `json:"dynamic_variable_placeholders,omitempty"`
 }
 
+// Eagerness defines model for Eagerness.
+type Eagerness string
+
 // EditChapterResponseModel defines model for EditChapterResponseModel.
 type EditChapterResponseModel struct {
 	Chapter ChapterWithContentResponseModel `json:"chapter"`
@@ -30331,6 +30626,15 @@ type ExotelOutboundCallResponse struct {
 	Success        bool    `json:"success"`
 }
 
+// ExpiresAfter defines model for ExpiresAfter.
+type ExpiresAfter struct {
+	Anchor  *ExpiresAfterAnchor `json:"anchor,omitempty"`
+	Seconds int                 `json:"seconds"`
+}
+
+// ExpiresAfterAnchor defines model for ExpiresAfter.Anchor.
+type ExpiresAfterAnchor string
+
 // ExportOptions defines model for ExportOptions.
 type ExportOptions struct {
 	union json.RawMessage
@@ -30532,7 +30836,7 @@ type FieldConflict struct {
 	// BaseValue Value at the common ancestor (merge base).
 	BaseValue interface{} `json:"base_value,omitempty"`
 
-	// Path Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings, or a procedure id.
+	// Path Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings (e.g. `tts.voice_id`), a procedure id, or a workflow path: `nodes.<id>`, `edges.<id>`, or the name of a top-level workflow setting.
 	Path string `json:"path"`
 
 	// Section Which config section this path belongs to.
@@ -35005,6 +35309,251 @@ type OmitSchemaOverride struct {
 // OmitSchemaOverrideSource defines model for OmitSchemaOverride.Source.
 type OmitSchemaOverrideSource string
 
+// OpenAIAudioConfigInput defines model for OpenAIAudioConfig-Input.
+type OpenAIAudioConfigInput struct {
+	Input  *OpenAIAudioInputConfigInput  `json:"input,omitempty"`
+	Output *OpenAIAudioOutputConfigInput `json:"output,omitempty"`
+}
+
+// OpenAIAudioConfigOutput defines model for OpenAIAudioConfig-Output.
+type OpenAIAudioConfigOutput struct {
+	Input  *OpenAIAudioInputConfigOutput  `json:"input,omitempty"`
+	Output *OpenAIAudioOutputConfigOutput `json:"output,omitempty"`
+}
+
+// OpenAIAudioInputConfigInput defines model for OpenAIAudioInputConfig-Input.
+type OpenAIAudioInputConfigInput struct {
+	Format *OpenAIAudioInputFormat `json:"format,omitempty"`
+
+	// Pacing ``BURSTY`` clients stream ahead of wall time, so decisions use the audio clock.
+	Pacing        *AudioInputPacing              `json:"pacing,omitempty"`
+	Transcription *OpenAIAudioInputTranscription `json:"transcription,omitempty"`
+	TurnDetection *OpenAITurnDetection           `json:"turn_detection,omitempty"`
+}
+
+// OpenAIAudioInputConfigOutput defines model for OpenAIAudioInputConfig-Output.
+type OpenAIAudioInputConfigOutput struct {
+	Format *OpenAIAudioInputFormat `json:"format,omitempty"`
+
+	// Pacing ``BURSTY`` clients stream ahead of wall time, so decisions use the audio clock.
+	Pacing        *AudioInputPacing              `json:"pacing,omitempty"`
+	Transcription *OpenAIAudioInputTranscription `json:"transcription,omitempty"`
+	TurnDetection *OpenAITurnDetection           `json:"turn_detection,omitempty"`
+}
+
+// OpenAIAudioInputFormat defines model for OpenAIAudioInputFormat.
+type OpenAIAudioInputFormat struct {
+	Rate *int         `json:"rate,omitempty"`
+	Type *AudioFormat `json:"type,omitempty"`
+}
+
+// OpenAIAudioInputTranscription defines model for OpenAIAudioInputTranscription.
+type OpenAIAudioInputTranscription struct {
+	// Language Language code of the conversation (e.g. en, es, pt-br), used for transcription, speech and the model's reply language. Defaults to en.
+	Language *string `json:"language,omitempty"`
+}
+
+// OpenAIAudioOutputConfigInput defines model for OpenAIAudioOutputConfig-Input.
+type OpenAIAudioOutputConfigInput struct {
+	Format *OpenAIAudioOutputFormat `json:"format,omitempty"`
+	Voice  *string                  `json:"voice,omitempty"`
+}
+
+// OpenAIAudioOutputConfigOutput defines model for OpenAIAudioOutputConfig-Output.
+type OpenAIAudioOutputConfigOutput struct {
+	Format *OpenAIAudioOutputFormat `json:"format,omitempty"`
+	Voice  *string                  `json:"voice,omitempty"`
+}
+
+// OpenAIAudioOutputFormat defines model for OpenAIAudioOutputFormat.
+type OpenAIAudioOutputFormat struct {
+	Type *AudioFormat `json:"type,omitempty"`
+}
+
+// OpenAIFunctionTool defines model for OpenAIFunctionTool.
+type OpenAIFunctionTool struct {
+	Description *string                 `json:"description,omitempty"`
+	Name        string                  `json:"name"`
+	Parameters  *map[string]interface{} `json:"parameters,omitempty"`
+	Type        *OpenAIFunctionToolType `json:"type,omitempty"`
+}
+
+// OpenAIFunctionToolType defines model for OpenAIFunctionTool.Type.
+type OpenAIFunctionToolType string
+
+// OpenAIMCPTool defines model for OpenAIMCPTool.
+type OpenAIMCPTool struct {
+	AllowedTools    *[]string                     `json:"allowed_tools,omitempty"`
+	Authorization   *string                       `json:"authorization,omitempty"`
+	RequireApproval *OpenAIMCPToolRequireApproval `json:"require_approval,omitempty"`
+	ServerLabel     string                        `json:"server_label"`
+	ServerUrl       string                        `json:"server_url"`
+	Type            *OpenAIMCPToolType            `json:"type,omitempty"`
+}
+
+// OpenAIMCPToolRequireApproval defines model for OpenAIMCPTool.RequireApproval.
+type OpenAIMCPToolRequireApproval string
+
+// OpenAIMCPToolType defines model for OpenAIMCPTool.Type.
+type OpenAIMCPToolType string
+
+// OpenAISessionConfigInput defines model for OpenAISessionConfig-Input.
+type OpenAISessionConfigInput struct {
+	Audio        *OpenAIAudioConfigInput `json:"audio,omitempty"`
+	Include      *[]string               `json:"include,omitempty"`
+	Instructions *string                 `json:"instructions,omitempty"`
+
+	// MaxDurationSeconds Maximum wall-clock duration of the session in seconds. The session is closed with code 1000 once it is exceeded.
+	MaxDurationSeconds      *int                                              `json:"max_duration_seconds,omitempty"`
+	MaxResponseOutputTokens *OpenAISessionConfigInput_MaxResponseOutputTokens `json:"max_response_output_tokens,omitempty"`
+	Model                   *RealtimeModel                                    `json:"model,omitempty"`
+	OutputModalities        *[]string                                         `json:"output_modalities,omitempty"`
+	ParallelToolCalls       *bool                                             `json:"parallel_tool_calls,omitempty"`
+	Prompt                  *map[string]interface{}                           `json:"prompt,omitempty"`
+	Reasoning               *map[string]interface{}                           `json:"reasoning,omitempty"`
+	Temperature             *float32                                          `json:"temperature,omitempty"`
+	ToolChoice              *OpenAISessionConfigInput_ToolChoice              `json:"tool_choice,omitempty"`
+	Tools                   *[]OpenAISessionConfigInput_Tools_Item            `json:"tools,omitempty"`
+	Tracing                 *struct {
+		union json.RawMessage
+	} `json:"tracing,omitempty"`
+	Truncation    *OpenAISessionConfigInput_Truncation    `json:"truncation,omitempty"`
+	TurnDetection *OpenAISessionConfigInput_TurnDetection `json:"turn_detection,omitempty"`
+	Type          *OpenAISessionConfigInputType           `json:"type,omitempty"`
+}
+
+// OpenAISessionConfigInputMaxResponseOutputTokens0 defines model for OpenAISessionConfigInput.MaxResponseOutputTokens.0.
+type OpenAISessionConfigInputMaxResponseOutputTokens0 = int
+
+// OpenAISessionConfigInputMaxResponseOutputTokens1 defines model for OpenAISessionConfigInput.MaxResponseOutputTokens.1.
+type OpenAISessionConfigInputMaxResponseOutputTokens1 string
+
+// OpenAISessionConfigInput_MaxResponseOutputTokens defines model for OpenAISessionConfigInput.MaxResponseOutputTokens.
+type OpenAISessionConfigInput_MaxResponseOutputTokens struct {
+	union json.RawMessage
+}
+
+// OpenAISessionConfigInputToolChoice0 defines model for OpenAISessionConfigInput.ToolChoice.0.
+type OpenAISessionConfigInputToolChoice0 = string
+
+// OpenAISessionConfigInput_ToolChoice defines model for OpenAISessionConfigInput.ToolChoice.
+type OpenAISessionConfigInput_ToolChoice struct {
+	union json.RawMessage
+}
+
+// OpenAISessionConfigInput_Tools_Item defines model for OpenAISessionConfig-Input.tools.Item.
+type OpenAISessionConfigInput_Tools_Item struct {
+	union json.RawMessage
+}
+
+// OpenAISessionConfigInputTracing0 defines model for OpenAISessionConfigInput.Tracing.0.
+type OpenAISessionConfigInputTracing0 string
+
+// OpenAISessionConfigInputTruncation0 defines model for OpenAISessionConfigInput.Truncation.0.
+type OpenAISessionConfigInputTruncation0 = string
+
+// OpenAISessionConfigInputTruncation1 defines model for OpenAISessionConfigInput.Truncation.1.
+type OpenAISessionConfigInputTruncation1 map[string]interface{}
+
+// OpenAISessionConfigInput_Truncation defines model for OpenAISessionConfigInput.Truncation.
+type OpenAISessionConfigInput_Truncation struct {
+	union json.RawMessage
+}
+
+// OpenAISessionConfigInputTurnDetection1 defines model for OpenAISessionConfigInput.TurnDetection.1.
+type OpenAISessionConfigInputTurnDetection1 = string
+
+// OpenAISessionConfigInput_TurnDetection defines model for OpenAISessionConfigInput.TurnDetection.
+type OpenAISessionConfigInput_TurnDetection struct {
+	union json.RawMessage
+}
+
+// OpenAISessionConfigInputType defines model for OpenAISessionConfigInput.Type.
+type OpenAISessionConfigInputType string
+
+// OpenAISessionConfigOutput defines model for OpenAISessionConfig-Output.
+type OpenAISessionConfigOutput struct {
+	Audio        *OpenAIAudioConfigOutput `json:"audio,omitempty"`
+	Instructions *string                  `json:"instructions,omitempty"`
+
+	// MaxDurationSeconds Maximum wall-clock duration of the session in seconds. The session is closed with code 1000 once it is exceeded.
+	MaxDurationSeconds      *int                                               `json:"max_duration_seconds,omitempty"`
+	MaxResponseOutputTokens *OpenAISessionConfigOutput_MaxResponseOutputTokens `json:"max_response_output_tokens,omitempty"`
+	Model                   *RealtimeModel                                     `json:"model,omitempty"`
+	OutputModalities        *[]string                                          `json:"output_modalities,omitempty"`
+	Temperature             *float32                                           `json:"temperature,omitempty"`
+	ToolChoice              *OpenAISessionConfigOutput_ToolChoice              `json:"tool_choice,omitempty"`
+	Tools                   *[]OpenAISessionConfigOutput_Tools_Item            `json:"tools,omitempty"`
+	Tracing                 *struct {
+		union json.RawMessage
+	} `json:"tracing,omitempty"`
+	Type *OpenAISessionConfigOutputType `json:"type,omitempty"`
+}
+
+// OpenAISessionConfigOutputMaxResponseOutputTokens0 defines model for OpenAISessionConfigOutput.MaxResponseOutputTokens.0.
+type OpenAISessionConfigOutputMaxResponseOutputTokens0 = int
+
+// OpenAISessionConfigOutputMaxResponseOutputTokens1 defines model for OpenAISessionConfigOutput.MaxResponseOutputTokens.1.
+type OpenAISessionConfigOutputMaxResponseOutputTokens1 string
+
+// OpenAISessionConfigOutput_MaxResponseOutputTokens defines model for OpenAISessionConfigOutput.MaxResponseOutputTokens.
+type OpenAISessionConfigOutput_MaxResponseOutputTokens struct {
+	union json.RawMessage
+}
+
+// OpenAISessionConfigOutputToolChoice0 defines model for OpenAISessionConfigOutput.ToolChoice.0.
+type OpenAISessionConfigOutputToolChoice0 = string
+
+// OpenAISessionConfigOutput_ToolChoice defines model for OpenAISessionConfigOutput.ToolChoice.
+type OpenAISessionConfigOutput_ToolChoice struct {
+	union json.RawMessage
+}
+
+// OpenAISessionConfigOutput_Tools_Item defines model for OpenAISessionConfig-Output.tools.Item.
+type OpenAISessionConfigOutput_Tools_Item struct {
+	union json.RawMessage
+}
+
+// OpenAISessionConfigOutputTracing0 defines model for OpenAISessionConfigOutput.Tracing.0.
+type OpenAISessionConfigOutputTracing0 string
+
+// OpenAISessionConfigOutputType defines model for OpenAISessionConfigOutput.Type.
+type OpenAISessionConfigOutputType string
+
+// OpenAIToolChoiceFunction defines model for OpenAIToolChoiceFunction.
+type OpenAIToolChoiceFunction struct {
+	Function OpenAIToolChoiceFunctionInner `json:"function"`
+	Type     *OpenAIToolChoiceFunctionType `json:"type,omitempty"`
+}
+
+// OpenAIToolChoiceFunctionType defines model for OpenAIToolChoiceFunction.Type.
+type OpenAIToolChoiceFunctionType string
+
+// OpenAIToolChoiceFunctionInner defines model for OpenAIToolChoiceFunctionInner.
+type OpenAIToolChoiceFunctionInner struct {
+	Name string `json:"name"`
+}
+
+// OpenAITracingConfiguration Only “group_id“ is acted on; “workflow_name“ and “metadata“ are kept so the echoed session matches the request.
+type OpenAITracingConfiguration struct {
+	// GroupId Adds conversation to the group (case-insensitive, up to 64 chars).
+	GroupId      *string                 `json:"group_id,omitempty"`
+	Metadata     *map[string]interface{} `json:"metadata,omitempty"`
+	WorkflowName *string                 `json:"workflow_name,omitempty"`
+}
+
+// OpenAITurnDetection defines model for OpenAITurnDetection.
+type OpenAITurnDetection struct {
+	CreateResponse    *bool              `json:"create_response,omitempty"`
+	Eagerness         *Eagerness         `json:"eagerness,omitempty"`
+	InterruptResponse *bool              `json:"interrupt_response,omitempty"`
+	PrefixPaddingMs   *int               `json:"prefix_padding_ms,omitempty"`
+	SilenceDurationMs *int               `json:"silence_duration_ms,omitempty"`
+	Threshold         *float32           `json:"threshold,omitempty"`
+	TurnTimeout       *float32           `json:"turn_timeout,omitempty"`
+	Type              *TurnDetectionType `json:"type,omitempty"`
+}
+
 // OpenOutcome defines model for OpenOutcome.
 type OpenOutcome struct {
 	Status *OpenOutcomeStatus `json:"status,omitempty"`
@@ -37270,6 +37819,9 @@ type ReaderResourceResponseModel struct {
 // ReaderResourceResponseModelResourceType The type of resource.
 type ReaderResourceResponseModelResourceType string
 
+// RealtimeModel defines model for RealtimeModel.
+type RealtimeModel string
+
 // RecordingResponseModel defines model for RecordingResponseModel.
 type RecordingResponseModel struct {
 	// MimeType The MIME type of the recording.
@@ -38456,6 +39008,9 @@ type SpeechEngineSummaryResponse struct {
 
 	// Tags Arbitrary tags for categorization and filtering
 	Tags []string `json:"tags"`
+
+	// UpdatedAtUnixSecs Last update time in Unix seconds
+	UpdatedAtUnixSecs int `json:"updated_at_unix_secs"`
 
 	// VoiceId Voice ID assigned to this speech engine
 	VoiceId string `json:"voice_id"`
@@ -40706,6 +41261,9 @@ type TurnConfigWorkflowOverride struct {
 	// TurnTimeout Maximum wait time for the user's reply before re-engaging the user
 	TurnTimeout *float32 `json:"turn_timeout,omitempty"`
 }
+
+// TurnDetectionType defines model for TurnDetectionType.
+type TurnDetectionType string
 
 // TurnEagerness Agent's eagerness to respond. Higher values make agent wait for higher turn probability.
 type TurnEagerness string
@@ -44871,6 +45429,9 @@ type GetAgentSummariesRoute200JSONResponseBody_AdditionalProperties struct {
 
 // DeleteAgentRouteParams defines parameters for DeleteAgentRoute.
 type DeleteAgentRouteParams struct {
+	// Force If set to true, the agent is deleted even if other agents use it as a subagent, and it is removed from those agents and their branches.
+	Force *bool `form:"force,omitempty" json:"force,omitempty"`
+
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -45007,12 +45568,18 @@ type UpdateProcedureDraftRouteParams struct {
 
 // RebaseBranchOntoMainParams defines parameters for RebaseBranchOntoMain.
 type RebaseBranchOntoMainParams struct {
+	// SourceBranchId The ID of the branch to pull changes from. Defaults to the agent's main branch.
+	SourceBranchId *string `form:"source_branch_id,omitempty" json:"source_branch_id,omitempty"`
+
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
 // RebasePreviewRouteParams defines parameters for RebasePreviewRoute.
 type RebasePreviewRouteParams struct {
+	// SourceBranchId The ID of the branch to pull changes from. Defaults to the agent's main branch.
+	SourceBranchId *string `form:"source_branch_id,omitempty" json:"source_branch_id,omitempty"`
+
 	// IncludeProcedureGeneratedWorkflowElements Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.
 	IncludeProcedureGeneratedWorkflowElements *bool `form:"include_procedure_generated_workflow_elements,omitempty" json:"include_procedure_generated_workflow_elements,omitempty"`
 
@@ -46326,6 +46893,15 @@ type ListSipMessagesParams struct {
 	// Cursor Used for fetching next page. Cursor is returned in the response.
 	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
 
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// CreateRealtimeSessionJSONBody defines parameters for CreateRealtimeSession.
+type CreateRealtimeSessionJSONBody = CreateClientSecretRequest
+
+// CreateRealtimeSessionParams defines parameters for CreateRealtimeSession.
+type CreateRealtimeSessionParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -47706,6 +48282,12 @@ type EditServiceAccountApiKeyParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// DisableServiceAccountApiKeyParams defines parameters for DisableServiceAccountApiKey.
+type DisableServiceAccountApiKeyParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // GetLibraryVoicesParams defines parameters for GetLibraryVoices.
 type GetLibraryVoicesParams struct {
 	// PageSize How many shared voices to return at maximum. Can not exceed 100, defaults to 30.
@@ -47778,8 +48360,10 @@ type GetSingleUseTokenParams struct {
 
 // SoundGenerationParams defines parameters for SoundGeneration.
 type SoundGenerationParams struct {
-	// OutputFormat Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
-	OutputFormat *AllowedOutputFormats `form:"output_format,omitempty" json:"output_format,omitempty"`
+	// OutputFormat Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
+	OutputFormat *struct {
+		union json.RawMessage
+	} `form:"output_format,omitempty" json:"output_format,omitempty"`
 
 	// EnableLogging When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.
 	EnableLogging *bool `form:"enable_logging,omitempty" json:"enable_logging,omitempty"`
@@ -48997,6 +49581,9 @@ type CreatePhoneNumberRouteJSONRequestBody CreatePhoneNumberRouteJSONBody
 
 // UpdatePhoneNumberRouteJSONRequestBody defines body for UpdatePhoneNumberRoute for application/json ContentType.
 type UpdatePhoneNumberRouteJSONRequestBody = UpdatePhoneNumberRequest
+
+// CreateRealtimeSessionJSONRequestBody defines body for CreateRealtimeSession for application/json ContentType.
+type CreateRealtimeSessionJSONRequestBody = CreateRealtimeSessionJSONBody
 
 // CreateSecretRouteJSONRequestBody defines body for CreateSecretRoute for application/json ContentType.
 type CreateSecretRouteJSONRequestBody = PostWorkspaceSecretRequest
@@ -63826,6 +64413,580 @@ func (t ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) MarshalJ
 }
 
 func (t *ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOpenAISessionConfigInputMaxResponseOutputTokens0 returns the union data inside the OpenAISessionConfigInput_MaxResponseOutputTokens as a OpenAISessionConfigInputMaxResponseOutputTokens0
+func (t OpenAISessionConfigInput_MaxResponseOutputTokens) AsOpenAISessionConfigInputMaxResponseOutputTokens0() (OpenAISessionConfigInputMaxResponseOutputTokens0, error) {
+	var body OpenAISessionConfigInputMaxResponseOutputTokens0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAISessionConfigInputMaxResponseOutputTokens0 overwrites any union data inside the OpenAISessionConfigInput_MaxResponseOutputTokens as the provided OpenAISessionConfigInputMaxResponseOutputTokens0
+func (t *OpenAISessionConfigInput_MaxResponseOutputTokens) FromOpenAISessionConfigInputMaxResponseOutputTokens0(v OpenAISessionConfigInputMaxResponseOutputTokens0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAISessionConfigInputMaxResponseOutputTokens0 performs a merge with any union data inside the OpenAISessionConfigInput_MaxResponseOutputTokens, using the provided OpenAISessionConfigInputMaxResponseOutputTokens0
+func (t *OpenAISessionConfigInput_MaxResponseOutputTokens) MergeOpenAISessionConfigInputMaxResponseOutputTokens0(v OpenAISessionConfigInputMaxResponseOutputTokens0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOpenAISessionConfigInputMaxResponseOutputTokens1 returns the union data inside the OpenAISessionConfigInput_MaxResponseOutputTokens as a OpenAISessionConfigInputMaxResponseOutputTokens1
+func (t OpenAISessionConfigInput_MaxResponseOutputTokens) AsOpenAISessionConfigInputMaxResponseOutputTokens1() (OpenAISessionConfigInputMaxResponseOutputTokens1, error) {
+	var body OpenAISessionConfigInputMaxResponseOutputTokens1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAISessionConfigInputMaxResponseOutputTokens1 overwrites any union data inside the OpenAISessionConfigInput_MaxResponseOutputTokens as the provided OpenAISessionConfigInputMaxResponseOutputTokens1
+func (t *OpenAISessionConfigInput_MaxResponseOutputTokens) FromOpenAISessionConfigInputMaxResponseOutputTokens1(v OpenAISessionConfigInputMaxResponseOutputTokens1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAISessionConfigInputMaxResponseOutputTokens1 performs a merge with any union data inside the OpenAISessionConfigInput_MaxResponseOutputTokens, using the provided OpenAISessionConfigInputMaxResponseOutputTokens1
+func (t *OpenAISessionConfigInput_MaxResponseOutputTokens) MergeOpenAISessionConfigInputMaxResponseOutputTokens1(v OpenAISessionConfigInputMaxResponseOutputTokens1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t OpenAISessionConfigInput_MaxResponseOutputTokens) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *OpenAISessionConfigInput_MaxResponseOutputTokens) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOpenAISessionConfigInputToolChoice0 returns the union data inside the OpenAISessionConfigInput_ToolChoice as a OpenAISessionConfigInputToolChoice0
+func (t OpenAISessionConfigInput_ToolChoice) AsOpenAISessionConfigInputToolChoice0() (OpenAISessionConfigInputToolChoice0, error) {
+	var body OpenAISessionConfigInputToolChoice0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAISessionConfigInputToolChoice0 overwrites any union data inside the OpenAISessionConfigInput_ToolChoice as the provided OpenAISessionConfigInputToolChoice0
+func (t *OpenAISessionConfigInput_ToolChoice) FromOpenAISessionConfigInputToolChoice0(v OpenAISessionConfigInputToolChoice0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAISessionConfigInputToolChoice0 performs a merge with any union data inside the OpenAISessionConfigInput_ToolChoice, using the provided OpenAISessionConfigInputToolChoice0
+func (t *OpenAISessionConfigInput_ToolChoice) MergeOpenAISessionConfigInputToolChoice0(v OpenAISessionConfigInputToolChoice0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOpenAIToolChoiceFunction returns the union data inside the OpenAISessionConfigInput_ToolChoice as a OpenAIToolChoiceFunction
+func (t OpenAISessionConfigInput_ToolChoice) AsOpenAIToolChoiceFunction() (OpenAIToolChoiceFunction, error) {
+	var body OpenAIToolChoiceFunction
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAIToolChoiceFunction overwrites any union data inside the OpenAISessionConfigInput_ToolChoice as the provided OpenAIToolChoiceFunction
+func (t *OpenAISessionConfigInput_ToolChoice) FromOpenAIToolChoiceFunction(v OpenAIToolChoiceFunction) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAIToolChoiceFunction performs a merge with any union data inside the OpenAISessionConfigInput_ToolChoice, using the provided OpenAIToolChoiceFunction
+func (t *OpenAISessionConfigInput_ToolChoice) MergeOpenAIToolChoiceFunction(v OpenAIToolChoiceFunction) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t OpenAISessionConfigInput_ToolChoice) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *OpenAISessionConfigInput_ToolChoice) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOpenAIFunctionTool returns the union data inside the OpenAISessionConfigInput_Tools_Item as a OpenAIFunctionTool
+func (t OpenAISessionConfigInput_Tools_Item) AsOpenAIFunctionTool() (OpenAIFunctionTool, error) {
+	var body OpenAIFunctionTool
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAIFunctionTool overwrites any union data inside the OpenAISessionConfigInput_Tools_Item as the provided OpenAIFunctionTool
+func (t *OpenAISessionConfigInput_Tools_Item) FromOpenAIFunctionTool(v OpenAIFunctionTool) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"function"}`))
+	t.union = b
+	return err
+}
+
+// MergeOpenAIFunctionTool performs a merge with any union data inside the OpenAISessionConfigInput_Tools_Item, using the provided OpenAIFunctionTool
+func (t *OpenAISessionConfigInput_Tools_Item) MergeOpenAIFunctionTool(v OpenAIFunctionTool) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"function"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOpenAIMCPTool returns the union data inside the OpenAISessionConfigInput_Tools_Item as a OpenAIMCPTool
+func (t OpenAISessionConfigInput_Tools_Item) AsOpenAIMCPTool() (OpenAIMCPTool, error) {
+	var body OpenAIMCPTool
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAIMCPTool overwrites any union data inside the OpenAISessionConfigInput_Tools_Item as the provided OpenAIMCPTool
+func (t *OpenAISessionConfigInput_Tools_Item) FromOpenAIMCPTool(v OpenAIMCPTool) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"mcp"}`))
+	t.union = b
+	return err
+}
+
+// MergeOpenAIMCPTool performs a merge with any union data inside the OpenAISessionConfigInput_Tools_Item, using the provided OpenAIMCPTool
+func (t *OpenAISessionConfigInput_Tools_Item) MergeOpenAIMCPTool(v OpenAIMCPTool) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"mcp"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t OpenAISessionConfigInput_Tools_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t OpenAISessionConfigInput_Tools_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "function":
+		return t.AsOpenAIFunctionTool()
+	case "mcp":
+		return t.AsOpenAIMCPTool()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t OpenAISessionConfigInput_Tools_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *OpenAISessionConfigInput_Tools_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOpenAISessionConfigInputTruncation0 returns the union data inside the OpenAISessionConfigInput_Truncation as a OpenAISessionConfigInputTruncation0
+func (t OpenAISessionConfigInput_Truncation) AsOpenAISessionConfigInputTruncation0() (OpenAISessionConfigInputTruncation0, error) {
+	var body OpenAISessionConfigInputTruncation0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAISessionConfigInputTruncation0 overwrites any union data inside the OpenAISessionConfigInput_Truncation as the provided OpenAISessionConfigInputTruncation0
+func (t *OpenAISessionConfigInput_Truncation) FromOpenAISessionConfigInputTruncation0(v OpenAISessionConfigInputTruncation0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAISessionConfigInputTruncation0 performs a merge with any union data inside the OpenAISessionConfigInput_Truncation, using the provided OpenAISessionConfigInputTruncation0
+func (t *OpenAISessionConfigInput_Truncation) MergeOpenAISessionConfigInputTruncation0(v OpenAISessionConfigInputTruncation0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOpenAISessionConfigInputTruncation1 returns the union data inside the OpenAISessionConfigInput_Truncation as a OpenAISessionConfigInputTruncation1
+func (t OpenAISessionConfigInput_Truncation) AsOpenAISessionConfigInputTruncation1() (OpenAISessionConfigInputTruncation1, error) {
+	var body OpenAISessionConfigInputTruncation1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAISessionConfigInputTruncation1 overwrites any union data inside the OpenAISessionConfigInput_Truncation as the provided OpenAISessionConfigInputTruncation1
+func (t *OpenAISessionConfigInput_Truncation) FromOpenAISessionConfigInputTruncation1(v OpenAISessionConfigInputTruncation1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAISessionConfigInputTruncation1 performs a merge with any union data inside the OpenAISessionConfigInput_Truncation, using the provided OpenAISessionConfigInputTruncation1
+func (t *OpenAISessionConfigInput_Truncation) MergeOpenAISessionConfigInputTruncation1(v OpenAISessionConfigInputTruncation1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t OpenAISessionConfigInput_Truncation) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *OpenAISessionConfigInput_Truncation) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOpenAITurnDetection returns the union data inside the OpenAISessionConfigInput_TurnDetection as a OpenAITurnDetection
+func (t OpenAISessionConfigInput_TurnDetection) AsOpenAITurnDetection() (OpenAITurnDetection, error) {
+	var body OpenAITurnDetection
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAITurnDetection overwrites any union data inside the OpenAISessionConfigInput_TurnDetection as the provided OpenAITurnDetection
+func (t *OpenAISessionConfigInput_TurnDetection) FromOpenAITurnDetection(v OpenAITurnDetection) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAITurnDetection performs a merge with any union data inside the OpenAISessionConfigInput_TurnDetection, using the provided OpenAITurnDetection
+func (t *OpenAISessionConfigInput_TurnDetection) MergeOpenAITurnDetection(v OpenAITurnDetection) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOpenAISessionConfigInputTurnDetection1 returns the union data inside the OpenAISessionConfigInput_TurnDetection as a OpenAISessionConfigInputTurnDetection1
+func (t OpenAISessionConfigInput_TurnDetection) AsOpenAISessionConfigInputTurnDetection1() (OpenAISessionConfigInputTurnDetection1, error) {
+	var body OpenAISessionConfigInputTurnDetection1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAISessionConfigInputTurnDetection1 overwrites any union data inside the OpenAISessionConfigInput_TurnDetection as the provided OpenAISessionConfigInputTurnDetection1
+func (t *OpenAISessionConfigInput_TurnDetection) FromOpenAISessionConfigInputTurnDetection1(v OpenAISessionConfigInputTurnDetection1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAISessionConfigInputTurnDetection1 performs a merge with any union data inside the OpenAISessionConfigInput_TurnDetection, using the provided OpenAISessionConfigInputTurnDetection1
+func (t *OpenAISessionConfigInput_TurnDetection) MergeOpenAISessionConfigInputTurnDetection1(v OpenAISessionConfigInputTurnDetection1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t OpenAISessionConfigInput_TurnDetection) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *OpenAISessionConfigInput_TurnDetection) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOpenAISessionConfigOutputMaxResponseOutputTokens0 returns the union data inside the OpenAISessionConfigOutput_MaxResponseOutputTokens as a OpenAISessionConfigOutputMaxResponseOutputTokens0
+func (t OpenAISessionConfigOutput_MaxResponseOutputTokens) AsOpenAISessionConfigOutputMaxResponseOutputTokens0() (OpenAISessionConfigOutputMaxResponseOutputTokens0, error) {
+	var body OpenAISessionConfigOutputMaxResponseOutputTokens0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAISessionConfigOutputMaxResponseOutputTokens0 overwrites any union data inside the OpenAISessionConfigOutput_MaxResponseOutputTokens as the provided OpenAISessionConfigOutputMaxResponseOutputTokens0
+func (t *OpenAISessionConfigOutput_MaxResponseOutputTokens) FromOpenAISessionConfigOutputMaxResponseOutputTokens0(v OpenAISessionConfigOutputMaxResponseOutputTokens0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAISessionConfigOutputMaxResponseOutputTokens0 performs a merge with any union data inside the OpenAISessionConfigOutput_MaxResponseOutputTokens, using the provided OpenAISessionConfigOutputMaxResponseOutputTokens0
+func (t *OpenAISessionConfigOutput_MaxResponseOutputTokens) MergeOpenAISessionConfigOutputMaxResponseOutputTokens0(v OpenAISessionConfigOutputMaxResponseOutputTokens0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOpenAISessionConfigOutputMaxResponseOutputTokens1 returns the union data inside the OpenAISessionConfigOutput_MaxResponseOutputTokens as a OpenAISessionConfigOutputMaxResponseOutputTokens1
+func (t OpenAISessionConfigOutput_MaxResponseOutputTokens) AsOpenAISessionConfigOutputMaxResponseOutputTokens1() (OpenAISessionConfigOutputMaxResponseOutputTokens1, error) {
+	var body OpenAISessionConfigOutputMaxResponseOutputTokens1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAISessionConfigOutputMaxResponseOutputTokens1 overwrites any union data inside the OpenAISessionConfigOutput_MaxResponseOutputTokens as the provided OpenAISessionConfigOutputMaxResponseOutputTokens1
+func (t *OpenAISessionConfigOutput_MaxResponseOutputTokens) FromOpenAISessionConfigOutputMaxResponseOutputTokens1(v OpenAISessionConfigOutputMaxResponseOutputTokens1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAISessionConfigOutputMaxResponseOutputTokens1 performs a merge with any union data inside the OpenAISessionConfigOutput_MaxResponseOutputTokens, using the provided OpenAISessionConfigOutputMaxResponseOutputTokens1
+func (t *OpenAISessionConfigOutput_MaxResponseOutputTokens) MergeOpenAISessionConfigOutputMaxResponseOutputTokens1(v OpenAISessionConfigOutputMaxResponseOutputTokens1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t OpenAISessionConfigOutput_MaxResponseOutputTokens) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *OpenAISessionConfigOutput_MaxResponseOutputTokens) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOpenAISessionConfigOutputToolChoice0 returns the union data inside the OpenAISessionConfigOutput_ToolChoice as a OpenAISessionConfigOutputToolChoice0
+func (t OpenAISessionConfigOutput_ToolChoice) AsOpenAISessionConfigOutputToolChoice0() (OpenAISessionConfigOutputToolChoice0, error) {
+	var body OpenAISessionConfigOutputToolChoice0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAISessionConfigOutputToolChoice0 overwrites any union data inside the OpenAISessionConfigOutput_ToolChoice as the provided OpenAISessionConfigOutputToolChoice0
+func (t *OpenAISessionConfigOutput_ToolChoice) FromOpenAISessionConfigOutputToolChoice0(v OpenAISessionConfigOutputToolChoice0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAISessionConfigOutputToolChoice0 performs a merge with any union data inside the OpenAISessionConfigOutput_ToolChoice, using the provided OpenAISessionConfigOutputToolChoice0
+func (t *OpenAISessionConfigOutput_ToolChoice) MergeOpenAISessionConfigOutputToolChoice0(v OpenAISessionConfigOutputToolChoice0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOpenAIToolChoiceFunction returns the union data inside the OpenAISessionConfigOutput_ToolChoice as a OpenAIToolChoiceFunction
+func (t OpenAISessionConfigOutput_ToolChoice) AsOpenAIToolChoiceFunction() (OpenAIToolChoiceFunction, error) {
+	var body OpenAIToolChoiceFunction
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAIToolChoiceFunction overwrites any union data inside the OpenAISessionConfigOutput_ToolChoice as the provided OpenAIToolChoiceFunction
+func (t *OpenAISessionConfigOutput_ToolChoice) FromOpenAIToolChoiceFunction(v OpenAIToolChoiceFunction) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOpenAIToolChoiceFunction performs a merge with any union data inside the OpenAISessionConfigOutput_ToolChoice, using the provided OpenAIToolChoiceFunction
+func (t *OpenAISessionConfigOutput_ToolChoice) MergeOpenAIToolChoiceFunction(v OpenAIToolChoiceFunction) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t OpenAISessionConfigOutput_ToolChoice) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *OpenAISessionConfigOutput_ToolChoice) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOpenAIFunctionTool returns the union data inside the OpenAISessionConfigOutput_Tools_Item as a OpenAIFunctionTool
+func (t OpenAISessionConfigOutput_Tools_Item) AsOpenAIFunctionTool() (OpenAIFunctionTool, error) {
+	var body OpenAIFunctionTool
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAIFunctionTool overwrites any union data inside the OpenAISessionConfigOutput_Tools_Item as the provided OpenAIFunctionTool
+func (t *OpenAISessionConfigOutput_Tools_Item) FromOpenAIFunctionTool(v OpenAIFunctionTool) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"function"}`))
+	t.union = b
+	return err
+}
+
+// MergeOpenAIFunctionTool performs a merge with any union data inside the OpenAISessionConfigOutput_Tools_Item, using the provided OpenAIFunctionTool
+func (t *OpenAISessionConfigOutput_Tools_Item) MergeOpenAIFunctionTool(v OpenAIFunctionTool) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"function"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOpenAIMCPTool returns the union data inside the OpenAISessionConfigOutput_Tools_Item as a OpenAIMCPTool
+func (t OpenAISessionConfigOutput_Tools_Item) AsOpenAIMCPTool() (OpenAIMCPTool, error) {
+	var body OpenAIMCPTool
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOpenAIMCPTool overwrites any union data inside the OpenAISessionConfigOutput_Tools_Item as the provided OpenAIMCPTool
+func (t *OpenAISessionConfigOutput_Tools_Item) FromOpenAIMCPTool(v OpenAIMCPTool) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"mcp"}`))
+	t.union = b
+	return err
+}
+
+// MergeOpenAIMCPTool performs a merge with any union data inside the OpenAISessionConfigOutput_Tools_Item, using the provided OpenAIMCPTool
+func (t *OpenAISessionConfigOutput_Tools_Item) MergeOpenAIMCPTool(v OpenAIMCPTool) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"mcp"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t OpenAISessionConfigOutput_Tools_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t OpenAISessionConfigOutput_Tools_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "function":
+		return t.AsOpenAIFunctionTool()
+	case "mcp":
+		return t.AsOpenAIMCPTool()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t OpenAISessionConfigOutput_Tools_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *OpenAISessionConfigOutput_Tools_Item) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -79169,7 +80330,7 @@ type ClientInterface interface {
 
 	// UpdateBranchRouteWithBody Update Agent Branch
 	//
-	// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+	// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -79178,7 +80339,7 @@ type ClientInterface interface {
 
 	// UpdateBranchRoute Update Agent Branch
 	//
-	// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+	// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -79265,14 +80426,14 @@ type ClientInterface interface {
 
 	// RebaseBranchOntoMain Rebase A Branch Onto Main
 	//
-	// Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
 	//
 	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
 	RebaseBranchOntoMain(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// RebasePreviewRoute Preview Rebased Configuration
 	//
-	// Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.
+	// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
 	//
 	// Corresponds with GET /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase-preview (the `RebasePreviewRoute` operationId).
 	RebasePreviewRoute(ctx context.Context, agentId string, branchId string, params *RebasePreviewRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -80562,6 +81723,24 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /v1/convai/phone-numbers/{phone_number_id}/sip-messages (the `ListSipMessages` operationId).
 	ListSipMessages(ctx context.Context, phoneNumberId string, params *ListSipMessagesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateRealtimeSessionWithBody Create Realtime Client Secret
+	//
+	// Create an ephemeral client secret for authenticating browser-based Realtime API sessions.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/realtime/client_secrets (the `CreateRealtimeSession` operationId).
+	CreateRealtimeSessionWithBody(ctx context.Context, params *CreateRealtimeSessionParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateRealtimeSession Create Realtime Client Secret
+	//
+	// Create an ephemeral client secret for authenticating browser-based Realtime API sessions.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/realtime/client_secrets (the `CreateRealtimeSession` operationId).
+	CreateRealtimeSession(ctx context.Context, params *CreateRealtimeSessionParams, body CreateRealtimeSessionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetSecretsRoute Get Convai Workspace Secrets
 	//
@@ -82278,6 +83457,13 @@ type ClientInterface interface {
 	//
 	// Corresponds with PATCH /v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id} (the `EditServiceAccountApiKey` operationId).
 	EditServiceAccountApiKey(ctx context.Context, serviceAccountUserId string, apiKeyId string, params *EditServiceAccountApiKeyParams, body EditServiceAccountApiKeyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// DisableServiceAccountApiKey Disable Service Account Api Key
+	//
+	// Disable an existing API key for a service account without changing its other settings. This stays available after a workspace downgrades off a plan that includes service accounts. Turning the key back on still requires that plan.
+	//
+	// Corresponds with POST /v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}/disable (the `DisableServiceAccountApiKey` operationId).
+	DisableServiceAccountApiKey(ctx context.Context, serviceAccountUserId string, apiKeyId string, params *DisableServiceAccountApiKeyParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetLibraryVoices Get Voices
 	//
@@ -84495,7 +85681,7 @@ func (c *Client) GetBranchRoute(ctx context.Context, agentId string, branchId st
 
 // UpdateBranchRouteWithBody Update Agent Branch
 //
-// # Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+// # Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
 //
 // Takes any type of body and a specified content type.
 //
@@ -84514,7 +85700,7 @@ func (c *Client) UpdateBranchRouteWithBody(ctx context.Context, agentId string, 
 
 // UpdateBranchRoute Update Agent Branch
 //
-// # Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+// # Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
 //
 // Takes a body of the `application/json` content type.
 //
@@ -84711,7 +85897,7 @@ func (c *Client) UpdateProcedureDraftRoute(ctx context.Context, agentId string, 
 
 // RebaseBranchOntoMain Rebase A Branch Onto Main
 //
-// Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.
+// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
 //
 // Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
 func (c *Client) RebaseBranchOntoMain(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -84728,7 +85914,7 @@ func (c *Client) RebaseBranchOntoMain(ctx context.Context, agentId string, branc
 
 // RebasePreviewRoute Preview Rebased Configuration
 //
-// Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.
+// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
 //
 // Corresponds with GET /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase-preview (the `RebasePreviewRoute` operationId).
 func (c *Client) RebasePreviewRoute(ctx context.Context, agentId string, branchId string, params *RebasePreviewRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -87571,6 +88757,44 @@ func (c *Client) UpdatePhoneNumberRoute(ctx context.Context, phoneNumberId strin
 // Corresponds with GET /v1/convai/phone-numbers/{phone_number_id}/sip-messages (the `ListSipMessages` operationId).
 func (c *Client) ListSipMessages(ctx context.Context, phoneNumberId string, params *ListSipMessagesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewListSipMessagesRequest(c.Server, phoneNumberId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateRealtimeSessionWithBody Create Realtime Client Secret
+//
+// Create an ephemeral client secret for authenticating browser-based Realtime API sessions.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/realtime/client_secrets (the `CreateRealtimeSession` operationId).
+func (c *Client) CreateRealtimeSessionWithBody(ctx context.Context, params *CreateRealtimeSessionParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateRealtimeSessionRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateRealtimeSession Create Realtime Client Secret
+//
+// Create an ephemeral client secret for authenticating browser-based Realtime API sessions.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/realtime/client_secrets (the `CreateRealtimeSession` operationId).
+func (c *Client) CreateRealtimeSession(ctx context.Context, params *CreateRealtimeSessionParams, body CreateRealtimeSessionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateRealtimeSessionRequest(c.Server, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -91263,6 +92487,23 @@ func (c *Client) EditServiceAccountApiKeyWithBody(ctx context.Context, serviceAc
 // Corresponds with PATCH /v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id} (the `EditServiceAccountApiKey` operationId).
 func (c *Client) EditServiceAccountApiKey(ctx context.Context, serviceAccountUserId string, apiKeyId string, params *EditServiceAccountApiKeyParams, body EditServiceAccountApiKeyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewEditServiceAccountApiKeyRequest(c.Server, serviceAccountUserId, apiKeyId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// DisableServiceAccountApiKey Disable Service Account Api Key
+//
+// Disable an existing API key for a service account without changing its other settings. This stays available after a workspace downgrades off a plan that includes service accounts. Turning the key back on still requires that plan.
+//
+// Corresponds with POST /v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}/disable (the `DisableServiceAccountApiKey` operationId).
+func (c *Client) DisableServiceAccountApiKey(ctx context.Context, serviceAccountUserId string, apiKeyId string, params *DisableServiceAccountApiKeyParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDisableServiceAccountApiKeyRequest(c.Server, serviceAccountUserId, apiKeyId, params)
 	if err != nil {
 		return nil, err
 	}
@@ -96141,6 +97382,33 @@ func NewDeleteAgentRouteRequest(server string, agentId string, params *DeleteAge
 		return nil, err
 	}
 
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Force != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "force", *params.Force, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
 	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
 	if err != nil {
 		return nil, err
@@ -97323,6 +98591,33 @@ func NewRebaseBranchOntoMainRequest(server string, agentId string, branchId stri
 		return nil, err
 	}
 
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.SourceBranchId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "source_branch_id", *params.SourceBranchId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
 	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
 	if err != nil {
 		return nil, err
@@ -97387,6 +98682,18 @@ func NewRebasePreviewRouteRequest(server string, agentId string, branchId string
 		// styled parameters, preserving literal commas as delimiters
 		// per the OpenAPI spec (e.g. "color=blue,black,brown").
 		var rawQueryFragments []string
+
+		if params.SourceBranchId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "source_branch_id", *params.SourceBranchId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
 
 		if params.IncludeProcedureGeneratedWorkflowElements != nil {
 
@@ -106222,6 +107529,61 @@ func NewListSipMessagesRequest(server string, phoneNumberId string, params *List
 	if err != nil {
 		return nil, err
 	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewCreateRealtimeSessionRequest calls the generic CreateRealtimeSession builder with application/json body
+func NewCreateRealtimeSessionRequest(server string, params *CreateRealtimeSessionParams, body CreateRealtimeSessionJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateRealtimeSessionRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewCreateRealtimeSessionRequestWithBody constructs an http.Request for the CreateRealtimeSession method, with any body, and a specified content type
+func NewCreateRealtimeSessionRequestWithBody(server string, params *CreateRealtimeSessionParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/realtime/client_secrets")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	if params != nil {
 
@@ -116063,6 +117425,62 @@ func NewEditServiceAccountApiKeyRequestWithBody(server string, serviceAccountUse
 	return req, nil
 }
 
+// NewDisableServiceAccountApiKeyRequest constructs an http.Request for the DisableServiceAccountApiKey method
+func NewDisableServiceAccountApiKeyRequest(server string, serviceAccountUserId string, apiKeyId string, params *DisableServiceAccountApiKeyParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "service_account_user_id", serviceAccountUserId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "api_key_id", apiKeyId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/service-accounts/%s/api-keys/%s/disable", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewGetLibraryVoicesRequest constructs an http.Request for the GetLibraryVoices method
 func NewGetLibraryVoicesRequest(server string, params *GetLibraryVoicesParams) (*http.Request, error) {
 	var err error
@@ -116470,7 +117888,7 @@ func NewSoundGenerationRequestWithBody(server string, params *SoundGenerationPar
 
 		if params.OutputFormat != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "output_format", *params.OutputFormat, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "output_format", *params.OutputFormat, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -124243,7 +125661,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateBranchRouteWithBodyWithResponse Update Agent Branch
 	//
-	// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+	// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -124252,7 +125670,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateBranchRouteWithResponse Update Agent Branch
 	//
-	// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+	// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -124351,7 +125769,7 @@ type ClientWithResponsesInterface interface {
 
 	// RebaseBranchOntoMainWithResponse Rebase A Branch Onto Main
 	//
-	// Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -124360,7 +125778,7 @@ type ClientWithResponsesInterface interface {
 
 	// RebasePreviewRouteWithResponse Preview Rebased Configuration
 	//
-	// Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.
+	// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -125786,6 +127204,24 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /v1/convai/phone-numbers/{phone_number_id}/sip-messages (the `ListSipMessages` operationId).
 	ListSipMessagesWithResponse(ctx context.Context, phoneNumberId string, params *ListSipMessagesParams, reqEditors ...RequestEditorFn) (*ListSipMessagesResponse, error)
+
+	// CreateRealtimeSessionWithBodyWithResponse Create Realtime Client Secret
+	//
+	// Create an ephemeral client secret for authenticating browser-based Realtime API sessions.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/realtime/client_secrets (the `CreateRealtimeSession` operationId).
+	CreateRealtimeSessionWithBodyWithResponse(ctx context.Context, params *CreateRealtimeSessionParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateRealtimeSessionResponse, error)
+
+	// CreateRealtimeSessionWithResponse Create Realtime Client Secret
+	//
+	// Create an ephemeral client secret for authenticating browser-based Realtime API sessions.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/realtime/client_secrets (the `CreateRealtimeSession` operationId).
+	CreateRealtimeSessionWithResponse(ctx context.Context, params *CreateRealtimeSessionParams, body CreateRealtimeSessionJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateRealtimeSessionResponse, error)
 
 	// GetSecretsRouteWithResponse Get Convai Workspace Secrets
 	//
@@ -127652,6 +129088,15 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with PATCH /v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id} (the `EditServiceAccountApiKey` operationId).
 	EditServiceAccountApiKeyWithResponse(ctx context.Context, serviceAccountUserId string, apiKeyId string, params *EditServiceAccountApiKeyParams, body EditServiceAccountApiKeyJSONRequestBody, reqEditors ...RequestEditorFn) (*EditServiceAccountApiKeyResponse, error)
+
+	// DisableServiceAccountApiKeyWithResponse Disable Service Account Api Key
+	//
+	// Disable an existing API key for a service account without changing its other settings. This stays available after a workspace downgrades off a plan that includes service accounts. Turning the key back on still requires that plan.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}/disable (the `DisableServiceAccountApiKey` operationId).
+	DisableServiceAccountApiKeyWithResponse(ctx context.Context, serviceAccountUserId string, apiKeyId string, params *DisableServiceAccountApiKeyParams, reqEditors ...RequestEditorFn) (*DisableServiceAccountApiKeyResponse, error)
 
 	// GetLibraryVoicesWithResponse Get Voices
 	//
@@ -136773,6 +138218,54 @@ func (r ListSipMessagesResponse) ContentType() string {
 	return ""
 }
 
+type CreateRealtimeSessionResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ClientSecretResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r CreateRealtimeSessionResponse) GetJSON200() *ClientSecretResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CreateRealtimeSessionResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateRealtimeSessionResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateRealtimeSessionResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateRealtimeSessionResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateRealtimeSessionResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetSecretsRouteResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -143525,6 +145018,54 @@ func (r EditServiceAccountApiKeyResponse) ContentType() string {
 	return ""
 }
 
+type DisableServiceAccountApiKeyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *interface{}
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r DisableServiceAccountApiKeyResponse) GetJSON200() *interface{} {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r DisableServiceAccountApiKeyResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r DisableServiceAccountApiKeyResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r DisableServiceAccountApiKeyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DisableServiceAccountApiKeyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r DisableServiceAccountApiKeyResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetLibraryVoicesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -149619,7 +151160,7 @@ func (c *ClientWithResponses) GetBranchRouteWithResponse(ctx context.Context, ag
 
 // UpdateBranchRouteWithBodyWithResponse Update Agent Branch
 //
-// # Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+// # Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -149634,7 +151175,7 @@ func (c *ClientWithResponses) UpdateBranchRouteWithBodyWithResponse(ctx context.
 
 // UpdateBranchRouteWithResponse Update Agent Branch
 //
-// # Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+// # Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -149799,7 +151340,7 @@ func (c *ClientWithResponses) UpdateProcedureDraftRouteWithResponse(ctx context.
 
 // RebaseBranchOntoMainWithResponse Rebase A Branch Onto Main
 //
-// Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.
+// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -149814,7 +151355,7 @@ func (c *ClientWithResponses) RebaseBranchOntoMainWithResponse(ctx context.Conte
 
 // RebasePreviewRouteWithResponse Preview Rebased Configuration
 //
-// Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.
+// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -152178,6 +153719,36 @@ func (c *ClientWithResponses) ListSipMessagesWithResponse(ctx context.Context, p
 		return nil, err
 	}
 	return ParseListSipMessagesResponse(rsp)
+}
+
+// CreateRealtimeSessionWithBodyWithResponse Create Realtime Client Secret
+//
+// Create an ephemeral client secret for authenticating browser-based Realtime API sessions.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/realtime/client_secrets (the `CreateRealtimeSession` operationId).
+func (c *ClientWithResponses) CreateRealtimeSessionWithBodyWithResponse(ctx context.Context, params *CreateRealtimeSessionParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateRealtimeSessionResponse, error) {
+	rsp, err := c.CreateRealtimeSessionWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateRealtimeSessionResponse(rsp)
+}
+
+// CreateRealtimeSessionWithResponse Create Realtime Client Secret
+//
+// Create an ephemeral client secret for authenticating browser-based Realtime API sessions.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/realtime/client_secrets (the `CreateRealtimeSession` operationId).
+func (c *ClientWithResponses) CreateRealtimeSessionWithResponse(ctx context.Context, params *CreateRealtimeSessionParams, body CreateRealtimeSessionJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateRealtimeSessionResponse, error) {
+	rsp, err := c.CreateRealtimeSession(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateRealtimeSessionResponse(rsp)
 }
 
 // GetSecretsRouteWithResponse Get Convai Workspace Secrets
@@ -155234,6 +156805,21 @@ func (c *ClientWithResponses) EditServiceAccountApiKeyWithResponse(ctx context.C
 		return nil, err
 	}
 	return ParseEditServiceAccountApiKeyResponse(rsp)
+}
+
+// DisableServiceAccountApiKeyWithResponse Disable Service Account Api Key
+//
+// Disable an existing API key for a service account without changing its other settings. This stays available after a workspace downgrades off a plan that includes service accounts. Turning the key back on still requires that plan.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}/disable (the `DisableServiceAccountApiKey` operationId).
+func (c *ClientWithResponses) DisableServiceAccountApiKeyWithResponse(ctx context.Context, serviceAccountUserId string, apiKeyId string, params *DisableServiceAccountApiKeyParams, reqEditors ...RequestEditorFn) (*DisableServiceAccountApiKeyResponse, error) {
+	rsp, err := c.DisableServiceAccountApiKey(ctx, serviceAccountUserId, apiKeyId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDisableServiceAccountApiKeyResponse(rsp)
 }
 
 // GetLibraryVoicesWithResponse Get Voices
@@ -162965,6 +164551,39 @@ func ParseListSipMessagesResponse(rsp *http.Response) (*ListSipMessagesResponse,
 	return response, nil
 }
 
+// ParseCreateRealtimeSessionResponse parses an HTTP response from a CreateRealtimeSessionWithResponse call
+func ParseCreateRealtimeSessionResponse(rsp *http.Response) (*CreateRealtimeSessionResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateRealtimeSessionResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ClientSecretResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetSecretsRouteResponse parses an HTTP response from a GetSecretsRouteWithResponse call
 func ParseGetSecretsRouteResponse(rsp *http.Response) (*GetSecretsRouteResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -167644,6 +169263,39 @@ func ParseEditServiceAccountApiKeyResponse(rsp *http.Response) (*EditServiceAcco
 	}
 
 	response := &EditServiceAccountApiKeyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest interface{}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDisableServiceAccountApiKeyResponse parses an HTTP response from a DisableServiceAccountApiKeyWithResponse call
+func ParseDisableServiceAccountApiKeyResponse(rsp *http.Response) (*DisableServiceAccountApiKeyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DisableServiceAccountApiKeyResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
