@@ -2437,42 +2437,6 @@ func (e BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRole) V
 	}
 }
 
-// Defines values for BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat.
-const (
-	BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormatOther      BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat = "other"
-	BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormatPcmS16le16 BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat = "pcm_s16le_16"
-)
-
-// Valid indicates whether the value is a known member of the BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat enum.
-func (e BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat) Valid() bool {
-	switch e {
-	case BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormatOther:
-		return true
-	case BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormatPcmS16le16:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat.
-const (
-	BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormatOther      BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat = "other"
-	BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormatPcmS16le16 BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat = "pcm_s16le_16"
-)
-
-// Valid indicates whether the value is a known member of the BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat enum.
-func (e BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat) Valid() bool {
-	switch e {
-	case BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormatOther:
-		return true
-	case BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormatPcmS16le16:
-		return true
-	default:
-		return false
-	}
-}
-
 // Defines values for BodySpeechToTextV1SpeechToTextPostFileFormat.
 const (
 	BodySpeechToTextV1SpeechToTextPostFileFormatOther      BodySpeechToTextV1SpeechToTextPostFileFormat = "other"
@@ -2584,6 +2548,42 @@ func (e BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization) 
 	case BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalizationOff:
 		return true
 	case BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalizationOn:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat.
+const (
+	BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormatOther      BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat = "other"
+	BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormatPcmS16le16 BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat = "pcm_s16le_16"
+)
+
+// Valid indicates whether the value is a known member of the BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat enum.
+func (e BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat) Valid() bool {
+	switch e {
+	case BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormatOther:
+		return true
+	case BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormatPcmS16le16:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat.
+const (
+	BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormatOther      BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat = "other"
+	BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormatPcmS16le16 BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat = "pcm_s16le_16"
+)
+
+// Valid indicates whether the value is a known member of the BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat enum.
+func (e BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat) Valid() bool {
+	switch e {
+	case BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormatOther:
+		return true
+	case BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormatPcmS16le16:
 		return true
 	default:
 		return false
@@ -13117,12 +13117,15 @@ func (e ReviewResponseModelReviewStatus) Valid() bool {
 // Defines values for SFXModelId.
 const (
 	SFXModelIdElevenTextToSoundV2 SFXModelId = "eleven_text_to_sound_v2"
+	SFXModelIdElevenTextToSoundV3 SFXModelId = "eleven_text_to_sound_v3"
 )
 
 // Valid indicates whether the value is a known member of the SFXModelId enum.
 func (e SFXModelId) Valid() bool {
 	switch e {
 	case SFXModelIdElevenTextToSoundV2:
+		return true
+	case SFXModelIdElevenTextToSoundV3:
 		return true
 	default:
 		return false
@@ -19276,177 +19279,6 @@ func (e GetPronunciationDictionariesMetadataParamsSort) Valid() bool {
 	}
 }
 
-// Defines values for SpeechToSpeechFullParamsOutputFormat.
-const (
-	SpeechToSpeechFullParamsOutputFormatAlaw8000     SpeechToSpeechFullParamsOutputFormat = "alaw_8000"
-	SpeechToSpeechFullParamsOutputFormatMp32205032   SpeechToSpeechFullParamsOutputFormat = "mp3_22050_32"
-	SpeechToSpeechFullParamsOutputFormatMp32400048   SpeechToSpeechFullParamsOutputFormat = "mp3_24000_48"
-	SpeechToSpeechFullParamsOutputFormatMp344100128  SpeechToSpeechFullParamsOutputFormat = "mp3_44100_128"
-	SpeechToSpeechFullParamsOutputFormatMp344100192  SpeechToSpeechFullParamsOutputFormat = "mp3_44100_192"
-	SpeechToSpeechFullParamsOutputFormatMp34410032   SpeechToSpeechFullParamsOutputFormat = "mp3_44100_32"
-	SpeechToSpeechFullParamsOutputFormatMp34410064   SpeechToSpeechFullParamsOutputFormat = "mp3_44100_64"
-	SpeechToSpeechFullParamsOutputFormatMp34410096   SpeechToSpeechFullParamsOutputFormat = "mp3_44100_96"
-	SpeechToSpeechFullParamsOutputFormatOpus48000128 SpeechToSpeechFullParamsOutputFormat = "opus_48000_128"
-	SpeechToSpeechFullParamsOutputFormatOpus48000192 SpeechToSpeechFullParamsOutputFormat = "opus_48000_192"
-	SpeechToSpeechFullParamsOutputFormatOpus4800032  SpeechToSpeechFullParamsOutputFormat = "opus_48000_32"
-	SpeechToSpeechFullParamsOutputFormatOpus4800064  SpeechToSpeechFullParamsOutputFormat = "opus_48000_64"
-	SpeechToSpeechFullParamsOutputFormatOpus4800096  SpeechToSpeechFullParamsOutputFormat = "opus_48000_96"
-	SpeechToSpeechFullParamsOutputFormatPcm16000     SpeechToSpeechFullParamsOutputFormat = "pcm_16000"
-	SpeechToSpeechFullParamsOutputFormatPcm22050     SpeechToSpeechFullParamsOutputFormat = "pcm_22050"
-	SpeechToSpeechFullParamsOutputFormatPcm24000     SpeechToSpeechFullParamsOutputFormat = "pcm_24000"
-	SpeechToSpeechFullParamsOutputFormatPcm32000     SpeechToSpeechFullParamsOutputFormat = "pcm_32000"
-	SpeechToSpeechFullParamsOutputFormatPcm44100     SpeechToSpeechFullParamsOutputFormat = "pcm_44100"
-	SpeechToSpeechFullParamsOutputFormatPcm48000     SpeechToSpeechFullParamsOutputFormat = "pcm_48000"
-	SpeechToSpeechFullParamsOutputFormatPcm8000      SpeechToSpeechFullParamsOutputFormat = "pcm_8000"
-	SpeechToSpeechFullParamsOutputFormatUlaw8000     SpeechToSpeechFullParamsOutputFormat = "ulaw_8000"
-	SpeechToSpeechFullParamsOutputFormatWav16000     SpeechToSpeechFullParamsOutputFormat = "wav_16000"
-	SpeechToSpeechFullParamsOutputFormatWav22050     SpeechToSpeechFullParamsOutputFormat = "wav_22050"
-	SpeechToSpeechFullParamsOutputFormatWav24000     SpeechToSpeechFullParamsOutputFormat = "wav_24000"
-	SpeechToSpeechFullParamsOutputFormatWav32000     SpeechToSpeechFullParamsOutputFormat = "wav_32000"
-	SpeechToSpeechFullParamsOutputFormatWav44100     SpeechToSpeechFullParamsOutputFormat = "wav_44100"
-	SpeechToSpeechFullParamsOutputFormatWav48000     SpeechToSpeechFullParamsOutputFormat = "wav_48000"
-	SpeechToSpeechFullParamsOutputFormatWav8000      SpeechToSpeechFullParamsOutputFormat = "wav_8000"
-)
-
-// Valid indicates whether the value is a known member of the SpeechToSpeechFullParamsOutputFormat enum.
-func (e SpeechToSpeechFullParamsOutputFormat) Valid() bool {
-	switch e {
-	case SpeechToSpeechFullParamsOutputFormatAlaw8000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatMp32205032:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatMp32400048:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatMp344100128:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatMp344100192:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatMp34410032:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatMp34410064:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatMp34410096:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatOpus48000128:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatOpus48000192:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatOpus4800032:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatOpus4800064:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatOpus4800096:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatPcm16000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatPcm22050:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatPcm24000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatPcm32000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatPcm44100:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatPcm48000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatPcm8000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatUlaw8000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatWav16000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatWav22050:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatWav24000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatWav32000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatWav44100:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatWav48000:
-		return true
-	case SpeechToSpeechFullParamsOutputFormatWav8000:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SpeechToSpeechStreamParamsOutputFormat.
-const (
-	SpeechToSpeechStreamParamsOutputFormatAlaw8000     SpeechToSpeechStreamParamsOutputFormat = "alaw_8000"
-	SpeechToSpeechStreamParamsOutputFormatMp32205032   SpeechToSpeechStreamParamsOutputFormat = "mp3_22050_32"
-	SpeechToSpeechStreamParamsOutputFormatMp32400048   SpeechToSpeechStreamParamsOutputFormat = "mp3_24000_48"
-	SpeechToSpeechStreamParamsOutputFormatMp344100128  SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_128"
-	SpeechToSpeechStreamParamsOutputFormatMp344100192  SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_192"
-	SpeechToSpeechStreamParamsOutputFormatMp34410032   SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_32"
-	SpeechToSpeechStreamParamsOutputFormatMp34410064   SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_64"
-	SpeechToSpeechStreamParamsOutputFormatMp34410096   SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_96"
-	SpeechToSpeechStreamParamsOutputFormatOpus48000128 SpeechToSpeechStreamParamsOutputFormat = "opus_48000_128"
-	SpeechToSpeechStreamParamsOutputFormatOpus48000192 SpeechToSpeechStreamParamsOutputFormat = "opus_48000_192"
-	SpeechToSpeechStreamParamsOutputFormatOpus4800032  SpeechToSpeechStreamParamsOutputFormat = "opus_48000_32"
-	SpeechToSpeechStreamParamsOutputFormatOpus4800064  SpeechToSpeechStreamParamsOutputFormat = "opus_48000_64"
-	SpeechToSpeechStreamParamsOutputFormatOpus4800096  SpeechToSpeechStreamParamsOutputFormat = "opus_48000_96"
-	SpeechToSpeechStreamParamsOutputFormatPcm16000     SpeechToSpeechStreamParamsOutputFormat = "pcm_16000"
-	SpeechToSpeechStreamParamsOutputFormatPcm22050     SpeechToSpeechStreamParamsOutputFormat = "pcm_22050"
-	SpeechToSpeechStreamParamsOutputFormatPcm24000     SpeechToSpeechStreamParamsOutputFormat = "pcm_24000"
-	SpeechToSpeechStreamParamsOutputFormatPcm32000     SpeechToSpeechStreamParamsOutputFormat = "pcm_32000"
-	SpeechToSpeechStreamParamsOutputFormatPcm44100     SpeechToSpeechStreamParamsOutputFormat = "pcm_44100"
-	SpeechToSpeechStreamParamsOutputFormatPcm48000     SpeechToSpeechStreamParamsOutputFormat = "pcm_48000"
-	SpeechToSpeechStreamParamsOutputFormatPcm8000      SpeechToSpeechStreamParamsOutputFormat = "pcm_8000"
-	SpeechToSpeechStreamParamsOutputFormatUlaw8000     SpeechToSpeechStreamParamsOutputFormat = "ulaw_8000"
-)
-
-// Valid indicates whether the value is a known member of the SpeechToSpeechStreamParamsOutputFormat enum.
-func (e SpeechToSpeechStreamParamsOutputFormat) Valid() bool {
-	switch e {
-	case SpeechToSpeechStreamParamsOutputFormatAlaw8000:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatMp32205032:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatMp32400048:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatMp344100128:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatMp344100192:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatMp34410032:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatMp34410064:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatMp34410096:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatOpus48000128:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatOpus48000192:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatOpus4800032:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatOpus4800064:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatOpus4800096:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatPcm16000:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatPcm22050:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatPcm24000:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatPcm32000:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatPcm44100:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatPcm48000:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatPcm8000:
-		return true
-	case SpeechToSpeechStreamParamsOutputFormatUlaw8000:
-		return true
-	default:
-		return false
-	}
-}
-
 // Defines values for TextToSpeechFullParamsOutputFormat.
 const (
 	TextToSpeechFullParamsOutputFormatAlaw8000     TextToSpeechFullParamsOutputFormat = "alaw_8000"
@@ -19783,6 +19615,177 @@ func (e TextToSpeechFullWithTimestampsParamsOutputFormat) Valid() bool {
 	case TextToSpeechFullWithTimestampsParamsOutputFormatWav48000:
 		return true
 	case TextToSpeechFullWithTimestampsParamsOutputFormatWav8000:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SpeechToSpeechFullParamsOutputFormat.
+const (
+	SpeechToSpeechFullParamsOutputFormatAlaw8000     SpeechToSpeechFullParamsOutputFormat = "alaw_8000"
+	SpeechToSpeechFullParamsOutputFormatMp32205032   SpeechToSpeechFullParamsOutputFormat = "mp3_22050_32"
+	SpeechToSpeechFullParamsOutputFormatMp32400048   SpeechToSpeechFullParamsOutputFormat = "mp3_24000_48"
+	SpeechToSpeechFullParamsOutputFormatMp344100128  SpeechToSpeechFullParamsOutputFormat = "mp3_44100_128"
+	SpeechToSpeechFullParamsOutputFormatMp344100192  SpeechToSpeechFullParamsOutputFormat = "mp3_44100_192"
+	SpeechToSpeechFullParamsOutputFormatMp34410032   SpeechToSpeechFullParamsOutputFormat = "mp3_44100_32"
+	SpeechToSpeechFullParamsOutputFormatMp34410064   SpeechToSpeechFullParamsOutputFormat = "mp3_44100_64"
+	SpeechToSpeechFullParamsOutputFormatMp34410096   SpeechToSpeechFullParamsOutputFormat = "mp3_44100_96"
+	SpeechToSpeechFullParamsOutputFormatOpus48000128 SpeechToSpeechFullParamsOutputFormat = "opus_48000_128"
+	SpeechToSpeechFullParamsOutputFormatOpus48000192 SpeechToSpeechFullParamsOutputFormat = "opus_48000_192"
+	SpeechToSpeechFullParamsOutputFormatOpus4800032  SpeechToSpeechFullParamsOutputFormat = "opus_48000_32"
+	SpeechToSpeechFullParamsOutputFormatOpus4800064  SpeechToSpeechFullParamsOutputFormat = "opus_48000_64"
+	SpeechToSpeechFullParamsOutputFormatOpus4800096  SpeechToSpeechFullParamsOutputFormat = "opus_48000_96"
+	SpeechToSpeechFullParamsOutputFormatPcm16000     SpeechToSpeechFullParamsOutputFormat = "pcm_16000"
+	SpeechToSpeechFullParamsOutputFormatPcm22050     SpeechToSpeechFullParamsOutputFormat = "pcm_22050"
+	SpeechToSpeechFullParamsOutputFormatPcm24000     SpeechToSpeechFullParamsOutputFormat = "pcm_24000"
+	SpeechToSpeechFullParamsOutputFormatPcm32000     SpeechToSpeechFullParamsOutputFormat = "pcm_32000"
+	SpeechToSpeechFullParamsOutputFormatPcm44100     SpeechToSpeechFullParamsOutputFormat = "pcm_44100"
+	SpeechToSpeechFullParamsOutputFormatPcm48000     SpeechToSpeechFullParamsOutputFormat = "pcm_48000"
+	SpeechToSpeechFullParamsOutputFormatPcm8000      SpeechToSpeechFullParamsOutputFormat = "pcm_8000"
+	SpeechToSpeechFullParamsOutputFormatUlaw8000     SpeechToSpeechFullParamsOutputFormat = "ulaw_8000"
+	SpeechToSpeechFullParamsOutputFormatWav16000     SpeechToSpeechFullParamsOutputFormat = "wav_16000"
+	SpeechToSpeechFullParamsOutputFormatWav22050     SpeechToSpeechFullParamsOutputFormat = "wav_22050"
+	SpeechToSpeechFullParamsOutputFormatWav24000     SpeechToSpeechFullParamsOutputFormat = "wav_24000"
+	SpeechToSpeechFullParamsOutputFormatWav32000     SpeechToSpeechFullParamsOutputFormat = "wav_32000"
+	SpeechToSpeechFullParamsOutputFormatWav44100     SpeechToSpeechFullParamsOutputFormat = "wav_44100"
+	SpeechToSpeechFullParamsOutputFormatWav48000     SpeechToSpeechFullParamsOutputFormat = "wav_48000"
+	SpeechToSpeechFullParamsOutputFormatWav8000      SpeechToSpeechFullParamsOutputFormat = "wav_8000"
+)
+
+// Valid indicates whether the value is a known member of the SpeechToSpeechFullParamsOutputFormat enum.
+func (e SpeechToSpeechFullParamsOutputFormat) Valid() bool {
+	switch e {
+	case SpeechToSpeechFullParamsOutputFormatAlaw8000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatMp32205032:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatMp32400048:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatMp344100128:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatMp344100192:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatMp34410032:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatMp34410064:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatMp34410096:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatOpus48000128:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatOpus48000192:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatOpus4800032:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatOpus4800064:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatOpus4800096:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatPcm16000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatPcm22050:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatPcm24000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatPcm32000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatPcm44100:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatPcm48000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatPcm8000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatUlaw8000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatWav16000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatWav22050:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatWav24000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatWav32000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatWav44100:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatWav48000:
+		return true
+	case SpeechToSpeechFullParamsOutputFormatWav8000:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SpeechToSpeechStreamParamsOutputFormat.
+const (
+	SpeechToSpeechStreamParamsOutputFormatAlaw8000     SpeechToSpeechStreamParamsOutputFormat = "alaw_8000"
+	SpeechToSpeechStreamParamsOutputFormatMp32205032   SpeechToSpeechStreamParamsOutputFormat = "mp3_22050_32"
+	SpeechToSpeechStreamParamsOutputFormatMp32400048   SpeechToSpeechStreamParamsOutputFormat = "mp3_24000_48"
+	SpeechToSpeechStreamParamsOutputFormatMp344100128  SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_128"
+	SpeechToSpeechStreamParamsOutputFormatMp344100192  SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_192"
+	SpeechToSpeechStreamParamsOutputFormatMp34410032   SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_32"
+	SpeechToSpeechStreamParamsOutputFormatMp34410064   SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_64"
+	SpeechToSpeechStreamParamsOutputFormatMp34410096   SpeechToSpeechStreamParamsOutputFormat = "mp3_44100_96"
+	SpeechToSpeechStreamParamsOutputFormatOpus48000128 SpeechToSpeechStreamParamsOutputFormat = "opus_48000_128"
+	SpeechToSpeechStreamParamsOutputFormatOpus48000192 SpeechToSpeechStreamParamsOutputFormat = "opus_48000_192"
+	SpeechToSpeechStreamParamsOutputFormatOpus4800032  SpeechToSpeechStreamParamsOutputFormat = "opus_48000_32"
+	SpeechToSpeechStreamParamsOutputFormatOpus4800064  SpeechToSpeechStreamParamsOutputFormat = "opus_48000_64"
+	SpeechToSpeechStreamParamsOutputFormatOpus4800096  SpeechToSpeechStreamParamsOutputFormat = "opus_48000_96"
+	SpeechToSpeechStreamParamsOutputFormatPcm16000     SpeechToSpeechStreamParamsOutputFormat = "pcm_16000"
+	SpeechToSpeechStreamParamsOutputFormatPcm22050     SpeechToSpeechStreamParamsOutputFormat = "pcm_22050"
+	SpeechToSpeechStreamParamsOutputFormatPcm24000     SpeechToSpeechStreamParamsOutputFormat = "pcm_24000"
+	SpeechToSpeechStreamParamsOutputFormatPcm32000     SpeechToSpeechStreamParamsOutputFormat = "pcm_32000"
+	SpeechToSpeechStreamParamsOutputFormatPcm44100     SpeechToSpeechStreamParamsOutputFormat = "pcm_44100"
+	SpeechToSpeechStreamParamsOutputFormatPcm48000     SpeechToSpeechStreamParamsOutputFormat = "pcm_48000"
+	SpeechToSpeechStreamParamsOutputFormatPcm8000      SpeechToSpeechStreamParamsOutputFormat = "pcm_8000"
+	SpeechToSpeechStreamParamsOutputFormatUlaw8000     SpeechToSpeechStreamParamsOutputFormat = "ulaw_8000"
+)
+
+// Valid indicates whether the value is a known member of the SpeechToSpeechStreamParamsOutputFormat enum.
+func (e SpeechToSpeechStreamParamsOutputFormat) Valid() bool {
+	switch e {
+	case SpeechToSpeechStreamParamsOutputFormatAlaw8000:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatMp32205032:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatMp32400048:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatMp344100128:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatMp344100192:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatMp34410032:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatMp34410064:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatMp34410096:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatOpus48000128:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatOpus48000192:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatOpus4800032:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatOpus4800064:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatOpus4800096:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatPcm16000:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatPcm22050:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatPcm24000:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatPcm32000:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatPcm44100:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatPcm48000:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatPcm8000:
+		return true
+	case SpeechToSpeechStreamParamsOutputFormatUlaw8000:
 		return true
 	default:
 		return false
@@ -23371,6 +23374,9 @@ type BodyCreateCrawlJobV1ConvaiKnowledgeBaseCrawlPost struct {
 	// EnableAutoSync Whether to enable auto-sync for this URL document.
 	EnableAutoSync *bool `json:"enable_auto_sync,omitempty"`
 
+	// ExcludePatterns If set, URLs that match any of these patterns are skipped, even if they match `pattern`.
+	ExcludePatterns *[]string `json:"exclude_patterns,omitempty"`
+
 	// MaxDepth Deprecated - this field is a no-op and will be removed in a future version.
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	MaxDepth *int `json:"max_depth,omitempty"`
@@ -24262,7 +24268,7 @@ type BodySoundGenerationV1SoundGenerationPost struct {
 	// DurationSeconds The duration of the sound which will be generated in seconds. Must be at least 0.5 and at most 30. If set to None we will guess the optimal duration using the prompt. Defaults to None.
 	DurationSeconds *float32 `json:"duration_seconds,omitempty"`
 
-	// Loop Whether to create a sound effect that loops smoothly. Only available for the 'eleven_text_to_sound_v2 model'.
+	// Loop Whether to create a sound effect that loops smoothly.
 	Loop *bool `json:"loop,omitempty"`
 
 	// ModelId The model ID to use for the sound generation.
@@ -24278,66 +24284,6 @@ type BodySoundGenerationV1SoundGenerationPost struct {
 	// Examples: A large, ancient wooden door slowly opening in an eerie, abandoned castle..
 	Text string `json:"text"`
 }
-
-// BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost defines model for Body_Speech_to_Speech_Streaming_v1_speech_to_speech__voice_id__stream_post.
-type BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost struct {
-	// Audio The audio file which holds the content and emotion that will control the generated speech.
-	Audio openapi_types.File `json:"audio"`
-
-	// FileFormat The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.
-	//
-	// Examples: pcm_s16le_16, other
-	FileFormat *BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat `json:"file_format,omitempty"`
-
-	// ModelId Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for speech to speech, you can check this using the can_do_voice_conversion property.
-	ModelId *string `json:"model_id,omitempty"`
-
-	// RemoveBackgroundNoise If set, will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.
-	//
-	// Examples: true
-	RemoveBackgroundNoise *bool `json:"remove_background_noise,omitempty"`
-
-	// Seed If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
-	//
-	// Examples: 12345
-	Seed *int `json:"seed,omitempty"`
-
-	// VoiceSettings Voice settings overriding stored settings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
-	VoiceSettings *string `json:"voice_settings,omitempty"`
-}
-
-// BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat defines model for BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost.FileFormat.
-type BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat string
-
-// BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost defines model for Body_Speech_to_Speech_v1_speech_to_speech__voice_id__post.
-type BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost struct {
-	// Audio The audio file which holds the content and emotion that will control the generated speech.
-	Audio openapi_types.File `json:"audio"`
-
-	// FileFormat The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.
-	//
-	// Examples: pcm_s16le_16, other
-	FileFormat *BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat `json:"file_format,omitempty"`
-
-	// ModelId Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for speech to speech, you can check this using the can_do_voice_conversion property.
-	ModelId *string `json:"model_id,omitempty"`
-
-	// RemoveBackgroundNoise If set, will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.
-	//
-	// Examples: true
-	RemoveBackgroundNoise *bool `json:"remove_background_noise,omitempty"`
-
-	// Seed If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
-	//
-	// Examples: 12345
-	Seed *int `json:"seed,omitempty"`
-
-	// VoiceSettings Voice settings overriding stored settings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
-	VoiceSettings *string `json:"voice_settings,omitempty"`
-}
-
-// BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat defines model for BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost.FileFormat.
-type BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat string
 
 // BodySpeechToTextV1SpeechToTextPost defines model for Body_Speech_to_Text_v1_speech_to_text_post.
 type BodySpeechToTextV1SpeechToTextPost struct {
@@ -24677,6 +24623,7 @@ type BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost struct {
 	// UsePvcAsIvc Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.
 	//
 	// Examples: true
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	UsePvcAsIvc *bool `json:"use_pvc_as_ivc,omitempty"`
 }
 
@@ -24738,6 +24685,7 @@ type BodyTextToDialogueMultiVoiceV1TextToDialoguePost struct {
 	// UsePvcAsIvc Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.
 	//
 	// Examples: true
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	UsePvcAsIvc *bool `json:"use_pvc_as_ivc,omitempty"`
 }
 
@@ -25135,6 +25083,66 @@ type BodyVideoToMusicV1MusicVideoToMusicPost struct {
 	Videos []openapi_types.File `json:"videos"`
 }
 
+// BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost defines model for Body_Voice_Changer_Streaming_v1_voice_changer__voice_id__stream_post.
+type BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost struct {
+	// Audio The audio file which holds the content and emotion that will control the generated speech.
+	Audio openapi_types.File `json:"audio"`
+
+	// FileFormat The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.
+	//
+	// Examples: pcm_s16le_16, other
+	FileFormat *BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat `json:"file_format,omitempty"`
+
+	// ModelId Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for speech to speech, you can check this using the can_do_voice_conversion property.
+	ModelId *string `json:"model_id,omitempty"`
+
+	// RemoveBackgroundNoise If set, will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.
+	//
+	// Examples: true
+	RemoveBackgroundNoise *bool `json:"remove_background_noise,omitempty"`
+
+	// Seed If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+	//
+	// Examples: 12345
+	Seed *int `json:"seed,omitempty"`
+
+	// VoiceSettings Voice settings overriding stored settings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
+	VoiceSettings *string `json:"voice_settings,omitempty"`
+}
+
+// BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat defines model for BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost.FileFormat.
+type BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat string
+
+// BodyVoiceChangerV1VoiceChangerVoiceIdPost defines model for Body_Voice_Changer_v1_voice_changer__voice_id__post.
+type BodyVoiceChangerV1VoiceChangerVoiceIdPost struct {
+	// Audio The audio file which holds the content and emotion that will control the generated speech.
+	Audio openapi_types.File `json:"audio"`
+
+	// FileFormat The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.
+	//
+	// Examples: pcm_s16le_16, other
+	FileFormat *BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat `json:"file_format,omitempty"`
+
+	// ModelId Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for speech to speech, you can check this using the can_do_voice_conversion property.
+	ModelId *string `json:"model_id,omitempty"`
+
+	// RemoveBackgroundNoise If set, will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.
+	//
+	// Examples: true
+	RemoveBackgroundNoise *bool `json:"remove_background_noise,omitempty"`
+
+	// Seed If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+	//
+	// Examples: 12345
+	Seed *int `json:"seed,omitempty"`
+
+	// VoiceSettings Voice settings overriding stored settings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
+	VoiceSettings *string `json:"voice_settings,omitempty"`
+}
+
+// BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat defines model for BodyVoiceChangerV1VoiceChangerVoiceIdPost.FileFormat.
+type BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat string
+
 // BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPost defines model for Body_create_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys_post.
 type BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPost struct {
 	// AllowedIps List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the allowlist unchanged, or pass "clear" to remove it.
@@ -25351,6 +25359,7 @@ type BodyTextToDialogueFullWithTimestamps struct {
 	// UsePvcAsIvc Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.
 	//
 	// Examples: true
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	UsePvcAsIvc *bool `json:"use_pvc_as_ivc,omitempty"`
 }
 
@@ -25412,6 +25421,7 @@ type BodyTextToDialogueStreamWithTimestamps struct {
 	// UsePvcAsIvc Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.
 	//
 	// Examples: true
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	UsePvcAsIvc *bool `json:"use_pvc_as_ivc,omitempty"`
 }
 
@@ -26992,6 +27002,9 @@ type ConversationChargingCommonModel struct {
 	PlatformUsage *PlatformUsage             `json:"platform_usage,omitempty"`
 	Tier          *string                    `json:"tier,omitempty"`
 	TtsUsage      *ConversationTTSUsageModel `json:"tts_usage,omitempty"`
+
+	// VoiceSurchargeCharge Credits charged as the voice actor reward for the Voice Library voices this conversation used. It is not included in `cost`.
+	VoiceSurchargeCharge *int `json:"voice_surcharge_charge,omitempty"`
 }
 
 // ConversationConfigInput defines model for ConversationConfig-Input.
@@ -31718,8 +31731,11 @@ type GetConversationsPageResponseModel struct {
 // GetCrawlJobResponseModel defines model for GetCrawlJobResponseModel.
 type GetCrawlJobResponseModel struct {
 	// AutoDiscover Whether to automatically discover and enqueue additional pages found while crawling.
-	AutoDiscover    *bool        `json:"auto_discover,omitempty"`
-	CreatedAt       int          `json:"created_at"`
+	AutoDiscover *bool `json:"auto_discover,omitempty"`
+	CreatedAt    int   `json:"created_at"`
+
+	// ExcludePatterns URLs matching any of these patterns are skipped, even if they match `pattern`.
+	ExcludePatterns *[]string    `json:"exclude_patterns,omitempty"`
 	Id              string       `json:"id"`
 	MaxPages        int          `json:"max_pages"`
 	PagesFailed     *int         `json:"pages_failed,omitempty"`
@@ -33685,7 +33701,10 @@ type ListProceduresResponseModel struct {
 
 // ListProductsParams defines model for ListProductsParams.
 type ListProductsParams struct {
-	ListKwargs  *map[string]interface{}        `json:"list_kwargs,omitempty"`
+	ListKwargs *map[string]interface{} `json:"list_kwargs,omitempty"`
+
+	// OwnerView List every owner-editable field, including stock counts and a quoted product's price. Only for the owner's assistant: the customer-facing listing withholds those from callers.
+	OwnerView   *bool                          `json:"owner_view,omitempty"`
 	SmbToolType *ListProductsParamsSmbToolType `json:"smb_tool_type,omitempty"`
 }
 
@@ -33713,7 +33732,10 @@ type ListResponseAgentDeploymentHistoryItem struct {
 
 // ListServicesParams defines model for ListServicesParams.
 type ListServicesParams struct {
-	ListKwargs  *map[string]interface{}        `json:"list_kwargs,omitempty"`
+	ListKwargs *map[string]interface{} `json:"list_kwargs,omitempty"`
+
+	// OwnerView List every owner-editable field, including inactive options and a quoted service's prices. Only for the owner's assistant: the customer-facing listing withholds those from callers.
+	OwnerView   *bool                          `json:"owner_view,omitempty"`
 	SmbToolType *ListServicesParamsSmbToolType `json:"smb_tool_type,omitempty"`
 }
 
@@ -40602,6 +40624,9 @@ type TimeRange struct {
 
 // ToDialogueSettingsResponseModel defines model for ToDialogueSettingsResponseModel.
 type ToDialogueSettingsResponseModel struct {
+	// CloneStrength Controls how closely the voice matches the professional voice clone samples, from 0 (low) to 1 (high). We recommend 0 for most use cases. Increase this value only if you experience issues with the default settings. Only applies to professional voice clones fine-tuned for the selected v4 model.
+	CloneStrength *float32 `json:"clone_strength,omitempty"`
+
 	// Similarity Determines how strongly the model is guided while generating. Higher values make the model adhere more closely to the voice, at the cost of variation. Not supported by every model.
 	Similarity *float32 `json:"similarity,omitempty"`
 
@@ -42797,6 +42822,9 @@ type VoiceSettings struct {
 
 // VoiceSettingsResponseModel defines model for VoiceSettingsResponseModel.
 type VoiceSettingsResponseModel struct {
+	// CloneStrength Controls how closely the voice matches the professional voice clone samples, from 0 (low) to 1 (high). We recommend 0 for most use cases. Increase this value only if you experience issues with the default settings. Only applies to professional voice clones fine-tuned for the selected v4 model.
+	CloneStrength *float32 `json:"clone_strength,omitempty"`
+
 	// SimilarityBoost Determines how closely the AI should adhere to the original voice when attempting to replicate it.
 	SimilarityBoost *float32 `json:"similarity_boost,omitempty"`
 
@@ -48426,58 +48454,6 @@ type DuplicateSpeechEngineParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
-// SpeechToSpeechFullParams defines parameters for SpeechToSpeechFull.
-type SpeechToSpeechFullParams struct {
-	// EnableLogging When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
-	EnableLogging *bool `form:"enable_logging,omitempty" json:"enable_logging,omitempty"`
-
-	// OptimizeStreamingLatency You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:
-	// 0 - default mode (no latency optimizations)
-	// 1 - normal latency optimizations (about 50% of possible latency improvement of option 3)
-	// 2 - strong latency optimizations (about 75% of possible latency improvement of option 3)
-	// 3 - max latency optimizations
-	// 4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).
-	//
-	// Defaults to None.
-	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
-	OptimizeStreamingLatency *int `form:"optimize_streaming_latency,omitempty" json:"optimize_streaming_latency,omitempty"`
-
-	// OutputFormat Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
-	OutputFormat *SpeechToSpeechFullParamsOutputFormat `form:"output_format,omitempty" json:"output_format,omitempty"`
-
-	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-	XiApiKey *string `json:"xi-api-key,omitempty"`
-}
-
-// SpeechToSpeechFullParamsOutputFormat defines parameters for SpeechToSpeechFull.
-type SpeechToSpeechFullParamsOutputFormat string
-
-// SpeechToSpeechStreamParams defines parameters for SpeechToSpeechStream.
-type SpeechToSpeechStreamParams struct {
-	// EnableLogging When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
-	EnableLogging *bool `form:"enable_logging,omitempty" json:"enable_logging,omitempty"`
-
-	// OptimizeStreamingLatency You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:
-	// 0 - default mode (no latency optimizations)
-	// 1 - normal latency optimizations (about 50% of possible latency improvement of option 3)
-	// 2 - strong latency optimizations (about 75% of possible latency improvement of option 3)
-	// 3 - max latency optimizations
-	// 4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).
-	//
-	// Defaults to None.
-	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
-	OptimizeStreamingLatency *int `form:"optimize_streaming_latency,omitempty" json:"optimize_streaming_latency,omitempty"`
-
-	// OutputFormat Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
-	OutputFormat *SpeechToSpeechStreamParamsOutputFormat `form:"output_format,omitempty" json:"output_format,omitempty"`
-
-	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-	XiApiKey *string `json:"xi-api-key,omitempty"`
-}
-
-// SpeechToSpeechStreamParamsOutputFormat defines parameters for SpeechToSpeechStream.
-type SpeechToSpeechStreamParamsOutputFormat string
-
 // SpeechToTextParams defines parameters for SpeechToText.
 type SpeechToTextParams struct {
 	// Token A single-use authentication token created via POST /v1/single-use-token/batch_scribe. This token can only be used once and expires after 15 minutes. Alternative to API key or bearer token authentication for frontend clients.
@@ -48889,6 +48865,58 @@ type GetUserSubscriptionInfoParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
+
+// SpeechToSpeechFullParams defines parameters for SpeechToSpeechFull.
+type SpeechToSpeechFullParams struct {
+	// EnableLogging When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
+	EnableLogging *bool `form:"enable_logging,omitempty" json:"enable_logging,omitempty"`
+
+	// OptimizeStreamingLatency You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:
+	// 0 - default mode (no latency optimizations)
+	// 1 - normal latency optimizations (about 50% of possible latency improvement of option 3)
+	// 2 - strong latency optimizations (about 75% of possible latency improvement of option 3)
+	// 3 - max latency optimizations
+	// 4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).
+	//
+	// Defaults to None.
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
+	OptimizeStreamingLatency *int `form:"optimize_streaming_latency,omitempty" json:"optimize_streaming_latency,omitempty"`
+
+	// OutputFormat Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
+	OutputFormat *SpeechToSpeechFullParamsOutputFormat `form:"output_format,omitempty" json:"output_format,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SpeechToSpeechFullParamsOutputFormat defines parameters for SpeechToSpeechFull.
+type SpeechToSpeechFullParamsOutputFormat string
+
+// SpeechToSpeechStreamParams defines parameters for SpeechToSpeechStream.
+type SpeechToSpeechStreamParams struct {
+	// EnableLogging When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
+	EnableLogging *bool `form:"enable_logging,omitempty" json:"enable_logging,omitempty"`
+
+	// OptimizeStreamingLatency You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:
+	// 0 - default mode (no latency optimizations)
+	// 1 - normal latency optimizations (about 50% of possible latency improvement of option 3)
+	// 2 - strong latency optimizations (about 75% of possible latency improvement of option 3)
+	// 3 - max latency optimizations
+	// 4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).
+	//
+	// Defaults to None.
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
+	OptimizeStreamingLatency *int `form:"optimize_streaming_latency,omitempty" json:"optimize_streaming_latency,omitempty"`
+
+	// OutputFormat Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
+	OutputFormat *SpeechToSpeechStreamParamsOutputFormat `form:"output_format,omitempty" json:"output_format,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SpeechToSpeechStreamParamsOutputFormat defines parameters for SpeechToSpeechStream.
+type SpeechToSpeechStreamParamsOutputFormat string
 
 // GetVoicesParams defines parameters for GetVoices.
 type GetVoicesParams struct {
@@ -49821,12 +49849,6 @@ type UpdateSpeechEngineJSONRequestBody = UpdateSpeechEngineRequest
 // DuplicateSpeechEngineJSONRequestBody defines body for DuplicateSpeechEngine for application/json ContentType.
 type DuplicateSpeechEngineJSONRequestBody = DuplicateSpeechEngineJSONBody
 
-// SpeechToSpeechFullMultipartRequestBody defines body for SpeechToSpeechFull for multipart/form-data ContentType.
-type SpeechToSpeechFullMultipartRequestBody = BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost
-
-// SpeechToSpeechStreamMultipartRequestBody defines body for SpeechToSpeechStream for multipart/form-data ContentType.
-type SpeechToSpeechStreamMultipartRequestBody = BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost
-
 // SpeechToTextMultipartRequestBody defines body for SpeechToText for multipart/form-data ContentType.
 type SpeechToTextMultipartRequestBody = BodySpeechToTextV1SpeechToTextPost
 
@@ -49894,6 +49916,12 @@ type TextToVoiceDesignJSONRequestBody = VoiceDesignRequestModel
 
 // TextToVoiceRemixJSONRequestBody defines body for TextToVoiceRemix for application/json ContentType.
 type TextToVoiceRemixJSONRequestBody = VoiceRemixRequestModel
+
+// SpeechToSpeechFullMultipartRequestBody defines body for SpeechToSpeechFull for multipart/form-data ContentType.
+type SpeechToSpeechFullMultipartRequestBody = BodyVoiceChangerV1VoiceChangerVoiceIdPost
+
+// SpeechToSpeechStreamMultipartRequestBody defines body for SpeechToSpeechStream for multipart/form-data ContentType.
+type SpeechToSpeechStreamMultipartRequestBody = BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost
 
 // AddVoiceMultipartRequestBody defines body for AddVoice for multipart/form-data ContentType.
 type AddVoiceMultipartRequestBody = BodyAddVoiceV1VoicesAddPost
@@ -83581,24 +83609,6 @@ type ClientInterface interface {
 	// Corresponds with POST /v1/speech-engine/{speech_engine_id}/duplicate (the `DuplicateSpeechEngine` operationId).
 	DuplicateSpeechEngine(ctx context.Context, speechEngineId string, params *DuplicateSpeechEngineParams, body DuplicateSpeechEngineJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// SpeechToSpeechFullWithBody Speech To Speech
-	//
-	// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
-	//
-	// Takes any type of body and a specified content type.
-	//
-	// Corresponds with POST /v1/speech-to-speech/{voice_id} (the `SpeechToSpeechFull` operationId).
-	SpeechToSpeechFullWithBody(ctx context.Context, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// SpeechToSpeechStreamWithBody Speech To Speech Streaming
-	//
-	// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
-	//
-	// Takes any type of body and a specified content type.
-	//
-	// Corresponds with POST /v1/speech-to-speech/{voice_id}/stream (the `SpeechToSpeechStream` operationId).
-	SpeechToSpeechStreamWithBody(ctx context.Context, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
-
 	// SpeechToTextWithBody Speech To Text
 	//
 	// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
@@ -84113,6 +84123,24 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /v1/user/subscription (the `GetUserSubscriptionInfo` operationId).
 	GetUserSubscriptionInfo(ctx context.Context, params *GetUserSubscriptionInfoParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SpeechToSpeechFullWithBody Voice Changer
+	//
+	// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/voice-changer/{voice_id} (the `SpeechToSpeechFull` operationId).
+	SpeechToSpeechFullWithBody(ctx context.Context, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SpeechToSpeechStreamWithBody Voice Changer Streaming
+	//
+	// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/voice-changer/{voice_id}/stream (the `SpeechToSpeechStream` operationId).
+	SpeechToSpeechStreamWithBody(ctx context.Context, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetVoices List Voices
 	//
@@ -92770,44 +92798,6 @@ func (c *Client) DuplicateSpeechEngine(ctx context.Context, speechEngineId strin
 	return c.Client.Do(req)
 }
 
-// SpeechToSpeechFullWithBody Speech To Speech
-//
-// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
-//
-// Takes any type of body and a specified content type.
-//
-// Corresponds with POST /v1/speech-to-speech/{voice_id} (the `SpeechToSpeechFull` operationId).
-func (c *Client) SpeechToSpeechFullWithBody(ctx context.Context, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewSpeechToSpeechFullRequestWithBody(c.Server, voiceId, params, contentType, body)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-// SpeechToSpeechStreamWithBody Speech To Speech Streaming
-//
-// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
-//
-// Takes any type of body and a specified content type.
-//
-// Corresponds with POST /v1/speech-to-speech/{voice_id}/stream (the `SpeechToSpeechStream` operationId).
-func (c *Client) SpeechToSpeechStreamWithBody(ctx context.Context, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewSpeechToSpeechStreamRequestWithBody(c.Server, voiceId, params, contentType, body)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
 // SpeechToTextWithBody Speech To Text
 //
 // Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
@@ -93920,6 +93910,44 @@ func (c *Client) GetUserInfo(ctx context.Context, params *GetUserInfoParams, req
 // Corresponds with GET /v1/user/subscription (the `GetUserSubscriptionInfo` operationId).
 func (c *Client) GetUserSubscriptionInfo(ctx context.Context, params *GetUserSubscriptionInfoParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetUserSubscriptionInfoRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SpeechToSpeechFullWithBody Voice Changer
+//
+// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/voice-changer/{voice_id} (the `SpeechToSpeechFull` operationId).
+func (c *Client) SpeechToSpeechFullWithBody(ctx context.Context, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSpeechToSpeechFullRequestWithBody(c.Server, voiceId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SpeechToSpeechStreamWithBody Voice Changer Streaming
+//
+// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/voice-changer/{voice_id}/stream (the `SpeechToSpeechStream` operationId).
+func (c *Client) SpeechToSpeechStreamWithBody(ctx context.Context, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSpeechToSpeechStreamRequestWithBody(c.Server, voiceId, params, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -118335,210 +118363,6 @@ func NewDuplicateSpeechEngineRequestWithBody(server string, speechEngineId strin
 	return req, nil
 }
 
-// NewSpeechToSpeechFullRequestWithBody constructs an http.Request for the SpeechToSpeechFull method, with any body, and a specified content type
-func NewSpeechToSpeechFullRequestWithBody(server string, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader) (*http.Request, error) {
-	var err error
-
-	var pathParam0 string
-
-	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "voice_id", voiceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
-	if err != nil {
-		return nil, err
-	}
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/v1/speech-to-speech/%s", pathParam0)
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		// queryValues collects non-styled parameters (passthrough, JSON)
-		// that are safe to round-trip through url.Values.Encode().
-		queryValues := queryURL.Query()
-		// rawQueryFragments collects pre-encoded query fragments from
-		// styled parameters, preserving literal commas as delimiters
-		// per the OpenAPI spec (e.g. "color=blue,black,brown").
-		var rawQueryFragments []string
-
-		if params.EnableLogging != nil {
-
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "enable_logging", *params.EnableLogging, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
-				return nil, err
-			} else {
-				for _, qp := range strings.Split(queryFrag, "&") {
-					rawQueryFragments = append(rawQueryFragments, qp)
-				}
-			}
-
-		}
-
-		if params.OptimizeStreamingLatency != nil {
-
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "optimize_streaming_latency", *params.OptimizeStreamingLatency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
-				return nil, err
-			} else {
-				for _, qp := range strings.Split(queryFrag, "&") {
-					rawQueryFragments = append(rawQueryFragments, qp)
-				}
-			}
-
-		}
-
-		if params.OutputFormat != nil {
-
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "output_format", *params.OutputFormat, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
-				return nil, err
-			} else {
-				for _, qp := range strings.Split(queryFrag, "&") {
-					rawQueryFragments = append(rawQueryFragments, qp)
-				}
-			}
-
-		}
-
-		if encoded := queryValues.Encode(); encoded != "" {
-			rawQueryFragments = append(rawQueryFragments, encoded)
-		}
-		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
-	}
-
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
-	if err != nil {
-		return nil, err
-	}
-
-	req.Header.Add("Content-Type", contentType)
-
-	if params != nil {
-
-		if params.XiApiKey != nil {
-			var headerParam0 string
-
-			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-api-key", headerParam0)
-		}
-
-	}
-
-	return req, nil
-}
-
-// NewSpeechToSpeechStreamRequestWithBody constructs an http.Request for the SpeechToSpeechStream method, with any body, and a specified content type
-func NewSpeechToSpeechStreamRequestWithBody(server string, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader) (*http.Request, error) {
-	var err error
-
-	var pathParam0 string
-
-	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "voice_id", voiceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
-	if err != nil {
-		return nil, err
-	}
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/v1/speech-to-speech/%s/stream", pathParam0)
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		// queryValues collects non-styled parameters (passthrough, JSON)
-		// that are safe to round-trip through url.Values.Encode().
-		queryValues := queryURL.Query()
-		// rawQueryFragments collects pre-encoded query fragments from
-		// styled parameters, preserving literal commas as delimiters
-		// per the OpenAPI spec (e.g. "color=blue,black,brown").
-		var rawQueryFragments []string
-
-		if params.EnableLogging != nil {
-
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "enable_logging", *params.EnableLogging, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
-				return nil, err
-			} else {
-				for _, qp := range strings.Split(queryFrag, "&") {
-					rawQueryFragments = append(rawQueryFragments, qp)
-				}
-			}
-
-		}
-
-		if params.OptimizeStreamingLatency != nil {
-
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "optimize_streaming_latency", *params.OptimizeStreamingLatency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
-				return nil, err
-			} else {
-				for _, qp := range strings.Split(queryFrag, "&") {
-					rawQueryFragments = append(rawQueryFragments, qp)
-				}
-			}
-
-		}
-
-		if params.OutputFormat != nil {
-
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "output_format", *params.OutputFormat, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
-				return nil, err
-			} else {
-				for _, qp := range strings.Split(queryFrag, "&") {
-					rawQueryFragments = append(rawQueryFragments, qp)
-				}
-			}
-
-		}
-
-		if encoded := queryValues.Encode(); encoded != "" {
-			rawQueryFragments = append(rawQueryFragments, encoded)
-		}
-		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
-	}
-
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
-	if err != nil {
-		return nil, err
-	}
-
-	req.Header.Add("Content-Type", contentType)
-
-	if params != nil {
-
-		if params.XiApiKey != nil {
-			var headerParam0 string
-
-			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-api-key", headerParam0)
-		}
-
-	}
-
-	return req, nil
-}
-
 // NewSpeechToTextRequestWithBody constructs an http.Request for the SpeechToText method, with any body, and a specified content type
 func NewSpeechToTextRequestWithBody(server string, params *SpeechToTextParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
@@ -121426,6 +121250,210 @@ func NewGetUserSubscriptionInfoRequest(server string, params *GetUserSubscriptio
 	if err != nil {
 		return nil, err
 	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSpeechToSpeechFullRequestWithBody constructs an http.Request for the SpeechToSpeechFull method, with any body, and a specified content type
+func NewSpeechToSpeechFullRequestWithBody(server string, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "voice_id", voiceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/voice-changer/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.EnableLogging != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "enable_logging", *params.EnableLogging, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.OptimizeStreamingLatency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "optimize_streaming_latency", *params.OptimizeStreamingLatency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.OutputFormat != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "output_format", *params.OutputFormat, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSpeechToSpeechStreamRequestWithBody constructs an http.Request for the SpeechToSpeechStream method, with any body, and a specified content type
+func NewSpeechToSpeechStreamRequestWithBody(server string, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "voice_id", voiceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/voice-changer/%s/stream", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.EnableLogging != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "enable_logging", *params.EnableLogging, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.OptimizeStreamingLatency != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "optimize_streaming_latency", *params.OptimizeStreamingLatency, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.OutputFormat != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "output_format", *params.OutputFormat, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	if params != nil {
 
@@ -129224,24 +129252,6 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /v1/speech-engine/{speech_engine_id}/duplicate (the `DuplicateSpeechEngine` operationId).
 	DuplicateSpeechEngineWithResponse(ctx context.Context, speechEngineId string, params *DuplicateSpeechEngineParams, body DuplicateSpeechEngineJSONRequestBody, reqEditors ...RequestEditorFn) (*DuplicateSpeechEngineResponse, error)
 
-	// SpeechToSpeechFullWithBodyWithResponse Speech To Speech
-	//
-	// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
-	//
-	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
-	//
-	// Corresponds with POST /v1/speech-to-speech/{voice_id} (the `SpeechToSpeechFull` operationId).
-	SpeechToSpeechFullWithBodyWithResponse(ctx context.Context, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SpeechToSpeechFullResponse, error)
-
-	// SpeechToSpeechStreamWithBodyWithResponse Speech To Speech Streaming
-	//
-	// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
-	//
-	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
-	//
-	// Corresponds with POST /v1/speech-to-speech/{voice_id}/stream (the `SpeechToSpeechStream` operationId).
-	SpeechToSpeechStreamWithBodyWithResponse(ctx context.Context, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SpeechToSpeechStreamResponse, error)
-
 	// SpeechToTextWithBodyWithResponse Speech To Text
 	//
 	// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
@@ -129796,6 +129806,24 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /v1/user/subscription (the `GetUserSubscriptionInfo` operationId).
 	GetUserSubscriptionInfoWithResponse(ctx context.Context, params *GetUserSubscriptionInfoParams, reqEditors ...RequestEditorFn) (*GetUserSubscriptionInfoResponse, error)
+
+	// SpeechToSpeechFullWithBodyWithResponse Voice Changer
+	//
+	// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/voice-changer/{voice_id} (the `SpeechToSpeechFull` operationId).
+	SpeechToSpeechFullWithBodyWithResponse(ctx context.Context, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SpeechToSpeechFullResponse, error)
+
+	// SpeechToSpeechStreamWithBodyWithResponse Voice Changer Streaming
+	//
+	// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/voice-changer/{voice_id}/stream (the `SpeechToSpeechStream` operationId).
+	SpeechToSpeechStreamWithBodyWithResponse(ctx context.Context, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SpeechToSpeechStreamResponse, error)
 
 	// GetVoicesWithResponse List Voices
 	//
@@ -145539,88 +145567,6 @@ func (r DuplicateSpeechEngineResponse) ContentType() string {
 	return ""
 }
 
-type SpeechToSpeechFullResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	// JSON422 the response for an HTTP 422 `application/json` response
-	JSON422 *HTTPValidationError
-}
-
-// GetJSON422 returns the response for an HTTP 422 `application/json` response
-func (r SpeechToSpeechFullResponse) GetJSON422() *HTTPValidationError {
-	return r.JSON422
-}
-
-// GetBody returns the raw response body bytes
-func (r SpeechToSpeechFullResponse) GetBody() []byte {
-	return r.Body
-}
-
-// Status returns HTTPResponse.Status
-func (r SpeechToSpeechFullResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r SpeechToSpeechFullResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
-func (r SpeechToSpeechFullResponse) ContentType() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Header.Get("Content-Type")
-	}
-	return ""
-}
-
-type SpeechToSpeechStreamResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	// JSON422 the response for an HTTP 422 `application/json` response
-	JSON422 *HTTPValidationError
-}
-
-// GetJSON422 returns the response for an HTTP 422 `application/json` response
-func (r SpeechToSpeechStreamResponse) GetJSON422() *HTTPValidationError {
-	return r.JSON422
-}
-
-// GetBody returns the raw response body bytes
-func (r SpeechToSpeechStreamResponse) GetBody() []byte {
-	return r.Body
-}
-
-// Status returns HTTPResponse.Status
-func (r SpeechToSpeechStreamResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r SpeechToSpeechStreamResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
-func (r SpeechToSpeechStreamResponse) ContentType() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Header.Get("Content-Type")
-	}
-	return ""
-}
-
 type SpeechToTextResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -147575,6 +147521,88 @@ func (r GetUserSubscriptionInfoResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r GetUserSubscriptionInfoResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SpeechToSpeechFullResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SpeechToSpeechFullResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SpeechToSpeechFullResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SpeechToSpeechFullResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SpeechToSpeechFullResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SpeechToSpeechFullResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SpeechToSpeechStreamResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SpeechToSpeechStreamResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SpeechToSpeechStreamResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SpeechToSpeechStreamResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SpeechToSpeechStreamResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SpeechToSpeechStreamResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -157032,36 +157060,6 @@ func (c *ClientWithResponses) DuplicateSpeechEngineWithResponse(ctx context.Cont
 	return ParseDuplicateSpeechEngineResponse(rsp)
 }
 
-// SpeechToSpeechFullWithBodyWithResponse Speech To Speech
-//
-// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
-//
-// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
-//
-// Corresponds with POST /v1/speech-to-speech/{voice_id} (the `SpeechToSpeechFull` operationId).
-func (c *ClientWithResponses) SpeechToSpeechFullWithBodyWithResponse(ctx context.Context, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SpeechToSpeechFullResponse, error) {
-	rsp, err := c.SpeechToSpeechFullWithBody(ctx, voiceId, params, contentType, body, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseSpeechToSpeechFullResponse(rsp)
-}
-
-// SpeechToSpeechStreamWithBodyWithResponse Speech To Speech Streaming
-//
-// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
-//
-// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
-//
-// Corresponds with POST /v1/speech-to-speech/{voice_id}/stream (the `SpeechToSpeechStream` operationId).
-func (c *ClientWithResponses) SpeechToSpeechStreamWithBodyWithResponse(ctx context.Context, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SpeechToSpeechStreamResponse, error) {
-	rsp, err := c.SpeechToSpeechStreamWithBody(ctx, voiceId, params, contentType, body, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseSpeechToSpeechStreamResponse(rsp)
-}
-
 // SpeechToTextWithBodyWithResponse Speech To Text
 //
 // Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
@@ -157980,6 +157978,36 @@ func (c *ClientWithResponses) GetUserSubscriptionInfoWithResponse(ctx context.Co
 		return nil, err
 	}
 	return ParseGetUserSubscriptionInfoResponse(rsp)
+}
+
+// SpeechToSpeechFullWithBodyWithResponse Voice Changer
+//
+// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/voice-changer/{voice_id} (the `SpeechToSpeechFull` operationId).
+func (c *ClientWithResponses) SpeechToSpeechFullWithBodyWithResponse(ctx context.Context, voiceId string, params *SpeechToSpeechFullParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SpeechToSpeechFullResponse, error) {
+	rsp, err := c.SpeechToSpeechFullWithBody(ctx, voiceId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSpeechToSpeechFullResponse(rsp)
+}
+
+// SpeechToSpeechStreamWithBodyWithResponse Voice Changer Streaming
+//
+// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/voice-changer/{voice_id}/stream (the `SpeechToSpeechStream` operationId).
+func (c *ClientWithResponses) SpeechToSpeechStreamWithBodyWithResponse(ctx context.Context, voiceId string, params *SpeechToSpeechStreamParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SpeechToSpeechStreamResponse, error) {
+	rsp, err := c.SpeechToSpeechStreamWithBody(ctx, voiceId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSpeechToSpeechStreamResponse(rsp)
 }
 
 // GetVoicesWithResponse List Voices
@@ -169652,58 +169680,6 @@ func ParseDuplicateSpeechEngineResponse(rsp *http.Response) (*DuplicateSpeechEng
 	return response, nil
 }
 
-// ParseSpeechToSpeechFullResponse parses an HTTP response from a SpeechToSpeechFullWithResponse call
-func ParseSpeechToSpeechFullResponse(rsp *http.Response) (*SpeechToSpeechFullResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &SpeechToSpeechFullResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
-		var dest HTTPValidationError
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON422 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseSpeechToSpeechStreamResponse parses an HTTP response from a SpeechToSpeechStreamWithResponse call
-func ParseSpeechToSpeechStreamResponse(rsp *http.Response) (*SpeechToSpeechStreamResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &SpeechToSpeechStreamResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
-		var dest HTTPValidationError
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON422 = &dest
-
-	}
-
-	return response, nil
-}
-
 // ParseSpeechToTextResponse parses an HTTP response from a SpeechToTextWithResponse call
 func ParseSpeechToTextResponse(rsp *http.Response) (*SpeechToTextResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -171037,6 +171013,58 @@ func ParseGetUserSubscriptionInfoResponse(rsp *http.Response) (*GetUserSubscript
 		}
 		response.JSON200 = &dest
 
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSpeechToSpeechFullResponse parses an HTTP response from a SpeechToSpeechFullWithResponse call
+func ParseSpeechToSpeechFullResponse(rsp *http.Response) (*SpeechToSpeechFullResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SpeechToSpeechFullResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSpeechToSpeechStreamResponse parses an HTTP response from a SpeechToSpeechStreamWithResponse call
+func ParseSpeechToSpeechStreamResponse(rsp *http.Response) (*SpeechToSpeechStreamResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SpeechToSpeechStreamResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
 		var dest HTTPValidationError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {

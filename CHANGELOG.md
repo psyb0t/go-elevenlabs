@@ -2,6 +2,17 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.3.0, 2026-10-21
+
+- Breaking: the speech to speech multipart body types are renamed. `BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost` becomes `BodyVoiceChangerV1VoiceChangerVoiceIdPost`, and `BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost` becomes `BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost`. Callers that use the old names must change their code.
+- Breaking: the matching `FileFormat` types are renamed the same way, including the `Other` and `PcmS16le16` constants, for example `BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat` and `BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormatPcmS16le16`.
+- Adds `ExcludePatterns` to `BodyCreateCrawlJobV1ConvaiKnowledgeBaseCrawlPost` and `GetCrawlJobResponseModel`.
+- Adds `OwnerView` to `ListProductsParams` and `ListServicesParams`.
+- Adds `CloneStrength` to `VoiceSettingsResponseModel` and `ToDialogueSettingsResponseModel`.
+- Adds `VoiceSurchargeCharge` to `ConversationChargingCommonModel`.
+- Adds the `SFXModelIdElevenTextToSoundV3` value.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.2.0, 2026-10-20
 
 - Breaking: `SoundGenerationParams.OutputFormat` changes from `*AllowedOutputFormats` to an anonymous union struct, so callers that set it must change their code.
