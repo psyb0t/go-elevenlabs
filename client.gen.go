@@ -24107,6 +24107,9 @@ type BodyPostAgentHoldAudioV1ConvaiAgentsAgentIdHoldAudioPost struct {
 	HoldAudioFile openapi_types.File `json:"hold_audio_file"`
 }
 
+// BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost defines model for Body_Rebase_a_branch_onto_main_v1_convai_agents__agent_id__branches__branch_id__rebase_post.
+type BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost = map[string]interface{}
+
 // BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPost defines model for Body_Register_a_Twilio_call_and_return_TwiML_v1_convai_twilio_register_call_post.
 type BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPost struct {
 	AgentId                          string                                        `json:"agent_id"`
@@ -32484,11 +32487,14 @@ type GetTestSuiteInvocationResponseModel struct {
 	BranchId *string `json:"branch_id,omitempty"`
 
 	// BucketingStatus None when repeat_count==1 (no bucketing). Otherwise tracks bucketing lifecycle.
-	BucketingStatus *BucketingStatus           `json:"bucketing_status,omitempty"`
-	Cancelled       *bool                      `json:"cancelled,omitempty"`
-	CreatedAt       *int                       `json:"created_at,omitempty"`
-	FolderId        *string                    `json:"folder_id,omitempty"`
-	Id              string                     `json:"id"`
+	BucketingStatus *BucketingStatus `json:"bucketing_status,omitempty"`
+	Cancelled       *bool            `json:"cancelled,omitempty"`
+	CreatedAt       *int             `json:"created_at,omitempty"`
+	FolderId        *string          `json:"folder_id,omitempty"`
+	Id              string           `json:"id"`
+
+	// Name The user-provided name of the test invocation, if one was set.
+	Name            *string                    `json:"name,omitempty"`
 	RanAgainstDraft *bool                      `json:"ran_against_draft,omitempty"`
 	RepeatCount     *int                       `json:"repeat_count,omitempty"`
 	ResultGroups    *[]TestRunResultSummary    `json:"result_groups,omitempty"`
@@ -38184,6 +38190,9 @@ type RunAgentTestsRequestModel struct {
 	// BranchId ID of the branch to run the tests on. If not provided, the tests will be run on the agent's main branch.
 	BranchId *string `json:"branch_id,omitempty"`
 
+	// Name Optional name for the test invocation.
+	Name *string `json:"name,omitempty"`
+
 	// RepeatCount Number of times to run each test. When greater than 1, results are grouped and summarized.
 	RepeatCount *int `json:"repeat_count,omitempty"`
 
@@ -40471,6 +40480,9 @@ type TestInvocationSummaryResponseModel struct {
 	// Id The ID of the test invocation
 	Id string `json:"id"`
 
+	// Name The user-provided name of the test invocation, if one was set.
+	Name *string `json:"name,omitempty"`
+
 	// PassedCount Number of test runs that passed
 	PassedCount int `json:"passed_count"`
 
@@ -40489,7 +40501,7 @@ type TestInvocationSummaryResponseModel struct {
 	// TestRunCount Number of test runs in this invocation
 	TestRunCount int `json:"test_run_count"`
 
-	// Title Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests
+	// Title Display title of the test invocation: the user-provided name when set, otherwise the folder name, single test name, or test count.
 	Title string `json:"title"`
 
 	// TotalPrice Total USD price across test runs in this invocation. None when no run has price data.
@@ -41881,6 +41893,12 @@ type UpdateStaffParams struct {
 
 // UpdateStaffParamsSmbToolType defines model for UpdateStaffParams.SmbToolType.
 type UpdateStaffParamsSmbToolType string
+
+// UpdateTestSuiteInvocationRequestModel defines model for UpdateTestSuiteInvocationRequestModel.
+type UpdateTestSuiteInvocationRequestModel struct {
+	// Name New name for the test invocation. Set to null to restore the generated title.
+	Name *string `json:"name"`
+}
 
 // UpdateToolCallUnitTestRequest defines model for UpdateToolCallUnitTestRequest.
 type UpdateToolCallUnitTestRequest struct {
@@ -47093,6 +47111,12 @@ type GetTestInvocationRouteParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// UpdateTestInvocationRouteParams defines parameters for UpdateTestInvocationRoute.
+type UpdateTestInvocationRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // CancelTestInvocationRouteParams defines parameters for CancelTestInvocationRoute.
 type CancelTestInvocationRouteParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -49461,6 +49485,9 @@ type CreateProcedureRouteJSONRequestBody = CreateProcedureRouteJSONBody
 // UpdateProcedureDraftRouteJSONRequestBody defines body for UpdateProcedureDraftRoute for application/json ContentType.
 type UpdateProcedureDraftRouteJSONRequestBody = UpdateProcedureDraftRequestModel
 
+// RebaseBranchOntoMainJSONRequestBody defines body for RebaseBranchOntoMain for application/json ContentType.
+type RebaseBranchOntoMainJSONRequestBody = BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost
+
 // MergeBranchIntoTargetJSONRequestBody defines body for MergeBranchIntoTarget for application/json ContentType.
 type MergeBranchIntoTargetJSONRequestBody = BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost
 
@@ -49633,6 +49660,9 @@ type CreateConversationTagRouteJSONRequestBody = CreateConversationTagRequestMod
 
 // UpdateConversationTagRouteJSONRequestBody defines body for UpdateConversationTagRoute for application/json ContentType.
 type UpdateConversationTagRouteJSONRequestBody = PatchConversationTagRequestModel
+
+// UpdateTestInvocationRouteJSONRequestBody defines body for UpdateTestInvocationRoute for application/json ContentType.
+type UpdateTestInvocationRouteJSONRequestBody = UpdateTestSuiteInvocationRequestModel
 
 // ResubmitTestsRouteJSONRequestBody defines body for ResubmitTestsRoute for application/json ContentType.
 type ResubmitTestsRouteJSONRequestBody = ResubmitTestsRequestModel
@@ -80452,12 +80482,23 @@ type ClientInterface interface {
 	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/draft (the `UpdateProcedureDraftRoute` operationId).
 	UpdateProcedureDraftRoute(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureDraftRouteParams, body UpdateProcedureDraftRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// RebaseBranchOntoMainWithBody Rebase A Branch Onto Main
+	//
+	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
+	RebaseBranchOntoMainWithBody(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// RebaseBranchOntoMain Rebase A Branch Onto Main
 	//
 	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
 	//
+	// Takes a body of the `application/json` content type.
+	//
 	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-	RebaseBranchOntoMain(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	RebaseBranchOntoMain(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// RebasePreviewRoute Preview Rebased Configuration
 	//
@@ -81972,6 +82013,24 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /v1/convai/test-invocations/{test_invocation_id} (the `GetTestInvocationRoute` operationId).
 	GetTestInvocationRoute(ctx context.Context, testInvocationId string, params *GetTestInvocationRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTestInvocationRouteWithBody Update Test Invocation
+	//
+	// Updates the user-provided name of a test invocation.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/convai/test-invocations/{test_invocation_id} (the `UpdateTestInvocationRoute` operationId).
+	UpdateTestInvocationRouteWithBody(ctx context.Context, testInvocationId string, params *UpdateTestInvocationRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTestInvocationRoute Update Test Invocation
+	//
+	// Updates the user-provided name of a test invocation.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/convai/test-invocations/{test_invocation_id} (the `UpdateTestInvocationRoute` operationId).
+	UpdateTestInvocationRoute(ctx context.Context, testInvocationId string, params *UpdateTestInvocationRouteParams, body UpdateTestInvocationRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CancelTestInvocationRoute Cancel Test Invocation
 	//
@@ -85923,13 +85982,34 @@ func (c *Client) UpdateProcedureDraftRoute(ctx context.Context, agentId string, 
 	return c.Client.Do(req)
 }
 
+// RebaseBranchOntoMainWithBody Rebase A Branch Onto Main
+//
+// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
+func (c *Client) RebaseBranchOntoMainWithBody(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewRebaseBranchOntoMainRequestWithBody(c.Server, agentId, branchId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // RebaseBranchOntoMain Rebase A Branch Onto Main
 //
 // Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
 //
+// Takes a body of the `application/json` content type.
+//
 // Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-func (c *Client) RebaseBranchOntoMain(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewRebaseBranchOntoMainRequest(c.Server, agentId, branchId, params)
+func (c *Client) RebaseBranchOntoMain(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewRebaseBranchOntoMainRequest(c.Server, agentId, branchId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -89276,6 +89356,44 @@ func (c *Client) ListTestInvocationsRoute(ctx context.Context, params *ListTestI
 // Corresponds with GET /v1/convai/test-invocations/{test_invocation_id} (the `GetTestInvocationRoute` operationId).
 func (c *Client) GetTestInvocationRoute(ctx context.Context, testInvocationId string, params *GetTestInvocationRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetTestInvocationRouteRequest(c.Server, testInvocationId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTestInvocationRouteWithBody Update Test Invocation
+//
+// Updates the user-provided name of a test invocation.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/convai/test-invocations/{test_invocation_id} (the `UpdateTestInvocationRoute` operationId).
+func (c *Client) UpdateTestInvocationRouteWithBody(ctx context.Context, testInvocationId string, params *UpdateTestInvocationRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTestInvocationRouteRequestWithBody(c.Server, testInvocationId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTestInvocationRoute Update Test Invocation
+//
+// Updates the user-provided name of a test invocation.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/convai/test-invocations/{test_invocation_id} (the `UpdateTestInvocationRoute` operationId).
+func (c *Client) UpdateTestInvocationRoute(ctx context.Context, testInvocationId string, params *UpdateTestInvocationRouteParams, body UpdateTestInvocationRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTestInvocationRouteRequest(c.Server, testInvocationId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -98586,8 +98704,19 @@ func NewUpdateProcedureDraftRouteRequestWithBody(server string, agentId string, 
 	return req, nil
 }
 
-// NewRebaseBranchOntoMainRequest constructs an http.Request for the RebaseBranchOntoMain method
-func NewRebaseBranchOntoMainRequest(server string, agentId string, branchId string, params *RebaseBranchOntoMainParams) (*http.Request, error) {
+// NewRebaseBranchOntoMainRequest calls the generic RebaseBranchOntoMain builder with application/json body
+func NewRebaseBranchOntoMainRequest(server string, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewRebaseBranchOntoMainRequestWithBody(server, agentId, branchId, params, "application/json", bodyReader)
+}
+
+// NewRebaseBranchOntoMainRequestWithBody constructs an http.Request for the RebaseBranchOntoMain method, with any body, and a specified content type
+func NewRebaseBranchOntoMainRequestWithBody(server string, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -98646,10 +98775,12 @@ func NewRebaseBranchOntoMainRequest(server string, agentId string, branchId stri
 		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	if params != nil {
 
@@ -108786,6 +108917,68 @@ func NewGetTestInvocationRouteRequest(server string, testInvocationId string, pa
 	if err != nil {
 		return nil, err
 	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewUpdateTestInvocationRouteRequest calls the generic UpdateTestInvocationRoute builder with application/json body
+func NewUpdateTestInvocationRouteRequest(server string, testInvocationId string, params *UpdateTestInvocationRouteParams, body UpdateTestInvocationRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateTestInvocationRouteRequestWithBody(server, testInvocationId, params, "application/json", bodyReader)
+}
+
+// NewUpdateTestInvocationRouteRequestWithBody constructs an http.Request for the UpdateTestInvocationRoute method, with any body, and a specified content type
+func NewUpdateTestInvocationRouteRequestWithBody(server string, testInvocationId string, params *UpdateTestInvocationRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "test_invocation_id", testInvocationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/test-invocations/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	if params != nil {
 
@@ -125795,14 +125988,23 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/draft (the `UpdateProcedureDraftRoute` operationId).
 	UpdateProcedureDraftRouteWithResponse(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureDraftRouteParams, body UpdateProcedureDraftRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateProcedureDraftRouteResponse, error)
 
+	// RebaseBranchOntoMainWithBodyWithResponse Rebase A Branch Onto Main
+	//
+	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
+	RebaseBranchOntoMainWithBodyWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error)
+
 	// RebaseBranchOntoMainWithResponse Rebase A Branch Onto Main
 	//
 	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
 	//
-	// Returns a wrapper object for the known response body format(s).
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-	RebaseBranchOntoMainWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error)
+	RebaseBranchOntoMainWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error)
 
 	// RebasePreviewRouteWithResponse Preview Rebased Configuration
 	//
@@ -127475,6 +127677,24 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /v1/convai/test-invocations/{test_invocation_id} (the `GetTestInvocationRoute` operationId).
 	GetTestInvocationRouteWithResponse(ctx context.Context, testInvocationId string, params *GetTestInvocationRouteParams, reqEditors ...RequestEditorFn) (*GetTestInvocationRouteResponse, error)
+
+	// UpdateTestInvocationRouteWithBodyWithResponse Update Test Invocation
+	//
+	// Updates the user-provided name of a test invocation.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/convai/test-invocations/{test_invocation_id} (the `UpdateTestInvocationRoute` operationId).
+	UpdateTestInvocationRouteWithBodyWithResponse(ctx context.Context, testInvocationId string, params *UpdateTestInvocationRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTestInvocationRouteResponse, error)
+
+	// UpdateTestInvocationRouteWithResponse Update Test Invocation
+	//
+	// Updates the user-provided name of a test invocation.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/convai/test-invocations/{test_invocation_id} (the `UpdateTestInvocationRoute` operationId).
+	UpdateTestInvocationRouteWithResponse(ctx context.Context, testInvocationId string, params *UpdateTestInvocationRouteParams, body UpdateTestInvocationRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTestInvocationRouteResponse, error)
 
 	// CancelTestInvocationRouteWithResponse Cancel Test Invocation
 	//
@@ -139138,6 +139358,54 @@ func (r GetTestInvocationRouteResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r GetTestInvocationRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type UpdateTestInvocationRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *GetTestSuiteInvocationResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r UpdateTestInvocationRouteResponse) GetJSON200() *GetTestSuiteInvocationResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r UpdateTestInvocationRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateTestInvocationRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateTestInvocationRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateTestInvocationRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateTestInvocationRouteResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -151366,15 +151634,30 @@ func (c *ClientWithResponses) UpdateProcedureDraftRouteWithResponse(ctx context.
 	return ParseUpdateProcedureDraftRouteResponse(rsp)
 }
 
+// RebaseBranchOntoMainWithBodyWithResponse Rebase A Branch Onto Main
+//
+// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
+func (c *ClientWithResponses) RebaseBranchOntoMainWithBodyWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error) {
+	rsp, err := c.RebaseBranchOntoMainWithBody(ctx, agentId, branchId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseRebaseBranchOntoMainResponse(rsp)
+}
+
 // RebaseBranchOntoMainWithResponse Rebase A Branch Onto Main
 //
 // Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
 //
-// Returns a wrapper object for the known response body format(s).
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-func (c *ClientWithResponses) RebaseBranchOntoMainWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error) {
-	rsp, err := c.RebaseBranchOntoMain(ctx, agentId, branchId, params, reqEditors...)
+func (c *ClientWithResponses) RebaseBranchOntoMainWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error) {
+	rsp, err := c.RebaseBranchOntoMain(ctx, agentId, branchId, params, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -154152,6 +154435,36 @@ func (c *ClientWithResponses) GetTestInvocationRouteWithResponse(ctx context.Con
 		return nil, err
 	}
 	return ParseGetTestInvocationRouteResponse(rsp)
+}
+
+// UpdateTestInvocationRouteWithBodyWithResponse Update Test Invocation
+//
+// Updates the user-provided name of a test invocation.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/convai/test-invocations/{test_invocation_id} (the `UpdateTestInvocationRoute` operationId).
+func (c *ClientWithResponses) UpdateTestInvocationRouteWithBodyWithResponse(ctx context.Context, testInvocationId string, params *UpdateTestInvocationRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTestInvocationRouteResponse, error) {
+	rsp, err := c.UpdateTestInvocationRouteWithBody(ctx, testInvocationId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTestInvocationRouteResponse(rsp)
+}
+
+// UpdateTestInvocationRouteWithResponse Update Test Invocation
+//
+// Updates the user-provided name of a test invocation.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/convai/test-invocations/{test_invocation_id} (the `UpdateTestInvocationRoute` operationId).
+func (c *ClientWithResponses) UpdateTestInvocationRouteWithResponse(ctx context.Context, testInvocationId string, params *UpdateTestInvocationRouteParams, body UpdateTestInvocationRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTestInvocationRouteResponse, error) {
+	rsp, err := c.UpdateTestInvocationRoute(ctx, testInvocationId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTestInvocationRouteResponse(rsp)
 }
 
 // CancelTestInvocationRouteWithResponse Cancel Test Invocation
@@ -165174,6 +165487,39 @@ func ParseGetTestInvocationRouteResponse(rsp *http.Response) (*GetTestInvocation
 	}
 
 	response := &GetTestInvocationRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetTestSuiteInvocationResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateTestInvocationRouteResponse parses an HTTP response from a UpdateTestInvocationRouteWithResponse call
+func ParseUpdateTestInvocationRouteResponse(rsp *http.Response) (*UpdateTestInvocationRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateTestInvocationRouteResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}

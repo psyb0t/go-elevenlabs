@@ -2,6 +2,16 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.4.0, 2026-10-22
+
+- Breaking: `RebaseBranchOntoMain` now takes a JSON request body. `Client.RebaseBranchOntoMain`, `ClientInterface.RebaseBranchOntoMain`, `ClientWithResponses.RebaseBranchOntoMainWithResponse` and `NewRebaseBranchOntoMainRequest` gain a `RebaseBranchOntoMainJSONRequestBody` argument after the params, so callers must change their code.
+- Adds `RebaseBranchOntoMainWithBody`, `RebaseBranchOntoMainWithBodyWithResponse` and `NewRebaseBranchOntoMainRequestWithBody` for sending a raw body. The body type is `BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost`.
+- Adds `UpdateTestInvocationRoute` and `UpdateTestInvocationRouteWithBody` to `Client` and `ClientInterface`, with `UpdateTestInvocationRouteWithResponse` and `UpdateTestInvocationRouteWithBodyWithResponse` on `ClientWithResponses` and `ClientWithResponsesInterface`. The call is PATCH `/v1/convai/test-invocations/{test_invocation_id}`.
+- Adds `UpdateTestInvocationRouteParams`, `UpdateTestInvocationRouteJSONRequestBody`, `UpdateTestInvocationRouteResponse`, `UpdateTestSuiteInvocationRequestModel`, `NewUpdateTestInvocationRouteRequest`, `NewUpdateTestInvocationRouteRequestWithBody` and `ParseUpdateTestInvocationRouteResponse`.
+- Adds `Name` to `RunAgentTestsRequestModel`, `GetTestSuiteInvocationResponseModel` and `TestInvocationSummaryResponseModel`.
+- The minimum Go version in `go.mod` is now 1.26.10, which picks up the fix for GO-2026-6809 in `crypto/x509`. The development image and the setup notes use the same version.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.3.0, 2026-10-21
 
 - Breaking: the speech to speech multipart body types are renamed. `BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost` becomes `BodyVoiceChangerV1VoiceChangerVoiceIdPost`, and `BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost` becomes `BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost`. Callers that use the old names must change their code.
