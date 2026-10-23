@@ -2,6 +2,18 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.5.0, 2026-10-23
+
+- Breaking: `OwnerView` is removed from `ListProductsParams` and `ListServicesParams`. Callers that set it must change their code. The owner listings now use the new `OwnerListProductsParams` and `OwnerListServicesParams` tool types.
+- Breaking: `LLMInfoModel` is no longer comparable, because the new `AvailableServiceTiers` field is a slice. Code that compares `LLMInfoModel` values with `==` or uses them as map keys must change.
+- `LLMInfoModel.AvailableServiceTiers` is a required field with no `omitempty`.
+- Adds the `LLMServiceTier` type with `LLMServiceTierStandard` and `LLMServiceTierFast`, and a `ServiceTier` field on `LLMUsageCalculatorRequestModel`, `LLMUsageCalculatorPublicRequestModel`, `PromptAgentAPIModelInput`, `PromptAgentAPIModelOutput`, `PromptAgentAPIModelWorkflowOverrideInput` and `PromptAgentAPIModelWorkflowOverrideOutput`.
+- Adds the owner SMB tool types `OwnerGetClientAppointmentsParams`, `OwnerListAssetsParams`, `OwnerListLocationsParams`, `OwnerListProductsParams`, `OwnerListServicesParams` and `OwnerListStaffParams`, each with a `SmbToolType` enum. `SMBToolConfig_Params` gains matching `As...`, `From...` and `Merge...` methods for each.
+- Adds `StartProcedureIds` to `ConversationInitiationClientDataInternal`, `ConversationInitiationClientDataRequestInput` and `ConversationInitiationClientDataRequestOutput`. The doc comment on `EnableProcedureIdsFromClient` now covers `start_procedure_ids`.
+- Adds `PerResourceTimezones` to `CreateAssetParams` and `UpdateAssetParams`.
+- Adds the `AgentDeploymentSourceDuplicate` value.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.4.0, 2026-10-22
 
 - Breaking: `RebaseBranchOntoMain` now takes a JSON request body. `Client.RebaseBranchOntoMain`, `ClientInterface.RebaseBranchOntoMain`, `ClientWithResponses.RebaseBranchOntoMainWithResponse` and `NewRebaseBranchOntoMainRequest` gain a `RebaseBranchOntoMainJSONRequestBody` argument after the params, so callers must change their code.

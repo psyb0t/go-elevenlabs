@@ -925,6 +925,7 @@ func (e AgentDeploymentPercentageStrategyType) Valid() bool {
 // Defines values for AgentDeploymentSource.
 const (
 	AgentDeploymentSourceBranchMerge AgentDeploymentSource = "branch_merge"
+	AgentDeploymentSourceDuplicate   AgentDeploymentSource = "duplicate"
 	AgentDeploymentSourceManual      AgentDeploymentSource = "manual"
 )
 
@@ -932,6 +933,8 @@ const (
 func (e AgentDeploymentSource) Valid() bool {
 	switch e {
 	case AgentDeploymentSourceBranchMerge:
+		return true
+	case AgentDeploymentSourceDuplicate:
 		return true
 	case AgentDeploymentSourceManual:
 		return true
@@ -9922,6 +9925,24 @@ func (e LLMSchemaOverrideSource) Valid() bool {
 	}
 }
 
+// Defines values for LLMServiceTier.
+const (
+	LLMServiceTierFast     LLMServiceTier = "fast"
+	LLMServiceTierStandard LLMServiceTier = "standard"
+)
+
+// Valid indicates whether the value is a known member of the LLMServiceTier enum.
+func (e LLMServiceTier) Valid() bool {
+	switch e {
+	case LLMServiceTierFast:
+		return true
+	case LLMServiceTierStandard:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for LanguageDetectionToolConfigSystemToolType.
 const (
 	LanguageDetectionToolConfigSystemToolTypeLanguageDetection LanguageDetectionToolConfigSystemToolType = "language_detection"
@@ -11413,6 +11434,96 @@ func (e OutputFormat) Valid() bool {
 	case OutputFormatMarkdown:
 		return true
 	case OutputFormatPlainText:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OwnerGetClientAppointmentsParamsSmbToolType.
+const (
+	OwnerGetClientAppointmentsParamsSmbToolTypeOwnerGetClientAppointments OwnerGetClientAppointmentsParamsSmbToolType = "owner_get_client_appointments"
+)
+
+// Valid indicates whether the value is a known member of the OwnerGetClientAppointmentsParamsSmbToolType enum.
+func (e OwnerGetClientAppointmentsParamsSmbToolType) Valid() bool {
+	switch e {
+	case OwnerGetClientAppointmentsParamsSmbToolTypeOwnerGetClientAppointments:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OwnerListAssetsParamsSmbToolType.
+const (
+	OwnerListAssetsParamsSmbToolTypeOwnerListAssets OwnerListAssetsParamsSmbToolType = "owner_list_assets"
+)
+
+// Valid indicates whether the value is a known member of the OwnerListAssetsParamsSmbToolType enum.
+func (e OwnerListAssetsParamsSmbToolType) Valid() bool {
+	switch e {
+	case OwnerListAssetsParamsSmbToolTypeOwnerListAssets:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OwnerListLocationsParamsSmbToolType.
+const (
+	OwnerListLocationsParamsSmbToolTypeOwnerListLocations OwnerListLocationsParamsSmbToolType = "owner_list_locations"
+)
+
+// Valid indicates whether the value is a known member of the OwnerListLocationsParamsSmbToolType enum.
+func (e OwnerListLocationsParamsSmbToolType) Valid() bool {
+	switch e {
+	case OwnerListLocationsParamsSmbToolTypeOwnerListLocations:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OwnerListProductsParamsSmbToolType.
+const (
+	OwnerListProductsParamsSmbToolTypeOwnerListProducts OwnerListProductsParamsSmbToolType = "owner_list_products"
+)
+
+// Valid indicates whether the value is a known member of the OwnerListProductsParamsSmbToolType enum.
+func (e OwnerListProductsParamsSmbToolType) Valid() bool {
+	switch e {
+	case OwnerListProductsParamsSmbToolTypeOwnerListProducts:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OwnerListServicesParamsSmbToolType.
+const (
+	OwnerListServicesParamsSmbToolTypeOwnerListServices OwnerListServicesParamsSmbToolType = "owner_list_services"
+)
+
+// Valid indicates whether the value is a known member of the OwnerListServicesParamsSmbToolType enum.
+func (e OwnerListServicesParamsSmbToolType) Valid() bool {
+	switch e {
+	case OwnerListServicesParamsSmbToolTypeOwnerListServices:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OwnerListStaffParamsSmbToolType.
+const (
+	OwnerListStaffParamsSmbToolTypeOwnerListStaff OwnerListStaffParamsSmbToolType = "owner_list_staff"
+)
+
+// Valid indicates whether the value is a known member of the OwnerListStaffParamsSmbToolType enum.
+func (e OwnerListStaffParamsSmbToolType) Valid() bool {
+	switch e {
+	case OwnerListStaffParamsSmbToolTypeOwnerListStaff:
 		return true
 	default:
 		return false
@@ -27778,7 +27889,7 @@ type ConversationInitiationClientDataConfigInput struct {
 	// EnableConversationInitiationClientDataFromWebhook Whether to enable conversation initiation client data from webhooks
 	EnableConversationInitiationClientDataFromWebhook *bool `json:"enable_conversation_initiation_client_data_from_webhook,omitempty"`
 
-	// EnableProcedureIdsFromClient Whether clients may pass procedure_ids in initiation client data to select which of the agent's procedures are available for the conversation; if false, sending it fails conversation start.
+	// EnableProcedureIdsFromClient Whether clients may pass procedure_ids and start_procedure_ids in initiation client data. procedure_ids selects which of the agent's procedures are available. start_procedure_ids starts free-form procedures when the conversation starts. If false, sending either field fails conversation start.
 	EnableProcedureIdsFromClient *bool `json:"enable_procedure_ids_from_client,omitempty"`
 
 	// EnableStartingWorkflowNodeIdFromClient Whether clients may pass starting_workflow_node_id in initiation client data; if false, sending it fails conversation start.
@@ -27796,7 +27907,7 @@ type ConversationInitiationClientDataConfigOutput struct {
 	// EnableConversationInitiationClientDataFromWebhook Whether to enable conversation initiation client data from webhooks
 	EnableConversationInitiationClientDataFromWebhook *bool `json:"enable_conversation_initiation_client_data_from_webhook,omitempty"`
 
-	// EnableProcedureIdsFromClient Whether clients may pass procedure_ids in initiation client data to select which of the agent's procedures are available for the conversation; if false, sending it fails conversation start.
+	// EnableProcedureIdsFromClient Whether clients may pass procedure_ids and start_procedure_ids in initiation client data. procedure_ids selects which of the agent's procedures are available. start_procedure_ids starts free-form procedures when the conversation starts. If false, sending either field fails conversation start.
 	EnableProcedureIdsFromClient *bool `json:"enable_procedure_ids_from_client,omitempty"`
 
 	// EnableStartingWorkflowNodeIdFromClient Whether clients may pass starting_workflow_node_id in initiation client data; if false, sending it fails conversation start.
@@ -27819,6 +27930,9 @@ type ConversationInitiationClientDataInternal struct {
 
 	// SourceInfo Information about the source of conversation initiation
 	SourceInfo *ConversationInitiationSourceInfo `json:"source_info,omitempty"`
+
+	// StartProcedureIds If set, these free-form procedures start when the conversation starts. Accepts at most five IDs. Each ID must be available after procedure_ids is applied. Unknown IDs and structured procedures fail conversation start. Requires enable_procedure_ids_from_client.
+	StartProcedureIds *[]string `json:"start_procedure_ids,omitempty"`
 
 	// StartingWorkflowNodeId If set, start the workflow at this node id instead of the default entry
 	StartingWorkflowNodeId *string `json:"starting_workflow_node_id,omitempty"`
@@ -27850,6 +27964,9 @@ type ConversationInitiationClientDataRequestInput struct {
 	// SourceInfo Information about the source of conversation initiation
 	SourceInfo *ConversationInitiationSourceInfo `json:"source_info,omitempty"`
 
+	// StartProcedureIds If set, these free-form procedures start when the conversation starts. Accepts at most five IDs. Each ID must be available after procedure_ids is applied. Unknown IDs and structured procedures fail conversation start. Requires enable_procedure_ids_from_client.
+	StartProcedureIds *[]string `json:"start_procedure_ids,omitempty"`
+
 	// StartingWorkflowNodeId If set, start the workflow at this node id instead of the default entry
 	StartingWorkflowNodeId *string `json:"starting_workflow_node_id,omitempty"`
 
@@ -27873,6 +27990,9 @@ type ConversationInitiationClientDataRequestOutput struct {
 
 	// SourceInfo Information about the source of conversation initiation
 	SourceInfo *ConversationInitiationSourceInfo `json:"source_info,omitempty"`
+
+	// StartProcedureIds If set, these free-form procedures start when the conversation starts. Accepts at most five IDs. Each ID must be available after procedure_ids is applied. Unknown IDs and structured procedures fail conversation start. Requires enable_procedure_ids_from_client.
+	StartProcedureIds *[]string `json:"start_procedure_ids,omitempty"`
 
 	// StartingWorkflowNodeId If set, start the workflow at this node id instead of the default entry
 	StartingWorkflowNodeId *string `json:"starting_workflow_node_id,omitempty"`
@@ -28246,7 +28366,9 @@ type CreateAgentTestResponseModel struct {
 
 // CreateAssetParams defines model for CreateAssetParams.
 type CreateAssetParams struct {
-	SmbToolType *CreateAssetParamsSmbToolType `json:"smb_tool_type,omitempty"`
+	// PerResourceTimezones Whether to offer an available_hours timezone, set from the workspace's enable_per_resource_timezones.
+	PerResourceTimezones *bool                         `json:"per_resource_timezones,omitempty"`
+	SmbToolType          *CreateAssetParamsSmbToolType `json:"smb_tool_type,omitempty"`
 }
 
 // CreateAssetParamsSmbToolType defines model for CreateAssetParams.SmbToolType.
@@ -33222,6 +33344,9 @@ type LLMInfoModel struct {
 	// AvailableReasoningEfforts Available reasoning effort levels for this model. Null if the model does not support configurable reasoning.
 	AvailableReasoningEfforts *[]LLMReasoningEffort `json:"available_reasoning_efforts,omitempty"`
 
+	// AvailableServiceTiers Available service tiers for this model. Always includes at least the standard tier.
+	AvailableServiceTiers []LLMServiceTier `json:"available_service_tiers"`
+
 	// DeprecationInfo Deprecation information if this model is deprecated or scheduled for deprecation. Null if the model is not affected.
 	DeprecationInfo *LLMDeprecationInfoModel `json:"deprecation_info,omitempty"`
 
@@ -33310,6 +33435,14 @@ type LLMSchemaOverride struct {
 // LLMSchemaOverrideSource defines model for LLMSchemaOverride.Source.
 type LLMSchemaOverrideSource string
 
+// LLMServiceTier Request-time processing tier for a model.
+//
+// STANDARD: default price and throughput.
+// FAST: pays a per-token price premium for higher throughput / lower latency.
+//
+//	See OpenAI's fast mode: https://openai.com/api-fast-mode/
+type LLMServiceTier string
+
 // LLMTokensCategoryUsage defines model for LLMTokensCategoryUsage.
 type LLMTokensCategoryUsage struct {
 	Price  *float32 `json:"price,omitempty"`
@@ -33343,6 +33476,9 @@ type LLMUsageCalculatorPublicRequestModel struct {
 
 	// RagEnabled Whether RAG is enabled.
 	RagEnabled bool `json:"rag_enabled"`
+
+	// ServiceTier Service tier to price against. Only affects models that offer the tier; others fall back to their standard price.
+	ServiceTier *LLMServiceTier `json:"service_tier,omitempty"`
 }
 
 // LLMUsageCalculatorRequestModel defines model for LLMUsageCalculatorRequestModel.
@@ -33355,6 +33491,9 @@ type LLMUsageCalculatorRequestModel struct {
 
 	// RagEnabled Whether RAG is enabled.
 	RagEnabled *bool `json:"rag_enabled,omitempty"`
+
+	// ServiceTier Service tier to price against. Only affects models that offer the tier; others fall back to their standard price.
+	ServiceTier *LLMServiceTier `json:"service_tier,omitempty"`
 }
 
 // LLMUsageCalculatorResponseModel defines model for LLMUsageCalculatorResponseModel.
@@ -33707,10 +33846,7 @@ type ListProceduresResponseModel struct {
 
 // ListProductsParams defines model for ListProductsParams.
 type ListProductsParams struct {
-	ListKwargs *map[string]interface{} `json:"list_kwargs,omitempty"`
-
-	// OwnerView List every owner-editable field, including stock counts and a quoted product's price. Only for the owner's assistant: the customer-facing listing withholds those from callers.
-	OwnerView   *bool                          `json:"owner_view,omitempty"`
+	ListKwargs  *map[string]interface{}        `json:"list_kwargs,omitempty"`
 	SmbToolType *ListProductsParamsSmbToolType `json:"smb_tool_type,omitempty"`
 }
 
@@ -33738,10 +33874,7 @@ type ListResponseAgentDeploymentHistoryItem struct {
 
 // ListServicesParams defines model for ListServicesParams.
 type ListServicesParams struct {
-	ListKwargs *map[string]interface{} `json:"list_kwargs,omitempty"`
-
-	// OwnerView List every owner-editable field, including inactive options and a quoted service's prices. Only for the owner's assistant: the customer-facing listing withholds those from callers.
-	OwnerView   *bool                          `json:"owner_view,omitempty"`
+	ListKwargs  *map[string]interface{}        `json:"list_kwargs,omitempty"`
 	SmbToolType *ListServicesParamsSmbToolType `json:"smb_tool_type,omitempty"`
 }
 
@@ -35801,6 +35934,59 @@ type OutboundSIPTrunkConfigRequestModel struct {
 // OutputFormat defines model for OutputFormat.
 type OutputFormat string
 
+// OwnerGetClientAppointmentsParams Appointments with the booking channel, internal notes and intake answers.
+type OwnerGetClientAppointmentsParams struct {
+	IncludeCancelled *bool                                        `json:"include_cancelled,omitempty"`
+	SmbToolType      *OwnerGetClientAppointmentsParamsSmbToolType `json:"smb_tool_type,omitempty"`
+}
+
+// OwnerGetClientAppointmentsParamsSmbToolType defines model for OwnerGetClientAppointmentsParams.SmbToolType.
+type OwnerGetClientAppointmentsParamsSmbToolType string
+
+// OwnerListAssetsParams Every owner-editable field, available hours included.
+type OwnerListAssetsParams struct {
+	ListKwargs  *map[string]interface{}           `json:"list_kwargs,omitempty"`
+	SmbToolType *OwnerListAssetsParamsSmbToolType `json:"smb_tool_type,omitempty"`
+}
+
+// OwnerListAssetsParamsSmbToolType defines model for OwnerListAssetsParams.SmbToolType.
+type OwnerListAssetsParamsSmbToolType string
+
+// OwnerListLocationsParams Every location, inactive ones included, with every owner-editable field.
+type OwnerListLocationsParams struct {
+	SmbToolType *OwnerListLocationsParamsSmbToolType `json:"smb_tool_type,omitempty"`
+}
+
+// OwnerListLocationsParamsSmbToolType defines model for OwnerListLocationsParams.SmbToolType.
+type OwnerListLocationsParamsSmbToolType string
+
+// OwnerListProductsParams Every owner-editable field, including what callers must not hear.
+type OwnerListProductsParams struct {
+	ListKwargs  *map[string]interface{}             `json:"list_kwargs,omitempty"`
+	SmbToolType *OwnerListProductsParamsSmbToolType `json:"smb_tool_type,omitempty"`
+}
+
+// OwnerListProductsParamsSmbToolType defines model for OwnerListProductsParams.SmbToolType.
+type OwnerListProductsParamsSmbToolType string
+
+// OwnerListServicesParams Every owner-editable field, including what callers must not hear.
+type OwnerListServicesParams struct {
+	ListKwargs  *map[string]interface{}             `json:"list_kwargs,omitempty"`
+	SmbToolType *OwnerListServicesParamsSmbToolType `json:"smb_tool_type,omitempty"`
+}
+
+// OwnerListServicesParamsSmbToolType defines model for OwnerListServicesParams.SmbToolType.
+type OwnerListServicesParamsSmbToolType string
+
+// OwnerListStaffParams Every owner-editable field, working hours included.
+type OwnerListStaffParams struct {
+	ListKwargs  *map[string]interface{}          `json:"list_kwargs,omitempty"`
+	SmbToolType *OwnerListStaffParamsSmbToolType `json:"smb_tool_type,omitempty"`
+}
+
+// OwnerListStaffParamsSmbToolType defines model for OwnerListStaffParams.SmbToolType.
+type OwnerListStaffParamsSmbToolType string
+
 // PaginatedResultAgentMergeProposalResponse defines model for PaginatedResult_AgentMergeProposalResponse_.
 type PaginatedResultAgentMergeProposalResponse struct {
 	HasMore    *bool                        `json:"has_more,omitempty"`
@@ -37080,6 +37266,9 @@ type PromptAgentAPIModelInput struct {
 	// ReasoningEffort Reasoning effort of the model. Only available for some models.
 	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
 
+	// ServiceTier Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.
+	ServiceTier *LLMServiceTier `json:"service_tier,omitempty"`
+
 	// Temperature The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).
 	Temperature *float32 `json:"temperature,omitempty"`
 
@@ -37156,6 +37345,9 @@ type PromptAgentAPIModelOutput struct {
 
 	// ReasoningEffort Reasoning effort of the model. Only available for some models.
 	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
+
+	// ServiceTier Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.
+	ServiceTier *LLMServiceTier `json:"service_tier,omitempty"`
 
 	// Temperature The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).
 	Temperature *float32 `json:"temperature,omitempty"`
@@ -37297,6 +37489,9 @@ type PromptAgentAPIModelWorkflowOverrideInput struct {
 	// ReasoningEffort Reasoning effort of the model. Only available for some models.
 	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
 
+	// ServiceTier Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.
+	ServiceTier *LLMServiceTier `json:"service_tier,omitempty"`
+
 	// Temperature The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).
 	Temperature *float32 `json:"temperature,omitempty"`
 
@@ -37372,6 +37567,9 @@ type PromptAgentAPIModelWorkflowOverrideOutput struct {
 
 	// ReasoningEffort Reasoning effort of the model. Only available for some models.
 	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
+
+	// ServiceTier Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.
+	ServiceTier *LLMServiceTier `json:"service_tier,omitempty"`
 
 	// Temperature The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).
 	Temperature *float32 `json:"temperature,omitempty"`
@@ -41548,7 +41746,9 @@ type UpdateAgentRuleParamsSmbToolType string
 
 // UpdateAssetParams defines model for UpdateAssetParams.
 type UpdateAssetParams struct {
-	SmbToolType *UpdateAssetParamsSmbToolType `json:"smb_tool_type,omitempty"`
+	// PerResourceTimezones Whether to offer an available_hours timezone, set from the workspace's enable_per_resource_timezones.
+	PerResourceTimezones *bool                         `json:"per_resource_timezones,omitempty"`
+	SmbToolType          *UpdateAssetParamsSmbToolType `json:"smb_tool_type,omitempty"`
 }
 
 // UpdateAssetParamsSmbToolType defines model for UpdateAssetParams.SmbToolType.
@@ -70278,6 +70478,210 @@ func (t *SMBToolConfig_Params) MergeValidateUserVerificationCodeParams(v Validat
 	return err
 }
 
+// AsOwnerListStaffParams returns the union data inside the SMBToolConfig_Params as a OwnerListStaffParams
+func (t SMBToolConfig_Params) AsOwnerListStaffParams() (OwnerListStaffParams, error) {
+	var body OwnerListStaffParams
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOwnerListStaffParams overwrites any union data inside the SMBToolConfig_Params as the provided OwnerListStaffParams
+func (t *SMBToolConfig_Params) FromOwnerListStaffParams(v OwnerListStaffParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_staff"}`))
+	t.union = b
+	return err
+}
+
+// MergeOwnerListStaffParams performs a merge with any union data inside the SMBToolConfig_Params, using the provided OwnerListStaffParams
+func (t *SMBToolConfig_Params) MergeOwnerListStaffParams(v OwnerListStaffParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_staff"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOwnerListAssetsParams returns the union data inside the SMBToolConfig_Params as a OwnerListAssetsParams
+func (t SMBToolConfig_Params) AsOwnerListAssetsParams() (OwnerListAssetsParams, error) {
+	var body OwnerListAssetsParams
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOwnerListAssetsParams overwrites any union data inside the SMBToolConfig_Params as the provided OwnerListAssetsParams
+func (t *SMBToolConfig_Params) FromOwnerListAssetsParams(v OwnerListAssetsParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_assets"}`))
+	t.union = b
+	return err
+}
+
+// MergeOwnerListAssetsParams performs a merge with any union data inside the SMBToolConfig_Params, using the provided OwnerListAssetsParams
+func (t *SMBToolConfig_Params) MergeOwnerListAssetsParams(v OwnerListAssetsParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_assets"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOwnerListLocationsParams returns the union data inside the SMBToolConfig_Params as a OwnerListLocationsParams
+func (t SMBToolConfig_Params) AsOwnerListLocationsParams() (OwnerListLocationsParams, error) {
+	var body OwnerListLocationsParams
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOwnerListLocationsParams overwrites any union data inside the SMBToolConfig_Params as the provided OwnerListLocationsParams
+func (t *SMBToolConfig_Params) FromOwnerListLocationsParams(v OwnerListLocationsParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_locations"}`))
+	t.union = b
+	return err
+}
+
+// MergeOwnerListLocationsParams performs a merge with any union data inside the SMBToolConfig_Params, using the provided OwnerListLocationsParams
+func (t *SMBToolConfig_Params) MergeOwnerListLocationsParams(v OwnerListLocationsParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_locations"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOwnerListServicesParams returns the union data inside the SMBToolConfig_Params as a OwnerListServicesParams
+func (t SMBToolConfig_Params) AsOwnerListServicesParams() (OwnerListServicesParams, error) {
+	var body OwnerListServicesParams
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOwnerListServicesParams overwrites any union data inside the SMBToolConfig_Params as the provided OwnerListServicesParams
+func (t *SMBToolConfig_Params) FromOwnerListServicesParams(v OwnerListServicesParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_services"}`))
+	t.union = b
+	return err
+}
+
+// MergeOwnerListServicesParams performs a merge with any union data inside the SMBToolConfig_Params, using the provided OwnerListServicesParams
+func (t *SMBToolConfig_Params) MergeOwnerListServicesParams(v OwnerListServicesParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_services"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOwnerListProductsParams returns the union data inside the SMBToolConfig_Params as a OwnerListProductsParams
+func (t SMBToolConfig_Params) AsOwnerListProductsParams() (OwnerListProductsParams, error) {
+	var body OwnerListProductsParams
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOwnerListProductsParams overwrites any union data inside the SMBToolConfig_Params as the provided OwnerListProductsParams
+func (t *SMBToolConfig_Params) FromOwnerListProductsParams(v OwnerListProductsParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_products"}`))
+	t.union = b
+	return err
+}
+
+// MergeOwnerListProductsParams performs a merge with any union data inside the SMBToolConfig_Params, using the provided OwnerListProductsParams
+func (t *SMBToolConfig_Params) MergeOwnerListProductsParams(v OwnerListProductsParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_list_products"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsOwnerGetClientAppointmentsParams returns the union data inside the SMBToolConfig_Params as a OwnerGetClientAppointmentsParams
+func (t SMBToolConfig_Params) AsOwnerGetClientAppointmentsParams() (OwnerGetClientAppointmentsParams, error) {
+	var body OwnerGetClientAppointmentsParams
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOwnerGetClientAppointmentsParams overwrites any union data inside the SMBToolConfig_Params as the provided OwnerGetClientAppointmentsParams
+func (t *SMBToolConfig_Params) FromOwnerGetClientAppointmentsParams(v OwnerGetClientAppointmentsParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_get_client_appointments"}`))
+	t.union = b
+	return err
+}
+
+// MergeOwnerGetClientAppointmentsParams performs a merge with any union data inside the SMBToolConfig_Params, using the provided OwnerGetClientAppointmentsParams
+func (t *SMBToolConfig_Params) MergeOwnerGetClientAppointmentsParams(v OwnerGetClientAppointmentsParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"owner_get_client_appointments"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 func (t SMBToolConfig_Params) Discriminator() (string, error) {
 	var discriminator struct {
 		Discriminator string `json:"smb_tool_type"`
@@ -70416,6 +70820,18 @@ func (t SMBToolConfig_Params) ValueByDiscriminator() (interface{}, error) {
 		return t.AsOptInSmsReminderParams()
 	case "opt_out_sms_reminder":
 		return t.AsOptOutSmsReminderParams()
+	case "owner_get_client_appointments":
+		return t.AsOwnerGetClientAppointmentsParams()
+	case "owner_list_assets":
+		return t.AsOwnerListAssetsParams()
+	case "owner_list_locations":
+		return t.AsOwnerListLocationsParams()
+	case "owner_list_products":
+		return t.AsOwnerListProductsParams()
+	case "owner_list_services":
+		return t.AsOwnerListServicesParams()
+	case "owner_list_staff":
+		return t.AsOwnerListStaffParams()
 	case "register_for_group_session":
 		return t.AsRegisterForGroupSessionParams()
 	case "report_knowledge_gap":
