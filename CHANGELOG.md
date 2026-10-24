@@ -2,6 +2,14 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.5.1, 2026-10-24
+
+- Adds the `AgentDefinitionSourceArchitect` value. `AgentDefinitionSource.Valid` now accepts `"architect"`.
+- Adds `MobileFullscreen` to `WidgetConfigInput`, `WidgetConfigOutput` and `WidgetConfigResponseModel`.
+- Marks the dubbing operations `ListDubs`, `CreateDubbing`, `DeleteDubbing`, `GetDubbedMetadata`, `GetDubbedFile` and `GetDubbingTranscripts` as deprecated upstream, along with their `WithResponse` variants and `CreateDubbingMultipartRequestBody`. The methods still work.
+- Updates the doc comment on the agent duplicate methods: the new agent now gets a copy of the live traffic split, with any share held by an uncopied branch moved to main.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.5.0, 2026-10-23
 
 - Breaking: `OwnerView` is removed from `ListProductsParams` and `ListServicesParams`. Callers that set it must change their code. The owner listings now use the new `OwnerListProductsParams` and `OwnerListServicesParams` tool types.

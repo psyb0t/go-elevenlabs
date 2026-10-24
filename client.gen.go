@@ -882,17 +882,20 @@ func (e AgentConversationTicketStatus) Valid() bool {
 
 // Defines values for AgentDefinitionSource.
 const (
-	AgentDefinitionSourceApi      AgentDefinitionSource = "api"
-	AgentDefinitionSourceCli      AgentDefinitionSource = "cli"
-	AgentDefinitionSourceTemplate AgentDefinitionSource = "template"
-	AgentDefinitionSourceUi       AgentDefinitionSource = "ui"
-	AgentDefinitionSourceUnknown  AgentDefinitionSource = "unknown"
+	AgentDefinitionSourceApi       AgentDefinitionSource = "api"
+	AgentDefinitionSourceArchitect AgentDefinitionSource = "architect"
+	AgentDefinitionSourceCli       AgentDefinitionSource = "cli"
+	AgentDefinitionSourceTemplate  AgentDefinitionSource = "template"
+	AgentDefinitionSourceUi        AgentDefinitionSource = "ui"
+	AgentDefinitionSourceUnknown   AgentDefinitionSource = "unknown"
 )
 
 // Valid indicates whether the value is a known member of the AgentDefinitionSource enum.
 func (e AgentDefinitionSource) Valid() bool {
 	switch e {
 	case AgentDefinitionSourceApi:
+		return true
+	case AgentDefinitionSourceArchitect:
 		return true
 	case AgentDefinitionSourceCli:
 		return true
@@ -43797,6 +43800,9 @@ type WidgetConfigInput struct {
 	// MicMutingEnabled Whether to enable mic muting
 	MicMutingEnabled *bool `json:"mic_muting_enabled,omitempty"`
 
+	// MobileFullscreen Whether the widget opens fullscreen on mobile
+	MobileFullscreen *bool `json:"mobile_fullscreen,omitempty"`
+
 	// OverrideLink The override link for the widget
 	OverrideLink *string `json:"override_link,omitempty"`
 
@@ -43958,6 +43964,9 @@ type WidgetConfigOutput struct {
 	// MicMutingEnabled Whether to enable mic muting
 	MicMutingEnabled *bool `json:"mic_muting_enabled,omitempty"`
 
+	// MobileFullscreen Whether the widget opens fullscreen on mobile
+	MobileFullscreen *bool `json:"mobile_fullscreen,omitempty"`
+
 	// OverrideLink The override link for the widget
 	OverrideLink *string `json:"override_link,omitempty"`
 
@@ -44117,6 +44126,9 @@ type WidgetConfigResponseModel struct {
 
 	// MicMutingEnabled Whether to enable mic muting
 	MicMutingEnabled *bool `json:"mic_muting_enabled,omitempty"`
+
+	// MobileFullscreen Whether the widget opens fullscreen on mobile
+	MobileFullscreen *bool `json:"mobile_fullscreen,omitempty"`
 
 	// OverrideLink The override link for the widget
 	OverrideLink *string `json:"override_link,omitempty"`
@@ -49904,6 +49916,8 @@ type WhatsappOutboundCallJSONRequestBody = BodyMakeAnOutboundCallViaWhatsAppV1Co
 type WhatsappOutboundMessageJSONRequestBody = BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePost
 
 // CreateDubbingMultipartRequestBody defines body for CreateDubbing for multipart/form-data ContentType.
+//
+// Deprecated: this type has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 type CreateDubbingMultipartRequestBody = BodyDubAVideoOrAnAudioFileV1DubbingPost
 
 // DubbingProjectCreateMultipartRequestBody defines body for DubbingProjectCreate for multipart/form-data ContentType.
@@ -81000,7 +81014,7 @@ type ClientInterface interface {
 
 	// DuplicateAgentRouteWithBody Duplicate Agent
 	//
-	// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. Version history, drafts, archived branches and traffic deployments are not copied, so the new agent routes all traffic to its main branch.
+	// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. The live traffic split is copied onto the new branches, with any share held by a branch that was not copied moved to main. Version history, drafts, archived branches, past traffic splits and experiments are not copied.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -81009,7 +81023,7 @@ type ClientInterface interface {
 
 	// DuplicateAgentRoute Duplicate Agent
 	//
-	// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. Version history, drafts, archived branches and traffic deployments are not copied, so the new agent routes all traffic to its main branch.
+	// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. The live traffic split is copied onto the new branches, with any share held by a branch that was not copied moved to main. Version history, drafts, archived branches, past traffic splits and experiments are not copied.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -82785,6 +82799,8 @@ type ClientInterface interface {
 	// List the dubs you have access to.
 	//
 	// Corresponds with GET /v1/dubbing (the `ListDubs` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	ListDubs(ctx context.Context, params *ListDubsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CreateDubbingWithBody Dub A Video Or An Audio File
@@ -82794,6 +82810,8 @@ type ClientInterface interface {
 	// Takes any type of body and a specified content type.
 	//
 	// Corresponds with POST /v1/dubbing (the `CreateDubbing` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	CreateDubbingWithBody(ctx context.Context, params *CreateDubbingParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// DubbingProjectList List Dubbing Projects
@@ -83249,6 +83267,8 @@ type ClientInterface interface {
 	// Deletes a dubbing project.
 	//
 	// Corresponds with DELETE /v1/dubbing/{dubbing_id} (the `DeleteDubbing` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	DeleteDubbing(ctx context.Context, dubbingId string, params *DeleteDubbingParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetDubbedMetadata Get Dubbing
@@ -83256,6 +83276,8 @@ type ClientInterface interface {
 	// Returns metadata about a dubbing project, including whether it's still in progress or not
 	//
 	// Corresponds with GET /v1/dubbing/{dubbing_id} (the `GetDubbedMetadata` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	GetDubbedMetadata(ctx context.Context, dubbingId string, params *GetDubbedMetadataParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetDubbedFile Get Dubbed File
@@ -83263,6 +83285,8 @@ type ClientInterface interface {
 	// Returns dub as a streamed MP3 or MP4 file. If this dub has been edited using Dubbing Studio you need to use the resource render endpoint as this endpoint only returns the original automatic dub result.
 	//
 	// Corresponds with GET /v1/dubbing/{dubbing_id}/audio/{language_code} (the `GetDubbedFile` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	GetDubbedFile(ctx context.Context, dubbingId string, languageCode string, params *GetDubbedFileParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetDubbedTranscriptFile Get Dubbed Transcript
@@ -83279,6 +83303,8 @@ type ClientInterface interface {
 	// Fetch the transcript for one of the languages in a dub.
 	//
 	// Corresponds with GET /v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type} (the `GetDubbingTranscripts` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	GetDubbingTranscripts(ctx context.Context, dubbingId string, languageCode string, formatType GetDubbingTranscriptsParamsFormatType, params *GetDubbingTranscriptsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ListImageGenerations List Image Generations
@@ -86620,7 +86646,7 @@ func (c *Client) CreateAgentDraftRoute(ctx context.Context, agentId string, para
 
 // DuplicateAgentRouteWithBody Duplicate Agent
 //
-// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. Version history, drafts, archived branches and traffic deployments are not copied, so the new agent routes all traffic to its main branch.
+// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. The live traffic split is copied onto the new branches, with any share held by a branch that was not copied moved to main. Version history, drafts, archived branches, past traffic splits and experiments are not copied.
 //
 // Takes any type of body and a specified content type.
 //
@@ -86639,7 +86665,7 @@ func (c *Client) DuplicateAgentRouteWithBody(ctx context.Context, agentId string
 
 // DuplicateAgentRoute Duplicate Agent
 //
-// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. Version history, drafts, archived branches and traffic deployments are not copied, so the new agent routes all traffic to its main branch.
+// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. The live traffic split is copied onto the new branches, with any share held by a branch that was not copied moved to main. Version history, drafts, archived branches, past traffic splits and experiments are not copied.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -90557,6 +90583,7 @@ func (c *Client) WhatsappOutboundMessage(ctx context.Context, params *WhatsappOu
 // List the dubs you have access to.
 //
 // Corresponds with GET /v1/dubbing (the `ListDubs` operationId).
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *Client) ListDubs(ctx context.Context, params *ListDubsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewListDubsRequest(c.Server, params)
 	if err != nil {
@@ -90576,6 +90603,7 @@ func (c *Client) ListDubs(ctx context.Context, params *ListDubsParams, reqEditor
 // Takes any type of body and a specified content type.
 //
 // Corresponds with POST /v1/dubbing (the `CreateDubbing` operationId).
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *Client) CreateDubbingWithBody(ctx context.Context, params *CreateDubbingParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCreateDubbingRequestWithBody(c.Server, params, contentType, body)
 	if err != nil {
@@ -91478,6 +91506,7 @@ func (c *Client) Translate(ctx context.Context, dubbingId string, params *Transl
 // Deletes a dubbing project.
 //
 // Corresponds with DELETE /v1/dubbing/{dubbing_id} (the `DeleteDubbing` operationId).
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *Client) DeleteDubbing(ctx context.Context, dubbingId string, params *DeleteDubbingParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewDeleteDubbingRequest(c.Server, dubbingId, params)
 	if err != nil {
@@ -91495,6 +91524,7 @@ func (c *Client) DeleteDubbing(ctx context.Context, dubbingId string, params *De
 // # Returns metadata about a dubbing project, including whether it's still in progress or not
 //
 // Corresponds with GET /v1/dubbing/{dubbing_id} (the `GetDubbedMetadata` operationId).
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *Client) GetDubbedMetadata(ctx context.Context, dubbingId string, params *GetDubbedMetadataParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetDubbedMetadataRequest(c.Server, dubbingId, params)
 	if err != nil {
@@ -91512,6 +91542,7 @@ func (c *Client) GetDubbedMetadata(ctx context.Context, dubbingId string, params
 // Returns dub as a streamed MP3 or MP4 file. If this dub has been edited using Dubbing Studio you need to use the resource render endpoint as this endpoint only returns the original automatic dub result.
 //
 // Corresponds with GET /v1/dubbing/{dubbing_id}/audio/{language_code} (the `GetDubbedFile` operationId).
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *Client) GetDubbedFile(ctx context.Context, dubbingId string, languageCode string, params *GetDubbedFileParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetDubbedFileRequest(c.Server, dubbingId, languageCode, params)
 	if err != nil {
@@ -91547,6 +91578,7 @@ func (c *Client) GetDubbedTranscriptFile(ctx context.Context, dubbingId string, 
 // Fetch the transcript for one of the languages in a dub.
 //
 // Corresponds with GET /v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type} (the `GetDubbingTranscripts` operationId).
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *Client) GetDubbingTranscripts(ctx context.Context, dubbingId string, languageCode string, formatType GetDubbingTranscriptsParamsFormatType, params *GetDubbingTranscriptsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetDubbingTranscriptsRequest(c.Server, dubbingId, languageCode, formatType, params)
 	if err != nil {
@@ -126514,7 +126546,7 @@ type ClientWithResponsesInterface interface {
 
 	// DuplicateAgentRouteWithBodyWithResponse Duplicate Agent
 	//
-	// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. Version history, drafts, archived branches and traffic deployments are not copied, so the new agent routes all traffic to its main branch.
+	// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. The live traffic split is copied onto the new branches, with any share held by a branch that was not copied moved to main. Version history, drafts, archived branches, past traffic splits and experiments are not copied.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -126523,7 +126555,7 @@ type ClientWithResponsesInterface interface {
 
 	// DuplicateAgentRouteWithResponse Duplicate Agent
 	//
-	// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. Version history, drafts, archived branches and traffic deployments are not copied, so the new agent routes all traffic to its main branch.
+	// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. The live traffic split is copied onto the new branches, with any share held by a branch that was not copied moved to main. Version history, drafts, archived branches, past traffic splits and experiments are not copied.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -128479,6 +128511,8 @@ type ClientWithResponsesInterface interface {
 	// Returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with GET /v1/dubbing (the `ListDubs` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	ListDubsWithResponse(ctx context.Context, params *ListDubsParams, reqEditors ...RequestEditorFn) (*ListDubsResponse, error)
 
 	// CreateDubbingWithBodyWithResponse Dub A Video Or An Audio File
@@ -128488,6 +128522,8 @@ type ClientWithResponsesInterface interface {
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /v1/dubbing (the `CreateDubbing` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	CreateDubbingWithBodyWithResponse(ctx context.Context, params *CreateDubbingParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateDubbingResponse, error)
 
 	// DubbingProjectListWithResponse List Dubbing Projects
@@ -128971,6 +129007,8 @@ type ClientWithResponsesInterface interface {
 	// Returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with DELETE /v1/dubbing/{dubbing_id} (the `DeleteDubbing` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	DeleteDubbingWithResponse(ctx context.Context, dubbingId string, params *DeleteDubbingParams, reqEditors ...RequestEditorFn) (*DeleteDubbingResponse, error)
 
 	// GetDubbedMetadataWithResponse Get Dubbing
@@ -128980,6 +129018,8 @@ type ClientWithResponsesInterface interface {
 	// Returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with GET /v1/dubbing/{dubbing_id} (the `GetDubbedMetadata` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	GetDubbedMetadataWithResponse(ctx context.Context, dubbingId string, params *GetDubbedMetadataParams, reqEditors ...RequestEditorFn) (*GetDubbedMetadataResponse, error)
 
 	// GetDubbedFileWithResponse Get Dubbed File
@@ -128989,6 +129029,8 @@ type ClientWithResponsesInterface interface {
 	// Returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with GET /v1/dubbing/{dubbing_id}/audio/{language_code} (the `GetDubbedFile` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	GetDubbedFileWithResponse(ctx context.Context, dubbingId string, languageCode string, params *GetDubbedFileParams, reqEditors ...RequestEditorFn) (*GetDubbedFileResponse, error)
 
 	// GetDubbedTranscriptFileWithResponse Get Dubbed Transcript
@@ -129009,6 +129051,8 @@ type ClientWithResponsesInterface interface {
 	// Returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with GET /v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type} (the `GetDubbingTranscripts` operationId).
+	//
+	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	GetDubbingTranscriptsWithResponse(ctx context.Context, dubbingId string, languageCode string, formatType GetDubbingTranscriptsParamsFormatType, params *GetDubbingTranscriptsParams, reqEditors ...RequestEditorFn) (*GetDubbingTranscriptsResponse, error)
 
 	// ListImageGenerationsWithResponse List Image Generations
@@ -152232,7 +152276,7 @@ func (c *ClientWithResponses) CreateAgentDraftRouteWithResponse(ctx context.Cont
 
 // DuplicateAgentRouteWithBodyWithResponse Duplicate Agent
 //
-// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. Version history, drafts, archived branches and traffic deployments are not copied, so the new agent routes all traffic to its main branch.
+// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. The live traffic split is copied onto the new branches, with any share held by a branch that was not copied moved to main. Version history, drafts, archived branches, past traffic splits and experiments are not copied.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -152247,7 +152291,7 @@ func (c *ClientWithResponses) DuplicateAgentRouteWithBodyWithResponse(ctx contex
 
 // DuplicateAgentRouteWithResponse Duplicate Agent
 //
-// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. Version history, drafts, archived branches and traffic deployments are not copied, so the new agent routes all traffic to its main branch.
+// Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. The live traffic split is copied onto the new branches, with any share held by a branch that was not copied moved to main. Version history, drafts, archived branches, past traffic splits and experiments are not copied.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -155490,6 +155534,8 @@ func (c *ClientWithResponses) WhatsappOutboundMessageWithResponse(ctx context.Co
 // Returns a wrapper object for the known response body format(s).
 //
 // Corresponds with GET /v1/dubbing (the `ListDubs` operationId).
+//
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *ClientWithResponses) ListDubsWithResponse(ctx context.Context, params *ListDubsParams, reqEditors ...RequestEditorFn) (*ListDubsResponse, error) {
 	rsp, err := c.ListDubs(ctx, params, reqEditors...)
 	if err != nil {
@@ -155505,6 +155551,8 @@ func (c *ClientWithResponses) ListDubsWithResponse(ctx context.Context, params *
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with POST /v1/dubbing (the `CreateDubbing` operationId).
+//
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *ClientWithResponses) CreateDubbingWithBodyWithResponse(ctx context.Context, params *CreateDubbingParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateDubbingResponse, error) {
 	rsp, err := c.CreateDubbingWithBody(ctx, params, contentType, body, reqEditors...)
 	if err != nil {
@@ -156260,6 +156308,8 @@ func (c *ClientWithResponses) TranslateWithResponse(ctx context.Context, dubbing
 // Returns a wrapper object for the known response body format(s).
 //
 // Corresponds with DELETE /v1/dubbing/{dubbing_id} (the `DeleteDubbing` operationId).
+//
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *ClientWithResponses) DeleteDubbingWithResponse(ctx context.Context, dubbingId string, params *DeleteDubbingParams, reqEditors ...RequestEditorFn) (*DeleteDubbingResponse, error) {
 	rsp, err := c.DeleteDubbing(ctx, dubbingId, params, reqEditors...)
 	if err != nil {
@@ -156275,6 +156325,8 @@ func (c *ClientWithResponses) DeleteDubbingWithResponse(ctx context.Context, dub
 // Returns a wrapper object for the known response body format(s).
 //
 // Corresponds with GET /v1/dubbing/{dubbing_id} (the `GetDubbedMetadata` operationId).
+//
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *ClientWithResponses) GetDubbedMetadataWithResponse(ctx context.Context, dubbingId string, params *GetDubbedMetadataParams, reqEditors ...RequestEditorFn) (*GetDubbedMetadataResponse, error) {
 	rsp, err := c.GetDubbedMetadata(ctx, dubbingId, params, reqEditors...)
 	if err != nil {
@@ -156290,6 +156342,8 @@ func (c *ClientWithResponses) GetDubbedMetadataWithResponse(ctx context.Context,
 // Returns a wrapper object for the known response body format(s).
 //
 // Corresponds with GET /v1/dubbing/{dubbing_id}/audio/{language_code} (the `GetDubbedFile` operationId).
+//
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *ClientWithResponses) GetDubbedFileWithResponse(ctx context.Context, dubbingId string, languageCode string, params *GetDubbedFileParams, reqEditors ...RequestEditorFn) (*GetDubbedFileResponse, error) {
 	rsp, err := c.GetDubbedFile(ctx, dubbingId, languageCode, params, reqEditors...)
 	if err != nil {
@@ -156322,6 +156376,8 @@ func (c *ClientWithResponses) GetDubbedTranscriptFileWithResponse(ctx context.Co
 // Returns a wrapper object for the known response body format(s).
 //
 // Corresponds with GET /v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type} (the `GetDubbingTranscripts` operationId).
+//
+// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 func (c *ClientWithResponses) GetDubbingTranscriptsWithResponse(ctx context.Context, dubbingId string, languageCode string, formatType GetDubbingTranscriptsParamsFormatType, params *GetDubbingTranscriptsParams, reqEditors ...RequestEditorFn) (*GetDubbingTranscriptsResponse, error) {
 	rsp, err := c.GetDubbingTranscripts(ctx, dubbingId, languageCode, formatType, params, reqEditors...)
 	if err != nil {
