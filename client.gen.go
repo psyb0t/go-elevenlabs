@@ -2665,6 +2665,24 @@ func (e BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeys
 	}
 }
 
+// Defines values for BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1.
+const (
+	BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1Clear    BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 = "clear"
+	BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1NoUpdate BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 = "no_update"
+)
+
+// Valid indicates whether the value is a known member of the BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 enum.
+func (e BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1) Valid() bool {
+	switch e {
+	case BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1Clear:
+		return true
+	case BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1NoUpdate:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchIsEnabled1.
 const (
 	BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchIsEnabled1NoUpdate BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchIsEnabled1 = "no_update"
@@ -22349,10 +22367,6 @@ type AuthorizationMethod string
 
 // AutoSyncInfo defines model for AutoSyncInfo.
 type AutoSyncInfo struct {
-	// AutoDiscover Deprecated. This field no longer has any effect and will be removed in a future release.
-	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
-	AutoDiscover *bool `json:"auto_discover,omitempty"`
-
 	// AutoRemove Whether to remove the document if the URL becomes unavailable
 	AutoRemove *bool `json:"auto_remove,omitempty"`
 
@@ -25271,6 +25285,11 @@ type BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysP
 	// DubbingConcurrencyLimit Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.
 	DubbingConcurrencyLimit *int `json:"dubbing_concurrency_limit,omitempty"`
 
+	// ExpiresAtUnix Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).
+	//
+	// Examples: 1735689600
+	ExpiresAtUnix *int `json:"expires_at_unix,omitempty"`
+
 	// MusicConcurrencyLimit Maximum concurrent music generation requests for this API key. Only available for enterprise customers.
 	MusicConcurrencyLimit *int   `json:"music_concurrency_limit,omitempty"`
 	Name                  string `json:"name"`
@@ -25313,6 +25332,11 @@ type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApi
 
 	// DubbingConcurrencyLimit Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.
 	DubbingConcurrencyLimit *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_DubbingConcurrencyLimit `json:"dubbing_concurrency_limit,omitempty"`
+
+	// ExpiresAtUnix Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).
+	//
+	// Examples: 1735689600
+	ExpiresAtUnix *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix `json:"expires_at_unix,omitempty"`
 
 	// IsEnabled Whether to enable or disable the API key.
 	IsEnabled *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_IsEnabled `json:"is_enabled,omitempty"`
@@ -25365,6 +25389,19 @@ type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApi
 
 // BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_DubbingConcurrencyLimit Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.
 type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_DubbingConcurrencyLimit struct {
+	union json.RawMessage
+}
+
+// BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0 defines model for BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch.ExpiresAtUnix.0.
+type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0 = int
+
+// BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 defines model for BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch.ExpiresAtUnix.1.
+type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 string
+
+// BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).
+//
+// Examples: 1735689600
+type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix struct {
 	union json.RawMessage
 }
 
@@ -45108,9 +45145,12 @@ type WorkspaceApiKeyResponseModel struct {
 	CharacterCount *int `json:"character_count,omitempty"`
 
 	// CharacterLimit Maximum number of credits allowed in the current billing period.
-	CharacterLimit *int              `json:"character_limit,omitempty"`
-	CreatedAtUnix  *int              `json:"created_at_unix,omitempty"`
-	DisableReason  *LockReason       `json:"disable_reason,omitempty"`
+	CharacterLimit *int        `json:"character_limit,omitempty"`
+	CreatedAtUnix  *int        `json:"created_at_unix,omitempty"`
+	DisableReason  *LockReason `json:"disable_reason,omitempty"`
+
+	// ExpiresAtUnix Unix timestamp (seconds) after which this API key stops working. Null means the key never expires.
+	ExpiresAtUnix  *int              `json:"expires_at_unix,omitempty"`
 	HashedXiApiKey string            `json:"hashed_xi_api_key"`
 	Hint           string            `json:"hint"`
 	IsDisabled     *bool             `json:"is_disabled,omitempty"`
@@ -46636,6 +46676,12 @@ type CreateEnvironmentVariableJSONBody struct {
 
 // CreateEnvironmentVariableParams defines parameters for CreateEnvironmentVariable.
 type CreateEnvironmentVariableParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// DeleteEnvironmentVariableParams defines parameters for DeleteEnvironmentVariable.
+type DeleteEnvironmentVariableParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -55212,6 +55258,68 @@ func (t BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeys
 }
 
 func (t *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_DubbingConcurrencyLimit) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0 returns the union data inside the BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix as a BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0
+func (t BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix) AsBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0() (BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0, error) {
+	var body BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0 overwrites any union data inside the BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix as the provided BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0
+func (t *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix) FromBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0(v BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0 performs a merge with any union data inside the BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix, using the provided BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0
+func (t *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix) MergeBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0(v BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 returns the union data inside the BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix as a BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1
+func (t BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix) AsBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1() (BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1, error) {
+	var body BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 overwrites any union data inside the BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix as the provided BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1
+func (t *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix) FromBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1(v BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 performs a merge with any union data inside the BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix, using the provided BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1
+func (t *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix) MergeBodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1(v BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -81552,6 +81660,13 @@ type ClientInterface interface {
 	// Corresponds with POST /v1/convai/environment-variables (the `CreateEnvironmentVariable` operationId).
 	CreateEnvironmentVariable(ctx context.Context, params *CreateEnvironmentVariableParams, body CreateEnvironmentVariableJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// DeleteEnvironmentVariable Delete Environment Variable
+	//
+	// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
+	//
+	// Corresponds with DELETE /v1/convai/environment-variables/{env_var_id} (the `DeleteEnvironmentVariable` operationId).
+	DeleteEnvironmentVariable(ctx context.Context, envVarId string, params *DeleteEnvironmentVariableParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetEnvironmentVariable Get Environment Variable
 	//
 	// Get a specific environment variable by ID.
@@ -82599,7 +82714,7 @@ type ClientInterface interface {
 
 	// UpdateAgentConversationTicketRouteWithBody Update Agent Conversation Ticket
 	//
-	// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+	// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -82608,7 +82723,7 @@ type ClientInterface interface {
 
 	// UpdateAgentConversationTicketRoute Update Agent Conversation Ticket
 	//
-	// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+	// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -87839,6 +87954,23 @@ func (c *Client) CreateEnvironmentVariable(ctx context.Context, params *CreateEn
 	return c.Client.Do(req)
 }
 
+// DeleteEnvironmentVariable Delete Environment Variable
+//
+// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
+//
+// Corresponds with DELETE /v1/convai/environment-variables/{env_var_id} (the `DeleteEnvironmentVariable` operationId).
+func (c *Client) DeleteEnvironmentVariable(ctx context.Context, envVarId string, params *DeleteEnvironmentVariableParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteEnvironmentVariableRequest(c.Server, envVarId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // GetEnvironmentVariable Get Environment Variable
 //
 // Get a specific environment variable by ID.
@@ -90153,7 +90285,7 @@ func (c *Client) GetAgentConversationTicketRoute(ctx context.Context, agentqaTic
 
 // UpdateAgentConversationTicketRouteWithBody Update Agent Conversation Ticket
 //
-// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
 //
 // Takes any type of body and a specified content type.
 //
@@ -90172,7 +90304,7 @@ func (c *Client) UpdateAgentConversationTicketRouteWithBody(ctx context.Context,
 
 // UpdateAgentConversationTicketRoute Update Agent Conversation Ticket
 //
-// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -104418,6 +104550,55 @@ func NewCreateEnvironmentVariableRequestWithBody(server string, params *CreateEn
 	}
 
 	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewDeleteEnvironmentVariableRequest constructs an http.Request for the DeleteEnvironmentVariable method
+func NewDeleteEnvironmentVariableRequest(server string, envVarId string, params *DeleteEnvironmentVariableParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "env_var_id", envVarId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/environment-variables/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
 
 	if params != nil {
 
@@ -127148,6 +127329,15 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /v1/convai/environment-variables (the `CreateEnvironmentVariable` operationId).
 	CreateEnvironmentVariableWithResponse(ctx context.Context, params *CreateEnvironmentVariableParams, body CreateEnvironmentVariableJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateEnvironmentVariableResponse, error)
 
+	// DeleteEnvironmentVariableWithResponse Delete Environment Variable
+	//
+	// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/convai/environment-variables/{env_var_id} (the `DeleteEnvironmentVariable` operationId).
+	DeleteEnvironmentVariableWithResponse(ctx context.Context, envVarId string, params *DeleteEnvironmentVariableParams, reqEditors ...RequestEditorFn) (*DeleteEnvironmentVariableResponse, error)
+
 	// GetEnvironmentVariableWithResponse Get Environment Variable
 	//
 	// Get a specific environment variable by ID.
@@ -128299,7 +128489,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateAgentConversationTicketRouteWithBodyWithResponse Update Agent Conversation Ticket
 	//
-	// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+	// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -128308,7 +128498,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateAgentConversationTicketRouteWithResponse Update Agent Conversation Ticket
 	//
-	// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+	// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -136164,6 +136354,47 @@ func (r CreateEnvironmentVariableResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r CreateEnvironmentVariableResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type DeleteEnvironmentVariableResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r DeleteEnvironmentVariableResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r DeleteEnvironmentVariableResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r DeleteEnvironmentVariableResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeleteEnvironmentVariableResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r DeleteEnvironmentVariableResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -153272,6 +153503,21 @@ func (c *ClientWithResponses) CreateEnvironmentVariableWithResponse(ctx context.
 	return ParseCreateEnvironmentVariableResponse(rsp)
 }
 
+// DeleteEnvironmentVariableWithResponse Delete Environment Variable
+//
+// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/convai/environment-variables/{env_var_id} (the `DeleteEnvironmentVariable` operationId).
+func (c *ClientWithResponses) DeleteEnvironmentVariableWithResponse(ctx context.Context, envVarId string, params *DeleteEnvironmentVariableParams, reqEditors ...RequestEditorFn) (*DeleteEnvironmentVariableResponse, error) {
+	rsp, err := c.DeleteEnvironmentVariable(ctx, envVarId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteEnvironmentVariableResponse(rsp)
+}
+
 // GetEnvironmentVariableWithResponse Get Environment Variable
 //
 // Get a specific environment variable by ID.
@@ -155184,7 +155430,7 @@ func (c *ClientWithResponses) GetAgentConversationTicketRouteWithResponse(ctx co
 
 // UpdateAgentConversationTicketRouteWithBodyWithResponse Update Agent Conversation Ticket
 //
-// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -155199,7 +155445,7 @@ func (c *ClientWithResponses) UpdateAgentConversationTicketRouteWithBodyWithResp
 
 // UpdateAgentConversationTicketRouteWithResponse Update Agent Conversation Ticket
 //
-// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -163422,6 +163668,41 @@ func ParseCreateEnvironmentVariableResponse(rsp *http.Response) (*CreateEnvironm
 		response.JSON200 = &dest
 
 	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case rsp.StatusCode == 409:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDeleteEnvironmentVariableResponse parses an HTTP response from a DeleteEnvironmentVariableWithResponse call
+func ParseDeleteEnvironmentVariableResponse(rsp *http.Response) (*DeleteEnvironmentVariableResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeleteEnvironmentVariableResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 204:
+		break // No content-type
+
+	case rsp.StatusCode == 404:
 		break // No content-type
 
 	case rsp.StatusCode == 409:

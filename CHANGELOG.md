@@ -2,6 +2,15 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.6.0, 2026-10-27
+
+- Breaking: `AutoDiscover` is removed from `AutoSyncInfo`. Upstream had marked it deprecated with no effect. Callers that set it must change their code.
+- Breaking: `ClientInterface` gains `DeleteEnvironmentVariable` and `ClientWithResponsesInterface` gains `DeleteEnvironmentVariableWithResponse`. Custom implementations or mocks of these interfaces must add the methods.
+- Adds `DeleteEnvironmentVariable` to `Client` and `DeleteEnvironmentVariableWithResponse` to `ClientWithResponses`. The call is DELETE `/v1/convai/environment-variables/{env_var_id}`.
+- Adds `DeleteEnvironmentVariableParams`, `DeleteEnvironmentVariableResponse`, `NewDeleteEnvironmentVariableRequest` and `ParseDeleteEnvironmentVariableResponse`.
+- Adds `ExpiresAtUnix` to `BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPost`, `BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch` and `WorkspaceApiKeyResponseModel`. On update it is a union type, `BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix`, that takes an integer or the `Clear` and `NoUpdate` values.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.5.1, 2026-10-24
 
 - Adds the `AgentDefinitionSourceArchitect` value. `AgentDefinitionSource.Valid` now accepts `"architect"`.
