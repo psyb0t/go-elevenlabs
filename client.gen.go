@@ -43634,6 +43634,7 @@ type WhatsAppCallPermissionRequestState string
 type WhatsAppConversationInfo struct {
 	AwaitingFirstUserMessage *bool                              `json:"awaiting_first_user_message,omitempty"`
 	CallPermissionRequest    *WhatsAppCallPermissionRequest     `json:"call_permission_request,omitempty"`
+	CallResult               *CallResult                        `json:"call_result,omitempty"`
 	Direction                *WhatsAppConversationInfoDirection `json:"direction,omitempty"`
 	Recipient                *WhatsAppRecipient                 `json:"recipient,omitempty"`
 	WhatsappPhoneNumberId    *string                            `json:"whatsapp_phone_number_id,omitempty"`

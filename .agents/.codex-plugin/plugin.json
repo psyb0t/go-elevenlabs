@@ -1,6 +1,6 @@
 {
   "name": "go-elevenlabs",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Unofficial Go client for the ElevenLabs REST API, generated with oapi-codegen, with one typed method per endpoint.",
   "author": { "name": "psyb0t", "url": "https://github.com/psyb0t" },
   "homepage": "https://github.com/psyb0t/go-elevenlabs",
