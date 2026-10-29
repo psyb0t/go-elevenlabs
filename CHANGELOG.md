@@ -2,6 +2,16 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.6.4, 2026-10-29
+
+- Adds the SMB (small business) API: `Client` and `ClientWithResponses` get `Smb...` methods, each with a `...WithResponse` variant, for agent info (`SmbGetAgentInfo`, `SmbUpdateAgentInfo`), services (`SmbListServices`, `SmbCreateService`, `SmbGetService`, `SmbUpdateService`, `SmbDeleteService`, `SmbConfirmServiceUpdate`), locations, staff members, holidays and knowledge sources (`SmbAddUrlSource`, `SmbUploadKnowledgeSourceWithBody`, `SmbListKnowledgeSources`, `SmbGetKnowledgeSource`, `SmbDeleteKnowledgeSource`).
+- Adds reseller methods: `SmbListResellerWorkspaces`, `SmbResellerProvisionWorkspace`, `SmbListResellerTierLadder`, `SmbAssignResellerTier`, `SmbChangeResellerTier`, `SmbUnassignResellerTier`, `SmbCancelResellerPendingDowngrade` and `SmbRestoreResellerSubscription`.
+- Adds the request, response and enum types for these endpoints, such as `SMBAddOn`, `SMBAgentInfoResponse`, `HolidayResponseModel`, `LocationResponse`, `ResellerWorkspaceSummary`, `ProvisionResellerWorkspaceRequest`, `KnowledgeSourceStatus`, `IngestFailure` and `PricingMode`.
+- Adds the fields `AutoRemove`, `EnableAutoSync`, `MinimumFrequencyDays` and `TightenOnly` to `BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch`, and `QaComment` to `PatchAgentConversationTicketRequestModel`.
+- Adds the constants `LLMGpt61Terra` and `PermissionTypeAgentsArchitect`.
+- The `ClientInterface` and `ClientWithResponsesInterface` interfaces gain the new methods, so custom implementations or mocks of them must add the new methods.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.6.3, 2026-10-28
 
 - Adds the optional `CallResult` field (`*CallResult`) to `WhatsAppConversationInfo`.

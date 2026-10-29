@@ -1501,6 +1501,24 @@ func (e AssetTranscriptionStatus) Valid() bool {
 	}
 }
 
+// Defines values for AssignResellerTierRequestBillingPeriod.
+const (
+	AssignResellerTierRequestBillingPeriodAnnualPeriod  AssignResellerTierRequestBillingPeriod = "annual_period"
+	AssignResellerTierRequestBillingPeriodMonthlyPeriod AssignResellerTierRequestBillingPeriod = "monthly_period"
+)
+
+// Valid indicates whether the value is a known member of the AssignResellerTierRequestBillingPeriod enum.
+func (e AssignResellerTierRequestBillingPeriod) Valid() bool {
+	switch e {
+	case AssignResellerTierRequestBillingPeriodAnnualPeriod:
+		return true
+	case AssignResellerTierRequestBillingPeriodMonthlyPeriod:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AsyncConversationMetadataDeliveryStatus.
 const (
 	AsyncConversationMetadataDeliveryStatusFailed  AsyncConversationMetadataDeliveryStatus = "failed"
@@ -8938,6 +8956,24 @@ func (e GuardrailsV1OutputVersion) Valid() bool {
 	}
 }
 
+// Defines values for HolidayType.
+const (
+	HolidayTypeClosed   HolidayType = "closed"
+	HolidayTypeOverride HolidayType = "override"
+)
+
+// Valid indicates whether the value is a known member of the HolidayType enum.
+func (e HolidayType) Valid() bool {
+	switch e {
+	case HolidayTypeClosed:
+		return true
+	case HolidayTypeOverride:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for HtmlExportOptionsFormat.
 const (
 	HtmlExportOptionsFormatHtml HtmlExportOptionsFormat = "html"
@@ -9016,6 +9052,48 @@ const (
 func (e ImageSchemaType) Valid() bool {
 	switch e {
 	case ImageSchemaTypeImage:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IngestFailure.
+const (
+	IngestFailureAccessRefused   IngestFailure = "access_refused"
+	IngestFailureBlockedUrl      IngestFailure = "blocked_url"
+	IngestFailureCrawlTimeout    IngestFailure = "crawl_timeout"
+	IngestFailureDnsFailure      IngestFailure = "dns_failure"
+	IngestFailureHostUnreachable IngestFailure = "host_unreachable"
+	IngestFailureNoContent       IngestFailure = "no_content"
+	IngestFailureNoPages         IngestFailure = "no_pages"
+	IngestFailureUnknown         IngestFailure = "unknown"
+	IngestFailureUpstreamError   IngestFailure = "upstream_error"
+	IngestFailureUpstreamTimeout IngestFailure = "upstream_timeout"
+)
+
+// Valid indicates whether the value is a known member of the IngestFailure enum.
+func (e IngestFailure) Valid() bool {
+	switch e {
+	case IngestFailureAccessRefused:
+		return true
+	case IngestFailureBlockedUrl:
+		return true
+	case IngestFailureCrawlTimeout:
+		return true
+	case IngestFailureDnsFailure:
+		return true
+	case IngestFailureHostUnreachable:
+		return true
+	case IngestFailureNoContent:
+		return true
+	case IngestFailureNoPages:
+		return true
+	case IngestFailureUnknown:
+		return true
+	case IngestFailureUpstreamError:
+		return true
+	case IngestFailureUpstreamTimeout:
 		return true
 	default:
 		return false
@@ -9184,6 +9262,27 @@ const (
 func (e InlineVideoReferenceType) Valid() bool {
 	switch e {
 	case InlineVideoReferenceTypeInlineBase64:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IntakeQuestionKind.
+const (
+	IntakeQuestionKindChoice IntakeQuestionKind = "choice"
+	IntakeQuestionKindNumber IntakeQuestionKind = "number"
+	IntakeQuestionKindText   IntakeQuestionKind = "text"
+)
+
+// Valid indicates whether the value is a known member of the IntakeQuestionKind enum.
+func (e IntakeQuestionKind) Valid() bool {
+	switch e {
+	case IntakeQuestionKindChoice:
+		return true
+	case IntakeQuestionKindNumber:
+		return true
+	case IntakeQuestionKindText:
 		return true
 	default:
 		return false
@@ -9514,6 +9613,45 @@ func (e KnowledgeBaseToolStatus) Valid() bool {
 	}
 }
 
+// Defines values for KnowledgeSourceStatus.
+const (
+	KnowledgeSourceStatusError      KnowledgeSourceStatus = "error"
+	KnowledgeSourceStatusProcessing KnowledgeSourceStatus = "processing"
+	KnowledgeSourceStatusReady      KnowledgeSourceStatus = "ready"
+)
+
+// Valid indicates whether the value is a known member of the KnowledgeSourceStatus enum.
+func (e KnowledgeSourceStatus) Valid() bool {
+	switch e {
+	case KnowledgeSourceStatusError:
+		return true
+	case KnowledgeSourceStatusProcessing:
+		return true
+	case KnowledgeSourceStatusReady:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for KnowledgeSourceType.
+const (
+	KnowledgeSourceTypeFile KnowledgeSourceType = "file"
+	KnowledgeSourceTypeUrl  KnowledgeSourceType = "url"
+)
+
+// Valid indicates whether the value is a known member of the KnowledgeSourceType enum.
+func (e KnowledgeSourceType) Valid() bool {
+	switch e {
+	case KnowledgeSourceTypeFile:
+		return true
+	case KnowledgeSourceTypeUrl:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for LLM.
 const (
 	LLMClaude35Sonnet                 LLM = "claude-3-5-sonnet"
@@ -9614,6 +9752,7 @@ const (
 	LLMGpt5Nano                       LLM = "gpt-5-nano"
 	LLMGpt5Nano20250807               LLM = "gpt-5-nano-2025-08-07"
 	LLMGpt61Sol                       LLM = "gpt-6.1-sol"
+	LLMGpt61Terra                     LLM = "gpt-6.1-terra"
 	LLMGpt6Astra                      LLM = "gpt-6-astra"
 	LLMGpt6Luna                       LLM = "gpt-6-luna"
 	LLMGpt6Sol                        LLM = "gpt-6-sol"
@@ -9827,6 +9966,8 @@ func (e LLM) Valid() bool {
 	case LLMGpt5Nano20250807:
 		return true
 	case LLMGpt61Sol:
+		return true
+	case LLMGpt61Terra:
 		return true
 	case LLMGpt6Astra:
 		return true
@@ -11704,6 +11845,7 @@ func (e PendingSubscriptionSwitchResponseModelNextTier) Valid() bool {
 // Defines values for PermissionType.
 const (
 	PermissionTypeAddVoiceFromVoiceLibrary       PermissionType = "add_voice_from_voice_library"
+	PermissionTypeAgentsArchitect                PermissionType = "agents_architect"
 	PermissionTypeAudioIsolation                 PermissionType = "audio_isolation"
 	PermissionTypeAudioNativeRead                PermissionType = "audio_native_read"
 	PermissionTypeAudioNativeWrite               PermissionType = "audio_native_write"
@@ -11760,6 +11902,8 @@ const (
 func (e PermissionType) Valid() bool {
 	switch e {
 	case PermissionTypeAddVoiceFromVoiceLibrary:
+		return true
+	case PermissionTypeAgentsArchitect:
 		return true
 	case PermissionTypeAudioIsolation:
 		return true
@@ -12124,6 +12268,24 @@ func (e PreToolSpeechMode) Valid() bool {
 	case PreToolSpeechModeForce:
 		return true
 	case PreToolSpeechModeOff:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PricingMode.
+const (
+	PricingModeFixed PricingMode = "fixed"
+	PricingModeQuote PricingMode = "quote"
+)
+
+// Valid indicates whether the value is a known member of the PricingMode enum.
+func (e PricingMode) Valid() bool {
+	switch e {
+	case PricingModeFixed:
+		return true
+	case PricingModeQuote:
 		return true
 	default:
 		return false
@@ -12622,6 +12784,24 @@ func (e ProjectVideoResponseModelType) Valid() bool {
 	}
 }
 
+// Defines values for PromotionTarget.
+const (
+	PromotionTargetAddOn   PromotionTarget = "add_on"
+	PromotionTargetService PromotionTarget = "service"
+)
+
+// Valid indicates whether the value is a known member of the PromotionTarget enum.
+func (e PromotionTarget) Valid() bool {
+	switch e {
+	case PromotionTargetAddOn:
+		return true
+	case PromotionTargetService:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for PromptEvaluationCriteriaType.
 const (
 	PromptEvaluationCriteriaTypePrompt PromptEvaluationCriteriaType = "prompt"
@@ -12715,6 +12895,24 @@ func (e PronunciationDictionaryVersionResponseModelPermissionOnResource) Valid()
 	case PronunciationDictionaryVersionResponseModelPermissionOnResourceEditor:
 		return true
 	case PronunciationDictionaryVersionResponseModelPermissionOnResourceViewer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ProvisionResellerWorkspaceSubscriptionBillingPeriod.
+const (
+	ProvisionResellerWorkspaceSubscriptionBillingPeriodAnnualPeriod  ProvisionResellerWorkspaceSubscriptionBillingPeriod = "annual_period"
+	ProvisionResellerWorkspaceSubscriptionBillingPeriodMonthlyPeriod ProvisionResellerWorkspaceSubscriptionBillingPeriod = "monthly_period"
+)
+
+// Valid indicates whether the value is a known member of the ProvisionResellerWorkspaceSubscriptionBillingPeriod enum.
+func (e ProvisionResellerWorkspaceSubscriptionBillingPeriod) Valid() bool {
+	switch e {
+	case ProvisionResellerWorkspaceSubscriptionBillingPeriodAnnualPeriod:
+		return true
+	case ProvisionResellerWorkspaceSubscriptionBillingPeriodMonthlyPeriod:
 		return true
 	default:
 		return false
@@ -12976,6 +13174,24 @@ const (
 func (e ReportKnowledgeGapParamsSmbToolType) Valid() bool {
 	switch e {
 	case ReportKnowledgeGapParamsSmbToolTypeReportKnowledgeGap:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ResellerWorkspaceSubscriptionBillingPeriod.
+const (
+	ResellerWorkspaceSubscriptionBillingPeriodAnnualPeriod  ResellerWorkspaceSubscriptionBillingPeriod = "annual_period"
+	ResellerWorkspaceSubscriptionBillingPeriodMonthlyPeriod ResellerWorkspaceSubscriptionBillingPeriod = "monthly_period"
+)
+
+// Valid indicates whether the value is a known member of the ResellerWorkspaceSubscriptionBillingPeriod enum.
+func (e ResellerWorkspaceSubscriptionBillingPeriod) Valid() bool {
+	switch e {
+	case ResellerWorkspaceSubscriptionBillingPeriodAnnualPeriod:
+		return true
+	case ResellerWorkspaceSubscriptionBillingPeriodMonthlyPeriod:
 		return true
 	default:
 		return false
@@ -13357,6 +13573,201 @@ func (e SIPUriTransferDestinationType) Valid() bool {
 	}
 }
 
+// Defines values for SMBAgentInfoResponseCurrency.
+const (
+	SMBAgentInfoResponseCurrencyAED SMBAgentInfoResponseCurrency = "AED"
+	SMBAgentInfoResponseCurrencyARS SMBAgentInfoResponseCurrency = "ARS"
+	SMBAgentInfoResponseCurrencyAUD SMBAgentInfoResponseCurrency = "AUD"
+	SMBAgentInfoResponseCurrencyBDT SMBAgentInfoResponseCurrency = "BDT"
+	SMBAgentInfoResponseCurrencyBGN SMBAgentInfoResponseCurrency = "BGN"
+	SMBAgentInfoResponseCurrencyBRL SMBAgentInfoResponseCurrency = "BRL"
+	SMBAgentInfoResponseCurrencyCAD SMBAgentInfoResponseCurrency = "CAD"
+	SMBAgentInfoResponseCurrencyCHF SMBAgentInfoResponseCurrency = "CHF"
+	SMBAgentInfoResponseCurrencyCLP SMBAgentInfoResponseCurrency = "CLP"
+	SMBAgentInfoResponseCurrencyCNY SMBAgentInfoResponseCurrency = "CNY"
+	SMBAgentInfoResponseCurrencyCOP SMBAgentInfoResponseCurrency = "COP"
+	SMBAgentInfoResponseCurrencyCZK SMBAgentInfoResponseCurrency = "CZK"
+	SMBAgentInfoResponseCurrencyDKK SMBAgentInfoResponseCurrency = "DKK"
+	SMBAgentInfoResponseCurrencyEGP SMBAgentInfoResponseCurrency = "EGP"
+	SMBAgentInfoResponseCurrencyEUR SMBAgentInfoResponseCurrency = "EUR"
+	SMBAgentInfoResponseCurrencyGBP SMBAgentInfoResponseCurrency = "GBP"
+	SMBAgentInfoResponseCurrencyHKD SMBAgentInfoResponseCurrency = "HKD"
+	SMBAgentInfoResponseCurrencyHUF SMBAgentInfoResponseCurrency = "HUF"
+	SMBAgentInfoResponseCurrencyIDR SMBAgentInfoResponseCurrency = "IDR"
+	SMBAgentInfoResponseCurrencyILS SMBAgentInfoResponseCurrency = "ILS"
+	SMBAgentInfoResponseCurrencyINR SMBAgentInfoResponseCurrency = "INR"
+	SMBAgentInfoResponseCurrencyISK SMBAgentInfoResponseCurrency = "ISK"
+	SMBAgentInfoResponseCurrencyJPY SMBAgentInfoResponseCurrency = "JPY"
+	SMBAgentInfoResponseCurrencyKES SMBAgentInfoResponseCurrency = "KES"
+	SMBAgentInfoResponseCurrencyKRW SMBAgentInfoResponseCurrency = "KRW"
+	SMBAgentInfoResponseCurrencyKWD SMBAgentInfoResponseCurrency = "KWD"
+	SMBAgentInfoResponseCurrencyMXN SMBAgentInfoResponseCurrency = "MXN"
+	SMBAgentInfoResponseCurrencyMYR SMBAgentInfoResponseCurrency = "MYR"
+	SMBAgentInfoResponseCurrencyNGN SMBAgentInfoResponseCurrency = "NGN"
+	SMBAgentInfoResponseCurrencyNOK SMBAgentInfoResponseCurrency = "NOK"
+	SMBAgentInfoResponseCurrencyNZD SMBAgentInfoResponseCurrency = "NZD"
+	SMBAgentInfoResponseCurrencyPEN SMBAgentInfoResponseCurrency = "PEN"
+	SMBAgentInfoResponseCurrencyPHP SMBAgentInfoResponseCurrency = "PHP"
+	SMBAgentInfoResponseCurrencyPKR SMBAgentInfoResponseCurrency = "PKR"
+	SMBAgentInfoResponseCurrencyPLN SMBAgentInfoResponseCurrency = "PLN"
+	SMBAgentInfoResponseCurrencyQAR SMBAgentInfoResponseCurrency = "QAR"
+	SMBAgentInfoResponseCurrencyRON SMBAgentInfoResponseCurrency = "RON"
+	SMBAgentInfoResponseCurrencyRUB SMBAgentInfoResponseCurrency = "RUB"
+	SMBAgentInfoResponseCurrencySAR SMBAgentInfoResponseCurrency = "SAR"
+	SMBAgentInfoResponseCurrencySEK SMBAgentInfoResponseCurrency = "SEK"
+	SMBAgentInfoResponseCurrencySGD SMBAgentInfoResponseCurrency = "SGD"
+	SMBAgentInfoResponseCurrencyTHB SMBAgentInfoResponseCurrency = "THB"
+	SMBAgentInfoResponseCurrencyTRY SMBAgentInfoResponseCurrency = "TRY"
+	SMBAgentInfoResponseCurrencyTWD SMBAgentInfoResponseCurrency = "TWD"
+	SMBAgentInfoResponseCurrencyUAH SMBAgentInfoResponseCurrency = "UAH"
+	SMBAgentInfoResponseCurrencyUSD SMBAgentInfoResponseCurrency = "USD"
+	SMBAgentInfoResponseCurrencyVND SMBAgentInfoResponseCurrency = "VND"
+	SMBAgentInfoResponseCurrencyZAR SMBAgentInfoResponseCurrency = "ZAR"
+)
+
+// Valid indicates whether the value is a known member of the SMBAgentInfoResponseCurrency enum.
+func (e SMBAgentInfoResponseCurrency) Valid() bool {
+	switch e {
+	case SMBAgentInfoResponseCurrencyAED:
+		return true
+	case SMBAgentInfoResponseCurrencyARS:
+		return true
+	case SMBAgentInfoResponseCurrencyAUD:
+		return true
+	case SMBAgentInfoResponseCurrencyBDT:
+		return true
+	case SMBAgentInfoResponseCurrencyBGN:
+		return true
+	case SMBAgentInfoResponseCurrencyBRL:
+		return true
+	case SMBAgentInfoResponseCurrencyCAD:
+		return true
+	case SMBAgentInfoResponseCurrencyCHF:
+		return true
+	case SMBAgentInfoResponseCurrencyCLP:
+		return true
+	case SMBAgentInfoResponseCurrencyCNY:
+		return true
+	case SMBAgentInfoResponseCurrencyCOP:
+		return true
+	case SMBAgentInfoResponseCurrencyCZK:
+		return true
+	case SMBAgentInfoResponseCurrencyDKK:
+		return true
+	case SMBAgentInfoResponseCurrencyEGP:
+		return true
+	case SMBAgentInfoResponseCurrencyEUR:
+		return true
+	case SMBAgentInfoResponseCurrencyGBP:
+		return true
+	case SMBAgentInfoResponseCurrencyHKD:
+		return true
+	case SMBAgentInfoResponseCurrencyHUF:
+		return true
+	case SMBAgentInfoResponseCurrencyIDR:
+		return true
+	case SMBAgentInfoResponseCurrencyILS:
+		return true
+	case SMBAgentInfoResponseCurrencyINR:
+		return true
+	case SMBAgentInfoResponseCurrencyISK:
+		return true
+	case SMBAgentInfoResponseCurrencyJPY:
+		return true
+	case SMBAgentInfoResponseCurrencyKES:
+		return true
+	case SMBAgentInfoResponseCurrencyKRW:
+		return true
+	case SMBAgentInfoResponseCurrencyKWD:
+		return true
+	case SMBAgentInfoResponseCurrencyMXN:
+		return true
+	case SMBAgentInfoResponseCurrencyMYR:
+		return true
+	case SMBAgentInfoResponseCurrencyNGN:
+		return true
+	case SMBAgentInfoResponseCurrencyNOK:
+		return true
+	case SMBAgentInfoResponseCurrencyNZD:
+		return true
+	case SMBAgentInfoResponseCurrencyPEN:
+		return true
+	case SMBAgentInfoResponseCurrencyPHP:
+		return true
+	case SMBAgentInfoResponseCurrencyPKR:
+		return true
+	case SMBAgentInfoResponseCurrencyPLN:
+		return true
+	case SMBAgentInfoResponseCurrencyQAR:
+		return true
+	case SMBAgentInfoResponseCurrencyRON:
+		return true
+	case SMBAgentInfoResponseCurrencyRUB:
+		return true
+	case SMBAgentInfoResponseCurrencySAR:
+		return true
+	case SMBAgentInfoResponseCurrencySEK:
+		return true
+	case SMBAgentInfoResponseCurrencySGD:
+		return true
+	case SMBAgentInfoResponseCurrencyTHB:
+		return true
+	case SMBAgentInfoResponseCurrencyTRY:
+		return true
+	case SMBAgentInfoResponseCurrencyTWD:
+		return true
+	case SMBAgentInfoResponseCurrencyUAH:
+		return true
+	case SMBAgentInfoResponseCurrencyUSD:
+		return true
+	case SMBAgentInfoResponseCurrencyVND:
+		return true
+	case SMBAgentInfoResponseCurrencyZAR:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBLocationDeactivationReason.
+const (
+	SMBLocationDeactivationReasonTierDowngrade SMBLocationDeactivationReason = "tier_downgrade"
+	SMBLocationDeactivationReasonUser          SMBLocationDeactivationReason = "user"
+)
+
+// Valid indicates whether the value is a known member of the SMBLocationDeactivationReason enum.
+func (e SMBLocationDeactivationReason) Valid() bool {
+	switch e {
+	case SMBLocationDeactivationReasonTierDowngrade:
+		return true
+	case SMBLocationDeactivationReasonUser:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBServiceKind.
+const (
+	SMBServiceKindClassic SMBServiceKind = "classic"
+	SMBServiceKindGroup   SMBServiceKind = "group"
+	SMBServiceKindRental  SMBServiceKind = "rental"
+)
+
+// Valid indicates whether the value is a known member of the SMBServiceKind enum.
+func (e SMBServiceKind) Valid() bool {
+	switch e {
+	case SMBServiceKindClassic:
+		return true
+	case SMBServiceKindGroup:
+		return true
+	case SMBServiceKindRental:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for SMBToolConfigType.
 const (
 	SMBToolConfigTypeSmb SMBToolConfigType = "smb"
@@ -13366,6 +13777,162 @@ const (
 func (e SMBToolConfigType) Valid() bool {
 	switch e {
 	case SMBToolConfigTypeSmb:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBUpdateAgentInfoRequestCurrency.
+const (
+	SMBUpdateAgentInfoRequestCurrencyAED SMBUpdateAgentInfoRequestCurrency = "AED"
+	SMBUpdateAgentInfoRequestCurrencyARS SMBUpdateAgentInfoRequestCurrency = "ARS"
+	SMBUpdateAgentInfoRequestCurrencyAUD SMBUpdateAgentInfoRequestCurrency = "AUD"
+	SMBUpdateAgentInfoRequestCurrencyBDT SMBUpdateAgentInfoRequestCurrency = "BDT"
+	SMBUpdateAgentInfoRequestCurrencyBGN SMBUpdateAgentInfoRequestCurrency = "BGN"
+	SMBUpdateAgentInfoRequestCurrencyBRL SMBUpdateAgentInfoRequestCurrency = "BRL"
+	SMBUpdateAgentInfoRequestCurrencyCAD SMBUpdateAgentInfoRequestCurrency = "CAD"
+	SMBUpdateAgentInfoRequestCurrencyCHF SMBUpdateAgentInfoRequestCurrency = "CHF"
+	SMBUpdateAgentInfoRequestCurrencyCLP SMBUpdateAgentInfoRequestCurrency = "CLP"
+	SMBUpdateAgentInfoRequestCurrencyCNY SMBUpdateAgentInfoRequestCurrency = "CNY"
+	SMBUpdateAgentInfoRequestCurrencyCOP SMBUpdateAgentInfoRequestCurrency = "COP"
+	SMBUpdateAgentInfoRequestCurrencyCZK SMBUpdateAgentInfoRequestCurrency = "CZK"
+	SMBUpdateAgentInfoRequestCurrencyDKK SMBUpdateAgentInfoRequestCurrency = "DKK"
+	SMBUpdateAgentInfoRequestCurrencyEGP SMBUpdateAgentInfoRequestCurrency = "EGP"
+	SMBUpdateAgentInfoRequestCurrencyEUR SMBUpdateAgentInfoRequestCurrency = "EUR"
+	SMBUpdateAgentInfoRequestCurrencyGBP SMBUpdateAgentInfoRequestCurrency = "GBP"
+	SMBUpdateAgentInfoRequestCurrencyHKD SMBUpdateAgentInfoRequestCurrency = "HKD"
+	SMBUpdateAgentInfoRequestCurrencyHUF SMBUpdateAgentInfoRequestCurrency = "HUF"
+	SMBUpdateAgentInfoRequestCurrencyIDR SMBUpdateAgentInfoRequestCurrency = "IDR"
+	SMBUpdateAgentInfoRequestCurrencyILS SMBUpdateAgentInfoRequestCurrency = "ILS"
+	SMBUpdateAgentInfoRequestCurrencyINR SMBUpdateAgentInfoRequestCurrency = "INR"
+	SMBUpdateAgentInfoRequestCurrencyISK SMBUpdateAgentInfoRequestCurrency = "ISK"
+	SMBUpdateAgentInfoRequestCurrencyJPY SMBUpdateAgentInfoRequestCurrency = "JPY"
+	SMBUpdateAgentInfoRequestCurrencyKES SMBUpdateAgentInfoRequestCurrency = "KES"
+	SMBUpdateAgentInfoRequestCurrencyKRW SMBUpdateAgentInfoRequestCurrency = "KRW"
+	SMBUpdateAgentInfoRequestCurrencyKWD SMBUpdateAgentInfoRequestCurrency = "KWD"
+	SMBUpdateAgentInfoRequestCurrencyMXN SMBUpdateAgentInfoRequestCurrency = "MXN"
+	SMBUpdateAgentInfoRequestCurrencyMYR SMBUpdateAgentInfoRequestCurrency = "MYR"
+	SMBUpdateAgentInfoRequestCurrencyNGN SMBUpdateAgentInfoRequestCurrency = "NGN"
+	SMBUpdateAgentInfoRequestCurrencyNOK SMBUpdateAgentInfoRequestCurrency = "NOK"
+	SMBUpdateAgentInfoRequestCurrencyNZD SMBUpdateAgentInfoRequestCurrency = "NZD"
+	SMBUpdateAgentInfoRequestCurrencyPEN SMBUpdateAgentInfoRequestCurrency = "PEN"
+	SMBUpdateAgentInfoRequestCurrencyPHP SMBUpdateAgentInfoRequestCurrency = "PHP"
+	SMBUpdateAgentInfoRequestCurrencyPKR SMBUpdateAgentInfoRequestCurrency = "PKR"
+	SMBUpdateAgentInfoRequestCurrencyPLN SMBUpdateAgentInfoRequestCurrency = "PLN"
+	SMBUpdateAgentInfoRequestCurrencyQAR SMBUpdateAgentInfoRequestCurrency = "QAR"
+	SMBUpdateAgentInfoRequestCurrencyRON SMBUpdateAgentInfoRequestCurrency = "RON"
+	SMBUpdateAgentInfoRequestCurrencyRUB SMBUpdateAgentInfoRequestCurrency = "RUB"
+	SMBUpdateAgentInfoRequestCurrencySAR SMBUpdateAgentInfoRequestCurrency = "SAR"
+	SMBUpdateAgentInfoRequestCurrencySEK SMBUpdateAgentInfoRequestCurrency = "SEK"
+	SMBUpdateAgentInfoRequestCurrencySGD SMBUpdateAgentInfoRequestCurrency = "SGD"
+	SMBUpdateAgentInfoRequestCurrencyTHB SMBUpdateAgentInfoRequestCurrency = "THB"
+	SMBUpdateAgentInfoRequestCurrencyTRY SMBUpdateAgentInfoRequestCurrency = "TRY"
+	SMBUpdateAgentInfoRequestCurrencyTWD SMBUpdateAgentInfoRequestCurrency = "TWD"
+	SMBUpdateAgentInfoRequestCurrencyUAH SMBUpdateAgentInfoRequestCurrency = "UAH"
+	SMBUpdateAgentInfoRequestCurrencyUSD SMBUpdateAgentInfoRequestCurrency = "USD"
+	SMBUpdateAgentInfoRequestCurrencyVND SMBUpdateAgentInfoRequestCurrency = "VND"
+	SMBUpdateAgentInfoRequestCurrencyZAR SMBUpdateAgentInfoRequestCurrency = "ZAR"
+)
+
+// Valid indicates whether the value is a known member of the SMBUpdateAgentInfoRequestCurrency enum.
+func (e SMBUpdateAgentInfoRequestCurrency) Valid() bool {
+	switch e {
+	case SMBUpdateAgentInfoRequestCurrencyAED:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyARS:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyAUD:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyBDT:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyBGN:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyBRL:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyCAD:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyCHF:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyCLP:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyCNY:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyCOP:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyCZK:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyDKK:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyEGP:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyEUR:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyGBP:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyHKD:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyHUF:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyIDR:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyILS:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyINR:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyISK:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyJPY:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyKES:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyKRW:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyKWD:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyMXN:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyMYR:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyNGN:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyNOK:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyNZD:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyPEN:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyPHP:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyPKR:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyPLN:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyQAR:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyRON:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyRUB:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencySAR:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencySEK:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencySGD:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyTHB:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyTRY:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyTWD:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyUAH:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyUSD:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyVND:
+		return true
+	case SMBUpdateAgentInfoRequestCurrencyZAR:
 		return true
 	default:
 		return false
@@ -13543,6 +14110,24 @@ const (
 func (e SendCustomEmailParamsSmbToolType) Valid() bool {
 	switch e {
 	case SendCustomEmailParamsSmbToolTypeSendCustomEmail:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ServiceLocationType.
+const (
+	ServiceLocationTypeBusiness ServiceLocationType = "business"
+	ServiceLocationTypeCustomer ServiceLocationType = "customer"
+)
+
+// Valid indicates whether the value is a known member of the ServiceLocationType enum.
+func (e ServiceLocationType) Valid() bool {
+	switch e {
+	case ServiceLocationTypeBusiness:
+		return true
+	case ServiceLocationTypeCustomer:
 		return true
 	default:
 		return false
@@ -14389,6 +14974,42 @@ func (e TTSOutputFormat) Valid() bool {
 	}
 }
 
+// Defines values for TeamInviteOutcome.
+const (
+	TeamInviteOutcomeFailed  TeamInviteOutcome = "failed"
+	TeamInviteOutcomeInvited TeamInviteOutcome = "invited"
+)
+
+// Valid indicates whether the value is a known member of the TeamInviteOutcome enum.
+func (e TeamInviteOutcome) Valid() bool {
+	switch e {
+	case TeamInviteOutcomeFailed:
+		return true
+	case TeamInviteOutcomeInvited:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TeamInviteRequestRole.
+const (
+	TeamInviteRequestRoleWorkspaceAdmin  TeamInviteRequestRole = "workspace_admin"
+	TeamInviteRequestRoleWorkspaceMember TeamInviteRequestRole = "workspace_member"
+)
+
+// Valid indicates whether the value is a known member of the TeamInviteRequestRole enum.
+func (e TeamInviteRequestRole) Valid() bool {
+	switch e {
+	case TeamInviteRequestRoleWorkspaceAdmin:
+		return true
+	case TeamInviteRequestRoleWorkspaceMember:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for TelephonyDirection.
 const (
 	TelephonyDirectionInbound  TelephonyDirection = "inbound"
@@ -15037,6 +15658,27 @@ func (e TicketSearchMatchField) Valid() bool {
 	case TicketSearchMatchFieldTitle:
 		return true
 	case TicketSearchMatchFieldTurnComment:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TimeOffType.
+const (
+	TimeOffTypeAsset    TimeOffType = "asset"
+	TimeOffTypeLocation TimeOffType = "location"
+	TimeOffTypeStaff    TimeOffType = "staff"
+)
+
+// Valid indicates whether the value is a known member of the TimeOffType enum.
+func (e TimeOffType) Valid() bool {
+	switch e {
+	case TimeOffTypeAsset:
+		return true
+	case TimeOffTypeLocation:
+		return true
+	case TimeOffTypeStaff:
 		return true
 	default:
 		return false
@@ -15973,6 +16615,21 @@ func (e UUITransferConfigProtocolDiscriminatorMode) Valid() bool {
 	case UUITransferConfigProtocolDiscriminatorModePdParameter:
 		return true
 	case UUITransferConfigProtocolDiscriminatorModePrefix:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for UnitTestGuardrailTriggerEvaluationModelType.
+const (
+	UnitTestGuardrailTriggerEvaluationModelTypeAny UnitTestGuardrailTriggerEvaluationModelType = "any"
+)
+
+// Valid indicates whether the value is a known member of the UnitTestGuardrailTriggerEvaluationModelType enum.
+func (e UnitTestGuardrailTriggerEvaluationModelType) Valid() bool {
+	switch e {
+	case UnitTestGuardrailTriggerEvaluationModelTypeAny:
 		return true
 	default:
 		return false
@@ -18171,6 +18828,7 @@ const (
 	WorkspaceGroupPermissionAddVoiceFromVoiceLibrary     WorkspaceGroupPermission = "add_voice_from_voice_library"
 	WorkspaceGroupPermissionAiSpeechClassifier           WorkspaceGroupPermission = "ai_speech_classifier"
 	WorkspaceGroupPermissionAllResourcesAccess           WorkspaceGroupPermission = "all_resources_access"
+	WorkspaceGroupPermissionArchitect                    WorkspaceGroupPermission = "architect"
 	WorkspaceGroupPermissionAudioNative                  WorkspaceGroupPermission = "audio_native"
 	WorkspaceGroupPermissionAuditLogRead                 WorkspaceGroupPermission = "audit_log_read"
 	WorkspaceGroupPermissionConversationPrivacyManage    WorkspaceGroupPermission = "conversation_privacy_manage"
@@ -18216,6 +18874,8 @@ func (e WorkspaceGroupPermission) Valid() bool {
 	case WorkspaceGroupPermissionAiSpeechClassifier:
 		return true
 	case WorkspaceGroupPermissionAllResourcesAccess:
+		return true
+	case WorkspaceGroupPermissionArchitect:
 		return true
 	case WorkspaceGroupPermissionAudioNative:
 		return true
@@ -20501,6 +21161,12 @@ type AddTurnCommentRequestModel struct {
 	TurnIndex int `json:"turn_index"`
 }
 
+// AddUrlRequest Request to add a URL for scraping.
+type AddUrlRequest struct {
+	CrawlEntireSite *bool  `json:"crawl_entire_site,omitempty"`
+	Url             string `json:"url"`
+}
+
 // AddVoiceIVCResponseModel defines model for AddVoiceIVCResponseModel.
 type AddVoiceIVCResponseModel struct {
 	// RequiresVerification Whether the voice requires verification
@@ -21994,6 +22660,18 @@ type AssignConversationTagsRequestModel struct {
 	// TagIds Tag IDs to add to the conversation. Re-assigning an existing tag is a no-op.
 	TagIds []string `json:"tag_ids"`
 }
+
+// AssignResellerTierRequest Put a workspace with no subscription onto one of the reseller's tiers.
+type AssignResellerTierRequest struct {
+	BillingPeriod *AssignResellerTierRequestBillingPeriod `json:"billing_period,omitempty"`
+
+	// IdempotencyKey Client-generated key so a retried request cannot create or apply the same subscription change twice.
+	IdempotencyKey *string `json:"idempotency_key,omitempty"`
+	TierId         string  `json:"tier_id"`
+}
+
+// AssignResellerTierRequestBillingPeriod defines model for AssignResellerTierRequest.BillingPeriod.
+type AssignResellerTierRequestBillingPeriod string
 
 // AssignableUserResponseModel defines model for AssignableUserResponseModel.
 type AssignableUserResponseModel struct {
@@ -25023,11 +25701,23 @@ type BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost struct {
 
 // BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch defines model for Body_Update_document_v1_convai_knowledge_base__documentation_id__patch.
 type BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch struct {
+	// AutoRemove Whether to automatically remove the document once its source is no longer available. Only applicable when auto-sync is enabled. Leave unset to keep the current value.
+	AutoRemove *bool `json:"auto_remove,omitempty"`
+
 	// Content Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents that are not synced from an external source.
 	Content *string `json:"content,omitempty"`
 
+	// EnableAutoSync Whether the document or folder is refreshed automatically. Only applicable to URL documents, folders, and externally-synced files. Leave unset to keep the current value.
+	EnableAutoSync *bool `json:"enable_auto_sync,omitempty"`
+
+	// MinimumFrequencyDays Minimum frequency (in days) at which the document is refreshed. The actual interval may be shorter, never longer. Only applicable when auto-sync is enabled. Leave unset to keep the current value.
+	MinimumFrequencyDays *int `json:"minimum_frequency_days,omitempty"`
+
 	// Name A custom, human-readable name for the document.
 	Name *string `json:"name,omitempty"`
+
+	// TightenOnly Folders only. When true, items already in the folder are only tightened to stay at least as strict as the folder, and keep any setting that is stricter than the folder's. When false, they are set to exactly the folder's auto-sync settings. Ignored for externally synced folders, whose contents always follow the folder's schedule.
+	TightenOnly *bool `json:"tighten_only,omitempty"`
 }
 
 // BodyUpdateFileDocumentV1ConvaiKnowledgeBaseDocumentationIdUpdateFilePatch defines model for Body_Update_file_document_v1_convai_knowledge_base__documentation_id__update_file_patch.
@@ -25458,6 +26148,69 @@ type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApi
 // BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_TtsConcurrencyLimit Maximum concurrent text-to-speech/speech-to-speech requests for this API key. Only available for enterprise customers.
 type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_TtsConcurrencyLimit struct {
 	union json.RawMessage
+}
+
+// BodySmbAddUrlSource defines model for Body_smb_add_url_source.
+type BodySmbAddUrlSource struct {
+	// Request Request to add a URL for scraping.
+	Request AddUrlRequest `json:"request"`
+}
+
+// BodySmbConfirmServiceUpdate defines model for Body_smb_confirm_service_update.
+type BodySmbConfirmServiceUpdate struct {
+	Request SMBUpdateServiceRequestPatch `json:"request"`
+}
+
+// BodySmbCreateHoliday defines model for Body_smb_create_holiday.
+type BodySmbCreateHoliday struct {
+	Request SMBCreateHolidayRequest `json:"request"`
+}
+
+// BodySmbCreateLocation defines model for Body_smb_create_location.
+type BodySmbCreateLocation struct {
+	// Request Request model for creating or updating a location.
+	Request SMBLocationRequest `json:"request"`
+}
+
+// BodySmbCreateService defines model for Body_smb_create_service.
+type BodySmbCreateService struct {
+	Request SMBCreateServiceRequest `json:"request"`
+}
+
+// BodySmbCreateStaffMember defines model for Body_smb_create_staff_member.
+type BodySmbCreateStaffMember struct {
+	Request SMBCreateStaffRequest `json:"request"`
+}
+
+// BodySmbUpdateAgentInfo defines model for Body_smb_update_agent_info.
+type BodySmbUpdateAgentInfo struct {
+	// Request Agent-info update payload used by backend route consumers.
+	Request SMBUpdateAgentInfoRequest `json:"request"`
+}
+
+// BodySmbUpdateHoliday defines model for Body_smb_update_holiday.
+type BodySmbUpdateHoliday struct {
+	Request SMBUpdateHolidayRequestPatch `json:"request"`
+}
+
+// BodySmbUpdateLocation defines model for Body_smb_update_location.
+type BodySmbUpdateLocation struct {
+	Request SMBLocationRequestPatch `json:"request"`
+}
+
+// BodySmbUpdateService defines model for Body_smb_update_service.
+type BodySmbUpdateService struct {
+	Request SMBUpdateServiceRequestPatch `json:"request"`
+}
+
+// BodySmbUpdateStaffMember defines model for Body_smb_update_staff_member.
+type BodySmbUpdateStaffMember struct {
+	Request SMBUpdateStaffRequestPatch `json:"request"`
+}
+
+// BodySmbUploadKnowledgeSource defines model for Body_smb_upload_knowledge_source.
+type BodySmbUploadKnowledgeSource struct {
+	File openapi_types.File `json:"file"`
 }
 
 // BodyTextToDialogueFullWithTimestamps defines model for Body_text_to_dialogue_full_with_timestamps.
@@ -28332,6 +29085,9 @@ type ConvertProjectResponseModel struct {
 	Status string `json:"status"`
 }
 
+// CountryCode defines model for CountryCode.
+type CountryCode = string
+
 // CrawlStatus defines model for CrawlStatus.
 type CrawlStatus string
 
@@ -29325,6 +30081,18 @@ type DataCollectionResultCommonModel struct {
 	Name             *string                    `json:"name,omitempty"`
 	Rationale        string                     `json:"rationale"`
 	Value            interface{}                `json:"value,omitempty"`
+}
+
+// DateModel Represents a calendar date as individual numeric components.
+type DateModel struct {
+	// Day Day of month (1-31)
+	Day int `json:"day"`
+
+	// Month Month (1-12)
+	Month int `json:"month"`
+
+	// Year Year
+	Year int `json:"year"`
 }
 
 // DefaultSharingGroupConfig defines model for DefaultSharingGroupConfig.
@@ -32872,6 +33640,33 @@ type HistoryAlignmentsResponseModel struct {
 	NormalizedAlignment HistoryAlignmentResponseModel `json:"normalized_alignment"`
 }
 
+// HolidayResponseModel API response model. Exposes only the source-of-truth dates and hours.
+type HolidayResponseModel struct {
+	CreatedAtUnix int `json:"created_at_unix"`
+
+	// EndDate Represents a calendar date as individual numeric components.
+	EndDate     DateModel    `json:"end_date"`
+	HolidayType *HolidayType `json:"holiday_type,omitempty"`
+	Id          string       `json:"id"`
+
+	// LocationId For LOCATION type: the location this closure applies to.
+	LocationId *string `json:"location_id,omitempty"`
+	Name       string  `json:"name"`
+
+	// OverrideHours Replacement working hours when holiday_type is 'override'.
+	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
+	Reason        *string           `json:"reason,omitempty"`
+	ResourceId    *string           `json:"resource_id,omitempty"`
+
+	// StartDate Represents a calendar date as individual numeric components.
+	StartDate     DateModel   `json:"start_date"`
+	TimeOffType   TimeOffType `json:"time_off_type"`
+	UpdatedAtUnix int         `json:"updated_at_unix"`
+}
+
+// HolidayType defines model for HolidayType.
+type HolidayType string
+
 // HtmlExportOptions defines model for HtmlExportOptions.
 type HtmlExportOptions struct {
 	Format                      HtmlExportOptionsFormat `json:"format"`
@@ -32995,6 +33790,15 @@ type InboundSIPTrunkConfigRequestModel struct {
 	RemoteDomains *[]string `json:"remote_domains,omitempty"`
 }
 
+// IngestFailure Why a run failed, as a bounded taxonomy.
+//
+// Set explicitly at each raise site rather than recovered from the message
+// text, so rewording a user-facing string cannot silently reshape the metric.
+// The “UPSTREAM_*“ causes are the exception: an unclassified escape is
+// sorted by its type in “ScrapeRun.failed“, so a dependency outage (the
+// agents knowledge-base routes, the sandbox) is not filed as “UNKNOWN“.
+type IngestFailure string
+
 // InlineAudioReference Audio passed inline as base64. The audio is stored as an ephemeral
 // asset with no guaranteed retention: it may be deleted at any time after
 // the generation completes. To keep an input and reuse it across
@@ -33080,6 +33884,9 @@ type InlineVideoReferenceMimeType string
 
 // InlineVideoReferenceType defines model for InlineVideoReference.Type.
 type InlineVideoReferenceType string
+
+// IntakeQuestionKind Answer shape for a per-item intake question.
+type IntakeQuestionKind string
 
 // IntegerSchema defines model for IntegerSchema.
 type IntegerSchema struct {
@@ -33324,6 +34131,19 @@ type KnowledgeBaseToolResultModelResultType string
 
 // KnowledgeBaseToolStatus defines model for KnowledgeBaseToolStatus.
 type KnowledgeBaseToolStatus string
+
+// KnowledgeSourceStatus Processing status for knowledge sources.
+//
+// Simple three-state machine:
+// - PROCESSING: Any active work (uploading, crawling, extracting, etc.)
+// - READY: Processing complete, results available
+// - ERROR: Something went wrong (user can retry)
+//
+// Detailed progress is tracked via the `progress` field.
+type KnowledgeSourceStatus string
+
+// KnowledgeSourceType Type of knowledge source.
+type KnowledgeSourceType string
 
 // LLM defines model for LLM.
 type LLM string
@@ -34022,6 +34842,34 @@ type LiteralJsonSchemaProperty_Type struct {
 
 // LivekitStackType defines model for LivekitStackType.
 type LivekitStackType string
+
+// LocationResponse `SMBLocation` with `id` serialized as `_id` for MongoDB-style API consistency.
+type LocationResponse struct {
+	UnderscoreId string `json:"_id"`
+
+	// Address Street address.
+	Address *StrippedStr `json:"address,omitempty"`
+
+	// CustomerFacingName Name shown to customers; empty reuses name.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// DeactivatedAtUnix Unix timestamp when this location was deactivated. None when active.
+	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
+
+	// DeactivationReason Why this location was deactivated. None when active.
+	DeactivationReason *SMBLocationDeactivationReason `json:"deactivation_reason,omitempty"`
+	IsActive           *bool                          `json:"is_active,omitempty"`
+
+	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
+	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
+
+	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
+	Notes          *StrippedStr  `json:"notes,omitempty"`
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+}
 
 // LockReason defines model for LockReason.
 type LockReason string
@@ -36054,6 +36902,9 @@ type PatchAgentConversationTicketRequestModel struct {
 	// Priority If provided, updates how urgently the ticket needs attention. Pass null to clear it. Omit to leave unchanged.
 	Priority *AgentConversationTicketPriority `json:"priority,omitempty"`
 
+	// QaComment If provided, updates the ticket description. Omit to leave unchanged.
+	QaComment *string `json:"qa_comment,omitempty"`
+
 	// Status If provided, updates the ticket status. Omit to leave unchanged.
 	Status *AgentConversationTicketStatus `json:"status,omitempty"`
 
@@ -36203,6 +37054,9 @@ type PhoneNumberDynamicVariableTransferDestination struct {
 
 // PhoneNumberDynamicVariableTransferDestinationType defines model for PhoneNumberDynamicVariableTransferDestination.Type.
 type PhoneNumberDynamicVariableTransferDestinationType string
+
+// PhoneNumberOptional defines model for PhoneNumberOptional.
+type PhoneNumberOptional = string
 
 // PhoneNumberSortBy defines model for PhoneNumberSortBy.
 type PhoneNumberSortBy string
@@ -36489,6 +37343,20 @@ type Price struct {
 	Amount   string   `json:"amount"`
 	Currency Currency `json:"currency"`
 }
+
+// PricingMode Whether a catalog item's price and duration are known up front.
+//
+// Orthogonal to :class:`SMBServiceKind`, which describes the *resource*
+// model (staff / asset / seats) rather than the price. A quotable service
+// can still be staff-delivered or asset-based, so this cannot be folded
+// into the kind discriminator.
+//
+//   - “FIXED“: catalog price and duration apply (the default, and every
+//     pre-existing item).
+//   - “QUOTE“: neither is knowable until the owner has seen the job. The
+//     agent collects intake answers and files a quote request instead of
+//     booking a slot or taking an order.
+type PricingMode string
 
 // PrivacyConfigInput defines model for PrivacyConfig-Input.
 type PrivacyConfigInput struct {
@@ -37259,6 +38127,9 @@ type ProjectVoiceResponseModel struct {
 	VolumeGain        float32 `json:"volume_gain"`
 }
 
+// PromotionTarget defines model for PromotionTarget.
+type PromotionTarget string
+
 // PromptAgentAPIModelInput defines model for PromptAgentAPIModel-Input.
 type PromptAgentAPIModelInput struct {
 	// BackupLlmConfig Configuration for backup LLM cascading. Can be disabled, use system defaults, or specify custom order.
@@ -37819,6 +38690,46 @@ type PronunciationDictionaryVersionResponseModel struct {
 // PronunciationDictionaryVersionResponseModelPermissionOnResource defines model for PronunciationDictionaryVersionResponseModel.PermissionOnResource.
 type PronunciationDictionaryVersionResponseModelPermissionOnResource string
 
+// ProvisionResellerWorkspaceRequest defines model for ProvisionResellerWorkspaceRequest.
+type ProvisionResellerWorkspaceRequest struct {
+	BusinessName string `json:"business_name"`
+
+	// Members People to invite once the workspace exists, capped by the tier's team size. Best-effort: each outcome is in `member_results`.
+	Members *[]TeamInviteRequest `json:"members,omitempty"`
+
+	// PhoneNumber A free number from the reseller's phone pool, reserved for the workspace until onboarding binds it to the receptionist.
+	PhoneNumber *string `json:"phone_number,omitempty"`
+
+	// Subscription Paid tier to subscribe to. Omitted leaves the workspace with no subscription.
+	Subscription *ProvisionResellerWorkspaceSubscription `json:"subscription,omitempty"`
+}
+
+// ProvisionResellerWorkspaceResponse defines model for ProvisionResellerWorkspaceResponse.
+type ProvisionResellerWorkspaceResponse struct {
+	BillingTier     *string `json:"billing_tier"`
+	BusinessName    string  `json:"business_name"`
+	CallsLast30Days int     `json:"calls_last_30_days"`
+	CreatedAtUnix   int     `json:"created_at_unix"`
+
+	// HasPaymentIssue A charge for this workspace is unpaid. Assigning or changing a tier is refused until it clears, so surface it rather than letting it fail.
+	HasPaymentIssue   *bool               `json:"has_payment_issue,omitempty"`
+	MemberResults     *[]TeamInviteResult `json:"member_results,omitempty"`
+	ReceptionistCount int                 `json:"receptionist_count"`
+
+	// Subscription The reseller-managed subscription, when this workspace has one. None means nothing is sold here yet and a tier can be assigned.
+	Subscription *ResellerWorkspaceSubscription `json:"subscription,omitempty"`
+	WorkspaceId  string                         `json:"workspace_id"`
+}
+
+// ProvisionResellerWorkspaceSubscription defines model for ProvisionResellerWorkspaceSubscription.
+type ProvisionResellerWorkspaceSubscription struct {
+	BillingPeriod *ProvisionResellerWorkspaceSubscriptionBillingPeriod `json:"billing_period,omitempty"`
+	TierId        string                                               `json:"tier_id"`
+}
+
+// ProvisionResellerWorkspaceSubscriptionBillingPeriod defines model for ProvisionResellerWorkspaceSubscription.BillingPeriod.
+type ProvisionResellerWorkspaceSubscriptionBillingPeriod string
+
 // PydanticPronunciationDictionaryVersionLocator A locator for other documents to be able to reference a specific dictionary and it's version.
 // This is a pydantic version of PronunciationDictionaryVersionLocatorDBModel.
 // Required to ensure compat with the rest of the agent data models.
@@ -38265,6 +39176,65 @@ type RequiredConstraints struct {
 	AnyOf *[]RequiredConstraint `json:"any_of,omitempty"`
 }
 
+// ResellerTierResponse A tier as the public API shows it: the offer, not the record derived from it.
+type ResellerTierResponse struct {
+	DisplayName string `json:"display_name"`
+
+	// TierEconomics A tier's prices and quotas, in the fields a tier is created with.
+	TierEconomics SMBTierEconomics `json:"tier_economics"`
+	TierId        string           `json:"tier_id"`
+}
+
+// ResellerWorkspaceSubscription A reseller-managed paid subscription, as the reseller can act on it.
+//
+// Present only for a workspace the reseller actually sells to: untiered and
+// trial workspaces have no subscription to change or end, and are assigned to
+// instead. Projected from “SMBBillingState“ rather than read from Stripe,
+// so it is the same state the grant path wrote.
+type ResellerWorkspaceSubscription struct {
+	// BillingPeriod Cadence being billed. None only for a subscription mid-provisioning.
+	BillingPeriod *ResellerWorkspaceSubscriptionBillingPeriod `json:"billing_period"`
+
+	// BillingPeriodEndUnix When the current period ends, and so when a deferred change lands.
+	BillingPeriodEndUnix int `json:"billing_period_end_unix"`
+
+	// CancelAtUnix When Stripe will end the subscription. Set means a pending unassignment the reseller can still undo.
+	CancelAtUnix *int `json:"cancel_at_unix,omitempty"`
+
+	// PendingDowngradeAtUnix When that scheduled downgrade takes effect.
+	PendingDowngradeAtUnix *int `json:"pending_downgrade_at_unix,omitempty"`
+
+	// PendingDowngradeTier Tier this workspace drops to at the period boundary, if a downgrade is already scheduled.
+	PendingDowngradeTier *string `json:"pending_downgrade_tier,omitempty"`
+	TierId               string  `json:"tier_id"`
+}
+
+// ResellerWorkspaceSubscriptionBillingPeriod defines model for ResellerWorkspaceSubscription.BillingPeriod.
+type ResellerWorkspaceSubscriptionBillingPeriod string
+
+// ResellerWorkspaceSummary defines model for ResellerWorkspaceSummary.
+type ResellerWorkspaceSummary struct {
+	BillingTier     *string `json:"billing_tier"`
+	BusinessName    string  `json:"business_name"`
+	CallsLast30Days int     `json:"calls_last_30_days"`
+	CreatedAtUnix   int     `json:"created_at_unix"`
+
+	// HasPaymentIssue A charge for this workspace is unpaid. Assigning or changing a tier is refused until it clears, so surface it rather than letting it fail.
+	HasPaymentIssue   *bool `json:"has_payment_issue,omitempty"`
+	ReceptionistCount int   `json:"receptionist_count"`
+
+	// Subscription The reseller-managed subscription, when this workspace has one. None means nothing is sold here yet and a tier can be assigned.
+	Subscription *ResellerWorkspaceSubscription `json:"subscription,omitempty"`
+	WorkspaceId  string                         `json:"workspace_id"`
+}
+
+// ResellerWorkspacesResponse defines model for ResellerWorkspacesResponse.
+type ResellerWorkspacesResponse struct {
+	HasMore    *bool                      `json:"has_more,omitempty"`
+	NextCursor *string                    `json:"next_cursor,omitempty"`
+	Workspaces []ResellerWorkspaceSummary `json:"workspaces"`
+}
+
 // ResourceAccessInfo defines model for ResourceAccessInfo.
 type ResourceAccessInfo struct {
 	// AccessSource Why the requesting user has access to this resource. 'creator' = caller is the owner. 'explicit' = caller (or one of their workspace groups) is listed in role_to_group_ids beyond the workspace-wide everyone group. 'workspace_default' = the workspace-wide everyone group is listed in role_to_group_ids (every non-anon workspace member, including admins, sees this resource). 'workspace_admin' = caller is a workspace admin and the admin seat is the *only* path to access; reserved for docs nobody else can see. Lets the UI disclose why an admin-bypass viewer sees a doc that wasn't explicitly shared with them.
@@ -38505,6 +39475,488 @@ type SIPUriTransferDestination struct {
 // SIPUriTransferDestinationType defines model for SIPUriTransferDestination.Type.
 type SIPUriTransferDestinationType string
 
+// SMBAddOn A standalone add-on that can be tacked onto a service or rental booking.
+//
+// An add-on is a small, free-form extra (e.g. "Hot towel", "Valet parking")
+// that extends the parent booking's duration and total price without
+// creating a separate calendar event.
+type SMBAddOn struct {
+	// AddDurationMinutes Minutes added to the parent booking when this add-on is selected.
+	AddDurationMinutes *int `json:"add_duration_minutes,omitempty"`
+
+	// AddPrice Amount added to the parent booking's total when this add-on is selected.
+	AddPrice *float32 `json:"add_price,omitempty"`
+
+	// Description Short owner-authored blurb shown to customers and voice agents when they're choosing add-ons. Empty string means no description.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// Id Stable identifier used by booking requests and calendar snapshots. Survives name/price edits, so rebooking and reporting stay consistent.
+	Id   *string     `json:"id,omitempty"`
+	Name StrippedStr `json:"name"`
+}
+
+// SMBAgentInfoResponse Response model for agent info with computed workspace_now (flat structure).
+type SMBAgentInfoResponse struct {
+	// BusinessCountry ISO 3166-1 alpha-2 country code where the business is based (e.g. 'US', 'PL', 'DE').
+	BusinessCountry *CountryCode `json:"business_country,omitempty"`
+
+	// BusinessDescription What the business does, given to the receptionist.
+	BusinessDescription *string `json:"business_description,omitempty"`
+
+	// BusinessName Name of the business.
+	BusinessName  *string `json:"business_name,omitempty"`
+	CreatedAtUnix int     `json:"created_at_unix"`
+
+	// Currency Currency code for all prices (ISO 4217)
+	Currency       *SMBAgentInfoResponseCurrency `json:"currency,omitempty"`
+	Id             string                        `json:"id"`
+	OperatingHours *WorkingHours                 `json:"operating_hours,omitempty"`
+	Timezone       *string                       `json:"timezone,omitempty"`
+
+	// ToolCallSound Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
+	ToolCallSound *ToolCallSoundType `json:"tool_call_sound,omitempty"`
+	UpdatedAtUnix int                `json:"updated_at_unix"`
+
+	// WorkspaceNow Current time in workspace timezone, computed on each request.
+	WorkspaceNow *WorkspaceNow `json:"workspace_now,omitempty"`
+}
+
+// SMBAgentInfoResponseCurrency Currency code for all prices (ISO 4217)
+type SMBAgentInfoResponseCurrency string
+
+// SMBCreateHolidayRequest defines model for SMBCreateHolidayRequest.
+type SMBCreateHolidayRequest struct {
+	// EndDate Represents a calendar date as individual numeric components.
+	EndDate     DateModel    `json:"end_date"`
+	HolidayType *HolidayType `json:"holiday_type,omitempty"`
+
+	// LocationId For LOCATION type: the location this closure applies to.
+	LocationId *string `json:"location_id,omitempty"`
+	Name       string  `json:"name"`
+
+	// OverrideHours Replacement working hours when holiday_type is 'override'.
+	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
+	Reason        *string           `json:"reason,omitempty"`
+	ResourceId    *string           `json:"resource_id,omitempty"`
+
+	// StartDate Represents a calendar date as individual numeric components.
+	StartDate   DateModel   `json:"start_date"`
+	TimeOffType TimeOffType `json:"time_off_type"`
+}
+
+// SMBCreateServiceRequest defines model for SMBCreateServiceRequest.
+type SMBCreateServiceRequest struct {
+	// AddOns Optional extras scraped from the website that can be attached to a booking of this service.
+	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
+
+	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
+	AdvanceBookingMinutes *int      `json:"advance_booking_minutes,omitempty"`
+	AnyStaffMember        *bool     `json:"any_staff_member,omitempty"`
+	AssetIds              *[]string `json:"asset_ids,omitempty"`
+
+	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
+	BufferMinutes        *int         `json:"buffer_minutes,omitempty"`
+	Capacity             *int         `json:"capacity,omitempty"`
+	Description          *StrippedStr `json:"description,omitempty"`
+	DisplayOnBookingPage *bool        `json:"display_on_booking_page,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful ``pricing_mode='quote'`` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
+	IsActive        *bool                `json:"is_active,omitempty"`
+
+	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session. Populated by the extraction category.
+	Kind *SMBServiceKind `json:"kind,omitempty"`
+
+	// LocationIds Locations where this service is offered; empty list means all locations.
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// MaxParticipants Capacity for ``kind='group'``: how many seats a single session can sell across all registrations. Must be ``None`` for classic and rental services (those are always exclusive to one client per booking).
+	MaxParticipants *int        `json:"max_participants,omitempty"`
+	Name            StrippedStr `json:"name"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// Promotions Time-bound discounts applicable to this service or specific variants.
+	Promotions *[]SMBServicePromotion `json:"promotions,omitempty"`
+
+	// ServiceLocation Where the service is delivered. ``business`` = client visits the business location (default); ``customer`` = staff travels to the client. Only meaningful for ``kind='classic'``.
+	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
+
+	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	StaffIds *[]string `json:"staff_ids,omitempty"`
+
+	// TravelAfter Add travel time after the appointment (return trip).
+	TravelAfter *bool `json:"travel_after,omitempty"`
+
+	// TravelBefore Add travel time before the appointment (outbound trip).
+	TravelBefore *bool `json:"travel_before,omitempty"`
+
+	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when ``service_location='business'``.
+	TravelMinutes *int `json:"travel_minutes,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// Variants Bookable options for this service. Always non-empty; ``variants[0]`` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
+	Variants *[]SMBServiceVariant `json:"variants,omitempty"`
+}
+
+// SMBCreateStaffRequest defines model for SMBCreateStaffRequest.
+type SMBCreateStaffRequest struct {
+	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// Description Description or bio of the staff member.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether customers can see and pick this staff member by name on the booking page. False keeps them bookable, just not shown by name.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// Email Email address of the staff member.
+	Email *string `json:"email,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
+
+	// IsActive Whether the staff member can be booked. Inactive staff keep their booking history.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationId Location this staff member is assigned to; empty means available at all locations.
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
+	Phone    *PhoneNumberOptional `json:"phone,omitempty"`
+	PhotoUrl *string              `json:"photo_url,omitempty"`
+
+	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in (mirroring the client SMS default); flipped to False automatically when they reply STOP to the workspace number.
+	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// WorkingHours Custom working hours for this staff member. None means follow the assigned location's operating_hours (requires location_id).
+	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
+}
+
+// SMBGroupMembership Membership of an item in a single user-defined group, with its display
+// rank inside that group.
+//
+// `rank` is the 0-based position the item occupies within the group's
+// section in the dashboard. Items default to rank 0 when added to a group
+// and are rewritten by the dedicated reorder endpoints.
+type SMBGroupMembership struct {
+	Label StrippedStr `json:"label"`
+
+	// Rank 0-based display position within this group in the dashboard. Change it with the reorder endpoint; send back the value you read to keep the order, a membership sent without it goes to position 0.
+	Rank *int `json:"rank,omitempty"`
+}
+
+// SMBIntakeQuestion One owner-authored question the agent asks before booking/ordering this item.
+//
+// This is the structured counterpart to the agent-wide
+// “CustomerFacingConfig.details_to_collect“: scoped to a single catalog
+// item, and typed so the answer is usable afterwards (rendered in the inbox,
+// filterable, and eventually an input to pricing) rather than just readable.
+type SMBIntakeQuestion struct {
+	// Id Stable identifier referenced by stored answers. Survives label edits so history stays attributable to the right question.
+	Id *string `json:"id,omitempty"`
+
+	// IsActive Retired questions are deactivated rather than deleted, so answers already stored against them keep resolving.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Kind Answer shape for a per-item intake question.
+	Kind *IntakeQuestionKind `json:"kind,omitempty"`
+
+	// Label The question as the agent should ask it, e.g. 'How many rooms?'. Phrased by the owner; the agent may rephrase for conversational flow but must not change what is being asked.
+	Label StrippedStr `json:"label"`
+
+	// Options Allowed answers for ``kind='choice'``. Must be empty for the other kinds.
+	Options *[]StrippedStr `json:"options,omitempty"`
+
+	// Required On the public booking page this is enforced as a form constraint. On a voice call it is only an instruction to the agent: hard-rejecting a booking mid-conversation because the caller dodged a question is worse for the caller than a booking with a gap the owner can chase. Do not 'fix' this into a server-side constraint for the voice path.
+	Required *bool `json:"required,omitempty"`
+}
+
+// SMBKnowledgeSourceDBModel Database model for knowledge sources (files and URLs).
+//
+// Inherits:
+// - id, workspace_id, from_db, to_db from BaseMongoDBModel
+// - owner_user_id from NonSharableCollectionMixin
+// - created_at_unix, updated_at_unix from SMBResourceDBModel
+// - source_type, source_url, etc. from SMBKnowledgeSourceBase
+type SMBKnowledgeSourceDBModel struct {
+	UnderscoreId    string  `json:"_id"`
+	ContentPreview  *string `json:"content_preview,omitempty"`
+	ContentType     *string `json:"content_type,omitempty"`
+	CrawlEntireSite *bool   `json:"crawl_entire_site,omitempty"`
+
+	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	CreatedAtUnix           *UnixTimestamp `json:"created_at_unix,omitempty"`
+	ErrorMessage            *string        `json:"error_message,omitempty"`
+	FailureReason           *IngestFailure `json:"failure_reason,omitempty"`
+	FileSizeBytes           *int           `json:"file_size_bytes,omitempty"`
+	LastScrapedAtUnix       *int           `json:"last_scraped_at_unix,omitempty"`
+	OriginalFilename        *string        `json:"original_filename,omitempty"`
+	ProcessingStartedAtUnix *int           `json:"processing_started_at_unix,omitempty"`
+	ScrapedPagesCount       *int           `json:"scraped_pages_count,omitempty"`
+
+	// SourceType Type of knowledge source.
+	SourceType *KnowledgeSourceType `json:"source_type,omitempty"`
+	SourceUrl  *string              `json:"source_url,omitempty"`
+
+	// Status Processing status for knowledge sources.
+	//
+	// Simple three-state machine:
+	// - PROCESSING: Any active work (uploading, crawling, extracting, etc.)
+	// - READY: Processing complete, results available
+	// - ERROR: Something went wrong (user can retry)
+	//
+	// Detailed progress is tracked via the `progress` field.
+	Status *KnowledgeSourceStatus `json:"status,omitempty"`
+
+	// UpdatedAtUnix Unix timestamp (seconds since epoch)
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+}
+
+// SMBLocationDeactivationReason Why a location is currently inactive.
+type SMBLocationDeactivationReason string
+
+// SMBLocationRequest Request model for creating or updating a location.
+type SMBLocationRequest struct {
+	// Address Street address.
+	Address *StrippedStr `json:"address,omitempty"`
+
+	// CustomerFacingName Name shown to customers; empty reuses name.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+	IsActive           *bool        `json:"is_active,omitempty"`
+
+	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
+	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
+
+	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
+	Notes *StrippedStr `json:"notes,omitempty"`
+
+	// OperatingHours Per-location operating hours. On create, omit to have the server prefill from the most recently added active location.
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+}
+
+// SMBLocationRequestPatch defines model for SMBLocationRequestPatch.
+type SMBLocationRequestPatch struct {
+	// Address Street address.
+	Address *StrippedStr `json:"address,omitempty"`
+
+	// CustomerFacingName Name shown to customers; empty reuses name.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+	IsActive           *bool        `json:"is_active,omitempty"`
+
+	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
+	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
+
+	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
+	Name *StrippedStr `json:"name,omitempty"`
+
+	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
+	Notes *StrippedStr `json:"notes,omitempty"`
+
+	// OperatingHours Per-location operating hours. On create, omit to have the server prefill from the most recently added active location.
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+}
+
+// SMBServiceDBModel Represents a bookable service (e.g., haircut, massage, consultation).
+type SMBServiceDBModel struct {
+	UnderscoreId string `json:"_id"`
+
+	// AddOns Optional extras scraped from the website that can be attached to a booking of this service.
+	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
+
+	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
+	AdvanceBookingMinutes *int      `json:"advance_booking_minutes,omitempty"`
+	AnyStaffMember        *bool     `json:"any_staff_member,omitempty"`
+	AssetIds              *[]string `json:"asset_ids,omitempty"`
+
+	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
+	BufferMinutes *int `json:"buffer_minutes,omitempty"`
+	Capacity      *int `json:"capacity,omitempty"`
+
+	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	CreatedAtUnix        *UnixTimestamp `json:"created_at_unix,omitempty"`
+	Description          *StrippedStr   `json:"description,omitempty"`
+	DisplayOnBookingPage *bool          `json:"display_on_booking_page,omitempty"`
+
+	// DurationMinutes Default option's duration; serialized for read compatibility.
+	DurationMinutes *int `json:"duration_minutes,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful ``pricing_mode='quote'`` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
+	IsActive        *bool                `json:"is_active,omitempty"`
+
+	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session. Populated by the extraction category.
+	Kind *SMBServiceKind `json:"kind,omitempty"`
+
+	// LocationIds Locations where this service is offered; empty list means all locations.
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// MaxParticipants Capacity for ``kind='group'``: how many seats a single session can sell across all registrations. Must be ``None`` for classic and rental services (those are always exclusive to one client per booking).
+	MaxParticipants *int        `json:"max_participants,omitempty"`
+	Name            StrippedStr `json:"name"`
+
+	// Price Default option's price; serialized for read compatibility.
+	Price *float32 `json:"price,omitempty"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// Promotions Time-bound discounts applicable to this service or specific variants.
+	Promotions *[]SMBServicePromotion `json:"promotions,omitempty"`
+
+	// ServiceLocation Where the service is delivered. ``business`` = client visits the business location (default); ``customer`` = staff travels to the client. Only meaningful for ``kind='classic'``.
+	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
+
+	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	StaffIds *[]string `json:"staff_ids,omitempty"`
+
+	// TravelAfter Add travel time after the appointment (return trip).
+	TravelAfter *bool `json:"travel_after,omitempty"`
+
+	// TravelBefore Add travel time before the appointment (outbound trip).
+	TravelBefore *bool `json:"travel_before,omitempty"`
+
+	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when ``service_location='business'``.
+	TravelMinutes *int `json:"travel_minutes,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// UpdatedAtUnix Unix timestamp (seconds since epoch)
+	UpdatedAtUnix *UnixTimestamp      `json:"updated_at_unix,omitempty"`
+	Variants      []SMBServiceVariant `json:"variants"`
+}
+
+// SMBServiceKind Discriminator for the bookable-service shape.
+//
+// - “CLASSIC“: staff-delivered service (haircut, consultation, massage, ...).
+// - “RENTAL“: asset-based reservation (court, room, equipment).
+// - “GROUP“: multi-participant session (class, workshop, tour).
+type SMBServiceKind string
+
+// SMBServicePromotion A time-bound promotion on a service/variant or on add-ons.
+type SMBServicePromotion struct {
+	// AddOnId When set (target=add_on), the promotion applies only to this add-on.
+	AddOnId *string `json:"add_on_id,omitempty"`
+
+	// DaysOfWeek Days when the promotion is active (0=Monday, 6=Sunday); empty means every day.
+	DaysOfWeek *UniqueListAnnotatedIntFieldInfoAnnotationNoneTypeRequiredTrueMetadataGeGe0LeLe6 `json:"days_of_week,omitempty"`
+	EndDate    openapi_types.Date                                                               `json:"end_date"`
+	Id         *string                                                                          `json:"id,omitempty"`
+	IsActive   *bool                                                                            `json:"is_active,omitempty"`
+	Name       StrippedStr                                                                      `json:"name"`
+
+	// PromotionalPrice The final price when this promotion is applied to a matching line item.
+	PromotionalPrice float32            `json:"promotional_price"`
+	StartDate        openapi_types.Date `json:"start_date"`
+
+	// Target Whether this promotion targets the service/variant price or add-on prices.
+	Target *PromotionTarget `json:"target,omitempty"`
+
+	// VariantId When set (target=service), the promotion applies only to this variant.
+	VariantId *string `json:"variant_id,omitempty"`
+}
+
+// SMBServiceVariant A variant of a service identified by its duration, with optional price override.
+type SMBServiceVariant struct {
+	DurationMinutes int      `json:"duration_minutes"`
+	Id              *string  `json:"id,omitempty"`
+	IsActive        *bool    `json:"is_active,omitempty"`
+	Price           *float32 `json:"price,omitempty"`
+}
+
+// SMBStaffResourceDBModel Represents a staff member who can provide services.
+//
+// Inherits all staff fields from SMBStaffBase and adds database-specific fields.
+type SMBStaffResourceDBModel struct {
+	UnderscoreId string `json:"_id"`
+
+	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// Description Description or bio of the staff member.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether customers can see and pick this staff member by name on the booking page. False keeps them bookable, just not shown by name.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// Email Email address of the staff member.
+	Email *string `json:"email,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
+
+	// IsActive Whether the staff member can be booked. Inactive staff keep their booking history.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationId Location this staff member is assigned to; empty means available at all locations.
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
+	Phone    *PhoneNumberOptional `json:"phone,omitempty"`
+	PhotoUrl *string              `json:"photo_url,omitempty"`
+
+	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in (mirroring the client SMS default); flipped to False automatically when they reply STOP to the workspace number.
+	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// UpdatedAtUnix Unix timestamp (seconds since epoch)
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+
+	// WorkingHours Custom working hours for this staff member. None means follow the assigned location's operating_hours (requires location_id).
+	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
+}
+
+// SMBTierEconomics A tier's prices and quotas, in the fields a tier is created with.
+type SMBTierEconomics struct {
+	// AnnualPriceUsd What a year up front is sold for, at a discount on twelve months. Required for a tier on the ladder, omitted for the trial
+	AnnualPriceUsd         *float32 `json:"annual_price_usd,omitempty"`
+	AssistantDailyMessages int      `json:"assistant_daily_messages"`
+	ConcurrentCalls        int      `json:"concurrent_calls"`
+
+	// IncludedMinutesPerMonth Phone minutes included each month. Other channels draw on the same allowance more cheaply — a web minute costs half a phone minute, a chat message a tenth
+	IncludedMinutesPerMonth float32 `json:"included_minutes_per_month"`
+	IvcVoiceLimit           int     `json:"ivc_voice_limit"`
+	KnowledgeSourceLimit    int     `json:"knowledge_source_limit"`
+	MaxActiveLocations      int     `json:"max_active_locations"`
+	MaxCustomerFacingAgents int     `json:"max_customer_facing_agents"`
+	MaxPhoneNumbers         int     `json:"max_phone_numbers"`
+	MaxTeamMembers          int     `json:"max_team_members"`
+
+	// MonthlyPriceUsd What one month is sold for. Also values an included minute, at this price over the included minutes
+	MonthlyPriceUsd float32 `json:"monthly_price_usd"`
+
+	// OveragePricePerMinuteUsd Charged per minute past the included ones, and may not undercut their value. Required for a tier on the ladder, omitted for the trial
+	OveragePricePerMinuteUsd  *float32 `json:"overage_price_per_minute_usd,omitempty"`
+	PoolOutboundSmsDailyLimit int      `json:"pool_outbound_sms_daily_limit"`
+}
+
 // SMBToolConfig SMB tool configuration that wraps SMB tool parameters.
 //
 // Examples: {"description":"","enabled":true,"name":"search_clients","params":{"smb_tool_type":"search_clients"},"type":"smb"}
@@ -38560,6 +40012,156 @@ type SMBToolConfig_Params struct {
 
 // SMBToolConfigType Tool type identifier
 type SMBToolConfigType string
+
+// SMBUpdateAgentInfoRequest Agent-info update payload used by backend route consumers.
+type SMBUpdateAgentInfoRequest struct {
+	// BusinessCountry ISO 3166-1 alpha-2 country code where the business is based (e.g. 'US', 'PL', 'DE').
+	BusinessCountry *CountryCode `json:"business_country,omitempty"`
+
+	// BusinessDescription What the business does, given to the receptionist.
+	BusinessDescription *string `json:"business_description,omitempty"`
+
+	// BusinessName Name of the business.
+	BusinessName *string `json:"business_name,omitempty"`
+
+	// Currency Currency code for all prices (ISO 4217)
+	Currency       *SMBUpdateAgentInfoRequestCurrency `json:"currency,omitempty"`
+	OperatingHours *WorkingHours                      `json:"operating_hours,omitempty"`
+	Timezone       *string                            `json:"timezone,omitempty"`
+
+	// ToolCallSound Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
+	ToolCallSound *ToolCallSoundType `json:"tool_call_sound,omitempty"`
+}
+
+// SMBUpdateAgentInfoRequestCurrency Currency code for all prices (ISO 4217)
+type SMBUpdateAgentInfoRequestCurrency string
+
+// SMBUpdateHolidayRequestPatch defines model for SMBUpdateHolidayRequestPatch.
+type SMBUpdateHolidayRequestPatch struct {
+	// EndDate Represents a calendar date as individual numeric components.
+	EndDate     *DateModel   `json:"end_date,omitempty"`
+	HolidayType *HolidayType `json:"holiday_type,omitempty"`
+
+	// LocationId For LOCATION type: the location this closure applies to.
+	LocationId *string `json:"location_id,omitempty"`
+	Name       *string `json:"name,omitempty"`
+
+	// OverrideHours Replacement working hours when holiday_type is 'override'.
+	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
+	Reason        *string           `json:"reason,omitempty"`
+	ResourceId    *string           `json:"resource_id,omitempty"`
+
+	// StartDate Represents a calendar date as individual numeric components.
+	StartDate   *DateModel   `json:"start_date,omitempty"`
+	TimeOffType *TimeOffType `json:"time_off_type,omitempty"`
+}
+
+// SMBUpdateServiceRequestPatch defines model for SMBUpdateServiceRequestPatch.
+type SMBUpdateServiceRequestPatch struct {
+	// AddOns Optional extras scraped from the website that can be attached to a booking of this service.
+	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
+
+	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
+	AdvanceBookingMinutes *int      `json:"advance_booking_minutes,omitempty"`
+	AnyStaffMember        *bool     `json:"any_staff_member,omitempty"`
+	AssetIds              *[]string `json:"asset_ids,omitempty"`
+
+	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
+	BufferMinutes        *int         `json:"buffer_minutes,omitempty"`
+	Capacity             *int         `json:"capacity,omitempty"`
+	Description          *StrippedStr `json:"description,omitempty"`
+	DisplayOnBookingPage *bool        `json:"display_on_booking_page,omitempty"`
+
+	// DurationMinutes Sets the first variant's duration. Ignored when `variants` is sent.
+	DurationMinutes *int `json:"duration_minutes,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful ``pricing_mode='quote'`` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
+	IsActive        *bool                `json:"is_active,omitempty"`
+
+	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session. Populated by the extraction category.
+	Kind *SMBServiceKind `json:"kind,omitempty"`
+
+	// LocationIds Locations where this service is offered; empty list means all locations.
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// MaxParticipants Capacity for ``kind='group'``: how many seats a single session can sell across all registrations. Must be ``None`` for classic and rental services (those are always exclusive to one client per booking).
+	MaxParticipants *int         `json:"max_participants,omitempty"`
+	Name            *StrippedStr `json:"name,omitempty"`
+
+	// Price Sets the first variant's price. Ignored when `variants` is sent.
+	Price *float32 `json:"price,omitempty"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// Promotions Time-bound discounts applicable to this service or specific variants.
+	Promotions *[]SMBServicePromotion `json:"promotions,omitempty"`
+
+	// ServiceLocation Where the service is delivered. ``business`` = client visits the business location (default); ``customer`` = staff travels to the client. Only meaningful for ``kind='classic'``.
+	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
+
+	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	StaffIds *[]string `json:"staff_ids,omitempty"`
+
+	// TravelAfter Add travel time after the appointment (return trip).
+	TravelAfter *bool `json:"travel_after,omitempty"`
+
+	// TravelBefore Add travel time before the appointment (outbound trip).
+	TravelBefore *bool `json:"travel_before,omitempty"`
+
+	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when ``service_location='business'``.
+	TravelMinutes *int `json:"travel_minutes,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// Variants Bookable options for this service. Always non-empty; ``variants[0]`` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
+	Variants *[]SMBServiceVariant `json:"variants,omitempty"`
+}
+
+// SMBUpdateStaffRequestPatch defines model for SMBUpdateStaffRequestPatch.
+type SMBUpdateStaffRequestPatch struct {
+	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// Description Description or bio of the staff member.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether customers can see and pick this staff member by name on the booking page. False keeps them bookable, just not shown by name.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// Email Email address of the staff member.
+	Email *string `json:"email,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
+
+	// IsActive Whether the staff member can be booked. Inactive staff keep their booking history.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationId Location this staff member is assigned to; empty means available at all locations.
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
+	Name *StrippedStr `json:"name,omitempty"`
+
+	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
+	Phone    *PhoneNumberOptional `json:"phone,omitempty"`
+	PhotoUrl *string              `json:"photo_url,omitempty"`
+
+	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in (mirroring the client SMS default); flipped to False automatically when they reply STOP to the workspace number.
+	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// WorkingHours Custom working hours for this staff member. None means follow the assigned location's operating_hours (requires location_id).
+	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
+}
 
 // SMSConversationInfo defines model for SMSConversationInfo.
 type SMSConversationInfo struct {
@@ -38788,6 +40390,15 @@ type SentimentAggregate struct {
 
 // SentimentAnalysisSettings defines model for SentimentAnalysisSettings.
 type SentimentAnalysisSettings = map[string]interface{}
+
+// ServiceLocationType Where a classic service is delivered.
+type ServiceLocationType string
+
+// ServiceUpdateResponse defines model for ServiceUpdateResponse.
+type ServiceUpdateResponse struct {
+	HasAffectedEvents bool               `json:"has_affected_events"`
+	Service           *SMBServiceDBModel `json:"service,omitempty"`
+}
 
 // SetBookingSlugParams defines model for SetBookingSlugParams.
 type SetBookingSlugParams struct {
@@ -39577,6 +41188,9 @@ type StringSchema struct {
 // StringSchemaType defines model for StringSchema.Type.
 type StringSchemaType string
 
+// StrippedStr defines model for StrippedStr.
+type StrippedStr = string
+
 // StudioAgentSettingsModel defines model for StudioAgentSettingsModel.
 type StudioAgentSettingsModel struct {
 	ToolSettings *map[string]StudioAgentToolSettingsModel `json:"tool_settings,omitempty"`
@@ -40120,6 +41734,25 @@ type TTSOptimizeStreamingLatency int
 
 // TTSOutputFormat defines model for TTSOutputFormat.
 type TTSOutputFormat string
+
+// TeamInviteOutcome defines model for TeamInviteOutcome.
+type TeamInviteOutcome string
+
+// TeamInviteRequest defines model for TeamInviteRequest.
+type TeamInviteRequest struct {
+	Email string                 `json:"email"`
+	Role  *TeamInviteRequestRole `json:"role,omitempty"`
+}
+
+// TeamInviteRequestRole defines model for TeamInviteRequest.Role.
+type TeamInviteRequestRole string
+
+// TeamInviteResult defines model for TeamInviteResult.
+type TeamInviteResult struct {
+	Email       string            `json:"email"`
+	ErrorStatus *string           `json:"error_status,omitempty"`
+	Outcome     TeamInviteOutcome `json:"outcome"`
+}
 
 // TelephonyCallConfigInput defines model for TelephonyCallConfig-Input.
 type TelephonyCallConfigInput struct {
@@ -40866,10 +42499,29 @@ type TicketStatusChangeResponseModel struct {
 	Status            AgentConversationTicketStatus `json:"status"`
 }
 
+// TimeOffType defines model for TimeOffType.
+type TimeOffType string
+
 // TimeRange defines model for TimeRange.
 type TimeRange struct {
 	EndMs   int `json:"end_ms"`
 	StartMs int `json:"start_ms"`
+}
+
+// TimeRangeModel Represents a time-of-day range (e.g., 09:00-17:00) commonly used for
+// working hours, available hours, or recurring schedules.
+type TimeRangeModel struct {
+	// EndHour End hour (0-24, where 24:00 means midnight end-of-day)
+	EndHour int `json:"end_hour"`
+
+	// EndMinute End minute (0-59)
+	EndMinute int `json:"end_minute"`
+
+	// StartHour Start hour (0-23)
+	StartHour int `json:"start_hour"`
+
+	// StartMinute Start minute (0-59)
+	StartMinute int `json:"start_minute"`
 }
 
 // ToDialogueSettingsResponseModel defines model for ToDialogueSettingsResponseModel.
@@ -41640,6 +43292,18 @@ type UUITransferConfig struct {
 // UUITransferConfigProtocolDiscriminatorMode How to attach protocol_discriminator. 'prefix' prepends the octet to the hex payload (User-to-User=XX<hex>;encoding=hex). 'pd_parameter' sends it as a separate parameter (User-to-User=<hex>;pd=XX;encoding=hex). Ignored when protocol_discriminator is unset.
 type UUITransferConfigProtocolDiscriminatorMode string
 
+// UniqueListAnnotatedIntFieldInfoAnnotationNoneTypeRequiredTrueMetadataGeGe0LeLe6 defines model for UniqueList_Annotated_int__FieldInfo_annotation_NoneType__required_True__metadata__Ge_ge_0___Le_le_6_____.
+type UniqueListAnnotatedIntFieldInfoAnnotationNoneTypeRequiredTrueMetadataGeGe0LeLe6 = []int
+
+// UnitTestGuardrailTriggerEvaluationModel defines model for UnitTestGuardrailTriggerEvaluationModel.
+type UnitTestGuardrailTriggerEvaluationModel struct {
+	// Type Match any guardrail triggered by the generated turn.
+	Type *UnitTestGuardrailTriggerEvaluationModelType `json:"type,omitempty"`
+}
+
+// UnitTestGuardrailTriggerEvaluationModelType Match any guardrail triggered by the generated turn.
+type UnitTestGuardrailTriggerEvaluationModelType string
+
 // UnitTestRunResponseModel defines model for UnitTestRunResponseModel.
 type UnitTestRunResponseModel struct {
 	AgentId        string                                            `json:"agent_id"`
@@ -41708,6 +43372,9 @@ type UnitTestSummaryResponseModel struct {
 
 // UnitTestToolCallEvaluationModelInput defines model for UnitTestToolCallEvaluationModel-Input.
 type UnitTestToolCallEvaluationModelInput struct {
+	// GuardrailTrigger Evaluate guardrails triggered by the generated agent turn.
+	GuardrailTrigger *UnitTestGuardrailTriggerEvaluationModel `json:"guardrail_trigger,omitempty"`
+
 	// Parameters Parameters to evaluate for the agent's tool call. If empty, the tool call parameters are not evaluated.
 	Parameters *[]UnitTestToolCallParameter `json:"parameters,omitempty"`
 
@@ -41723,6 +43390,9 @@ type UnitTestToolCallEvaluationModelInput struct {
 
 // UnitTestToolCallEvaluationModelOutput defines model for UnitTestToolCallEvaluationModel-Output.
 type UnitTestToolCallEvaluationModelOutput struct {
+	// GuardrailTrigger Evaluate guardrails triggered by the generated agent turn.
+	GuardrailTrigger *UnitTestGuardrailTriggerEvaluationModel `json:"guardrail_trigger,omitempty"`
+
 	// Parameters Parameters to evaluate for the agent's tool call. If empty, the tool call parameters are not evaluated.
 	Parameters *[]UnitTestToolCallParameter `json:"parameters,omitempty"`
 
@@ -41759,6 +43429,9 @@ type UnitTestWorkflowNodeTransitionEvaluationNodeId struct {
 
 // UnitTestWorkflowNodeTransitionEvaluationNodeIdType defines model for UnitTestWorkflowNodeTransitionEvaluationNodeId.Type.
 type UnitTestWorkflowNodeTransitionEvaluationNodeIdType string
+
+// UnixTimestamp Unix timestamp (seconds since epoch)
+type UnixTimestamp = int
 
 // UpdateAgentConfigParams defines model for UpdateAgentConfigParams.
 type UpdateAgentConfigParams struct {
@@ -43623,8 +45296,11 @@ type WhatsAppAuthResponseProvider string
 
 // WhatsAppCallPermissionRequest defines model for WhatsAppCallPermissionRequest.
 type WhatsAppCallPermissionRequest struct {
-	RequestedAtUnix *int                               `json:"requested_at_unix,omitempty"`
-	State           WhatsAppCallPermissionRequestState `json:"state"`
+	GrantedByUserCall *bool                              `json:"granted_by_user_call,omitempty"`
+	Permanent         *bool                              `json:"permanent,omitempty"`
+	RequestedAtUnix   *int                               `json:"requested_at_unix,omitempty"`
+	RespondedAtUnix   *int                               `json:"responded_at_unix,omitempty"`
+	State             WhatsAppCallPermissionRequestState `json:"state"`
 }
 
 // WhatsAppCallPermissionRequestState defines model for WhatsAppCallPermissionRequestState.
@@ -43636,6 +45312,7 @@ type WhatsAppConversationInfo struct {
 	CallPermissionRequest    *WhatsAppCallPermissionRequest     `json:"call_permission_request,omitempty"`
 	CallResult               *CallResult                        `json:"call_result,omitempty"`
 	Direction                *WhatsAppConversationInfoDirection `json:"direction,omitempty"`
+	OpeningMessage           *WhatsAppOpeningMessage            `json:"opening_message,omitempty"`
 	Recipient                *WhatsAppRecipient                 `json:"recipient,omitempty"`
 	WhatsappPhoneNumberId    *string                            `json:"whatsapp_phone_number_id,omitempty"`
 	WhatsappUserId           string                             `json:"whatsapp_user_id"`
@@ -43643,6 +45320,20 @@ type WhatsAppConversationInfo struct {
 
 // WhatsAppConversationInfoDirection defines model for WhatsAppConversationInfo.Direction.
 type WhatsAppConversationInfoDirection string
+
+// WhatsAppOpeningMessage The template a business-initiated conversation opened with, and how far it got.
+type WhatsAppOpeningMessage struct {
+	Billable        *bool   `json:"billable,omitempty"`
+	DeliveredAtUnix *int    `json:"delivered_at_unix,omitempty"`
+	ErrorCode       *string `json:"error_code,omitempty"`
+	FailedAtUnix    *int    `json:"failed_at_unix,omitempty"`
+	PricingCategory *string `json:"pricing_category,omitempty"`
+	ReadAtUnix      *int    `json:"read_at_unix,omitempty"`
+	RepliedAtUnix   *int    `json:"replied_at_unix,omitempty"`
+	SentAtUnix      int     `json:"sent_at_unix"`
+	TemplateName    string  `json:"template_name"`
+	Wamid           *string `json:"wamid,omitempty"`
+}
 
 // WhatsAppOutboundCallResponse defines model for WhatsAppOutboundCallResponse.
 type WhatsAppOutboundCallResponse struct {
@@ -43904,6 +45595,9 @@ type WidgetConfigInput struct {
 	// TranscriptEnabled Whether the widget should show the conversation transcript as it goes on
 	TranscriptEnabled *bool `json:"transcript_enabled,omitempty"`
 
+	// TranscriptSpeechSyncEnabled Whether voice call transcripts are revealed as the agent speaks
+	TranscriptSpeechSyncEnabled *bool `json:"transcript_speech_sync_enabled,omitempty"`
+
 	// Variant The variant of the widget
 	Variant *EmbedVariant `json:"variant,omitempty"`
 }
@@ -44067,6 +45761,9 @@ type WidgetConfigOutput struct {
 
 	// TranscriptEnabled Whether the widget should show the conversation transcript as it goes on
 	TranscriptEnabled *bool `json:"transcript_enabled,omitempty"`
+
+	// TranscriptSpeechSyncEnabled Whether voice call transcripts are revealed as the agent speaks
+	TranscriptSpeechSyncEnabled *bool `json:"transcript_speech_sync_enabled,omitempty"`
 
 	// Variant The variant of the widget
 	Variant *EmbedVariant `json:"variant,omitempty"`
@@ -44234,6 +45931,9 @@ type WidgetConfigResponseModel struct {
 
 	// TranscriptEnabled Whether the widget should show the conversation transcript as it goes on
 	TranscriptEnabled *bool `json:"transcript_enabled,omitempty"`
+
+	// TranscriptSpeechSyncEnabled Whether voice call transcripts are revealed as the agent speaks
+	TranscriptSpeechSyncEnabled *bool `json:"transcript_speech_sync_enabled,omitempty"`
 
 	// UseRtc Whether to use WebRTC for conversation connections
 	UseRtc *bool `json:"use_rtc,omitempty"`
@@ -45102,6 +46802,14 @@ type WorkflowUnconditionalModelOutput struct {
 // WorkflowUnconditionalModelOutputType defines model for WorkflowUnconditionalModelOutput.Type.
 type WorkflowUnconditionalModelOutputType string
 
+// WorkingHours defines model for WorkingHours.
+type WorkingHours struct {
+	Hours *map[string][]TimeRangeModel `json:"hours,omitempty"`
+
+	// Timezone Timezone these wall-clock hours are interpreted in. None means inherit the business timezone (agent_info.timezone); use ``effective_timezone(business_tz)`` to resolve the cascade.
+	Timezone *string `json:"timezone,omitempty"`
+}
+
 // WorkspaceAnalyticsQueryResponseModel defines model for WorkspaceAnalyticsQueryResponseModel.
 type WorkspaceAnalyticsQueryResponseModel struct {
 	ColumnTypes []WorkspaceAnalyticsQueryResponseModelColumnTypes   `json:"column_types"`
@@ -45371,6 +47079,21 @@ type WorkspaceMemberResponseModel struct {
 
 	// UserId The user ID of the workspace member.
 	UserId string `json:"user_id"`
+}
+
+// WorkspaceNow defines model for WorkspaceNow.
+type WorkspaceNow struct {
+	// FetchedAtMs Unix timestamp in milliseconds when this was generated
+	FetchedAtMs int `json:"fetched_at_ms"`
+
+	// Hour Current hour (0-23)
+	Hour int `json:"hour"`
+
+	// Minute Current minute (0-59)
+	Minute int `json:"minute"`
+
+	// Today Represents a calendar date as individual numeric components.
+	Today DateModel `json:"today"`
 }
 
 // WorkspaceResourceType Resource types that can be shared in the workspace. The name always need to match the collection names
@@ -48669,6 +50392,334 @@ type GetSingleUseTokenParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// SmbGetAgentInfoParams defines parameters for SmbGetAgentInfo.
+type SmbGetAgentInfoParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUpdateAgentInfoParams defines parameters for SmbUpdateAgentInfo.
+type SmbUpdateAgentInfoParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbListHolidaysParams defines parameters for SmbListHolidays.
+type SmbListHolidaysParams struct {
+	// StartUnix Filter entries overlapping from this timestamp
+	StartUnix *int `form:"start_unix,omitempty" json:"start_unix,omitempty"`
+
+	// EndUnix Filter entries overlapping before this timestamp
+	EndUnix *int `form:"end_unix,omitempty" json:"end_unix,omitempty"`
+
+	// TimeOffType Filter by type: location, staff, or asset
+	TimeOffType *TimeOffType `form:"time_off_type,omitempty" json:"time_off_type,omitempty"`
+
+	// ResourceId Filter by associated resource ID (staff/asset)
+	ResourceId *string `form:"resource_id,omitempty" json:"resource_id,omitempty"`
+
+	// LocationId Filter by location ID
+	LocationId *string `form:"location_id,omitempty" json:"location_id,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbCreateHolidayParams defines parameters for SmbCreateHoliday.
+type SmbCreateHolidayParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbDeleteHolidayParams defines parameters for SmbDeleteHoliday.
+type SmbDeleteHolidayParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbGetHolidayParams defines parameters for SmbGetHoliday.
+type SmbGetHolidayParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUpdateHolidayParams defines parameters for SmbUpdateHoliday.
+type SmbUpdateHolidayParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbListKnowledgeSourcesParams defines parameters for SmbListKnowledgeSources.
+type SmbListKnowledgeSourcesParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUploadKnowledgeSourceParams defines parameters for SmbUploadKnowledgeSource.
+type SmbUploadKnowledgeSourceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbAddUrlSourceParams defines parameters for SmbAddUrlSource.
+type SmbAddUrlSourceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbDeleteKnowledgeSourceParams defines parameters for SmbDeleteKnowledgeSource.
+type SmbDeleteKnowledgeSourceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbGetKnowledgeSourceParams defines parameters for SmbGetKnowledgeSource.
+type SmbGetKnowledgeSourceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbListLocationsParams defines parameters for SmbListLocations.
+type SmbListLocationsParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbCreateLocationParams defines parameters for SmbCreateLocation.
+type SmbCreateLocationParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbDeleteLocationParams defines parameters for SmbDeleteLocation.
+type SmbDeleteLocationParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbGetLocationParams defines parameters for SmbGetLocation.
+type SmbGetLocationParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUpdateLocationParams defines parameters for SmbUpdateLocation.
+type SmbUpdateLocationParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbListResellerTierLadderParams defines parameters for SmbListResellerTierLadder.
+type SmbListResellerTierLadderParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbListResellerWorkspacesParams defines parameters for SmbListResellerWorkspaces.
+type SmbListResellerWorkspacesParams struct {
+	// Cursor Pagination cursor from previous response
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// PageSize Number of workspaces per page
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbResellerProvisionWorkspaceParams defines parameters for SmbResellerProvisionWorkspace.
+type SmbResellerProvisionWorkspaceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbUnassignResellerTierParams defines parameters for SmbUnassignResellerTier.
+type SmbUnassignResellerTierParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbChangeResellerTierParams defines parameters for SmbChangeResellerTier.
+type SmbChangeResellerTierParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbAssignResellerTierParams defines parameters for SmbAssignResellerTier.
+type SmbAssignResellerTierParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbCancelResellerPendingDowngradeParams defines parameters for SmbCancelResellerPendingDowngrade.
+type SmbCancelResellerPendingDowngradeParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbRestoreResellerSubscriptionParams defines parameters for SmbRestoreResellerSubscription.
+type SmbRestoreResellerSubscriptionParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbListServicesParams defines parameters for SmbListServices.
+type SmbListServicesParams struct {
+	StaffId  *string         `form:"staff_id,omitempty" json:"staff_id,omitempty"`
+	AssetId  *string         `form:"asset_id,omitempty" json:"asset_id,omitempty"`
+	IsActive *bool           `form:"is_active,omitempty" json:"is_active,omitempty"`
+	Kind     *SMBServiceKind `form:"kind,omitempty" json:"kind,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbCreateServiceParams defines parameters for SmbCreateService.
+type SmbCreateServiceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbDeleteServiceParams defines parameters for SmbDeleteService.
+type SmbDeleteServiceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbGetServiceParams defines parameters for SmbGetService.
+type SmbGetServiceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUpdateServiceParams defines parameters for SmbUpdateService.
+type SmbUpdateServiceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbConfirmServiceUpdateParams defines parameters for SmbConfirmServiceUpdate.
+type SmbConfirmServiceUpdateParams struct {
+	Reprice *bool `form:"reprice,omitempty" json:"reprice,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbListStaffParams defines parameters for SmbListStaff.
+type SmbListStaffParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbCreateStaffMemberParams defines parameters for SmbCreateStaffMember.
+type SmbCreateStaffMemberParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbDeleteStaffMemberParams defines parameters for SmbDeleteStaffMember.
+type SmbDeleteStaffMemberParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbGetStaffMemberParams defines parameters for SmbGetStaffMember.
+type SmbGetStaffMemberParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUpdateStaffMemberParams defines parameters for SmbUpdateStaffMember.
+type SmbUpdateStaffMemberParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
 // SoundGenerationParams defines parameters for SoundGeneration.
 type SoundGenerationParams struct {
 	// OutputFormat Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
@@ -50127,6 +52178,51 @@ type EditServiceAccountApiKeyJSONRequestBody = BodyEditServiceAccountApiKeyV1Ser
 
 // GetSimilarLibraryVoicesMultipartRequestBody defines body for GetSimilarLibraryVoices for multipart/form-data ContentType.
 type GetSimilarLibraryVoicesMultipartRequestBody = BodyGetSimilarLibraryVoicesV1SimilarVoicesPost
+
+// SmbUpdateAgentInfoJSONRequestBody defines body for SmbUpdateAgentInfo for application/json ContentType.
+type SmbUpdateAgentInfoJSONRequestBody = BodySmbUpdateAgentInfo
+
+// SmbCreateHolidayJSONRequestBody defines body for SmbCreateHoliday for application/json ContentType.
+type SmbCreateHolidayJSONRequestBody = BodySmbCreateHoliday
+
+// SmbUpdateHolidayJSONRequestBody defines body for SmbUpdateHoliday for application/json ContentType.
+type SmbUpdateHolidayJSONRequestBody = BodySmbUpdateHoliday
+
+// SmbUploadKnowledgeSourceMultipartRequestBody defines body for SmbUploadKnowledgeSource for multipart/form-data ContentType.
+type SmbUploadKnowledgeSourceMultipartRequestBody = BodySmbUploadKnowledgeSource
+
+// SmbAddUrlSourceJSONRequestBody defines body for SmbAddUrlSource for application/json ContentType.
+type SmbAddUrlSourceJSONRequestBody = BodySmbAddUrlSource
+
+// SmbCreateLocationJSONRequestBody defines body for SmbCreateLocation for application/json ContentType.
+type SmbCreateLocationJSONRequestBody = BodySmbCreateLocation
+
+// SmbUpdateLocationJSONRequestBody defines body for SmbUpdateLocation for application/json ContentType.
+type SmbUpdateLocationJSONRequestBody = BodySmbUpdateLocation
+
+// SmbResellerProvisionWorkspaceJSONRequestBody defines body for SmbResellerProvisionWorkspace for application/json ContentType.
+type SmbResellerProvisionWorkspaceJSONRequestBody = ProvisionResellerWorkspaceRequest
+
+// SmbChangeResellerTierJSONRequestBody defines body for SmbChangeResellerTier for application/json ContentType.
+type SmbChangeResellerTierJSONRequestBody = AssignResellerTierRequest
+
+// SmbAssignResellerTierJSONRequestBody defines body for SmbAssignResellerTier for application/json ContentType.
+type SmbAssignResellerTierJSONRequestBody = AssignResellerTierRequest
+
+// SmbCreateServiceJSONRequestBody defines body for SmbCreateService for application/json ContentType.
+type SmbCreateServiceJSONRequestBody = BodySmbCreateService
+
+// SmbUpdateServiceJSONRequestBody defines body for SmbUpdateService for application/json ContentType.
+type SmbUpdateServiceJSONRequestBody = BodySmbUpdateService
+
+// SmbConfirmServiceUpdateJSONRequestBody defines body for SmbConfirmServiceUpdate for application/json ContentType.
+type SmbConfirmServiceUpdateJSONRequestBody = BodySmbConfirmServiceUpdate
+
+// SmbCreateStaffMemberJSONRequestBody defines body for SmbCreateStaffMember for application/json ContentType.
+type SmbCreateStaffMemberJSONRequestBody = BodySmbCreateStaffMember
+
+// SmbUpdateStaffMemberJSONRequestBody defines body for SmbUpdateStaffMember for application/json ContentType.
+type SmbUpdateStaffMemberJSONRequestBody = BodySmbUpdateStaffMember
 
 // SoundGenerationJSONRequestBody defines body for SoundGeneration for application/json ContentType.
 type SoundGenerationJSONRequestBody = BodySoundGenerationV1SoundGenerationPost
@@ -81990,7 +84086,7 @@ type ClientInterface interface {
 
 	// UpdateDocumentRouteWithBody Update Document
 	//
-	// Update the name and/or content of a document.
+	// Update the name, content and/or auto-sync settings of a document.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -81999,7 +84095,7 @@ type ClientInterface interface {
 
 	// UpdateDocumentRoute Update Document
 	//
-	// Update the name and/or content of a document.
+	// Update the name, content and/or auto-sync settings of a document.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -84132,6 +86228,410 @@ type ClientInterface interface {
 	//
 	// Corresponds with POST /v1/single-use-token/{token_type} (the `GetSingleUseToken` operationId).
 	GetSingleUseToken(ctx context.Context, tokenType SingleUseTokenType, params *GetSingleUseTokenParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbGetAgentInfo Get Agent Info
+	//
+	// Get all agent-affecting configuration with current workspace time.
+	//
+	// Corresponds with GET /v1/smb/agent-info (the `SmbGetAgentInfo` operationId).
+	SmbGetAgentInfo(ctx context.Context, params *SmbGetAgentInfoParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateAgentInfoWithBody Update Agent Info
+	//
+	// Update all agent-affecting configuration (triggers agent regeneration).
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
+	SmbUpdateAgentInfoWithBody(ctx context.Context, params *SmbUpdateAgentInfoParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateAgentInfo Update Agent Info
+	//
+	// Update all agent-affecting configuration (triggers agent regeneration).
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
+	SmbUpdateAgentInfo(ctx context.Context, params *SmbUpdateAgentInfoParams, body SmbUpdateAgentInfoJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListHolidays Get All Holidays
+	//
+	// Get all holidays/time-off entries for the current workspace with optional filters.
+	//
+	// Corresponds with GET /v1/smb/holidays (the `SmbListHolidays` operationId).
+	SmbListHolidays(ctx context.Context, params *SmbListHolidaysParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbCreateHolidayWithBody Create Holiday
+	//
+	// Create a new holiday.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/holidays (the `SmbCreateHoliday` operationId).
+	SmbCreateHolidayWithBody(ctx context.Context, params *SmbCreateHolidayParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbCreateHoliday Create Holiday
+	//
+	// Create a new holiday.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/holidays (the `SmbCreateHoliday` operationId).
+	SmbCreateHoliday(ctx context.Context, params *SmbCreateHolidayParams, body SmbCreateHolidayJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbDeleteHoliday Delete Holiday
+	//
+	// Delete a holiday.
+	//
+	// Corresponds with DELETE /v1/smb/holidays/{holiday_id} (the `SmbDeleteHoliday` operationId).
+	SmbDeleteHoliday(ctx context.Context, holidayId string, params *SmbDeleteHolidayParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbGetHoliday Get Holiday
+	//
+	// Get a specific holiday by ID.
+	//
+	// Corresponds with GET /v1/smb/holidays/{holiday_id} (the `SmbGetHoliday` operationId).
+	SmbGetHoliday(ctx context.Context, holidayId string, params *SmbGetHolidayParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateHolidayWithBody Update Holiday
+	//
+	// Update an existing holiday. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/smb/holidays/{holiday_id} (the `SmbUpdateHoliday` operationId).
+	SmbUpdateHolidayWithBody(ctx context.Context, holidayId string, params *SmbUpdateHolidayParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateHoliday Update Holiday
+	//
+	// Update an existing holiday. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/smb/holidays/{holiday_id} (the `SmbUpdateHoliday` operationId).
+	SmbUpdateHoliday(ctx context.Context, holidayId string, params *SmbUpdateHolidayParams, body SmbUpdateHolidayJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListKnowledgeSources List Knowledge Sources
+	//
+	// List all knowledge sources for the current workspace.
+	//
+	// Corresponds with GET /v1/smb/knowledge-sources (the `SmbListKnowledgeSources` operationId).
+	SmbListKnowledgeSources(ctx context.Context, params *SmbListKnowledgeSourcesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUploadKnowledgeSourceWithBody Upload Knowledge Source
+	//
+	// Upload a file as a knowledge source.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/knowledge-sources (the `SmbUploadKnowledgeSource` operationId).
+	SmbUploadKnowledgeSourceWithBody(ctx context.Context, params *SmbUploadKnowledgeSourceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAddUrlSourceWithBody Add Url Source
+	//
+	// Add a URL as a knowledge source.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/knowledge-sources/urls (the `SmbAddUrlSource` operationId).
+	SmbAddUrlSourceWithBody(ctx context.Context, params *SmbAddUrlSourceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAddUrlSource Add Url Source
+	//
+	// Add a URL as a knowledge source.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/knowledge-sources/urls (the `SmbAddUrlSource` operationId).
+	SmbAddUrlSource(ctx context.Context, params *SmbAddUrlSourceParams, body SmbAddUrlSourceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbDeleteKnowledgeSource Delete Knowledge Source
+	//
+	// Delete a knowledge source.
+	//
+	// Corresponds with DELETE /v1/smb/knowledge-sources/{source_id} (the `SmbDeleteKnowledgeSource` operationId).
+	SmbDeleteKnowledgeSource(ctx context.Context, sourceId string, params *SmbDeleteKnowledgeSourceParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbGetKnowledgeSource Get Knowledge Source
+	//
+	// Get a specific knowledge source by ID.
+	//
+	// Corresponds with GET /v1/smb/knowledge-sources/{source_id} (the `SmbGetKnowledgeSource` operationId).
+	SmbGetKnowledgeSource(ctx context.Context, sourceId string, params *SmbGetKnowledgeSourceParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListLocations List Locations
+	//
+	// List all business locations.
+	//
+	// Corresponds with GET /v1/smb/locations (the `SmbListLocations` operationId).
+	SmbListLocations(ctx context.Context, params *SmbListLocationsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbCreateLocationWithBody Create Location
+	//
+	// Add a new business location.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/locations (the `SmbCreateLocation` operationId).
+	SmbCreateLocationWithBody(ctx context.Context, params *SmbCreateLocationParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbCreateLocation Create Location
+	//
+	// Add a new business location.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/locations (the `SmbCreateLocation` operationId).
+	SmbCreateLocation(ctx context.Context, params *SmbCreateLocationParams, body SmbCreateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbDeleteLocation Delete Location
+	//
+	// Delete a location.
+	//
+	// Corresponds with DELETE /v1/smb/locations/{location_id} (the `SmbDeleteLocation` operationId).
+	SmbDeleteLocation(ctx context.Context, locationId string, params *SmbDeleteLocationParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbGetLocation Get Location
+	//
+	// Get a single location by ID.
+	//
+	// Corresponds with GET /v1/smb/locations/{location_id} (the `SmbGetLocation` operationId).
+	SmbGetLocation(ctx context.Context, locationId string, params *SmbGetLocationParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateLocationWithBody Update Location
+	//
+	// Update an existing location. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
+	SmbUpdateLocationWithBody(ctx context.Context, locationId string, params *SmbUpdateLocationParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateLocation Update Location
+	//
+	// Update an existing location. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
+	SmbUpdateLocation(ctx context.Context, locationId string, params *SmbUpdateLocationParams, body SmbUpdateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListResellerTierLadder List Reseller Tier Ladder
+	//
+	// The reseller's live tier ladder, lowest rank first. The first entry is the trial. Without tier management the rest are the builtin tiers. Retired tiers are omitted
+	//
+	// Corresponds with GET /v1/smb/reseller/tier-ladder (the `SmbListResellerTierLadder` operationId).
+	SmbListResellerTierLadder(ctx context.Context, params *SmbListResellerTierLadderParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListResellerWorkspaces List Reseller Workspaces
+	//
+	// List workspaces attributed to the caller's reseller, with cursor-based pagination
+	//
+	// Corresponds with GET /v1/smb/reseller/workspaces (the `SmbListResellerWorkspaces` operationId).
+	SmbListResellerWorkspaces(ctx context.Context, params *SmbListResellerWorkspacesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbResellerProvisionWorkspaceWithBody Provision Reseller Workspace
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
+	SmbResellerProvisionWorkspaceWithBody(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbResellerProvisionWorkspace Provision Reseller Workspace
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
+	SmbResellerProvisionWorkspace(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, body SmbResellerProvisionWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUnassignResellerTier Unassign Reseller Tier
+	//
+	// End a reseller-attributed workspace's subscription at the end of the current billing period.
+	//
+	// Corresponds with DELETE /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbUnassignResellerTier` operationId).
+	SmbUnassignResellerTier(ctx context.Context, workspaceId string, params *SmbUnassignResellerTierParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbChangeResellerTierWithBody Change Reseller Tier
+	//
+	// Move a reseller-attributed workspace between the reseller's tiers. Upgrades apply immediately; downgrades and lateral moves take effect at the end of the billing period.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbChangeResellerTier` operationId).
+	SmbChangeResellerTierWithBody(ctx context.Context, workspaceId string, params *SmbChangeResellerTierParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbChangeResellerTier Change Reseller Tier
+	//
+	// Move a reseller-attributed workspace between the reseller's tiers. Upgrades apply immediately; downgrades and lateral moves take effect at the end of the billing period.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbChangeResellerTier` operationId).
+	SmbChangeResellerTier(ctx context.Context, workspaceId string, params *SmbChangeResellerTierParams, body SmbChangeResellerTierJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAssignResellerTierWithBody Assign Reseller Tier
+	//
+	// Subscribe a reseller-attributed workspace to one of the reseller's tiers.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbAssignResellerTier` operationId).
+	SmbAssignResellerTierWithBody(ctx context.Context, workspaceId string, params *SmbAssignResellerTierParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAssignResellerTier Assign Reseller Tier
+	//
+	// Subscribe a reseller-attributed workspace to one of the reseller's tiers.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbAssignResellerTier` operationId).
+	SmbAssignResellerTier(ctx context.Context, workspaceId string, params *SmbAssignResellerTierParams, body SmbAssignResellerTierJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbCancelResellerPendingDowngrade Cancel Reseller Pending Downgrade
+	//
+	// Drop a scheduled downgrade, leaving the workspace on its current tier
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription/cancel-downgrade (the `SmbCancelResellerPendingDowngrade` operationId).
+	SmbCancelResellerPendingDowngrade(ctx context.Context, workspaceId string, params *SmbCancelResellerPendingDowngradeParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbRestoreResellerSubscription Restore Reseller Subscription
+	//
+	// Undo a pending unassignment so the subscription renews normally.
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription/restore (the `SmbRestoreResellerSubscription` operationId).
+	SmbRestoreResellerSubscription(ctx context.Context, workspaceId string, params *SmbRestoreResellerSubscriptionParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListServices Get All Services
+	//
+	// Get all services for the current workspace with optional filters.
+	//
+	// Corresponds with GET /v1/smb/services (the `SmbListServices` operationId).
+	SmbListServices(ctx context.Context, params *SmbListServicesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbCreateServiceWithBody Create Service
+	//
+	// Create a new service.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/services (the `SmbCreateService` operationId).
+	SmbCreateServiceWithBody(ctx context.Context, params *SmbCreateServiceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbCreateService Create Service
+	//
+	// Create a new service.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/services (the `SmbCreateService` operationId).
+	SmbCreateService(ctx context.Context, params *SmbCreateServiceParams, body SmbCreateServiceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbDeleteService Delete Service
+	//
+	// Delete a service.
+	//
+	// Corresponds with DELETE /v1/smb/services/{service_id} (the `SmbDeleteService` operationId).
+	SmbDeleteService(ctx context.Context, serviceId string, params *SmbDeleteServiceParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbGetService Get Service
+	//
+	// Get a specific service by ID.
+	//
+	// Corresponds with GET /v1/smb/services/{service_id} (the `SmbGetService` operationId).
+	SmbGetService(ctx context.Context, serviceId string, params *SmbGetServiceParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateServiceWithBody Update Service
+	//
+	// Update an existing service. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/smb/services/{service_id} (the `SmbUpdateService` operationId).
+	SmbUpdateServiceWithBody(ctx context.Context, serviceId string, params *SmbUpdateServiceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateService Update Service
+	//
+	// Update an existing service. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/smb/services/{service_id} (the `SmbUpdateService` operationId).
+	SmbUpdateService(ctx context.Context, serviceId string, params *SmbUpdateServiceParams, body SmbUpdateServiceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbConfirmServiceUpdateWithBody Confirm Service Update
+	//
+	// Save a service update after user confirmed price impact. Optionally reprice future events.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/services/{service_id}/confirm-update (the `SmbConfirmServiceUpdate` operationId).
+	SmbConfirmServiceUpdateWithBody(ctx context.Context, serviceId string, params *SmbConfirmServiceUpdateParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbConfirmServiceUpdate Confirm Service Update
+	//
+	// Save a service update after user confirmed price impact. Optionally reprice future events.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/services/{service_id}/confirm-update (the `SmbConfirmServiceUpdate` operationId).
+	SmbConfirmServiceUpdate(ctx context.Context, serviceId string, params *SmbConfirmServiceUpdateParams, body SmbConfirmServiceUpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListStaff Get All Staff
+	//
+	// Get all staff for the current workspace.
+	//
+	// Corresponds with GET /v1/smb/staff (the `SmbListStaff` operationId).
+	SmbListStaff(ctx context.Context, params *SmbListStaffParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbCreateStaffMemberWithBody Create Staff Member
+	//
+	// Create a new staff member.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/staff (the `SmbCreateStaffMember` operationId).
+	SmbCreateStaffMemberWithBody(ctx context.Context, params *SmbCreateStaffMemberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbCreateStaffMember Create Staff Member
+	//
+	// Create a new staff member.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/staff (the `SmbCreateStaffMember` operationId).
+	SmbCreateStaffMember(ctx context.Context, params *SmbCreateStaffMemberParams, body SmbCreateStaffMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbDeleteStaffMember Delete Staff Member
+	//
+	// Delete a staff member.
+	//
+	// Corresponds with DELETE /v1/smb/staff/{staff_id} (the `SmbDeleteStaffMember` operationId).
+	SmbDeleteStaffMember(ctx context.Context, staffId string, params *SmbDeleteStaffMemberParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbGetStaffMember Get Staff Member
+	//
+	// Get a specific staff member by ID.
+	//
+	// Corresponds with GET /v1/smb/staff/{staff_id} (the `SmbGetStaffMember` operationId).
+	SmbGetStaffMember(ctx context.Context, staffId string, params *SmbGetStaffMemberParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateStaffMemberWithBody Update Staff Member
+	//
+	// Update an existing staff member. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/smb/staff/{staff_id} (the `SmbUpdateStaffMember` operationId).
+	SmbUpdateStaffMemberWithBody(ctx context.Context, staffId string, params *SmbUpdateStaffMemberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateStaffMember Update Staff Member
+	//
+	// Update an existing staff member. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/smb/staff/{staff_id} (the `SmbUpdateStaffMember` operationId).
+	SmbUpdateStaffMember(ctx context.Context, staffId string, params *SmbUpdateStaffMemberParams, body SmbUpdateStaffMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// SoundGenerationWithBody Sound Generation
 	//
@@ -88673,7 +91173,7 @@ func (c *Client) GetDocumentationFromKnowledgeBase(ctx context.Context, document
 
 // UpdateDocumentRouteWithBody Update Document
 //
-// Update the name and/or content of a document.
+// Update the name, content and/or auto-sync settings of a document.
 //
 // Takes any type of body and a specified content type.
 //
@@ -88692,7 +91192,7 @@ func (c *Client) UpdateDocumentRouteWithBody(ctx context.Context, documentationI
 
 // UpdateDocumentRoute Update Document
 //
-// Update the name and/or content of a document.
+// Update the name, content and/or auto-sync settings of a document.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -93284,6 +95784,910 @@ func (c *Client) GetSimilarLibraryVoicesWithBody(ctx context.Context, params *Ge
 // Corresponds with POST /v1/single-use-token/{token_type} (the `GetSingleUseToken` operationId).
 func (c *Client) GetSingleUseToken(ctx context.Context, tokenType SingleUseTokenType, params *GetSingleUseTokenParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetSingleUseTokenRequest(c.Server, tokenType, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbGetAgentInfo Get Agent Info
+//
+// Get all agent-affecting configuration with current workspace time.
+//
+// Corresponds with GET /v1/smb/agent-info (the `SmbGetAgentInfo` operationId).
+func (c *Client) SmbGetAgentInfo(ctx context.Context, params *SmbGetAgentInfoParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbGetAgentInfoRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateAgentInfoWithBody Update Agent Info
+//
+// Update all agent-affecting configuration (triggers agent regeneration).
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
+func (c *Client) SmbUpdateAgentInfoWithBody(ctx context.Context, params *SmbUpdateAgentInfoParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateAgentInfoRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateAgentInfo Update Agent Info
+//
+// Update all agent-affecting configuration (triggers agent regeneration).
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
+func (c *Client) SmbUpdateAgentInfo(ctx context.Context, params *SmbUpdateAgentInfoParams, body SmbUpdateAgentInfoJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateAgentInfoRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListHolidays Get All Holidays
+//
+// Get all holidays/time-off entries for the current workspace with optional filters.
+//
+// Corresponds with GET /v1/smb/holidays (the `SmbListHolidays` operationId).
+func (c *Client) SmbListHolidays(ctx context.Context, params *SmbListHolidaysParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListHolidaysRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbCreateHolidayWithBody Create Holiday
+//
+// Create a new holiday.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/holidays (the `SmbCreateHoliday` operationId).
+func (c *Client) SmbCreateHolidayWithBody(ctx context.Context, params *SmbCreateHolidayParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbCreateHolidayRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbCreateHoliday Create Holiday
+//
+// Create a new holiday.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/holidays (the `SmbCreateHoliday` operationId).
+func (c *Client) SmbCreateHoliday(ctx context.Context, params *SmbCreateHolidayParams, body SmbCreateHolidayJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbCreateHolidayRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbDeleteHoliday Delete Holiday
+//
+// Delete a holiday.
+//
+// Corresponds with DELETE /v1/smb/holidays/{holiday_id} (the `SmbDeleteHoliday` operationId).
+func (c *Client) SmbDeleteHoliday(ctx context.Context, holidayId string, params *SmbDeleteHolidayParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbDeleteHolidayRequest(c.Server, holidayId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbGetHoliday Get Holiday
+//
+// Get a specific holiday by ID.
+//
+// Corresponds with GET /v1/smb/holidays/{holiday_id} (the `SmbGetHoliday` operationId).
+func (c *Client) SmbGetHoliday(ctx context.Context, holidayId string, params *SmbGetHolidayParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbGetHolidayRequest(c.Server, holidayId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateHolidayWithBody Update Holiday
+//
+// Update an existing holiday. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/smb/holidays/{holiday_id} (the `SmbUpdateHoliday` operationId).
+func (c *Client) SmbUpdateHolidayWithBody(ctx context.Context, holidayId string, params *SmbUpdateHolidayParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateHolidayRequestWithBody(c.Server, holidayId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateHoliday Update Holiday
+//
+// Update an existing holiday. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/smb/holidays/{holiday_id} (the `SmbUpdateHoliday` operationId).
+func (c *Client) SmbUpdateHoliday(ctx context.Context, holidayId string, params *SmbUpdateHolidayParams, body SmbUpdateHolidayJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateHolidayRequest(c.Server, holidayId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListKnowledgeSources List Knowledge Sources
+//
+// List all knowledge sources for the current workspace.
+//
+// Corresponds with GET /v1/smb/knowledge-sources (the `SmbListKnowledgeSources` operationId).
+func (c *Client) SmbListKnowledgeSources(ctx context.Context, params *SmbListKnowledgeSourcesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListKnowledgeSourcesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUploadKnowledgeSourceWithBody Upload Knowledge Source
+//
+// Upload a file as a knowledge source.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/knowledge-sources (the `SmbUploadKnowledgeSource` operationId).
+func (c *Client) SmbUploadKnowledgeSourceWithBody(ctx context.Context, params *SmbUploadKnowledgeSourceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUploadKnowledgeSourceRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAddUrlSourceWithBody Add Url Source
+//
+// Add a URL as a knowledge source.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/knowledge-sources/urls (the `SmbAddUrlSource` operationId).
+func (c *Client) SmbAddUrlSourceWithBody(ctx context.Context, params *SmbAddUrlSourceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAddUrlSourceRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAddUrlSource Add Url Source
+//
+// Add a URL as a knowledge source.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/knowledge-sources/urls (the `SmbAddUrlSource` operationId).
+func (c *Client) SmbAddUrlSource(ctx context.Context, params *SmbAddUrlSourceParams, body SmbAddUrlSourceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAddUrlSourceRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbDeleteKnowledgeSource Delete Knowledge Source
+//
+// Delete a knowledge source.
+//
+// Corresponds with DELETE /v1/smb/knowledge-sources/{source_id} (the `SmbDeleteKnowledgeSource` operationId).
+func (c *Client) SmbDeleteKnowledgeSource(ctx context.Context, sourceId string, params *SmbDeleteKnowledgeSourceParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbDeleteKnowledgeSourceRequest(c.Server, sourceId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbGetKnowledgeSource Get Knowledge Source
+//
+// Get a specific knowledge source by ID.
+//
+// Corresponds with GET /v1/smb/knowledge-sources/{source_id} (the `SmbGetKnowledgeSource` operationId).
+func (c *Client) SmbGetKnowledgeSource(ctx context.Context, sourceId string, params *SmbGetKnowledgeSourceParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbGetKnowledgeSourceRequest(c.Server, sourceId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListLocations List Locations
+//
+// List all business locations.
+//
+// Corresponds with GET /v1/smb/locations (the `SmbListLocations` operationId).
+func (c *Client) SmbListLocations(ctx context.Context, params *SmbListLocationsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListLocationsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbCreateLocationWithBody Create Location
+//
+// Add a new business location.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/locations (the `SmbCreateLocation` operationId).
+func (c *Client) SmbCreateLocationWithBody(ctx context.Context, params *SmbCreateLocationParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbCreateLocationRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbCreateLocation Create Location
+//
+// Add a new business location.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/locations (the `SmbCreateLocation` operationId).
+func (c *Client) SmbCreateLocation(ctx context.Context, params *SmbCreateLocationParams, body SmbCreateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbCreateLocationRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbDeleteLocation Delete Location
+//
+// Delete a location.
+//
+// Corresponds with DELETE /v1/smb/locations/{location_id} (the `SmbDeleteLocation` operationId).
+func (c *Client) SmbDeleteLocation(ctx context.Context, locationId string, params *SmbDeleteLocationParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbDeleteLocationRequest(c.Server, locationId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbGetLocation Get Location
+//
+// Get a single location by ID.
+//
+// Corresponds with GET /v1/smb/locations/{location_id} (the `SmbGetLocation` operationId).
+func (c *Client) SmbGetLocation(ctx context.Context, locationId string, params *SmbGetLocationParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbGetLocationRequest(c.Server, locationId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateLocationWithBody Update Location
+//
+// Update an existing location. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
+func (c *Client) SmbUpdateLocationWithBody(ctx context.Context, locationId string, params *SmbUpdateLocationParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateLocationRequestWithBody(c.Server, locationId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateLocation Update Location
+//
+// Update an existing location. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
+func (c *Client) SmbUpdateLocation(ctx context.Context, locationId string, params *SmbUpdateLocationParams, body SmbUpdateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateLocationRequest(c.Server, locationId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListResellerTierLadder List Reseller Tier Ladder
+//
+// The reseller's live tier ladder, lowest rank first. The first entry is the trial. Without tier management the rest are the builtin tiers. Retired tiers are omitted
+//
+// Corresponds with GET /v1/smb/reseller/tier-ladder (the `SmbListResellerTierLadder` operationId).
+func (c *Client) SmbListResellerTierLadder(ctx context.Context, params *SmbListResellerTierLadderParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListResellerTierLadderRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListResellerWorkspaces List Reseller Workspaces
+//
+// # List workspaces attributed to the caller's reseller, with cursor-based pagination
+//
+// Corresponds with GET /v1/smb/reseller/workspaces (the `SmbListResellerWorkspaces` operationId).
+func (c *Client) SmbListResellerWorkspaces(ctx context.Context, params *SmbListResellerWorkspacesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListResellerWorkspacesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbResellerProvisionWorkspaceWithBody Provision Reseller Workspace
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
+func (c *Client) SmbResellerProvisionWorkspaceWithBody(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbResellerProvisionWorkspaceRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbResellerProvisionWorkspace Provision Reseller Workspace
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
+func (c *Client) SmbResellerProvisionWorkspace(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, body SmbResellerProvisionWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbResellerProvisionWorkspaceRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUnassignResellerTier Unassign Reseller Tier
+//
+// End a reseller-attributed workspace's subscription at the end of the current billing period.
+//
+// Corresponds with DELETE /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbUnassignResellerTier` operationId).
+func (c *Client) SmbUnassignResellerTier(ctx context.Context, workspaceId string, params *SmbUnassignResellerTierParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUnassignResellerTierRequest(c.Server, workspaceId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbChangeResellerTierWithBody Change Reseller Tier
+//
+// Move a reseller-attributed workspace between the reseller's tiers. Upgrades apply immediately; downgrades and lateral moves take effect at the end of the billing period.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbChangeResellerTier` operationId).
+func (c *Client) SmbChangeResellerTierWithBody(ctx context.Context, workspaceId string, params *SmbChangeResellerTierParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbChangeResellerTierRequestWithBody(c.Server, workspaceId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbChangeResellerTier Change Reseller Tier
+//
+// Move a reseller-attributed workspace between the reseller's tiers. Upgrades apply immediately; downgrades and lateral moves take effect at the end of the billing period.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbChangeResellerTier` operationId).
+func (c *Client) SmbChangeResellerTier(ctx context.Context, workspaceId string, params *SmbChangeResellerTierParams, body SmbChangeResellerTierJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbChangeResellerTierRequest(c.Server, workspaceId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAssignResellerTierWithBody Assign Reseller Tier
+//
+// Subscribe a reseller-attributed workspace to one of the reseller's tiers.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbAssignResellerTier` operationId).
+func (c *Client) SmbAssignResellerTierWithBody(ctx context.Context, workspaceId string, params *SmbAssignResellerTierParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAssignResellerTierRequestWithBody(c.Server, workspaceId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAssignResellerTier Assign Reseller Tier
+//
+// Subscribe a reseller-attributed workspace to one of the reseller's tiers.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbAssignResellerTier` operationId).
+func (c *Client) SmbAssignResellerTier(ctx context.Context, workspaceId string, params *SmbAssignResellerTierParams, body SmbAssignResellerTierJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAssignResellerTierRequest(c.Server, workspaceId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbCancelResellerPendingDowngrade Cancel Reseller Pending Downgrade
+//
+// # Drop a scheduled downgrade, leaving the workspace on its current tier
+//
+// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription/cancel-downgrade (the `SmbCancelResellerPendingDowngrade` operationId).
+func (c *Client) SmbCancelResellerPendingDowngrade(ctx context.Context, workspaceId string, params *SmbCancelResellerPendingDowngradeParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbCancelResellerPendingDowngradeRequest(c.Server, workspaceId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbRestoreResellerSubscription Restore Reseller Subscription
+//
+// Undo a pending unassignment so the subscription renews normally.
+//
+// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription/restore (the `SmbRestoreResellerSubscription` operationId).
+func (c *Client) SmbRestoreResellerSubscription(ctx context.Context, workspaceId string, params *SmbRestoreResellerSubscriptionParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbRestoreResellerSubscriptionRequest(c.Server, workspaceId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListServices Get All Services
+//
+// Get all services for the current workspace with optional filters.
+//
+// Corresponds with GET /v1/smb/services (the `SmbListServices` operationId).
+func (c *Client) SmbListServices(ctx context.Context, params *SmbListServicesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListServicesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbCreateServiceWithBody Create Service
+//
+// Create a new service.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/services (the `SmbCreateService` operationId).
+func (c *Client) SmbCreateServiceWithBody(ctx context.Context, params *SmbCreateServiceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbCreateServiceRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbCreateService Create Service
+//
+// Create a new service.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/services (the `SmbCreateService` operationId).
+func (c *Client) SmbCreateService(ctx context.Context, params *SmbCreateServiceParams, body SmbCreateServiceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbCreateServiceRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbDeleteService Delete Service
+//
+// Delete a service.
+//
+// Corresponds with DELETE /v1/smb/services/{service_id} (the `SmbDeleteService` operationId).
+func (c *Client) SmbDeleteService(ctx context.Context, serviceId string, params *SmbDeleteServiceParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbDeleteServiceRequest(c.Server, serviceId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbGetService Get Service
+//
+// Get a specific service by ID.
+//
+// Corresponds with GET /v1/smb/services/{service_id} (the `SmbGetService` operationId).
+func (c *Client) SmbGetService(ctx context.Context, serviceId string, params *SmbGetServiceParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbGetServiceRequest(c.Server, serviceId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateServiceWithBody Update Service
+//
+// Update an existing service. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/smb/services/{service_id} (the `SmbUpdateService` operationId).
+func (c *Client) SmbUpdateServiceWithBody(ctx context.Context, serviceId string, params *SmbUpdateServiceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateServiceRequestWithBody(c.Server, serviceId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateService Update Service
+//
+// Update an existing service. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/smb/services/{service_id} (the `SmbUpdateService` operationId).
+func (c *Client) SmbUpdateService(ctx context.Context, serviceId string, params *SmbUpdateServiceParams, body SmbUpdateServiceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateServiceRequest(c.Server, serviceId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbConfirmServiceUpdateWithBody Confirm Service Update
+//
+// Save a service update after user confirmed price impact. Optionally reprice future events.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/services/{service_id}/confirm-update (the `SmbConfirmServiceUpdate` operationId).
+func (c *Client) SmbConfirmServiceUpdateWithBody(ctx context.Context, serviceId string, params *SmbConfirmServiceUpdateParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbConfirmServiceUpdateRequestWithBody(c.Server, serviceId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbConfirmServiceUpdate Confirm Service Update
+//
+// Save a service update after user confirmed price impact. Optionally reprice future events.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/services/{service_id}/confirm-update (the `SmbConfirmServiceUpdate` operationId).
+func (c *Client) SmbConfirmServiceUpdate(ctx context.Context, serviceId string, params *SmbConfirmServiceUpdateParams, body SmbConfirmServiceUpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbConfirmServiceUpdateRequest(c.Server, serviceId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListStaff Get All Staff
+//
+// Get all staff for the current workspace.
+//
+// Corresponds with GET /v1/smb/staff (the `SmbListStaff` operationId).
+func (c *Client) SmbListStaff(ctx context.Context, params *SmbListStaffParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListStaffRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbCreateStaffMemberWithBody Create Staff Member
+//
+// Create a new staff member.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/staff (the `SmbCreateStaffMember` operationId).
+func (c *Client) SmbCreateStaffMemberWithBody(ctx context.Context, params *SmbCreateStaffMemberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbCreateStaffMemberRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbCreateStaffMember Create Staff Member
+//
+// Create a new staff member.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/staff (the `SmbCreateStaffMember` operationId).
+func (c *Client) SmbCreateStaffMember(ctx context.Context, params *SmbCreateStaffMemberParams, body SmbCreateStaffMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbCreateStaffMemberRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbDeleteStaffMember Delete Staff Member
+//
+// Delete a staff member.
+//
+// Corresponds with DELETE /v1/smb/staff/{staff_id} (the `SmbDeleteStaffMember` operationId).
+func (c *Client) SmbDeleteStaffMember(ctx context.Context, staffId string, params *SmbDeleteStaffMemberParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbDeleteStaffMemberRequest(c.Server, staffId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbGetStaffMember Get Staff Member
+//
+// Get a specific staff member by ID.
+//
+// Corresponds with GET /v1/smb/staff/{staff_id} (the `SmbGetStaffMember` operationId).
+func (c *Client) SmbGetStaffMember(ctx context.Context, staffId string, params *SmbGetStaffMemberParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbGetStaffMemberRequest(c.Server, staffId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateStaffMemberWithBody Update Staff Member
+//
+// Update an existing staff member. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/smb/staff/{staff_id} (the `SmbUpdateStaffMember` operationId).
+func (c *Client) SmbUpdateStaffMemberWithBody(ctx context.Context, staffId string, params *SmbUpdateStaffMemberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateStaffMemberRequestWithBody(c.Server, staffId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateStaffMember Update Staff Member
+//
+// Update an existing staff member. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/smb/staff/{staff_id} (the `SmbUpdateStaffMember` operationId).
+func (c *Client) SmbUpdateStaffMember(ctx context.Context, staffId string, params *SmbUpdateStaffMemberParams, body SmbUpdateStaffMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateStaffMemberRequest(c.Server, staffId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -118698,6 +122102,2354 @@ func NewGetSingleUseTokenRequest(server string, tokenType SingleUseTokenType, pa
 	return req, nil
 }
 
+// NewSmbGetAgentInfoRequest constructs an http.Request for the SmbGetAgentInfo method
+func NewSmbGetAgentInfoRequest(server string, params *SmbGetAgentInfoParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/agent-info")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUpdateAgentInfoRequest calls the generic SmbUpdateAgentInfo builder with application/json body
+func NewSmbUpdateAgentInfoRequest(server string, params *SmbUpdateAgentInfoParams, body SmbUpdateAgentInfoJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbUpdateAgentInfoRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSmbUpdateAgentInfoRequestWithBody constructs an http.Request for the SmbUpdateAgentInfo method, with any body, and a specified content type
+func NewSmbUpdateAgentInfoRequestWithBody(server string, params *SmbUpdateAgentInfoParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/agent-info")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListHolidaysRequest constructs an http.Request for the SmbListHolidays method
+func NewSmbListHolidaysRequest(server string, params *SmbListHolidaysParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/holidays")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.StartUnix != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "start_unix", *params.StartUnix, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.EndUnix != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "end_unix", *params.EndUnix, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TimeOffType != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "time_off_type", *params.TimeOffType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.ResourceId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "resource_id", *params.ResourceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LocationId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "location_id", *params.LocationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbCreateHolidayRequest calls the generic SmbCreateHoliday builder with application/json body
+func NewSmbCreateHolidayRequest(server string, params *SmbCreateHolidayParams, body SmbCreateHolidayJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbCreateHolidayRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSmbCreateHolidayRequestWithBody constructs an http.Request for the SmbCreateHoliday method, with any body, and a specified content type
+func NewSmbCreateHolidayRequestWithBody(server string, params *SmbCreateHolidayParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/holidays")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbDeleteHolidayRequest constructs an http.Request for the SmbDeleteHoliday method
+func NewSmbDeleteHolidayRequest(server string, holidayId string, params *SmbDeleteHolidayParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "holiday_id", holidayId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/holidays/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbGetHolidayRequest constructs an http.Request for the SmbGetHoliday method
+func NewSmbGetHolidayRequest(server string, holidayId string, params *SmbGetHolidayParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "holiday_id", holidayId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/holidays/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUpdateHolidayRequest calls the generic SmbUpdateHoliday builder with application/json body
+func NewSmbUpdateHolidayRequest(server string, holidayId string, params *SmbUpdateHolidayParams, body SmbUpdateHolidayJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbUpdateHolidayRequestWithBody(server, holidayId, params, "application/json", bodyReader)
+}
+
+// NewSmbUpdateHolidayRequestWithBody constructs an http.Request for the SmbUpdateHoliday method, with any body, and a specified content type
+func NewSmbUpdateHolidayRequestWithBody(server string, holidayId string, params *SmbUpdateHolidayParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "holiday_id", holidayId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/holidays/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListKnowledgeSourcesRequest constructs an http.Request for the SmbListKnowledgeSources method
+func NewSmbListKnowledgeSourcesRequest(server string, params *SmbListKnowledgeSourcesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/knowledge-sources")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUploadKnowledgeSourceRequestWithBody constructs an http.Request for the SmbUploadKnowledgeSource method, with any body, and a specified content type
+func NewSmbUploadKnowledgeSourceRequestWithBody(server string, params *SmbUploadKnowledgeSourceParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/knowledge-sources")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbAddUrlSourceRequest calls the generic SmbAddUrlSource builder with application/json body
+func NewSmbAddUrlSourceRequest(server string, params *SmbAddUrlSourceParams, body SmbAddUrlSourceJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbAddUrlSourceRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSmbAddUrlSourceRequestWithBody constructs an http.Request for the SmbAddUrlSource method, with any body, and a specified content type
+func NewSmbAddUrlSourceRequestWithBody(server string, params *SmbAddUrlSourceParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/knowledge-sources/urls")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbDeleteKnowledgeSourceRequest constructs an http.Request for the SmbDeleteKnowledgeSource method
+func NewSmbDeleteKnowledgeSourceRequest(server string, sourceId string, params *SmbDeleteKnowledgeSourceParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "source_id", sourceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/knowledge-sources/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbGetKnowledgeSourceRequest constructs an http.Request for the SmbGetKnowledgeSource method
+func NewSmbGetKnowledgeSourceRequest(server string, sourceId string, params *SmbGetKnowledgeSourceParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "source_id", sourceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/knowledge-sources/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListLocationsRequest constructs an http.Request for the SmbListLocations method
+func NewSmbListLocationsRequest(server string, params *SmbListLocationsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/locations")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbCreateLocationRequest calls the generic SmbCreateLocation builder with application/json body
+func NewSmbCreateLocationRequest(server string, params *SmbCreateLocationParams, body SmbCreateLocationJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbCreateLocationRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSmbCreateLocationRequestWithBody constructs an http.Request for the SmbCreateLocation method, with any body, and a specified content type
+func NewSmbCreateLocationRequestWithBody(server string, params *SmbCreateLocationParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/locations")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbDeleteLocationRequest constructs an http.Request for the SmbDeleteLocation method
+func NewSmbDeleteLocationRequest(server string, locationId string, params *SmbDeleteLocationParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "location_id", locationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/locations/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbGetLocationRequest constructs an http.Request for the SmbGetLocation method
+func NewSmbGetLocationRequest(server string, locationId string, params *SmbGetLocationParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "location_id", locationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/locations/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUpdateLocationRequest calls the generic SmbUpdateLocation builder with application/json body
+func NewSmbUpdateLocationRequest(server string, locationId string, params *SmbUpdateLocationParams, body SmbUpdateLocationJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbUpdateLocationRequestWithBody(server, locationId, params, "application/json", bodyReader)
+}
+
+// NewSmbUpdateLocationRequestWithBody constructs an http.Request for the SmbUpdateLocation method, with any body, and a specified content type
+func NewSmbUpdateLocationRequestWithBody(server string, locationId string, params *SmbUpdateLocationParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "location_id", locationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/locations/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListResellerTierLadderRequest constructs an http.Request for the SmbListResellerTierLadder method
+func NewSmbListResellerTierLadderRequest(server string, params *SmbListResellerTierLadderParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/tier-ladder")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListResellerWorkspacesRequest constructs an http.Request for the SmbListResellerWorkspaces method
+func NewSmbListResellerWorkspacesRequest(server string, params *SmbListResellerWorkspacesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/workspaces")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbResellerProvisionWorkspaceRequest calls the generic SmbResellerProvisionWorkspace builder with application/json body
+func NewSmbResellerProvisionWorkspaceRequest(server string, params *SmbResellerProvisionWorkspaceParams, body SmbResellerProvisionWorkspaceJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbResellerProvisionWorkspaceRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSmbResellerProvisionWorkspaceRequestWithBody constructs an http.Request for the SmbResellerProvisionWorkspace method, with any body, and a specified content type
+func NewSmbResellerProvisionWorkspaceRequestWithBody(server string, params *SmbResellerProvisionWorkspaceParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/workspaces")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUnassignResellerTierRequest constructs an http.Request for the SmbUnassignResellerTier method
+func NewSmbUnassignResellerTierRequest(server string, workspaceId string, params *SmbUnassignResellerTierParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "workspace_id", workspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/workspaces/%s/subscription", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbChangeResellerTierRequest calls the generic SmbChangeResellerTier builder with application/json body
+func NewSmbChangeResellerTierRequest(server string, workspaceId string, params *SmbChangeResellerTierParams, body SmbChangeResellerTierJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbChangeResellerTierRequestWithBody(server, workspaceId, params, "application/json", bodyReader)
+}
+
+// NewSmbChangeResellerTierRequestWithBody constructs an http.Request for the SmbChangeResellerTier method, with any body, and a specified content type
+func NewSmbChangeResellerTierRequestWithBody(server string, workspaceId string, params *SmbChangeResellerTierParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "workspace_id", workspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/workspaces/%s/subscription", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbAssignResellerTierRequest calls the generic SmbAssignResellerTier builder with application/json body
+func NewSmbAssignResellerTierRequest(server string, workspaceId string, params *SmbAssignResellerTierParams, body SmbAssignResellerTierJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbAssignResellerTierRequestWithBody(server, workspaceId, params, "application/json", bodyReader)
+}
+
+// NewSmbAssignResellerTierRequestWithBody constructs an http.Request for the SmbAssignResellerTier method, with any body, and a specified content type
+func NewSmbAssignResellerTierRequestWithBody(server string, workspaceId string, params *SmbAssignResellerTierParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "workspace_id", workspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/workspaces/%s/subscription", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbCancelResellerPendingDowngradeRequest constructs an http.Request for the SmbCancelResellerPendingDowngrade method
+func NewSmbCancelResellerPendingDowngradeRequest(server string, workspaceId string, params *SmbCancelResellerPendingDowngradeParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "workspace_id", workspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/workspaces/%s/subscription/cancel-downgrade", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbRestoreResellerSubscriptionRequest constructs an http.Request for the SmbRestoreResellerSubscription method
+func NewSmbRestoreResellerSubscriptionRequest(server string, workspaceId string, params *SmbRestoreResellerSubscriptionParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "workspace_id", workspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/workspaces/%s/subscription/restore", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListServicesRequest constructs an http.Request for the SmbListServices method
+func NewSmbListServicesRequest(server string, params *SmbListServicesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/services")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.StaffId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "staff_id", *params.StaffId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.AssetId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "asset_id", *params.AssetId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IsActive != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "is_active", *params.IsActive, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Kind != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "kind", *params.Kind, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbCreateServiceRequest calls the generic SmbCreateService builder with application/json body
+func NewSmbCreateServiceRequest(server string, params *SmbCreateServiceParams, body SmbCreateServiceJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbCreateServiceRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSmbCreateServiceRequestWithBody constructs an http.Request for the SmbCreateService method, with any body, and a specified content type
+func NewSmbCreateServiceRequestWithBody(server string, params *SmbCreateServiceParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/services")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbDeleteServiceRequest constructs an http.Request for the SmbDeleteService method
+func NewSmbDeleteServiceRequest(server string, serviceId string, params *SmbDeleteServiceParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "service_id", serviceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/services/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbGetServiceRequest constructs an http.Request for the SmbGetService method
+func NewSmbGetServiceRequest(server string, serviceId string, params *SmbGetServiceParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "service_id", serviceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/services/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUpdateServiceRequest calls the generic SmbUpdateService builder with application/json body
+func NewSmbUpdateServiceRequest(server string, serviceId string, params *SmbUpdateServiceParams, body SmbUpdateServiceJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbUpdateServiceRequestWithBody(server, serviceId, params, "application/json", bodyReader)
+}
+
+// NewSmbUpdateServiceRequestWithBody constructs an http.Request for the SmbUpdateService method, with any body, and a specified content type
+func NewSmbUpdateServiceRequestWithBody(server string, serviceId string, params *SmbUpdateServiceParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "service_id", serviceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/services/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbConfirmServiceUpdateRequest calls the generic SmbConfirmServiceUpdate builder with application/json body
+func NewSmbConfirmServiceUpdateRequest(server string, serviceId string, params *SmbConfirmServiceUpdateParams, body SmbConfirmServiceUpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbConfirmServiceUpdateRequestWithBody(server, serviceId, params, "application/json", bodyReader)
+}
+
+// NewSmbConfirmServiceUpdateRequestWithBody constructs an http.Request for the SmbConfirmServiceUpdate method, with any body, and a specified content type
+func NewSmbConfirmServiceUpdateRequestWithBody(server string, serviceId string, params *SmbConfirmServiceUpdateParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "service_id", serviceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/services/%s/confirm-update", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Reprice != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "reprice", *params.Reprice, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListStaffRequest constructs an http.Request for the SmbListStaff method
+func NewSmbListStaffRequest(server string, params *SmbListStaffParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/staff")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbCreateStaffMemberRequest calls the generic SmbCreateStaffMember builder with application/json body
+func NewSmbCreateStaffMemberRequest(server string, params *SmbCreateStaffMemberParams, body SmbCreateStaffMemberJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbCreateStaffMemberRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSmbCreateStaffMemberRequestWithBody constructs an http.Request for the SmbCreateStaffMember method, with any body, and a specified content type
+func NewSmbCreateStaffMemberRequestWithBody(server string, params *SmbCreateStaffMemberParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/staff")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbDeleteStaffMemberRequest constructs an http.Request for the SmbDeleteStaffMember method
+func NewSmbDeleteStaffMemberRequest(server string, staffId string, params *SmbDeleteStaffMemberParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "staff_id", staffId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/staff/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbGetStaffMemberRequest constructs an http.Request for the SmbGetStaffMember method
+func NewSmbGetStaffMemberRequest(server string, staffId string, params *SmbGetStaffMemberParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "staff_id", staffId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/staff/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUpdateStaffMemberRequest calls the generic SmbUpdateStaffMember builder with application/json body
+func NewSmbUpdateStaffMemberRequest(server string, staffId string, params *SmbUpdateStaffMemberParams, body SmbUpdateStaffMemberJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbUpdateStaffMemberRequestWithBody(server, staffId, params, "application/json", bodyReader)
+}
+
+// NewSmbUpdateStaffMemberRequestWithBody constructs an http.Request for the SmbUpdateStaffMember method, with any body, and a specified content type
+func NewSmbUpdateStaffMemberRequestWithBody(server string, staffId string, params *SmbUpdateStaffMemberParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "staff_id", staffId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/staff/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewSoundGenerationRequest calls the generic SoundGeneration builder with application/json body
 func NewSoundGenerationRequest(server string, params *SoundGenerationParams, body SoundGenerationJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -127685,7 +133437,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateDocumentRouteWithBodyWithResponse Update Document
 	//
-	// Update the name and/or content of a document.
+	// Update the name, content and/or auto-sync settings of a document.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -127694,7 +133446,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateDocumentRouteWithResponse Update Document
 	//
-	// Update the name and/or content of a document.
+	// Update the name, content and/or auto-sync settings of a document.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -130023,6 +135775,452 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with POST /v1/single-use-token/{token_type} (the `GetSingleUseToken` operationId).
 	GetSingleUseTokenWithResponse(ctx context.Context, tokenType SingleUseTokenType, params *GetSingleUseTokenParams, reqEditors ...RequestEditorFn) (*GetSingleUseTokenResponse, error)
+
+	// SmbGetAgentInfoWithResponse Get Agent Info
+	//
+	// Get all agent-affecting configuration with current workspace time.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/agent-info (the `SmbGetAgentInfo` operationId).
+	SmbGetAgentInfoWithResponse(ctx context.Context, params *SmbGetAgentInfoParams, reqEditors ...RequestEditorFn) (*SmbGetAgentInfoResponse, error)
+
+	// SmbUpdateAgentInfoWithBodyWithResponse Update Agent Info
+	//
+	// Update all agent-affecting configuration (triggers agent regeneration).
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
+	SmbUpdateAgentInfoWithBodyWithResponse(ctx context.Context, params *SmbUpdateAgentInfoParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateAgentInfoResponse, error)
+
+	// SmbUpdateAgentInfoWithResponse Update Agent Info
+	//
+	// Update all agent-affecting configuration (triggers agent regeneration).
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
+	SmbUpdateAgentInfoWithResponse(ctx context.Context, params *SmbUpdateAgentInfoParams, body SmbUpdateAgentInfoJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateAgentInfoResponse, error)
+
+	// SmbListHolidaysWithResponse Get All Holidays
+	//
+	// Get all holidays/time-off entries for the current workspace with optional filters.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/holidays (the `SmbListHolidays` operationId).
+	SmbListHolidaysWithResponse(ctx context.Context, params *SmbListHolidaysParams, reqEditors ...RequestEditorFn) (*SmbListHolidaysResponse, error)
+
+	// SmbCreateHolidayWithBodyWithResponse Create Holiday
+	//
+	// Create a new holiday.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/holidays (the `SmbCreateHoliday` operationId).
+	SmbCreateHolidayWithBodyWithResponse(ctx context.Context, params *SmbCreateHolidayParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbCreateHolidayResponse, error)
+
+	// SmbCreateHolidayWithResponse Create Holiday
+	//
+	// Create a new holiday.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/holidays (the `SmbCreateHoliday` operationId).
+	SmbCreateHolidayWithResponse(ctx context.Context, params *SmbCreateHolidayParams, body SmbCreateHolidayJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbCreateHolidayResponse, error)
+
+	// SmbDeleteHolidayWithResponse Delete Holiday
+	//
+	// Delete a holiday.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/holidays/{holiday_id} (the `SmbDeleteHoliday` operationId).
+	SmbDeleteHolidayWithResponse(ctx context.Context, holidayId string, params *SmbDeleteHolidayParams, reqEditors ...RequestEditorFn) (*SmbDeleteHolidayResponse, error)
+
+	// SmbGetHolidayWithResponse Get Holiday
+	//
+	// Get a specific holiday by ID.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/holidays/{holiday_id} (the `SmbGetHoliday` operationId).
+	SmbGetHolidayWithResponse(ctx context.Context, holidayId string, params *SmbGetHolidayParams, reqEditors ...RequestEditorFn) (*SmbGetHolidayResponse, error)
+
+	// SmbUpdateHolidayWithBodyWithResponse Update Holiday
+	//
+	// Update an existing holiday. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/holidays/{holiday_id} (the `SmbUpdateHoliday` operationId).
+	SmbUpdateHolidayWithBodyWithResponse(ctx context.Context, holidayId string, params *SmbUpdateHolidayParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateHolidayResponse, error)
+
+	// SmbUpdateHolidayWithResponse Update Holiday
+	//
+	// Update an existing holiday. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/holidays/{holiday_id} (the `SmbUpdateHoliday` operationId).
+	SmbUpdateHolidayWithResponse(ctx context.Context, holidayId string, params *SmbUpdateHolidayParams, body SmbUpdateHolidayJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateHolidayResponse, error)
+
+	// SmbListKnowledgeSourcesWithResponse List Knowledge Sources
+	//
+	// List all knowledge sources for the current workspace.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/knowledge-sources (the `SmbListKnowledgeSources` operationId).
+	SmbListKnowledgeSourcesWithResponse(ctx context.Context, params *SmbListKnowledgeSourcesParams, reqEditors ...RequestEditorFn) (*SmbListKnowledgeSourcesResponse, error)
+
+	// SmbUploadKnowledgeSourceWithBodyWithResponse Upload Knowledge Source
+	//
+	// Upload a file as a knowledge source.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/knowledge-sources (the `SmbUploadKnowledgeSource` operationId).
+	SmbUploadKnowledgeSourceWithBodyWithResponse(ctx context.Context, params *SmbUploadKnowledgeSourceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUploadKnowledgeSourceResponse, error)
+
+	// SmbAddUrlSourceWithBodyWithResponse Add Url Source
+	//
+	// Add a URL as a knowledge source.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/knowledge-sources/urls (the `SmbAddUrlSource` operationId).
+	SmbAddUrlSourceWithBodyWithResponse(ctx context.Context, params *SmbAddUrlSourceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAddUrlSourceResponse, error)
+
+	// SmbAddUrlSourceWithResponse Add Url Source
+	//
+	// Add a URL as a knowledge source.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/knowledge-sources/urls (the `SmbAddUrlSource` operationId).
+	SmbAddUrlSourceWithResponse(ctx context.Context, params *SmbAddUrlSourceParams, body SmbAddUrlSourceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAddUrlSourceResponse, error)
+
+	// SmbDeleteKnowledgeSourceWithResponse Delete Knowledge Source
+	//
+	// Delete a knowledge source.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/knowledge-sources/{source_id} (the `SmbDeleteKnowledgeSource` operationId).
+	SmbDeleteKnowledgeSourceWithResponse(ctx context.Context, sourceId string, params *SmbDeleteKnowledgeSourceParams, reqEditors ...RequestEditorFn) (*SmbDeleteKnowledgeSourceResponse, error)
+
+	// SmbGetKnowledgeSourceWithResponse Get Knowledge Source
+	//
+	// Get a specific knowledge source by ID.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/knowledge-sources/{source_id} (the `SmbGetKnowledgeSource` operationId).
+	SmbGetKnowledgeSourceWithResponse(ctx context.Context, sourceId string, params *SmbGetKnowledgeSourceParams, reqEditors ...RequestEditorFn) (*SmbGetKnowledgeSourceResponse, error)
+
+	// SmbListLocationsWithResponse List Locations
+	//
+	// List all business locations.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/locations (the `SmbListLocations` operationId).
+	SmbListLocationsWithResponse(ctx context.Context, params *SmbListLocationsParams, reqEditors ...RequestEditorFn) (*SmbListLocationsResponse, error)
+
+	// SmbCreateLocationWithBodyWithResponse Create Location
+	//
+	// Add a new business location.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/locations (the `SmbCreateLocation` operationId).
+	SmbCreateLocationWithBodyWithResponse(ctx context.Context, params *SmbCreateLocationParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbCreateLocationResponse, error)
+
+	// SmbCreateLocationWithResponse Create Location
+	//
+	// Add a new business location.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/locations (the `SmbCreateLocation` operationId).
+	SmbCreateLocationWithResponse(ctx context.Context, params *SmbCreateLocationParams, body SmbCreateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbCreateLocationResponse, error)
+
+	// SmbDeleteLocationWithResponse Delete Location
+	//
+	// Delete a location.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/locations/{location_id} (the `SmbDeleteLocation` operationId).
+	SmbDeleteLocationWithResponse(ctx context.Context, locationId string, params *SmbDeleteLocationParams, reqEditors ...RequestEditorFn) (*SmbDeleteLocationResponse, error)
+
+	// SmbGetLocationWithResponse Get Location
+	//
+	// Get a single location by ID.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/locations/{location_id} (the `SmbGetLocation` operationId).
+	SmbGetLocationWithResponse(ctx context.Context, locationId string, params *SmbGetLocationParams, reqEditors ...RequestEditorFn) (*SmbGetLocationResponse, error)
+
+	// SmbUpdateLocationWithBodyWithResponse Update Location
+	//
+	// Update an existing location. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
+	SmbUpdateLocationWithBodyWithResponse(ctx context.Context, locationId string, params *SmbUpdateLocationParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateLocationResponse, error)
+
+	// SmbUpdateLocationWithResponse Update Location
+	//
+	// Update an existing location. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
+	SmbUpdateLocationWithResponse(ctx context.Context, locationId string, params *SmbUpdateLocationParams, body SmbUpdateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateLocationResponse, error)
+
+	// SmbListResellerTierLadderWithResponse List Reseller Tier Ladder
+	//
+	// The reseller's live tier ladder, lowest rank first. The first entry is the trial. Without tier management the rest are the builtin tiers. Retired tiers are omitted
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/reseller/tier-ladder (the `SmbListResellerTierLadder` operationId).
+	SmbListResellerTierLadderWithResponse(ctx context.Context, params *SmbListResellerTierLadderParams, reqEditors ...RequestEditorFn) (*SmbListResellerTierLadderResponse, error)
+
+	// SmbListResellerWorkspacesWithResponse List Reseller Workspaces
+	//
+	// List workspaces attributed to the caller's reseller, with cursor-based pagination
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/reseller/workspaces (the `SmbListResellerWorkspaces` operationId).
+	SmbListResellerWorkspacesWithResponse(ctx context.Context, params *SmbListResellerWorkspacesParams, reqEditors ...RequestEditorFn) (*SmbListResellerWorkspacesResponse, error)
+
+	// SmbResellerProvisionWorkspaceWithBodyWithResponse Provision Reseller Workspace
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
+	SmbResellerProvisionWorkspaceWithBodyWithResponse(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbResellerProvisionWorkspaceResponse, error)
+
+	// SmbResellerProvisionWorkspaceWithResponse Provision Reseller Workspace
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
+	SmbResellerProvisionWorkspaceWithResponse(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, body SmbResellerProvisionWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbResellerProvisionWorkspaceResponse, error)
+
+	// SmbUnassignResellerTierWithResponse Unassign Reseller Tier
+	//
+	// End a reseller-attributed workspace's subscription at the end of the current billing period.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbUnassignResellerTier` operationId).
+	SmbUnassignResellerTierWithResponse(ctx context.Context, workspaceId string, params *SmbUnassignResellerTierParams, reqEditors ...RequestEditorFn) (*SmbUnassignResellerTierResponse, error)
+
+	// SmbChangeResellerTierWithBodyWithResponse Change Reseller Tier
+	//
+	// Move a reseller-attributed workspace between the reseller's tiers. Upgrades apply immediately; downgrades and lateral moves take effect at the end of the billing period.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbChangeResellerTier` operationId).
+	SmbChangeResellerTierWithBodyWithResponse(ctx context.Context, workspaceId string, params *SmbChangeResellerTierParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbChangeResellerTierResponse, error)
+
+	// SmbChangeResellerTierWithResponse Change Reseller Tier
+	//
+	// Move a reseller-attributed workspace between the reseller's tiers. Upgrades apply immediately; downgrades and lateral moves take effect at the end of the billing period.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbChangeResellerTier` operationId).
+	SmbChangeResellerTierWithResponse(ctx context.Context, workspaceId string, params *SmbChangeResellerTierParams, body SmbChangeResellerTierJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbChangeResellerTierResponse, error)
+
+	// SmbAssignResellerTierWithBodyWithResponse Assign Reseller Tier
+	//
+	// Subscribe a reseller-attributed workspace to one of the reseller's tiers.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbAssignResellerTier` operationId).
+	SmbAssignResellerTierWithBodyWithResponse(ctx context.Context, workspaceId string, params *SmbAssignResellerTierParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAssignResellerTierResponse, error)
+
+	// SmbAssignResellerTierWithResponse Assign Reseller Tier
+	//
+	// Subscribe a reseller-attributed workspace to one of the reseller's tiers.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbAssignResellerTier` operationId).
+	SmbAssignResellerTierWithResponse(ctx context.Context, workspaceId string, params *SmbAssignResellerTierParams, body SmbAssignResellerTierJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAssignResellerTierResponse, error)
+
+	// SmbCancelResellerPendingDowngradeWithResponse Cancel Reseller Pending Downgrade
+	//
+	// Drop a scheduled downgrade, leaving the workspace on its current tier
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription/cancel-downgrade (the `SmbCancelResellerPendingDowngrade` operationId).
+	SmbCancelResellerPendingDowngradeWithResponse(ctx context.Context, workspaceId string, params *SmbCancelResellerPendingDowngradeParams, reqEditors ...RequestEditorFn) (*SmbCancelResellerPendingDowngradeResponse, error)
+
+	// SmbRestoreResellerSubscriptionWithResponse Restore Reseller Subscription
+	//
+	// Undo a pending unassignment so the subscription renews normally.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription/restore (the `SmbRestoreResellerSubscription` operationId).
+	SmbRestoreResellerSubscriptionWithResponse(ctx context.Context, workspaceId string, params *SmbRestoreResellerSubscriptionParams, reqEditors ...RequestEditorFn) (*SmbRestoreResellerSubscriptionResponse, error)
+
+	// SmbListServicesWithResponse Get All Services
+	//
+	// Get all services for the current workspace with optional filters.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/services (the `SmbListServices` operationId).
+	SmbListServicesWithResponse(ctx context.Context, params *SmbListServicesParams, reqEditors ...RequestEditorFn) (*SmbListServicesResponse, error)
+
+	// SmbCreateServiceWithBodyWithResponse Create Service
+	//
+	// Create a new service.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/services (the `SmbCreateService` operationId).
+	SmbCreateServiceWithBodyWithResponse(ctx context.Context, params *SmbCreateServiceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbCreateServiceResponse, error)
+
+	// SmbCreateServiceWithResponse Create Service
+	//
+	// Create a new service.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/services (the `SmbCreateService` operationId).
+	SmbCreateServiceWithResponse(ctx context.Context, params *SmbCreateServiceParams, body SmbCreateServiceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbCreateServiceResponse, error)
+
+	// SmbDeleteServiceWithResponse Delete Service
+	//
+	// Delete a service.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/services/{service_id} (the `SmbDeleteService` operationId).
+	SmbDeleteServiceWithResponse(ctx context.Context, serviceId string, params *SmbDeleteServiceParams, reqEditors ...RequestEditorFn) (*SmbDeleteServiceResponse, error)
+
+	// SmbGetServiceWithResponse Get Service
+	//
+	// Get a specific service by ID.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/services/{service_id} (the `SmbGetService` operationId).
+	SmbGetServiceWithResponse(ctx context.Context, serviceId string, params *SmbGetServiceParams, reqEditors ...RequestEditorFn) (*SmbGetServiceResponse, error)
+
+	// SmbUpdateServiceWithBodyWithResponse Update Service
+	//
+	// Update an existing service. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/services/{service_id} (the `SmbUpdateService` operationId).
+	SmbUpdateServiceWithBodyWithResponse(ctx context.Context, serviceId string, params *SmbUpdateServiceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateServiceResponse, error)
+
+	// SmbUpdateServiceWithResponse Update Service
+	//
+	// Update an existing service. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/services/{service_id} (the `SmbUpdateService` operationId).
+	SmbUpdateServiceWithResponse(ctx context.Context, serviceId string, params *SmbUpdateServiceParams, body SmbUpdateServiceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateServiceResponse, error)
+
+	// SmbConfirmServiceUpdateWithBodyWithResponse Confirm Service Update
+	//
+	// Save a service update after user confirmed price impact. Optionally reprice future events.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/services/{service_id}/confirm-update (the `SmbConfirmServiceUpdate` operationId).
+	SmbConfirmServiceUpdateWithBodyWithResponse(ctx context.Context, serviceId string, params *SmbConfirmServiceUpdateParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbConfirmServiceUpdateResponse, error)
+
+	// SmbConfirmServiceUpdateWithResponse Confirm Service Update
+	//
+	// Save a service update after user confirmed price impact. Optionally reprice future events.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/services/{service_id}/confirm-update (the `SmbConfirmServiceUpdate` operationId).
+	SmbConfirmServiceUpdateWithResponse(ctx context.Context, serviceId string, params *SmbConfirmServiceUpdateParams, body SmbConfirmServiceUpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbConfirmServiceUpdateResponse, error)
+
+	// SmbListStaffWithResponse Get All Staff
+	//
+	// Get all staff for the current workspace.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/staff (the `SmbListStaff` operationId).
+	SmbListStaffWithResponse(ctx context.Context, params *SmbListStaffParams, reqEditors ...RequestEditorFn) (*SmbListStaffResponse, error)
+
+	// SmbCreateStaffMemberWithBodyWithResponse Create Staff Member
+	//
+	// Create a new staff member.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/staff (the `SmbCreateStaffMember` operationId).
+	SmbCreateStaffMemberWithBodyWithResponse(ctx context.Context, params *SmbCreateStaffMemberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbCreateStaffMemberResponse, error)
+
+	// SmbCreateStaffMemberWithResponse Create Staff Member
+	//
+	// Create a new staff member.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/staff (the `SmbCreateStaffMember` operationId).
+	SmbCreateStaffMemberWithResponse(ctx context.Context, params *SmbCreateStaffMemberParams, body SmbCreateStaffMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbCreateStaffMemberResponse, error)
+
+	// SmbDeleteStaffMemberWithResponse Delete Staff Member
+	//
+	// Delete a staff member.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/staff/{staff_id} (the `SmbDeleteStaffMember` operationId).
+	SmbDeleteStaffMemberWithResponse(ctx context.Context, staffId string, params *SmbDeleteStaffMemberParams, reqEditors ...RequestEditorFn) (*SmbDeleteStaffMemberResponse, error)
+
+	// SmbGetStaffMemberWithResponse Get Staff Member
+	//
+	// Get a specific staff member by ID.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/staff/{staff_id} (the `SmbGetStaffMember` operationId).
+	SmbGetStaffMemberWithResponse(ctx context.Context, staffId string, params *SmbGetStaffMemberParams, reqEditors ...RequestEditorFn) (*SmbGetStaffMemberResponse, error)
+
+	// SmbUpdateStaffMemberWithBodyWithResponse Update Staff Member
+	//
+	// Update an existing staff member. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/staff/{staff_id} (the `SmbUpdateStaffMember` operationId).
+	SmbUpdateStaffMemberWithBodyWithResponse(ctx context.Context, staffId string, params *SmbUpdateStaffMemberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateStaffMemberResponse, error)
+
+	// SmbUpdateStaffMemberWithResponse Update Staff Member
+	//
+	// Update an existing staff member. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/staff/{staff_id} (the `SmbUpdateStaffMember` operationId).
+	SmbUpdateStaffMemberWithResponse(ctx context.Context, staffId string, params *SmbUpdateStaffMemberParams, body SmbUpdateStaffMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateStaffMemberResponse, error)
 
 	// SoundGenerationWithBodyWithResponse Sound Generation
 	//
@@ -146198,6 +152396,1734 @@ func (r GetSingleUseTokenResponse) ContentType() string {
 	return ""
 }
 
+type SmbGetAgentInfoResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBAgentInfoResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbGetAgentInfoResponse) GetJSON200() *SMBAgentInfoResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbGetAgentInfoResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbGetAgentInfoResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbGetAgentInfoResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbGetAgentInfoResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbGetAgentInfoResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUpdateAgentInfoResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBAgentInfoResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUpdateAgentInfoResponse) GetJSON200() *SMBAgentInfoResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUpdateAgentInfoResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUpdateAgentInfoResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUpdateAgentInfoResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUpdateAgentInfoResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUpdateAgentInfoResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListHolidaysResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]HolidayResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListHolidaysResponse) GetJSON200() *[]HolidayResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListHolidaysResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListHolidaysResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListHolidaysResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListHolidaysResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListHolidaysResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbCreateHolidayResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *HolidayResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbCreateHolidayResponse) GetJSON200() *HolidayResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbCreateHolidayResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbCreateHolidayResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbCreateHolidayResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbCreateHolidayResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbCreateHolidayResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbDeleteHolidayResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbDeleteHolidayResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbDeleteHolidayResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbDeleteHolidayResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbDeleteHolidayResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbDeleteHolidayResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbDeleteHolidayResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbGetHolidayResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *HolidayResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbGetHolidayResponse) GetJSON200() *HolidayResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbGetHolidayResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbGetHolidayResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbGetHolidayResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbGetHolidayResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbGetHolidayResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUpdateHolidayResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *HolidayResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUpdateHolidayResponse) GetJSON200() *HolidayResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUpdateHolidayResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUpdateHolidayResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUpdateHolidayResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUpdateHolidayResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUpdateHolidayResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListKnowledgeSourcesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]SMBKnowledgeSourceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListKnowledgeSourcesResponse) GetJSON200() *[]SMBKnowledgeSourceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListKnowledgeSourcesResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListKnowledgeSourcesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListKnowledgeSourcesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListKnowledgeSourcesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListKnowledgeSourcesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUploadKnowledgeSourceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBKnowledgeSourceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUploadKnowledgeSourceResponse) GetJSON200() *SMBKnowledgeSourceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUploadKnowledgeSourceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUploadKnowledgeSourceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUploadKnowledgeSourceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUploadKnowledgeSourceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUploadKnowledgeSourceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbAddUrlSourceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBKnowledgeSourceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbAddUrlSourceResponse) GetJSON200() *SMBKnowledgeSourceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbAddUrlSourceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbAddUrlSourceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbAddUrlSourceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbAddUrlSourceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbAddUrlSourceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbDeleteKnowledgeSourceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbDeleteKnowledgeSourceResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbDeleteKnowledgeSourceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbDeleteKnowledgeSourceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbDeleteKnowledgeSourceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbDeleteKnowledgeSourceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbDeleteKnowledgeSourceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbGetKnowledgeSourceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBKnowledgeSourceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbGetKnowledgeSourceResponse) GetJSON200() *SMBKnowledgeSourceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbGetKnowledgeSourceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbGetKnowledgeSourceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbGetKnowledgeSourceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbGetKnowledgeSourceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbGetKnowledgeSourceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListLocationsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]LocationResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListLocationsResponse) GetJSON200() *[]LocationResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListLocationsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListLocationsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListLocationsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListLocationsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListLocationsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbCreateLocationResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *LocationResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbCreateLocationResponse) GetJSON200() *LocationResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbCreateLocationResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbCreateLocationResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbCreateLocationResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbCreateLocationResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbCreateLocationResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbDeleteLocationResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbDeleteLocationResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbDeleteLocationResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbDeleteLocationResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbDeleteLocationResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbDeleteLocationResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbDeleteLocationResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbGetLocationResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *LocationResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbGetLocationResponse) GetJSON200() *LocationResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbGetLocationResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbGetLocationResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbGetLocationResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbGetLocationResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbGetLocationResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUpdateLocationResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *LocationResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUpdateLocationResponse) GetJSON200() *LocationResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUpdateLocationResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUpdateLocationResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUpdateLocationResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUpdateLocationResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUpdateLocationResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListResellerTierLadderResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]ResellerTierResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListResellerTierLadderResponse) GetJSON200() *[]ResellerTierResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListResellerTierLadderResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListResellerTierLadderResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListResellerTierLadderResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListResellerTierLadderResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListResellerTierLadderResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListResellerWorkspacesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResellerWorkspacesResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListResellerWorkspacesResponse) GetJSON200() *ResellerWorkspacesResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListResellerWorkspacesResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListResellerWorkspacesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListResellerWorkspacesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListResellerWorkspacesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListResellerWorkspacesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbResellerProvisionWorkspaceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ProvisionResellerWorkspaceResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbResellerProvisionWorkspaceResponse) GetJSON200() *ProvisionResellerWorkspaceResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbResellerProvisionWorkspaceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbResellerProvisionWorkspaceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbResellerProvisionWorkspaceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbResellerProvisionWorkspaceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbResellerProvisionWorkspaceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUnassignResellerTierResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUnassignResellerTierResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUnassignResellerTierResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUnassignResellerTierResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUnassignResellerTierResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUnassignResellerTierResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUnassignResellerTierResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbChangeResellerTierResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbChangeResellerTierResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbChangeResellerTierResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbChangeResellerTierResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbChangeResellerTierResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbChangeResellerTierResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbChangeResellerTierResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbAssignResellerTierResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbAssignResellerTierResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbAssignResellerTierResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbAssignResellerTierResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbAssignResellerTierResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbAssignResellerTierResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbAssignResellerTierResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbCancelResellerPendingDowngradeResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbCancelResellerPendingDowngradeResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbCancelResellerPendingDowngradeResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbCancelResellerPendingDowngradeResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbCancelResellerPendingDowngradeResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbCancelResellerPendingDowngradeResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbCancelResellerPendingDowngradeResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbRestoreResellerSubscriptionResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbRestoreResellerSubscriptionResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbRestoreResellerSubscriptionResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbRestoreResellerSubscriptionResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbRestoreResellerSubscriptionResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbRestoreResellerSubscriptionResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbRestoreResellerSubscriptionResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListServicesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]SMBServiceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListServicesResponse) GetJSON200() *[]SMBServiceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListServicesResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListServicesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListServicesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListServicesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListServicesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbCreateServiceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBServiceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbCreateServiceResponse) GetJSON200() *SMBServiceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbCreateServiceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbCreateServiceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbCreateServiceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbCreateServiceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbCreateServiceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbDeleteServiceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbDeleteServiceResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbDeleteServiceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbDeleteServiceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbDeleteServiceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbDeleteServiceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbDeleteServiceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbGetServiceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBServiceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbGetServiceResponse) GetJSON200() *SMBServiceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbGetServiceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbGetServiceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbGetServiceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbGetServiceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbGetServiceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUpdateServiceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ServiceUpdateResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUpdateServiceResponse) GetJSON200() *ServiceUpdateResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUpdateServiceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUpdateServiceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUpdateServiceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUpdateServiceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUpdateServiceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbConfirmServiceUpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ServiceUpdateResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbConfirmServiceUpdateResponse) GetJSON200() *ServiceUpdateResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbConfirmServiceUpdateResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbConfirmServiceUpdateResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbConfirmServiceUpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbConfirmServiceUpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbConfirmServiceUpdateResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListStaffResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]SMBStaffResourceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListStaffResponse) GetJSON200() *[]SMBStaffResourceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListStaffResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListStaffResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListStaffResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListStaffResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListStaffResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbCreateStaffMemberResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBStaffResourceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbCreateStaffMemberResponse) GetJSON200() *SMBStaffResourceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbCreateStaffMemberResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbCreateStaffMemberResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbCreateStaffMemberResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbCreateStaffMemberResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbCreateStaffMemberResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbDeleteStaffMemberResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbDeleteStaffMemberResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbDeleteStaffMemberResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbDeleteStaffMemberResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbDeleteStaffMemberResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbDeleteStaffMemberResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbDeleteStaffMemberResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbGetStaffMemberResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBStaffResourceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbGetStaffMemberResponse) GetJSON200() *SMBStaffResourceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbGetStaffMemberResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbGetStaffMemberResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbGetStaffMemberResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbGetStaffMemberResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbGetStaffMemberResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUpdateStaffMemberResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBStaffResourceDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUpdateStaffMemberResponse) GetJSON200() *SMBStaffResourceDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUpdateStaffMemberResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUpdateStaffMemberResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUpdateStaffMemberResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUpdateStaffMemberResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUpdateStaffMemberResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 // SoundGenerationResponse200Headers the declared response headers of an HTTP 200 response for SoundGeneration
 type SoundGenerationResponse200Headers struct {
 	CharacterCost *string
@@ -154093,7 +162019,7 @@ func (c *ClientWithResponses) GetDocumentationFromKnowledgeBaseWithResponse(ctx 
 
 // UpdateDocumentRouteWithBodyWithResponse Update Document
 //
-// Update the name and/or content of a document.
+// Update the name, content and/or auto-sync settings of a document.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -154108,7 +162034,7 @@ func (c *ClientWithResponses) UpdateDocumentRouteWithBodyWithResponse(ctx contex
 
 // UpdateDocumentRouteWithResponse Update Document
 //
-// Update the name and/or content of a document.
+// Update the name, content and/or auto-sync settings of a document.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -157925,6 +165851,752 @@ func (c *ClientWithResponses) GetSingleUseTokenWithResponse(ctx context.Context,
 		return nil, err
 	}
 	return ParseGetSingleUseTokenResponse(rsp)
+}
+
+// SmbGetAgentInfoWithResponse Get Agent Info
+//
+// Get all agent-affecting configuration with current workspace time.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/agent-info (the `SmbGetAgentInfo` operationId).
+func (c *ClientWithResponses) SmbGetAgentInfoWithResponse(ctx context.Context, params *SmbGetAgentInfoParams, reqEditors ...RequestEditorFn) (*SmbGetAgentInfoResponse, error) {
+	rsp, err := c.SmbGetAgentInfo(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbGetAgentInfoResponse(rsp)
+}
+
+// SmbUpdateAgentInfoWithBodyWithResponse Update Agent Info
+//
+// Update all agent-affecting configuration (triggers agent regeneration).
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
+func (c *ClientWithResponses) SmbUpdateAgentInfoWithBodyWithResponse(ctx context.Context, params *SmbUpdateAgentInfoParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateAgentInfoResponse, error) {
+	rsp, err := c.SmbUpdateAgentInfoWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateAgentInfoResponse(rsp)
+}
+
+// SmbUpdateAgentInfoWithResponse Update Agent Info
+//
+// Update all agent-affecting configuration (triggers agent regeneration).
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
+func (c *ClientWithResponses) SmbUpdateAgentInfoWithResponse(ctx context.Context, params *SmbUpdateAgentInfoParams, body SmbUpdateAgentInfoJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateAgentInfoResponse, error) {
+	rsp, err := c.SmbUpdateAgentInfo(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateAgentInfoResponse(rsp)
+}
+
+// SmbListHolidaysWithResponse Get All Holidays
+//
+// Get all holidays/time-off entries for the current workspace with optional filters.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/holidays (the `SmbListHolidays` operationId).
+func (c *ClientWithResponses) SmbListHolidaysWithResponse(ctx context.Context, params *SmbListHolidaysParams, reqEditors ...RequestEditorFn) (*SmbListHolidaysResponse, error) {
+	rsp, err := c.SmbListHolidays(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListHolidaysResponse(rsp)
+}
+
+// SmbCreateHolidayWithBodyWithResponse Create Holiday
+//
+// Create a new holiday.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/holidays (the `SmbCreateHoliday` operationId).
+func (c *ClientWithResponses) SmbCreateHolidayWithBodyWithResponse(ctx context.Context, params *SmbCreateHolidayParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbCreateHolidayResponse, error) {
+	rsp, err := c.SmbCreateHolidayWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbCreateHolidayResponse(rsp)
+}
+
+// SmbCreateHolidayWithResponse Create Holiday
+//
+// Create a new holiday.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/holidays (the `SmbCreateHoliday` operationId).
+func (c *ClientWithResponses) SmbCreateHolidayWithResponse(ctx context.Context, params *SmbCreateHolidayParams, body SmbCreateHolidayJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbCreateHolidayResponse, error) {
+	rsp, err := c.SmbCreateHoliday(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbCreateHolidayResponse(rsp)
+}
+
+// SmbDeleteHolidayWithResponse Delete Holiday
+//
+// Delete a holiday.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/holidays/{holiday_id} (the `SmbDeleteHoliday` operationId).
+func (c *ClientWithResponses) SmbDeleteHolidayWithResponse(ctx context.Context, holidayId string, params *SmbDeleteHolidayParams, reqEditors ...RequestEditorFn) (*SmbDeleteHolidayResponse, error) {
+	rsp, err := c.SmbDeleteHoliday(ctx, holidayId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbDeleteHolidayResponse(rsp)
+}
+
+// SmbGetHolidayWithResponse Get Holiday
+//
+// Get a specific holiday by ID.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/holidays/{holiday_id} (the `SmbGetHoliday` operationId).
+func (c *ClientWithResponses) SmbGetHolidayWithResponse(ctx context.Context, holidayId string, params *SmbGetHolidayParams, reqEditors ...RequestEditorFn) (*SmbGetHolidayResponse, error) {
+	rsp, err := c.SmbGetHoliday(ctx, holidayId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbGetHolidayResponse(rsp)
+}
+
+// SmbUpdateHolidayWithBodyWithResponse Update Holiday
+//
+// Update an existing holiday. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/holidays/{holiday_id} (the `SmbUpdateHoliday` operationId).
+func (c *ClientWithResponses) SmbUpdateHolidayWithBodyWithResponse(ctx context.Context, holidayId string, params *SmbUpdateHolidayParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateHolidayResponse, error) {
+	rsp, err := c.SmbUpdateHolidayWithBody(ctx, holidayId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateHolidayResponse(rsp)
+}
+
+// SmbUpdateHolidayWithResponse Update Holiday
+//
+// Update an existing holiday. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/holidays/{holiday_id} (the `SmbUpdateHoliday` operationId).
+func (c *ClientWithResponses) SmbUpdateHolidayWithResponse(ctx context.Context, holidayId string, params *SmbUpdateHolidayParams, body SmbUpdateHolidayJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateHolidayResponse, error) {
+	rsp, err := c.SmbUpdateHoliday(ctx, holidayId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateHolidayResponse(rsp)
+}
+
+// SmbListKnowledgeSourcesWithResponse List Knowledge Sources
+//
+// List all knowledge sources for the current workspace.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/knowledge-sources (the `SmbListKnowledgeSources` operationId).
+func (c *ClientWithResponses) SmbListKnowledgeSourcesWithResponse(ctx context.Context, params *SmbListKnowledgeSourcesParams, reqEditors ...RequestEditorFn) (*SmbListKnowledgeSourcesResponse, error) {
+	rsp, err := c.SmbListKnowledgeSources(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListKnowledgeSourcesResponse(rsp)
+}
+
+// SmbUploadKnowledgeSourceWithBodyWithResponse Upload Knowledge Source
+//
+// Upload a file as a knowledge source.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/knowledge-sources (the `SmbUploadKnowledgeSource` operationId).
+func (c *ClientWithResponses) SmbUploadKnowledgeSourceWithBodyWithResponse(ctx context.Context, params *SmbUploadKnowledgeSourceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUploadKnowledgeSourceResponse, error) {
+	rsp, err := c.SmbUploadKnowledgeSourceWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUploadKnowledgeSourceResponse(rsp)
+}
+
+// SmbAddUrlSourceWithBodyWithResponse Add Url Source
+//
+// Add a URL as a knowledge source.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/knowledge-sources/urls (the `SmbAddUrlSource` operationId).
+func (c *ClientWithResponses) SmbAddUrlSourceWithBodyWithResponse(ctx context.Context, params *SmbAddUrlSourceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAddUrlSourceResponse, error) {
+	rsp, err := c.SmbAddUrlSourceWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAddUrlSourceResponse(rsp)
+}
+
+// SmbAddUrlSourceWithResponse Add Url Source
+//
+// Add a URL as a knowledge source.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/knowledge-sources/urls (the `SmbAddUrlSource` operationId).
+func (c *ClientWithResponses) SmbAddUrlSourceWithResponse(ctx context.Context, params *SmbAddUrlSourceParams, body SmbAddUrlSourceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAddUrlSourceResponse, error) {
+	rsp, err := c.SmbAddUrlSource(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAddUrlSourceResponse(rsp)
+}
+
+// SmbDeleteKnowledgeSourceWithResponse Delete Knowledge Source
+//
+// Delete a knowledge source.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/knowledge-sources/{source_id} (the `SmbDeleteKnowledgeSource` operationId).
+func (c *ClientWithResponses) SmbDeleteKnowledgeSourceWithResponse(ctx context.Context, sourceId string, params *SmbDeleteKnowledgeSourceParams, reqEditors ...RequestEditorFn) (*SmbDeleteKnowledgeSourceResponse, error) {
+	rsp, err := c.SmbDeleteKnowledgeSource(ctx, sourceId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbDeleteKnowledgeSourceResponse(rsp)
+}
+
+// SmbGetKnowledgeSourceWithResponse Get Knowledge Source
+//
+// Get a specific knowledge source by ID.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/knowledge-sources/{source_id} (the `SmbGetKnowledgeSource` operationId).
+func (c *ClientWithResponses) SmbGetKnowledgeSourceWithResponse(ctx context.Context, sourceId string, params *SmbGetKnowledgeSourceParams, reqEditors ...RequestEditorFn) (*SmbGetKnowledgeSourceResponse, error) {
+	rsp, err := c.SmbGetKnowledgeSource(ctx, sourceId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbGetKnowledgeSourceResponse(rsp)
+}
+
+// SmbListLocationsWithResponse List Locations
+//
+// List all business locations.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/locations (the `SmbListLocations` operationId).
+func (c *ClientWithResponses) SmbListLocationsWithResponse(ctx context.Context, params *SmbListLocationsParams, reqEditors ...RequestEditorFn) (*SmbListLocationsResponse, error) {
+	rsp, err := c.SmbListLocations(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListLocationsResponse(rsp)
+}
+
+// SmbCreateLocationWithBodyWithResponse Create Location
+//
+// Add a new business location.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/locations (the `SmbCreateLocation` operationId).
+func (c *ClientWithResponses) SmbCreateLocationWithBodyWithResponse(ctx context.Context, params *SmbCreateLocationParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbCreateLocationResponse, error) {
+	rsp, err := c.SmbCreateLocationWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbCreateLocationResponse(rsp)
+}
+
+// SmbCreateLocationWithResponse Create Location
+//
+// Add a new business location.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/locations (the `SmbCreateLocation` operationId).
+func (c *ClientWithResponses) SmbCreateLocationWithResponse(ctx context.Context, params *SmbCreateLocationParams, body SmbCreateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbCreateLocationResponse, error) {
+	rsp, err := c.SmbCreateLocation(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbCreateLocationResponse(rsp)
+}
+
+// SmbDeleteLocationWithResponse Delete Location
+//
+// Delete a location.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/locations/{location_id} (the `SmbDeleteLocation` operationId).
+func (c *ClientWithResponses) SmbDeleteLocationWithResponse(ctx context.Context, locationId string, params *SmbDeleteLocationParams, reqEditors ...RequestEditorFn) (*SmbDeleteLocationResponse, error) {
+	rsp, err := c.SmbDeleteLocation(ctx, locationId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbDeleteLocationResponse(rsp)
+}
+
+// SmbGetLocationWithResponse Get Location
+//
+// Get a single location by ID.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/locations/{location_id} (the `SmbGetLocation` operationId).
+func (c *ClientWithResponses) SmbGetLocationWithResponse(ctx context.Context, locationId string, params *SmbGetLocationParams, reqEditors ...RequestEditorFn) (*SmbGetLocationResponse, error) {
+	rsp, err := c.SmbGetLocation(ctx, locationId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbGetLocationResponse(rsp)
+}
+
+// SmbUpdateLocationWithBodyWithResponse Update Location
+//
+// Update an existing location. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
+func (c *ClientWithResponses) SmbUpdateLocationWithBodyWithResponse(ctx context.Context, locationId string, params *SmbUpdateLocationParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateLocationResponse, error) {
+	rsp, err := c.SmbUpdateLocationWithBody(ctx, locationId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateLocationResponse(rsp)
+}
+
+// SmbUpdateLocationWithResponse Update Location
+//
+// Update an existing location. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
+func (c *ClientWithResponses) SmbUpdateLocationWithResponse(ctx context.Context, locationId string, params *SmbUpdateLocationParams, body SmbUpdateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateLocationResponse, error) {
+	rsp, err := c.SmbUpdateLocation(ctx, locationId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateLocationResponse(rsp)
+}
+
+// SmbListResellerTierLadderWithResponse List Reseller Tier Ladder
+//
+// The reseller's live tier ladder, lowest rank first. The first entry is the trial. Without tier management the rest are the builtin tiers. Retired tiers are omitted
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/reseller/tier-ladder (the `SmbListResellerTierLadder` operationId).
+func (c *ClientWithResponses) SmbListResellerTierLadderWithResponse(ctx context.Context, params *SmbListResellerTierLadderParams, reqEditors ...RequestEditorFn) (*SmbListResellerTierLadderResponse, error) {
+	rsp, err := c.SmbListResellerTierLadder(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListResellerTierLadderResponse(rsp)
+}
+
+// SmbListResellerWorkspacesWithResponse List Reseller Workspaces
+//
+// # List workspaces attributed to the caller's reseller, with cursor-based pagination
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/reseller/workspaces (the `SmbListResellerWorkspaces` operationId).
+func (c *ClientWithResponses) SmbListResellerWorkspacesWithResponse(ctx context.Context, params *SmbListResellerWorkspacesParams, reqEditors ...RequestEditorFn) (*SmbListResellerWorkspacesResponse, error) {
+	rsp, err := c.SmbListResellerWorkspaces(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListResellerWorkspacesResponse(rsp)
+}
+
+// SmbResellerProvisionWorkspaceWithBodyWithResponse Provision Reseller Workspace
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
+func (c *ClientWithResponses) SmbResellerProvisionWorkspaceWithBodyWithResponse(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbResellerProvisionWorkspaceResponse, error) {
+	rsp, err := c.SmbResellerProvisionWorkspaceWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbResellerProvisionWorkspaceResponse(rsp)
+}
+
+// SmbResellerProvisionWorkspaceWithResponse Provision Reseller Workspace
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
+func (c *ClientWithResponses) SmbResellerProvisionWorkspaceWithResponse(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, body SmbResellerProvisionWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbResellerProvisionWorkspaceResponse, error) {
+	rsp, err := c.SmbResellerProvisionWorkspace(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbResellerProvisionWorkspaceResponse(rsp)
+}
+
+// SmbUnassignResellerTierWithResponse Unassign Reseller Tier
+//
+// End a reseller-attributed workspace's subscription at the end of the current billing period.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbUnassignResellerTier` operationId).
+func (c *ClientWithResponses) SmbUnassignResellerTierWithResponse(ctx context.Context, workspaceId string, params *SmbUnassignResellerTierParams, reqEditors ...RequestEditorFn) (*SmbUnassignResellerTierResponse, error) {
+	rsp, err := c.SmbUnassignResellerTier(ctx, workspaceId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUnassignResellerTierResponse(rsp)
+}
+
+// SmbChangeResellerTierWithBodyWithResponse Change Reseller Tier
+//
+// Move a reseller-attributed workspace between the reseller's tiers. Upgrades apply immediately; downgrades and lateral moves take effect at the end of the billing period.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbChangeResellerTier` operationId).
+func (c *ClientWithResponses) SmbChangeResellerTierWithBodyWithResponse(ctx context.Context, workspaceId string, params *SmbChangeResellerTierParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbChangeResellerTierResponse, error) {
+	rsp, err := c.SmbChangeResellerTierWithBody(ctx, workspaceId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbChangeResellerTierResponse(rsp)
+}
+
+// SmbChangeResellerTierWithResponse Change Reseller Tier
+//
+// Move a reseller-attributed workspace between the reseller's tiers. Upgrades apply immediately; downgrades and lateral moves take effect at the end of the billing period.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbChangeResellerTier` operationId).
+func (c *ClientWithResponses) SmbChangeResellerTierWithResponse(ctx context.Context, workspaceId string, params *SmbChangeResellerTierParams, body SmbChangeResellerTierJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbChangeResellerTierResponse, error) {
+	rsp, err := c.SmbChangeResellerTier(ctx, workspaceId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbChangeResellerTierResponse(rsp)
+}
+
+// SmbAssignResellerTierWithBodyWithResponse Assign Reseller Tier
+//
+// Subscribe a reseller-attributed workspace to one of the reseller's tiers.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbAssignResellerTier` operationId).
+func (c *ClientWithResponses) SmbAssignResellerTierWithBodyWithResponse(ctx context.Context, workspaceId string, params *SmbAssignResellerTierParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAssignResellerTierResponse, error) {
+	rsp, err := c.SmbAssignResellerTierWithBody(ctx, workspaceId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAssignResellerTierResponse(rsp)
+}
+
+// SmbAssignResellerTierWithResponse Assign Reseller Tier
+//
+// Subscribe a reseller-attributed workspace to one of the reseller's tiers.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription (the `SmbAssignResellerTier` operationId).
+func (c *ClientWithResponses) SmbAssignResellerTierWithResponse(ctx context.Context, workspaceId string, params *SmbAssignResellerTierParams, body SmbAssignResellerTierJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAssignResellerTierResponse, error) {
+	rsp, err := c.SmbAssignResellerTier(ctx, workspaceId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAssignResellerTierResponse(rsp)
+}
+
+// SmbCancelResellerPendingDowngradeWithResponse Cancel Reseller Pending Downgrade
+//
+// # Drop a scheduled downgrade, leaving the workspace on its current tier
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription/cancel-downgrade (the `SmbCancelResellerPendingDowngrade` operationId).
+func (c *ClientWithResponses) SmbCancelResellerPendingDowngradeWithResponse(ctx context.Context, workspaceId string, params *SmbCancelResellerPendingDowngradeParams, reqEditors ...RequestEditorFn) (*SmbCancelResellerPendingDowngradeResponse, error) {
+	rsp, err := c.SmbCancelResellerPendingDowngrade(ctx, workspaceId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbCancelResellerPendingDowngradeResponse(rsp)
+}
+
+// SmbRestoreResellerSubscriptionWithResponse Restore Reseller Subscription
+//
+// Undo a pending unassignment so the subscription renews normally.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/reseller/workspaces/{workspace_id}/subscription/restore (the `SmbRestoreResellerSubscription` operationId).
+func (c *ClientWithResponses) SmbRestoreResellerSubscriptionWithResponse(ctx context.Context, workspaceId string, params *SmbRestoreResellerSubscriptionParams, reqEditors ...RequestEditorFn) (*SmbRestoreResellerSubscriptionResponse, error) {
+	rsp, err := c.SmbRestoreResellerSubscription(ctx, workspaceId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbRestoreResellerSubscriptionResponse(rsp)
+}
+
+// SmbListServicesWithResponse Get All Services
+//
+// Get all services for the current workspace with optional filters.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/services (the `SmbListServices` operationId).
+func (c *ClientWithResponses) SmbListServicesWithResponse(ctx context.Context, params *SmbListServicesParams, reqEditors ...RequestEditorFn) (*SmbListServicesResponse, error) {
+	rsp, err := c.SmbListServices(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListServicesResponse(rsp)
+}
+
+// SmbCreateServiceWithBodyWithResponse Create Service
+//
+// Create a new service.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/services (the `SmbCreateService` operationId).
+func (c *ClientWithResponses) SmbCreateServiceWithBodyWithResponse(ctx context.Context, params *SmbCreateServiceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbCreateServiceResponse, error) {
+	rsp, err := c.SmbCreateServiceWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbCreateServiceResponse(rsp)
+}
+
+// SmbCreateServiceWithResponse Create Service
+//
+// Create a new service.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/services (the `SmbCreateService` operationId).
+func (c *ClientWithResponses) SmbCreateServiceWithResponse(ctx context.Context, params *SmbCreateServiceParams, body SmbCreateServiceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbCreateServiceResponse, error) {
+	rsp, err := c.SmbCreateService(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbCreateServiceResponse(rsp)
+}
+
+// SmbDeleteServiceWithResponse Delete Service
+//
+// Delete a service.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/services/{service_id} (the `SmbDeleteService` operationId).
+func (c *ClientWithResponses) SmbDeleteServiceWithResponse(ctx context.Context, serviceId string, params *SmbDeleteServiceParams, reqEditors ...RequestEditorFn) (*SmbDeleteServiceResponse, error) {
+	rsp, err := c.SmbDeleteService(ctx, serviceId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbDeleteServiceResponse(rsp)
+}
+
+// SmbGetServiceWithResponse Get Service
+//
+// Get a specific service by ID.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/services/{service_id} (the `SmbGetService` operationId).
+func (c *ClientWithResponses) SmbGetServiceWithResponse(ctx context.Context, serviceId string, params *SmbGetServiceParams, reqEditors ...RequestEditorFn) (*SmbGetServiceResponse, error) {
+	rsp, err := c.SmbGetService(ctx, serviceId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbGetServiceResponse(rsp)
+}
+
+// SmbUpdateServiceWithBodyWithResponse Update Service
+//
+// Update an existing service. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/services/{service_id} (the `SmbUpdateService` operationId).
+func (c *ClientWithResponses) SmbUpdateServiceWithBodyWithResponse(ctx context.Context, serviceId string, params *SmbUpdateServiceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateServiceResponse, error) {
+	rsp, err := c.SmbUpdateServiceWithBody(ctx, serviceId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateServiceResponse(rsp)
+}
+
+// SmbUpdateServiceWithResponse Update Service
+//
+// Update an existing service. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/services/{service_id} (the `SmbUpdateService` operationId).
+func (c *ClientWithResponses) SmbUpdateServiceWithResponse(ctx context.Context, serviceId string, params *SmbUpdateServiceParams, body SmbUpdateServiceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateServiceResponse, error) {
+	rsp, err := c.SmbUpdateService(ctx, serviceId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateServiceResponse(rsp)
+}
+
+// SmbConfirmServiceUpdateWithBodyWithResponse Confirm Service Update
+//
+// Save a service update after user confirmed price impact. Optionally reprice future events.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/services/{service_id}/confirm-update (the `SmbConfirmServiceUpdate` operationId).
+func (c *ClientWithResponses) SmbConfirmServiceUpdateWithBodyWithResponse(ctx context.Context, serviceId string, params *SmbConfirmServiceUpdateParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbConfirmServiceUpdateResponse, error) {
+	rsp, err := c.SmbConfirmServiceUpdateWithBody(ctx, serviceId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbConfirmServiceUpdateResponse(rsp)
+}
+
+// SmbConfirmServiceUpdateWithResponse Confirm Service Update
+//
+// Save a service update after user confirmed price impact. Optionally reprice future events.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/services/{service_id}/confirm-update (the `SmbConfirmServiceUpdate` operationId).
+func (c *ClientWithResponses) SmbConfirmServiceUpdateWithResponse(ctx context.Context, serviceId string, params *SmbConfirmServiceUpdateParams, body SmbConfirmServiceUpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbConfirmServiceUpdateResponse, error) {
+	rsp, err := c.SmbConfirmServiceUpdate(ctx, serviceId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbConfirmServiceUpdateResponse(rsp)
+}
+
+// SmbListStaffWithResponse Get All Staff
+//
+// Get all staff for the current workspace.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/staff (the `SmbListStaff` operationId).
+func (c *ClientWithResponses) SmbListStaffWithResponse(ctx context.Context, params *SmbListStaffParams, reqEditors ...RequestEditorFn) (*SmbListStaffResponse, error) {
+	rsp, err := c.SmbListStaff(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListStaffResponse(rsp)
+}
+
+// SmbCreateStaffMemberWithBodyWithResponse Create Staff Member
+//
+// Create a new staff member.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/staff (the `SmbCreateStaffMember` operationId).
+func (c *ClientWithResponses) SmbCreateStaffMemberWithBodyWithResponse(ctx context.Context, params *SmbCreateStaffMemberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbCreateStaffMemberResponse, error) {
+	rsp, err := c.SmbCreateStaffMemberWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbCreateStaffMemberResponse(rsp)
+}
+
+// SmbCreateStaffMemberWithResponse Create Staff Member
+//
+// Create a new staff member.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/staff (the `SmbCreateStaffMember` operationId).
+func (c *ClientWithResponses) SmbCreateStaffMemberWithResponse(ctx context.Context, params *SmbCreateStaffMemberParams, body SmbCreateStaffMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbCreateStaffMemberResponse, error) {
+	rsp, err := c.SmbCreateStaffMember(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbCreateStaffMemberResponse(rsp)
+}
+
+// SmbDeleteStaffMemberWithResponse Delete Staff Member
+//
+// Delete a staff member.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/staff/{staff_id} (the `SmbDeleteStaffMember` operationId).
+func (c *ClientWithResponses) SmbDeleteStaffMemberWithResponse(ctx context.Context, staffId string, params *SmbDeleteStaffMemberParams, reqEditors ...RequestEditorFn) (*SmbDeleteStaffMemberResponse, error) {
+	rsp, err := c.SmbDeleteStaffMember(ctx, staffId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbDeleteStaffMemberResponse(rsp)
+}
+
+// SmbGetStaffMemberWithResponse Get Staff Member
+//
+// Get a specific staff member by ID.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/staff/{staff_id} (the `SmbGetStaffMember` operationId).
+func (c *ClientWithResponses) SmbGetStaffMemberWithResponse(ctx context.Context, staffId string, params *SmbGetStaffMemberParams, reqEditors ...RequestEditorFn) (*SmbGetStaffMemberResponse, error) {
+	rsp, err := c.SmbGetStaffMember(ctx, staffId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbGetStaffMemberResponse(rsp)
+}
+
+// SmbUpdateStaffMemberWithBodyWithResponse Update Staff Member
+//
+// Update an existing staff member. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/staff/{staff_id} (the `SmbUpdateStaffMember` operationId).
+func (c *ClientWithResponses) SmbUpdateStaffMemberWithBodyWithResponse(ctx context.Context, staffId string, params *SmbUpdateStaffMemberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateStaffMemberResponse, error) {
+	rsp, err := c.SmbUpdateStaffMemberWithBody(ctx, staffId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateStaffMemberResponse(rsp)
+}
+
+// SmbUpdateStaffMemberWithResponse Update Staff Member
+//
+// Update an existing staff member. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/staff/{staff_id} (the `SmbUpdateStaffMember` operationId).
+func (c *ClientWithResponses) SmbUpdateStaffMemberWithResponse(ctx context.Context, staffId string, params *SmbUpdateStaffMemberParams, body SmbUpdateStaffMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateStaffMemberResponse, error) {
+	rsp, err := c.SmbUpdateStaffMember(ctx, staffId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateStaffMemberResponse(rsp)
 }
 
 // SoundGenerationWithBodyWithResponse Sound Generation
@@ -170530,6 +179202,1194 @@ func ParseGetSingleUseTokenResponse(rsp *http.Response) (*GetSingleUseTokenRespo
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest SingleUseTokenResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbGetAgentInfoResponse parses an HTTP response from a SmbGetAgentInfoWithResponse call
+func ParseSmbGetAgentInfoResponse(rsp *http.Response) (*SmbGetAgentInfoResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbGetAgentInfoResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBAgentInfoResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUpdateAgentInfoResponse parses an HTTP response from a SmbUpdateAgentInfoWithResponse call
+func ParseSmbUpdateAgentInfoResponse(rsp *http.Response) (*SmbUpdateAgentInfoResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUpdateAgentInfoResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBAgentInfoResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListHolidaysResponse parses an HTTP response from a SmbListHolidaysWithResponse call
+func ParseSmbListHolidaysResponse(rsp *http.Response) (*SmbListHolidaysResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListHolidaysResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []HolidayResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbCreateHolidayResponse parses an HTTP response from a SmbCreateHolidayWithResponse call
+func ParseSmbCreateHolidayResponse(rsp *http.Response) (*SmbCreateHolidayResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbCreateHolidayResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest HolidayResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbDeleteHolidayResponse parses an HTTP response from a SmbDeleteHolidayWithResponse call
+func ParseSmbDeleteHolidayResponse(rsp *http.Response) (*SmbDeleteHolidayResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbDeleteHolidayResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbGetHolidayResponse parses an HTTP response from a SmbGetHolidayWithResponse call
+func ParseSmbGetHolidayResponse(rsp *http.Response) (*SmbGetHolidayResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbGetHolidayResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest HolidayResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUpdateHolidayResponse parses an HTTP response from a SmbUpdateHolidayWithResponse call
+func ParseSmbUpdateHolidayResponse(rsp *http.Response) (*SmbUpdateHolidayResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUpdateHolidayResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest HolidayResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListKnowledgeSourcesResponse parses an HTTP response from a SmbListKnowledgeSourcesWithResponse call
+func ParseSmbListKnowledgeSourcesResponse(rsp *http.Response) (*SmbListKnowledgeSourcesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListKnowledgeSourcesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []SMBKnowledgeSourceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUploadKnowledgeSourceResponse parses an HTTP response from a SmbUploadKnowledgeSourceWithResponse call
+func ParseSmbUploadKnowledgeSourceResponse(rsp *http.Response) (*SmbUploadKnowledgeSourceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUploadKnowledgeSourceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBKnowledgeSourceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbAddUrlSourceResponse parses an HTTP response from a SmbAddUrlSourceWithResponse call
+func ParseSmbAddUrlSourceResponse(rsp *http.Response) (*SmbAddUrlSourceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbAddUrlSourceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBKnowledgeSourceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbDeleteKnowledgeSourceResponse parses an HTTP response from a SmbDeleteKnowledgeSourceWithResponse call
+func ParseSmbDeleteKnowledgeSourceResponse(rsp *http.Response) (*SmbDeleteKnowledgeSourceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbDeleteKnowledgeSourceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbGetKnowledgeSourceResponse parses an HTTP response from a SmbGetKnowledgeSourceWithResponse call
+func ParseSmbGetKnowledgeSourceResponse(rsp *http.Response) (*SmbGetKnowledgeSourceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbGetKnowledgeSourceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBKnowledgeSourceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListLocationsResponse parses an HTTP response from a SmbListLocationsWithResponse call
+func ParseSmbListLocationsResponse(rsp *http.Response) (*SmbListLocationsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListLocationsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []LocationResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbCreateLocationResponse parses an HTTP response from a SmbCreateLocationWithResponse call
+func ParseSmbCreateLocationResponse(rsp *http.Response) (*SmbCreateLocationResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbCreateLocationResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest LocationResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbDeleteLocationResponse parses an HTTP response from a SmbDeleteLocationWithResponse call
+func ParseSmbDeleteLocationResponse(rsp *http.Response) (*SmbDeleteLocationResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbDeleteLocationResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbGetLocationResponse parses an HTTP response from a SmbGetLocationWithResponse call
+func ParseSmbGetLocationResponse(rsp *http.Response) (*SmbGetLocationResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbGetLocationResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest LocationResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUpdateLocationResponse parses an HTTP response from a SmbUpdateLocationWithResponse call
+func ParseSmbUpdateLocationResponse(rsp *http.Response) (*SmbUpdateLocationResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUpdateLocationResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest LocationResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListResellerTierLadderResponse parses an HTTP response from a SmbListResellerTierLadderWithResponse call
+func ParseSmbListResellerTierLadderResponse(rsp *http.Response) (*SmbListResellerTierLadderResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListResellerTierLadderResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []ResellerTierResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListResellerWorkspacesResponse parses an HTTP response from a SmbListResellerWorkspacesWithResponse call
+func ParseSmbListResellerWorkspacesResponse(rsp *http.Response) (*SmbListResellerWorkspacesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListResellerWorkspacesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResellerWorkspacesResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbResellerProvisionWorkspaceResponse parses an HTTP response from a SmbResellerProvisionWorkspaceWithResponse call
+func ParseSmbResellerProvisionWorkspaceResponse(rsp *http.Response) (*SmbResellerProvisionWorkspaceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbResellerProvisionWorkspaceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ProvisionResellerWorkspaceResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUnassignResellerTierResponse parses an HTTP response from a SmbUnassignResellerTierWithResponse call
+func ParseSmbUnassignResellerTierResponse(rsp *http.Response) (*SmbUnassignResellerTierResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUnassignResellerTierResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbChangeResellerTierResponse parses an HTTP response from a SmbChangeResellerTierWithResponse call
+func ParseSmbChangeResellerTierResponse(rsp *http.Response) (*SmbChangeResellerTierResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbChangeResellerTierResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbAssignResellerTierResponse parses an HTTP response from a SmbAssignResellerTierWithResponse call
+func ParseSmbAssignResellerTierResponse(rsp *http.Response) (*SmbAssignResellerTierResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbAssignResellerTierResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbCancelResellerPendingDowngradeResponse parses an HTTP response from a SmbCancelResellerPendingDowngradeWithResponse call
+func ParseSmbCancelResellerPendingDowngradeResponse(rsp *http.Response) (*SmbCancelResellerPendingDowngradeResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbCancelResellerPendingDowngradeResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbRestoreResellerSubscriptionResponse parses an HTTP response from a SmbRestoreResellerSubscriptionWithResponse call
+func ParseSmbRestoreResellerSubscriptionResponse(rsp *http.Response) (*SmbRestoreResellerSubscriptionResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbRestoreResellerSubscriptionResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListServicesResponse parses an HTTP response from a SmbListServicesWithResponse call
+func ParseSmbListServicesResponse(rsp *http.Response) (*SmbListServicesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListServicesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []SMBServiceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbCreateServiceResponse parses an HTTP response from a SmbCreateServiceWithResponse call
+func ParseSmbCreateServiceResponse(rsp *http.Response) (*SmbCreateServiceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbCreateServiceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBServiceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbDeleteServiceResponse parses an HTTP response from a SmbDeleteServiceWithResponse call
+func ParseSmbDeleteServiceResponse(rsp *http.Response) (*SmbDeleteServiceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbDeleteServiceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbGetServiceResponse parses an HTTP response from a SmbGetServiceWithResponse call
+func ParseSmbGetServiceResponse(rsp *http.Response) (*SmbGetServiceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbGetServiceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBServiceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUpdateServiceResponse parses an HTTP response from a SmbUpdateServiceWithResponse call
+func ParseSmbUpdateServiceResponse(rsp *http.Response) (*SmbUpdateServiceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUpdateServiceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ServiceUpdateResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbConfirmServiceUpdateResponse parses an HTTP response from a SmbConfirmServiceUpdateWithResponse call
+func ParseSmbConfirmServiceUpdateResponse(rsp *http.Response) (*SmbConfirmServiceUpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbConfirmServiceUpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ServiceUpdateResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListStaffResponse parses an HTTP response from a SmbListStaffWithResponse call
+func ParseSmbListStaffResponse(rsp *http.Response) (*SmbListStaffResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListStaffResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []SMBStaffResourceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbCreateStaffMemberResponse parses an HTTP response from a SmbCreateStaffMemberWithResponse call
+func ParseSmbCreateStaffMemberResponse(rsp *http.Response) (*SmbCreateStaffMemberResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbCreateStaffMemberResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBStaffResourceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbDeleteStaffMemberResponse parses an HTTP response from a SmbDeleteStaffMemberWithResponse call
+func ParseSmbDeleteStaffMemberResponse(rsp *http.Response) (*SmbDeleteStaffMemberResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbDeleteStaffMemberResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbGetStaffMemberResponse parses an HTTP response from a SmbGetStaffMemberWithResponse call
+func ParseSmbGetStaffMemberResponse(rsp *http.Response) (*SmbGetStaffMemberResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbGetStaffMemberResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBStaffResourceDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUpdateStaffMemberResponse parses an HTTP response from a SmbUpdateStaffMemberWithResponse call
+func ParseSmbUpdateStaffMemberResponse(rsp *http.Response) (*SmbUpdateStaffMemberResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUpdateStaffMemberResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBStaffResourceDBModel
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
