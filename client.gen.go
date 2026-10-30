@@ -28871,7 +28871,10 @@ type ConversationSummaryMessageModelRole string
 
 // ConversationSummaryResponseModel defines model for ConversationSummaryResponseModel.
 type ConversationSummaryResponseModel struct {
-	AgentId                      string                                      `json:"agent_id"`
+	AgentId string `json:"agent_id"`
+
+	// AgentMessageCount Number of agent transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+	AgentMessageCount            *int                                        `json:"agent_message_count,omitempty"`
 	AgentName                    *string                                     `json:"agent_name,omitempty"`
 	BranchId                     *string                                     `json:"branch_id,omitempty"`
 	CallDurationSecs             int                                         `json:"call_duration_secs"`
@@ -28884,18 +28887,23 @@ type ConversationSummaryResponseModel struct {
 	Direction                    *TelephonyDirection                         `json:"direction,omitempty"`
 	EvaluationCriteriaResults    *map[string]EvaluationCriteriaSummaryResult `json:"evaluation_criteria_results,omitempty"`
 	MainLanguage                 *string                                     `json:"main_language,omitempty"`
-	MessageCount                 int                                         `json:"message_count"`
-	Rating                       *float32                                    `json:"rating,omitempty"`
-	SentimentAnalysis            *ConversationSentimentAnalysis              `json:"sentiment_analysis,omitempty"`
-	StartTimeUnixSecs            int                                         `json:"start_time_unix_secs"`
-	Status                       ConversationSummaryResponseModelStatus      `json:"status"`
+
+	// MessageCount Number of transcript turns with text; tool-only turns are not counted.
+	MessageCount      int                                    `json:"message_count"`
+	Rating            *float32                               `json:"rating,omitempty"`
+	SentimentAnalysis *ConversationSentimentAnalysis         `json:"sentiment_analysis,omitempty"`
+	StartTimeUnixSecs int                                    `json:"start_time_unix_secs"`
+	Status            ConversationSummaryResponseModelStatus `json:"status"`
 
 	// TagIds Conversation tag ids assigned to this conversation.
 	TagIds            *[]string `json:"tag_ids,omitempty"`
 	TerminationReason *string   `json:"termination_reason,omitempty"`
 	ToolNames         *[]string `json:"tool_names,omitempty"`
 	TranscriptSummary *string   `json:"transcript_summary,omitempty"`
-	VersionId         *string   `json:"version_id,omitempty"`
+
+	// UserMessageCount Number of user transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+	UserMessageCount *int    `json:"user_message_count,omitempty"`
+	VersionId        *string `json:"version_id,omitempty"`
 }
 
 // ConversationSummaryResponseModelStatus defines model for ConversationSummaryResponseModel.Status.
@@ -32580,7 +32588,10 @@ type GetConvAISettingsResponseModel struct {
 
 // GetConversationResponseModel defines model for GetConversationResponseModel.
 type GetConversationResponseModel struct {
-	AgentId                          string                                         `json:"agent_id"`
+	AgentId string `json:"agent_id"`
+
+	// AgentMessageCount Number of agent transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+	AgentMessageCount                *int                                           `json:"agent_message_count,omitempty"`
 	AgentName                        *string                                        `json:"agent_name,omitempty"`
 	Analysis                         *ConversationHistoryAnalysisCommonModel        `json:"analysis,omitempty"`
 	BranchId                         *string                                        `json:"branch_id,omitempty"`
@@ -32602,6 +32613,9 @@ type GetConversationResponseModel struct {
 	TagIds     *[]string                                    `json:"tag_ids,omitempty"`
 	Transcript []ConversationHistoryTranscriptResponseModel `json:"transcript"`
 	UserId     *string                                      `json:"user_id,omitempty"`
+
+	// UserMessageCount Number of user transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+	UserMessageCount *int `json:"user_message_count,omitempty"`
 
 	// VersionId The ID of the agent version used for this conversation
 	VersionId     *string            `json:"version_id,omitempty"`

@@ -2,6 +2,12 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.6.5, 2026-10-30
+
+- Adds the optional `AgentMessageCount` and `UserMessageCount` fields (`*int`) to `ConversationSummaryResponseModel` and `GetConversationResponseModel`. They count agent and user transcript turns that have text. Both are nil for older conversations whose transcript was deleted.
+- The doc comment on `ConversationSummaryResponseModel.MessageCount` now says tool-only turns are not counted.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.6.4, 2026-10-29
 
 - Adds the SMB (small business) API: `Client` and `ClientWithResponses` get `Smb...` methods, each with a `...WithResponse` variant, for agent info (`SmbGetAgentInfo`, `SmbUpdateAgentInfo`), services (`SmbListServices`, `SmbCreateService`, `SmbGetService`, `SmbUpdateService`, `SmbDeleteService`, `SmbConfirmServiceUpdate`), locations, staff members, holidays and knowledge sources (`SmbAddUrlSource`, `SmbUploadKnowledgeSourceWithBody`, `SmbListKnowledgeSources`, `SmbGetKnowledgeSource`, `SmbDeleteKnowledgeSource`).
