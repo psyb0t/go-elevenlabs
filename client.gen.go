@@ -1417,6 +1417,24 @@ func (e ApiIntegrationWebhookToolConfigOutputType) Valid() bool {
 	}
 }
 
+// Defines values for ApplicationNumberType.
+const (
+	ApplicationNumberTypeLocal  ApplicationNumberType = "local"
+	ApplicationNumberTypeMobile ApplicationNumberType = "mobile"
+)
+
+// Valid indicates whether the value is a known member of the ApplicationNumberType enum.
+func (e ApplicationNumberType) Valid() bool {
+	switch e {
+	case ApplicationNumberTypeLocal:
+		return true
+	case ApplicationNumberTypeMobile:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ArrayJsonSchemaPropertyInputPropertyKind.
 const (
 	ArrayJsonSchemaPropertyInputPropertyKindArray  ArrayJsonSchemaPropertyInputPropertyKind = "array"
@@ -13180,6 +13198,54 @@ func (e ReportKnowledgeGapParamsSmbToolType) Valid() bool {
 	}
 }
 
+// Defines values for ResellerInvoiceLineKind.
+const (
+	ResellerInvoiceLineKindAdjustment ResellerInvoiceLineKind = "adjustment"
+	ResellerInvoiceLineKindOverage    ResellerInvoiceLineKind = "overage"
+	ResellerInvoiceLineKindPlan       ResellerInvoiceLineKind = "plan"
+	ResellerInvoiceLineKindProration  ResellerInvoiceLineKind = "proration"
+	ResellerInvoiceLineKindTelephony  ResellerInvoiceLineKind = "telephony"
+)
+
+// Valid indicates whether the value is a known member of the ResellerInvoiceLineKind enum.
+func (e ResellerInvoiceLineKind) Valid() bool {
+	switch e {
+	case ResellerInvoiceLineKindAdjustment:
+		return true
+	case ResellerInvoiceLineKindOverage:
+		return true
+	case ResellerInvoiceLineKindPlan:
+		return true
+	case ResellerInvoiceLineKindProration:
+		return true
+	case ResellerInvoiceLineKindTelephony:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ResellerInvoiceStatus.
+const (
+	ResellerInvoiceStatusOpen ResellerInvoiceStatus = "open"
+	ResellerInvoiceStatusPaid ResellerInvoiceStatus = "paid"
+	ResellerInvoiceStatusVoid ResellerInvoiceStatus = "void"
+)
+
+// Valid indicates whether the value is a known member of the ResellerInvoiceStatus enum.
+func (e ResellerInvoiceStatus) Valid() bool {
+	switch e {
+	case ResellerInvoiceStatusOpen:
+		return true
+	case ResellerInvoiceStatusPaid:
+		return true
+	case ResellerInvoiceStatusVoid:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ResellerWorkspaceSubscriptionBillingPeriod.
 const (
 	ResellerWorkspaceSubscriptionBillingPeriodAnnualPeriod  ResellerWorkspaceSubscriptionBillingPeriod = "annual_period"
@@ -13462,6 +13528,24 @@ func (e ReviewResponseModelReviewStatus) Valid() bool {
 	}
 }
 
+// Defines values for RulePriority.
+const (
+	RulePriorityStrict     RulePriority = "strict"
+	RulePrioritySuggestion RulePriority = "suggestion"
+)
+
+// Valid indicates whether the value is a known member of the RulePriority enum.
+func (e RulePriority) Valid() bool {
+	switch e {
+	case RulePriorityStrict:
+		return true
+	case RulePrioritySuggestion:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for SFXModelId.
 const (
 	SFXModelIdElevenTextToSoundV2 SFXModelId = "eleven_text_to_sound_v2"
@@ -13729,6 +13813,24 @@ func (e SMBAgentInfoResponseCurrency) Valid() bool {
 	}
 }
 
+// Defines values for SMBCustomerFacingAgentDeactivationReason.
+const (
+	SMBCustomerFacingAgentDeactivationReasonTierDowngrade SMBCustomerFacingAgentDeactivationReason = "tier_downgrade"
+	SMBCustomerFacingAgentDeactivationReasonUser          SMBCustomerFacingAgentDeactivationReason = "user"
+)
+
+// Valid indicates whether the value is a known member of the SMBCustomerFacingAgentDeactivationReason enum.
+func (e SMBCustomerFacingAgentDeactivationReason) Valid() bool {
+	switch e {
+	case SMBCustomerFacingAgentDeactivationReasonTierDowngrade:
+		return true
+	case SMBCustomerFacingAgentDeactivationReasonUser:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for SMBLocationDeactivationReason.
 const (
 	SMBLocationDeactivationReasonTierDowngrade SMBLocationDeactivationReason = "tier_downgrade"
@@ -13741,6 +13843,63 @@ func (e SMBLocationDeactivationReason) Valid() bool {
 	case SMBLocationDeactivationReasonTierDowngrade:
 		return true
 	case SMBLocationDeactivationReasonUser:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBPhoneAssignmentDBModelProvider.
+const (
+	SMBPhoneAssignmentDBModelProviderSipTrunk SMBPhoneAssignmentDBModelProvider = "sip_trunk"
+	SMBPhoneAssignmentDBModelProviderTwilio   SMBPhoneAssignmentDBModelProvider = "twilio"
+)
+
+// Valid indicates whether the value is a known member of the SMBPhoneAssignmentDBModelProvider enum.
+func (e SMBPhoneAssignmentDBModelProvider) Valid() bool {
+	switch e {
+	case SMBPhoneAssignmentDBModelProviderSipTrunk:
+		return true
+	case SMBPhoneAssignmentDBModelProviderTwilio:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBPhoneAssignmentDeactivationReason.
+const (
+	SMBPhoneAssignmentDeactivationReasonNoEntitlement SMBPhoneAssignmentDeactivationReason = "no_entitlement"
+	SMBPhoneAssignmentDeactivationReasonTierDowngrade SMBPhoneAssignmentDeactivationReason = "tier_downgrade"
+	SMBPhoneAssignmentDeactivationReasonUser          SMBPhoneAssignmentDeactivationReason = "user"
+)
+
+// Valid indicates whether the value is a known member of the SMBPhoneAssignmentDeactivationReason enum.
+func (e SMBPhoneAssignmentDeactivationReason) Valid() bool {
+	switch e {
+	case SMBPhoneAssignmentDeactivationReasonNoEntitlement:
+		return true
+	case SMBPhoneAssignmentDeactivationReasonTierDowngrade:
+		return true
+	case SMBPhoneAssignmentDeactivationReasonUser:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBPhoneRegulatoryStatus.
+const (
+	SMBPhoneRegulatoryStatusApproved SMBPhoneRegulatoryStatus = "approved"
+	SMBPhoneRegulatoryStatusHeld     SMBPhoneRegulatoryStatus = "held"
+)
+
+// Valid indicates whether the value is a known member of the SMBPhoneRegulatoryStatus enum.
+func (e SMBPhoneRegulatoryStatus) Valid() bool {
+	switch e {
+	case SMBPhoneRegulatoryStatusApproved:
+		return true
+	case SMBPhoneRegulatoryStatusHeld:
 		return true
 	default:
 		return false
@@ -13777,6 +13936,27 @@ const (
 func (e SMBToolConfigType) Valid() bool {
 	switch e {
 	case SMBToolConfigTypeSmb:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBTurnEagerness.
+const (
+	SMBTurnEagernessEager   SMBTurnEagerness = "eager"
+	SMBTurnEagernessNormal  SMBTurnEagerness = "normal"
+	SMBTurnEagernessPatient SMBTurnEagerness = "patient"
+)
+
+// Valid indicates whether the value is a known member of the SMBTurnEagerness enum.
+func (e SMBTurnEagerness) Valid() bool {
+	switch e {
+	case SMBTurnEagernessEager:
+		return true
+	case SMBTurnEagernessNormal:
+		return true
+	case SMBTurnEagernessPatient:
 		return true
 	default:
 		return false
@@ -13933,6 +14113,57 @@ func (e SMBUpdateAgentInfoRequestCurrency) Valid() bool {
 	case SMBUpdateAgentInfoRequestCurrencyVND:
 		return true
 	case SMBUpdateAgentInfoRequestCurrencyZAR:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBWidgetAppearancePlacement.
+const (
+	SMBWidgetAppearancePlacementBottom      SMBWidgetAppearancePlacement = "bottom"
+	SMBWidgetAppearancePlacementBottomLeft  SMBWidgetAppearancePlacement = "bottom-left"
+	SMBWidgetAppearancePlacementBottomRight SMBWidgetAppearancePlacement = "bottom-right"
+	SMBWidgetAppearancePlacementTop         SMBWidgetAppearancePlacement = "top"
+	SMBWidgetAppearancePlacementTopLeft     SMBWidgetAppearancePlacement = "top-left"
+	SMBWidgetAppearancePlacementTopRight    SMBWidgetAppearancePlacement = "top-right"
+)
+
+// Valid indicates whether the value is a known member of the SMBWidgetAppearancePlacement enum.
+func (e SMBWidgetAppearancePlacement) Valid() bool {
+	switch e {
+	case SMBWidgetAppearancePlacementBottom:
+		return true
+	case SMBWidgetAppearancePlacementBottomLeft:
+		return true
+	case SMBWidgetAppearancePlacementBottomRight:
+		return true
+	case SMBWidgetAppearancePlacementTop:
+		return true
+	case SMBWidgetAppearancePlacementTopLeft:
+		return true
+	case SMBWidgetAppearancePlacementTopRight:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBWidgetAppearanceVariant.
+const (
+	SMBWidgetAppearanceVariantCompact SMBWidgetAppearanceVariant = "compact"
+	SMBWidgetAppearanceVariantFull    SMBWidgetAppearanceVariant = "full"
+	SMBWidgetAppearanceVariantTiny    SMBWidgetAppearanceVariant = "tiny"
+)
+
+// Valid indicates whether the value is a known member of the SMBWidgetAppearanceVariant enum.
+func (e SMBWidgetAppearanceVariant) Valid() bool {
+	switch e {
+	case SMBWidgetAppearanceVariantCompact:
+		return true
+	case SMBWidgetAppearanceVariantFull:
+		return true
+	case SMBWidgetAppearanceVariantTiny:
 		return true
 	default:
 		return false
@@ -21895,6 +22126,22 @@ type AgentQueueingConfig struct {
 	WaitTimeoutSeconds *int `json:"wait_timeout_seconds,omitempty"`
 }
 
+// AgentRule A single behavioral rule for the agent.
+type AgentRule struct {
+	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// Description What the agent should do, in detail.
+	Description StrippedStr `json:"description"`
+	Id          *string     `json:"id,omitempty"`
+
+	// Priority strict: the agent must always follow the rule; suggestion: a guideline.
+	Priority *RulePriority `json:"priority,omitempty"`
+
+	// Title Title of the rule.
+	Title StrippedStr `json:"title"`
+}
+
 // AgentSimulatedChatTestResponseModel defines model for AgentSimulatedChatTestResponseModel.
 type AgentSimulatedChatTestResponseModel struct {
 	Analysis              ConversationHistoryAnalysisCommonModel       `json:"analysis"`
@@ -22539,6 +22786,13 @@ type ApiIntegrationWebhookToolConfigOutput struct {
 
 // ApiIntegrationWebhookToolConfigOutputType defines model for ApiIntegrationWebhookToolConfigOutput.Type.
 type ApiIntegrationWebhookToolConfigOutputType string
+
+// ApplicationNumberType Which kind of regulated number a request or an issued number is for.
+//
+// Lives here rather than next to the application model because a phone
+// assignment records it too, and the assignment model cannot import from
+// “telephony.models“ without a cycle back into this module.
+type ApplicationNumberType string
 
 // ArrayJsonSchemaPropertyInput defines model for ArrayJsonSchemaProperty-Input.
 type ArrayJsonSchemaPropertyInput struct {
@@ -25147,7 +25401,7 @@ type BodySpeechToTextV1SpeechToTextPost struct {
 	// MultichannelOutputStyle Controls the response shape when use_multi_channel is enabled. 'separate' (default) returns one transcript per channel under 'transcripts'. 'combined' merges all channels into a single transcript whose words are sorted by start time, each carrying a 'channel_index' - matching the single-channel response shape. 'combined' requires timestamps (timestamps_granularity must not be 'none') and does not support entity detection or redaction.
 	MultichannelOutputStyle *BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle `json:"multichannel_output_style,omitempty"`
 
-	// NoVerbatim If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.
+	// NoVerbatim If true, the transcription will not have any filler words, false starts and non-speech sounds.
 	NoVerbatim *bool `json:"no_verbatim,omitempty"`
 
 	// NumSpeakers The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.
@@ -25975,7 +26229,7 @@ type BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysP
 	// DubbingConcurrencyLimit Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.
 	DubbingConcurrencyLimit *int `json:"dubbing_concurrency_limit,omitempty"`
 
-	// ExpiresAtUnix Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).
+	// ExpiresAtUnix Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires). A workspace may disallow never-expiring keys, or allow them only on service account API keys; creating one or clearing an expiry then fails.
 	//
 	// Examples: 1735689600
 	ExpiresAtUnix *int `json:"expires_at_unix,omitempty"`
@@ -26023,7 +26277,7 @@ type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApi
 	// DubbingConcurrencyLimit Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.
 	DubbingConcurrencyLimit *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_DubbingConcurrencyLimit `json:"dubbing_concurrency_limit,omitempty"`
 
-	// ExpiresAtUnix Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).
+	// ExpiresAtUnix Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires). A workspace may disallow never-expiring keys, or allow them only on service account API keys; creating one or clearing an expiry then fails.
 	//
 	// Examples: 1735689600
 	ExpiresAtUnix *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix `json:"expires_at_unix,omitempty"`
@@ -26088,7 +26342,7 @@ type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApi
 // BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 defines model for BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch.ExpiresAtUnix.1.
 type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix1 string
 
-// BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).
+// BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires). A workspace may disallow never-expiring keys, or allow them only on service account API keys; creating one or clearing an expiry then fails.
 //
 // Examples: 1735689600
 type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch_ExpiresAtUnix struct {
@@ -26150,6 +26404,24 @@ type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApi
 	union json.RawMessage
 }
 
+// BodySmbAddAgentProcedure defines model for Body_smb_add_agent_procedure.
+type BodySmbAddAgentProcedure struct {
+	// Request Request model for creating a new procedure.
+	Request SMBCreateProcedureRequest `json:"request"`
+}
+
+// BodySmbAddAgentRule defines model for Body_smb_add_agent_rule.
+type BodySmbAddAgentRule struct {
+	// Request Request model for creating a new agent rule.
+	Request SMBCreateAgentRuleRequest `json:"request"`
+}
+
+// BodySmbAddTransferRule defines model for Body_smb_add_transfer_rule.
+type BodySmbAddTransferRule struct {
+	// Request Request model for creating a new transfer rule.
+	Request SMBCreateTransferRuleRequest `json:"request"`
+}
+
 // BodySmbAddUrlSource defines model for Body_smb_add_url_source.
 type BodySmbAddUrlSource struct {
 	// Request Request to add a URL for scraping.
@@ -26188,6 +26460,18 @@ type BodySmbUpdateAgentInfo struct {
 	Request SMBUpdateAgentInfoRequest `json:"request"`
 }
 
+// BodySmbUpdateAgentProcedure defines model for Body_smb_update_agent_procedure.
+type BodySmbUpdateAgentProcedure struct {
+	// Request Request model for updating an existing procedure.
+	Request SMBUpdateProcedureRequest `json:"request"`
+}
+
+// BodySmbUpdateAgentRule defines model for Body_smb_update_agent_rule.
+type BodySmbUpdateAgentRule struct {
+	// Request Request model for updating an existing agent rule.
+	Request SMBUpdateAgentRuleRequest `json:"request"`
+}
+
 // BodySmbUpdateHoliday defines model for Body_smb_update_holiday.
 type BodySmbUpdateHoliday struct {
 	Request SMBUpdateHolidayRequestPatch `json:"request"`
@@ -26206,6 +26490,12 @@ type BodySmbUpdateService struct {
 // BodySmbUpdateStaffMember defines model for Body_smb_update_staff_member.
 type BodySmbUpdateStaffMember struct {
 	Request SMBUpdateStaffRequestPatch `json:"request"`
+}
+
+// BodySmbUpdateTransferRule defines model for Body_smb_update_transfer_rule.
+type BodySmbUpdateTransferRule struct {
+	// Request Request model for updating an existing transfer rule.
+	Request SMBUpdateTransferRuleRequest `json:"request"`
 }
 
 // BodySmbUploadKnowledgeSource defines model for Body_smb_upload_knowledge_source.
@@ -29457,6 +29747,18 @@ type CreateOrderResponse struct {
 	Sandbox *bool `json:"sandbox,omitempty"`
 }
 
+// CreatePhoneAssignmentRequest Body for giving a receptionist a phone number.
+type CreatePhoneAssignmentRequest struct {
+	// AreaCodes Preferred US or Canadian area codes, e.g. `["415", "628"]`. Codes outside the business's country are ignored, and any number is given when none of these is available.
+	AreaCodes *[]string `json:"area_codes,omitempty"`
+
+	// CustomerFacingAgentId The receptionist that answers calls to the number.
+	CustomerFacingAgentId string `json:"customer_facing_agent_id"`
+
+	// NumberType Local or mobile, in a country that requires paperwork before a number takes calls. Leave unset to try mobile first. Ignored in the US and Canada.
+	NumberType *ApplicationNumberType `json:"number_type,omitempty"`
+}
+
 // CreatePhoneNumberResponseModel defines model for CreatePhoneNumberResponseModel.
 type CreatePhoneNumberResponseModel struct {
 	// PhoneNumberId Phone entity ID
@@ -30040,6 +30342,141 @@ type CustomSIPHeaderWithDynamicVariable struct {
 
 // CustomSIPHeaderWithDynamicVariableType defines model for CustomSIPHeaderWithDynamicVariable.Type.
 type CustomSIPHeaderWithDynamicVariableType string
+
+// CustomerFacingConfigOutput defines model for CustomerFacingConfig-Output.
+type CustomerFacingConfigOutput struct {
+	// AdditionalInstructions Extra instructions for the agent (e.g., 'Always ask callers to spell out their name')
+	AdditionalInstructions *StrippedStr `json:"additional_instructions,omitempty"`
+
+	// AdditionalLanguages Additional language codes the agent can communicate in
+	AdditionalLanguages *[]SupportedLang `json:"additional_languages,omitempty"`
+
+	// AgentRules Behavioral rules this agent must follow.
+	AgentRules *[]AgentRule `json:"agent_rules,omitempty"`
+
+	// BackgroundVoiceDetection Filter out far-field human speech before transcription.
+	BackgroundVoiceDetection *bool `json:"background_voice_detection,omitempty"`
+
+	// DetailsToCollect Details the agent should always try to collect from callers (presets + custom labels, e.g. ['full name', 'phone number']).
+	DetailsToCollect *[]StrippedStr `json:"details_to_collect,omitempty"`
+
+	// DisableFirstMessageInterruptions When true, callers cannot interrupt the receptionist while the first message is being delivered. Use when the greeting carries a recording or legal notice callers must hear in full.
+	DisableFirstMessageInterruptions *bool `json:"disable_first_message_interruptions,omitempty"`
+
+	// DisableRag When true, the receptionist's knowledge base is injected in full into the system prompt instead of being retrieved via vector RAG on every turn. This removes the per-turn embedding + vector-search latency, but is only viable for small knowledge bases that fit within the prompt budget (KNOWLEDGE_BASE_IN_PROMPT_MAX_LEN). Knowledge bases too large to inline fall back to RAG at build time.
+	DisableRag *bool `json:"disable_rag,omitempty"`
+
+	// EnableEndCallTool Allow the end_call system tool during conversations.
+	EnableEndCallTool *bool `json:"enable_end_call_tool,omitempty"`
+
+	// EnablePlayKeypadTouchToneTool Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step.
+	EnablePlayKeypadTouchToneTool *bool `json:"enable_play_keypad_touch_tone_tool,omitempty"`
+
+	// EnableSecureMode When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number.
+	EnableSecureMode *bool `json:"enable_secure_mode,omitempty"`
+
+	// EnableSkipTurnTool Allow the skip_turn system tool during conversations.
+	EnableSkipTurnTool *bool `json:"enable_skip_turn_tool,omitempty"`
+
+	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.
+	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
+
+	// FirstMessage The first message the agent says when starting a conversation
+	FirstMessage *string `json:"first_message,omitempty"`
+
+	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
+	HideCallerNumberOnTransfers *bool `json:"hide_caller_number_on_transfers,omitempty"`
+
+	// Language Primary language code
+	Language *SupportedLang `json:"language,omitempty"`
+
+	// Llm Concrete LLM powering the receptionist. Constrained to SMB_ALLOWED_LLMS (see validate_reasoning_effort). None means no explicit model was chosen; the factory falls back to the historical default (SMB_DEFAULT_LEGACY_LLM) so configs predating this field keep their original model. New agents are created with SMB_DEFAULT_NEW_AGENT_LLM.
+	Llm *LLM `json:"llm,omitempty"`
+
+	// Procedures Standard operating procedures (SOPs) this agent can run on calls.
+	Procedures *[]SMBProcedure `json:"procedures,omitempty"`
+
+	// ReasoningEffort Reasoning effort for the receptionist's model. Must be one of the model's supported efforts (see LLM.available_reasoning_efforts) and is capped at MEDIUM for SMB (see SMB_RECEPTIONIST_REASONING_EFFORTS); use null for the model default / models without configurable reasoning.
+	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
+
+	// RecordAfterTransfers Keep recording after a call is transferred and add that audio to the call recording.
+	RecordAfterTransfers *bool `json:"record_after_transfers,omitempty"`
+
+	// ToneTraits Personality/tone trait keys that drive the Personality prompt section (e.g. ['professional', 'concise']).
+	ToneTraits *[]StrippedStr `json:"tone_traits,omitempty"`
+
+	// TransferRules Phone numbers this agent can transfer calls to.
+	TransferRules *[]SMBTransferRule `json:"transfer_rules,omitempty"`
+
+	// TurnEagerness How quickly the receptionist decides the caller has finished speaking. Eager replies soonest; patient waits for a clearer end of turn.
+	TurnEagerness *SMBTurnEagerness `json:"turn_eagerness,omitempty"`
+
+	// VoiceId ElevenLabs voice ID
+	VoiceId *string `json:"voice_id,omitempty"`
+}
+
+// CustomerFacingConfigPatch The endpoint-managed lists are written through their own routes, never here.
+type CustomerFacingConfigPatch struct {
+	// AdditionalInstructions Extra instructions for the agent (e.g., 'Always ask callers to spell out their name')
+	AdditionalInstructions *StrippedStr `json:"additional_instructions,omitempty"`
+
+	// AdditionalLanguages Additional language codes the agent can communicate in
+	AdditionalLanguages *[]SupportedLang `json:"additional_languages,omitempty"`
+
+	// BackgroundVoiceDetection Filter out far-field human speech before transcription.
+	BackgroundVoiceDetection *bool `json:"background_voice_detection,omitempty"`
+
+	// DetailsToCollect Details the agent should always try to collect from callers (presets + custom labels, e.g. ['full name', 'phone number']).
+	DetailsToCollect *[]StrippedStr `json:"details_to_collect,omitempty"`
+
+	// DisableFirstMessageInterruptions When true, callers cannot interrupt the receptionist while the first message is being delivered. Use when the greeting carries a recording or legal notice callers must hear in full.
+	DisableFirstMessageInterruptions *bool `json:"disable_first_message_interruptions,omitempty"`
+
+	// DisableRag When true, the receptionist's knowledge base is injected in full into the system prompt instead of being retrieved via vector RAG on every turn. This removes the per-turn embedding + vector-search latency, but is only viable for small knowledge bases that fit within the prompt budget (KNOWLEDGE_BASE_IN_PROMPT_MAX_LEN). Knowledge bases too large to inline fall back to RAG at build time.
+	DisableRag *bool `json:"disable_rag,omitempty"`
+
+	// EnableEndCallTool Allow the end_call system tool during conversations.
+	EnableEndCallTool *bool `json:"enable_end_call_tool,omitempty"`
+
+	// EnablePlayKeypadTouchToneTool Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step.
+	EnablePlayKeypadTouchToneTool *bool `json:"enable_play_keypad_touch_tone_tool,omitempty"`
+
+	// EnableSecureMode When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number.
+	EnableSecureMode *bool `json:"enable_secure_mode,omitempty"`
+
+	// EnableSkipTurnTool Allow the skip_turn system tool during conversations.
+	EnableSkipTurnTool *bool `json:"enable_skip_turn_tool,omitempty"`
+
+	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.
+	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
+
+	// FirstMessage The first message the agent says when starting a conversation
+	FirstMessage *string `json:"first_message,omitempty"`
+
+	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
+	HideCallerNumberOnTransfers *bool `json:"hide_caller_number_on_transfers,omitempty"`
+
+	// Language Primary language code
+	Language *SupportedLang `json:"language,omitempty"`
+
+	// Llm Concrete LLM powering the receptionist. Constrained to SMB_ALLOWED_LLMS (see validate_reasoning_effort). None means no explicit model was chosen; the factory falls back to the historical default (SMB_DEFAULT_LEGACY_LLM) so configs predating this field keep their original model. New agents are created with SMB_DEFAULT_NEW_AGENT_LLM.
+	Llm *LLM `json:"llm,omitempty"`
+
+	// ReasoningEffort Reasoning effort for the receptionist's model. Must be one of the model's supported efforts (see LLM.available_reasoning_efforts) and is capped at MEDIUM for SMB (see SMB_RECEPTIONIST_REASONING_EFFORTS); use null for the model default / models without configurable reasoning.
+	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
+
+	// RecordAfterTransfers Keep recording after a call is transferred and add that audio to the call recording.
+	RecordAfterTransfers *bool `json:"record_after_transfers,omitempty"`
+
+	// ToneTraits Personality/tone trait keys that drive the Personality prompt section (e.g. ['professional', 'concise']).
+	ToneTraits *[]StrippedStr `json:"tone_traits,omitempty"`
+
+	// TurnEagerness How quickly the receptionist decides the caller has finished speaking. Eager replies soonest; patient waits for a clearer end of turn.
+	TurnEagerness *SMBTurnEagerness `json:"turn_eagerness,omitempty"`
+
+	// VoiceId ElevenLabs voice ID
+	VoiceId *string `json:"voice_id,omitempty"`
+}
 
 // DTMFInputConfig Configuration for DTMF (keypad) input collection during phone calls.
 type DTMFInputConfig struct {
@@ -34427,6 +34864,9 @@ type LanguagePresetInput struct {
 	// FirstMessageTranslation The translation of the first message
 	FirstMessageTranslation *LanguagePresetTranslation `json:"first_message_translation,omitempty"`
 
+	// NoisyEnvironmentMessageTranslation The translation of the noisy environment message
+	NoisyEnvironmentMessageTranslation *LanguagePresetTranslation `json:"noisy_environment_message_translation,omitempty"`
+
 	// Overrides The overrides for the language preset
 	Overrides ConversationConfigClientOverrideInput `json:"overrides"`
 
@@ -34438,6 +34878,9 @@ type LanguagePresetInput struct {
 type LanguagePresetOutput struct {
 	// FirstMessageTranslation The translation of the first message
 	FirstMessageTranslation *LanguagePresetTranslation `json:"first_message_translation,omitempty"`
+
+	// NoisyEnvironmentMessageTranslation The translation of the noisy environment message
+	NoisyEnvironmentMessageTranslation *LanguagePresetTranslation `json:"noisy_environment_message_translation,omitempty"`
 
 	// Overrides The overrides for the language preset
 	Overrides ConversationConfigClientOverrideOutput `json:"overrides"`
@@ -37045,6 +37488,9 @@ type PendingSubscriptionSwitchResponseModelNextTier string
 // PermissionType defines model for PermissionType.
 type PermissionType string
 
+// PhoneNumber defines model for PhoneNumber.
+type PhoneNumber = string
+
 // PhoneNumberAgentInfo defines model for PhoneNumberAgentInfo.
 type PhoneNumberAgentInfo struct {
 	// AgentId The ID of the agent
@@ -39013,6 +39459,12 @@ type ReaderResourceResponseModelResourceType string
 // RealtimeModel defines model for RealtimeModel.
 type RealtimeModel string
 
+// ReassignPhoneRequest Body for attaching a phone number to a different receptionist.
+type ReassignPhoneRequest struct {
+	// CustomerFacingAgentId The receptionist that answers calls to the number from now on.
+	CustomerFacingAgentId string `json:"customer_facing_agent_id"`
+}
+
 // RecordingResponseModel defines model for RecordingResponseModel.
 type RecordingResponseModel struct {
 	// MimeType The MIME type of the recording.
@@ -39190,6 +39642,73 @@ type RequiredConstraints struct {
 	AnyOf *[]RequiredConstraint `json:"any_of,omitempty"`
 }
 
+// ResellerInvoiceDetail defines model for ResellerInvoiceDetail.
+type ResellerInvoiceDetail struct {
+	// AmountCents Invoice total, in the currency's minor unit.
+	AmountCents int                   `json:"amount_cents"`
+	CreatedUnix int                   `json:"created_unix"`
+	Currency    string                `json:"currency"`
+	InvoiceId   string                `json:"invoice_id"`
+	Lines       []ResellerInvoiceLine `json:"lines"`
+	PaidUnix    *int                  `json:"paid_unix,omitempty"`
+
+	// PayUrl Stripe's hosted payment page, only while open.
+	PayUrl *string `json:"pay_url,omitempty"`
+	PdfUrl *string `json:"pdf_url,omitempty"`
+
+	// Status `open` while the card is still being retried; `void` once retries ran out and the workspace's plan was ended.
+	Status ResellerInvoiceStatus `json:"status"`
+
+	// WorkspaceId The workspace this charge paid for.
+	WorkspaceId   *string `json:"workspace_id"`
+	WorkspaceName string  `json:"workspace_name"`
+}
+
+// ResellerInvoiceLine One line of the workspace's invoice; an `adjustment` line covers any remainder, so lines sum to the charge.
+type ResellerInvoiceLine struct {
+	// AmountCents Negative for a proration credit.
+	AmountCents     int                     `json:"amount_cents"`
+	Description     string                  `json:"description"`
+	Kind            ResellerInvoiceLineKind `json:"kind"`
+	PeriodEndUnix   int                     `json:"period_end_unix"`
+	PeriodStartUnix int                     `json:"period_start_unix"`
+	Quantity        *int                    `json:"quantity,omitempty"`
+}
+
+// ResellerInvoiceLineKind defines model for ResellerInvoiceLineKind.
+type ResellerInvoiceLineKind string
+
+// ResellerInvoiceStatus `open` while the card is still being retried; `void` once retries ran out and the workspace's plan was ended.
+type ResellerInvoiceStatus string
+
+// ResellerInvoiceSummary One charge to the reseller's card, paying for one workspace's invoice.
+type ResellerInvoiceSummary struct {
+	// AmountCents Invoice total, in the currency's minor unit.
+	AmountCents int    `json:"amount_cents"`
+	CreatedUnix int    `json:"created_unix"`
+	Currency    string `json:"currency"`
+	InvoiceId   string `json:"invoice_id"`
+	PaidUnix    *int   `json:"paid_unix,omitempty"`
+
+	// PayUrl Stripe's hosted payment page, only while open.
+	PayUrl *string `json:"pay_url,omitempty"`
+	PdfUrl *string `json:"pdf_url,omitempty"`
+
+	// Status `open` while the card is still being retried; `void` once retries ran out and the workspace's plan was ended.
+	Status ResellerInvoiceStatus `json:"status"`
+
+	// WorkspaceId The workspace this charge paid for.
+	WorkspaceId   *string `json:"workspace_id"`
+	WorkspaceName string  `json:"workspace_name"`
+}
+
+// ResellerInvoicesResponse defines model for ResellerInvoicesResponse.
+type ResellerInvoicesResponse struct {
+	HasMore    *bool                    `json:"has_more,omitempty"`
+	Invoices   []ResellerInvoiceSummary `json:"invoices"`
+	NextCursor *string                  `json:"next_cursor,omitempty"`
+}
+
 // ResellerTierResponse A tier as the public API shows it: the offer, not the record derived from it.
 type ResellerTierResponse struct {
 	DisplayName string `json:"display_name"`
@@ -39197,6 +39716,30 @@ type ResellerTierResponse struct {
 	// TierEconomics A tier's prices and quotas, in the fields a tier is created with.
 	TierEconomics SMBTierEconomics `json:"tier_economics"`
 	TierId        string           `json:"tier_id"`
+}
+
+// ResellerUpcomingPayment A workspace's next renewal, estimated before Stripe drafts the invoice.
+type ResellerUpcomingPayment struct {
+	// OverageSoFarUsd This period's usage beyond its included minutes so far, charged at the renewal and still growing.
+	OverageSoFarUsd float32 `json:"overage_so_far_usd"`
+
+	// PlanUsd The plan the renewal charges upfront: the pending downgrade's tier when there is one.
+	PlanUsd float32 `json:"plan_usd"`
+
+	// Subscription A reseller-managed paid subscription, as the reseller can act on it.
+	//
+	// Present only for a workspace the reseller actually sells to: untiered and
+	// trial workspaces have no subscription to change or end, and are assigned to
+	// instead. Projected from ``SMBBillingState`` rather than read from Stripe,
+	// so it is the same state the grant path wrote.
+	Subscription  ResellerWorkspaceSubscription `json:"subscription"`
+	WorkspaceId   string                        `json:"workspace_id"`
+	WorkspaceName string                        `json:"workspace_name"`
+}
+
+// ResellerUpcomingPaymentsResponse defines model for ResellerUpcomingPaymentsResponse.
+type ResellerUpcomingPaymentsResponse struct {
+	Payments []ResellerUpcomingPayment `json:"payments"`
 }
 
 // ResellerWorkspaceSubscription A reseller-managed paid subscription, as the reseller can act on it.
@@ -39404,6 +39947,9 @@ type ReviewResponseModelRejectReasons string
 // ReviewResponseModelReviewStatus defines model for ReviewResponseModel.ReviewStatus.
 type ReviewResponseModelReviewStatus string
 
+// RulePriority defines model for RulePriority.
+type RulePriority string
+
 // RunAgentTestsRequestModel defines model for RunAgentTestsRequestModel.
 type RunAgentTestsRequestModel struct {
 	// AgentConfigOverride Configuration overrides to use for testing. If not provided, the agent's default configuration will be used.
@@ -39538,6 +40084,18 @@ type SMBAgentInfoResponse struct {
 // SMBAgentInfoResponseCurrency Currency code for all prices (ISO 4217)
 type SMBAgentInfoResponseCurrency string
 
+// SMBCreateAgentRuleRequest Request model for creating a new agent rule.
+type SMBCreateAgentRuleRequest struct {
+	// Description What the agent should do, in detail.
+	Description StrippedStr `json:"description"`
+
+	// Priority strict: the agent must always follow the rule; suggestion: a guideline.
+	Priority *RulePriority `json:"priority,omitempty"`
+
+	// Title Title of the rule.
+	Title StrippedStr `json:"title"`
+}
+
 // SMBCreateHolidayRequest defines model for SMBCreateHolidayRequest.
 type SMBCreateHolidayRequest struct {
 	// EndDate Represents a calendar date as individual numeric components.
@@ -39556,6 +40114,18 @@ type SMBCreateHolidayRequest struct {
 	// StartDate Represents a calendar date as individual numeric components.
 	StartDate   DateModel   `json:"start_date"`
 	TimeOffType TimeOffType `json:"time_off_type"`
+}
+
+// SMBCreateProcedureRequest Request model for creating a new procedure.
+type SMBCreateProcedureRequest struct {
+	// Body Step-by-step instructions, as markdown.
+	Body *string `json:"body,omitempty"`
+
+	// Name Name of the procedure.
+	Name StrippedStr `json:"name"`
+
+	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
+	Trigger StrippedStr `json:"trigger"`
 }
 
 // SMBCreateServiceRequest defines model for SMBCreateServiceRequest.
@@ -39657,6 +40227,50 @@ type SMBCreateStaffRequest struct {
 
 	// WorkingHours Custom working hours for this staff member. None means follow the assigned location's operating_hours (requires location_id).
 	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
+}
+
+// SMBCreateTransferRuleRequest Request model for creating a new transfer rule.
+type SMBCreateTransferRuleRequest struct {
+	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
+	Condition StrippedStr `json:"condition"`
+
+	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
+	Label StrippedStr `json:"label"`
+
+	// PhoneNumber Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad.
+	PhoneNumber PhoneNumber `json:"phone_number"`
+
+	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
+	PostDialDigits *string `json:"post_dial_digits,omitempty"`
+}
+
+// SMBCustomerFacingAgentDeactivationReason Why a receptionist is currently inactive (live calls disabled).
+type SMBCustomerFacingAgentDeactivationReason string
+
+// SMBCustomerFacingAgentResponse API response model that adds the display name from the ConvAI agent doc.
+type SMBCustomerFacingAgentResponse struct {
+	// AgentExists Whether the underlying ConvAI agent document still exists. False when the receptionist references a deleted agent and needs repair.
+	AgentExists *bool `json:"agent_exists,omitempty"`
+
+	// AgentId ConvAI agent id. Empty string is the placeholder seeded by the legacy API validator when migrating a single-agent payload; the agent-owning service resolves it from the workspace assignment.
+	AgentId *string                     `json:"agent_id,omitempty"`
+	Config  *CustomerFacingConfigOutput `json:"config,omitempty"`
+
+	// DeactivatedAtUnix Unix timestamp when this receptionist was deactivated. None when active.
+	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
+
+	// DeactivationReason Why this receptionist was deactivated. None when active.
+	DeactivationReason *SMBCustomerFacingAgentDeactivationReason `json:"deactivation_reason,omitempty"`
+	IsActive           *bool                                     `json:"is_active,omitempty"`
+
+	// IsTransferAllowed Whether this receptionist can configure and use transfer rules.
+	IsTransferAllowed *bool `json:"is_transfer_allowed,omitempty"`
+
+	// Name Display name read from the ConvAI agent document (the single source of truth).
+	Name *string `json:"name,omitempty"`
+
+	// Widget How the website widget looks, read from the ConvAI agent's platform settings. Null when the agent document is missing. Unset labels mean the widget follows the agent's own language.
+	Widget *SMBWidgetAppearance `json:"widget,omitempty"`
 }
 
 // SMBGroupMembership Membership of an item in a single user-defined group, with its display
@@ -39784,6 +40398,92 @@ type SMBLocationRequestPatch struct {
 
 	// OperatingHours Per-location operating hours. On create, omit to have the server prefill from the most recently added active location.
 	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+}
+
+// SMBPhoneAssignmentDBModel Persisted phone assignment; see “SMBPhoneAssignmentBase“ for field semantics.
+type SMBPhoneAssignmentDBModel struct {
+	UnderscoreId string `json:"_id"`
+
+	// AcceptsPublicCalls Whether inbound calls from the public may reach the agent.
+	AcceptsPublicCalls *bool `json:"accepts_public_calls,omitempty"`
+
+	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// CustomerFacingAgentId Determines assignment status: None = pool (unassigned), non-None = assigned to this customer-facing agent. When set, inbound calls to this phone route to that agent.
+	CustomerFacingAgentId *string `json:"customer_facing_agent_id,omitempty"`
+
+	// DeactivatedAtUnix Unix timestamp when this assignment was deactivated. Drives the per-assignment 14-day grace cleanup. None when active.
+	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
+
+	// DeactivationReason Why this assignment was deactivated. None when active.
+	DeactivationReason *SMBPhoneAssignmentDeactivationReason `json:"deactivation_reason,omitempty"`
+	IsActive           *bool                                 `json:"is_active,omitempty"`
+
+	// IsByo True when the phone is bring-your-own: registered by the workspace using their own telephony provider (Twilio credentials or SIP trunk). BYO phones are never part of the shared pool, do not count against the tier-based phone quota, and are deleted (rather than returned to the pool) on release.
+	IsByo *bool `json:"is_byo,omitempty"`
+
+	// NanpAreaCode US/Canada NANP area code (NPA) as an integer.
+	NanpAreaCode *int `json:"nanp_area_code,omitempty"`
+
+	// PhoneNumber Phone number in E.164 format (for indexing/filtering)
+	PhoneNumber *PhoneNumber `json:"phone_number,omitempty"`
+
+	// Provider Telephony provider for this phone number. Defaults to twilio for backwards compatibility with existing documents.
+	Provider *SMBPhoneAssignmentDBModelProvider `json:"provider,omitempty"`
+
+	// RegulatoryCountry ISO country the regulated number was bought in. Recorded so a held number can be matched to the application it belongs to without inferring the country from the dialing prefix. None for pool numbers.
+	RegulatoryCountry *CountryCode `json:"regulatory_country,omitempty"`
+
+	// RegulatoryNumberType Which regulated type this number was issued as. Set on numbers bought in a country that needs paperwork, so the request form can open on the type the workspace already holds. None for pool numbers, which need no application.
+	RegulatoryNumberType *ApplicationNumberType `json:"regulatory_number_type,omitempty"`
+
+	// RegulatoryStatus None for numbers from countries with no regulatory requirements. 'held' while the workspace's own application is under review, 'approved' once it passed and the number is fully usable.
+	RegulatoryStatus *SMBPhoneRegulatoryStatus `json:"regulatory_status,omitempty"`
+
+	// UpdatedAtUnix Unix timestamp (seconds since epoch)
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+}
+
+// SMBPhoneAssignmentDBModelProvider Telephony provider for this phone number. Defaults to twilio for backwards compatibility with existing documents.
+type SMBPhoneAssignmentDBModelProvider string
+
+// SMBPhoneAssignmentDeactivationReason Why a phone assignment is currently inactive.
+type SMBPhoneAssignmentDeactivationReason string
+
+// SMBPhoneRegulatoryStatus Regulatory standing of a number in a country that requires paperwork.
+//
+// Absent (“None“) on numbers from countries with no requirements, which is
+// every pooled US/Canada number — those are usable the moment they are bought.
+type SMBPhoneRegulatoryStatus string
+
+// SMBProcedure A standard operating procedure (SOP) the receptionist can run on calls.
+//
+// Like :class:`AgentRule`, this is user-owned config that lives on the agent's
+// :class:`CustomerFacingConfig` in agent-info. It is materialized into the
+// agents-cluster procedure store lazily, on the next agent rebuild. “id“ is
+// the stable convai “procedure_id“ so it survives rebuilds and version bumps.
+//
+// “body“ becomes the procedure's content.
+//
+// “source_key“ is set when the procedure was copied from an integration.
+// It is “{provider_id}-{template_key}“ and is never translated, so the
+// settings UI can tell the copy from one the owner wrote after the name,
+// trigger, and steps have been localized.
+type SMBProcedure struct {
+	// Body Step-by-step instructions, as markdown.
+	Body *string `json:"body,omitempty"`
+
+	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+	Id            *string        `json:"id,omitempty"`
+
+	// Name Name of the procedure.
+	Name      StrippedStr `json:"name"`
+	SourceKey *string     `json:"source_key,omitempty"`
+
+	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
+	Trigger StrippedStr `json:"trigger"`
 }
 
 // SMBServiceDBModel Represents a bookable service (e.g., haircut, massage, consultation).
@@ -40027,6 +40727,28 @@ type SMBToolConfig_Params struct {
 // SMBToolConfigType Tool type identifier
 type SMBToolConfigType string
 
+// SMBTransferRule A configured phone number that the agent can transfer calls to.
+type SMBTransferRule struct {
+	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
+	Condition StrippedStr `json:"condition"`
+
+	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+	Id            *string        `json:"id,omitempty"`
+
+	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
+	Label StrippedStr `json:"label"`
+
+	// PhoneNumber Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad.
+	PhoneNumber PhoneNumber `json:"phone_number"`
+
+	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
+	PostDialDigits *string `json:"post_dial_digits,omitempty"`
+}
+
+// SMBTurnEagerness How quickly the receptionist decides the caller has finished speaking.
+type SMBTurnEagerness string
+
 // SMBUpdateAgentInfoRequest Agent-info update payload used by backend route consumers.
 type SMBUpdateAgentInfoRequest struct {
 	// BusinessCountry ISO 3166-1 alpha-2 country code where the business is based (e.g. 'US', 'PL', 'DE').
@@ -40050,6 +40772,25 @@ type SMBUpdateAgentInfoRequest struct {
 // SMBUpdateAgentInfoRequestCurrency Currency code for all prices (ISO 4217)
 type SMBUpdateAgentInfoRequestCurrency string
 
+// SMBUpdateAgentRuleRequest Request model for updating an existing agent rule.
+type SMBUpdateAgentRuleRequest struct {
+	// Description What the agent should do, in detail.
+	Description StrippedStr `json:"description"`
+
+	// Priority strict: the agent must always follow the rule; suggestion: a guideline.
+	Priority *RulePriority `json:"priority,omitempty"`
+
+	// Title Title of the rule.
+	Title StrippedStr `json:"title"`
+}
+
+// SMBUpdateCustomerFacingAgentRequest defines model for SMBUpdateCustomerFacingAgentRequest.
+type SMBUpdateCustomerFacingAgentRequest struct {
+	Config *CustomerFacingConfigPatch `json:"config,omitempty"`
+	Name   *string                    `json:"name,omitempty"`
+	Widget *SMBWidgetAppearance       `json:"widget,omitempty"`
+}
+
 // SMBUpdateHolidayRequestPatch defines model for SMBUpdateHolidayRequestPatch.
 type SMBUpdateHolidayRequestPatch struct {
 	// EndDate Represents a calendar date as individual numeric components.
@@ -40068,6 +40809,18 @@ type SMBUpdateHolidayRequestPatch struct {
 	// StartDate Represents a calendar date as individual numeric components.
 	StartDate   *DateModel   `json:"start_date,omitempty"`
 	TimeOffType *TimeOffType `json:"time_off_type,omitempty"`
+}
+
+// SMBUpdateProcedureRequest Request model for updating an existing procedure.
+type SMBUpdateProcedureRequest struct {
+	// Body Step-by-step instructions, as markdown.
+	Body *string `json:"body,omitempty"`
+
+	// Name Name of the procedure.
+	Name StrippedStr `json:"name"`
+
+	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
+	Trigger StrippedStr `json:"trigger"`
 }
 
 // SMBUpdateServiceRequestPatch defines model for SMBUpdateServiceRequestPatch.
@@ -40176,6 +40929,47 @@ type SMBUpdateStaffRequestPatch struct {
 	// WorkingHours Custom working hours for this staff member. None means follow the assigned location's operating_hours (requires location_id).
 	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
 }
+
+// SMBUpdateTransferRuleRequest Request model for updating an existing transfer rule.
+type SMBUpdateTransferRuleRequest struct {
+	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
+	Condition StrippedStr `json:"condition"`
+
+	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
+	Label StrippedStr `json:"label"`
+
+	// PhoneNumber Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad.
+	PhoneNumber PhoneNumber `json:"phone_number"`
+
+	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
+	PostDialDigits *string `json:"post_dial_digits,omitempty"`
+}
+
+// SMBWidgetAppearance How the website widget looks -- the only part of its config SMB exposes.
+//
+// Unlike the rest of a receptionist's settings this is not SMB data: it is
+// written straight onto the ConvAI agent's “platform_settings.widget“. The
+// value types mirror ConvAI's “WidgetConfig“ by hand because
+// “xi_reception“ must not depend on “xi_agents“; they are the widget's
+// public API, so they are stable.
+//
+// A “None“ label means "no override", which keeps the widget following the
+// agent's language instead of freezing today's translation into the config.
+type SMBWidgetAppearance struct {
+	Dismissible bool                         `json:"dismissible"`
+	MainLabel   *string                      `json:"main_label,omitempty"`
+	OrbColor1   string                       `json:"orb_color_1"`
+	OrbColor2   string                       `json:"orb_color_2"`
+	Placement   SMBWidgetAppearancePlacement `json:"placement"`
+	StartCall   *string                      `json:"start_call,omitempty"`
+	Variant     SMBWidgetAppearanceVariant   `json:"variant"`
+}
+
+// SMBWidgetAppearancePlacement defines model for SMBWidgetAppearance.Placement.
+type SMBWidgetAppearancePlacement string
+
+// SMBWidgetAppearanceVariant defines model for SMBWidgetAppearance.Variant.
+type SMBWidgetAppearanceVariant string
 
 // SMSConversationInfo defines model for SMSConversationInfo.
 type SMSConversationInfo struct {
@@ -41387,6 +42181,9 @@ type SuggestedAudioTag struct {
 	// Tag Audio tag to use (for best performance, 1-2 words, e.g., 'happy', 'excited')
 	Tag string `json:"tag"`
 }
+
+// SupportedLang defines model for SupportedLang.
+type SupportedLang = string
 
 // SupportedVoice defines model for SupportedVoice.
 type SupportedVoice struct {
@@ -43118,6 +43915,12 @@ type TurnConfig struct {
 	// Mode The mode of turn detection
 	Mode *TurnMode `json:"mode,omitempty"`
 
+	// NoisyEnvironmentDetection When enabled, the agent politely suggests the user move somewhere quieter when it hears other voices in the background. This improves transcription and turn-taking accuracy.
+	NoisyEnvironmentDetection *bool `json:"noisy_environment_detection,omitempty"`
+
+	// NoisyEnvironmentMessage What the agent says when it detects a noisy environment.
+	NoisyEnvironmentMessage *string `json:"noisy_environment_message,omitempty"`
+
 	// RetranscribeOnTurnTimeout When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing while enabled for the active agent or workflow node.
 	RetranscribeOnTurnTimeout *bool `json:"retranscribe_on_turn_timeout,omitempty"`
 
@@ -43148,12 +43951,18 @@ type TurnConfig struct {
 
 // TurnConfigOverride defines model for TurnConfigOverride.
 type TurnConfigOverride struct {
+	// NoisyEnvironmentMessage What the agent says when it detects a noisy environment.
+	NoisyEnvironmentMessage *string `json:"noisy_environment_message,omitempty"`
+
 	// SoftTimeoutConfig Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.
 	SoftTimeoutConfig *SoftTimeoutConfigOverride `json:"soft_timeout_config,omitempty"`
 }
 
 // TurnConfigOverrideConfig defines model for TurnConfigOverrideConfig.
 type TurnConfigOverrideConfig struct {
+	// NoisyEnvironmentMessage Whether to allow overriding the noisy_environment_message field.
+	NoisyEnvironmentMessage *bool `json:"noisy_environment_message,omitempty"`
+
 	// SoftTimeoutConfig Configures overrides for nested fields.
 	SoftTimeoutConfig *SoftTimeoutConfigOverrideConfig `json:"soft_timeout_config,omitempty"`
 }
@@ -43174,6 +43983,9 @@ type TurnConfigWorkflowOverride struct {
 
 	// Mode The mode of turn detection
 	Mode *TurnMode `json:"mode,omitempty"`
+
+	// NoisyEnvironmentMessage What the agent says when it detects a noisy environment.
+	NoisyEnvironmentMessage *string `json:"noisy_environment_message,omitempty"`
 
 	// RetranscribeOnTurnTimeout When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing while enabled for the active agent or workflow node.
 	RetranscribeOnTurnTimeout *bool `json:"retranscribe_on_turn_timeout,omitempty"`
@@ -49076,6 +49888,9 @@ type ListTestInvocationsRouteParams struct {
 	// BranchId Filter by branch ID
 	BranchId *string `form:"branch_id,omitempty" json:"branch_id,omitempty"`
 
+	// CreatedByUserId Filter by test run creator user ID
+	CreatedByUserId *string `form:"created_by_user_id,omitempty" json:"created_by_user_id,omitempty"`
+
 	// TestId Filter to invocations that include a run of this test id
 	TestId *string `form:"test_id,omitempty" json:"test_id,omitempty"`
 
@@ -50424,6 +51239,123 @@ type SmbUpdateAgentInfoParams struct {
 	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
 }
 
+// SmbListCustomerFacingAgentsParams defines parameters for SmbListCustomerFacingAgents.
+type SmbListCustomerFacingAgentsParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUpdateCustomerFacingAgentParams defines parameters for SmbUpdateCustomerFacingAgent.
+type SmbUpdateCustomerFacingAgentParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbActivateCustomerFacingAgentParams defines parameters for SmbActivateCustomerFacingAgent.
+type SmbActivateCustomerFacingAgentParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbListAgentProceduresParams defines parameters for SmbListAgentProcedures.
+type SmbListAgentProceduresParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbAddAgentProcedureParams defines parameters for SmbAddAgentProcedure.
+type SmbAddAgentProcedureParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbDeleteAgentProcedureParams defines parameters for SmbDeleteAgentProcedure.
+type SmbDeleteAgentProcedureParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUpdateAgentProcedureParams defines parameters for SmbUpdateAgentProcedure.
+type SmbUpdateAgentProcedureParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbAddAgentRuleParams defines parameters for SmbAddAgentRule.
+type SmbAddAgentRuleParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbDeleteAgentRuleParams defines parameters for SmbDeleteAgentRule.
+type SmbDeleteAgentRuleParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUpdateAgentRuleParams defines parameters for SmbUpdateAgentRule.
+type SmbUpdateAgentRuleParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbAddTransferRuleParams defines parameters for SmbAddTransferRule.
+type SmbAddTransferRuleParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbDeleteTransferRuleParams defines parameters for SmbDeleteTransferRule.
+type SmbDeleteTransferRuleParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbUpdateTransferRuleParams defines parameters for SmbUpdateTransferRule.
+type SmbUpdateTransferRuleParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
 // SmbListHolidaysParams defines parameters for SmbListHolidays.
 type SmbListHolidaysParams struct {
 	// StartUnix Filter entries overlapping from this timestamp
@@ -50572,6 +51504,66 @@ type SmbUpdateLocationParams struct {
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
 	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbListWorkspacePhoneAssignmentsParams defines parameters for SmbListWorkspacePhoneAssignments.
+type SmbListWorkspacePhoneAssignmentsParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbAssignPhoneNumberParams defines parameters for SmbAssignPhoneNumber.
+type SmbAssignPhoneNumberParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbReleasePhoneAssignmentParams defines parameters for SmbReleasePhoneAssignment.
+type SmbReleasePhoneAssignmentParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbReassignPhoneToAgentParams defines parameters for SmbReassignPhoneToAgent.
+type SmbReassignPhoneToAgentParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+}
+
+// SmbListResellerInvoicesParams defines parameters for SmbListResellerInvoices.
+type SmbListResellerInvoicesParams struct {
+	// Cursor Pagination cursor from previous response
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// PageSize Number of invoices per page
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbGetResellerInvoiceParams defines parameters for SmbGetResellerInvoice.
+type SmbGetResellerInvoiceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SmbListResellerUpcomingPaymentsParams defines parameters for SmbListResellerUpcomingPayments.
+type SmbListResellerUpcomingPaymentsParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
 // SmbListResellerTierLadderParams defines parameters for SmbListResellerTierLadder.
@@ -52196,6 +53188,27 @@ type GetSimilarLibraryVoicesMultipartRequestBody = BodyGetSimilarLibraryVoicesV1
 // SmbUpdateAgentInfoJSONRequestBody defines body for SmbUpdateAgentInfo for application/json ContentType.
 type SmbUpdateAgentInfoJSONRequestBody = BodySmbUpdateAgentInfo
 
+// SmbUpdateCustomerFacingAgentJSONRequestBody defines body for SmbUpdateCustomerFacingAgent for application/json ContentType.
+type SmbUpdateCustomerFacingAgentJSONRequestBody = SMBUpdateCustomerFacingAgentRequest
+
+// SmbAddAgentProcedureJSONRequestBody defines body for SmbAddAgentProcedure for application/json ContentType.
+type SmbAddAgentProcedureJSONRequestBody = BodySmbAddAgentProcedure
+
+// SmbUpdateAgentProcedureJSONRequestBody defines body for SmbUpdateAgentProcedure for application/json ContentType.
+type SmbUpdateAgentProcedureJSONRequestBody = BodySmbUpdateAgentProcedure
+
+// SmbAddAgentRuleJSONRequestBody defines body for SmbAddAgentRule for application/json ContentType.
+type SmbAddAgentRuleJSONRequestBody = BodySmbAddAgentRule
+
+// SmbUpdateAgentRuleJSONRequestBody defines body for SmbUpdateAgentRule for application/json ContentType.
+type SmbUpdateAgentRuleJSONRequestBody = BodySmbUpdateAgentRule
+
+// SmbAddTransferRuleJSONRequestBody defines body for SmbAddTransferRule for application/json ContentType.
+type SmbAddTransferRuleJSONRequestBody = BodySmbAddTransferRule
+
+// SmbUpdateTransferRuleJSONRequestBody defines body for SmbUpdateTransferRule for application/json ContentType.
+type SmbUpdateTransferRuleJSONRequestBody = BodySmbUpdateTransferRule
+
 // SmbCreateHolidayJSONRequestBody defines body for SmbCreateHoliday for application/json ContentType.
 type SmbCreateHolidayJSONRequestBody = BodySmbCreateHoliday
 
@@ -52213,6 +53226,12 @@ type SmbCreateLocationJSONRequestBody = BodySmbCreateLocation
 
 // SmbUpdateLocationJSONRequestBody defines body for SmbUpdateLocation for application/json ContentType.
 type SmbUpdateLocationJSONRequestBody = BodySmbUpdateLocation
+
+// SmbAssignPhoneNumberJSONRequestBody defines body for SmbAssignPhoneNumber for application/json ContentType.
+type SmbAssignPhoneNumberJSONRequestBody = CreatePhoneAssignmentRequest
+
+// SmbReassignPhoneToAgentJSONRequestBody defines body for SmbReassignPhoneToAgent for application/json ContentType.
+type SmbReassignPhoneToAgentJSONRequestBody = ReassignPhoneRequest
 
 // SmbResellerProvisionWorkspaceJSONRequestBody defines body for SmbResellerProvisionWorkspace for application/json ContentType.
 type SmbResellerProvisionWorkspaceJSONRequestBody = ProvisionResellerWorkspaceRequest
@@ -86268,6 +87287,174 @@ type ClientInterface interface {
 	// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
 	SmbUpdateAgentInfo(ctx context.Context, params *SmbUpdateAgentInfoParams, body SmbUpdateAgentInfoJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// SmbListCustomerFacingAgents List Customer Facing Agents
+	//
+	// List every customer-facing receptionist for the workspace.
+	//
+	// Corresponds with GET /v1/smb/customer-facing-agents (the `SmbListCustomerFacingAgents` operationId).
+	SmbListCustomerFacingAgents(ctx context.Context, params *SmbListCustomerFacingAgentsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateCustomerFacingAgentWithBody Update Customer Facing Agent
+	//
+	// Update a receptionist's display name, config and/or widget appearance.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/smb/customer-facing-agents/{agent_id} (the `SmbUpdateCustomerFacingAgent` operationId).
+	SmbUpdateCustomerFacingAgentWithBody(ctx context.Context, agentId string, params *SmbUpdateCustomerFacingAgentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateCustomerFacingAgent Update Customer Facing Agent
+	//
+	// Update a receptionist's display name, config and/or widget appearance.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/smb/customer-facing-agents/{agent_id} (the `SmbUpdateCustomerFacingAgent` operationId).
+	SmbUpdateCustomerFacingAgent(ctx context.Context, agentId string, params *SmbUpdateCustomerFacingAgentParams, body SmbUpdateCustomerFacingAgentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbActivateCustomerFacingAgent Activate Customer Facing Agent
+	//
+	// Re-activate a deactivated receptionist. Subject to the workspace's tier cap; raises ``quota_exceeded`` if no active slot is free.
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/activate (the `SmbActivateCustomerFacingAgent` operationId).
+	SmbActivateCustomerFacingAgent(ctx context.Context, agentId string, params *SmbActivateCustomerFacingAgentParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListAgentProcedures List Agent Procedures
+	//
+	// List the procedures (SOPs) the named receptionist can run on calls.
+	//
+	// Corresponds with GET /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbListAgentProcedures` operationId).
+	SmbListAgentProcedures(ctx context.Context, agentId string, params *SmbListAgentProceduresParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAddAgentProcedureWithBody Add Agent Procedure
+	//
+	// Add a procedure (SOP) to the named receptionist.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbAddAgentProcedure` operationId).
+	SmbAddAgentProcedureWithBody(ctx context.Context, agentId string, params *SmbAddAgentProcedureParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAddAgentProcedure Add Agent Procedure
+	//
+	// Add a procedure (SOP) to the named receptionist.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbAddAgentProcedure` operationId).
+	SmbAddAgentProcedure(ctx context.Context, agentId string, params *SmbAddAgentProcedureParams, body SmbAddAgentProcedureJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbDeleteAgentProcedure Delete Agent Procedure
+	//
+	// Delete a procedure from the named receptionist.
+	//
+	// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbDeleteAgentProcedure` operationId).
+	SmbDeleteAgentProcedure(ctx context.Context, agentId string, procedureId string, params *SmbDeleteAgentProcedureParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateAgentProcedureWithBody Update Agent Procedure
+	//
+	// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbUpdateAgentProcedure` operationId).
+	SmbUpdateAgentProcedureWithBody(ctx context.Context, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateAgentProcedure Update Agent Procedure
+	//
+	// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbUpdateAgentProcedure` operationId).
+	SmbUpdateAgentProcedure(ctx context.Context, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, body SmbUpdateAgentProcedureJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAddAgentRuleWithBody Add Agent Rule
+	//
+	// Add a behavioral rule to the named receptionist.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/rules (the `SmbAddAgentRule` operationId).
+	SmbAddAgentRuleWithBody(ctx context.Context, agentId string, params *SmbAddAgentRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAddAgentRule Add Agent Rule
+	//
+	// Add a behavioral rule to the named receptionist.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/rules (the `SmbAddAgentRule` operationId).
+	SmbAddAgentRule(ctx context.Context, agentId string, params *SmbAddAgentRuleParams, body SmbAddAgentRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbDeleteAgentRule Delete Agent Rule
+	//
+	// Delete a rule from the named receptionist.
+	//
+	// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbDeleteAgentRule` operationId).
+	SmbDeleteAgentRule(ctx context.Context, agentId string, ruleId string, params *SmbDeleteAgentRuleParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateAgentRuleWithBody Update Agent Rule
+	//
+	// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbUpdateAgentRule` operationId).
+	SmbUpdateAgentRuleWithBody(ctx context.Context, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateAgentRule Update Agent Rule
+	//
+	// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbUpdateAgentRule` operationId).
+	SmbUpdateAgentRule(ctx context.Context, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, body SmbUpdateAgentRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAddTransferRuleWithBody Add Transfer Rule
+	//
+	// Add a phone forwarding rule to the named receptionist.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/transfer-rules (the `SmbAddTransferRule` operationId).
+	SmbAddTransferRuleWithBody(ctx context.Context, agentId string, params *SmbAddTransferRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAddTransferRule Add Transfer Rule
+	//
+	// Add a phone forwarding rule to the named receptionist.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/transfer-rules (the `SmbAddTransferRule` operationId).
+	SmbAddTransferRule(ctx context.Context, agentId string, params *SmbAddTransferRuleParams, body SmbAddTransferRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbDeleteTransferRule Delete Transfer Rule
+	//
+	// Delete a transfer rule from the named receptionist.
+	//
+	// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbDeleteTransferRule` operationId).
+	SmbDeleteTransferRule(ctx context.Context, agentId string, ruleId string, params *SmbDeleteTransferRuleParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateTransferRuleWithBody Update Transfer Rule
+	//
+	// Replace an existing transfer rule on the named receptionist. Send every field: an omitted `post_dial_digits` clears it.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbUpdateTransferRule` operationId).
+	SmbUpdateTransferRuleWithBody(ctx context.Context, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbUpdateTransferRule Update Transfer Rule
+	//
+	// Replace an existing transfer rule on the named receptionist. Send every field: an omitted `post_dial_digits` clears it.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbUpdateTransferRule` operationId).
+	SmbUpdateTransferRule(ctx context.Context, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, body SmbUpdateTransferRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// SmbListHolidays Get All Holidays
 	//
 	// Get all holidays/time-off entries for the current workspace with optional filters.
@@ -86429,6 +87616,77 @@ type ClientInterface interface {
 	//
 	// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
 	SmbUpdateLocation(ctx context.Context, locationId string, params *SmbUpdateLocationParams, body SmbUpdateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListWorkspacePhoneAssignments List Workspace Phone Assignments
+	//
+	// List the workspace's phone numbers and the receptionist each one rings. A number with no `customer_facing_agent_id` is held by the workspace but not attached to a receptionist yet.
+	//
+	// Corresponds with GET /v1/smb/phone-numbers/assignments (the `SmbListWorkspacePhoneAssignments` operationId).
+	SmbListWorkspacePhoneAssignments(ctx context.Context, params *SmbListWorkspacePhoneAssignmentsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAssignPhoneNumberWithBody Assign Phone Number
+	//
+	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/smb/phone-numbers/assignments (the `SmbAssignPhoneNumber` operationId).
+	SmbAssignPhoneNumberWithBody(ctx context.Context, params *SmbAssignPhoneNumberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbAssignPhoneNumber Assign Phone Number
+	//
+	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/smb/phone-numbers/assignments (the `SmbAssignPhoneNumber` operationId).
+	SmbAssignPhoneNumber(ctx context.Context, params *SmbAssignPhoneNumberParams, body SmbAssignPhoneNumberJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbReleasePhoneAssignment Release Phone Assignment
+	//
+	// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	//
+	// Corresponds with DELETE /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReleasePhoneAssignment` operationId).
+	SmbReleasePhoneAssignment(ctx context.Context, phoneAssignmentId string, params *SmbReleasePhoneAssignmentParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbReassignPhoneToAgentWithBody Reassign Phone To Agent
+	//
+	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/smb/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReassignPhoneToAgent` operationId).
+	SmbReassignPhoneToAgentWithBody(ctx context.Context, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbReassignPhoneToAgent Reassign Phone To Agent
+	//
+	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/smb/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReassignPhoneToAgent` operationId).
+	SmbReassignPhoneToAgent(ctx context.Context, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, body SmbReassignPhoneToAgentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListResellerInvoices List Reseller Invoices
+	//
+	// List the invoices charged to the reseller's card, newest first, one per workspace invoice
+	//
+	// Corresponds with GET /v1/smb/reseller/billing/invoices (the `SmbListResellerInvoices` operationId).
+	SmbListResellerInvoices(ctx context.Context, params *SmbListResellerInvoicesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbGetResellerInvoice Get Reseller Invoice
+	//
+	// Get one invoice charged to the reseller's card, broken down into the workspace invoice's lines
+	//
+	// Corresponds with GET /v1/smb/reseller/billing/invoices/{invoice_id} (the `SmbGetResellerInvoice` operationId).
+	SmbGetResellerInvoice(ctx context.Context, invoiceId string, params *SmbGetResellerInvoiceParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbListResellerUpcomingPayments List Reseller Upcoming Payments
+	//
+	// List the next workspace renewals the reseller's card will be charged for, soonest first
+	//
+	// Corresponds with GET /v1/smb/reseller/billing/upcoming (the `SmbListResellerUpcomingPayments` operationId).
+	SmbListResellerUpcomingPayments(ctx context.Context, params *SmbListResellerUpcomingPaymentsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// SmbListResellerTierLadder List Reseller Tier Ladder
 	//
@@ -95863,6 +97121,374 @@ func (c *Client) SmbUpdateAgentInfo(ctx context.Context, params *SmbUpdateAgentI
 	return c.Client.Do(req)
 }
 
+// SmbListCustomerFacingAgents List Customer Facing Agents
+//
+// List every customer-facing receptionist for the workspace.
+//
+// Corresponds with GET /v1/smb/customer-facing-agents (the `SmbListCustomerFacingAgents` operationId).
+func (c *Client) SmbListCustomerFacingAgents(ctx context.Context, params *SmbListCustomerFacingAgentsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListCustomerFacingAgentsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateCustomerFacingAgentWithBody Update Customer Facing Agent
+//
+// Update a receptionist's display name, config and/or widget appearance.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/smb/customer-facing-agents/{agent_id} (the `SmbUpdateCustomerFacingAgent` operationId).
+func (c *Client) SmbUpdateCustomerFacingAgentWithBody(ctx context.Context, agentId string, params *SmbUpdateCustomerFacingAgentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateCustomerFacingAgentRequestWithBody(c.Server, agentId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateCustomerFacingAgent Update Customer Facing Agent
+//
+// Update a receptionist's display name, config and/or widget appearance.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/smb/customer-facing-agents/{agent_id} (the `SmbUpdateCustomerFacingAgent` operationId).
+func (c *Client) SmbUpdateCustomerFacingAgent(ctx context.Context, agentId string, params *SmbUpdateCustomerFacingAgentParams, body SmbUpdateCustomerFacingAgentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateCustomerFacingAgentRequest(c.Server, agentId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbActivateCustomerFacingAgent Activate Customer Facing Agent
+//
+// Re-activate a deactivated receptionist. Subject to the workspace's tier cap; raises “quota_exceeded“ if no active slot is free.
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/activate (the `SmbActivateCustomerFacingAgent` operationId).
+func (c *Client) SmbActivateCustomerFacingAgent(ctx context.Context, agentId string, params *SmbActivateCustomerFacingAgentParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbActivateCustomerFacingAgentRequest(c.Server, agentId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListAgentProcedures List Agent Procedures
+//
+// List the procedures (SOPs) the named receptionist can run on calls.
+//
+// Corresponds with GET /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbListAgentProcedures` operationId).
+func (c *Client) SmbListAgentProcedures(ctx context.Context, agentId string, params *SmbListAgentProceduresParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListAgentProceduresRequest(c.Server, agentId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAddAgentProcedureWithBody Add Agent Procedure
+//
+// Add a procedure (SOP) to the named receptionist.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbAddAgentProcedure` operationId).
+func (c *Client) SmbAddAgentProcedureWithBody(ctx context.Context, agentId string, params *SmbAddAgentProcedureParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAddAgentProcedureRequestWithBody(c.Server, agentId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAddAgentProcedure Add Agent Procedure
+//
+// Add a procedure (SOP) to the named receptionist.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbAddAgentProcedure` operationId).
+func (c *Client) SmbAddAgentProcedure(ctx context.Context, agentId string, params *SmbAddAgentProcedureParams, body SmbAddAgentProcedureJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAddAgentProcedureRequest(c.Server, agentId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbDeleteAgentProcedure Delete Agent Procedure
+//
+// Delete a procedure from the named receptionist.
+//
+// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbDeleteAgentProcedure` operationId).
+func (c *Client) SmbDeleteAgentProcedure(ctx context.Context, agentId string, procedureId string, params *SmbDeleteAgentProcedureParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbDeleteAgentProcedureRequest(c.Server, agentId, procedureId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateAgentProcedureWithBody Update Agent Procedure
+//
+// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbUpdateAgentProcedure` operationId).
+func (c *Client) SmbUpdateAgentProcedureWithBody(ctx context.Context, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateAgentProcedureRequestWithBody(c.Server, agentId, procedureId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateAgentProcedure Update Agent Procedure
+//
+// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbUpdateAgentProcedure` operationId).
+func (c *Client) SmbUpdateAgentProcedure(ctx context.Context, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, body SmbUpdateAgentProcedureJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateAgentProcedureRequest(c.Server, agentId, procedureId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAddAgentRuleWithBody Add Agent Rule
+//
+// Add a behavioral rule to the named receptionist.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/rules (the `SmbAddAgentRule` operationId).
+func (c *Client) SmbAddAgentRuleWithBody(ctx context.Context, agentId string, params *SmbAddAgentRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAddAgentRuleRequestWithBody(c.Server, agentId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAddAgentRule Add Agent Rule
+//
+// Add a behavioral rule to the named receptionist.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/rules (the `SmbAddAgentRule` operationId).
+func (c *Client) SmbAddAgentRule(ctx context.Context, agentId string, params *SmbAddAgentRuleParams, body SmbAddAgentRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAddAgentRuleRequest(c.Server, agentId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbDeleteAgentRule Delete Agent Rule
+//
+// Delete a rule from the named receptionist.
+//
+// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbDeleteAgentRule` operationId).
+func (c *Client) SmbDeleteAgentRule(ctx context.Context, agentId string, ruleId string, params *SmbDeleteAgentRuleParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbDeleteAgentRuleRequest(c.Server, agentId, ruleId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateAgentRuleWithBody Update Agent Rule
+//
+// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbUpdateAgentRule` operationId).
+func (c *Client) SmbUpdateAgentRuleWithBody(ctx context.Context, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateAgentRuleRequestWithBody(c.Server, agentId, ruleId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateAgentRule Update Agent Rule
+//
+// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbUpdateAgentRule` operationId).
+func (c *Client) SmbUpdateAgentRule(ctx context.Context, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, body SmbUpdateAgentRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateAgentRuleRequest(c.Server, agentId, ruleId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAddTransferRuleWithBody Add Transfer Rule
+//
+// Add a phone forwarding rule to the named receptionist.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/transfer-rules (the `SmbAddTransferRule` operationId).
+func (c *Client) SmbAddTransferRuleWithBody(ctx context.Context, agentId string, params *SmbAddTransferRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAddTransferRuleRequestWithBody(c.Server, agentId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAddTransferRule Add Transfer Rule
+//
+// Add a phone forwarding rule to the named receptionist.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/transfer-rules (the `SmbAddTransferRule` operationId).
+func (c *Client) SmbAddTransferRule(ctx context.Context, agentId string, params *SmbAddTransferRuleParams, body SmbAddTransferRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAddTransferRuleRequest(c.Server, agentId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbDeleteTransferRule Delete Transfer Rule
+//
+// Delete a transfer rule from the named receptionist.
+//
+// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbDeleteTransferRule` operationId).
+func (c *Client) SmbDeleteTransferRule(ctx context.Context, agentId string, ruleId string, params *SmbDeleteTransferRuleParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbDeleteTransferRuleRequest(c.Server, agentId, ruleId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateTransferRuleWithBody Update Transfer Rule
+//
+// Replace an existing transfer rule on the named receptionist. Send every field: an omitted `post_dial_digits` clears it.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbUpdateTransferRule` operationId).
+func (c *Client) SmbUpdateTransferRuleWithBody(ctx context.Context, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateTransferRuleRequestWithBody(c.Server, agentId, ruleId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbUpdateTransferRule Update Transfer Rule
+//
+// Replace an existing transfer rule on the named receptionist. Send every field: an omitted `post_dial_digits` clears it.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbUpdateTransferRule` operationId).
+func (c *Client) SmbUpdateTransferRule(ctx context.Context, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, body SmbUpdateTransferRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbUpdateTransferRuleRequest(c.Server, agentId, ruleId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // SmbListHolidays Get All Holidays
 //
 // Get all holidays/time-off entries for the current workspace with optional filters.
@@ -96215,6 +97841,167 @@ func (c *Client) SmbUpdateLocationWithBody(ctx context.Context, locationId strin
 // Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
 func (c *Client) SmbUpdateLocation(ctx context.Context, locationId string, params *SmbUpdateLocationParams, body SmbUpdateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewSmbUpdateLocationRequest(c.Server, locationId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListWorkspacePhoneAssignments List Workspace Phone Assignments
+//
+// List the workspace's phone numbers and the receptionist each one rings. A number with no `customer_facing_agent_id` is held by the workspace but not attached to a receptionist yet.
+//
+// Corresponds with GET /v1/smb/phone-numbers/assignments (the `SmbListWorkspacePhoneAssignments` operationId).
+func (c *Client) SmbListWorkspacePhoneAssignments(ctx context.Context, params *SmbListWorkspacePhoneAssignmentsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListWorkspacePhoneAssignmentsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAssignPhoneNumberWithBody Assign Phone Number
+//
+// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/smb/phone-numbers/assignments (the `SmbAssignPhoneNumber` operationId).
+func (c *Client) SmbAssignPhoneNumberWithBody(ctx context.Context, params *SmbAssignPhoneNumberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAssignPhoneNumberRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbAssignPhoneNumber Assign Phone Number
+//
+// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/smb/phone-numbers/assignments (the `SmbAssignPhoneNumber` operationId).
+func (c *Client) SmbAssignPhoneNumber(ctx context.Context, params *SmbAssignPhoneNumberParams, body SmbAssignPhoneNumberJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbAssignPhoneNumberRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbReleasePhoneAssignment Release Phone Assignment
+//
+// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+//
+// Corresponds with DELETE /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReleasePhoneAssignment` operationId).
+func (c *Client) SmbReleasePhoneAssignment(ctx context.Context, phoneAssignmentId string, params *SmbReleasePhoneAssignmentParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbReleasePhoneAssignmentRequest(c.Server, phoneAssignmentId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbReassignPhoneToAgentWithBody Reassign Phone To Agent
+//
+// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/smb/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReassignPhoneToAgent` operationId).
+func (c *Client) SmbReassignPhoneToAgentWithBody(ctx context.Context, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbReassignPhoneToAgentRequestWithBody(c.Server, phoneAssignmentId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbReassignPhoneToAgent Reassign Phone To Agent
+//
+// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/smb/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReassignPhoneToAgent` operationId).
+func (c *Client) SmbReassignPhoneToAgent(ctx context.Context, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, body SmbReassignPhoneToAgentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbReassignPhoneToAgentRequest(c.Server, phoneAssignmentId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListResellerInvoices List Reseller Invoices
+//
+// # List the invoices charged to the reseller's card, newest first, one per workspace invoice
+//
+// Corresponds with GET /v1/smb/reseller/billing/invoices (the `SmbListResellerInvoices` operationId).
+func (c *Client) SmbListResellerInvoices(ctx context.Context, params *SmbListResellerInvoicesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListResellerInvoicesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbGetResellerInvoice Get Reseller Invoice
+//
+// # Get one invoice charged to the reseller's card, broken down into the workspace invoice's lines
+//
+// Corresponds with GET /v1/smb/reseller/billing/invoices/{invoice_id} (the `SmbGetResellerInvoice` operationId).
+func (c *Client) SmbGetResellerInvoice(ctx context.Context, invoiceId string, params *SmbGetResellerInvoiceParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbGetResellerInvoiceRequest(c.Server, invoiceId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbListResellerUpcomingPayments List Reseller Upcoming Payments
+//
+// # List the next workspace renewals the reseller's card will be charged for, soonest first
+//
+// Corresponds with GET /v1/smb/reseller/billing/upcoming (the `SmbListResellerUpcomingPayments` operationId).
+func (c *Client) SmbListResellerUpcomingPayments(ctx context.Context, params *SmbListResellerUpcomingPaymentsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbListResellerUpcomingPaymentsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -112822,6 +114609,18 @@ func NewListTestInvocationsRouteRequest(server string, params *ListTestInvocatio
 
 		}
 
+		if params.CreatedByUserId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_by_user_id", *params.CreatedByUserId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.TestId != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "test_id", *params.TestId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
@@ -122235,6 +124034,912 @@ func NewSmbUpdateAgentInfoRequestWithBody(server string, params *SmbUpdateAgentI
 	return req, nil
 }
 
+// NewSmbListCustomerFacingAgentsRequest constructs an http.Request for the SmbListCustomerFacingAgents method
+func NewSmbListCustomerFacingAgentsRequest(server string, params *SmbListCustomerFacingAgentsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUpdateCustomerFacingAgentRequest calls the generic SmbUpdateCustomerFacingAgent builder with application/json body
+func NewSmbUpdateCustomerFacingAgentRequest(server string, agentId string, params *SmbUpdateCustomerFacingAgentParams, body SmbUpdateCustomerFacingAgentJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbUpdateCustomerFacingAgentRequestWithBody(server, agentId, params, "application/json", bodyReader)
+}
+
+// NewSmbUpdateCustomerFacingAgentRequestWithBody constructs an http.Request for the SmbUpdateCustomerFacingAgent method, with any body, and a specified content type
+func NewSmbUpdateCustomerFacingAgentRequestWithBody(server string, agentId string, params *SmbUpdateCustomerFacingAgentParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbActivateCustomerFacingAgentRequest constructs an http.Request for the SmbActivateCustomerFacingAgent method
+func NewSmbActivateCustomerFacingAgentRequest(server string, agentId string, params *SmbActivateCustomerFacingAgentParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/activate", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListAgentProceduresRequest constructs an http.Request for the SmbListAgentProcedures method
+func NewSmbListAgentProceduresRequest(server string, agentId string, params *SmbListAgentProceduresParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/procedures", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbAddAgentProcedureRequest calls the generic SmbAddAgentProcedure builder with application/json body
+func NewSmbAddAgentProcedureRequest(server string, agentId string, params *SmbAddAgentProcedureParams, body SmbAddAgentProcedureJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbAddAgentProcedureRequestWithBody(server, agentId, params, "application/json", bodyReader)
+}
+
+// NewSmbAddAgentProcedureRequestWithBody constructs an http.Request for the SmbAddAgentProcedure method, with any body, and a specified content type
+func NewSmbAddAgentProcedureRequestWithBody(server string, agentId string, params *SmbAddAgentProcedureParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/procedures", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbDeleteAgentProcedureRequest constructs an http.Request for the SmbDeleteAgentProcedure method
+func NewSmbDeleteAgentProcedureRequest(server string, agentId string, procedureId string, params *SmbDeleteAgentProcedureParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "procedure_id", procedureId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/procedures/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUpdateAgentProcedureRequest calls the generic SmbUpdateAgentProcedure builder with application/json body
+func NewSmbUpdateAgentProcedureRequest(server string, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, body SmbUpdateAgentProcedureJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbUpdateAgentProcedureRequestWithBody(server, agentId, procedureId, params, "application/json", bodyReader)
+}
+
+// NewSmbUpdateAgentProcedureRequestWithBody constructs an http.Request for the SmbUpdateAgentProcedure method, with any body, and a specified content type
+func NewSmbUpdateAgentProcedureRequestWithBody(server string, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "procedure_id", procedureId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/procedures/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbAddAgentRuleRequest calls the generic SmbAddAgentRule builder with application/json body
+func NewSmbAddAgentRuleRequest(server string, agentId string, params *SmbAddAgentRuleParams, body SmbAddAgentRuleJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbAddAgentRuleRequestWithBody(server, agentId, params, "application/json", bodyReader)
+}
+
+// NewSmbAddAgentRuleRequestWithBody constructs an http.Request for the SmbAddAgentRule method, with any body, and a specified content type
+func NewSmbAddAgentRuleRequestWithBody(server string, agentId string, params *SmbAddAgentRuleParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/rules", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbDeleteAgentRuleRequest constructs an http.Request for the SmbDeleteAgentRule method
+func NewSmbDeleteAgentRuleRequest(server string, agentId string, ruleId string, params *SmbDeleteAgentRuleParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "rule_id", ruleId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUpdateAgentRuleRequest calls the generic SmbUpdateAgentRule builder with application/json body
+func NewSmbUpdateAgentRuleRequest(server string, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, body SmbUpdateAgentRuleJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbUpdateAgentRuleRequestWithBody(server, agentId, ruleId, params, "application/json", bodyReader)
+}
+
+// NewSmbUpdateAgentRuleRequestWithBody constructs an http.Request for the SmbUpdateAgentRule method, with any body, and a specified content type
+func NewSmbUpdateAgentRuleRequestWithBody(server string, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "rule_id", ruleId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbAddTransferRuleRequest calls the generic SmbAddTransferRule builder with application/json body
+func NewSmbAddTransferRuleRequest(server string, agentId string, params *SmbAddTransferRuleParams, body SmbAddTransferRuleJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbAddTransferRuleRequestWithBody(server, agentId, params, "application/json", bodyReader)
+}
+
+// NewSmbAddTransferRuleRequestWithBody constructs an http.Request for the SmbAddTransferRule method, with any body, and a specified content type
+func NewSmbAddTransferRuleRequestWithBody(server string, agentId string, params *SmbAddTransferRuleParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/transfer-rules", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbDeleteTransferRuleRequest constructs an http.Request for the SmbDeleteTransferRule method
+func NewSmbDeleteTransferRuleRequest(server string, agentId string, ruleId string, params *SmbDeleteTransferRuleParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "rule_id", ruleId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/transfer-rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbUpdateTransferRuleRequest calls the generic SmbUpdateTransferRule builder with application/json body
+func NewSmbUpdateTransferRuleRequest(server string, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, body SmbUpdateTransferRuleJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbUpdateTransferRuleRequestWithBody(server, agentId, ruleId, params, "application/json", bodyReader)
+}
+
+// NewSmbUpdateTransferRuleRequestWithBody constructs an http.Request for the SmbUpdateTransferRule method, with any body, and a specified content type
+func NewSmbUpdateTransferRuleRequestWithBody(server string, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "rule_id", ruleId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/customer-facing-agents/%s/transfer-rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewSmbListHolidaysRequest constructs an http.Request for the SmbListHolidays method
 func NewSmbListHolidaysRequest(server string, params *SmbListHolidaysParams) (*http.Request, error) {
 	var err error
@@ -123221,6 +125926,430 @@ func NewSmbUpdateLocationRequestWithBody(server string, locationId string, param
 			}
 
 			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListWorkspacePhoneAssignmentsRequest constructs an http.Request for the SmbListWorkspacePhoneAssignments method
+func NewSmbListWorkspacePhoneAssignmentsRequest(server string, params *SmbListWorkspacePhoneAssignmentsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/phone-numbers/assignments")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbAssignPhoneNumberRequest calls the generic SmbAssignPhoneNumber builder with application/json body
+func NewSmbAssignPhoneNumberRequest(server string, params *SmbAssignPhoneNumberParams, body SmbAssignPhoneNumberJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbAssignPhoneNumberRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSmbAssignPhoneNumberRequestWithBody constructs an http.Request for the SmbAssignPhoneNumber method, with any body, and a specified content type
+func NewSmbAssignPhoneNumberRequestWithBody(server string, params *SmbAssignPhoneNumberParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/phone-numbers/assignments")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbReleasePhoneAssignmentRequest constructs an http.Request for the SmbReleasePhoneAssignment method
+func NewSmbReleasePhoneAssignmentRequest(server string, phoneAssignmentId string, params *SmbReleasePhoneAssignmentParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "phone_assignment_id", phoneAssignmentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/phone-numbers/assignments/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbReassignPhoneToAgentRequest calls the generic SmbReassignPhoneToAgent builder with application/json body
+func NewSmbReassignPhoneToAgentRequest(server string, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, body SmbReassignPhoneToAgentJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbReassignPhoneToAgentRequestWithBody(server, phoneAssignmentId, params, "application/json", bodyReader)
+}
+
+// NewSmbReassignPhoneToAgentRequestWithBody constructs an http.Request for the SmbReassignPhoneToAgent method, with any body, and a specified content type
+func NewSmbReassignPhoneToAgentRequestWithBody(server string, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "phone_assignment_id", phoneAssignmentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/phone-numbers/assignments/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		if params.XiWorkspaceId != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-workspace-id", headerParam1)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListResellerInvoicesRequest constructs an http.Request for the SmbListResellerInvoices method
+func NewSmbListResellerInvoicesRequest(server string, params *SmbListResellerInvoicesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/billing/invoices")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbGetResellerInvoiceRequest constructs an http.Request for the SmbGetResellerInvoice method
+func NewSmbGetResellerInvoiceRequest(server string, invoiceId string, params *SmbGetResellerInvoiceParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "invoice_id", invoiceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/billing/invoices/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSmbListResellerUpcomingPaymentsRequest constructs an http.Request for the SmbListResellerUpcomingPayments method
+func NewSmbListResellerUpcomingPaymentsRequest(server string, params *SmbListResellerUpcomingPaymentsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/smb/reseller/billing/upcoming")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
 		}
 
 	}
@@ -135817,6 +138946,186 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with PUT /v1/smb/agent-info (the `SmbUpdateAgentInfo` operationId).
 	SmbUpdateAgentInfoWithResponse(ctx context.Context, params *SmbUpdateAgentInfoParams, body SmbUpdateAgentInfoJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateAgentInfoResponse, error)
 
+	// SmbListCustomerFacingAgentsWithResponse List Customer Facing Agents
+	//
+	// List every customer-facing receptionist for the workspace.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/customer-facing-agents (the `SmbListCustomerFacingAgents` operationId).
+	SmbListCustomerFacingAgentsWithResponse(ctx context.Context, params *SmbListCustomerFacingAgentsParams, reqEditors ...RequestEditorFn) (*SmbListCustomerFacingAgentsResponse, error)
+
+	// SmbUpdateCustomerFacingAgentWithBodyWithResponse Update Customer Facing Agent
+	//
+	// Update a receptionist's display name, config and/or widget appearance.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/smb/customer-facing-agents/{agent_id} (the `SmbUpdateCustomerFacingAgent` operationId).
+	SmbUpdateCustomerFacingAgentWithBodyWithResponse(ctx context.Context, agentId string, params *SmbUpdateCustomerFacingAgentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateCustomerFacingAgentResponse, error)
+
+	// SmbUpdateCustomerFacingAgentWithResponse Update Customer Facing Agent
+	//
+	// Update a receptionist's display name, config and/or widget appearance.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/smb/customer-facing-agents/{agent_id} (the `SmbUpdateCustomerFacingAgent` operationId).
+	SmbUpdateCustomerFacingAgentWithResponse(ctx context.Context, agentId string, params *SmbUpdateCustomerFacingAgentParams, body SmbUpdateCustomerFacingAgentJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateCustomerFacingAgentResponse, error)
+
+	// SmbActivateCustomerFacingAgentWithResponse Activate Customer Facing Agent
+	//
+	// Re-activate a deactivated receptionist. Subject to the workspace's tier cap; raises ``quota_exceeded`` if no active slot is free.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/activate (the `SmbActivateCustomerFacingAgent` operationId).
+	SmbActivateCustomerFacingAgentWithResponse(ctx context.Context, agentId string, params *SmbActivateCustomerFacingAgentParams, reqEditors ...RequestEditorFn) (*SmbActivateCustomerFacingAgentResponse, error)
+
+	// SmbListAgentProceduresWithResponse List Agent Procedures
+	//
+	// List the procedures (SOPs) the named receptionist can run on calls.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbListAgentProcedures` operationId).
+	SmbListAgentProceduresWithResponse(ctx context.Context, agentId string, params *SmbListAgentProceduresParams, reqEditors ...RequestEditorFn) (*SmbListAgentProceduresResponse, error)
+
+	// SmbAddAgentProcedureWithBodyWithResponse Add Agent Procedure
+	//
+	// Add a procedure (SOP) to the named receptionist.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbAddAgentProcedure` operationId).
+	SmbAddAgentProcedureWithBodyWithResponse(ctx context.Context, agentId string, params *SmbAddAgentProcedureParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAddAgentProcedureResponse, error)
+
+	// SmbAddAgentProcedureWithResponse Add Agent Procedure
+	//
+	// Add a procedure (SOP) to the named receptionist.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbAddAgentProcedure` operationId).
+	SmbAddAgentProcedureWithResponse(ctx context.Context, agentId string, params *SmbAddAgentProcedureParams, body SmbAddAgentProcedureJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAddAgentProcedureResponse, error)
+
+	// SmbDeleteAgentProcedureWithResponse Delete Agent Procedure
+	//
+	// Delete a procedure from the named receptionist.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbDeleteAgentProcedure` operationId).
+	SmbDeleteAgentProcedureWithResponse(ctx context.Context, agentId string, procedureId string, params *SmbDeleteAgentProcedureParams, reqEditors ...RequestEditorFn) (*SmbDeleteAgentProcedureResponse, error)
+
+	// SmbUpdateAgentProcedureWithBodyWithResponse Update Agent Procedure
+	//
+	// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbUpdateAgentProcedure` operationId).
+	SmbUpdateAgentProcedureWithBodyWithResponse(ctx context.Context, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateAgentProcedureResponse, error)
+
+	// SmbUpdateAgentProcedureWithResponse Update Agent Procedure
+	//
+	// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbUpdateAgentProcedure` operationId).
+	SmbUpdateAgentProcedureWithResponse(ctx context.Context, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, body SmbUpdateAgentProcedureJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateAgentProcedureResponse, error)
+
+	// SmbAddAgentRuleWithBodyWithResponse Add Agent Rule
+	//
+	// Add a behavioral rule to the named receptionist.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/rules (the `SmbAddAgentRule` operationId).
+	SmbAddAgentRuleWithBodyWithResponse(ctx context.Context, agentId string, params *SmbAddAgentRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAddAgentRuleResponse, error)
+
+	// SmbAddAgentRuleWithResponse Add Agent Rule
+	//
+	// Add a behavioral rule to the named receptionist.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/rules (the `SmbAddAgentRule` operationId).
+	SmbAddAgentRuleWithResponse(ctx context.Context, agentId string, params *SmbAddAgentRuleParams, body SmbAddAgentRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAddAgentRuleResponse, error)
+
+	// SmbDeleteAgentRuleWithResponse Delete Agent Rule
+	//
+	// Delete a rule from the named receptionist.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbDeleteAgentRule` operationId).
+	SmbDeleteAgentRuleWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbDeleteAgentRuleParams, reqEditors ...RequestEditorFn) (*SmbDeleteAgentRuleResponse, error)
+
+	// SmbUpdateAgentRuleWithBodyWithResponse Update Agent Rule
+	//
+	// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbUpdateAgentRule` operationId).
+	SmbUpdateAgentRuleWithBodyWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateAgentRuleResponse, error)
+
+	// SmbUpdateAgentRuleWithResponse Update Agent Rule
+	//
+	// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbUpdateAgentRule` operationId).
+	SmbUpdateAgentRuleWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, body SmbUpdateAgentRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateAgentRuleResponse, error)
+
+	// SmbAddTransferRuleWithBodyWithResponse Add Transfer Rule
+	//
+	// Add a phone forwarding rule to the named receptionist.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/transfer-rules (the `SmbAddTransferRule` operationId).
+	SmbAddTransferRuleWithBodyWithResponse(ctx context.Context, agentId string, params *SmbAddTransferRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAddTransferRuleResponse, error)
+
+	// SmbAddTransferRuleWithResponse Add Transfer Rule
+	//
+	// Add a phone forwarding rule to the named receptionist.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/transfer-rules (the `SmbAddTransferRule` operationId).
+	SmbAddTransferRuleWithResponse(ctx context.Context, agentId string, params *SmbAddTransferRuleParams, body SmbAddTransferRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAddTransferRuleResponse, error)
+
+	// SmbDeleteTransferRuleWithResponse Delete Transfer Rule
+	//
+	// Delete a transfer rule from the named receptionist.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbDeleteTransferRule` operationId).
+	SmbDeleteTransferRuleWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbDeleteTransferRuleParams, reqEditors ...RequestEditorFn) (*SmbDeleteTransferRuleResponse, error)
+
+	// SmbUpdateTransferRuleWithBodyWithResponse Update Transfer Rule
+	//
+	// Replace an existing transfer rule on the named receptionist. Send every field: an omitted `post_dial_digits` clears it.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbUpdateTransferRule` operationId).
+	SmbUpdateTransferRuleWithBodyWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateTransferRuleResponse, error)
+
+	// SmbUpdateTransferRuleWithResponse Update Transfer Rule
+	//
+	// Replace an existing transfer rule on the named receptionist. Send every field: an omitted `post_dial_digits` clears it.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbUpdateTransferRule` operationId).
+	SmbUpdateTransferRuleWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, body SmbUpdateTransferRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateTransferRuleResponse, error)
+
 	// SmbListHolidaysWithResponse Get All Holidays
 	//
 	// Get all holidays/time-off entries for the current workspace with optional filters.
@@ -135996,6 +139305,87 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with PUT /v1/smb/locations/{location_id} (the `SmbUpdateLocation` operationId).
 	SmbUpdateLocationWithResponse(ctx context.Context, locationId string, params *SmbUpdateLocationParams, body SmbUpdateLocationJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateLocationResponse, error)
+
+	// SmbListWorkspacePhoneAssignmentsWithResponse List Workspace Phone Assignments
+	//
+	// List the workspace's phone numbers and the receptionist each one rings. A number with no `customer_facing_agent_id` is held by the workspace but not attached to a receptionist yet.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/phone-numbers/assignments (the `SmbListWorkspacePhoneAssignments` operationId).
+	SmbListWorkspacePhoneAssignmentsWithResponse(ctx context.Context, params *SmbListWorkspacePhoneAssignmentsParams, reqEditors ...RequestEditorFn) (*SmbListWorkspacePhoneAssignmentsResponse, error)
+
+	// SmbAssignPhoneNumberWithBodyWithResponse Assign Phone Number
+	//
+	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/phone-numbers/assignments (the `SmbAssignPhoneNumber` operationId).
+	SmbAssignPhoneNumberWithBodyWithResponse(ctx context.Context, params *SmbAssignPhoneNumberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAssignPhoneNumberResponse, error)
+
+	// SmbAssignPhoneNumberWithResponse Assign Phone Number
+	//
+	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/smb/phone-numbers/assignments (the `SmbAssignPhoneNumber` operationId).
+	SmbAssignPhoneNumberWithResponse(ctx context.Context, params *SmbAssignPhoneNumberParams, body SmbAssignPhoneNumberJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAssignPhoneNumberResponse, error)
+
+	// SmbReleasePhoneAssignmentWithResponse Release Phone Assignment
+	//
+	// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReleasePhoneAssignment` operationId).
+	SmbReleasePhoneAssignmentWithResponse(ctx context.Context, phoneAssignmentId string, params *SmbReleasePhoneAssignmentParams, reqEditors ...RequestEditorFn) (*SmbReleasePhoneAssignmentResponse, error)
+
+	// SmbReassignPhoneToAgentWithBodyWithResponse Reassign Phone To Agent
+	//
+	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/smb/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReassignPhoneToAgent` operationId).
+	SmbReassignPhoneToAgentWithBodyWithResponse(ctx context.Context, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbReassignPhoneToAgentResponse, error)
+
+	// SmbReassignPhoneToAgentWithResponse Reassign Phone To Agent
+	//
+	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/smb/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReassignPhoneToAgent` operationId).
+	SmbReassignPhoneToAgentWithResponse(ctx context.Context, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, body SmbReassignPhoneToAgentJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbReassignPhoneToAgentResponse, error)
+
+	// SmbListResellerInvoicesWithResponse List Reseller Invoices
+	//
+	// List the invoices charged to the reseller's card, newest first, one per workspace invoice
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/reseller/billing/invoices (the `SmbListResellerInvoices` operationId).
+	SmbListResellerInvoicesWithResponse(ctx context.Context, params *SmbListResellerInvoicesParams, reqEditors ...RequestEditorFn) (*SmbListResellerInvoicesResponse, error)
+
+	// SmbGetResellerInvoiceWithResponse Get Reseller Invoice
+	//
+	// Get one invoice charged to the reseller's card, broken down into the workspace invoice's lines
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/reseller/billing/invoices/{invoice_id} (the `SmbGetResellerInvoice` operationId).
+	SmbGetResellerInvoiceWithResponse(ctx context.Context, invoiceId string, params *SmbGetResellerInvoiceParams, reqEditors ...RequestEditorFn) (*SmbGetResellerInvoiceResponse, error)
+
+	// SmbListResellerUpcomingPaymentsWithResponse List Reseller Upcoming Payments
+	//
+	// List the next workspace renewals the reseller's card will be charged for, soonest first
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/smb/reseller/billing/upcoming (the `SmbListResellerUpcomingPayments` operationId).
+	SmbListResellerUpcomingPaymentsWithResponse(ctx context.Context, params *SmbListResellerUpcomingPaymentsParams, reqEditors ...RequestEditorFn) (*SmbListResellerUpcomingPaymentsResponse, error)
 
 	// SmbListResellerTierLadderWithResponse List Reseller Tier Ladder
 	//
@@ -152506,6 +155896,630 @@ func (r SmbUpdateAgentInfoResponse) ContentType() string {
 	return ""
 }
 
+type SmbListCustomerFacingAgentsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]SMBCustomerFacingAgentResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListCustomerFacingAgentsResponse) GetJSON200() *[]SMBCustomerFacingAgentResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListCustomerFacingAgentsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListCustomerFacingAgentsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListCustomerFacingAgentsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListCustomerFacingAgentsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListCustomerFacingAgentsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUpdateCustomerFacingAgentResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBCustomerFacingAgentResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUpdateCustomerFacingAgentResponse) GetJSON200() *SMBCustomerFacingAgentResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUpdateCustomerFacingAgentResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUpdateCustomerFacingAgentResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUpdateCustomerFacingAgentResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUpdateCustomerFacingAgentResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUpdateCustomerFacingAgentResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbActivateCustomerFacingAgentResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBCustomerFacingAgentResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbActivateCustomerFacingAgentResponse) GetJSON200() *SMBCustomerFacingAgentResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbActivateCustomerFacingAgentResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbActivateCustomerFacingAgentResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbActivateCustomerFacingAgentResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbActivateCustomerFacingAgentResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbActivateCustomerFacingAgentResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListAgentProceduresResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]SMBProcedure
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListAgentProceduresResponse) GetJSON200() *[]SMBProcedure {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListAgentProceduresResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListAgentProceduresResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListAgentProceduresResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListAgentProceduresResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListAgentProceduresResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbAddAgentProcedureResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *SMBProcedure
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r SmbAddAgentProcedureResponse) GetJSON201() *SMBProcedure {
+	return r.JSON201
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbAddAgentProcedureResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbAddAgentProcedureResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbAddAgentProcedureResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbAddAgentProcedureResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbAddAgentProcedureResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbDeleteAgentProcedureResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbDeleteAgentProcedureResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbDeleteAgentProcedureResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbDeleteAgentProcedureResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbDeleteAgentProcedureResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbDeleteAgentProcedureResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbDeleteAgentProcedureResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUpdateAgentProcedureResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBProcedure
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUpdateAgentProcedureResponse) GetJSON200() *SMBProcedure {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUpdateAgentProcedureResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUpdateAgentProcedureResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUpdateAgentProcedureResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUpdateAgentProcedureResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUpdateAgentProcedureResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbAddAgentRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *AgentRule
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbAddAgentRuleResponse) GetJSON200() *AgentRule {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbAddAgentRuleResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbAddAgentRuleResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbAddAgentRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbAddAgentRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbAddAgentRuleResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbDeleteAgentRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbDeleteAgentRuleResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbDeleteAgentRuleResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbDeleteAgentRuleResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbDeleteAgentRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbDeleteAgentRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbDeleteAgentRuleResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUpdateAgentRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *AgentRule
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUpdateAgentRuleResponse) GetJSON200() *AgentRule {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUpdateAgentRuleResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUpdateAgentRuleResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUpdateAgentRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUpdateAgentRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUpdateAgentRuleResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbAddTransferRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBTransferRule
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbAddTransferRuleResponse) GetJSON200() *SMBTransferRule {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbAddTransferRuleResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbAddTransferRuleResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbAddTransferRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbAddTransferRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbAddTransferRuleResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbDeleteTransferRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *map[string]string
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbDeleteTransferRuleResponse) GetJSON200() *map[string]string {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbDeleteTransferRuleResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbDeleteTransferRuleResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbDeleteTransferRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbDeleteTransferRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbDeleteTransferRuleResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbUpdateTransferRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBTransferRule
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbUpdateTransferRuleResponse) GetJSON200() *SMBTransferRule {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbUpdateTransferRuleResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbUpdateTransferRuleResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbUpdateTransferRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbUpdateTransferRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbUpdateTransferRuleResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type SmbListHolidaysResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -153220,6 +157234,335 @@ func (r SmbUpdateLocationResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r SmbUpdateLocationResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListWorkspacePhoneAssignmentsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]SMBPhoneAssignmentDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListWorkspacePhoneAssignmentsResponse) GetJSON200() *[]SMBPhoneAssignmentDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListWorkspacePhoneAssignmentsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListWorkspacePhoneAssignmentsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListWorkspacePhoneAssignmentsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListWorkspacePhoneAssignmentsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListWorkspacePhoneAssignmentsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbAssignPhoneNumberResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *SMBPhoneAssignmentDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r SmbAssignPhoneNumberResponse) GetJSON201() *SMBPhoneAssignmentDBModel {
+	return r.JSON201
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbAssignPhoneNumberResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbAssignPhoneNumberResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbAssignPhoneNumberResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbAssignPhoneNumberResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbAssignPhoneNumberResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbReleasePhoneAssignmentResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbReleasePhoneAssignmentResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbReleasePhoneAssignmentResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbReleasePhoneAssignmentResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbReleasePhoneAssignmentResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbReleasePhoneAssignmentResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbReassignPhoneToAgentResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SMBPhoneAssignmentDBModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbReassignPhoneToAgentResponse) GetJSON200() *SMBPhoneAssignmentDBModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbReassignPhoneToAgentResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbReassignPhoneToAgentResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbReassignPhoneToAgentResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbReassignPhoneToAgentResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbReassignPhoneToAgentResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListResellerInvoicesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResellerInvoicesResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListResellerInvoicesResponse) GetJSON200() *ResellerInvoicesResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListResellerInvoicesResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListResellerInvoicesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListResellerInvoicesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListResellerInvoicesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListResellerInvoicesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbGetResellerInvoiceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResellerInvoiceDetail
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbGetResellerInvoiceResponse) GetJSON200() *ResellerInvoiceDetail {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbGetResellerInvoiceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbGetResellerInvoiceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbGetResellerInvoiceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbGetResellerInvoiceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbGetResellerInvoiceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbListResellerUpcomingPaymentsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResellerUpcomingPaymentsResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbListResellerUpcomingPaymentsResponse) GetJSON200() *ResellerUpcomingPaymentsResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbListResellerUpcomingPaymentsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbListResellerUpcomingPaymentsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbListResellerUpcomingPaymentsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbListResellerUpcomingPaymentsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbListResellerUpcomingPaymentsResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -165912,6 +170255,306 @@ func (c *ClientWithResponses) SmbUpdateAgentInfoWithResponse(ctx context.Context
 	return ParseSmbUpdateAgentInfoResponse(rsp)
 }
 
+// SmbListCustomerFacingAgentsWithResponse List Customer Facing Agents
+//
+// List every customer-facing receptionist for the workspace.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/customer-facing-agents (the `SmbListCustomerFacingAgents` operationId).
+func (c *ClientWithResponses) SmbListCustomerFacingAgentsWithResponse(ctx context.Context, params *SmbListCustomerFacingAgentsParams, reqEditors ...RequestEditorFn) (*SmbListCustomerFacingAgentsResponse, error) {
+	rsp, err := c.SmbListCustomerFacingAgents(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListCustomerFacingAgentsResponse(rsp)
+}
+
+// SmbUpdateCustomerFacingAgentWithBodyWithResponse Update Customer Facing Agent
+//
+// Update a receptionist's display name, config and/or widget appearance.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/smb/customer-facing-agents/{agent_id} (the `SmbUpdateCustomerFacingAgent` operationId).
+func (c *ClientWithResponses) SmbUpdateCustomerFacingAgentWithBodyWithResponse(ctx context.Context, agentId string, params *SmbUpdateCustomerFacingAgentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateCustomerFacingAgentResponse, error) {
+	rsp, err := c.SmbUpdateCustomerFacingAgentWithBody(ctx, agentId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateCustomerFacingAgentResponse(rsp)
+}
+
+// SmbUpdateCustomerFacingAgentWithResponse Update Customer Facing Agent
+//
+// Update a receptionist's display name, config and/or widget appearance.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/smb/customer-facing-agents/{agent_id} (the `SmbUpdateCustomerFacingAgent` operationId).
+func (c *ClientWithResponses) SmbUpdateCustomerFacingAgentWithResponse(ctx context.Context, agentId string, params *SmbUpdateCustomerFacingAgentParams, body SmbUpdateCustomerFacingAgentJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateCustomerFacingAgentResponse, error) {
+	rsp, err := c.SmbUpdateCustomerFacingAgent(ctx, agentId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateCustomerFacingAgentResponse(rsp)
+}
+
+// SmbActivateCustomerFacingAgentWithResponse Activate Customer Facing Agent
+//
+// Re-activate a deactivated receptionist. Subject to the workspace's tier cap; raises “quota_exceeded“ if no active slot is free.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/activate (the `SmbActivateCustomerFacingAgent` operationId).
+func (c *ClientWithResponses) SmbActivateCustomerFacingAgentWithResponse(ctx context.Context, agentId string, params *SmbActivateCustomerFacingAgentParams, reqEditors ...RequestEditorFn) (*SmbActivateCustomerFacingAgentResponse, error) {
+	rsp, err := c.SmbActivateCustomerFacingAgent(ctx, agentId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbActivateCustomerFacingAgentResponse(rsp)
+}
+
+// SmbListAgentProceduresWithResponse List Agent Procedures
+//
+// List the procedures (SOPs) the named receptionist can run on calls.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbListAgentProcedures` operationId).
+func (c *ClientWithResponses) SmbListAgentProceduresWithResponse(ctx context.Context, agentId string, params *SmbListAgentProceduresParams, reqEditors ...RequestEditorFn) (*SmbListAgentProceduresResponse, error) {
+	rsp, err := c.SmbListAgentProcedures(ctx, agentId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListAgentProceduresResponse(rsp)
+}
+
+// SmbAddAgentProcedureWithBodyWithResponse Add Agent Procedure
+//
+// Add a procedure (SOP) to the named receptionist.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbAddAgentProcedure` operationId).
+func (c *ClientWithResponses) SmbAddAgentProcedureWithBodyWithResponse(ctx context.Context, agentId string, params *SmbAddAgentProcedureParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAddAgentProcedureResponse, error) {
+	rsp, err := c.SmbAddAgentProcedureWithBody(ctx, agentId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAddAgentProcedureResponse(rsp)
+}
+
+// SmbAddAgentProcedureWithResponse Add Agent Procedure
+//
+// Add a procedure (SOP) to the named receptionist.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/procedures (the `SmbAddAgentProcedure` operationId).
+func (c *ClientWithResponses) SmbAddAgentProcedureWithResponse(ctx context.Context, agentId string, params *SmbAddAgentProcedureParams, body SmbAddAgentProcedureJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAddAgentProcedureResponse, error) {
+	rsp, err := c.SmbAddAgentProcedure(ctx, agentId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAddAgentProcedureResponse(rsp)
+}
+
+// SmbDeleteAgentProcedureWithResponse Delete Agent Procedure
+//
+// Delete a procedure from the named receptionist.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbDeleteAgentProcedure` operationId).
+func (c *ClientWithResponses) SmbDeleteAgentProcedureWithResponse(ctx context.Context, agentId string, procedureId string, params *SmbDeleteAgentProcedureParams, reqEditors ...RequestEditorFn) (*SmbDeleteAgentProcedureResponse, error) {
+	rsp, err := c.SmbDeleteAgentProcedure(ctx, agentId, procedureId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbDeleteAgentProcedureResponse(rsp)
+}
+
+// SmbUpdateAgentProcedureWithBodyWithResponse Update Agent Procedure
+//
+// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbUpdateAgentProcedure` operationId).
+func (c *ClientWithResponses) SmbUpdateAgentProcedureWithBodyWithResponse(ctx context.Context, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateAgentProcedureResponse, error) {
+	rsp, err := c.SmbUpdateAgentProcedureWithBody(ctx, agentId, procedureId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateAgentProcedureResponse(rsp)
+}
+
+// SmbUpdateAgentProcedureWithResponse Update Agent Procedure
+//
+// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id} (the `SmbUpdateAgentProcedure` operationId).
+func (c *ClientWithResponses) SmbUpdateAgentProcedureWithResponse(ctx context.Context, agentId string, procedureId string, params *SmbUpdateAgentProcedureParams, body SmbUpdateAgentProcedureJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateAgentProcedureResponse, error) {
+	rsp, err := c.SmbUpdateAgentProcedure(ctx, agentId, procedureId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateAgentProcedureResponse(rsp)
+}
+
+// SmbAddAgentRuleWithBodyWithResponse Add Agent Rule
+//
+// Add a behavioral rule to the named receptionist.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/rules (the `SmbAddAgentRule` operationId).
+func (c *ClientWithResponses) SmbAddAgentRuleWithBodyWithResponse(ctx context.Context, agentId string, params *SmbAddAgentRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAddAgentRuleResponse, error) {
+	rsp, err := c.SmbAddAgentRuleWithBody(ctx, agentId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAddAgentRuleResponse(rsp)
+}
+
+// SmbAddAgentRuleWithResponse Add Agent Rule
+//
+// Add a behavioral rule to the named receptionist.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/rules (the `SmbAddAgentRule` operationId).
+func (c *ClientWithResponses) SmbAddAgentRuleWithResponse(ctx context.Context, agentId string, params *SmbAddAgentRuleParams, body SmbAddAgentRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAddAgentRuleResponse, error) {
+	rsp, err := c.SmbAddAgentRule(ctx, agentId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAddAgentRuleResponse(rsp)
+}
+
+// SmbDeleteAgentRuleWithResponse Delete Agent Rule
+//
+// Delete a rule from the named receptionist.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbDeleteAgentRule` operationId).
+func (c *ClientWithResponses) SmbDeleteAgentRuleWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbDeleteAgentRuleParams, reqEditors ...RequestEditorFn) (*SmbDeleteAgentRuleResponse, error) {
+	rsp, err := c.SmbDeleteAgentRule(ctx, agentId, ruleId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbDeleteAgentRuleResponse(rsp)
+}
+
+// SmbUpdateAgentRuleWithBodyWithResponse Update Agent Rule
+//
+// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbUpdateAgentRule` operationId).
+func (c *ClientWithResponses) SmbUpdateAgentRuleWithBodyWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateAgentRuleResponse, error) {
+	rsp, err := c.SmbUpdateAgentRuleWithBody(ctx, agentId, ruleId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateAgentRuleResponse(rsp)
+}
+
+// SmbUpdateAgentRuleWithResponse Update Agent Rule
+//
+// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id} (the `SmbUpdateAgentRule` operationId).
+func (c *ClientWithResponses) SmbUpdateAgentRuleWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbUpdateAgentRuleParams, body SmbUpdateAgentRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateAgentRuleResponse, error) {
+	rsp, err := c.SmbUpdateAgentRule(ctx, agentId, ruleId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateAgentRuleResponse(rsp)
+}
+
+// SmbAddTransferRuleWithBodyWithResponse Add Transfer Rule
+//
+// Add a phone forwarding rule to the named receptionist.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/transfer-rules (the `SmbAddTransferRule` operationId).
+func (c *ClientWithResponses) SmbAddTransferRuleWithBodyWithResponse(ctx context.Context, agentId string, params *SmbAddTransferRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAddTransferRuleResponse, error) {
+	rsp, err := c.SmbAddTransferRuleWithBody(ctx, agentId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAddTransferRuleResponse(rsp)
+}
+
+// SmbAddTransferRuleWithResponse Add Transfer Rule
+//
+// Add a phone forwarding rule to the named receptionist.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/customer-facing-agents/{agent_id}/transfer-rules (the `SmbAddTransferRule` operationId).
+func (c *ClientWithResponses) SmbAddTransferRuleWithResponse(ctx context.Context, agentId string, params *SmbAddTransferRuleParams, body SmbAddTransferRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAddTransferRuleResponse, error) {
+	rsp, err := c.SmbAddTransferRule(ctx, agentId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAddTransferRuleResponse(rsp)
+}
+
+// SmbDeleteTransferRuleWithResponse Delete Transfer Rule
+//
+// Delete a transfer rule from the named receptionist.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbDeleteTransferRule` operationId).
+func (c *ClientWithResponses) SmbDeleteTransferRuleWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbDeleteTransferRuleParams, reqEditors ...RequestEditorFn) (*SmbDeleteTransferRuleResponse, error) {
+	rsp, err := c.SmbDeleteTransferRule(ctx, agentId, ruleId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbDeleteTransferRuleResponse(rsp)
+}
+
+// SmbUpdateTransferRuleWithBodyWithResponse Update Transfer Rule
+//
+// Replace an existing transfer rule on the named receptionist. Send every field: an omitted `post_dial_digits` clears it.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbUpdateTransferRule` operationId).
+func (c *ClientWithResponses) SmbUpdateTransferRuleWithBodyWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbUpdateTransferRuleResponse, error) {
+	rsp, err := c.SmbUpdateTransferRuleWithBody(ctx, agentId, ruleId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateTransferRuleResponse(rsp)
+}
+
+// SmbUpdateTransferRuleWithResponse Update Transfer Rule
+//
+// Replace an existing transfer rule on the named receptionist. Send every field: an omitted `post_dial_digits` clears it.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id} (the `SmbUpdateTransferRule` operationId).
+func (c *ClientWithResponses) SmbUpdateTransferRuleWithResponse(ctx context.Context, agentId string, ruleId string, params *SmbUpdateTransferRuleParams, body SmbUpdateTransferRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbUpdateTransferRuleResponse, error) {
+	rsp, err := c.SmbUpdateTransferRule(ctx, agentId, ruleId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbUpdateTransferRuleResponse(rsp)
+}
+
 // SmbListHolidaysWithResponse Get All Holidays
 //
 // Get all holidays/time-off entries for the current workspace with optional filters.
@@ -166210,6 +170853,141 @@ func (c *ClientWithResponses) SmbUpdateLocationWithResponse(ctx context.Context,
 		return nil, err
 	}
 	return ParseSmbUpdateLocationResponse(rsp)
+}
+
+// SmbListWorkspacePhoneAssignmentsWithResponse List Workspace Phone Assignments
+//
+// List the workspace's phone numbers and the receptionist each one rings. A number with no `customer_facing_agent_id` is held by the workspace but not attached to a receptionist yet.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/phone-numbers/assignments (the `SmbListWorkspacePhoneAssignments` operationId).
+func (c *ClientWithResponses) SmbListWorkspacePhoneAssignmentsWithResponse(ctx context.Context, params *SmbListWorkspacePhoneAssignmentsParams, reqEditors ...RequestEditorFn) (*SmbListWorkspacePhoneAssignmentsResponse, error) {
+	rsp, err := c.SmbListWorkspacePhoneAssignments(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListWorkspacePhoneAssignmentsResponse(rsp)
+}
+
+// SmbAssignPhoneNumberWithBodyWithResponse Assign Phone Number
+//
+// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/phone-numbers/assignments (the `SmbAssignPhoneNumber` operationId).
+func (c *ClientWithResponses) SmbAssignPhoneNumberWithBodyWithResponse(ctx context.Context, params *SmbAssignPhoneNumberParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbAssignPhoneNumberResponse, error) {
+	rsp, err := c.SmbAssignPhoneNumberWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAssignPhoneNumberResponse(rsp)
+}
+
+// SmbAssignPhoneNumberWithResponse Assign Phone Number
+//
+// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/smb/phone-numbers/assignments (the `SmbAssignPhoneNumber` operationId).
+func (c *ClientWithResponses) SmbAssignPhoneNumberWithResponse(ctx context.Context, params *SmbAssignPhoneNumberParams, body SmbAssignPhoneNumberJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAssignPhoneNumberResponse, error) {
+	rsp, err := c.SmbAssignPhoneNumber(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbAssignPhoneNumberResponse(rsp)
+}
+
+// SmbReleasePhoneAssignmentWithResponse Release Phone Assignment
+//
+// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReleasePhoneAssignment` operationId).
+func (c *ClientWithResponses) SmbReleasePhoneAssignmentWithResponse(ctx context.Context, phoneAssignmentId string, params *SmbReleasePhoneAssignmentParams, reqEditors ...RequestEditorFn) (*SmbReleasePhoneAssignmentResponse, error) {
+	rsp, err := c.SmbReleasePhoneAssignment(ctx, phoneAssignmentId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbReleasePhoneAssignmentResponse(rsp)
+}
+
+// SmbReassignPhoneToAgentWithBodyWithResponse Reassign Phone To Agent
+//
+// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/smb/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReassignPhoneToAgent` operationId).
+func (c *ClientWithResponses) SmbReassignPhoneToAgentWithBodyWithResponse(ctx context.Context, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbReassignPhoneToAgentResponse, error) {
+	rsp, err := c.SmbReassignPhoneToAgentWithBody(ctx, phoneAssignmentId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbReassignPhoneToAgentResponse(rsp)
+}
+
+// SmbReassignPhoneToAgentWithResponse Reassign Phone To Agent
+//
+// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/smb/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/smb/phone-numbers/assignments/{phone_assignment_id} (the `SmbReassignPhoneToAgent` operationId).
+func (c *ClientWithResponses) SmbReassignPhoneToAgentWithResponse(ctx context.Context, phoneAssignmentId string, params *SmbReassignPhoneToAgentParams, body SmbReassignPhoneToAgentJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbReassignPhoneToAgentResponse, error) {
+	rsp, err := c.SmbReassignPhoneToAgent(ctx, phoneAssignmentId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbReassignPhoneToAgentResponse(rsp)
+}
+
+// SmbListResellerInvoicesWithResponse List Reseller Invoices
+//
+// # List the invoices charged to the reseller's card, newest first, one per workspace invoice
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/reseller/billing/invoices (the `SmbListResellerInvoices` operationId).
+func (c *ClientWithResponses) SmbListResellerInvoicesWithResponse(ctx context.Context, params *SmbListResellerInvoicesParams, reqEditors ...RequestEditorFn) (*SmbListResellerInvoicesResponse, error) {
+	rsp, err := c.SmbListResellerInvoices(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListResellerInvoicesResponse(rsp)
+}
+
+// SmbGetResellerInvoiceWithResponse Get Reseller Invoice
+//
+// # Get one invoice charged to the reseller's card, broken down into the workspace invoice's lines
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/reseller/billing/invoices/{invoice_id} (the `SmbGetResellerInvoice` operationId).
+func (c *ClientWithResponses) SmbGetResellerInvoiceWithResponse(ctx context.Context, invoiceId string, params *SmbGetResellerInvoiceParams, reqEditors ...RequestEditorFn) (*SmbGetResellerInvoiceResponse, error) {
+	rsp, err := c.SmbGetResellerInvoice(ctx, invoiceId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbGetResellerInvoiceResponse(rsp)
+}
+
+// SmbListResellerUpcomingPaymentsWithResponse List Reseller Upcoming Payments
+//
+// # List the next workspace renewals the reseller's card will be charged for, soonest first
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/smb/reseller/billing/upcoming (the `SmbListResellerUpcomingPayments` operationId).
+func (c *ClientWithResponses) SmbListResellerUpcomingPaymentsWithResponse(ctx context.Context, params *SmbListResellerUpcomingPaymentsParams, reqEditors ...RequestEditorFn) (*SmbListResellerUpcomingPaymentsResponse, error) {
+	rsp, err := c.SmbListResellerUpcomingPayments(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbListResellerUpcomingPaymentsResponse(rsp)
 }
 
 // SmbListResellerTierLadderWithResponse List Reseller Tier Ladder
@@ -179299,6 +184077,435 @@ func ParseSmbUpdateAgentInfoResponse(rsp *http.Response) (*SmbUpdateAgentInfoRes
 	return response, nil
 }
 
+// ParseSmbListCustomerFacingAgentsResponse parses an HTTP response from a SmbListCustomerFacingAgentsWithResponse call
+func ParseSmbListCustomerFacingAgentsResponse(rsp *http.Response) (*SmbListCustomerFacingAgentsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListCustomerFacingAgentsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []SMBCustomerFacingAgentResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUpdateCustomerFacingAgentResponse parses an HTTP response from a SmbUpdateCustomerFacingAgentWithResponse call
+func ParseSmbUpdateCustomerFacingAgentResponse(rsp *http.Response) (*SmbUpdateCustomerFacingAgentResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUpdateCustomerFacingAgentResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBCustomerFacingAgentResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbActivateCustomerFacingAgentResponse parses an HTTP response from a SmbActivateCustomerFacingAgentWithResponse call
+func ParseSmbActivateCustomerFacingAgentResponse(rsp *http.Response) (*SmbActivateCustomerFacingAgentResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbActivateCustomerFacingAgentResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBCustomerFacingAgentResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListAgentProceduresResponse parses an HTTP response from a SmbListAgentProceduresWithResponse call
+func ParseSmbListAgentProceduresResponse(rsp *http.Response) (*SmbListAgentProceduresResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListAgentProceduresResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []SMBProcedure
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbAddAgentProcedureResponse parses an HTTP response from a SmbAddAgentProcedureWithResponse call
+func ParseSmbAddAgentProcedureResponse(rsp *http.Response) (*SmbAddAgentProcedureResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbAddAgentProcedureResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest SMBProcedure
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbDeleteAgentProcedureResponse parses an HTTP response from a SmbDeleteAgentProcedureWithResponse call
+func ParseSmbDeleteAgentProcedureResponse(rsp *http.Response) (*SmbDeleteAgentProcedureResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbDeleteAgentProcedureResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUpdateAgentProcedureResponse parses an HTTP response from a SmbUpdateAgentProcedureWithResponse call
+func ParseSmbUpdateAgentProcedureResponse(rsp *http.Response) (*SmbUpdateAgentProcedureResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUpdateAgentProcedureResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBProcedure
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbAddAgentRuleResponse parses an HTTP response from a SmbAddAgentRuleWithResponse call
+func ParseSmbAddAgentRuleResponse(rsp *http.Response) (*SmbAddAgentRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbAddAgentRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AgentRule
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbDeleteAgentRuleResponse parses an HTTP response from a SmbDeleteAgentRuleWithResponse call
+func ParseSmbDeleteAgentRuleResponse(rsp *http.Response) (*SmbDeleteAgentRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbDeleteAgentRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUpdateAgentRuleResponse parses an HTTP response from a SmbUpdateAgentRuleWithResponse call
+func ParseSmbUpdateAgentRuleResponse(rsp *http.Response) (*SmbUpdateAgentRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUpdateAgentRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AgentRule
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbAddTransferRuleResponse parses an HTTP response from a SmbAddTransferRuleWithResponse call
+func ParseSmbAddTransferRuleResponse(rsp *http.Response) (*SmbAddTransferRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbAddTransferRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBTransferRule
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbDeleteTransferRuleResponse parses an HTTP response from a SmbDeleteTransferRuleWithResponse call
+func ParseSmbDeleteTransferRuleResponse(rsp *http.Response) (*SmbDeleteTransferRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbDeleteTransferRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest map[string]string
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbUpdateTransferRuleResponse parses an HTTP response from a SmbUpdateTransferRuleWithResponse call
+func ParseSmbUpdateTransferRuleResponse(rsp *http.Response) (*SmbUpdateTransferRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbUpdateTransferRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBTransferRule
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseSmbListHolidaysResponse parses an HTTP response from a SmbListHolidaysWithResponse call
 func ParseSmbListHolidaysResponse(rsp *http.Response) (*SmbListHolidaysResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -179777,6 +184984,233 @@ func ParseSmbUpdateLocationResponse(rsp *http.Response) (*SmbUpdateLocationRespo
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest LocationResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListWorkspacePhoneAssignmentsResponse parses an HTTP response from a SmbListWorkspacePhoneAssignmentsWithResponse call
+func ParseSmbListWorkspacePhoneAssignmentsResponse(rsp *http.Response) (*SmbListWorkspacePhoneAssignmentsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListWorkspacePhoneAssignmentsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []SMBPhoneAssignmentDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbAssignPhoneNumberResponse parses an HTTP response from a SmbAssignPhoneNumberWithResponse call
+func ParseSmbAssignPhoneNumberResponse(rsp *http.Response) (*SmbAssignPhoneNumberResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbAssignPhoneNumberResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest SMBPhoneAssignmentDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbReleasePhoneAssignmentResponse parses an HTTP response from a SmbReleasePhoneAssignmentWithResponse call
+func ParseSmbReleasePhoneAssignmentResponse(rsp *http.Response) (*SmbReleasePhoneAssignmentResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbReleasePhoneAssignmentResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 204:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbReassignPhoneToAgentResponse parses an HTTP response from a SmbReassignPhoneToAgentWithResponse call
+func ParseSmbReassignPhoneToAgentResponse(rsp *http.Response) (*SmbReassignPhoneToAgentResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbReassignPhoneToAgentResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SMBPhoneAssignmentDBModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListResellerInvoicesResponse parses an HTTP response from a SmbListResellerInvoicesWithResponse call
+func ParseSmbListResellerInvoicesResponse(rsp *http.Response) (*SmbListResellerInvoicesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListResellerInvoicesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResellerInvoicesResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbGetResellerInvoiceResponse parses an HTTP response from a SmbGetResellerInvoiceWithResponse call
+func ParseSmbGetResellerInvoiceResponse(rsp *http.Response) (*SmbGetResellerInvoiceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbGetResellerInvoiceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResellerInvoiceDetail
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbListResellerUpcomingPaymentsResponse parses an HTTP response from a SmbListResellerUpcomingPaymentsWithResponse call
+func ParseSmbListResellerUpcomingPaymentsResponse(rsp *http.Response) (*SmbListResellerUpcomingPaymentsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbListResellerUpcomingPaymentsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResellerUpcomingPaymentsResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

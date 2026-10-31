@@ -2,6 +2,19 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.6.6, 2026-10-31
+
+- Adds SMB customer-facing agent methods: `SmbListCustomerFacingAgents`, `SmbUpdateCustomerFacingAgent` and `SmbActivateCustomerFacingAgent`, with the types `SMBCustomerFacingAgentResponse`, `SMBUpdateCustomerFacingAgentRequest`, `CustomerFacingConfigOutput` and `CustomerFacingConfigPatch`.
+- Adds SMB agent rule, transfer rule and procedure methods: `SmbAddAgentRule`, `SmbUpdateAgentRule`, `SmbDeleteAgentRule`, `SmbAddTransferRule`, `SmbUpdateTransferRule`, `SmbDeleteTransferRule`, `SmbListAgentProcedures`, `SmbAddAgentProcedure`, `SmbUpdateAgentProcedure` and `SmbDeleteAgentProcedure`, with request types such as `SMBCreateAgentRuleRequest`, `SMBCreateTransferRuleRequest` and `SMBCreateProcedureRequest`, and the `SMBProcedure`, `SMBTransferRule` and `RulePriority` types.
+- Adds SMB phone number methods: `SmbListWorkspacePhoneAssignments`, `SmbAssignPhoneNumber`, `SmbReassignPhoneToAgent` and `SmbReleasePhoneAssignment`, with `CreatePhoneAssignmentRequest`, `ReassignPhoneRequest`, `SMBPhoneAssignmentDBModel` and `SMBPhoneRegulatoryStatus`.
+- Adds reseller billing methods: `SmbListResellerInvoices`, `SmbGetResellerInvoice` and `SmbListResellerUpcomingPayments`, with `ResellerInvoiceSummary`, `ResellerInvoiceDetail`, `ResellerInvoiceLine`, `ResellerInvoiceStatus` and `ResellerUpcomingPayment`.
+- Every new method has a `...WithBody` variant where it takes a body, a `...WithResponse` variant on `ClientWithResponses`, and a `ParseSmb...Response` function.
+- Adds the optional fields `NoisyEnvironmentMessage` to `TurnConfig`, `TurnConfigOverride`, `TurnConfigOverrideConfig` and `TurnConfigWorkflowOverride`, `NoisyEnvironmentDetection` to `TurnConfig`, `NoisyEnvironmentMessageTranslation` to `LanguagePresetInput` and `LanguagePresetOutput`, and `CreatedByUserId` to `ListTestInvocationsRouteParams`.
+- Adds the types `SMBWidgetAppearance`, `SMBTurnEagerness`, `ApplicationNumberType`, `PhoneNumber`, `SupportedLang` and `AgentRule`, with their enum constants.
+- The `ClientInterface` and `ClientWithResponsesInterface` interfaces gain the new methods, so custom implementations or mocks of them must add the new methods.
+- Doc comments changed: `NoVerbatim` no longer says it is limited to the scribe_v2 model, and the `ExpiresAtUnix` comments note that a workspace may disallow never-expiring API keys.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.6.5, 2026-10-30
 
 - Adds the optional `AgentMessageCount` and `UserMessageCount` fields (`*int`) to `ConversationSummaryResponseModel` and `GetConversationResponseModel`. They count agent and user transcript turns that have text. Both are nil for older conversations whose transcript was deleted.
