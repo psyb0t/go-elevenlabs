@@ -2,6 +2,18 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.7.0, 2026-11-03
+
+- Removes the SMB (small business) API from `Client` and `ClientWithResponses`: all `Smb...` methods (for example `SmbGetAgentInfo`, `SmbListServices`, `SmbAddUrlSource`, `SmbAssignPhoneNumber`, `SmbActivateCustomerFacingAgent`, `SmbGetResellerInvoice`), their `...WithBody` and `...WithResponse` variants, and the `ParseSmb...Response` functions. The ElevenLabs spec no longer has these endpoints.
+- Removes the SMB request, response and enum types, such as `AddUrlRequest`, `AgentRule`, `CreatePhoneAssignmentRequest`, `CustomerFacingConfigOutput`, `HolidayResponseModel`, `LocationResponse`, `KnowledgeSourceStatus`, `PricingMode`, `RulePriority`, `TeamInviteRequest`, `WorkingHours` and `WorkspaceNow`.
+- Adds analysis item methods: `ListAnalysisItemsRoute`, `CreateAnalysisItemRoute`, `GetAnalysisItemRoute`, `UpdateAnalysisItemRoute`, `DeleteAnalysisItemRoute`, `CopyAnalysisItemRoute`, `ListAnalysisItemVersionsRoute`, `GetAnalysisItemDependentAgentsRoute` and `UpdateAnalysisItemAttachmentsRoute`, with their `...WithBody` and `...WithResponse` variants and types such as `AnalysisItemResponseModel`, `AnalysisItemKind` and `BinaryScoring`.
+- Adds conversation group methods: `ListConversationGroupsRoute`, `CreateConversationGroupRoute`, `GetConversationGroupRoute`, `UpdateConversationGroupRoute`, `SetConversationGroupRoute`, `ClearConversationGroupRoute` and `DeleteConversationGroupRoute`, with `CreateRealtimeConversationGroupRequestModel`.
+- Adds the `Auth` field to `CreateSpeechEngineRequest`, `UpdateSpeechEngineRequest` and `SpeechEngineResponse`, and `Reroutes` to `WorkflowEdgeModelInput` and `WorkflowEdgeModelOutput`.
+- Adds the `DataCollectionValueSchema` types and the `LLMAnyOfJsonSchemaProperty`, `LLMArrayJsonSchemaProperty` and `LLMObjectJsonSchemaProperty` types, each in an Input and Output form.
+- `WorkflowEdgeModelOutput` is no longer comparable with `==`.
+- `ClientInterface` and `ClientWithResponsesInterface` lose the `Smb...` methods and gain the new route methods, so custom implementations or mocks must change.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.6.6, 2026-10-31
 
 - Adds SMB customer-facing agent methods: `SmbListCustomerFacingAgents`, `SmbUpdateCustomerFacingAgent` and `SmbActivateCustomerFacingAgent`, with the types `SMBCustomerFacingAgentResponse`, `SMBUpdateCustomerFacingAgentRequest`, `CustomerFacingConfigOutput` and `CustomerFacingConfigPatch`.
