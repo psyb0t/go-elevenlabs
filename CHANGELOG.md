@@ -2,6 +2,17 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.8.0, 2026-11-05
+
+- Restores the SMB (small business) API that v0.7.0 removed: the `Smb...` methods on `Client` and `ClientWithResponses` (for example `SmbGetAgentInfo`, `SmbListServices`, `SmbAddUrlSource`, `SmbAssignPhoneNumber`, `SmbListResellerInvoices`), their `...WithBody` and `...WithResponse` variants, and the `ParseSmb...Response` functions. The ElevenLabs spec has these endpoints again.
+- Restores SMB request, response and enum types, such as `AddUrlRequest`, `AgentRule`, `CreatePhoneAssignmentRequest`, `HolidayResponseModel`, `LocationResponse`, `KnowledgeSourceStatus`, `PricingMode`, `ResellerInvoiceDetail` and `CreateTeamInviteRequest`.
+- Adds `WorkspaceUsage` and `WorkspaceUsageWithBody` on `Client`, the matching `WorkspaceUsageWithResponse` methods on `ClientWithResponses`, `ParseWorkspaceUsageResponse`, and the usage filter types `MetronomeUsageColumnFilter` and `NewWorkspaceUsageRequest`.
+- Adds the `AuditActivityName` and `AuditClassName` enum types with their constants.
+- Changes `GetWorkspaceAuditLogsParams.ActivityName` from `*string` to `*AuditActivityName` and `ClassName` from `*string` to `*AuditClassName`. Callers must change their code.
+- Removes the `AudioFormatAudiopcma` constant from `AudioFormat`.
+- Adds the `LibraryVoiceMatch` field to `AddVoiceIVCResponseModel`, `SyncStatus` to `AgentBranchResponse` and `AgentBranchSummary`, `Cost` and `CostFiat` to `ConversationSummaryResponseModel`, and `DataCollectionFilter` and `DynamicVariableFilter` to `GetConversationHistoriesRouteParams`.
+- `ClientInterface` and `ClientWithResponsesInterface` gain the SMB and `WorkspaceUsage` methods, so custom implementations or mocks must add them.
+
 ## v0.7.0, 2026-11-03
 
 - Removes the SMB (small business) API from `Client` and `ClientWithResponses`: all `Smb...` methods (for example `SmbGetAgentInfo`, `SmbListServices`, `SmbAddUrlSource`, `SmbAssignPhoneNumber`, `SmbActivateCustomerFacingAgent`, `SmbGetResellerInvoice`), their `...WithBody` and `...WithResponse` variants, and the `ParseSmb...Response` functions. The ElevenLabs spec no longer has these endpoints.
