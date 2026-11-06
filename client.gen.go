@@ -816,14 +816,17 @@ func (e AgentConversationTicketPriority) Valid() bool {
 
 // Defines values for AgentConversationTicketSortBy.
 const (
-	AgentConversationTicketSortByCreatedAt AgentConversationTicketSortBy = "created_at"
-	AgentConversationTicketSortByPriority  AgentConversationTicketSortBy = "priority"
+	AgentConversationTicketSortByCreatedAt    AgentConversationTicketSortBy = "created_at"
+	AgentConversationTicketSortByLastReported AgentConversationTicketSortBy = "last_reported"
+	AgentConversationTicketSortByPriority     AgentConversationTicketSortBy = "priority"
 )
 
 // Valid indicates whether the value is a known member of the AgentConversationTicketSortBy enum.
 func (e AgentConversationTicketSortBy) Valid() bool {
 	switch e {
 	case AgentConversationTicketSortByCreatedAt:
+		return true
+	case AgentConversationTicketSortByLastReported:
 		return true
 	case AgentConversationTicketSortByPriority:
 		return true
@@ -885,6 +888,7 @@ const (
 	AgentDefinitionSourceApi       AgentDefinitionSource = "api"
 	AgentDefinitionSourceArchitect AgentDefinitionSource = "architect"
 	AgentDefinitionSourceCli       AgentDefinitionSource = "cli"
+	AgentDefinitionSourceMcp       AgentDefinitionSource = "mcp"
 	AgentDefinitionSourceTemplate  AgentDefinitionSource = "template"
 	AgentDefinitionSourceUi        AgentDefinitionSource = "ui"
 	AgentDefinitionSourceUnknown   AgentDefinitionSource = "unknown"
@@ -898,6 +902,8 @@ func (e AgentDefinitionSource) Valid() bool {
 	case AgentDefinitionSourceArchitect:
 		return true
 	case AgentDefinitionSourceCli:
+		return true
+	case AgentDefinitionSourceMcp:
 		return true
 	case AgentDefinitionSourceTemplate:
 		return true
@@ -1779,6 +1785,7 @@ const (
 	AuditActivityNameAgentsUserPropertyCreated              AuditActivityName = "Agents User Property Created"
 	AuditActivityNameAgentsUserPropertyUnarchived           AuditActivityName = "Agents User Property Unarchived"
 	AuditActivityNameAgentsUserPropertyUpdated              AuditActivityName = "Agents User Property Updated"
+	AuditActivityNameArchitectMemberSpendLimitsUpdate       AuditActivityName = "Architect Member Spend Limits Update"
 	AuditActivityNameAuthConnectionCreation                 AuditActivityName = "Auth Connection Creation"
 	AuditActivityNameAuthConnectionDeletion                 AuditActivityName = "Auth Connection Deletion"
 	AuditActivityNameAuthConnectionManagement               AuditActivityName = "Auth Connection Management"
@@ -1927,6 +1934,8 @@ func (e AuditActivityName) Valid() bool {
 	case AuditActivityNameAgentsUserPropertyUnarchived:
 		return true
 	case AuditActivityNameAgentsUserPropertyUpdated:
+		return true
+	case AuditActivityNameArchitectMemberSpendLimitsUpdate:
 		return true
 	case AuditActivityNameAuthConnectionCreation:
 		return true
@@ -6078,6 +6087,9 @@ const (
 	CreateOAuth2JWTRequestAlgorithmHS256 CreateOAuth2JWTRequestAlgorithm = "HS256"
 	CreateOAuth2JWTRequestAlgorithmHS384 CreateOAuth2JWTRequestAlgorithm = "HS384"
 	CreateOAuth2JWTRequestAlgorithmHS512 CreateOAuth2JWTRequestAlgorithm = "HS512"
+	CreateOAuth2JWTRequestAlgorithmPS256 CreateOAuth2JWTRequestAlgorithm = "PS256"
+	CreateOAuth2JWTRequestAlgorithmPS384 CreateOAuth2JWTRequestAlgorithm = "PS384"
+	CreateOAuth2JWTRequestAlgorithmPS512 CreateOAuth2JWTRequestAlgorithm = "PS512"
 	CreateOAuth2JWTRequestAlgorithmRS256 CreateOAuth2JWTRequestAlgorithm = "RS256"
 	CreateOAuth2JWTRequestAlgorithmRS384 CreateOAuth2JWTRequestAlgorithm = "RS384"
 	CreateOAuth2JWTRequestAlgorithmRS512 CreateOAuth2JWTRequestAlgorithm = "RS512"
@@ -6091,6 +6103,12 @@ func (e CreateOAuth2JWTRequestAlgorithm) Valid() bool {
 	case CreateOAuth2JWTRequestAlgorithmHS384:
 		return true
 	case CreateOAuth2JWTRequestAlgorithmHS512:
+		return true
+	case CreateOAuth2JWTRequestAlgorithmPS256:
+		return true
+	case CreateOAuth2JWTRequestAlgorithmPS384:
+		return true
+	case CreateOAuth2JWTRequestAlgorithmPS512:
 		return true
 	case CreateOAuth2JWTRequestAlgorithmRS256:
 		return true
@@ -6112,6 +6130,24 @@ const (
 func (e CreateOAuth2JWTRequestAuthType) Valid() bool {
 	switch e {
 	case CreateOAuth2JWTRequestAuthTypeOauth2Jwt:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreateOAuth2JWTRequestJwtUsage.
+const (
+	CreateOAuth2JWTRequestJwtUsageAuthorizationGrant   CreateOAuth2JWTRequestJwtUsage = "authorization_grant"
+	CreateOAuth2JWTRequestJwtUsageClientAuthentication CreateOAuth2JWTRequestJwtUsage = "client_authentication"
+)
+
+// Valid indicates whether the value is a known member of the CreateOAuth2JWTRequestJwtUsage enum.
+func (e CreateOAuth2JWTRequestJwtUsage) Valid() bool {
+	switch e {
+	case CreateOAuth2JWTRequestJwtUsageAuthorizationGrant:
+		return true
+	case CreateOAuth2JWTRequestJwtUsageClientAuthentication:
 		return true
 	default:
 		return false
@@ -6156,6 +6192,9 @@ const (
 	CreatePrivateKeyJWTRequestAlgorithmHS256 CreatePrivateKeyJWTRequestAlgorithm = "HS256"
 	CreatePrivateKeyJWTRequestAlgorithmHS384 CreatePrivateKeyJWTRequestAlgorithm = "HS384"
 	CreatePrivateKeyJWTRequestAlgorithmHS512 CreatePrivateKeyJWTRequestAlgorithm = "HS512"
+	CreatePrivateKeyJWTRequestAlgorithmPS256 CreatePrivateKeyJWTRequestAlgorithm = "PS256"
+	CreatePrivateKeyJWTRequestAlgorithmPS384 CreatePrivateKeyJWTRequestAlgorithm = "PS384"
+	CreatePrivateKeyJWTRequestAlgorithmPS512 CreatePrivateKeyJWTRequestAlgorithm = "PS512"
 	CreatePrivateKeyJWTRequestAlgorithmRS256 CreatePrivateKeyJWTRequestAlgorithm = "RS256"
 	CreatePrivateKeyJWTRequestAlgorithmRS384 CreatePrivateKeyJWTRequestAlgorithm = "RS384"
 	CreatePrivateKeyJWTRequestAlgorithmRS512 CreatePrivateKeyJWTRequestAlgorithm = "RS512"
@@ -6169,6 +6208,12 @@ func (e CreatePrivateKeyJWTRequestAlgorithm) Valid() bool {
 	case CreatePrivateKeyJWTRequestAlgorithmHS384:
 		return true
 	case CreatePrivateKeyJWTRequestAlgorithmHS512:
+		return true
+	case CreatePrivateKeyJWTRequestAlgorithmPS256:
+		return true
+	case CreatePrivateKeyJWTRequestAlgorithmPS384:
+		return true
+	case CreatePrivateKeyJWTRequestAlgorithmPS512:
 		return true
 	case CreatePrivateKeyJWTRequestAlgorithmRS256:
 		return true
@@ -11997,6 +12042,9 @@ const (
 	OAuth2JWTResponseAlgorithmHS256 OAuth2JWTResponseAlgorithm = "HS256"
 	OAuth2JWTResponseAlgorithmHS384 OAuth2JWTResponseAlgorithm = "HS384"
 	OAuth2JWTResponseAlgorithmHS512 OAuth2JWTResponseAlgorithm = "HS512"
+	OAuth2JWTResponseAlgorithmPS256 OAuth2JWTResponseAlgorithm = "PS256"
+	OAuth2JWTResponseAlgorithmPS384 OAuth2JWTResponseAlgorithm = "PS384"
+	OAuth2JWTResponseAlgorithmPS512 OAuth2JWTResponseAlgorithm = "PS512"
 	OAuth2JWTResponseAlgorithmRS256 OAuth2JWTResponseAlgorithm = "RS256"
 	OAuth2JWTResponseAlgorithmRS384 OAuth2JWTResponseAlgorithm = "RS384"
 	OAuth2JWTResponseAlgorithmRS512 OAuth2JWTResponseAlgorithm = "RS512"
@@ -12010,6 +12058,12 @@ func (e OAuth2JWTResponseAlgorithm) Valid() bool {
 	case OAuth2JWTResponseAlgorithmHS384:
 		return true
 	case OAuth2JWTResponseAlgorithmHS512:
+		return true
+	case OAuth2JWTResponseAlgorithmPS256:
+		return true
+	case OAuth2JWTResponseAlgorithmPS384:
+		return true
+	case OAuth2JWTResponseAlgorithmPS512:
 		return true
 	case OAuth2JWTResponseAlgorithmRS256:
 		return true
@@ -12031,6 +12085,24 @@ const (
 func (e OAuth2JWTResponseAuthType) Valid() bool {
 	switch e {
 	case OAuth2JWTResponseAuthTypeOauth2Jwt:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OAuth2JWTResponseJwtUsage.
+const (
+	OAuth2JWTResponseJwtUsageAuthorizationGrant   OAuth2JWTResponseJwtUsage = "authorization_grant"
+	OAuth2JWTResponseJwtUsageClientAuthentication OAuth2JWTResponseJwtUsage = "client_authentication"
+)
+
+// Valid indicates whether the value is a known member of the OAuth2JWTResponseJwtUsage enum.
+func (e OAuth2JWTResponseJwtUsage) Valid() bool {
+	switch e {
+	case OAuth2JWTResponseJwtUsageAuthorizationGrant:
+		return true
+	case OAuth2JWTResponseJwtUsageClientAuthentication:
 		return true
 	default:
 		return false
@@ -12904,6 +12976,21 @@ func (e PhoneNumberTransferDestinationType) Valid() bool {
 	}
 }
 
+// Defines values for PlainPlatformMetadataConversationInitiationSource.
+const (
+	PlainPlatformMetadataConversationInitiationSourcePlainIntegration PlainPlatformMetadataConversationInitiationSource = "plain_integration"
+)
+
+// Valid indicates whether the value is a known member of the PlainPlatformMetadataConversationInitiationSource enum.
+func (e PlainPlatformMetadataConversationInitiationSource) Valid() bool {
+	switch e {
+	case PlainPlatformMetadataConversationInitiationSourcePlainIntegration:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for PlayDTMFResultErrorModelResultType.
 const (
 	PlayDTMFResultErrorModelResultTypePlayDtmfError PlayDTMFResultErrorModelResultType = "play_dtmf_error"
@@ -13143,6 +13230,9 @@ const (
 	PrivateKeyJWTResponseAlgorithmHS256 PrivateKeyJWTResponseAlgorithm = "HS256"
 	PrivateKeyJWTResponseAlgorithmHS384 PrivateKeyJWTResponseAlgorithm = "HS384"
 	PrivateKeyJWTResponseAlgorithmHS512 PrivateKeyJWTResponseAlgorithm = "HS512"
+	PrivateKeyJWTResponseAlgorithmPS256 PrivateKeyJWTResponseAlgorithm = "PS256"
+	PrivateKeyJWTResponseAlgorithmPS384 PrivateKeyJWTResponseAlgorithm = "PS384"
+	PrivateKeyJWTResponseAlgorithmPS512 PrivateKeyJWTResponseAlgorithm = "PS512"
 	PrivateKeyJWTResponseAlgorithmRS256 PrivateKeyJWTResponseAlgorithm = "RS256"
 	PrivateKeyJWTResponseAlgorithmRS384 PrivateKeyJWTResponseAlgorithm = "RS384"
 	PrivateKeyJWTResponseAlgorithmRS512 PrivateKeyJWTResponseAlgorithm = "RS512"
@@ -13156,6 +13246,12 @@ func (e PrivateKeyJWTResponseAlgorithm) Valid() bool {
 	case PrivateKeyJWTResponseAlgorithmHS384:
 		return true
 	case PrivateKeyJWTResponseAlgorithmHS512:
+		return true
+	case PrivateKeyJWTResponseAlgorithmPS256:
+		return true
+	case PrivateKeyJWTResponseAlgorithmPS384:
+		return true
+	case PrivateKeyJWTResponseAlgorithmPS512:
 		return true
 	case PrivateKeyJWTResponseAlgorithmRS256:
 		return true
@@ -17982,6 +18078,9 @@ const (
 	UpdateOAuth2JWTRequestAlgorithmHS256 UpdateOAuth2JWTRequestAlgorithm = "HS256"
 	UpdateOAuth2JWTRequestAlgorithmHS384 UpdateOAuth2JWTRequestAlgorithm = "HS384"
 	UpdateOAuth2JWTRequestAlgorithmHS512 UpdateOAuth2JWTRequestAlgorithm = "HS512"
+	UpdateOAuth2JWTRequestAlgorithmPS256 UpdateOAuth2JWTRequestAlgorithm = "PS256"
+	UpdateOAuth2JWTRequestAlgorithmPS384 UpdateOAuth2JWTRequestAlgorithm = "PS384"
+	UpdateOAuth2JWTRequestAlgorithmPS512 UpdateOAuth2JWTRequestAlgorithm = "PS512"
 	UpdateOAuth2JWTRequestAlgorithmRS256 UpdateOAuth2JWTRequestAlgorithm = "RS256"
 	UpdateOAuth2JWTRequestAlgorithmRS384 UpdateOAuth2JWTRequestAlgorithm = "RS384"
 	UpdateOAuth2JWTRequestAlgorithmRS512 UpdateOAuth2JWTRequestAlgorithm = "RS512"
@@ -17995,6 +18094,12 @@ func (e UpdateOAuth2JWTRequestAlgorithm) Valid() bool {
 	case UpdateOAuth2JWTRequestAlgorithmHS384:
 		return true
 	case UpdateOAuth2JWTRequestAlgorithmHS512:
+		return true
+	case UpdateOAuth2JWTRequestAlgorithmPS256:
+		return true
+	case UpdateOAuth2JWTRequestAlgorithmPS384:
+		return true
+	case UpdateOAuth2JWTRequestAlgorithmPS512:
 		return true
 	case UpdateOAuth2JWTRequestAlgorithmRS256:
 		return true
@@ -18016,6 +18121,24 @@ const (
 func (e UpdateOAuth2JWTRequestAuthType) Valid() bool {
 	switch e {
 	case UpdateOAuth2JWTRequestAuthTypeOauth2Jwt:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for UpdateOAuth2JWTRequestJwtUsage.
+const (
+	UpdateOAuth2JWTRequestJwtUsageAuthorizationGrant   UpdateOAuth2JWTRequestJwtUsage = "authorization_grant"
+	UpdateOAuth2JWTRequestJwtUsageClientAuthentication UpdateOAuth2JWTRequestJwtUsage = "client_authentication"
+)
+
+// Valid indicates whether the value is a known member of the UpdateOAuth2JWTRequestJwtUsage enum.
+func (e UpdateOAuth2JWTRequestJwtUsage) Valid() bool {
+	switch e {
+	case UpdateOAuth2JWTRequestJwtUsageAuthorizationGrant:
+		return true
+	case UpdateOAuth2JWTRequestJwtUsageClientAuthentication:
 		return true
 	default:
 		return false
@@ -20362,6 +20485,21 @@ func (e WorkspaceWebhookEventType) Valid() bool {
 	case WorkspaceWebhookEventTypeSpeechToText:
 		return true
 	case WorkspaceWebhookEventTypeVoiceLibraryRemovalNotice:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ZendeskPlatformMetadataConversationInitiationSource.
+const (
+	ZendeskPlatformMetadataConversationInitiationSourceZendeskIntegration ZendeskPlatformMetadataConversationInitiationSource = "zendesk_integration"
+)
+
+// Valid indicates whether the value is a known member of the ZendeskPlatformMetadataConversationInitiationSource enum.
+func (e ZendeskPlatformMetadataConversationInitiationSource) Valid() bool {
+	switch e {
+	case ZendeskPlatformMetadataConversationInitiationSourceZendeskIntegration:
 		return true
 	default:
 		return false
@@ -23960,9 +24098,13 @@ type AsyncConversationMetadata struct {
 	ExternalId                     string                                  `json:"external_id"`
 	ExternalLink                   *string                                 `json:"external_link,omitempty"`
 	ExternalSystem                 string                                  `json:"external_system"`
+	IntegrationTriggerId           *string                                 `json:"integration_trigger_id,omitempty"`
 	LastProcessedExternalMessageId *string                                 `json:"last_processed_external_message_id,omitempty"`
 	LastRetryTimestamp             *int                                    `json:"last_retry_timestamp,omitempty"`
-	RetryCount                     *int                                    `json:"retry_count,omitempty"`
+	PlatformMetadata               *struct {
+		union json.RawMessage
+	} `json:"platform_metadata,omitempty"`
+	RetryCount *int `json:"retry_count,omitempty"`
 }
 
 // AsyncConversationMetadataDeliveryStatus defines model for AsyncConversationMetadata.DeliveryStatus.
@@ -29192,11 +29334,17 @@ type ConversationChargingCommonModel struct {
 	FreeLlmDollarsConsumed *float32                   `json:"free_llm_dollars_consumed,omitempty"`
 	FreeMinutesConsumed    *float32                   `json:"free_minutes_consumed,omitempty"`
 	IsBurst                *bool                      `json:"is_burst,omitempty"`
-	LlmCharge              *int                       `json:"llm_charge,omitempty"`
-	LlmPrice               *float32                   `json:"llm_price,omitempty"`
-	LlmUsage               *LLMCategoryUsage          `json:"llm_usage,omitempty"`
-	PlatformCharge         *int                       `json:"platform_charge,omitempty"`
-	PlatformPrice          *float32                   `json:"platform_price,omitempty"`
+
+	// LlmCharge Credits charged for LLM usage.
+	LlmCharge *int `json:"llm_charge,omitempty"`
+
+	// LlmPrice Total LLM price in USD. Equals the sum of the prices in `llm_usage.initiated_generation`.
+	LlmPrice *float32 `json:"llm_price,omitempty"`
+
+	// LlmUsage Per-model LLM token usage and USD price for the conversation.
+	LlmUsage       *LLMCategoryUsage `json:"llm_usage,omitempty"`
+	PlatformCharge *int              `json:"platform_charge,omitempty"`
+	PlatformPrice  *float32          `json:"platform_price,omitempty"`
 
 	// PlatformUsage Per-category breakdown of ``platform_charge`` (the analogue of ``llm_usage``).
 	PlatformUsage *PlatformUsage             `json:"platform_usage,omitempty"`
@@ -30699,11 +30847,17 @@ type CreateOAuth2JWTRequest struct {
 	// ExpirationSeconds Token expiration time in seconds
 	ExpirationSeconds *int `json:"expiration_seconds,omitempty"`
 
+	// ExtraHeaders Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+	ExtraHeaders *map[string]string `json:"extra_headers,omitempty"`
+
 	// ExtraParams Additional custom claims to include in the JWT
 	ExtraParams *map[string]string `json:"extra_params,omitempty"`
 
 	// Issuer JWT issuer (iss claim)
 	Issuer string `json:"issuer"`
+
+	// JwtUsage How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.
+	JwtUsage *CreateOAuth2JWTRequestJwtUsage `json:"jwt_usage,omitempty"`
 
 	// KeyId Key ID (kid) for JWT header - useful for key rotation
 	KeyId    *string `json:"key_id,omitempty"`
@@ -30729,6 +30883,9 @@ type CreateOAuth2JWTRequestAlgorithm string
 
 // CreateOAuth2JWTRequestAuthType defines model for CreateOAuth2JWTRequest.AuthType.
 type CreateOAuth2JWTRequestAuthType string
+
+// CreateOAuth2JWTRequestJwtUsage How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.
+type CreateOAuth2JWTRequestJwtUsage string
 
 // CreateOAuth2JWTRequestTokenResponseField Token field to extract from the token endpoint response.
 type CreateOAuth2JWTRequestTokenResponseField string
@@ -30785,6 +30942,9 @@ type CreatePrivateKeyJWTRequest struct {
 
 	// ExpirationSeconds Token expiration time in seconds
 	ExpirationSeconds *int `json:"expiration_seconds,omitempty"`
+
+	// ExtraHeaders Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+	ExtraHeaders *map[string]string `json:"extra_headers,omitempty"`
 
 	// ExtraParams Additional custom claims to include in the JWT
 	ExtraParams *map[string]string `json:"extra_params,omitempty"`
@@ -35742,9 +35902,12 @@ type LLMArrayJsonSchemaPropertyOutput_Items struct {
 // LLMArrayJsonSchemaPropertyOutputType defines model for LLMArrayJsonSchemaPropertyOutput.Type.
 type LLMArrayJsonSchemaPropertyOutputType string
 
-// LLMCategoryUsage defines model for LLMCategoryUsage.
+// LLMCategoryUsage LLM usage of a conversation, split by whether the generated response reached the user.
 type LLMCategoryUsage struct {
-	InitiatedGeneration    *LLMUsageOutput `json:"initiated_generation,omitempty"`
+	// InitiatedGeneration Usage of every LLM call made during the conversation: turns the user heard, turns the user interrupted, and speculative turns that were started and dropped before any audio was sent. LLM charges are based on this block; its prices sum to `llm_price`. Always greater than or equal to `irreversible_generation`.
+	InitiatedGeneration *LLMUsageOutput `json:"initiated_generation,omitempty"`
+
+	// IrreversibleGeneration Subset of `initiated_generation`: usage of agent turns whose audio had started playing to the user, whether the turn then completed or was interrupted. A turn the user interrupted while the LLM was still generating, or that was cut off by the call ending, can be missing here even if part of it was heard. Informational; LLM charges are based on `initiated_generation`.
 	IrreversibleGeneration *LLMUsageOutput `json:"irreversible_generation,omitempty"`
 }
 
@@ -35831,10 +35994,17 @@ type LLMInfoModel struct {
 
 // LLMInputOutputTokensUsage defines model for LLMInputOutputTokensUsage.
 type LLMInputOutputTokensUsage struct {
-	Input           *LLMTokensCategoryUsage `json:"input,omitempty"`
-	InputCacheRead  *LLMTokensCategoryUsage `json:"input_cache_read,omitempty"`
+	// Input Input (prompt) tokens not served from the prompt cache.
+	Input *LLMTokensCategoryUsage `json:"input,omitempty"`
+
+	// InputCacheRead Input tokens read from the prompt cache.
+	InputCacheRead *LLMTokensCategoryUsage `json:"input_cache_read,omitempty"`
+
+	// InputCacheWrite Input tokens written to the prompt cache.
 	InputCacheWrite *LLMTokensCategoryUsage `json:"input_cache_write,omitempty"`
-	OutputTotal     *LLMTokensCategoryUsage `json:"output_total,omitempty"`
+
+	// OutputTotal Output (completion) tokens.
+	OutputTotal *LLMTokensCategoryUsage `json:"output_total,omitempty"`
 }
 
 // LLMListResponseModel defines model for LLMListResponseModel.
@@ -35931,17 +36101,22 @@ type LLMServiceTier string
 
 // LLMTokensCategoryUsage defines model for LLMTokensCategoryUsage.
 type LLMTokensCategoryUsage struct {
-	Price  *float32 `json:"price,omitempty"`
-	Tokens *int     `json:"tokens,omitempty"`
+	// Price Price of these tokens in USD.
+	Price *float32 `json:"price,omitempty"`
+
+	// Tokens Number of tokens in this category.
+	Tokens *int `json:"tokens,omitempty"`
 }
 
 // LLMUsageInput defines model for LLMUsage-Input.
 type LLMUsageInput struct {
+	// ModelUsage Token usage and USD price per LLM, keyed by model ID and broken down by token category.
 	ModelUsage *map[string]LLMInputOutputTokensUsage `json:"model_usage,omitempty"`
 }
 
 // LLMUsageOutput defines model for LLMUsage-Output.
 type LLMUsageOutput struct {
+	// ModelUsage Token usage and USD price per LLM, keyed by model ID and broken down by token category.
 	ModelUsage *map[string]LLMInputOutputTokensUsage `json:"model_usage,omitempty"`
 }
 
@@ -37923,12 +38098,18 @@ type OAuth2JWTResponse struct {
 	// ExpirationSeconds Token expiration time in seconds
 	ExpirationSeconds *int `json:"expiration_seconds,omitempty"`
 
+	// ExtraHeaders Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+	ExtraHeaders *map[string]string `json:"extra_headers,omitempty"`
+
 	// ExtraParams Additional custom claims to include in the JWT
 	ExtraParams *map[string]string `json:"extra_params,omitempty"`
 	Id          string             `json:"id"`
 
 	// Issuer JWT issuer (iss claim)
 	Issuer string `json:"issuer"`
+
+	// JwtUsage How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.
+	JwtUsage *OAuth2JWTResponseJwtUsage `json:"jwt_usage,omitempty"`
 
 	// KeyId Key ID (kid) for JWT header - useful for key rotation
 	KeyId    *string `json:"key_id,omitempty"`
@@ -37964,6 +38145,9 @@ type OAuth2JWTResponseAlgorithm string
 
 // OAuth2JWTResponseAuthType defines model for OAuth2JWTResponse.AuthType.
 type OAuth2JWTResponseAuthType string
+
+// OAuth2JWTResponseJwtUsage How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.
+type OAuth2JWTResponseJwtUsage string
 
 // OAuth2JWTResponseTokenResponseField Token field to extract from the token endpoint response.
 type OAuth2JWTResponseTokenResponseField string
@@ -38076,6 +38260,7 @@ type OpenAIAudioInputConfigOutput struct {
 
 // OpenAIAudioInputFormat defines model for OpenAIAudioInputFormat.
 type OpenAIAudioInputFormat struct {
+	// Rate Sample rate in Hz of `audio/pcm` input. Only 24000 is supported; G.711 formats are always 8000 and ignore this field.
 	Rate *int         `json:"rate,omitempty"`
 	Type *AudioFormat `json:"type,omitempty"`
 }
@@ -38793,6 +38978,16 @@ type PhoneNumberTransferDestination struct {
 // PhoneNumberTransferDestinationType defines model for PhoneNumberTransferDestination.Type.
 type PhoneNumberTransferDestinationType string
 
+// PlainPlatformMetadata defines model for PlainPlatformMetadata.
+type PlainPlatformMetadata struct {
+	ConversationInitiationSource *PlainPlatformMetadataConversationInitiationSource `json:"conversation_initiation_source,omitempty"`
+	ThreadId                     string                                             `json:"thread_id"`
+	WorkspaceId                  string                                             `json:"workspace_id"`
+}
+
+// PlainPlatformMetadataConversationInitiationSource defines model for PlainPlatformMetadata.ConversationInitiationSource.
+type PlainPlatformMetadataConversationInitiationSource string
+
 // PlatformCategoryUsage Accumulated charge for a single :class:`PlatformCategory`.
 type PlatformCategoryUsage struct {
 	Credits  *int     `json:"credits,omitempty"`
@@ -39101,6 +39296,9 @@ type PrivateKeyJWTResponse struct {
 
 	// ExpirationSeconds Token expiration time in seconds
 	ExpirationSeconds *int `json:"expiration_seconds,omitempty"`
+
+	// ExtraHeaders Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+	ExtraHeaders *map[string]string `json:"extra_headers,omitempty"`
 
 	// ExtraParams Additional custom claims to include in the JWT
 	ExtraParams *map[string]string `json:"extra_params,omitempty"`
@@ -39988,6 +40186,9 @@ type PromptAgentAPIModelOverrideInput struct {
 	// Prompt The prompt for the agent
 	Prompt *string `json:"prompt,omitempty"`
 
+	// ReasoningEffort Reasoning effort of the model. Only available for some models.
+	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
+
 	// ToolIds A list of IDs of tools used by the agent
 	ToolIds *[]string `json:"tool_ids,omitempty"`
 
@@ -40009,6 +40210,9 @@ type PromptAgentAPIModelOverrideOutput struct {
 	// Prompt The prompt for the agent
 	Prompt *string `json:"prompt,omitempty"`
 
+	// ReasoningEffort Reasoning effort of the model. Only available for some models.
+	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
+
 	// ToolIds A list of IDs of tools used by the agent
 	ToolIds *[]string `json:"tool_ids,omitempty"`
 
@@ -40029,6 +40233,9 @@ type PromptAgentAPIModelOverrideConfig struct {
 
 	// Prompt Whether to allow overriding the prompt field.
 	Prompt *bool `json:"prompt,omitempty"`
+
+	// ReasoningEffort Whether to allow overriding the reasoning_effort field.
+	ReasoningEffort *bool `json:"reasoning_effort,omitempty"`
 
 	// ToolIds Whether to allow overriding the tool_ids field.
 	ToolIds *bool `json:"tool_ids,omitempty"`
@@ -45779,8 +45986,11 @@ type UnitTestRunResponseModel struct {
 	TestInvocationId string  `json:"test_invocation_id"`
 	TestName         *string `json:"test_name,omitempty"`
 	TestRunId        string  `json:"test_run_id"`
-	VersionId        *string `json:"version_id,omitempty"`
-	WorkflowNodeId   *string `json:"workflow_node_id,omitempty"`
+
+	// TriggeredGuardrails Guardrails observed during this run, including blocks before an agent response.
+	TriggeredGuardrails *[]TriggeredGuardrailCommonModel `json:"triggered_guardrails,omitempty"`
+	VersionId           *string                          `json:"version_id,omitempty"`
+	WorkflowNodeId      *string                          `json:"workflow_node_id,omitempty"`
 }
 
 // UnitTestSummaryResponseModel defines model for UnitTestSummaryResponseModel.
@@ -46032,6 +46242,17 @@ type UpdateLocationParams struct {
 // UpdateLocationParamsSmbToolType defines model for UpdateLocationParams.SmbToolType.
 type UpdateLocationParamsSmbToolType string
 
+// UpdateMemberUsageLimitRequestModel defines model for UpdateMemberUsageLimitRequestModel.
+type UpdateMemberUsageLimitRequestModel struct {
+	// UsageLimit Monthly credit usage limit for the member. Set to null to remove the limit.
+	UsageLimit *int `json:"usage_limit"`
+}
+
+// UpdateMemberUsageLimitResponseModel defines model for UpdateMemberUsageLimitResponseModel.
+type UpdateMemberUsageLimitResponseModel struct {
+	Status string `json:"status"`
+}
+
 // UpdateMusicFinetuneRequestModel defines model for UpdateMusicFinetuneRequestModel.
 type UpdateMusicFinetuneRequestModel struct {
 	// Name Updated name for the finetune.
@@ -46071,8 +46292,10 @@ type UpdateOAuth2JWTRequest struct {
 	Audience           *string                                   `json:"audience,omitempty"`
 	AuthType           *UpdateOAuth2JWTRequestAuthType           `json:"auth_type,omitempty"`
 	ExpirationSeconds  *int                                      `json:"expiration_seconds,omitempty"`
+	ExtraHeaders       *map[string]string                        `json:"extra_headers,omitempty"`
 	ExtraParams        *map[string]string                        `json:"extra_params,omitempty"`
 	Issuer             *string                                   `json:"issuer,omitempty"`
+	JwtUsage           *UpdateOAuth2JWTRequestJwtUsage           `json:"jwt_usage,omitempty"`
 	KeyId              *string                                   `json:"key_id,omitempty"`
 	Provider           *string                                   `json:"provider,omitempty"`
 	Scopes             *[]string                                 `json:"scopes,omitempty"`
@@ -46086,6 +46309,9 @@ type UpdateOAuth2JWTRequestAlgorithm string
 
 // UpdateOAuth2JWTRequestAuthType defines model for UpdateOAuth2JWTRequest.AuthType.
 type UpdateOAuth2JWTRequestAuthType string
+
+// UpdateOAuth2JWTRequestJwtUsage defines model for UpdateOAuth2JWTRequest.JwtUsage.
+type UpdateOAuth2JWTRequestJwtUsage string
 
 // UpdateOAuth2JWTRequestTokenResponseField defines model for UpdateOAuth2JWTRequest.TokenResponseField.
 type UpdateOAuth2JWTRequestTokenResponseField string
@@ -49714,6 +49940,15 @@ type WorkspaceWebhookUsageResponseModel struct {
 	UsageType WebhookUsageType `json:"usage_type"`
 }
 
+// ZendeskPlatformMetadata defines model for ZendeskPlatformMetadata.
+type ZendeskPlatformMetadata struct {
+	ConversationInitiationSource *ZendeskPlatformMetadataConversationInitiationSource `json:"conversation_initiation_source,omitempty"`
+	TicketId                     string                                               `json:"ticket_id"`
+}
+
+// ZendeskPlatformMetadataConversationInitiationSource defines model for ZendeskPlatformMetadata.ConversationInitiationSource.
+type ZendeskPlatformMetadataConversationInitiationSource string
+
 // ListAssetsParams defines parameters for ListAssets.
 type ListAssetsParams struct {
 	// PageSize Number of assets to return.
@@ -50375,7 +50610,7 @@ type ListAgentConversationTicketsRouteParams struct {
 	// Priorities Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
 	Priorities *[]AgentConversationTicketPriority `form:"priorities,omitempty" json:"priorities,omitempty"`
 
-	// SortBy Order by most recently created, or by priority (most urgent first, then most recently created).
+	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).
 	SortBy *AgentConversationTicketSortBy `form:"sort_by,omitempty" json:"sort_by,omitempty"`
 
 	// OwnerUserId Filter tickets by creator. Use 'agent' for agent-raised tickets.
@@ -51942,7 +52177,7 @@ type ListWorkspaceConversationTicketsRouteParams struct {
 	// Priorities Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
 	Priorities *[]AgentConversationTicketPriority `form:"priorities,omitempty" json:"priorities,omitempty"`
 
-	// SortBy Order by most recently created, or by priority (most urgent first, then most recently created).
+	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).
 	SortBy *AgentConversationTicketSortBy `form:"sort_by,omitempty" json:"sort_by,omitempty"`
 
 	// OwnerUserId Filter tickets by creator. Use 'agent' for agent-raised tickets.
@@ -54671,6 +54906,12 @@ type UpdateWorkspaceMemberParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// UpdateWorkspaceMemberUsageLimitParams defines parameters for UpdateWorkspaceMemberUsageLimit.
+type UpdateWorkspaceMemberUsageLimitParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // GetResourceMetadataParams defines parameters for GetResourceMetadata.
 type GetResourceMetadataParams struct {
 	// ResourceType Resource type of the target resource.
@@ -55521,6 +55762,9 @@ type InviteUsersBulkJSONRequestBody = BodyInviteMultipleUsersV1WorkspaceInvitesA
 
 // UpdateWorkspaceMemberJSONRequestBody defines body for UpdateWorkspaceMember for application/json ContentType.
 type UpdateWorkspaceMemberJSONRequestBody = BodyUpdateMemberV1WorkspaceMembersPost
+
+// UpdateWorkspaceMemberUsageLimitJSONRequestBody defines body for UpdateWorkspaceMemberUsageLimit for application/json ContentType.
+type UpdateWorkspaceMemberUsageLimitJSONRequestBody = UpdateMemberUsageLimitRequestModel
 
 // ShareResourceEndpointJSONRequestBody defines body for ShareResourceEndpoint for application/json ContentType.
 type ShareResourceEndpointJSONRequestBody = BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost
@@ -93066,6 +93310,24 @@ type ClientInterface interface {
 	// Corresponds with POST /v1/workspace/members (the `UpdateWorkspaceMember` operationId).
 	UpdateWorkspaceMember(ctx context.Context, params *UpdateWorkspaceMemberParams, body UpdateWorkspaceMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// UpdateWorkspaceMemberUsageLimitWithBody Update Member Usage Limit
+	//
+	// Sets or clears the monthly credit usage limit of a workspace member or service account. This endpoint may only be called by workspace administrators.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/workspace/members/{user_id}/usage-limit (the `UpdateWorkspaceMemberUsageLimit` operationId).
+	UpdateWorkspaceMemberUsageLimitWithBody(ctx context.Context, userId string, params *UpdateWorkspaceMemberUsageLimitParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateWorkspaceMemberUsageLimit Update Member Usage Limit
+	//
+	// Sets or clears the monthly credit usage limit of a workspace member or service account. This endpoint may only be called by workspace administrators.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/workspace/members/{user_id}/usage-limit (the `UpdateWorkspaceMemberUsageLimit` operationId).
+	UpdateWorkspaceMemberUsageLimit(ctx context.Context, userId string, params *UpdateWorkspaceMemberUsageLimitParams, body UpdateWorkspaceMemberUsageLimitJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetResourceMetadata Get Resource
 	//
 	// Gets the metadata of a resource by ID.
@@ -106029,6 +106291,44 @@ func (c *Client) UpdateWorkspaceMemberWithBody(ctx context.Context, params *Upda
 // Corresponds with POST /v1/workspace/members (the `UpdateWorkspaceMember` operationId).
 func (c *Client) UpdateWorkspaceMember(ctx context.Context, params *UpdateWorkspaceMemberParams, body UpdateWorkspaceMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewUpdateWorkspaceMemberRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateWorkspaceMemberUsageLimitWithBody Update Member Usage Limit
+//
+// Sets or clears the monthly credit usage limit of a workspace member or service account. This endpoint may only be called by workspace administrators.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/workspace/members/{user_id}/usage-limit (the `UpdateWorkspaceMemberUsageLimit` operationId).
+func (c *Client) UpdateWorkspaceMemberUsageLimitWithBody(ctx context.Context, userId string, params *UpdateWorkspaceMemberUsageLimitParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateWorkspaceMemberUsageLimitRequestWithBody(c.Server, userId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateWorkspaceMemberUsageLimit Update Member Usage Limit
+//
+// Sets or clears the monthly credit usage limit of a workspace member or service account. This endpoint may only be called by workspace administrators.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/workspace/members/{user_id}/usage-limit (the `UpdateWorkspaceMemberUsageLimit` operationId).
+func (c *Client) UpdateWorkspaceMemberUsageLimit(ctx context.Context, userId string, params *UpdateWorkspaceMemberUsageLimitParams, body UpdateWorkspaceMemberUsageLimitJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateWorkspaceMemberUsageLimitRequest(c.Server, userId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -141398,6 +141698,68 @@ func NewUpdateWorkspaceMemberRequestWithBody(server string, params *UpdateWorksp
 	return req, nil
 }
 
+// NewUpdateWorkspaceMemberUsageLimitRequest calls the generic UpdateWorkspaceMemberUsageLimit builder with application/json body
+func NewUpdateWorkspaceMemberUsageLimitRequest(server string, userId string, params *UpdateWorkspaceMemberUsageLimitParams, body UpdateWorkspaceMemberUsageLimitJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateWorkspaceMemberUsageLimitRequestWithBody(server, userId, params, "application/json", bodyReader)
+}
+
+// NewUpdateWorkspaceMemberUsageLimitRequestWithBody constructs an http.Request for the UpdateWorkspaceMemberUsageLimit method, with any body, and a specified content type
+func NewUpdateWorkspaceMemberUsageLimitRequestWithBody(server string, userId string, params *UpdateWorkspaceMemberUsageLimitParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "user_id", userId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/workspace/members/%s/usage-limit", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewGetResourceMetadataRequest constructs an http.Request for the GetResourceMetadata method
 func NewGetResourceMetadataRequest(server string, resourceId string, params *GetResourceMetadataParams) (*http.Request, error) {
 	var err error
@@ -148705,6 +149067,24 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with POST /v1/workspace/members (the `UpdateWorkspaceMember` operationId).
 	UpdateWorkspaceMemberWithResponse(ctx context.Context, params *UpdateWorkspaceMemberParams, body UpdateWorkspaceMemberJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateWorkspaceMemberResponse, error)
+
+	// UpdateWorkspaceMemberUsageLimitWithBodyWithResponse Update Member Usage Limit
+	//
+	// Sets or clears the monthly credit usage limit of a workspace member or service account. This endpoint may only be called by workspace administrators.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/workspace/members/{user_id}/usage-limit (the `UpdateWorkspaceMemberUsageLimit` operationId).
+	UpdateWorkspaceMemberUsageLimitWithBodyWithResponse(ctx context.Context, userId string, params *UpdateWorkspaceMemberUsageLimitParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateWorkspaceMemberUsageLimitResponse, error)
+
+	// UpdateWorkspaceMemberUsageLimitWithResponse Update Member Usage Limit
+	//
+	// Sets or clears the monthly credit usage limit of a workspace member or service account. This endpoint may only be called by workspace administrators.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/workspace/members/{user_id}/usage-limit (the `UpdateWorkspaceMemberUsageLimit` operationId).
+	UpdateWorkspaceMemberUsageLimitWithResponse(ctx context.Context, userId string, params *UpdateWorkspaceMemberUsageLimitParams, body UpdateWorkspaceMemberUsageLimitJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateWorkspaceMemberUsageLimitResponse, error)
 
 	// GetResourceMetadataWithResponse Get Resource
 	//
@@ -172746,6 +173126,54 @@ func (r UpdateWorkspaceMemberResponse) ContentType() string {
 	return ""
 }
 
+type UpdateWorkspaceMemberUsageLimitResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *UpdateMemberUsageLimitResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r UpdateWorkspaceMemberUsageLimitResponse) GetJSON200() *UpdateMemberUsageLimitResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r UpdateWorkspaceMemberUsageLimitResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateWorkspaceMemberUsageLimitResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateWorkspaceMemberUsageLimitResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateWorkspaceMemberUsageLimitResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateWorkspaceMemberUsageLimitResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetResourceMetadataResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -183838,6 +184266,36 @@ func (c *ClientWithResponses) UpdateWorkspaceMemberWithResponse(ctx context.Cont
 		return nil, err
 	}
 	return ParseUpdateWorkspaceMemberResponse(rsp)
+}
+
+// UpdateWorkspaceMemberUsageLimitWithBodyWithResponse Update Member Usage Limit
+//
+// Sets or clears the monthly credit usage limit of a workspace member or service account. This endpoint may only be called by workspace administrators.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/workspace/members/{user_id}/usage-limit (the `UpdateWorkspaceMemberUsageLimit` operationId).
+func (c *ClientWithResponses) UpdateWorkspaceMemberUsageLimitWithBodyWithResponse(ctx context.Context, userId string, params *UpdateWorkspaceMemberUsageLimitParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateWorkspaceMemberUsageLimitResponse, error) {
+	rsp, err := c.UpdateWorkspaceMemberUsageLimitWithBody(ctx, userId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateWorkspaceMemberUsageLimitResponse(rsp)
+}
+
+// UpdateWorkspaceMemberUsageLimitWithResponse Update Member Usage Limit
+//
+// Sets or clears the monthly credit usage limit of a workspace member or service account. This endpoint may only be called by workspace administrators.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/workspace/members/{user_id}/usage-limit (the `UpdateWorkspaceMemberUsageLimit` operationId).
+func (c *ClientWithResponses) UpdateWorkspaceMemberUsageLimitWithResponse(ctx context.Context, userId string, params *UpdateWorkspaceMemberUsageLimitParams, body UpdateWorkspaceMemberUsageLimitJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateWorkspaceMemberUsageLimitResponse, error) {
+	rsp, err := c.UpdateWorkspaceMemberUsageLimit(ctx, userId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateWorkspaceMemberUsageLimitResponse(rsp)
 }
 
 // GetResourceMetadataWithResponse Get Resource
@@ -200587,6 +201045,39 @@ func ParseUpdateWorkspaceMemberResponse(rsp *http.Response) (*UpdateWorkspaceMem
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest UpdateWorkspaceMemberResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateWorkspaceMemberUsageLimitResponse parses an HTTP response from a UpdateWorkspaceMemberUsageLimitWithResponse call
+func ParseUpdateWorkspaceMemberUsageLimitResponse(rsp *http.Response) (*UpdateWorkspaceMemberUsageLimitResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateWorkspaceMemberUsageLimitResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest UpdateMemberUsageLimitResponseModel
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

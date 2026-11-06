@@ -2,6 +2,18 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.9.0, 2026-11-06
+
+- Breaking: `ClientInterface` gains `UpdateWorkspaceMemberUsageLimit` and `UpdateWorkspaceMemberUsageLimitWithBody`, and `ClientWithResponsesInterface` gains `UpdateWorkspaceMemberUsageLimitWithResponse` and `UpdateWorkspaceMemberUsageLimitWithBodyWithResponse`. Custom implementations or mocks of these interfaces must add the methods.
+- Adds `UpdateWorkspaceMemberUsageLimit` and `UpdateWorkspaceMemberUsageLimitWithBody` to `Client`, and the matching `WithResponse` methods to `ClientWithResponses`.
+- Adds `UpdateWorkspaceMemberUsageLimitParams`, `UpdateWorkspaceMemberUsageLimitJSONRequestBody`, `UpdateWorkspaceMemberUsageLimitResponse`, `UpdateMemberUsageLimitRequestModel`, `UpdateMemberUsageLimitResponseModel`, `NewUpdateWorkspaceMemberUsageLimitRequest`, `NewUpdateWorkspaceMemberUsageLimitRequestWithBody` and `ParseUpdateWorkspaceMemberUsageLimitResponse`.
+- Adds the `PlainPlatformMetadata` and `ZendeskPlatformMetadata` types with their `ConversationInitiationSource` enums, and the `IntegrationTriggerId` and `PlatformMetadata` fields on `AsyncConversationMetadata`.
+- Adds the `PS256`, `PS384` and `PS512` algorithm constants, for example `CreateOAuth2JWTRequestAlgorithmPS256`, to the OAuth2 JWT and private key JWT request and response types.
+- Adds `ExtraHeaders` to `CreateOAuth2JWTRequest`, `UpdateOAuth2JWTRequest`, `OAuth2JWTResponse`, `CreatePrivateKeyJWTRequest` and `PrivateKeyJWTResponse`, and `JwtUsage` to the OAuth2 JWT request and response types, with the `...JwtUsage` enum types (`AuthorizationGrant`, `ClientAuthentication`).
+- Adds `ReasoningEffort` to `PromptAgentAPIModelOverrideConfig`, `PromptAgentAPIModelOverrideInput` and `PromptAgentAPIModelOverrideOutput`, and `TriggeredGuardrails` to `UnitTestRunResponseModel`.
+- Adds the constants `AgentConversationTicketSortByLastReported`, `AgentDefinitionSourceMcp` and `AuditActivityNameArchitectMemberSpendLimitsUpdate`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.8.0, 2026-11-05
 
 - Restores the SMB (small business) API that v0.7.0 removed: the `Smb...` methods on `Client` and `ClientWithResponses` (for example `SmbGetAgentInfo`, `SmbListServices`, `SmbAddUrlSource`, `SmbAssignPhoneNumber`, `SmbListResellerInvoices`), their `...WithBody` and `...WithResponse` variants, and the `ParseSmb...Response` functions. The ElevenLabs spec has these endpoints again.
