@@ -14797,24 +14797,6 @@ func (e SMBLocationDeactivationReason) Valid() bool {
 	}
 }
 
-// Defines values for SMBPhoneAssignmentDBModelProvider.
-const (
-	SMBPhoneAssignmentDBModelProviderSipTrunk SMBPhoneAssignmentDBModelProvider = "sip_trunk"
-	SMBPhoneAssignmentDBModelProviderTwilio   SMBPhoneAssignmentDBModelProvider = "twilio"
-)
-
-// Valid indicates whether the value is a known member of the SMBPhoneAssignmentDBModelProvider enum.
-func (e SMBPhoneAssignmentDBModelProvider) Valid() bool {
-	switch e {
-	case SMBPhoneAssignmentDBModelProviderSipTrunk:
-		return true
-	case SMBPhoneAssignmentDBModelProviderTwilio:
-		return true
-	default:
-		return false
-	}
-}
-
 // Defines values for SMBPhoneAssignmentDeactivationReason.
 const (
 	SMBPhoneAssignmentDeactivationReasonNoEntitlement SMBPhoneAssignmentDeactivationReason = "no_entitlement"
@@ -14830,6 +14812,24 @@ func (e SMBPhoneAssignmentDeactivationReason) Valid() bool {
 	case SMBPhoneAssignmentDeactivationReasonTierDowngrade:
 		return true
 	case SMBPhoneAssignmentDeactivationReasonUser:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SMBPhoneProvider.
+const (
+	SMBPhoneProviderSipTrunk SMBPhoneProvider = "sip_trunk"
+	SMBPhoneProviderTwilio   SMBPhoneProvider = "twilio"
+)
+
+// Valid indicates whether the value is a known member of the SMBPhoneProvider enum.
+func (e SMBPhoneProvider) Valid() bool {
+	switch e {
+	case SMBPhoneProviderSipTrunk:
+		return true
+	case SMBPhoneProviderTwilio:
 		return true
 	default:
 		return false
@@ -22970,7 +22970,7 @@ type AgentKnowledgeBaseRagChunkResponseModel struct {
 	// ChunkId ID of the retrieved chunk.
 	ChunkId string `json:"chunk_id"`
 
-	// ContentFormat Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML.
+	// ContentFormat Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML. Keyword search always returns markdown, including the plain text it indexes for HTML documents.
 	ContentFormat ContentFormat `json:"content_format"`
 
 	// DocumentId ID of the source knowledge base document.
@@ -22992,18 +22992,71 @@ type AgentKnowledgeBaseRagChunkResponseModel struct {
 	VectorDistance *float32 `json:"vector_distance"`
 }
 
+// AgentKnowledgeBaseRagDocumentResponseModel defines model for AgentKnowledgeBaseRagDocumentResponseModel.
+type AgentKnowledgeBaseRagDocumentResponseModel struct {
+	// Content Content the agent would read, cut to the maximum documents length. Empty when the document has no extractable content.
+	Content string `json:"content"`
+
+	// ContentFormat Format of the document content.
+	ContentFormat ContentFormat `json:"content_format"`
+
+	// DocumentId ID of the knowledge base document.
+	DocumentId string `json:"document_id"`
+
+	// DocumentName Name of the knowledge base document.
+	DocumentName string `json:"document_name"`
+
+	// DocumentType Type of the knowledge base document.
+	DocumentType KnowledgeBaseDocumentType `json:"document_type"`
+
+	// SourceUrl Tracked source URL for URL documents, or null for other document types.
+	SourceUrl *string `json:"source_url"`
+
+	// Truncated Whether the content was cut to the maximum documents length.
+	Truncated bool `json:"truncated"`
+}
+
+// AgentKnowledgeBaseRagListingEntryResponseModel defines model for AgentKnowledgeBaseRagListingEntryResponseModel.
+type AgentKnowledgeBaseRagListingEntryResponseModel struct {
+	// Id ID of the document or folder.
+	Id string `json:"id"`
+
+	// IsFolder Whether the entry is a folder.
+	IsFolder bool `json:"is_folder"`
+
+	// Name Name of the document or folder.
+	Name string `json:"name"`
+}
+
+// AgentKnowledgeBaseRagListingResponseModel defines model for AgentKnowledgeBaseRagListingResponseModel.
+type AgentKnowledgeBaseRagListingResponseModel struct {
+	// Entries Entries the agent would be shown, folders first and then by name. Large folders are cut to the number of entries the agent is shown.
+	Entries []AgentKnowledgeBaseRagListingEntryResponseModel `json:"entries"`
+
+	// TotalCount Number of entries in the listed folder, including any not returned.
+	TotalCount int `json:"total_count"`
+}
+
 // AgentKnowledgeBaseRagQueryRequestModel defines model for AgentKnowledgeBaseRagQueryRequestModel.
 type AgentKnowledgeBaseRagQueryRequestModel struct {
+	// Documents IDs or names of knowledge base documents or folders. Semantic and keyword search only search these entries; cat reads the single document given; ls lists the single folder given, or the top level of the knowledge base when omitted.
+	//
+	// Examples: ["Account FAQ"]
+	Documents *[]string `json:"documents,omitempty"`
+
 	// MaxDocumentsLength Optional maximum total character length of document chunks returned. Overrides the selected RAG settings for this query only.
 	MaxDocumentsLength *int `json:"max_documents_length,omitempty"`
 
 	// MaxRetrievedRagChunksCount Optional maximum number of document chunks retrieved. Overrides the selected RAG settings for this query only.
 	MaxRetrievedRagChunksCount *int `json:"max_retrieved_rag_chunks_count,omitempty"`
 
-	// Query Query to run against the agent's knowledge base RAG index.
+	// Query Query to search the knowledge base for. Required for the semantic and keyword strategies.
 	//
 	// Examples: How do I reset my password?
-	Query string `json:"query"`
+	Query *string `json:"query,omitempty"`
+
+	// Strategy Retrieval strategy to run, as in the agent's knowledge_base tool: semantic or keyword search for a query, cat to read one document in full, or ls to list the entries of a folder. Any strategy runs, whether or not the agent has it enabled.
+	Strategy *SearchStrategy `json:"strategy,omitempty"`
 
 	// UseAgentDefaults When true (the default), retrieval uses the agent's own RAG settings, reproducing exactly what the agent would retrieve. Set to false to retrieve with neutral default RAG settings instead (the agent's embedding model is always kept, since it determines which vector index exists). Useful for auditing the knowledge base independently of how a particular agent is tuned.
 	UseAgentDefaults *bool `json:"use_agent_defaults,omitempty"`
@@ -23011,11 +23064,20 @@ type AgentKnowledgeBaseRagQueryRequestModel struct {
 
 // AgentKnowledgeBaseRagQueryResponseModel defines model for AgentKnowledgeBaseRagQueryResponseModel.
 type AgentKnowledgeBaseRagQueryResponseModel struct {
-	// Chunks Ranked chunks the agent would retrieve, after distance and length filtering.
+	// Chunks Ranked chunks the agent would retrieve with semantic or keyword search, after distance and length filtering. Empty for the cat and ls strategies.
 	Chunks []AgentKnowledgeBaseRagChunkResponseModel `json:"chunks"`
 
-	// RetrievalQuery Raw query used for retrieval (echoes the request query).
-	RetrievalQuery string `json:"retrieval_query"`
+	// Document Document read by the cat strategy, or null when the reference matched no document or another strategy ran.
+	Document *AgentKnowledgeBaseRagDocumentResponseModel `json:"document,omitempty"`
+
+	// Listing Entries listed by the ls strategy, or null when the reference matched nothing or another strategy ran.
+	Listing *AgentKnowledgeBaseRagListingResponseModel `json:"listing,omitempty"`
+
+	// RetrievalQuery Raw query used for retrieval (echoes the request query), or null for the cat and ls strategies.
+	RetrievalQuery *string `json:"retrieval_query"`
+
+	// Strategy Retrieval strategy that ran.
+	Strategy SearchStrategy `json:"strategy"`
 }
 
 // AgentMergeProposalResponse defines model for AgentMergeProposalResponse.
@@ -24071,7 +24133,7 @@ type AssignConversationTagsRequestModel struct {
 type AssignResellerTierRequest struct {
 	BillingPeriod *AssignResellerTierRequestBillingPeriod `json:"billing_period,omitempty"`
 
-	// IdempotencyKey Client-generated key so a retried request cannot create or apply the same subscription change twice.
+	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
 	IdempotencyKey *string `json:"idempotency_key,omitempty"`
 	TierId         string  `json:"tier_id"`
 }
@@ -24154,7 +24216,7 @@ type AttachedUserDataCollectionRef struct {
 	Scope  *AnalysisScope                      `json:"scope,omitempty"`
 	Source AttachedUserDataCollectionRefSource `json:"source"`
 
-	// VersionId Pinned item version. None tracks the item's latest published version.
+	// VersionId Pinned item version. 'latest' tracks the item's latest published version.
 	VersionId *string `json:"version_id,omitempty"`
 }
 
@@ -24173,7 +24235,7 @@ type AttachedUserEvaluationRef struct {
 	Scope  *AnalysisScope                  `json:"scope,omitempty"`
 	Source AttachedUserEvaluationRefSource `json:"source"`
 
-	// VersionId Primary item version whose result feeds scoring. None tracks the item's latest published version.
+	// VersionId Primary item version whose result feeds scoring. 'latest' tracks the item's latest published version.
 	VersionId *string `json:"version_id,omitempty"`
 
 	// Weight Optional relative weight for aggregate scoring.
@@ -28656,7 +28718,7 @@ type CaptionStyleWordAnimationModelExitType string
 type ChangeResellerTierRequest struct {
 	BillingPeriod *ChangeResellerTierRequestBillingPeriod `json:"billing_period,omitempty"`
 
-	// IdempotencyKey Client-generated key so a retried request cannot create or apply the same subscription change twice.
+	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
 	IdempotencyKey *string `json:"idempotency_key,omitempty"`
 	TierId         string  `json:"tier_id"`
 }
@@ -29786,6 +29848,7 @@ type ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOut
 type ConversationHistoryTranscriptCommonModelInput struct {
 	AgentMetadata           *AgentMetadata                                                    `json:"agent_metadata,omitempty"`
 	ConversationTurnMetrics *ConversationTurnMetrics                                          `json:"conversation_turn_metrics,omitempty"`
+	CreatedAtUnixMs         *int                                                              `json:"created_at_unix_ms,omitempty"`
 	Feedback                *UserFeedback                                                     `json:"feedback,omitempty"`
 	Id                      *string                                                           `json:"id,omitempty"`
 	IgnoredAsBackchannel    *bool                                                             `json:"ignored_as_backchannel,omitempty"`
@@ -29822,6 +29885,7 @@ type ConversationHistoryTranscriptCommonModelInput_ToolResults_Item struct {
 type ConversationHistoryTranscriptCommonModelOutput struct {
 	AgentMetadata           *AgentMetadata                                                     `json:"agent_metadata,omitempty"`
 	ConversationTurnMetrics *ConversationTurnMetrics                                           `json:"conversation_turn_metrics,omitempty"`
+	CreatedAtUnixMs         *int                                                               `json:"created_at_unix_ms,omitempty"`
 	Feedback                *UserFeedback                                                      `json:"feedback,omitempty"`
 	Id                      *string                                                            `json:"id,omitempty"`
 	IgnoredAsBackchannel    *bool                                                              `json:"ignored_as_backchannel,omitempty"`
@@ -29885,6 +29949,7 @@ type ConversationHistoryTranscriptResponseModel struct {
 	AgentMetadata           *AgentMetadata           `json:"agent_metadata,omitempty"`
 	ContextualUpdateInfo    *ContextualUpdateInfo    `json:"contextual_update_info,omitempty"`
 	ConversationTurnMetrics *ConversationTurnMetrics `json:"conversation_turn_metrics,omitempty"`
+	CreatedAtUnixMs         *int                     `json:"created_at_unix_ms,omitempty"`
 	Feedback                *UserFeedback            `json:"feedback,omitempty"`
 
 	// FileInput Deprecated: the first attachment on this turn. Use `file_inputs` to see every attachment.
@@ -30920,6 +30985,9 @@ type CreatePhoneAssignmentRequest struct {
 
 	// CustomerFacingAgentId The receptionist that answers calls to the number.
 	CustomerFacingAgentId string `json:"customer_facing_agent_id"`
+
+	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+	IdempotencyKey *string `json:"idempotency_key,omitempty"`
 
 	// NumberType Local or mobile, in a country that requires paperwork before a number takes calls. Leave unset to try mobile first. Ignored in the US and Canada.
 	NumberType *ApplicationNumberType `json:"number_type,omitempty"`
@@ -40588,6 +40656,9 @@ type ProvisionResellerWorkspaceRequest struct {
 	// CompleteOnboarding Finish setup right away, as `POST /v1/reception/reseller/workspaces/{workspace_id}/complete-onboarding` does. Best-effort: `onboarding_completed_at_unix` stays null on failure, and that call can be retried.
 	CompleteOnboarding *bool `json:"complete_onboarding,omitempty"`
 
+	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+	IdempotencyKey *string `json:"idempotency_key,omitempty"`
+
 	// Members People to invite once the workspace exists, capped by the tier's team size. Best-effort: each outcome is in `member_results`.
 	Members *[]TeamInviteRequest `json:"members,omitempty"`
 
@@ -42079,7 +42150,7 @@ type SMBPhoneAssignmentDBModel struct {
 	PhoneNumber *PhoneNumber `json:"phone_number,omitempty"`
 
 	// Provider Telephony provider for this phone number.
-	Provider *SMBPhoneAssignmentDBModelProvider `json:"provider,omitempty"`
+	Provider *SMBPhoneProvider `json:"provider,omitempty"`
 
 	// RegulatoryCountry ISO country the regulated number was issued in. Null for numbers that need no paperwork.
 	RegulatoryCountry *CountryCode `json:"regulatory_country,omitempty"`
@@ -42094,11 +42165,11 @@ type SMBPhoneAssignmentDBModel struct {
 	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
 }
 
-// SMBPhoneAssignmentDBModelProvider Telephony provider for this phone number.
-type SMBPhoneAssignmentDBModelProvider string
-
 // SMBPhoneAssignmentDeactivationReason Why a phone assignment is currently inactive.
 type SMBPhoneAssignmentDeactivationReason string
+
+// SMBPhoneProvider How calls to the number reach ElevenLabs: through Twilio or a SIP trunk.
+type SMBPhoneProvider string
 
 // SMBPhoneRegulatoryStatus Regulatory standing of a number in a country that requires paperwork.
 //
@@ -88064,7 +88135,7 @@ type ClientInterface interface {
 
 	// QueryAgentKnowledgeBaseRagRouteWithBody Query Agent Knowledge Base Rag
 	//
-	// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+	// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -88073,7 +88144,7 @@ type ClientInterface interface {
 
 	// QueryAgentKnowledgeBaseRagRoute Query Agent Knowledge Base Rag
 	//
-	// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+	// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -91534,7 +91605,7 @@ type ClientInterface interface {
 
 	// SmbAssignPhoneNumberWithBody Assign Phone Number
 	//
-	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk and none is free.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -91543,7 +91614,7 @@ type ClientInterface interface {
 
 	// SmbAssignPhoneNumber Assign Phone Number
 	//
-	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk and none is free.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -91552,14 +91623,14 @@ type ClientInterface interface {
 
 	// SmbReleasePhoneAssignment Release Phone Number
 	//
-	// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk.
 	//
 	// Corresponds with DELETE /v1/reception/phone-numbers/assignments/{phone_assignment_id} (the `SmbReleasePhoneAssignment` operationId).
 	SmbReleasePhoneAssignment(ctx context.Context, phoneAssignmentId string, params *SmbReleasePhoneAssignmentParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// SmbReassignPhoneToAgentWithBody Move Phone Number
 	//
-	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -91568,7 +91639,7 @@ type ClientInterface interface {
 
 	// SmbReassignPhoneToAgent Move Phone Number
 	//
-	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -94836,7 +94907,7 @@ func (c *Client) PostAgentHoldAudioRouteWithBody(ctx context.Context, agentId st
 
 // QueryAgentKnowledgeBaseRagRouteWithBody Query Agent Knowledge Base Rag
 //
-// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
 //
 // Takes any type of body and a specified content type.
 //
@@ -94855,7 +94926,7 @@ func (c *Client) QueryAgentKnowledgeBaseRagRouteWithBody(ctx context.Context, ag
 
 // QueryAgentKnowledgeBaseRagRoute Query Agent Knowledge Base Rag
 //
-// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -102388,7 +102459,7 @@ func (c *Client) SmbListWorkspacePhoneAssignments(ctx context.Context, params *S
 
 // SmbAssignPhoneNumberWithBody Assign Phone Number
 //
-// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk and none is free.
 //
 // Takes any type of body and a specified content type.
 //
@@ -102407,7 +102478,7 @@ func (c *Client) SmbAssignPhoneNumberWithBody(ctx context.Context, params *SmbAs
 
 // SmbAssignPhoneNumber Assign Phone Number
 //
-// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk and none is free.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -102426,7 +102497,7 @@ func (c *Client) SmbAssignPhoneNumber(ctx context.Context, params *SmbAssignPhon
 
 // SmbReleasePhoneAssignment Release Phone Number
 //
-// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk.
 //
 // Corresponds with DELETE /v1/reception/phone-numbers/assignments/{phone_assignment_id} (the `SmbReleasePhoneAssignment` operationId).
 func (c *Client) SmbReleasePhoneAssignment(ctx context.Context, phoneAssignmentId string, params *SmbReleasePhoneAssignmentParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -102443,7 +102514,7 @@ func (c *Client) SmbReleasePhoneAssignment(ctx context.Context, phoneAssignmentI
 
 // SmbReassignPhoneToAgentWithBody Move Phone Number
 //
-// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
 //
 // Takes any type of body and a specified content type.
 //
@@ -102462,7 +102533,7 @@ func (c *Client) SmbReassignPhoneToAgentWithBody(ctx context.Context, phoneAssig
 
 // SmbReassignPhoneToAgent Move Phone Number
 //
-// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
 //
 // Takes a body of the `application/json` content type.
 //
@@ -143336,7 +143407,7 @@ type ClientWithResponsesInterface interface {
 
 	// QueryAgentKnowledgeBaseRagRouteWithBodyWithResponse Query Agent Knowledge Base Rag
 	//
-	// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+	// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -143345,7 +143416,7 @@ type ClientWithResponsesInterface interface {
 
 	// QueryAgentKnowledgeBaseRagRouteWithResponse Query Agent Knowledge Base Rag
 	//
-	// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+	// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -147138,7 +147209,7 @@ type ClientWithResponsesInterface interface {
 
 	// SmbAssignPhoneNumberWithBodyWithResponse Assign Phone Number
 	//
-	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk and none is free.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -147147,7 +147218,7 @@ type ClientWithResponsesInterface interface {
 
 	// SmbAssignPhoneNumberWithResponse Assign Phone Number
 	//
-	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+	// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk and none is free.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -147156,7 +147227,7 @@ type ClientWithResponsesInterface interface {
 
 	// SmbReleasePhoneAssignmentWithResponse Release Phone Number
 	//
-	// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -147165,7 +147236,7 @@ type ClientWithResponsesInterface interface {
 
 	// SmbReassignPhoneToAgentWithBodyWithResponse Move Phone Number
 	//
-	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -147174,7 +147245,7 @@ type ClientWithResponsesInterface interface {
 
 	// SmbReassignPhoneToAgentWithResponse Move Phone Number
 	//
-	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+	// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -174794,7 +174865,7 @@ func (c *ClientWithResponses) PostAgentHoldAudioRouteWithBodyWithResponse(ctx co
 
 // QueryAgentKnowledgeBaseRagRouteWithBodyWithResponse Query Agent Knowledge Base Rag
 //
-// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -174809,7 +174880,7 @@ func (c *ClientWithResponses) QueryAgentKnowledgeBaseRagRouteWithBodyWithRespons
 
 // QueryAgentKnowledgeBaseRagRouteWithResponse Query Agent Knowledge Base Rag
 //
-// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -181055,7 +181126,7 @@ func (c *ClientWithResponses) SmbListWorkspacePhoneAssignmentsWithResponse(ctx c
 
 // SmbAssignPhoneNumberWithBodyWithResponse Assign Phone Number
 //
-// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk and none is free.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -181070,7 +181141,7 @@ func (c *ClientWithResponses) SmbAssignPhoneNumberWithBodyWithResponse(ctx conte
 
 // SmbAssignPhoneNumberWithResponse Assign Phone Number
 //
-// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.
+// Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk and none is free.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -181085,7 +181156,7 @@ func (c *ClientWithResponses) SmbAssignPhoneNumberWithResponse(ctx context.Conte
 
 // SmbReleasePhoneAssignmentWithResponse Release Phone Number
 //
-// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -181100,7 +181171,7 @@ func (c *ClientWithResponses) SmbReleasePhoneAssignmentWithResponse(ctx context.
 
 // SmbReassignPhoneToAgentWithBodyWithResponse Move Phone Number
 //
-// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -181115,7 +181186,7 @@ func (c *ClientWithResponses) SmbReassignPhoneToAgentWithBodyWithResponse(ctx co
 
 // SmbReassignPhoneToAgentWithResponse Move Phone Number
 //
-// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //

@@ -2,6 +2,16 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.10.0, 2026-11-07
+
+- Breaking: `AgentKnowledgeBaseRagQueryRequestModel.Query` changes from `string` to `*string`, and `AgentKnowledgeBaseRagQueryResponseModel.RetrievalQuery` changes from `string` to `*string`. Callers must change their code.
+- Breaking: removes the `SMBPhoneAssignmentDBModelProvider` type and its constants `SMBPhoneAssignmentDBModelProviderSipTrunk` and `SMBPhoneAssignmentDBModelProviderTwilio`. Use the new `SMBPhoneProvider` type with `SMBPhoneProviderSipTrunk` and `SMBPhoneProviderTwilio`. The `Provider` field on `SMBPhoneAssignmentDBModel` now has type `*SMBPhoneProvider`.
+- Adds `Documents` and `Strategy` (`*SearchStrategy`) to `AgentKnowledgeBaseRagQueryRequestModel`, and `Document`, `Listing` and `Strategy` to `AgentKnowledgeBaseRagQueryResponseModel`.
+- Adds the types `AgentKnowledgeBaseRagDocumentResponseModel`, `AgentKnowledgeBaseRagListingEntryResponseModel` and `AgentKnowledgeBaseRagListingResponseModel`.
+- Adds `CreatedAtUnixMs` to `ConversationHistoryTranscriptCommonModelInput`, `ConversationHistoryTranscriptCommonModelOutput` and `ConversationHistoryTranscriptResponseModel`.
+- Adds `IdempotencyKey` to `CreatePhoneAssignmentRequest` and `ProvisionResellerWorkspaceRequest`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.9.0, 2026-11-06
 
 - Breaking: `ClientInterface` gains `UpdateWorkspaceMemberUsageLimit` and `UpdateWorkspaceMemberUsageLimitWithBody`, and `ClientWithResponsesInterface` gains `UpdateWorkspaceMemberUsageLimitWithResponse` and `UpdateWorkspaceMemberUsageLimitWithBodyWithResponse`. Custom implementations or mocks of these interfaces must add the methods.
