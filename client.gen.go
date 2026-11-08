@@ -41524,6 +41524,12 @@ type RunAgentTestsRequestModel struct {
 
 // RunConversationEvaluationsRequest defines model for RunConversationEvaluationsRequest.
 type RunConversationEvaluationsRequest struct {
+	// EvaluatedAgentId ID of the agent whose evaluation result to rerun, for conversations that transferred between agents. If omitted, a conversation-scoped evaluation reruns for the agent that started the conversation.
+	EvaluatedAgentId *string `json:"evaluated_agent_id,omitempty"`
+
+	// EvaluatedBranchId Branch of `evaluated_agent_id` whose evaluation result to rerun, for conversations that visited the agent on more than one branch. If omitted, the result reruns for every branch of that agent.
+	EvaluatedBranchId *string `json:"evaluated_branch_id,omitempty"`
+
 	// EvaluationId ID of the single evaluation criterion to rerun.
 	EvaluationId string         `json:"evaluation_id"`
 	Scope        *AnalysisScope `json:"scope,omitempty"`

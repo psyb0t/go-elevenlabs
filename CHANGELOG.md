@@ -2,6 +2,11 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.10.1, 2026-11-08
+
+- Adds the optional `EvaluatedAgentId` and `EvaluatedBranchId` fields (`*string`) to `RunConversationEvaluationsRequest`. `EvaluatedAgentId` picks the agent whose evaluation result to rerun when a conversation transferred between agents. `EvaluatedBranchId` picks the branch of that agent.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.10.0, 2026-11-07
 
 - Breaking: `AgentKnowledgeBaseRagQueryRequestModel.Query` changes from `string` to `*string`, and `AgentKnowledgeBaseRagQueryResponseModel.RetrievalQuery` changes from `string` to `*string`. Callers must change their code.
