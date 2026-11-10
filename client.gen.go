@@ -1678,6 +1678,27 @@ func (e AttachedUserEvaluationRefSource) Valid() bool {
 	}
 }
 
+// Defines values for AttentionStatus.
+const (
+	AttentionStatusOpen     AttentionStatus = "open"
+	AttentionStatusResolved AttentionStatus = "resolved"
+	AttentionStatusRetrying AttentionStatus = "retrying"
+)
+
+// Valid indicates whether the value is a known member of the AttentionStatus enum.
+func (e AttentionStatus) Valid() bool {
+	switch e {
+	case AttentionStatusOpen:
+		return true
+	case AttentionStatusResolved:
+		return true
+	case AttentionStatusRetrying:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AudioAnalysisStatus.
 const (
 	AudioAnalysisStatusCompleted  AudioAnalysisStatus = "completed"
@@ -4081,6 +4102,33 @@ func (e CallResult) Valid() bool {
 	}
 }
 
+// Defines values for CallStatus.
+const (
+	CallStatusAttention CallStatus = "attention"
+	CallStatusCancelled CallStatus = "cancelled"
+	CallStatusCompleted CallStatus = "completed"
+	CallStatusQueued    CallStatus = "queued"
+	CallStatusSubmitted CallStatus = "submitted"
+)
+
+// Valid indicates whether the value is a known member of the CallStatus enum.
+func (e CallStatus) Valid() bool {
+	switch e {
+	case CallStatusAttention:
+		return true
+	case CallStatusCancelled:
+		return true
+	case CallStatusCompleted:
+		return true
+	case CallStatusQueued:
+		return true
+	case CallStatusSubmitted:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CampaignConversationType.
 const (
 	CampaignConversationTypeCallback CampaignConversationType = "callback"
@@ -4099,6 +4147,75 @@ func (e CampaignConversationType) Valid() bool {
 	case CampaignConversationTypeRedirect:
 		return true
 	case CampaignConversationTypeRetry:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignSource.
+const (
+	CampaignSourceApi CampaignSource = "api"
+	CampaignSourceUi  CampaignSource = "ui"
+)
+
+// Valid indicates whether the value is a known member of the CampaignSource enum.
+func (e CampaignSource) Valid() bool {
+	switch e {
+	case CampaignSourceApi:
+		return true
+	case CampaignSourceUi:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignStatus.
+const (
+	CampaignStatusActive    CampaignStatus = "active"
+	CampaignStatusAttention CampaignStatus = "attention"
+	CampaignStatusCompleted CampaignStatus = "completed"
+	CampaignStatusFailed    CampaignStatus = "failed"
+	CampaignStatusPaused    CampaignStatus = "paused"
+	CampaignStatusStopped   CampaignStatus = "stopped"
+	CampaignStatusStopping  CampaignStatus = "stopping"
+)
+
+// Valid indicates whether the value is a known member of the CampaignStatus enum.
+func (e CampaignStatus) Valid() bool {
+	switch e {
+	case CampaignStatusActive:
+		return true
+	case CampaignStatusAttention:
+		return true
+	case CampaignStatusCompleted:
+		return true
+	case CampaignStatusFailed:
+		return true
+	case CampaignStatusPaused:
+		return true
+	case CampaignStatusStopped:
+		return true
+	case CampaignStatusStopping:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignVariant.
+const (
+	CampaignVariantAdvanced CampaignVariant = "advanced"
+	CampaignVariantSimple   CampaignVariant = "simple"
+)
+
+// Valid indicates whether the value is a known member of the CampaignVariant enum.
+func (e CampaignVariant) Valid() bool {
+	switch e {
+	case CampaignVariantAdvanced:
+		return true
+	case CampaignVariantSimple:
 		return true
 	default:
 		return false
@@ -6679,6 +6796,21 @@ func (e DashboardDataCollectionChartModelType) Valid() bool {
 	}
 }
 
+// Defines values for DataCollectionOutcomeType.
+const (
+	DataCollectionOutcomeTypeDataCollection DataCollectionOutcomeType = "data_collection"
+)
+
+// Valid indicates whether the value is a known member of the DataCollectionOutcomeType enum.
+func (e DataCollectionOutcomeType) Valid() bool {
+	switch e {
+	case DataCollectionOutcomeTypeDataCollection:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for DataCollectionValueSchemaType0.
 const (
 	DataCollectionValueSchemaType0Boolean DataCollectionValueSchemaType0 = "boolean"
@@ -6697,6 +6829,81 @@ func (e DataCollectionValueSchemaType0) Valid() bool {
 	case DataCollectionValueSchemaType0Number:
 		return true
 	case DataCollectionValueSchemaType0String:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for DecisionDisposition.
+const (
+	DecisionDispositionAttemptCeilingReached    DecisionDisposition = "attempt_ceiling_reached"
+	DecisionDispositionAttention                DecisionDisposition = "attention"
+	DecisionDispositionCallbackCeilingReached   DecisionDisposition = "callback_ceiling_reached"
+	DecisionDispositionCallbackQueued           DecisionDisposition = "callback_queued"
+	DecisionDispositionCallbackTimeInvalid      DecisionDisposition = "callback_time_invalid"
+	DecisionDispositionCancelled                DecisionDisposition = "cancelled"
+	DecisionDispositionCompleted                DecisionDisposition = "completed"
+	DecisionDispositionCouldntProcess           DecisionDisposition = "couldnt_process"
+	DecisionDispositionDoNotCall                DecisionDisposition = "do_not_call"
+	DecisionDispositionPermissionDeclined       DecisionDisposition = "permission_declined"
+	DecisionDispositionPermissionExpired        DecisionDisposition = "permission_expired"
+	DecisionDispositionPermissionNotGranted     DecisionDisposition = "permission_not_granted"
+	DecisionDispositionPermissionRequestBlocked DecisionDisposition = "permission_request_blocked"
+	DecisionDispositionRedirectCeilingReached   DecisionDisposition = "redirect_ceiling_reached"
+	DecisionDispositionRedirectNumberInvalid    DecisionDisposition = "redirect_number_invalid"
+	DecisionDispositionRedirectQueued           DecisionDisposition = "redirect_queued"
+	DecisionDispositionRetryQueued              DecisionDisposition = "retry_queued"
+	DecisionDispositionSuppressed               DecisionDisposition = "suppressed"
+	DecisionDispositionSuppressedAfterStop      DecisionDisposition = "suppressed_after_stop"
+	DecisionDispositionSuppressedDoNotCall      DecisionDisposition = "suppressed_do_not_call"
+	DecisionDispositionWindowSuspended          DecisionDisposition = "window_suspended"
+)
+
+// Valid indicates whether the value is a known member of the DecisionDisposition enum.
+func (e DecisionDisposition) Valid() bool {
+	switch e {
+	case DecisionDispositionAttemptCeilingReached:
+		return true
+	case DecisionDispositionAttention:
+		return true
+	case DecisionDispositionCallbackCeilingReached:
+		return true
+	case DecisionDispositionCallbackQueued:
+		return true
+	case DecisionDispositionCallbackTimeInvalid:
+		return true
+	case DecisionDispositionCancelled:
+		return true
+	case DecisionDispositionCompleted:
+		return true
+	case DecisionDispositionCouldntProcess:
+		return true
+	case DecisionDispositionDoNotCall:
+		return true
+	case DecisionDispositionPermissionDeclined:
+		return true
+	case DecisionDispositionPermissionExpired:
+		return true
+	case DecisionDispositionPermissionNotGranted:
+		return true
+	case DecisionDispositionPermissionRequestBlocked:
+		return true
+	case DecisionDispositionRedirectCeilingReached:
+		return true
+	case DecisionDispositionRedirectNumberInvalid:
+		return true
+	case DecisionDispositionRedirectQueued:
+		return true
+	case DecisionDispositionRetryQueued:
+		return true
+	case DecisionDispositionSuppressed:
+		return true
+	case DecisionDispositionSuppressedAfterStop:
+		return true
+	case DecisionDispositionSuppressedDoNotCall:
+		return true
+	case DecisionDispositionWindowSuspended:
 		return true
 	default:
 		return false
@@ -7912,6 +8119,21 @@ func (e EnvironmentVariableResponseType) Valid() bool {
 	case EnvironmentVariableResponseTypeSecret:
 		return true
 	case EnvironmentVariableResponseTypeString:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for EvaluationCriterionOutcomeType.
+const (
+	EvaluationCriterionOutcomeTypeEvaluationCriteria EvaluationCriterionOutcomeType = "evaluation_criteria"
+)
+
+// Valid indicates whether the value is a known member of the EvaluationCriterionOutcomeType enum.
+func (e EvaluationCriterionOutcomeType) Valid() bool {
+	switch e {
+	case EvaluationCriterionOutcomeTypeEvaluationCriteria:
 		return true
 	default:
 		return false
@@ -9568,6 +9790,21 @@ func (e GroupManagementActivityId) Valid() bool {
 	}
 }
 
+// Defines values for GuardrailClassifierVerdictType.
+const (
+	GuardrailClassifierVerdictTypeClassifier GuardrailClassifierVerdictType = "classifier"
+)
+
+// Valid indicates whether the value is a known member of the GuardrailClassifierVerdictType enum.
+func (e GuardrailClassifierVerdictType) Valid() bool {
+	switch e {
+	case GuardrailClassifierVerdictTypeClassifier:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for GuardrailExecutionMode.
 const (
 	GuardrailExecutionModeBlocking  GuardrailExecutionMode = "blocking"
@@ -9580,6 +9817,21 @@ func (e GuardrailExecutionMode) Valid() bool {
 	case GuardrailExecutionModeBlocking:
 		return true
 	case GuardrailExecutionModeStreaming:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GuardrailLLMVerdictType.
+const (
+	GuardrailLLMVerdictTypeLlm GuardrailLLMVerdictType = "llm"
+)
+
+// Valid indicates whether the value is a known member of the GuardrailLLMVerdictType enum.
+func (e GuardrailLLMVerdictType) Valid() bool {
+	switch e {
+	case GuardrailLLMVerdictTypeLlm:
 		return true
 	default:
 		return false
@@ -9643,6 +9895,21 @@ func (e GuardrailType) Valid() bool {
 	case GuardrailTypeViolence:
 		return true
 	case GuardrailTypeViolenceGraphic:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GuardrailUnknownVerdictType.
+const (
+	GuardrailUnknownVerdictTypeUnknown GuardrailUnknownVerdictType = "unknown"
+)
+
+// Valid indicates whether the value is a known member of the GuardrailUnknownVerdictType enum.
+func (e GuardrailUnknownVerdictType) Valid() bool {
+	switch e {
+	case GuardrailUnknownVerdictTypeUnknown:
 		return true
 	default:
 		return false
@@ -10063,6 +10330,27 @@ func (e InteractionBudget) Valid() bool {
 	case InteractionBudgetN5Minutes:
 		return true
 	case InteractionBudgetRealtime:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IntervalPlacement.
+const (
+	IntervalPlacementRandom IntervalPlacement = "random"
+	IntervalPlacementRotate IntervalPlacement = "rotate"
+	IntervalPlacementStart  IntervalPlacement = "start"
+)
+
+// Valid indicates whether the value is a known member of the IntervalPlacement enum.
+func (e IntervalPlacement) Valid() bool {
+	switch e {
+	case IntervalPlacementRandom:
+		return true
+	case IntervalPlacementRotate:
+		return true
+	case IntervalPlacementStart:
 		return true
 	default:
 		return false
@@ -10927,6 +11215,36 @@ const (
 func (e LanguageDetectionToolResultModelStatus) Valid() bool {
 	switch e {
 	case LanguageDetectionToolResultModelStatusSuccess:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for LeadDeliveryViewStage.
+const (
+	LeadDeliveryViewStageDelivered LeadDeliveryViewStage = "delivered"
+	LeadDeliveryViewStageFailed    LeadDeliveryViewStage = "failed"
+	LeadDeliveryViewStageQueued    LeadDeliveryViewStage = "queued"
+	LeadDeliveryViewStageRead      LeadDeliveryViewStage = "read"
+	LeadDeliveryViewStageReplied   LeadDeliveryViewStage = "replied"
+	LeadDeliveryViewStageSent      LeadDeliveryViewStage = "sent"
+)
+
+// Valid indicates whether the value is a known member of the LeadDeliveryViewStage enum.
+func (e LeadDeliveryViewStage) Valid() bool {
+	switch e {
+	case LeadDeliveryViewStageDelivered:
+		return true
+	case LeadDeliveryViewStageFailed:
+		return true
+	case LeadDeliveryViewStageQueued:
+		return true
+	case LeadDeliveryViewStageRead:
+		return true
+	case LeadDeliveryViewStageReplied:
+		return true
+	case LeadDeliveryViewStageSent:
 		return true
 	default:
 		return false
@@ -12502,6 +12820,42 @@ func (e OrderState) Valid() bool {
 	}
 }
 
+// Defines values for OutboundChannel.
+const (
+	OutboundChannelPhone    OutboundChannel = "phone"
+	OutboundChannelWhatsapp OutboundChannel = "whatsapp"
+)
+
+// Valid indicates whether the value is a known member of the OutboundChannel enum.
+func (e OutboundChannel) Valid() bool {
+	switch e {
+	case OutboundChannelPhone:
+		return true
+	case OutboundChannelWhatsapp:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for OutboundMode.
+const (
+	OutboundModeMessage OutboundMode = "message"
+	OutboundModeVoice   OutboundMode = "voice"
+)
+
+// Valid indicates whether the value is a known member of the OutboundMode enum.
+func (e OutboundMode) Valid() bool {
+	switch e {
+	case OutboundModeMessage:
+		return true
+	case OutboundModeVoice:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for OutputFormat.
 const (
 	OutputFormatMarkdown  OutputFormat = "markdown"
@@ -12928,6 +13282,36 @@ func (e PermissionType) Valid() bool {
 	}
 }
 
+// Defines values for PhoneChannelConfigInputChannel.
+const (
+	PhoneChannelConfigInputChannelPhone PhoneChannelConfigInputChannel = "phone"
+)
+
+// Valid indicates whether the value is a known member of the PhoneChannelConfigInputChannel enum.
+func (e PhoneChannelConfigInputChannel) Valid() bool {
+	switch e {
+	case PhoneChannelConfigInputChannelPhone:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PhoneChannelConfigOutputChannel.
+const (
+	PhoneChannelConfigOutputChannelPhone PhoneChannelConfigOutputChannel = "phone"
+)
+
+// Valid indicates whether the value is a known member of the PhoneChannelConfigOutputChannel enum.
+func (e PhoneChannelConfigOutputChannel) Valid() bool {
+	switch e {
+	case PhoneChannelConfigOutputChannelPhone:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for PhoneNumberDynamicVariableTransferDestinationType.
 const (
 	PhoneNumberDynamicVariableTransferDestinationTypePhoneDynamicVariable PhoneNumberDynamicVariableTransferDestinationType = "phone_dynamic_variable"
@@ -12970,6 +13354,36 @@ const (
 func (e PhoneNumberTransferDestinationType) Valid() bool {
 	switch e {
 	case PhoneNumberTransferDestinationTypePhone:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PhoneVoiceConfigInputMode.
+const (
+	PhoneVoiceConfigInputModeVoice PhoneVoiceConfigInputMode = "voice"
+)
+
+// Valid indicates whether the value is a known member of the PhoneVoiceConfigInputMode enum.
+func (e PhoneVoiceConfigInputMode) Valid() bool {
+	switch e {
+	case PhoneVoiceConfigInputModeVoice:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PhoneVoiceConfigOutputMode.
+const (
+	PhoneVoiceConfigOutputModeVoice PhoneVoiceConfigOutputMode = "voice"
+)
+
+// Valid indicates whether the value is a known member of the PhoneVoiceConfigOutputMode enum.
+func (e PhoneVoiceConfigOutputMode) Valid() bool {
+	switch e {
+	case PhoneVoiceConfigOutputModeVoice:
 		return true
 	default:
 		return false
@@ -15904,6 +16318,36 @@ func (e SubmitBusinessInfoParamsSmbToolType) Valid() bool {
 	}
 }
 
+// Defines values for SubmitWhatsAppChannelConfigChannel.
+const (
+	SubmitWhatsAppChannelConfigChannelWhatsapp SubmitWhatsAppChannelConfigChannel = "whatsapp"
+)
+
+// Valid indicates whether the value is a known member of the SubmitWhatsAppChannelConfigChannel enum.
+func (e SubmitWhatsAppChannelConfigChannel) Valid() bool {
+	switch e {
+	case SubmitWhatsAppChannelConfigChannelWhatsapp:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SubmitWhatsAppMessageConfigMode.
+const (
+	SubmitWhatsAppMessageConfigModeMessage SubmitWhatsAppMessageConfigMode = "message"
+)
+
+// Valid indicates whether the value is a known member of the SubmitWhatsAppMessageConfigMode enum.
+func (e SubmitWhatsAppMessageConfigMode) Valid() bool {
+	switch e {
+	case SubmitWhatsAppMessageConfigModeMessage:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for SubscriptionResponseModelMaxCreditLimitExtension1.
 const (
 	SubscriptionResponseModelMaxCreditLimitExtension1Unlimited SubscriptionResponseModelMaxCreditLimitExtension1 = "unlimited"
@@ -16678,6 +17122,66 @@ const (
 func (e TemplateVideoOutputType) Valid() bool {
 	switch e {
 	case TemplateVideoOutputTypeVideo:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TerminalDisposition.
+const (
+	TerminalDispositionAttemptCeilingReached    TerminalDisposition = "attempt_ceiling_reached"
+	TerminalDispositionCallbackCeilingReached   TerminalDisposition = "callback_ceiling_reached"
+	TerminalDispositionCallbackTimeInvalid      TerminalDisposition = "callback_time_invalid"
+	TerminalDispositionCampaignEnded            TerminalDisposition = "campaign_ended"
+	TerminalDispositionCancelled                TerminalDisposition = "cancelled"
+	TerminalDispositionCompleted                TerminalDisposition = "completed"
+	TerminalDispositionCouldntProcess           TerminalDisposition = "couldnt_process"
+	TerminalDispositionDoNotCall                TerminalDisposition = "do_not_call"
+	TerminalDispositionPermissionDeclined       TerminalDisposition = "permission_declined"
+	TerminalDispositionPermissionExpired        TerminalDisposition = "permission_expired"
+	TerminalDispositionPermissionNotGranted     TerminalDisposition = "permission_not_granted"
+	TerminalDispositionPermissionRequestBlocked TerminalDisposition = "permission_request_blocked"
+	TerminalDispositionRedirectCeilingReached   TerminalDisposition = "redirect_ceiling_reached"
+	TerminalDispositionRedirectNumberInvalid    TerminalDisposition = "redirect_number_invalid"
+	TerminalDispositionRemoved                  TerminalDisposition = "removed"
+	TerminalDispositionSuppressed               TerminalDisposition = "suppressed"
+)
+
+// Valid indicates whether the value is a known member of the TerminalDisposition enum.
+func (e TerminalDisposition) Valid() bool {
+	switch e {
+	case TerminalDispositionAttemptCeilingReached:
+		return true
+	case TerminalDispositionCallbackCeilingReached:
+		return true
+	case TerminalDispositionCallbackTimeInvalid:
+		return true
+	case TerminalDispositionCampaignEnded:
+		return true
+	case TerminalDispositionCancelled:
+		return true
+	case TerminalDispositionCompleted:
+		return true
+	case TerminalDispositionCouldntProcess:
+		return true
+	case TerminalDispositionDoNotCall:
+		return true
+	case TerminalDispositionPermissionDeclined:
+		return true
+	case TerminalDispositionPermissionExpired:
+		return true
+	case TerminalDispositionPermissionNotGranted:
+		return true
+	case TerminalDispositionPermissionRequestBlocked:
+		return true
+	case TerminalDispositionRedirectCeilingReached:
+		return true
+	case TerminalDispositionRedirectNumberInvalid:
+		return true
+	case TerminalDispositionRemoved:
+		return true
+	case TerminalDispositionSuppressed:
 		return true
 	default:
 		return false
@@ -18535,7 +19039,6 @@ func (e UsersSortBy) Valid() bool {
 // Defines values for VOICECATEGORY.
 const (
 	VOICECATEGORYCloned       VOICECATEGORY = "cloned"
-	VOICECATEGORYFamous       VOICECATEGORY = "famous"
 	VOICECATEGORYGenerated    VOICECATEGORY = "generated"
 	VOICECATEGORYPremade      VOICECATEGORY = "premade"
 	VOICECATEGORYProfessional VOICECATEGORY = "professional"
@@ -18545,8 +19048,6 @@ const (
 func (e VOICECATEGORY) Valid() bool {
 	switch e {
 	case VOICECATEGORYCloned:
-		return true
-	case VOICECATEGORYFamous:
 		return true
 	case VOICECATEGORYGenerated:
 		return true
@@ -19435,6 +19936,21 @@ func (e WhatsAppCallPermissionRequestState) Valid() bool {
 	}
 }
 
+// Defines values for WhatsAppChannelConfigChannel.
+const (
+	WhatsAppChannelConfigChannelWhatsapp WhatsAppChannelConfigChannel = "whatsapp"
+)
+
+// Valid indicates whether the value is a known member of the WhatsAppChannelConfigChannel enum.
+func (e WhatsAppChannelConfigChannel) Valid() bool {
+	switch e {
+	case WhatsAppChannelConfigChannelWhatsapp:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WhatsAppConversationInfoDirection.
 const (
 	WhatsAppConversationInfoDirectionInbound  WhatsAppConversationInfoDirection = "inbound"
@@ -19450,6 +19966,39 @@ func (e WhatsAppConversationInfoDirection) Valid() bool {
 	case WhatsAppConversationInfoDirectionOutbound:
 		return true
 	case WhatsAppConversationInfoDirectionUnknown:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WhatsAppMessageConfigMode.
+const (
+	WhatsAppMessageConfigModeMessage WhatsAppMessageConfigMode = "message"
+)
+
+// Valid indicates whether the value is a known member of the WhatsAppMessageConfigMode enum.
+func (e WhatsAppMessageConfigMode) Valid() bool {
+	switch e {
+	case WhatsAppMessageConfigModeMessage:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WhatsAppTemplateParameterFormat.
+const (
+	WhatsAppTemplateParameterFormatNAMED      WhatsAppTemplateParameterFormat = "NAMED"
+	WhatsAppTemplateParameterFormatPOSITIONAL WhatsAppTemplateParameterFormat = "POSITIONAL"
+)
+
+// Valid indicates whether the value is a known member of the WhatsAppTemplateParameterFormat enum.
+func (e WhatsAppTemplateParameterFormat) Valid() bool {
+	switch e {
+	case WhatsAppTemplateParameterFormatNAMED:
+		return true
+	case WhatsAppTemplateParameterFormatPOSITIONAL:
 		return true
 	default:
 		return false
@@ -19555,6 +20104,21 @@ const (
 func (e WhatsAppTemplateTextParamType) Valid() bool {
 	switch e {
 	case WhatsAppTemplateTextParamTypeText:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WhatsAppVoiceConfigMode.
+const (
+	WhatsAppVoiceConfigModeVoice WhatsAppVoiceConfigMode = "voice"
+)
+
+// Valid indicates whether the value is a known member of the WhatsAppVoiceConfigMode enum.
+func (e WhatsAppVoiceConfigMode) Valid() bool {
+	switch e {
+	case WhatsAppVoiceConfigModeVoice:
 		return true
 	default:
 		return false
@@ -20647,6 +21211,72 @@ func (e ListEnvironmentVariablesParamsType) Valid() bool {
 	case ListEnvironmentVariablesParamsTypeSecret:
 		return true
 	case ListEnvironmentVariablesParamsTypeString:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ListCampaignsParamsMode.
+const (
+	ListCampaignsParamsModeMessage ListCampaignsParamsMode = "message"
+	ListCampaignsParamsModeVoice   ListCampaignsParamsMode = "voice"
+)
+
+// Valid indicates whether the value is a known member of the ListCampaignsParamsMode enum.
+func (e ListCampaignsParamsMode) Valid() bool {
+	switch e {
+	case ListCampaignsParamsModeMessage:
+		return true
+	case ListCampaignsParamsModeVoice:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ListCampaignCallsParamsStage.
+const (
+	ListCampaignCallsParamsStageDelivered ListCampaignCallsParamsStage = "delivered"
+	ListCampaignCallsParamsStageFailed    ListCampaignCallsParamsStage = "failed"
+	ListCampaignCallsParamsStageQueued    ListCampaignCallsParamsStage = "queued"
+	ListCampaignCallsParamsStageRead      ListCampaignCallsParamsStage = "read"
+	ListCampaignCallsParamsStageReplied   ListCampaignCallsParamsStage = "replied"
+	ListCampaignCallsParamsStageSent      ListCampaignCallsParamsStage = "sent"
+)
+
+// Valid indicates whether the value is a known member of the ListCampaignCallsParamsStage enum.
+func (e ListCampaignCallsParamsStage) Valid() bool {
+	switch e {
+	case ListCampaignCallsParamsStageDelivered:
+		return true
+	case ListCampaignCallsParamsStageFailed:
+		return true
+	case ListCampaignCallsParamsStageQueued:
+		return true
+	case ListCampaignCallsParamsStageRead:
+		return true
+	case ListCampaignCallsParamsStageReplied:
+		return true
+	case ListCampaignCallsParamsStageSent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ListCampaignLeadsParamsStatus.
+const (
+	ListCampaignLeadsParamsStatusFinished   ListCampaignLeadsParamsStatus = "finished"
+	ListCampaignLeadsParamsStatusInProgress ListCampaignLeadsParamsStatus = "in_progress"
+)
+
+// Valid indicates whether the value is a known member of the ListCampaignLeadsParamsStatus enum.
+func (e ListCampaignLeadsParamsStatus) Valid() bool {
+	switch e {
+	case ListCampaignLeadsParamsStatusFinished:
+		return true
+	case ListCampaignLeadsParamsStatusInProgress:
 		return true
 	default:
 		return false
@@ -22474,8 +23104,13 @@ type AddTurnCommentRequestModel struct {
 
 // AddUrlRequest A web page or site to learn from.
 type AddUrlRequest struct {
-	CrawlEntireSite *bool  `json:"crawl_entire_site,omitempty"`
-	Url             string `json:"url"`
+	// CrawlEntireSite Crawl the whole site instead of only the page at url.
+	CrawlEntireSite *bool `json:"crawl_entire_site,omitempty"`
+
+	// Url The HTTPS page or site to read.
+	//
+	// Examples: https://example.com
+	Url string `json:"url"`
 }
 
 // AddVoiceIVCResponseModel defines model for AddVoiceIVCResponseModel.
@@ -23265,6 +23900,24 @@ type AgentPlatformSettingsResponseModel struct {
 	WorkspaceOverrides *AgentWorkspaceOverridesOutput `json:"workspace_overrides,omitempty"`
 }
 
+// AgentPolicyOverrideInput Each section set here replaces the whole matching section of the policy.
+type AgentPolicyOverrideInput struct {
+	CallingPeriods  *[]CallingPeriod       `json:"calling_periods,omitempty"`
+	DataCollection  *DataCollectionConfig  `json:"data_collection,omitempty"`
+	FollowupContext *FollowupContextPolicy `json:"followup_context,omitempty"`
+	Retry           *RetryPolicy           `json:"retry,omitempty"`
+	Timezone        *string                `json:"timezone,omitempty"`
+}
+
+// AgentPolicyOverrideOutput Each section set here replaces the whole matching section of the policy.
+type AgentPolicyOverrideOutput struct {
+	CallingPeriods  *[]CallingPeriod       `json:"calling_periods,omitempty"`
+	DataCollection  *DataCollectionConfig  `json:"data_collection,omitempty"`
+	FollowupContext *FollowupContextPolicy `json:"followup_context,omitempty"`
+	Retry           *RetryPolicy           `json:"retry,omitempty"`
+	Timezone        *string                `json:"timezone,omitempty"`
+}
+
 // AgentQueueingConfig defines model for AgentQueueingConfig.
 type AgentQueueingConfig struct {
 	// Enabled Hold callers in a wait queue when the agent is at its concurrency limit, instead of rejecting them immediately. New agents are created with queueing enabled unless this field is set explicitly.
@@ -23279,12 +23932,18 @@ type AgentQueueingConfig struct {
 
 // AgentRule A single behavioral rule for the agent.
 type AgentRule struct {
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	// CreatedAtUnix When the rule was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
 
 	// Description What the agent should do, in detail.
 	Description StrippedStr `json:"description"`
-	Id          *string     `json:"id,omitempty"`
+
+	// Id ID of the rule.
+	//
+	// Examples: rule_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
 
 	// Priority strict: the agent must always follow the rule; suggestion: a guideline.
 	Priority *RulePriority `json:"priority,omitempty"`
@@ -24134,6 +24793,8 @@ type AssignResellerTierRequest struct {
 	BillingPeriod *AssignResellerTierRequestBillingPeriod `json:"billing_period,omitempty"`
 
 	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+	//
+	// Examples: 3c1d2b7e-8f4a-4e5b-9c6d-1a2b3c4d5e6f
 	IdempotencyKey *string `json:"idempotency_key,omitempty"`
 	TierId         string  `json:"tier_id"`
 }
@@ -24244,6 +24905,43 @@ type AttachedUserEvaluationRef struct {
 
 // AttachedUserEvaluationRefSource defines model for AttachedUserEvaluationRef.Source.
 type AttachedUserEvaluationRefSource string
+
+// AttentionPageResponse defines model for AttentionPageResponse.
+type AttentionPageResponse struct {
+	Attention  []AttentionView `json:"attention"`
+	HasMore    bool            `json:"has_more"`
+	NextCursor *string         `json:"next_cursor"`
+}
+
+// AttentionResolutionRequest defines model for AttentionResolutionRequest.
+type AttentionResolutionRequest struct {
+	// Resolution How the item was handled.
+	Resolution string `json:"resolution"`
+}
+
+// AttentionStatus defines model for AttentionStatus.
+type AttentionStatus string
+
+// AttentionView defines model for AttentionView.
+type AttentionView struct {
+	AttentionId   string `json:"attention_id"`
+	CampaignId    string `json:"campaign_id"`
+	CreatedAtUnix int    `json:"created_at_unix"`
+
+	// Detail What went wrong and how to fix it.
+	Detail string `json:"detail"`
+
+	// Reason The cause, such as `agent_unavailable` or `phone_number_unavailable`.
+	Reason string `json:"reason"`
+
+	// Resolution The note recorded on resolving the item.
+	Resolution *string `json:"resolution"`
+
+	// Retryable Whether a retry places the calls the item holds back. Items that can't be retried are closed by resolving them.
+	Retryable     bool            `json:"retryable"`
+	Status        AttentionStatus `json:"status"`
+	UpdatedAtUnix int             `json:"updated_at_unix"`
+}
 
 // AudioAnalysis defines model for AudioAnalysis.
 type AudioAnalysis struct {
@@ -27676,19 +28374,24 @@ type BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApi
 
 // BodySmbCancelTeamInvite defines model for Body_smb_cancel_team_invite.
 type BodySmbCancelTeamInvite struct {
+	// Email Email address the pending invite was sent to.
+	//
+	// Examples: jane@example.com
 	Email string `json:"email"`
 }
 
 // BodySmbUpdateTeamMemberRole defines model for Body_smb_update_team_member_role.
 type BodySmbUpdateTeamMemberRole struct {
+	// Role The member's new role.
 	Role BodySmbUpdateTeamMemberRoleRole `json:"role"`
 }
 
-// BodySmbUpdateTeamMemberRoleRole defines model for BodySmbUpdateTeamMemberRole.Role.
+// BodySmbUpdateTeamMemberRoleRole The member's new role.
 type BodySmbUpdateTeamMemberRoleRole string
 
 // BodySmbUploadKnowledgeSource defines model for Body_smb_upload_knowledge_source.
 type BodySmbUploadKnowledgeSource struct {
+	// File The document the receptionist should learn from.
 	File openapi_types.File `json:"file"`
 }
 
@@ -28547,8 +29250,214 @@ type BytedanceSeedream5ProRequestResolution string
 // CallResult defines model for CallResult.
 type CallResult string
 
+// CallStatus defines model for CallStatus.
+type CallStatus string
+
+// CallView defines model for CallView.
+type CallView struct {
+	// CallResult How the call ended.
+	CallResult *CallResult `json:"call_result"`
+
+	// ColdAttempt `1` for the first call and `+1` per retry of it; unset for callbacks, redirects and their retries.
+	ColdAttempt *int `json:"cold_attempt"`
+
+	// CollectedDynamicVariables Data collection results this call copied into the lead's dynamic variables for later calls, with secrets redacted.
+	CollectedDynamicVariables *map[string]interface{} `json:"collected_dynamic_variables,omitempty"`
+	ConversationId            *string                 `json:"conversation_id"`
+
+	// DecisionDisposition What the campaign did after the call, such as queue a retry or a callback, or finish the lead.
+	DecisionDisposition *DecisionDisposition `json:"decision_disposition"`
+
+	// Delivery The message's delivery; set on message campaigns.
+	Delivery *LeadDeliveryView `json:"delivery,omitempty"`
+	IntentId string            `json:"intent_id"`
+
+	// IntentType `initial` for a lead's first call, else a `retry`, `callback` or `redirect`.
+	IntentType CampaignConversationType `json:"intent_type"`
+	LeadId     string                   `json:"lead_id"`
+
+	// Outcome The call's final dialing status, set once it ends.
+	Outcome *BatchCallRecipientStatus `json:"outcome"`
+
+	// OutcomeAtUnix When the call ended.
+	OutcomeAtUnix *int   `json:"outcome_at_unix"`
+	PhoneNumber   string `json:"phone_number"`
+
+	// ScheduledTimeUnix When the call is due to be placed.
+	ScheduledTimeUnix int `json:"scheduled_time_unix"`
+
+	// Status `submitted` calls have been handed off for dialing; `attention` calls are held back by an attention item.
+	Status CallStatus `json:"status"`
+}
+
+// CallingIntervalPolicy defines model for CallingIntervalPolicy.
+type CallingIntervalPolicy struct {
+	// End Local end time, as `HH:MM`; `24:00` ends at midnight.
+	End string `json:"end"`
+
+	// Start Local start time, as `HH:MM`.
+	Start string `json:"start"`
+}
+
+// CallingPeriod defines model for CallingPeriod.
+type CallingPeriod struct {
+	// Intervals Windows on each of those days. They may not overlap on any day.
+	Intervals []CallingIntervalPolicy `json:"intervals"`
+
+	// Weekdays Days the intervals apply on, from `0` (Monday) to `6` (Sunday).
+	Weekdays []int `json:"weekdays"`
+}
+
+// CallingPeriodPolicy defines model for CallingPeriodPolicy.
+type CallingPeriodPolicy struct {
+	// Intervals Windows on each of those days. They may not overlap on any day.
+	Intervals []CallingIntervalPolicy `json:"intervals"`
+	Weekdays  []int                   `json:"weekdays"`
+}
+
+// CampaignCallsResponse defines model for CampaignCallsResponse.
+type CampaignCallsResponse struct {
+	Calls      []CallView `json:"calls"`
+	HasMore    bool       `json:"has_more"`
+	NextCursor *string    `json:"next_cursor"`
+}
+
+// CampaignConfigInput defines model for CampaignConfig-Input.
+type CampaignConfigInput struct {
+	// AgentPolicies Overrides of `policy`, keyed by agent ID.
+	AgentPolicies *map[string]AgentPolicyOverrideInput `json:"agent_policies,omitempty"`
+
+	// Policy The policy campaigns take unless they set their own.
+	Policy *PolicyConfigInput `json:"policy,omitempty"`
+
+	// WhatsappVoicePolicy Overrides for WhatsApp voice campaigns, layered between the workspace policy and an agent's overrides. Sections left out follow WhatsApp voice's built-in defaults.
+	WhatsappVoicePolicy *AgentPolicyOverrideInput `json:"whatsapp_voice_policy,omitempty"`
+}
+
+// CampaignConfigOutput defines model for CampaignConfig-Output.
+type CampaignConfigOutput struct {
+	// AgentPolicies Overrides of `policy`, keyed by agent ID.
+	AgentPolicies *map[string]AgentPolicyOverrideOutput `json:"agent_policies,omitempty"`
+
+	// Policy The policy campaigns take unless they set their own.
+	Policy *PolicyConfigOutput `json:"policy,omitempty"`
+
+	// WhatsappVoicePolicy Overrides for WhatsApp voice campaigns, layered between the workspace policy and an agent's overrides. Sections left out follow WhatsApp voice's built-in defaults.
+	WhatsappVoicePolicy *AgentPolicyOverrideOutput `json:"whatsapp_voice_policy,omitempty"`
+}
+
 // CampaignConversationType defines model for CampaignConversationType.
 type CampaignConversationType string
+
+// CampaignFollowUpRequestsResponse defines model for CampaignFollowUpRequestsResponse.
+type CampaignFollowUpRequestsResponse struct {
+	Callbacks FollowUpRequestCounts `json:"callbacks"`
+	Redirects FollowUpRequestCounts `json:"redirects"`
+}
+
+// CampaignLeadsResponse defines model for CampaignLeadsResponse.
+type CampaignLeadsResponse struct {
+	HasMore    bool       `json:"has_more"`
+	Leads      []LeadView `json:"leads"`
+	NextCursor *string    `json:"next_cursor"`
+}
+
+// CampaignPageResponse defines model for CampaignPageResponse.
+type CampaignPageResponse struct {
+	Campaigns  []CampaignResponse `json:"campaigns"`
+	HasMore    bool               `json:"has_more"`
+	NextCursor *string            `json:"next_cursor"`
+}
+
+// CampaignPolicySnapshot The policy the campaign took when it was created, laid out like a submitted `policy`.
+type CampaignPolicySnapshot struct {
+	CallingPeriods []CallingPeriodPolicy `json:"calling_periods"`
+	DataCollection DataCollectionPolicy  `json:"data_collection"`
+
+	// FollowupContext Which `campaign__` dynamic variables follow-up calls get.
+	FollowupContext FollowupContextPolicy `json:"followup_context"`
+	Retry           RetryPolicy           `json:"retry"`
+	Timezone        string                `json:"timezone"`
+}
+
+// CampaignProgressResponse defines model for CampaignProgressResponse.
+type CampaignProgressResponse struct {
+	Conversations ConversationProgress `json:"conversations"`
+	Leads         LeadsProgress        `json:"leads"`
+
+	// NextCallTimeUnix When the next call is due; unset when none is scheduled.
+	NextCallTimeUnix *int `json:"next_call_time_unix"`
+}
+
+// CampaignResponse defines model for CampaignResponse.
+type CampaignResponse struct {
+	AgentId   string `json:"agent_id"`
+	AgentName string `json:"agent_name"`
+
+	// BranchId The agent branch the campaign calls with.
+	BranchId *string `json:"branch_id"`
+
+	// CallName The campaign's name.
+	CallName      string                         `json:"call_name"`
+	CampaignId    string                         `json:"campaign_id"`
+	Channel       OutboundChannel                `json:"channel"`
+	ChannelConfig CampaignResponse_ChannelConfig `json:"channel_config"`
+	Counts        CampaignSummaryCounts          `json:"counts"`
+	CreatedAtUnix int                            `json:"created_at_unix"`
+
+	// Environment The environment the agent's environment variables resolve in.
+	Environment *string      `json:"environment"`
+	Mode        OutboundMode `json:"mode"`
+
+	// Outcome The result that counts as success for the campaign's calls.
+	Outcome *struct {
+		union json.RawMessage
+	} `json:"outcome"`
+
+	// Policy The policy the campaign took when it was created.
+	Policy CampaignPolicySnapshot `json:"policy"`
+
+	// ScheduledTimeUnix When the campaign starts calling; unset to start once created.
+	ScheduledTimeUnix *int `json:"scheduled_time_unix"`
+
+	// Source Whether the campaign was created in the app or through the API.
+	Source *CampaignSource `json:"source"`
+
+	// Status `attention` means an open attention item holds back some of the campaign's calls while the rest go ahead. `stopping` means queued calls are cancelled and calls already placed are finishing.
+	Status CampaignStatus `json:"status"`
+
+	// TargetConcurrencyLimit The most calls the campaign places at once.
+	TargetConcurrencyLimit *int            `json:"target_concurrency_limit"`
+	UpdatedAtUnix          int             `json:"updated_at_unix"`
+	Variant                CampaignVariant `json:"variant"`
+}
+
+// CampaignResponse_ChannelConfig defines model for CampaignResponse.ChannelConfig.
+type CampaignResponse_ChannelConfig struct {
+	union json.RawMessage
+}
+
+// CampaignSource defines model for CampaignSource.
+type CampaignSource string
+
+// CampaignStatus defines model for CampaignStatus.
+type CampaignStatus string
+
+// CampaignSummaryCounts defines model for CampaignSummaryCounts.
+type CampaignSummaryCounts struct {
+	// Delivery How many messages reached each stage; set when getting one message campaign.
+	Delivery *RecipientDeliveryCounts `json:"delivery,omitempty"`
+	Leads    int                      `json:"leads"`
+
+	// OpenAttention Attention items not yet resolved.
+	OpenAttention int `json:"open_attention"`
+
+	// TerminalLeads Leads that won't be called again.
+	TerminalLeads int `json:"terminal_leads"`
+}
+
+// CampaignVariant defines model for CampaignVariant.
+type CampaignVariant string
 
 // CancelCalendarEventParams defines model for CancelCalendarEventParams.
 type CancelCalendarEventParams struct {
@@ -28719,6 +29628,8 @@ type ChangeResellerTierRequest struct {
 	BillingPeriod *ChangeResellerTierRequestBillingPeriod `json:"billing_period,omitempty"`
 
 	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+	//
+	// Examples: 3c1d2b7e-8f4a-4e5b-9c6d-1a2b3c4d5e6f
 	IdempotencyKey *string `json:"idempotency_key,omitempty"`
 	TierId         string  `json:"tier_id"`
 }
@@ -29804,20 +30715,23 @@ type ConversationHistorySIPTrunkingPhoneCallModelType string
 
 // ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput defines model for ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel-Input.
 type ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput struct {
-	CredentialId            *string                                                                           `json:"credential_id,omitempty"`
-	DynamicVariableUpdates  *[]DynamicVariableUpdateCommonModel                                               `json:"dynamic_variable_updates,omitempty"`
-	ErrorType               *string                                                                           `json:"error_type,omitempty"`
-	IntegrationConnectionId *string                                                                           `json:"integration_connection_id,omitempty"`
-	IntegrationId           *string                                                                           `json:"integration_id,omitempty"`
-	IsBlocked               *bool                                                                             `json:"is_blocked,omitempty"`
-	IsError                 bool                                                                              `json:"is_error"`
-	RawErrorMessage         *string                                                                           `json:"raw_error_message,omitempty"`
-	RequestId               string                                                                            `json:"request_id"`
-	ResultValue             string                                                                            `json:"result_value"`
-	ToolHasBeenCalled       bool                                                                              `json:"tool_has_been_called"`
-	ToolLatencySecs         *float32                                                                          `json:"tool_latency_secs,omitempty"`
-	ToolName                string                                                                            `json:"tool_name"`
-	Type                    ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInputType `json:"type"`
+	CredentialId            *string                             `json:"credential_id,omitempty"`
+	DynamicVariableUpdates  *[]DynamicVariableUpdateCommonModel `json:"dynamic_variable_updates,omitempty"`
+	ErrorType               *string                             `json:"error_type,omitempty"`
+	IntegrationConnectionId *string                             `json:"integration_connection_id,omitempty"`
+	IntegrationId           *string                             `json:"integration_id,omitempty"`
+	IsBlocked               *bool                               `json:"is_blocked,omitempty"`
+	IsError                 bool                                `json:"is_error"`
+	RawErrorMessage         *string                             `json:"raw_error_message,omitempty"`
+	RequestId               string                              `json:"request_id"`
+	ResultValue             string                              `json:"result_value"`
+	ToolHasBeenCalled       bool                                `json:"tool_has_been_called"`
+
+	// ToolId ID of the tool that produced this result: a workspace tool ID, 'mcp:<server_id>:<tool_name>' for MCP tools, or '__system_<tool_name>' for system tools. Not set for conversations recorded before tool IDs were tracked.
+	ToolId          *string                                                                           `json:"tool_id,omitempty"`
+	ToolLatencySecs *float32                                                                          `json:"tool_latency_secs,omitempty"`
+	ToolName        string                                                                            `json:"tool_name"`
+	Type            ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInputType `json:"type"`
 }
 
 // ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInputType defines model for ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput.Type.
@@ -29825,20 +30739,23 @@ type ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInp
 
 // ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput defines model for ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel-Output.
 type ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput struct {
-	CredentialId            string                                                                             `json:"credential_id"`
-	DynamicVariableUpdates  []DynamicVariableUpdateCommonModel                                                 `json:"dynamic_variable_updates"`
-	ErrorType               string                                                                             `json:"error_type"`
-	IntegrationConnectionId string                                                                             `json:"integration_connection_id"`
-	IntegrationId           string                                                                             `json:"integration_id"`
-	IsBlocked               bool                                                                               `json:"is_blocked"`
-	IsError                 bool                                                                               `json:"is_error"`
-	RawErrorMessage         string                                                                             `json:"raw_error_message"`
-	RequestId               string                                                                             `json:"request_id"`
-	ResultValue             string                                                                             `json:"result_value"`
-	ToolHasBeenCalled       bool                                                                               `json:"tool_has_been_called"`
-	ToolLatencySecs         float32                                                                            `json:"tool_latency_secs"`
-	ToolName                string                                                                             `json:"tool_name"`
-	Type                    ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutputType `json:"type"`
+	CredentialId            string                             `json:"credential_id"`
+	DynamicVariableUpdates  []DynamicVariableUpdateCommonModel `json:"dynamic_variable_updates"`
+	ErrorType               string                             `json:"error_type"`
+	IntegrationConnectionId string                             `json:"integration_connection_id"`
+	IntegrationId           string                             `json:"integration_id"`
+	IsBlocked               bool                               `json:"is_blocked"`
+	IsError                 bool                               `json:"is_error"`
+	RawErrorMessage         string                             `json:"raw_error_message"`
+	RequestId               string                             `json:"request_id"`
+	ResultValue             string                             `json:"result_value"`
+	ToolHasBeenCalled       bool                               `json:"tool_has_been_called"`
+
+	// ToolId ID of the tool that produced this result: a workspace tool ID, 'mcp:<server_id>:<tool_name>' for MCP tools, or '__system_<tool_name>' for system tools. Not set for conversations recorded before tool IDs were tracked.
+	ToolId          *string                                                                            `json:"tool_id"`
+	ToolLatencySecs float32                                                                            `json:"tool_latency_secs"`
+	ToolName        string                                                                             `json:"tool_name"`
+	Type            ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutputType `json:"type"`
 }
 
 // ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutputType defines model for ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput.Type.
@@ -29928,17 +30845,20 @@ type ConversationHistoryTranscriptFileInputResponseModel struct {
 
 // ConversationHistoryTranscriptOtherToolsResultCommonModel defines model for ConversationHistoryTranscriptOtherToolsResultCommonModel.
 type ConversationHistoryTranscriptOtherToolsResultCommonModel struct {
-	DynamicVariableUpdates *[]DynamicVariableUpdateCommonModel                           `json:"dynamic_variable_updates,omitempty"`
-	ErrorType              *string                                                       `json:"error_type,omitempty"`
-	IsBlocked              *bool                                                         `json:"is_blocked,omitempty"`
-	IsError                bool                                                          `json:"is_error"`
-	RawErrorMessage        *string                                                       `json:"raw_error_message,omitempty"`
-	RequestId              string                                                        `json:"request_id"`
-	ResultValue            string                                                        `json:"result_value"`
-	ToolHasBeenCalled      bool                                                          `json:"tool_has_been_called"`
-	ToolLatencySecs        *float32                                                      `json:"tool_latency_secs,omitempty"`
-	ToolName               string                                                        `json:"tool_name"`
-	Type                   *ConversationHistoryTranscriptOtherToolsResultCommonModelType `json:"type,omitempty"`
+	DynamicVariableUpdates *[]DynamicVariableUpdateCommonModel `json:"dynamic_variable_updates,omitempty"`
+	ErrorType              *string                             `json:"error_type,omitempty"`
+	IsBlocked              *bool                               `json:"is_blocked,omitempty"`
+	IsError                bool                                `json:"is_error"`
+	RawErrorMessage        *string                             `json:"raw_error_message,omitempty"`
+	RequestId              string                              `json:"request_id"`
+	ResultValue            string                              `json:"result_value"`
+	ToolHasBeenCalled      bool                                `json:"tool_has_been_called"`
+
+	// ToolId ID of the tool that produced this result: a workspace tool ID, 'mcp:<server_id>:<tool_name>' for MCP tools, or '__system_<tool_name>' for system tools. Not set for conversations recorded before tool IDs were tracked.
+	ToolId          *string                                                       `json:"tool_id,omitempty"`
+	ToolLatencySecs *float32                                                      `json:"tool_latency_secs,omitempty"`
+	ToolName        string                                                        `json:"tool_name"`
+	Type            *ConversationHistoryTranscriptOtherToolsResultCommonModelType `json:"type,omitempty"`
 }
 
 // ConversationHistoryTranscriptOtherToolsResultCommonModelType defines model for ConversationHistoryTranscriptOtherToolsResultCommonModel.Type.
@@ -30000,11 +30920,14 @@ type ConversationHistoryTranscriptSystemToolResultCommonModelInput struct {
 	Result                 *struct {
 		union json.RawMessage
 	} `json:"result,omitempty"`
-	ResultValue       string                                                            `json:"result_value"`
-	ToolHasBeenCalled bool                                                              `json:"tool_has_been_called"`
-	ToolLatencySecs   *float32                                                          `json:"tool_latency_secs,omitempty"`
-	ToolName          string                                                            `json:"tool_name"`
-	Type              ConversationHistoryTranscriptSystemToolResultCommonModelInputType `json:"type"`
+	ResultValue       string `json:"result_value"`
+	ToolHasBeenCalled bool   `json:"tool_has_been_called"`
+
+	// ToolId ID of the tool that produced this result: a workspace tool ID, 'mcp:<server_id>:<tool_name>' for MCP tools, or '__system_<tool_name>' for system tools. Not set for conversations recorded before tool IDs were tracked.
+	ToolId          *string                                                           `json:"tool_id,omitempty"`
+	ToolLatencySecs *float32                                                          `json:"tool_latency_secs,omitempty"`
+	ToolName        string                                                            `json:"tool_name"`
+	Type            ConversationHistoryTranscriptSystemToolResultCommonModelInputType `json:"type"`
 }
 
 // ConversationHistoryTranscriptSystemToolResultCommonModelInputType defines model for ConversationHistoryTranscriptSystemToolResultCommonModelInput.Type.
@@ -30021,11 +30944,14 @@ type ConversationHistoryTranscriptSystemToolResultCommonModelOutput struct {
 	Result                 *struct {
 		union json.RawMessage
 	} `json:"result,omitempty"`
-	ResultValue       string                                                             `json:"result_value"`
-	ToolHasBeenCalled bool                                                               `json:"tool_has_been_called"`
-	ToolLatencySecs   *float32                                                           `json:"tool_latency_secs,omitempty"`
-	ToolName          string                                                             `json:"tool_name"`
-	Type              ConversationHistoryTranscriptSystemToolResultCommonModelOutputType `json:"type"`
+	ResultValue       string `json:"result_value"`
+	ToolHasBeenCalled bool   `json:"tool_has_been_called"`
+
+	// ToolId ID of the tool that produced this result: a workspace tool ID, 'mcp:<server_id>:<tool_name>' for MCP tools, or '__system_<tool_name>' for system tools. Not set for conversations recorded before tool IDs were tracked.
+	ToolId          *string                                                            `json:"tool_id,omitempty"`
+	ToolLatencySecs *float32                                                           `json:"tool_latency_secs,omitempty"`
+	ToolName        string                                                             `json:"tool_name"`
+	Type            ConversationHistoryTranscriptSystemToolResultCommonModelOutputType `json:"type"`
 }
 
 // ConversationHistoryTranscriptSystemToolResultCommonModelOutputType defines model for ConversationHistoryTranscriptSystemToolResultCommonModelOutput.Type.
@@ -30126,18 +31052,21 @@ type ConversationHistoryTranscriptToolCallWebhookDetailsType string
 
 // ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput defines model for ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Input.
 type ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput struct {
-	DynamicVariableUpdates *[]DynamicVariableUpdateCommonModel                                  `json:"dynamic_variable_updates,omitempty"`
-	ErrorType              *string                                                              `json:"error_type,omitempty"`
-	IsBlocked              *bool                                                                `json:"is_blocked,omitempty"`
-	IsError                bool                                                                 `json:"is_error"`
-	RawErrorMessage        *string                                                              `json:"raw_error_message,omitempty"`
-	RequestId              string                                                               `json:"request_id"`
-	Result                 *WorkflowToolResponseModelInput                                      `json:"result,omitempty"`
-	ResultValue            string                                                               `json:"result_value"`
-	ToolHasBeenCalled      bool                                                                 `json:"tool_has_been_called"`
-	ToolLatencySecs        *float32                                                             `json:"tool_latency_secs,omitempty"`
-	ToolName               string                                                               `json:"tool_name"`
-	Type                   ConversationHistoryTranscriptWorkflowToolsResultCommonModelInputType `json:"type"`
+	DynamicVariableUpdates *[]DynamicVariableUpdateCommonModel `json:"dynamic_variable_updates,omitempty"`
+	ErrorType              *string                             `json:"error_type,omitempty"`
+	IsBlocked              *bool                               `json:"is_blocked,omitempty"`
+	IsError                bool                                `json:"is_error"`
+	RawErrorMessage        *string                             `json:"raw_error_message,omitempty"`
+	RequestId              string                              `json:"request_id"`
+	Result                 *WorkflowToolResponseModelInput     `json:"result,omitempty"`
+	ResultValue            string                              `json:"result_value"`
+	ToolHasBeenCalled      bool                                `json:"tool_has_been_called"`
+
+	// ToolId ID of the tool that produced this result: a workspace tool ID, 'mcp:<server_id>:<tool_name>' for MCP tools, or '__system_<tool_name>' for system tools. Not set for conversations recorded before tool IDs were tracked.
+	ToolId          *string                                                              `json:"tool_id,omitempty"`
+	ToolLatencySecs *float32                                                             `json:"tool_latency_secs,omitempty"`
+	ToolName        string                                                               `json:"tool_name"`
+	Type            ConversationHistoryTranscriptWorkflowToolsResultCommonModelInputType `json:"type"`
 }
 
 // ConversationHistoryTranscriptWorkflowToolsResultCommonModelInputType defines model for ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput.Type.
@@ -30145,18 +31074,21 @@ type ConversationHistoryTranscriptWorkflowToolsResultCommonModelInputType string
 
 // ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput defines model for ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Output.
 type ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput struct {
-	DynamicVariableUpdates *[]DynamicVariableUpdateCommonModel                                   `json:"dynamic_variable_updates,omitempty"`
-	ErrorType              *string                                                               `json:"error_type,omitempty"`
-	IsBlocked              *bool                                                                 `json:"is_blocked,omitempty"`
-	IsError                bool                                                                  `json:"is_error"`
-	RawErrorMessage        *string                                                               `json:"raw_error_message,omitempty"`
-	RequestId              string                                                                `json:"request_id"`
-	Result                 *WorkflowToolResponseModelOutput                                      `json:"result,omitempty"`
-	ResultValue            string                                                                `json:"result_value"`
-	ToolHasBeenCalled      bool                                                                  `json:"tool_has_been_called"`
-	ToolLatencySecs        *float32                                                              `json:"tool_latency_secs,omitempty"`
-	ToolName               string                                                                `json:"tool_name"`
-	Type                   ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutputType `json:"type"`
+	DynamicVariableUpdates *[]DynamicVariableUpdateCommonModel `json:"dynamic_variable_updates,omitempty"`
+	ErrorType              *string                             `json:"error_type,omitempty"`
+	IsBlocked              *bool                               `json:"is_blocked,omitempty"`
+	IsError                bool                                `json:"is_error"`
+	RawErrorMessage        *string                             `json:"raw_error_message,omitempty"`
+	RequestId              string                              `json:"request_id"`
+	Result                 *WorkflowToolResponseModelOutput    `json:"result,omitempty"`
+	ResultValue            string                              `json:"result_value"`
+	ToolHasBeenCalled      bool                                `json:"tool_has_been_called"`
+
+	// ToolId ID of the tool that produced this result: a workspace tool ID, 'mcp:<server_id>:<tool_name>' for MCP tools, or '__system_<tool_name>' for system tools. Not set for conversations recorded before tool IDs were tracked.
+	ToolId          *string                                                               `json:"tool_id,omitempty"`
+	ToolLatencySecs *float32                                                              `json:"tool_latency_secs,omitempty"`
+	ToolName        string                                                                `json:"tool_name"`
+	Type            ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutputType `json:"type"`
 }
 
 // ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutputType defines model for ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput.Type.
@@ -30331,6 +31263,24 @@ type ConversationInitiationSourceInfo struct {
 
 // ConversationProduct Which product surface owns this agent document.
 type ConversationProduct string
+
+// ConversationProgress defines model for ConversationProgress.
+type ConversationProgress struct {
+	// AwaitingAnalysis Ended calls whose analysis the campaign is waiting on.
+	AwaitingAnalysis int `json:"awaiting_analysis"`
+
+	// AwaitingPermission WhatsApp calls waiting on the contact to grant call permission.
+	AwaitingPermission int `json:"awaiting_permission"`
+
+	// InProgress Calls under way.
+	InProgress int `json:"in_progress"`
+
+	// Scheduled Calls due to be placed that haven't started.
+	Scheduled int `json:"scheduled"`
+
+	// ScheduledByType Scheduled calls by call type. Missing keys mean none.
+	ScheduledByType map[string]int `json:"scheduled_by_type"`
+}
 
 // ConversationReasoningModel defines model for ConversationReasoningModel.
 type ConversationReasoningModel struct {
@@ -30981,12 +31931,18 @@ type CreateOrderResponse struct {
 // CreatePhoneAssignmentRequest Body for giving a receptionist a phone number.
 type CreatePhoneAssignmentRequest struct {
 	// AreaCodes Preferred US or Canadian area codes, e.g. `["415", "628"]`. Codes outside the business's country are ignored, and any number is given when none of these is available.
+	//
+	// Examples: ["415","628"]
 	AreaCodes *[]string `json:"area_codes,omitempty"`
 
 	// CustomerFacingAgentId The receptionist that answers calls to the number.
+	//
+	// Examples: agent_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	CustomerFacingAgentId string `json:"customer_facing_agent_id"`
 
 	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+	//
+	// Examples: 3c1d2b7e-8f4a-4e5b-9c6d-1a2b3c4d5e6f
 	IdempotencyKey *string `json:"idempotency_key,omitempty"`
 
 	// NumberType Local or mobile, in a country that requires paperwork before a number takes calls. Leave unset to try mobile first. Ignored in the US and Canada.
@@ -31303,11 +32259,16 @@ type CreateStringEnvironmentVariableRequestType string
 
 // CreateTeamInviteRequest defines model for CreateTeamInviteRequest.
 type CreateTeamInviteRequest struct {
-	Email string                       `json:"email"`
-	Role  *CreateTeamInviteRequestRole `json:"role,omitempty"`
+	// Email The email address to invite.
+	//
+	// Examples: sam@example.com
+	Email string `json:"email"`
+
+	// Role The role the invitee joins with: 'workspace_admin' or 'workspace_member'.
+	Role *CreateTeamInviteRequestRole `json:"role,omitempty"`
 }
 
-// CreateTeamInviteRequestRole defines model for CreateTeamInviteRequest.Role.
+// CreateTeamInviteRequestRole The role the invitee joins with: 'workspace_admin' or 'workspace_member'.
 type CreateTeamInviteRequestRole string
 
 // CreateToolCallUnitTestRequest defines model for CreateToolCallUnitTestRequest.
@@ -31640,6 +32601,8 @@ type CustomerFacingConfigOutput struct {
 	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
 
 	// FirstMessage The first message the agent says when starting a conversation
+	//
+	// Examples: Hi, thanks for calling Bloom Salon! How can I help you today?
 	FirstMessage *string `json:"first_message,omitempty"`
 
 	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
@@ -31670,6 +32633,8 @@ type CustomerFacingConfigOutput struct {
 	TurnEagerness *SMBTurnEagerness `json:"turn_eagerness,omitempty"`
 
 	// VoiceId ElevenLabs voice ID
+	//
+	// Examples: 21m00Tcm4TlvDq8ikWAM
 	VoiceId *string `json:"voice_id,omitempty"`
 }
 
@@ -31709,6 +32674,8 @@ type CustomerFacingConfigPatch struct {
 	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
 
 	// FirstMessage The first message the agent says when starting a conversation
+	//
+	// Examples: Hi, thanks for calling Bloom Salon! How can I help you today?
 	FirstMessage *string `json:"first_message,omitempty"`
 
 	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
@@ -31733,6 +32700,8 @@ type CustomerFacingConfigPatch struct {
 	TurnEagerness *SMBTurnEagerness `json:"turn_eagerness,omitempty"`
 
 	// VoiceId ElevenLabs voice ID
+	//
+	// Examples: 21m00Tcm4TlvDq8ikWAM
 	VoiceId *string `json:"voice_id,omitempty"`
 }
 
@@ -31776,6 +32745,62 @@ type DashboardDataCollectionChartModel struct {
 
 // DashboardDataCollectionChartModelType defines model for DashboardDataCollectionChartModel.Type.
 type DashboardDataCollectionChartModelType string
+
+// DataCollectionConfig The agent's data collection items that steer follow-up calls. Each defaults
+// to the built-in item for its purpose; `null` turns it off.
+type DataCollectionConfig struct {
+	// CallbackTime The item holding when the contact asked to be called back.
+	CallbackTime *string `json:"callback_time,omitempty"`
+
+	// Mappings Copies data collection results into dynamic variables for later calls: each key is a data collection item ID and its value the variable's name.
+	Mappings *map[string]string `json:"mappings,omitempty"`
+
+	// RedirectPhoneNumber The item holding another number the contact asked to be called on.
+	RedirectPhoneNumber *string `json:"redirect_phone_number,omitempty"`
+
+	// Stop The item that is true when the contact asked not to be called again.
+	Stop *string `json:"stop,omitempty"`
+}
+
+// DataCollectionOutcome defines model for DataCollectionOutcome.
+type DataCollectionOutcome struct {
+	// DataCollectionId The agent's data collection item a successful call sets.
+	DataCollectionId string `json:"data_collection_id"`
+
+	// Equals Values that count as success, all of the item's type.
+	Equals []DataCollectionOutcome_Equals_Item `json:"equals"`
+	Type   *DataCollectionOutcomeType          `json:"type,omitempty"`
+}
+
+// DataCollectionOutcomeEquals0 defines model for DataCollectionOutcome.Equals.0.
+type DataCollectionOutcomeEquals0 = string
+
+// DataCollectionOutcomeEquals1 defines model for DataCollectionOutcome.Equals.1.
+type DataCollectionOutcomeEquals1 = int
+
+// DataCollectionOutcomeEquals2 defines model for DataCollectionOutcome.Equals.2.
+type DataCollectionOutcomeEquals2 = float32
+
+// DataCollectionOutcomeEquals3 defines model for DataCollectionOutcome.Equals.3.
+type DataCollectionOutcomeEquals3 = bool
+
+// DataCollectionOutcome_Equals_Item defines model for DataCollectionOutcome.equals.Item.
+type DataCollectionOutcome_Equals_Item struct {
+	union json.RawMessage
+}
+
+// DataCollectionOutcomeType defines model for DataCollectionOutcome.Type.
+type DataCollectionOutcomeType string
+
+// DataCollectionPolicy defines model for DataCollectionPolicy.
+type DataCollectionPolicy struct {
+	CallbackTime *string `json:"callback_time,omitempty"`
+
+	// Mappings Copies data collection results into dynamic variables for later calls: each key is a data collection item ID and its value the variable's name.
+	Mappings            *map[string]string `json:"mappings,omitempty"`
+	RedirectPhoneNumber *string            `json:"redirect_phone_number,omitempty"`
+	Stop                *string            `json:"stop,omitempty"`
+}
 
 // DataCollectionResultCommonModel defines model for DataCollectionResultCommonModel.
 type DataCollectionResultCommonModel struct {
@@ -31846,14 +32871,23 @@ type DataCollectionValueSchema_Type struct {
 // DateModel Represents a calendar date as individual numeric components.
 type DateModel struct {
 	// Day Day of month (1-31)
+	//
+	// Examples: 25
 	Day int `json:"day"`
 
 	// Month Month (1-12)
+	//
+	// Examples: 12
 	Month int `json:"month"`
 
 	// Year Year
+	//
+	// Examples: 2026
 	Year int `json:"year"`
 }
+
+// DecisionDisposition How a settled call's decision left its lead.
+type DecisionDisposition string
 
 // DefaultSharingGroupConfig defines model for DefaultSharingGroupConfig.
 type DefaultSharingGroupConfig struct {
@@ -33290,6 +34324,16 @@ type EvaluationCriteriaSummaryResult struct {
 	Score    *int                    `json:"score,omitempty"`
 }
 
+// EvaluationCriterionOutcome defines model for EvaluationCriterionOutcome.
+type EvaluationCriterionOutcome struct {
+	// CriteriaId The agent's evaluation criterion a successful call meets.
+	CriteriaId string                          `json:"criteria_id"`
+	Type       *EvaluationCriterionOutcomeType `json:"type,omitempty"`
+}
+
+// EvaluationCriterionOutcomeType defines model for EvaluationCriterionOutcome.Type.
+type EvaluationCriterionOutcomeType string
+
 // EvaluationResultFilter defines model for EvaluationResultFilter.
 type EvaluationResultFilter string
 
@@ -33643,9 +34687,44 @@ type FinetuneCreatedBy string
 // FinetuneVisibility defines model for FinetuneVisibility.
 type FinetuneVisibility string
 
+// FlattenedConfigOverrides defines model for FlattenedConfigOverrides.
+type FlattenedConfigOverrides struct {
+	FirstMessage *string `json:"first_message,omitempty"`
+	Language     *string `json:"language,omitempty"`
+	Prompt       *string `json:"prompt,omitempty"`
+	VoiceId      *string `json:"voice_id,omitempty"`
+}
+
 // FocusGuardrail defines model for FocusGuardrail.
 type FocusGuardrail struct {
 	IsEnabled *bool `json:"is_enabled,omitempty"`
+}
+
+// FollowUpRequestCounts defines model for FollowUpRequestCounts.
+type FollowUpRequestCounts struct {
+	// DistinctLeads Leads that asked at least once.
+	DistinctLeads int `json:"distinct_leads"`
+
+	// Requested How many times contacts asked.
+	Requested int `json:"requested"`
+
+	// RequestedByDisposition Requests by what the campaign did about them; adds up to `requested`. Missing keys mean none.
+	RequestedByDisposition map[string]int `json:"requested_by_disposition"`
+}
+
+// FollowupContextPolicy Which `campaign__` dynamic variables follow-up calls get.
+type FollowupContextPolicy struct {
+	// CallType Pass the call type as `campaign__call_type`.
+	CallType *bool `json:"call_type,omitempty"`
+
+	// PreviousConversationId Pass the last conversation's ID as `campaign__previous_conversation_id`.
+	PreviousConversationId *bool `json:"previous_conversation_id,omitempty"`
+
+	// PreviousSummary Pass the last conversation's summary as `campaign__previous_summary`.
+	PreviousSummary *bool `json:"previous_summary,omitempty"`
+
+	// PreviousTranscript Pass the last conversation's transcript as `campaign__previous_transcript`.
+	PreviousTranscript *bool `json:"previous_transcript,omitempty"`
 }
 
 // ForcedAlignmentCharacterResponseModel Model representing a single character with its timing information from the aligner.
@@ -35368,11 +36447,42 @@ type GetWorkspaceSecretsResponseModel struct {
 // Spec: https://schema.ocsf.io/1.6.0/classes/group_management
 type GroupManagementActivityId int
 
+// GuardrailClassifierVerdict defines model for GuardrailClassifierVerdict.
+type GuardrailClassifierVerdict struct {
+	// Score Classifier score for the triggered category, from 0 to 1.
+	Score float32 `json:"score"`
+
+	// Threshold Score at or above which the guardrail triggers.
+	Threshold float32                         `json:"threshold"`
+	Type      *GuardrailClassifierVerdictType `json:"type,omitempty"`
+}
+
+// GuardrailClassifierVerdictType defines model for GuardrailClassifierVerdict.Type.
+type GuardrailClassifierVerdictType string
+
 // GuardrailExecutionMode defines model for GuardrailExecutionMode.
 type GuardrailExecutionMode string
 
+// GuardrailLLMVerdict defines model for GuardrailLLMVerdict.
+type GuardrailLLMVerdict struct {
+	// Rationale The LLM's explanation for its decision.
+	Rationale string                   `json:"rationale"`
+	Type      *GuardrailLLMVerdictType `json:"type,omitempty"`
+}
+
+// GuardrailLLMVerdictType defines model for GuardrailLLMVerdict.Type.
+type GuardrailLLMVerdictType string
+
 // GuardrailType defines model for GuardrailType.
 type GuardrailType string
+
+// GuardrailUnknownVerdict defines model for GuardrailUnknownVerdict.
+type GuardrailUnknownVerdict struct {
+	Type *GuardrailUnknownVerdictType `json:"type,omitempty"`
+}
+
+// GuardrailUnknownVerdictType defines model for GuardrailUnknownVerdict.Type.
+type GuardrailUnknownVerdictType string
 
 // GuardrailsV1Input defines model for GuardrailsV1-Input.
 type GuardrailsV1Input struct {
@@ -35432,29 +36542,62 @@ type HistoryAlignmentsResponseModel struct {
 
 // HolidayResponseModel A closure or time-off entry.
 type HolidayResponseModel struct {
+	// CreatedAtUnix When the entry was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	CreatedAtUnix int `json:"created_at_unix"`
 
-	// EndDate Represents a calendar date as individual numeric components.
-	EndDate     DateModel    `json:"end_date"`
+	// EndDate Last day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":26,"month":12,"year":2026}
+	EndDate DateModel `json:"end_date"`
+
+	// HolidayType 'closed' for no availability, or 'override' to use override_hours instead of the regular hours.
 	HolidayType *HolidayType `json:"holiday_type,omitempty"`
-	Id          string       `json:"id"`
+
+	// Id The closure or time-off entry's ID.
+	//
+	// Examples: holiday_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
 
 	// LocationId For LOCATION type: the location this closure applies to.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId *string `json:"location_id,omitempty"`
-	Name       string  `json:"name"`
+
+	// Name Display name of the closure or time off.
+	//
+	// Examples: Christmas Eve
+	Name string `json:"name"`
 
 	// OverrideHours Replacement working hours when holiday_type is 'override'.
 	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
-	Reason        *string           `json:"reason,omitempty"`
-	ResourceId    *string           `json:"resource_id,omitempty"`
 
-	// StartDate Represents a calendar date as individual numeric components.
-	StartDate     DateModel   `json:"start_date"`
-	TimeOffType   TimeOffType `json:"time_off_type"`
-	UpdatedAtUnix int         `json:"updated_at_unix"`
+	// Reason Optional note on why the closure or time off happens, up to 500 characters.
+	//
+	// Examples: Closed for the holidays
+	Reason *string `json:"reason,omitempty"`
+
+	// ResourceId The staff member or asset ID; required when time_off_type is 'staff' or 'asset'.
+	//
+	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	ResourceId *string `json:"resource_id,omitempty"`
+
+	// StartDate First day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":24,"month":12,"year":2026}
+	StartDate DateModel `json:"start_date"`
+
+	// TimeOffType What the entry applies to: a location, a staff member, or an asset.
+	TimeOffType TimeOffType `json:"time_off_type"`
+
+	// UpdatedAtUnix When the entry was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix int `json:"updated_at_unix"`
 }
 
-// HolidayType defines model for HolidayType.
+// HolidayType Whether the entry closes the target for the whole range or replaces its working hours.
 type HolidayType string
 
 // HtmlExportOptions defines model for HtmlExportOptions.
@@ -35687,6 +36830,9 @@ type IntegrationType string
 
 // InteractionBudget defines model for InteractionBudget.
 type InteractionBudget string
+
+// IntervalPlacement defines model for IntervalPlacement.
+type IntervalPlacement string
 
 // InvoiceResponseModel defines model for InvoiceResponseModel.
 type InvoiceResponseModel struct {
@@ -36327,6 +37473,144 @@ type LanguagesResponse struct {
 	union json.RawMessage
 }
 
+// LeadDeliveryView defines model for LeadDeliveryView.
+type LeadDeliveryView struct {
+	DeliveredAtUnix *int `json:"delivered_at_unix"`
+
+	// ErrorMessage Why the message failed to reach the contact.
+	ErrorMessage  *string `json:"error_message"`
+	FailedAtUnix  *int    `json:"failed_at_unix"`
+	ReadAtUnix    *int    `json:"read_at_unix"`
+	RepliedAtUnix *int    `json:"replied_at_unix"`
+	SentAtUnix    *int    `json:"sent_at_unix"`
+
+	// Stage The furthest the message got, or `failed` if sending it failed.
+	Stage  LeadDeliveryViewStage    `json:"stage"`
+	Status BatchCallRecipientStatus `json:"status"`
+}
+
+// LeadDeliveryViewStage The furthest the message got, or `failed` if sending it failed.
+type LeadDeliveryViewStage string
+
+// LeadDetailResponse defines model for LeadDetailResponse.
+type LeadDetailResponse struct {
+	// AttemptCount Calls placed, counted against the policy's `max_total_calls`.
+	AttemptCount int `json:"attempt_count"`
+
+	// CallbackCount Callbacks the contact asked for.
+	CallbackCount int `json:"callback_count"`
+
+	// CreatedAtUnix When the lead joined the campaign; unset on older leads.
+	CreatedAtUnix *int `json:"created_at_unix"`
+
+	// Delivery The lead's latest message delivery; set on message campaigns.
+	Delivery *LeadDeliveryView `json:"delivery,omitempty"`
+
+	// DoNotCall Set when the contact asked not to be called, the lead was removed, or the campaign stopped. The lead isn't called again.
+	DoNotCall bool `json:"do_not_call"`
+
+	// DynamicVariables The dynamic variables submitted for the lead, with secrets redacted.
+	DynamicVariables map[string]interface{} `json:"dynamic_variables"`
+
+	// FailureCount Failed calls to the current number; resets on a new number.
+	FailureCount int    `json:"failure_count"`
+	LeadId       string `json:"lead_id"`
+
+	// Overrides The conversation overrides submitted for the lead.
+	Overrides FlattenedConfigOverrides `json:"overrides"`
+
+	// PhoneNumber The number the lead's next call dials. It changes when the lead moves on to another listed number or the contact asks to be called on a different one.
+	PhoneNumber string `json:"phone_number"`
+
+	// PhoneNumbers The lead's listed numbers, in calling order.
+	PhoneNumbers *[]string `json:"phone_numbers,omitempty"`
+
+	// PhoneNumbersIndex The position in `phone_numbers` of the number being called.
+	PhoneNumbersIndex int `json:"phone_numbers_index"`
+
+	// RecipientId The `id` given to this recipient when the campaign was created.
+	RecipientId *string `json:"recipient_id"`
+
+	// RedirectCount Times the contact asked to be called on another number.
+	RedirectCount int `json:"redirect_count"`
+
+	// TerminalDisposition Why the lead won't be called again; unset while it may be.
+	TerminalDisposition *TerminalDisposition `json:"terminal_disposition"`
+	UpdatedAtUnix       int                  `json:"updated_at_unix"`
+
+	// UserId The contact's identity: the `user_id` submitted in `conversation_initiation_client_data`, else the lead's phone number.
+	UserId string `json:"user_id"`
+}
+
+// LeadView defines model for LeadView.
+type LeadView struct {
+	// AttemptCount Calls placed, counted against the policy's `max_total_calls`.
+	AttemptCount int `json:"attempt_count"`
+
+	// CallbackCount Callbacks the contact asked for.
+	CallbackCount int `json:"callback_count"`
+
+	// CreatedAtUnix When the lead joined the campaign; unset on older leads.
+	CreatedAtUnix *int `json:"created_at_unix"`
+
+	// Delivery The lead's latest message delivery; set on message campaigns.
+	Delivery *LeadDeliveryView `json:"delivery,omitempty"`
+
+	// DoNotCall Set when the contact asked not to be called, the lead was removed, or the campaign stopped. The lead isn't called again.
+	DoNotCall bool `json:"do_not_call"`
+
+	// DynamicVariables The dynamic variables submitted for the lead, with secrets redacted.
+	DynamicVariables map[string]interface{} `json:"dynamic_variables"`
+
+	// FailureCount Failed calls to the current number; resets on a new number.
+	FailureCount int    `json:"failure_count"`
+	LeadId       string `json:"lead_id"`
+
+	// Overrides The conversation overrides submitted for the lead.
+	Overrides FlattenedConfigOverrides `json:"overrides"`
+
+	// PhoneNumber The number the lead's next call dials. It changes when the lead moves on to another listed number or the contact asks to be called on a different one.
+	PhoneNumber string `json:"phone_number"`
+
+	// PhoneNumbers The lead's listed numbers, in calling order.
+	PhoneNumbers *[]string `json:"phone_numbers,omitempty"`
+
+	// PhoneNumbersIndex The position in `phone_numbers` of the number being called.
+	PhoneNumbersIndex int `json:"phone_numbers_index"`
+
+	// RecipientId The `id` given to this recipient when the campaign was created.
+	RecipientId *string `json:"recipient_id"`
+
+	// RedirectCount Times the contact asked to be called on another number.
+	RedirectCount int `json:"redirect_count"`
+
+	// TerminalDisposition Why the lead won't be called again; unset while it may be.
+	TerminalDisposition *TerminalDisposition `json:"terminal_disposition"`
+	UpdatedAtUnix       int                  `json:"updated_at_unix"`
+
+	// UserId The contact's identity: the `user_id` submitted in `conversation_initiation_client_data`, else the lead's phone number.
+	UserId string `json:"user_id"`
+}
+
+// LeadsProgress defines model for LeadsProgress.
+type LeadsProgress struct {
+	// Active Other unfinished leads: a call under way, awaiting analysis or a follow-up.
+	Active int `json:"active"`
+
+	// Finished Leads that won't be called again.
+	Finished int `json:"finished"`
+
+	// FinishedByDisposition Finished leads by why they finished. Missing keys mean none.
+	FinishedByDisposition map[string]int `json:"finished_by_disposition"`
+
+	// LeadsNeedingAttention Unfinished leads whose next call an attention item holds back.
+	LeadsNeedingAttention int `json:"leads_needing_attention"`
+	Total                 int `json:"total"`
+
+	// Uncalled Unfinished leads whose first call hasn't been placed yet.
+	Uncalled int `json:"uncalled"`
+}
+
 // LeaveMessageParams defines model for LeaveMessageParams.
 type LeaveMessageParams struct {
 	SmbToolType *LeaveMessageParamsSmbToolType `json:"smb_tool_type,omitempty"`
@@ -36729,6 +38013,9 @@ type LivekitStackType string
 
 // LocationResponse A business location.
 type LocationResponse struct {
+	// UnderscoreId The location's ID.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	UnderscoreId string `json:"_id"`
 
 	// Address Street address.
@@ -36738,20 +38025,28 @@ type LocationResponse struct {
 	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
 
 	// DeactivatedAtUnix Unix timestamp when this location was deactivated. None when active.
+	//
+	// Examples: 1767225600
 	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
 
 	// DeactivationReason Why this location was deactivated. None when active.
 	DeactivationReason *SMBLocationDeactivationReason `json:"deactivation_reason,omitempty"`
-	IsActive           *bool                          `json:"is_active,omitempty"`
+
+	// IsActive Whether the location is active. Inactive locations take no bookings.
+	IsActive *bool `json:"is_active,omitempty"`
 
 	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
+	//
+	// Examples: 3
 	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
 
 	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
 	Name StrippedStr `json:"name"`
 
 	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
-	Notes          *StrippedStr  `json:"notes,omitempty"`
+	Notes *StrippedStr `json:"notes,omitempty"`
+
+	// OperatingHours When this location is open.
 	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
 }
 
@@ -38597,7 +39892,7 @@ type OrderDeliverablesResponse struct {
 	Deliverables []DeliverableInfo `json:"deliverables"`
 }
 
-// OrderFulfillmentType defines model for OrderFulfillmentType.
+// OrderFulfillmentType How an order reaches the customer.
 type OrderFulfillmentType string
 
 // OrderId defines model for OrderId.
@@ -38734,6 +40029,12 @@ type OutboundCallRecipientResponseModel struct {
 	UpdatedAtUnix                    int                                       `json:"updated_at_unix"`
 	WhatsappUserId                   *string                                   `json:"whatsapp_user_id,omitempty"`
 }
+
+// OutboundChannel defines model for OutboundChannel.
+type OutboundChannel string
+
+// OutboundMode defines model for OutboundMode.
+type OutboundMode string
 
 // OutboundSIPTrunkConfigRequestModel defines model for OutboundSIPTrunkConfigRequestModel.
 type OutboundSIPTrunkConfigRequestModel struct {
@@ -38900,6 +40201,11 @@ type PatchWorkspaceWebhookResponseModel struct {
 	Status string `json:"status"`
 }
 
+// PauseAllCampaignsResponse defines model for PauseAllCampaignsResponse.
+type PauseAllCampaignsResponse struct {
+	PausedCampaignIds []string `json:"paused_campaign_ids"`
+}
+
 // PdfExportOptions defines model for PdfExportOptions.
 type PdfExportOptions struct {
 	Format                      PdfExportOptionsFormat `json:"format"`
@@ -38970,6 +40276,28 @@ type PendingSubscriptionSwitchResponseModelNextTier string
 
 // PermissionType defines model for PermissionType.
 type PermissionType string
+
+// PhoneChannelConfigInput defines model for PhoneChannelConfig-Input.
+type PhoneChannelConfigInput struct {
+	// AgentPhoneNumberId The phone number to call from.
+	AgentPhoneNumberId string                          `json:"agent_phone_number_id"`
+	Channel            *PhoneChannelConfigInputChannel `json:"channel,omitempty"`
+	ModeConfig         *PhoneVoiceConfigInput          `json:"mode_config,omitempty"`
+}
+
+// PhoneChannelConfigInputChannel defines model for PhoneChannelConfigInput.Channel.
+type PhoneChannelConfigInputChannel string
+
+// PhoneChannelConfigOutput defines model for PhoneChannelConfig-Output.
+type PhoneChannelConfigOutput struct {
+	// AgentPhoneNumberId The phone number to call from.
+	AgentPhoneNumberId string                           `json:"agent_phone_number_id"`
+	Channel            *PhoneChannelConfigOutputChannel `json:"channel,omitempty"`
+	ModeConfig         *PhoneVoiceConfigOutput          `json:"mode_config,omitempty"`
+}
+
+// PhoneChannelConfigOutputChannel defines model for PhoneChannelConfigOutput.Channel.
+type PhoneChannelConfigOutputChannel string
 
 // PhoneNumber defines model for PhoneNumber.
 type PhoneNumber = string
@@ -39045,6 +40373,40 @@ type PhoneNumberTransferDestination struct {
 
 // PhoneNumberTransferDestinationType defines model for PhoneNumberTransferDestination.Type.
 type PhoneNumberTransferDestinationType string
+
+// PhoneVoiceConfigInput defines model for PhoneVoiceConfig-Input.
+type PhoneVoiceConfigInput struct {
+	Mode *PhoneVoiceConfigInputMode `json:"mode,omitempty"`
+
+	// RingingTimeoutSecs How long to ring the recipient before giving up, in seconds. Note that this will also be limited by the provider's own constraints.
+	RingingTimeoutSecs *int `json:"ringing_timeout_secs,omitempty"`
+
+	// TwilioCallRecordingEnabled Whether to record the call using Twilio call recording. Ignored for non-Twilio providers. Recordings are stored in your Twilio account.
+	TwilioCallRecordingEnabled *bool `json:"twilio_call_recording_enabled,omitempty"`
+
+	// TwilioMachineDetection Configuration for Twilio's carrier-level answering machine detection (AMD). Omit or set to null to disable it. Ignored for non-Twilio providers and for inbound calls. The resulting verdict is delivered as its own `answering_machine_detection` webhook event, which requires that event to be enabled on the workspace or agent webhook settings; it is not part of the conversation or the post-call webhook. Detection runs asynchronously so it never delays the start of the conversation, and the verdict can arrive at any point during the call -- with `detect_message_end`, even after it has ended. Twilio bills separately for AMD.
+	TwilioMachineDetection *TwilioMachineDetectionConfig `json:"twilio_machine_detection,omitempty"`
+}
+
+// PhoneVoiceConfigInputMode defines model for PhoneVoiceConfigInput.Mode.
+type PhoneVoiceConfigInputMode string
+
+// PhoneVoiceConfigOutput defines model for PhoneVoiceConfig-Output.
+type PhoneVoiceConfigOutput struct {
+	Mode *PhoneVoiceConfigOutputMode `json:"mode,omitempty"`
+
+	// RingingTimeoutSecs How long to ring the recipient before giving up, in seconds. Note that this will also be limited by the provider's own constraints.
+	RingingTimeoutSecs *int `json:"ringing_timeout_secs,omitempty"`
+
+	// TwilioCallRecordingEnabled Whether to record the call using Twilio call recording. Ignored for non-Twilio providers. Recordings are stored in your Twilio account.
+	TwilioCallRecordingEnabled *bool `json:"twilio_call_recording_enabled,omitempty"`
+
+	// TwilioMachineDetection Configuration for Twilio's carrier-level answering machine detection (AMD). Omit or set to null to disable it. Ignored for non-Twilio providers and for inbound calls. The resulting verdict is delivered as its own `answering_machine_detection` webhook event, which requires that event to be enabled on the workspace or agent webhook settings; it is not part of the conversation or the post-call webhook. Detection runs asynchronously so it never delays the start of the conversation, and the verdict can arrive at any point during the call -- with `detect_message_end`, even after it has ended. Twilio bills separately for AMD.
+	TwilioMachineDetection *TwilioMachineDetectionConfig `json:"twilio_machine_detection,omitempty"`
+}
+
+// PhoneVoiceConfigOutputMode defines model for PhoneVoiceConfigOutput.Mode.
+type PhoneVoiceConfigOutputMode string
 
 // PlainPlatformMetadata defines model for PlainPlatformMetadata.
 type PlainPlatformMetadata struct {
@@ -39205,6 +40567,40 @@ type PodcastURLSource struct {
 
 // PodcastURLSourceType The type of source to create.
 type PodcastURLSourceType string
+
+// PolicyConfigInput defines model for PolicyConfig-Input.
+type PolicyConfigInput struct {
+	// CallingPeriods The weekly windows calls may be placed in.
+	CallingPeriods *[]CallingPeriod `json:"calling_periods,omitempty"`
+
+	// DataCollection The agent's data collection items that steer follow-up calls. Each defaults
+	// to the built-in item for its purpose; `null` turns it off.
+	DataCollection *DataCollectionConfig `json:"data_collection,omitempty"`
+
+	// FollowupContext Which `campaign__` dynamic variables follow-up calls get.
+	FollowupContext *FollowupContextPolicy `json:"followup_context,omitempty"`
+	Retry           *RetryPolicy           `json:"retry,omitempty"`
+
+	// Timezone IANA timezone the calling periods are read in.
+	Timezone *string `json:"timezone,omitempty"`
+}
+
+// PolicyConfigOutput defines model for PolicyConfig-Output.
+type PolicyConfigOutput struct {
+	// CallingPeriods The weekly windows calls may be placed in.
+	CallingPeriods *[]CallingPeriod `json:"calling_periods,omitempty"`
+
+	// DataCollection The agent's data collection items that steer follow-up calls. Each defaults
+	// to the built-in item for its purpose; `null` turns it off.
+	DataCollection *DataCollectionConfig `json:"data_collection,omitempty"`
+
+	// FollowupContext Which `campaign__` dynamic variables follow-up calls get.
+	FollowupContext *FollowupContextPolicy `json:"followup_context,omitempty"`
+	Retry           *RetryPolicy           `json:"retry,omitempty"`
+
+	// Timezone IANA timezone the calling periods are read in.
+	Timezone *string `json:"timezone,omitempty"`
+}
 
 // PositionInput defines model for Position-Input.
 type PositionInput struct {
@@ -40077,7 +41473,7 @@ type ProjectVoiceResponseModel struct {
 	VolumeGain        float32 `json:"volume_gain"`
 }
 
-// PromotionTarget defines model for PromotionTarget.
+// PromotionTarget What a promotion discounts: the service price or add-on prices.
 type PromotionTarget string
 
 // PromptAgentAPIModelInput defines model for PromptAgentAPIModel-Input.
@@ -40657,6 +42053,8 @@ type ProvisionResellerWorkspaceRequest struct {
 	CompleteOnboarding *bool `json:"complete_onboarding,omitempty"`
 
 	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+	//
+	// Examples: 3c1d2b7e-8f4a-4e5b-9c6d-1a2b3c4d5e6f
 	IdempotencyKey *string `json:"idempotency_key,omitempty"`
 
 	// Members People to invite once the workspace exists, capped by the tier's team size. Best-effort: each outcome is in `member_results`.
@@ -41008,7 +42406,18 @@ type RealtimeModel string
 // ReassignPhoneRequest Body for attaching a phone number to a different receptionist.
 type ReassignPhoneRequest struct {
 	// CustomerFacingAgentId The receptionist that answers calls to the number from now on.
+	//
+	// Examples: agent_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	CustomerFacingAgentId string `json:"customer_facing_agent_id"`
+}
+
+// RecipientDeliveryCounts defines model for RecipientDeliveryCounts.
+type RecipientDeliveryCounts struct {
+	Delivered *int `json:"delivered,omitempty"`
+	Failed    *int `json:"failed,omitempty"`
+	Read      *int `json:"read,omitempty"`
+	Replied   *int `json:"replied,omitempty"`
+	Sent      *int `json:"sent,omitempty"`
 }
 
 // RecordingResponseModel defines model for RecordingResponseModel.
@@ -41148,6 +42557,14 @@ type RenderStatus string
 // RenderType defines model for RenderType.
 type RenderType string
 
+// ReplaceWorkspaceConfigRequest defines model for ReplaceWorkspaceConfigRequest.
+type ReplaceWorkspaceConfigRequest struct {
+	Config CampaignConfigInput `json:"config"`
+
+	// ExpectedVersion The `version` of the configuration being replaced. Omit it only to create the first configuration.
+	ExpectedVersion *int `json:"expected_version,omitempty"`
+}
+
 // ReplicateVoiceToIsolatedEnvironmentRequestModel defines model for ReplicateVoiceToIsolatedEnvironmentRequestModel.
 type ReplicateVoiceToIsolatedEnvironmentRequestModel struct {
 	// PreserveVoiceId When true (default) the replicated voice keeps the same voice ID in the target residency; set to false to assign a new voice ID.
@@ -41255,13 +42672,66 @@ type ResellerInvoicesResponse struct {
 	NextCursor *string                  `json:"next_cursor,omitempty"`
 }
 
+// ResellerTierEconomics A tier's prices and the limits shown on its tier card.
+type ResellerTierEconomics struct {
+	// AnnualPriceUsd What a year up front is sold for. Null for the trial.
+	//
+	// Examples: 990
+	AnnualPriceUsd *float32 `json:"annual_price_usd"`
+
+	// AssistantDailyMessages Messages the owner can send the Assistant each day.
+	//
+	// Examples: 100
+	AssistantDailyMessages int `json:"assistant_daily_messages"`
+
+	// ConcurrentCalls Calls a workspace on this tier can take at the same time.
+	//
+	// Examples: 3
+	ConcurrentCalls int `json:"concurrent_calls"`
+
+	// IncludedMinutesPerMonth Phone minutes included each month. A web minute draws half a minute, a chat message a tenth.
+	//
+	// Examples: 300
+	IncludedMinutesPerMonth float32 `json:"included_minutes_per_month"`
+
+	// MaxActiveLocations Business locations a workspace on this tier can have active.
+	//
+	// Examples: 1
+	MaxActiveLocations int `json:"max_active_locations"`
+
+	// MaxCustomerFacingAgents Receptionists a workspace on this tier can have active.
+	//
+	// Examples: 1
+	MaxCustomerFacingAgents int `json:"max_customer_facing_agents"`
+
+	// MaxPhoneNumbers Phone numbers a workspace on this tier can hold at once.
+	//
+	// Examples: 2
+	MaxPhoneNumbers int `json:"max_phone_numbers"`
+
+	// MaxTeamMembers Team members a workspace on this tier can have, counting pending invites.
+	//
+	// Examples: 5
+	MaxTeamMembers int `json:"max_team_members"`
+
+	// MonthlyPriceUsd What one month is sold for.
+	//
+	// Examples: 99
+	MonthlyPriceUsd float32 `json:"monthly_price_usd"`
+
+	// OveragePricePerMinuteUsd Charged per minute past the included ones. Null for the trial.
+	//
+	// Examples: 0.35
+	OveragePricePerMinuteUsd *float32 `json:"overage_price_per_minute_usd"`
+}
+
 // ResellerTierResponse A tier you can sell.
 type ResellerTierResponse struct {
 	DisplayName string `json:"display_name"`
 
-	// TierEconomics A tier's prices and quotas, in the fields a tier is created with.
-	TierEconomics SMBTierEconomics `json:"tier_economics"`
-	TierId        string           `json:"tier_id"`
+	// TierEconomics A tier's prices and the limits shown on its tier card.
+	TierEconomics ResellerTierEconomics `json:"tier_economics"`
+	TierId        string                `json:"tier_id"`
 }
 
 // ResellerUpcomingPayment A workspace's next renewal, estimated before its invoice is created.
@@ -41474,6 +42944,33 @@ type ResubmitTestsRequestModel struct {
 	TestRunIds []string `json:"test_run_ids"`
 }
 
+// RetryPolicy defines model for RetryPolicy.
+type RetryPolicy struct {
+	// IntervalPlacement Where in a later calling window a pushed-back call lands: at its `start`, at a `random` time, or `rotate`d `rotate_step_seconds` past where the last call in that window failed.
+	IntervalPlacement *IntervalPlacement `json:"interval_placement,omitempty"`
+
+	// MaxCallbacks The most callbacks to honor for one number.
+	MaxCallbacks *int `json:"max_callbacks,omitempty"`
+
+	// MaxConsecutiveFailuresPerNumber Calls to one number that may fail in a row before the lead moves on to its next listed number, or ends when there is none. An answered call, or a redirect to a new number, restarts the count. Unset leaves only `max_total_calls`.
+	MaxConsecutiveFailuresPerNumber *int `json:"max_consecutive_failures_per_number,omitempty"`
+
+	// MaxRedirects The most times a lead follows a request to call another number.
+	MaxRedirects *int `json:"max_redirects,omitempty"`
+
+	// MaxShortRetries Retries a calling window allows after a failed call. Once used up, the next retry waits for the following window, which starts afresh.
+	MaxShortRetries *int `json:"max_short_retries,omitempty"`
+
+	// MaxTotalCalls The most calls a lead gets, counting the first.
+	MaxTotalCalls *int `json:"max_total_calls,omitempty"`
+
+	// RetryDelaySeconds How long to wait before a short retry.
+	RetryDelaySeconds *int `json:"retry_delay_seconds,omitempty"`
+
+	// RotateStepSeconds How far `rotate` placement moves each call. Only used by `rotate`.
+	RotateStepSeconds *int `json:"rotate_step_seconds,omitempty"`
+}
+
 // RetryTriggerAction defines model for RetryTriggerAction.
 type RetryTriggerAction struct {
 	// Feedback Custom feedback to inject into the agent when retrying after guardrail trigger.
@@ -41501,7 +42998,7 @@ type ReviewResponseModelRejectReasons string
 // ReviewResponseModelReviewStatus defines model for ReviewResponseModel.ReviewStatus.
 type ReviewResponseModelReviewStatus string
 
-// RulePriority defines model for RulePriority.
+// RulePriority How strictly the receptionist follows a rule.
 type RulePriority string
 
 // RunAgentTestsRequestModel defines model for RunAgentTestsRequestModel.
@@ -41602,25 +43099,41 @@ type SIPUriTransferDestinationType string
 // creating a separate calendar event.
 type SMBAddOn struct {
 	// AddDurationMinutes Minutes added to the parent booking when this add-on is selected.
+	//
+	// Examples: 10
 	AddDurationMinutes *int `json:"add_duration_minutes,omitempty"`
 
 	// AddPrice Amount added to the parent booking's total when this add-on is selected.
+	//
+	// Examples: 5
 	AddPrice *float32 `json:"add_price,omitempty"`
 
 	// Description Short owner-authored blurb shown to customers and voice agents when they're choosing add-ons. Empty string means no description.
+	//
+	// Examples: A warm towel to finish your shave.
 	Description *StrippedStr `json:"description,omitempty"`
 
 	// Id Stable identifier used by booking requests and calendar snapshots. Survives name/price edits, so rebooking and reporting stay consistent.
-	Id   *string     `json:"id,omitempty"`
+	//
+	// Examples: addon_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// Name Add-on name shown to customers and the receptionist.
+	//
+	// Examples: Hot towel
 	Name StrippedStr `json:"name"`
 }
 
 // SMBAdjustProductStockRequest defines model for SMBAdjustProductStockRequest.
 type SMBAdjustProductStockRequest struct {
 	// Delta Signed change to apply to on-hand. Prefer this over an absolute write whenever the intent is 'a few more/fewer'.
+	//
+	// Examples: -2
 	Delta int `json:"delta"`
 
 	// LocationId Location whose count changes.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId string `json:"location_id"`
 }
 
@@ -41630,21 +43143,43 @@ type SMBAgentInfoResponse struct {
 	BusinessCountry *CountryCode `json:"business_country,omitempty"`
 
 	// BusinessDescription What the business does, given to the receptionist.
+	//
+	// Examples: A hair salon offering cuts, color and styling.
 	BusinessDescription *string `json:"business_description,omitempty"`
 
 	// BusinessName Name of the business.
-	BusinessName  *string `json:"business_name,omitempty"`
-	CreatedAtUnix int     `json:"created_at_unix"`
+	//
+	// Examples: Bloom Salon
+	BusinessName *string `json:"business_name,omitempty"`
+
+	// CreatedAtUnix When the business profile was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix int `json:"created_at_unix"`
 
 	// Currency Currency code for all prices (ISO 4217)
-	Currency       *SMBAgentInfoResponseCurrency `json:"currency,omitempty"`
-	Id             string                        `json:"id"`
-	OperatingHours *WorkingHours                 `json:"operating_hours,omitempty"`
-	Timezone       *string                       `json:"timezone,omitempty"`
+	Currency *SMBAgentInfoResponseCurrency `json:"currency,omitempty"`
+
+	// Id ID of the business profile.
+	//
+	// Examples: agentinfo_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
+
+	// OperatingHours Default business hours. Each location's own operating_hours decide when that location is open.
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+
+	// Timezone IANA timezone of the business.
+	//
+	// Examples: America/New_York
+	Timezone *string `json:"timezone,omitempty"`
 
 	// ToolCallSound Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
 	ToolCallSound *ToolCallSoundType `json:"tool_call_sound,omitempty"`
-	UpdatedAtUnix int                `json:"updated_at_unix"`
+
+	// UpdatedAtUnix When the business profile was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix int `json:"updated_at_unix"`
 
 	// WorkspaceNow Current time in workspace timezone, computed on each request.
 	WorkspaceNow *WorkspaceNow `json:"workspace_now,omitempty"`
@@ -41655,12 +43190,17 @@ type SMBAgentInfoResponseCurrency string
 
 // SMBAssetResourceDBModel Represents a physical resource that can be booked (rooms, equipment, vehicles).
 type SMBAssetResourceDBModel struct {
+	// UnderscoreId The asset's ID.
+	//
+	// Examples: asset_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	UnderscoreId string `json:"_id"`
 
 	// AvailableHours Custom availability hours for this asset. Null means follow the assigned location's operating_hours (requires location_id).
 	AvailableHours *WorkingHours `json:"available_hours,omitempty"`
 
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
 
 	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
@@ -41676,18 +43216,24 @@ type SMBAssetResourceDBModel struct {
 	IsActive *bool `json:"is_active,omitempty"`
 
 	// LocationId Location this asset belongs to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId *string `json:"location_id,omitempty"`
 
 	// Name Internal/admin name of the asset, shown in the dashboard and owner notifications.
 	Name StrippedStr `json:"name"`
 
 	// PhotoUrl URL of a photo of the asset.
+	//
+	// Examples: https://example.com/photos/court-1.jpg
 	PhotoUrl *string `json:"photo_url,omitempty"`
 
 	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
 	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
 
-	// UpdatedAtUnix Unix timestamp (seconds since epoch)
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
 }
 
@@ -41697,17 +43243,37 @@ type SMBConfirmServiceUpdateRequest struct {
 	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
 
 	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
-	AdvanceBookingMinutes *int      `json:"advance_booking_minutes,omitempty"`
-	AnyStaffMember        *bool     `json:"any_staff_member,omitempty"`
-	AssetIds              *[]string `json:"asset_ids,omitempty"`
+	//
+	// Examples: 10080
+	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
+
+	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
+	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
+
+	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
+	//
+	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	AssetIds *[]string `json:"asset_ids,omitempty"`
 
 	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
-	BufferMinutes        *int         `json:"buffer_minutes,omitempty"`
-	Capacity             *int         `json:"capacity,omitempty"`
-	Description          *StrippedStr `json:"description,omitempty"`
-	DisplayOnBookingPage *bool        `json:"display_on_booking_page,omitempty"`
+	//
+	// Examples: 15
+	BufferMinutes *int `json:"buffer_minutes,omitempty"`
+
+	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
+	Capacity *int `json:"capacity,omitempty"`
+
+	// Description Details about the service for customers and the receptionist; empty string means none.
+	//
+	// Examples: A classic cut, finished with a wash and style.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether the service is listed on the public booking page.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
 
 	// DurationMinutes Sets the first variant's duration. Ignored when `variants` is sent.
+	//
+	// Examples: 60
 	DurationMinutes *int `json:"duration_minutes,omitempty"`
 
 	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
@@ -41715,19 +43281,31 @@ type SMBConfirmServiceUpdateRequest struct {
 
 	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
 	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-	IsActive        *bool                `json:"is_active,omitempty"`
+
+	// IsActive Whether the service is offered; inactive services can't be booked.
+	IsActive *bool `json:"is_active,omitempty"`
 
 	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
 	Kind *SMBServiceKind `json:"kind,omitempty"`
 
 	// LocationIds Locations where this service is offered; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	LocationIds *[]string `json:"location_ids,omitempty"`
 
 	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
-	MaxParticipants *int         `json:"max_participants,omitempty"`
-	Name            *StrippedStr `json:"name,omitempty"`
+	//
+	// Examples: 12
+	MaxParticipants *int `json:"max_participants,omitempty"`
+
+	// Name Service name shown to customers and the receptionist.
+	//
+	// Examples: Haircut
+	Name *StrippedStr `json:"name,omitempty"`
 
 	// Price Sets the first variant's price. Ignored when `variants` is sent.
+	//
+	// Examples: 45
 	Price *float32 `json:"price,omitempty"`
 
 	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
@@ -41740,6 +43318,8 @@ type SMBConfirmServiceUpdateRequest struct {
 	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
 
 	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	//
+	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	StaffIds *[]string `json:"staff_ids,omitempty"`
 
 	// TravelAfter Add travel time after the appointment (return trip).
@@ -41749,6 +43329,8 @@ type SMBConfirmServiceUpdateRequest struct {
 	TravelBefore *bool `json:"travel_before,omitempty"`
 
 	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
+	//
+	// Examples: 15
 	TravelMinutes *int `json:"travel_minutes,omitempty"`
 
 	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
@@ -41788,12 +43370,16 @@ type SMBCreateAssetRequest struct {
 	IsActive *bool `json:"is_active,omitempty"`
 
 	// LocationId Location this asset belongs to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId *string `json:"location_id,omitempty"`
 
 	// Name Internal/admin name of the asset, shown in the dashboard and owner notifications.
 	Name StrippedStr `json:"name"`
 
 	// PhotoUrl URL of a photo of the asset.
+	//
+	// Examples: https://example.com/photos/court-1.jpg
 	PhotoUrl *string `json:"photo_url,omitempty"`
 
 	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
@@ -41802,27 +43388,52 @@ type SMBCreateAssetRequest struct {
 
 // SMBCreateHolidayRequest defines model for SMBCreateHolidayRequest.
 type SMBCreateHolidayRequest struct {
-	// EndDate Represents a calendar date as individual numeric components.
-	EndDate     DateModel    `json:"end_date"`
+	// EndDate Last day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":26,"month":12,"year":2026}
+	EndDate DateModel `json:"end_date"`
+
+	// HolidayType 'closed' for no availability, or 'override' to use override_hours instead of the regular hours.
 	HolidayType *HolidayType `json:"holiday_type,omitempty"`
 
 	// LocationId For LOCATION type: the location this closure applies to.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId *string `json:"location_id,omitempty"`
-	Name       string  `json:"name"`
+
+	// Name Display name of the closure or time off.
+	//
+	// Examples: Christmas Eve
+	Name string `json:"name"`
 
 	// OverrideHours Replacement working hours when holiday_type is 'override'.
 	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
-	Reason        *string           `json:"reason,omitempty"`
-	ResourceId    *string           `json:"resource_id,omitempty"`
 
-	// StartDate Represents a calendar date as individual numeric components.
-	StartDate   DateModel   `json:"start_date"`
+	// Reason Optional note on why the closure or time off happens, up to 500 characters.
+	//
+	// Examples: Closed for the holidays
+	Reason *string `json:"reason,omitempty"`
+
+	// ResourceId The staff member or asset ID; required when time_off_type is 'staff' or 'asset'.
+	//
+	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	ResourceId *string `json:"resource_id,omitempty"`
+
+	// StartDate First day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":24,"month":12,"year":2026}
+	StartDate DateModel `json:"start_date"`
+
+	// TimeOffType What the entry applies to: a location, a staff member, or an asset.
 	TimeOffType TimeOffType `json:"time_off_type"`
 }
 
 // SMBCreateProcedureRequest Request model for creating a new procedure.
 type SMBCreateProcedureRequest struct {
 	// Body Step-by-step instructions, as markdown.
+	//
+	// Examples: 1. Ask for the caller's name and order number.
+	// 2. Look up the order and read back its status.
 	Body *string `json:"body,omitempty"`
 
 	// Name Name of the procedure.
@@ -41850,6 +43461,8 @@ type SMBCreateProductRequest struct {
 	IsActive *bool `json:"is_active,omitempty"`
 
 	// LocationIds Locations where this product is sold; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	LocationIds *[]string `json:"location_ids,omitempty"`
 
 	// Name Name of the product.
@@ -41859,6 +43472,8 @@ type SMBCreateProductRequest struct {
 	Orderable *bool `json:"orderable,omitempty"`
 
 	// Price Price of the product; null for no listed price.
+	//
+	// Examples: 4.5
 	Price *float32 `json:"price,omitempty"`
 
 	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
@@ -41877,32 +43492,60 @@ type SMBCreateServiceRequest struct {
 	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
 
 	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
-	AdvanceBookingMinutes *int      `json:"advance_booking_minutes,omitempty"`
-	AnyStaffMember        *bool     `json:"any_staff_member,omitempty"`
-	AssetIds              *[]string `json:"asset_ids,omitempty"`
+	//
+	// Examples: 10080
+	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
+
+	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
+	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
+
+	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
+	//
+	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	AssetIds *[]string `json:"asset_ids,omitempty"`
 
 	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
-	BufferMinutes        *int         `json:"buffer_minutes,omitempty"`
-	Capacity             *int         `json:"capacity,omitempty"`
-	Description          *StrippedStr `json:"description,omitempty"`
-	DisplayOnBookingPage *bool        `json:"display_on_booking_page,omitempty"`
+	//
+	// Examples: 15
+	BufferMinutes *int `json:"buffer_minutes,omitempty"`
+
+	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
+	Capacity *int `json:"capacity,omitempty"`
+
+	// Description Details about the service for customers and the receptionist; empty string means none.
+	//
+	// Examples: A classic cut, finished with a wash and style.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether the service is listed on the public booking page.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
 
 	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
 	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
 
 	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
 	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-	IsActive        *bool                `json:"is_active,omitempty"`
+
+	// IsActive Whether the service is offered; inactive services can't be booked.
+	IsActive *bool `json:"is_active,omitempty"`
 
 	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
 	Kind *SMBServiceKind `json:"kind,omitempty"`
 
 	// LocationIds Locations where this service is offered; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	LocationIds *[]string `json:"location_ids,omitempty"`
 
 	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
-	MaxParticipants *int        `json:"max_participants,omitempty"`
-	Name            StrippedStr `json:"name"`
+	//
+	// Examples: 12
+	MaxParticipants *int `json:"max_participants,omitempty"`
+
+	// Name Service name shown to customers and the receptionist.
+	//
+	// Examples: Haircut
+	Name StrippedStr `json:"name"`
 
 	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
 	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
@@ -41914,6 +43557,8 @@ type SMBCreateServiceRequest struct {
 	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
 
 	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	//
+	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	StaffIds *[]string `json:"staff_ids,omitempty"`
 
 	// TravelAfter Add travel time after the appointment (return trip).
@@ -41923,6 +43568,8 @@ type SMBCreateServiceRequest struct {
 	TravelBefore *bool `json:"travel_before,omitempty"`
 
 	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
+	//
+	// Examples: 15
 	TravelMinutes *int `json:"travel_minutes,omitempty"`
 
 	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
@@ -41944,6 +43591,8 @@ type SMBCreateStaffRequest struct {
 	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
 
 	// Email Email address of the staff member.
+	//
+	// Examples: jane@example.com
 	Email *string `json:"email,omitempty"`
 
 	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
@@ -41953,14 +43602,20 @@ type SMBCreateStaffRequest struct {
 	IsActive *bool `json:"is_active,omitempty"`
 
 	// LocationId Location this staff member is assigned to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId *string `json:"location_id,omitempty"`
 
 	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
 	Name StrippedStr `json:"name"`
 
 	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
-	Phone    *PhoneNumberOptional `json:"phone,omitempty"`
-	PhotoUrl *string              `json:"photo_url,omitempty"`
+	Phone *PhoneNumberOptional `json:"phone,omitempty"`
+
+	// PhotoUrl URL of a photo of the staff member.
+	//
+	// Examples: https://example.com/photos/jane.jpg
+	PhotoUrl *string `json:"photo_url,omitempty"`
 
 	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
 	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
@@ -41984,6 +43639,8 @@ type SMBCreateTransferRuleRequest struct {
 	PhoneNumber PhoneNumber `json:"phone_number"`
 
 	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
+	//
+	// Examples: www1234
 	PostDialDigits *string `json:"post_dial_digits,omitempty"`
 }
 
@@ -41996,20 +43653,30 @@ type SMBCustomerFacingAgentResponse struct {
 	AgentExists *bool `json:"agent_exists,omitempty"`
 
 	// AgentId ID of the ElevenLabs agent behind this receptionist.
-	AgentId *string                     `json:"agent_id,omitempty"`
-	Config  *CustomerFacingConfigOutput `json:"config,omitempty"`
+	//
+	// Examples: agent_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	AgentId *string `json:"agent_id,omitempty"`
+
+	// Config The receptionist's voice, language, greeting, rules and other settings.
+	Config *CustomerFacingConfigOutput `json:"config,omitempty"`
 
 	// DeactivatedAtUnix Unix timestamp when this receptionist was deactivated. None when active.
+	//
+	// Examples: 1767225600
 	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
 
 	// DeactivationReason Why this receptionist was deactivated. None when active.
 	DeactivationReason *SMBCustomerFacingAgentDeactivationReason `json:"deactivation_reason,omitempty"`
-	IsActive           *bool                                     `json:"is_active,omitempty"`
+
+	// IsActive Whether the receptionist is active. Inactive receptionists take no live calls.
+	IsActive *bool `json:"is_active,omitempty"`
 
 	// IsTransferAllowed Whether this receptionist can configure and use transfer rules.
 	IsTransferAllowed *bool `json:"is_transfer_allowed,omitempty"`
 
 	// Name Display name of the receptionist.
+	//
+	// Examples: Front Desk
 	Name *string `json:"name,omitempty"`
 
 	// Widget How the website widget looks. Null when the agent is missing. Unset labels follow the receptionist's language.
@@ -42018,6 +43685,9 @@ type SMBCustomerFacingAgentResponse struct {
 
 // SMBGroupMembership Membership of an item in a single user-defined group, with its display rank inside that group.
 type SMBGroupMembership struct {
+	// Label Name of the group.
+	//
+	// Examples: Haircuts
 	Label StrippedStr `json:"label"`
 
 	// Rank 0-based display position within this group. Change it with the reorder endpoint; send back the value you read to keep the order, a membership sent without it goes to position 0.
@@ -42027,12 +43697,14 @@ type SMBGroupMembership struct {
 // SMBIntakeQuestion A question the receptionist asks before booking or ordering this item.
 type SMBIntakeQuestion struct {
 	// Id Stable identifier referenced by stored answers. Survives label edits so history stays attributable to the right question.
+	//
+	// Examples: intakeq_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	Id *string `json:"id,omitempty"`
 
 	// IsActive Retired questions are deactivated rather than deleted, so answers already stored against them keep resolving.
 	IsActive *bool `json:"is_active,omitempty"`
 
-	// Kind Answer shape for a per-item intake question.
+	// Kind The answer's shape: free text, a number, or one of options.
 	Kind *IntakeQuestionKind `json:"kind,omitempty"`
 
 	// Label The question as the agent should ask it, e.g. 'How many rooms?'. Phrased by the owner; the agent may rephrase for conversational flow but must not change what is being asked.
@@ -42047,35 +43719,76 @@ type SMBIntakeQuestion struct {
 
 // SMBKnowledgeSourceDBModel A file or web page the receptionists learn from.
 type SMBKnowledgeSourceDBModel struct {
-	UnderscoreId    string  `json:"_id"`
-	ContentPreview  *string `json:"content_preview,omitempty"`
-	ContentType     *string `json:"content_type,omitempty"`
-	CrawlEntireSite *bool   `json:"crawl_entire_site,omitempty"`
+	// UnderscoreId The knowledge source's ID.
+	//
+	// Examples: ksource_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	UnderscoreId string `json:"_id"`
 
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
-	CreatedAtUnix           *UnixTimestamp `json:"created_at_unix,omitempty"`
-	ErrorMessage            *string        `json:"error_message,omitempty"`
-	FailureReason           *IngestFailure `json:"failure_reason,omitempty"`
-	FileSizeBytes           *int           `json:"file_size_bytes,omitempty"`
-	LastScrapedAtUnix       *int           `json:"last_scraped_at_unix,omitempty"`
-	OriginalFilename        *string        `json:"original_filename,omitempty"`
-	ProcessingStartedAtUnix *int           `json:"processing_started_at_unix,omitempty"`
-	ScrapedPagesCount       *int           `json:"scraped_pages_count,omitempty"`
+	// ContentPreview A short plain-text preview of the content.
+	//
+	// Examples: Welcome to Main Street Salon. We offer haircuts, color and styling.
+	ContentPreview *string `json:"content_preview,omitempty"`
 
-	// SourceType Type of knowledge source.
+	// ContentType The uploaded file's MIME type; empty for URLs.
+	//
+	// Examples: application/pdf
+	ContentType *string `json:"content_type,omitempty"`
+
+	// CrawlEntireSite Whether the whole site was crawled rather than the single page at source_url.
+	CrawlEntireSite *bool `json:"crawl_entire_site,omitempty"`
+
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// ErrorMessage Why processing failed, when status is 'error'.
+	//
+	// Examples: We couldn't reach that website.
+	ErrorMessage *string `json:"error_message,omitempty"`
+
+	// FailureReason Machine-readable cause of the failure, when status is 'error'.
+	FailureReason *IngestFailure `json:"failure_reason,omitempty"`
+
+	// FileSizeBytes The uploaded file's size in bytes; 0 for URLs.
+	//
+	// Examples: 204800
+	FileSizeBytes *int `json:"file_size_bytes,omitempty"`
+
+	// LastScrapedAtUnix When the URL was last read, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	LastScrapedAtUnix *int `json:"last_scraped_at_unix,omitempty"`
+
+	// OriginalFilename The uploaded file's name for 'file' sources; empty for URLs.
+	//
+	// Examples: price-list.pdf
+	OriginalFilename *string `json:"original_filename,omitempty"`
+
+	// ProcessingStartedAtUnix When processing started, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	ProcessingStartedAtUnix *int `json:"processing_started_at_unix,omitempty"`
+
+	// ScrapedPagesCount How many pages were read for 'url' sources.
+	//
+	// Examples: 12
+	ScrapedPagesCount *int `json:"scraped_pages_count,omitempty"`
+
+	// SourceType Whether the source is an uploaded file or a web page or site.
 	SourceType *KnowledgeSourceType `json:"source_type,omitempty"`
-	SourceUrl  *string              `json:"source_url,omitempty"`
 
-	// Status Processing status for knowledge sources.
+	// SourceUrl The page or site URL for 'url' sources.
 	//
-	// - `processing`: the file or site is being read.
-	// - `ready`: done; the results are available.
-	// - `error`: it failed and can be retried.
-	//
-	// See `progress` for detail.
+	// Examples: https://example.com
+	SourceUrl *string `json:"source_url,omitempty"`
+
+	// Status Where processing stands: 'processing', 'ready' or 'error'.
 	Status *KnowledgeSourceStatus `json:"status,omitempty"`
 
-	// UpdatedAtUnix Unix timestamp (seconds since epoch)
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
 }
 
@@ -42089,9 +43802,13 @@ type SMBLocationRequest struct {
 
 	// CustomerFacingName Name shown to customers; empty reuses name.
 	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-	IsActive           *bool        `json:"is_active,omitempty"`
+
+	// IsActive Whether the location is active. Inactive locations take no bookings.
+	IsActive *bool `json:"is_active,omitempty"`
 
 	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
+	//
+	// Examples: 3
 	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
 
 	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
@@ -42111,9 +43828,13 @@ type SMBLocationRequestPatch struct {
 
 	// CustomerFacingName Name shown to customers; empty reuses name.
 	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-	IsActive           *bool        `json:"is_active,omitempty"`
+
+	// IsActive Whether the location is active. Inactive locations take no bookings.
+	IsActive *bool `json:"is_active,omitempty"`
 
 	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
+	//
+	// Examples: 3
 	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
 
 	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
@@ -42128,28 +43849,41 @@ type SMBLocationRequestPatch struct {
 
 // SMBPhoneAssignmentDBModel A phone number held by the workspace.
 type SMBPhoneAssignmentDBModel struct {
+	// UnderscoreId The phone number assignment's ID.
+	//
+	// Examples: phone_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	UnderscoreId string `json:"_id"`
 
 	// AcceptsPublicCalls Whether inbound calls from the public may reach the receptionist.
 	AcceptsPublicCalls *bool `json:"accepts_public_calls,omitempty"`
 
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
 
 	// CustomerFacingAgentId The receptionist that answers this number. Null when the workspace holds the number but no receptionist answers it yet.
+	//
+	// Examples: agent_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	CustomerFacingAgentId *string `json:"customer_facing_agent_id,omitempty"`
 
 	// DeactivatedAtUnix Unix timestamp when this number was deactivated; it is released 14 days later. Null when active.
+	//
+	// Examples: 1767225600
 	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
 
 	// DeactivationReason Why this number was deactivated. Null when active.
 	DeactivationReason *SMBPhoneAssignmentDeactivationReason `json:"deactivation_reason,omitempty"`
-	IsActive           *bool                                 `json:"is_active,omitempty"`
+
+	// IsActive Whether the number is active; false during the 14 days before a deactivated number is released.
+	IsActive *bool `json:"is_active,omitempty"`
 
 	// IsByo True when the phone is bring-your-own: registered by the workspace using their own telephony provider (Twilio credentials or SIP trunk). BYO phones are never part of the shared pool, do not count against the plan's phone number limit, and are deleted (rather than returned to the pool) on release.
 	IsByo *bool `json:"is_byo,omitempty"`
 
 	// NanpAreaCode US/Canada NANP area code (NPA) as an integer.
+	//
+	// Examples: 415
 	NanpAreaCode *int `json:"nanp_area_code,omitempty"`
 
 	// PhoneNumber Phone number in E.164 format.
@@ -42167,7 +43901,9 @@ type SMBPhoneAssignmentDBModel struct {
 	// RegulatoryStatus Null for numbers that need no paperwork. `held` while the workspace's own application is under review, `approved` once it passed and the number is fully usable.
 	RegulatoryStatus *SMBPhoneRegulatoryStatus `json:"regulatory_status,omitempty"`
 
-	// UpdatedAtUnix Unix timestamp (seconds since epoch)
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
 }
 
@@ -42185,15 +43921,26 @@ type SMBPhoneRegulatoryStatus string
 // SMBProcedure A standard operating procedure (SOP) the receptionist can run on calls.
 type SMBProcedure struct {
 	// Body Step-by-step instructions, as markdown.
+	//
+	// Examples: 1. Ask for the caller's name and order number.
+	// 2. Look up the order and read back its status.
 	Body *string `json:"body,omitempty"`
 
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	// CreatedAtUnix When the procedure was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-	Id            *string        `json:"id,omitempty"`
+
+	// Id ID of the procedure.
+	//
+	// Examples: agtprc_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
 
 	// Name Name of the procedure.
-	Name      StrippedStr `json:"name"`
-	SourceKey *string     `json:"source_key,omitempty"`
+	Name StrippedStr `json:"name"`
+
+	// SourceKey Set when the procedure was copied from an integration's template; null for procedures you create.
+	SourceKey *string `json:"source_key,omitempty"`
 
 	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
 	Trigger StrippedStr `json:"trigger"`
@@ -42202,18 +43949,29 @@ type SMBProcedure struct {
 // SMBProcedureResponse A stored procedure plus whether the receptionist can actually run it.
 type SMBProcedureResponse struct {
 	// Body Step-by-step instructions, as markdown.
+	//
+	// Examples: 1. Ask for the caller's name and order number.
+	// 2. Look up the order and read back its status.
 	Body *string `json:"body,omitempty"`
 
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	// CreatedAtUnix When the procedure was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-	Id            *string        `json:"id,omitempty"`
+
+	// Id ID of the procedure.
+	//
+	// Examples: agtprc_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
 
 	// MissingTools Tool API names the steps point at that the receptionist does not have. While non-empty the procedure is left off calls.
 	MissingTools *[]string `json:"missing_tools,omitempty"`
 
 	// Name Name of the procedure.
-	Name      StrippedStr `json:"name"`
-	SourceKey *string     `json:"source_key,omitempty"`
+	Name StrippedStr `json:"name"`
+
+	// SourceKey Set when the procedure was copied from an integration's template; null for procedures you create.
+	SourceKey *string `json:"source_key,omitempty"`
 
 	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
 	Trigger StrippedStr `json:"trigger"`
@@ -42223,12 +43981,17 @@ type SMBProcedureResponse struct {
 //
 // Used for restaurants (menu), e-commerce (products), salons (retail items), etc.
 type SMBProductDBModel struct {
+	// UnderscoreId The product's ID.
+	//
+	// Examples: product_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	UnderscoreId string `json:"_id"`
 
 	// AllowedFulfillmentTypes Fulfillment options customers may choose when ordering this product.
 	AllowedFulfillmentTypes *[]OrderFulfillmentType `json:"allowed_fulfillment_types,omitempty"`
 
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
 
 	// Description Description of the product.
@@ -42244,6 +44007,8 @@ type SMBProductDBModel struct {
 	IsActive *bool `json:"is_active,omitempty"`
 
 	// LocationIds Locations where this product is sold; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	LocationIds *[]string `json:"location_ids,omitempty"`
 
 	// Name Name of the product.
@@ -42253,6 +44018,8 @@ type SMBProductDBModel struct {
 	Orderable *bool `json:"orderable,omitempty"`
 
 	// Price Price of the product; null for no listed price.
+	//
+	// Examples: 4.5
 	Price *float32 `json:"price,omitempty"`
 
 	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
@@ -42264,32 +44031,59 @@ type SMBProductDBModel struct {
 	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
 	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
 
-	// UpdatedAtUnix Unix timestamp (seconds since epoch)
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
 }
 
 // SMBServiceDBModel Represents a bookable service (e.g., haircut, massage, consultation).
 type SMBServiceDBModel struct {
+	// UnderscoreId The service's ID.
+	//
+	// Examples: service_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	UnderscoreId string `json:"_id"`
 
 	// AddOns Optional extras that can be added to a booking of this service.
 	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
 
 	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
-	AdvanceBookingMinutes *int      `json:"advance_booking_minutes,omitempty"`
-	AnyStaffMember        *bool     `json:"any_staff_member,omitempty"`
-	AssetIds              *[]string `json:"asset_ids,omitempty"`
+	//
+	// Examples: 10080
+	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
+
+	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
+	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
+
+	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
+	//
+	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	AssetIds *[]string `json:"asset_ids,omitempty"`
 
 	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
+	//
+	// Examples: 15
 	BufferMinutes *int `json:"buffer_minutes,omitempty"`
-	Capacity      *int `json:"capacity,omitempty"`
 
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
-	CreatedAtUnix        *UnixTimestamp `json:"created_at_unix,omitempty"`
-	Description          *StrippedStr   `json:"description,omitempty"`
-	DisplayOnBookingPage *bool          `json:"display_on_booking_page,omitempty"`
+	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
+	Capacity *int `json:"capacity,omitempty"`
+
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// Description Details about the service for customers and the receptionist; empty string means none.
+	//
+	// Examples: A classic cut, finished with a wash and style.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether the service is listed on the public booking page.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
 
 	// DurationMinutes Duration of the first variant.
+	//
+	// Examples: 60
 	DurationMinutes *int `json:"duration_minutes,omitempty"`
 
 	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
@@ -42297,19 +44091,31 @@ type SMBServiceDBModel struct {
 
 	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
 	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-	IsActive        *bool                `json:"is_active,omitempty"`
+
+	// IsActive Whether the service is offered; inactive services can't be booked.
+	IsActive *bool `json:"is_active,omitempty"`
 
 	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
 	Kind *SMBServiceKind `json:"kind,omitempty"`
 
 	// LocationIds Locations where this service is offered; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	LocationIds *[]string `json:"location_ids,omitempty"`
 
 	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
-	MaxParticipants *int        `json:"max_participants,omitempty"`
-	Name            StrippedStr `json:"name"`
+	//
+	// Examples: 12
+	MaxParticipants *int `json:"max_participants,omitempty"`
+
+	// Name Service name shown to customers and the receptionist.
+	//
+	// Examples: Haircut
+	Name StrippedStr `json:"name"`
 
 	// Price Price of the first variant.
+	//
+	// Examples: 45
 	Price *float32 `json:"price,omitempty"`
 
 	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
@@ -42322,6 +44128,8 @@ type SMBServiceDBModel struct {
 	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
 
 	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	//
+	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	StaffIds *[]string `json:"staff_ids,omitempty"`
 
 	// TravelAfter Add travel time after the appointment (return trip).
@@ -42331,14 +44139,20 @@ type SMBServiceDBModel struct {
 	TravelBefore *bool `json:"travel_before,omitempty"`
 
 	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
+	//
+	// Examples: 15
 	TravelMinutes *int `json:"travel_minutes,omitempty"`
 
 	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
 	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
 
-	// UpdatedAtUnix Unix timestamp (seconds since epoch)
-	UpdatedAtUnix *UnixTimestamp      `json:"updated_at_unix,omitempty"`
-	Variants      []SMBServiceVariant `json:"variants"`
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+
+	// Variants Bookable options for this service; `variants[0]` is the default.
+	Variants []SMBServiceVariant `json:"variants"`
 }
 
 // SMBServiceKind What a service books.
@@ -42351,39 +44165,81 @@ type SMBServiceKind string
 // SMBServicePromotion A time-bound promotion on a service/variant or on add-ons.
 type SMBServicePromotion struct {
 	// AddOnId When set (target=add_on), the promotion applies only to this add-on.
+	//
+	// Examples: addon_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	AddOnId *string `json:"add_on_id,omitempty"`
 
 	// DaysOfWeek Days when the promotion is active (0=Monday, 6=Sunday); empty means every day.
 	DaysOfWeek *UniqueListAnnotatedIntFieldInfoAnnotationNoneTypeRequiredTrueMetadataGeGe0LeLe6 `json:"days_of_week,omitempty"`
-	EndDate    openapi_types.Date                                                               `json:"end_date"`
-	Id         *string                                                                          `json:"id,omitempty"`
-	IsActive   *bool                                                                            `json:"is_active,omitempty"`
-	Name       StrippedStr                                                                      `json:"name"`
+
+	// EndDate Last day the promotion applies, inclusive; on or after `start_date`.
+	//
+	// Examples: 2026-12-31
+	EndDate openapi_types.Date `json:"end_date"`
+
+	// Id Stable ID of this promotion.
+	//
+	// Examples: promo_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// IsActive Whether the promotion applies; inactive promotions are ignored.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Name Display name of the promotion.
+	//
+	// Examples: Holiday special
+	Name StrippedStr `json:"name"`
 
 	// PromotionalPrice The final price when this promotion is applied to a matching line item.
-	PromotionalPrice float32            `json:"promotional_price"`
-	StartDate        openapi_types.Date `json:"start_date"`
+	//
+	// Examples: 35
+	PromotionalPrice float32 `json:"promotional_price"`
+
+	// StartDate First day the promotion applies, inclusive.
+	//
+	// Examples: 2026-12-01
+	StartDate openapi_types.Date `json:"start_date"`
 
 	// Target Whether this promotion targets the service/variant price or add-on prices.
 	Target *PromotionTarget `json:"target,omitempty"`
 
 	// VariantId When set (target=service), the promotion applies only to this variant.
+	//
+	// Examples: variant_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	VariantId *string `json:"variant_id,omitempty"`
 }
 
 // SMBServiceVariant A variant of a service identified by its duration, with optional price override.
 type SMBServiceVariant struct {
-	DurationMinutes int      `json:"duration_minutes"`
-	Id              *string  `json:"id,omitempty"`
-	IsActive        *bool    `json:"is_active,omitempty"`
-	Price           *float32 `json:"price,omitempty"`
+	// DurationMinutes How long this option takes, in minutes.
+	//
+	// Examples: 60
+	DurationMinutes int `json:"duration_minutes"`
+
+	// Id Stable ID of this option; keep it when editing so bookings and promotions still match.
+	//
+	// Examples: variant_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// IsActive Whether customers can book this option.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Price Price of this option in the workspace's currency; null means no listed price.
+	//
+	// Examples: 45
+	Price *float32 `json:"price,omitempty"`
 }
 
 // SMBStaffResourceDBModel Represents a staff member who can provide services.
 type SMBStaffResourceDBModel struct {
+	// UnderscoreId The staff member's ID.
+	//
+	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	UnderscoreId string `json:"_id"`
 
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
 
 	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
@@ -42396,6 +44252,8 @@ type SMBStaffResourceDBModel struct {
 	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
 
 	// Email Email address of the staff member.
+	//
+	// Examples: jane@example.com
 	Email *string `json:"email,omitempty"`
 
 	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
@@ -42405,14 +44263,20 @@ type SMBStaffResourceDBModel struct {
 	IsActive *bool `json:"is_active,omitempty"`
 
 	// LocationId Location this staff member is assigned to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId *string `json:"location_id,omitempty"`
 
 	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
 	Name StrippedStr `json:"name"`
 
 	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
-	Phone    *PhoneNumberOptional `json:"phone,omitempty"`
-	PhotoUrl *string              `json:"photo_url,omitempty"`
+	Phone *PhoneNumberOptional `json:"phone,omitempty"`
+
+	// PhotoUrl URL of a photo of the staff member.
+	//
+	// Examples: https://example.com/photos/jane.jpg
+	PhotoUrl *string `json:"photo_url,omitempty"`
 
 	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
 	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
@@ -42420,7 +44284,9 @@ type SMBStaffResourceDBModel struct {
 	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
 	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
 
-	// UpdatedAtUnix Unix timestamp (seconds since epoch)
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
 
 	// WorkingHours Custom working hours for this staff member. Null means follow the assigned location's operating_hours (requires location_id).
@@ -42429,47 +44295,55 @@ type SMBStaffResourceDBModel struct {
 
 // SMBTeamInviteResponse defines model for SMBTeamInviteResponse.
 type SMBTeamInviteResponse struct {
-	CreatedAtUnix     *int    `json:"created_at_unix,omitempty"`
-	Email             string  `json:"email"`
+	// CreatedAtUnix When the invite was sent, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *int `json:"created_at_unix,omitempty"`
+
+	// Email The invited email address.
+	//
+	// Examples: sam@example.com
+	Email string `json:"email"`
+
+	// InvitingUserEmail Email address of the member who sent the invite, if known.
+	//
+	// Examples: jane@example.com
 	InvitingUserEmail *string `json:"inviting_user_email,omitempty"`
 
-	// SeatType Seat types for workspace members.
+	// SeatType The role the invitee joins with.
 	SeatType SeatType `json:"seat_type"`
 }
 
 // SMBTeamMemberResponse defines model for SMBTeamMemberResponse.
 type SMBTeamMemberResponse struct {
-	Email       string  `json:"email"`
-	FirstName   *string `json:"first_name,omitempty"`
-	IsAdmin     bool    `json:"is_admin"`
-	IsOwner     bool    `json:"is_owner"`
-	IsSuspended *bool   `json:"is_suspended,omitempty"`
-	PictureUrl  *string `json:"picture_url,omitempty"`
-	UserId      string  `json:"user_id"`
-}
+	// Email The member's email address.
+	//
+	// Examples: jane@example.com
+	Email string `json:"email"`
 
-// SMBTierEconomics A tier's prices and quotas, in the fields a tier is created with.
-type SMBTierEconomics struct {
-	// AnnualPriceUsd What a year up front is sold for, at a discount on twelve months. Required for paid tiers, omitted for the trial
-	AnnualPriceUsd         *float32 `json:"annual_price_usd,omitempty"`
-	AssistantDailyMessages int      `json:"assistant_daily_messages"`
-	ConcurrentCalls        int      `json:"concurrent_calls"`
+	// FirstName The member's first name, if set.
+	//
+	// Examples: Jane
+	FirstName *string `json:"first_name,omitempty"`
 
-	// IncludedMinutesPerMonth Phone minutes included each month. Other channels draw on the same allowance more cheaply — a web minute costs half a phone minute, a chat message a tenth
-	IncludedMinutesPerMonth float32 `json:"included_minutes_per_month"`
-	IvcVoiceLimit           int     `json:"ivc_voice_limit"`
-	KnowledgeSourceLimit    int     `json:"knowledge_source_limit"`
-	MaxActiveLocations      int     `json:"max_active_locations"`
-	MaxCustomerFacingAgents int     `json:"max_customer_facing_agents"`
-	MaxPhoneNumbers         int     `json:"max_phone_numbers"`
-	MaxTeamMembers          int     `json:"max_team_members"`
+	// IsAdmin Whether the member is a workspace admin.
+	IsAdmin bool `json:"is_admin"`
 
-	// MonthlyPriceUsd What one month is sold for. Also values an included minute, at this price over the included minutes
-	MonthlyPriceUsd float32 `json:"monthly_price_usd"`
+	// IsOwner Whether the member owns the workspace.
+	IsOwner bool `json:"is_owner"`
 
-	// OveragePricePerMinuteUsd Charged per minute past the included ones, and may not undercut their value. Required for paid tiers, omitted for the trial
-	OveragePricePerMinuteUsd  *float32 `json:"overage_price_per_minute_usd,omitempty"`
-	PoolOutboundSmsDailyLimit int      `json:"pool_outbound_sms_daily_limit"`
+	// IsSuspended Whether the member's access to the workspace is suspended.
+	IsSuspended *bool `json:"is_suspended,omitempty"`
+
+	// PictureUrl URL of the member's profile picture, if set.
+	//
+	// Examples: https://example.com/jane.png
+	PictureUrl *string `json:"picture_url,omitempty"`
+
+	// UserId The member's user ID.
+	//
+	// Examples: Xr8bG2kQ9PZt4vLmN1aY6cDe3Hf2
+	UserId string `json:"user_id"`
 }
 
 // SMBToolConfig SMB tool configuration that wraps SMB tool parameters.
@@ -42533,9 +44407,15 @@ type SMBTransferRule struct {
 	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
 	Condition StrippedStr `json:"condition"`
 
-	// CreatedAtUnix Unix timestamp (seconds since epoch)
+	// CreatedAtUnix When the transfer rule was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
 	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-	Id            *string        `json:"id,omitempty"`
+
+	// Id ID of the transfer rule.
+	//
+	// Examples: transferrule_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
 
 	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
 	Label StrippedStr `json:"label"`
@@ -42544,6 +44424,8 @@ type SMBTransferRule struct {
 	PhoneNumber PhoneNumber `json:"phone_number"`
 
 	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
+	//
+	// Examples: www1234
 	PostDialDigits *string `json:"post_dial_digits,omitempty"`
 }
 
@@ -42556,15 +44438,25 @@ type SMBUpdateAgentInfoRequest struct {
 	BusinessCountry *CountryCode `json:"business_country,omitempty"`
 
 	// BusinessDescription What the business does, given to the receptionist.
+	//
+	// Examples: A hair salon offering cuts, color and styling.
 	BusinessDescription *string `json:"business_description,omitempty"`
 
 	// BusinessName Name of the business.
+	//
+	// Examples: Bloom Salon
 	BusinessName *string `json:"business_name,omitempty"`
 
 	// Currency Currency code for all prices (ISO 4217)
-	Currency       *SMBUpdateAgentInfoRequestCurrency `json:"currency,omitempty"`
-	OperatingHours *WorkingHours                      `json:"operating_hours,omitempty"`
-	Timezone       *string                            `json:"timezone,omitempty"`
+	Currency *SMBUpdateAgentInfoRequestCurrency `json:"currency,omitempty"`
+
+	// OperatingHours Default business hours. Each location's own operating_hours decide when that location is open.
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+
+	// Timezone IANA timezone of the business.
+	//
+	// Examples: America/New_York
+	Timezone *string `json:"timezone,omitempty"`
 
 	// ToolCallSound Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
 	ToolCallSound *ToolCallSoundType `json:"tool_call_sound,omitempty"`
@@ -42603,12 +44495,16 @@ type SMBUpdateAssetRequestPatch struct {
 	IsActive *bool `json:"is_active,omitempty"`
 
 	// LocationId Location this asset belongs to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId *string `json:"location_id,omitempty"`
 
 	// Name Internal/admin name of the asset, shown in the dashboard and owner notifications.
 	Name *StrippedStr `json:"name,omitempty"`
 
 	// PhotoUrl URL of a photo of the asset.
+	//
+	// Examples: https://example.com/photos/court-1.jpg
 	PhotoUrl *string `json:"photo_url,omitempty"`
 
 	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
@@ -42617,34 +44513,66 @@ type SMBUpdateAssetRequestPatch struct {
 
 // SMBUpdateCustomerFacingAgentRequest defines model for SMBUpdateCustomerFacingAgentRequest.
 type SMBUpdateCustomerFacingAgentRequest struct {
+	// Config Receptionist settings to change; omitted settings keep their value.
 	Config *CustomerFacingConfigPatch `json:"config,omitempty"`
-	Name   *string                    `json:"name,omitempty"`
-	Widget *SMBWidgetAppearance       `json:"widget,omitempty"`
+
+	// Name New display name for the receptionist.
+	//
+	// Examples: Front Desk
+	Name *string `json:"name,omitempty"`
+
+	// Widget New website widget appearance.
+	Widget *SMBWidgetAppearance `json:"widget,omitempty"`
 }
 
 // SMBUpdateHolidayRequestPatch defines model for SMBUpdateHolidayRequestPatch.
 type SMBUpdateHolidayRequestPatch struct {
-	// EndDate Represents a calendar date as individual numeric components.
-	EndDate     *DateModel   `json:"end_date,omitempty"`
+	// EndDate Last day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":26,"month":12,"year":2026}
+	EndDate *DateModel `json:"end_date,omitempty"`
+
+	// HolidayType 'closed' for no availability, or 'override' to use override_hours instead of the regular hours.
 	HolidayType *HolidayType `json:"holiday_type,omitempty"`
 
 	// LocationId For LOCATION type: the location this closure applies to.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId *string `json:"location_id,omitempty"`
-	Name       *string `json:"name,omitempty"`
+
+	// Name Display name of the closure or time off.
+	//
+	// Examples: Christmas Eve
+	Name *string `json:"name,omitempty"`
 
 	// OverrideHours Replacement working hours when holiday_type is 'override'.
 	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
-	Reason        *string           `json:"reason,omitempty"`
-	ResourceId    *string           `json:"resource_id,omitempty"`
 
-	// StartDate Represents a calendar date as individual numeric components.
-	StartDate   *DateModel   `json:"start_date,omitempty"`
+	// Reason Optional note on why the closure or time off happens, up to 500 characters.
+	//
+	// Examples: Closed for the holidays
+	Reason *string `json:"reason,omitempty"`
+
+	// ResourceId The staff member or asset ID; required when time_off_type is 'staff' or 'asset'.
+	//
+	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	ResourceId *string `json:"resource_id,omitempty"`
+
+	// StartDate First day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":24,"month":12,"year":2026}
+	StartDate *DateModel `json:"start_date,omitempty"`
+
+	// TimeOffType What the entry applies to: a location, a staff member, or an asset.
 	TimeOffType *TimeOffType `json:"time_off_type,omitempty"`
 }
 
 // SMBUpdateProcedureRequest Request model for updating an existing procedure.
 type SMBUpdateProcedureRequest struct {
 	// Body Step-by-step instructions, as markdown.
+	//
+	// Examples: 1. Ask for the caller's name and order number.
+	// 2. Look up the order and read back its status.
 	Body *string `json:"body,omitempty"`
 
 	// Name Name of the procedure.
@@ -42672,6 +44600,8 @@ type SMBUpdateProductRequestPatch struct {
 	IsActive *bool `json:"is_active,omitempty"`
 
 	// LocationIds Locations where this product is sold; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	LocationIds *[]string `json:"location_ids,omitempty"`
 
 	// Name Name of the product.
@@ -42681,6 +44611,8 @@ type SMBUpdateProductRequestPatch struct {
 	Orderable *bool `json:"orderable,omitempty"`
 
 	// Price Price of the product; null for no listed price.
+	//
+	// Examples: 4.5
 	Price *float32 `json:"price,omitempty"`
 
 	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
@@ -42696,12 +44628,18 @@ type SMBUpdateProductRequestPatch struct {
 // SMBUpdateProductStockRequest defines model for SMBUpdateProductStockRequest.
 type SMBUpdateProductStockRequest struct {
 	// ExpectedOnHand On-hand value the caller last saw. The write is rejected with a 409 if it no longer matches, so a sale made while the caller was editing is never overwritten.
+	//
+	// Examples: 25
 	ExpectedOnHand int `json:"expected_on_hand"`
 
 	// LocationId Location whose count is set.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId string `json:"location_id"`
 
 	// OnHand The new on-hand quantity.
+	//
+	// Examples: 24
 	OnHand int `json:"on_hand"`
 }
 
@@ -42711,17 +44649,37 @@ type SMBUpdateServiceRequestPatch struct {
 	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
 
 	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
-	AdvanceBookingMinutes *int      `json:"advance_booking_minutes,omitempty"`
-	AnyStaffMember        *bool     `json:"any_staff_member,omitempty"`
-	AssetIds              *[]string `json:"asset_ids,omitempty"`
+	//
+	// Examples: 10080
+	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
+
+	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
+	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
+
+	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
+	//
+	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	AssetIds *[]string `json:"asset_ids,omitempty"`
 
 	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
-	BufferMinutes        *int         `json:"buffer_minutes,omitempty"`
-	Capacity             *int         `json:"capacity,omitempty"`
-	Description          *StrippedStr `json:"description,omitempty"`
-	DisplayOnBookingPage *bool        `json:"display_on_booking_page,omitempty"`
+	//
+	// Examples: 15
+	BufferMinutes *int `json:"buffer_minutes,omitempty"`
+
+	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
+	Capacity *int `json:"capacity,omitempty"`
+
+	// Description Details about the service for customers and the receptionist; empty string means none.
+	//
+	// Examples: A classic cut, finished with a wash and style.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether the service is listed on the public booking page.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
 
 	// DurationMinutes Sets the first variant's duration. Ignored when `variants` is sent.
+	//
+	// Examples: 60
 	DurationMinutes *int `json:"duration_minutes,omitempty"`
 
 	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
@@ -42729,19 +44687,31 @@ type SMBUpdateServiceRequestPatch struct {
 
 	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
 	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-	IsActive        *bool                `json:"is_active,omitempty"`
+
+	// IsActive Whether the service is offered; inactive services can't be booked.
+	IsActive *bool `json:"is_active,omitempty"`
 
 	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
 	Kind *SMBServiceKind `json:"kind,omitempty"`
 
 	// LocationIds Locations where this service is offered; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	LocationIds *[]string `json:"location_ids,omitempty"`
 
 	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
-	MaxParticipants *int         `json:"max_participants,omitempty"`
-	Name            *StrippedStr `json:"name,omitempty"`
+	//
+	// Examples: 12
+	MaxParticipants *int `json:"max_participants,omitempty"`
+
+	// Name Service name shown to customers and the receptionist.
+	//
+	// Examples: Haircut
+	Name *StrippedStr `json:"name,omitempty"`
 
 	// Price Sets the first variant's price. Ignored when `variants` is sent.
+	//
+	// Examples: 45
 	Price *float32 `json:"price,omitempty"`
 
 	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
@@ -42754,6 +44724,8 @@ type SMBUpdateServiceRequestPatch struct {
 	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
 
 	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	//
+	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
 	StaffIds *[]string `json:"staff_ids,omitempty"`
 
 	// TravelAfter Add travel time after the appointment (return trip).
@@ -42763,6 +44735,8 @@ type SMBUpdateServiceRequestPatch struct {
 	TravelBefore *bool `json:"travel_before,omitempty"`
 
 	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
+	//
+	// Examples: 15
 	TravelMinutes *int `json:"travel_minutes,omitempty"`
 
 	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
@@ -42784,6 +44758,8 @@ type SMBUpdateStaffRequestPatch struct {
 	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
 
 	// Email Email address of the staff member.
+	//
+	// Examples: jane@example.com
 	Email *string `json:"email,omitempty"`
 
 	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
@@ -42793,14 +44769,20 @@ type SMBUpdateStaffRequestPatch struct {
 	IsActive *bool `json:"is_active,omitempty"`
 
 	// LocationId Location this staff member is assigned to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
 	LocationId *string `json:"location_id,omitempty"`
 
 	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
 	Name *StrippedStr `json:"name,omitempty"`
 
 	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
-	Phone    *PhoneNumberOptional `json:"phone,omitempty"`
-	PhotoUrl *string              `json:"photo_url,omitempty"`
+	Phone *PhoneNumberOptional `json:"phone,omitempty"`
+
+	// PhotoUrl URL of a photo of the staff member.
+	//
+	// Examples: https://example.com/photos/jane.jpg
+	PhotoUrl *string `json:"photo_url,omitempty"`
 
 	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
 	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
@@ -42824,24 +44806,47 @@ type SMBUpdateTransferRuleRequest struct {
 	PhoneNumber PhoneNumber `json:"phone_number"`
 
 	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
+	//
+	// Examples: www1234
 	PostDialDigits *string `json:"post_dial_digits,omitempty"`
 }
 
 // SMBWidgetAppearance How the website widget looks. A null label follows the receptionist's language.
 type SMBWidgetAppearance struct {
-	Dismissible bool                         `json:"dismissible"`
-	MainLabel   *string                      `json:"main_label,omitempty"`
-	OrbColor1   string                       `json:"orb_color_1"`
-	OrbColor2   string                       `json:"orb_color_2"`
-	Placement   SMBWidgetAppearancePlacement `json:"placement"`
-	StartCall   *string                      `json:"start_call,omitempty"`
-	Variant     SMBWidgetAppearanceVariant   `json:"variant"`
+	// Dismissible Whether visitors can close the widget.
+	Dismissible bool `json:"dismissible"`
+
+	// MainLabel Text shown on the widget; null uses the default for the receptionist's language.
+	//
+	// Examples: Need help?
+	MainLabel *string `json:"main_label,omitempty"`
+
+	// OrbColor1 First color of the widget's orb gradient, as a hex color.
+	//
+	// Examples: #2792dc
+	OrbColor1 string `json:"orb_color_1"`
+
+	// OrbColor2 Second color of the widget's orb gradient, as a hex color.
+	//
+	// Examples: #9ce6e6
+	OrbColor2 string `json:"orb_color_2"`
+
+	// Placement Where on the page the widget sits.
+	Placement SMBWidgetAppearancePlacement `json:"placement"`
+
+	// StartCall Text on the button that starts a call; null uses the default for the receptionist's language.
+	//
+	// Examples: Call us
+	StartCall *string `json:"start_call,omitempty"`
+
+	// Variant Widget size, from the smallest ('tiny') to the largest ('full').
+	Variant SMBWidgetAppearanceVariant `json:"variant"`
 }
 
-// SMBWidgetAppearancePlacement defines model for SMBWidgetAppearance.Placement.
+// SMBWidgetAppearancePlacement Where on the page the widget sits.
 type SMBWidgetAppearancePlacement string
 
-// SMBWidgetAppearanceVariant defines model for SMBWidgetAppearance.Variant.
+// SMBWidgetAppearanceVariant Widget size, from the smallest ('tiny') to the largest ('full').
 type SMBWidgetAppearanceVariant string
 
 // SMSConversationInfo defines model for SMSConversationInfo.
@@ -43077,8 +45082,11 @@ type ServiceLocationType string
 
 // ServiceUpdateResponse defines model for ServiceUpdateResponse.
 type ServiceUpdateResponse struct {
-	HasAffectedEvents bool               `json:"has_affected_events"`
-	Service           *SMBServiceDBModel `json:"service,omitempty"`
+	// HasAffectedEvents True when the update changes the price of upcoming bookings and was not saved; send it again to the confirm-update endpoint to apply it.
+	HasAffectedEvents bool `json:"has_affected_events"`
+
+	// Service The updated service, or null when the update was held back because it reprices existing bookings.
+	Service *SMBServiceDBModel `json:"service,omitempty"`
 }
 
 // SetBookingSlugParams defines model for SetBookingSlugParams.
@@ -43088,6 +45096,14 @@ type SetBookingSlugParams struct {
 
 // SetBookingSlugParamsSmbToolType defines model for SetBookingSlugParams.SmbToolType.
 type SetBookingSlugParamsSmbToolType string
+
+// SetCampaignOutcomeRequest defines model for SetCampaignOutcomeRequest.
+type SetCampaignOutcomeRequest struct {
+	// Outcome Omit or send `null` to clear the outcome.
+	Outcome *struct {
+		union json.RawMessage
+	} `json:"outcome,omitempty"`
+}
 
 // SetConversationGroupRequestModel defines model for SetConversationGroupRequestModel.
 type SetConversationGroupRequestModel struct {
@@ -43838,6 +45854,14 @@ type StaticAssetReferenceType string
 // Spec: https://schema.ocsf.io/1.6.0/objects/status_id
 type StatusId int
 
+// StopAllCampaignsResponse defines model for StopAllCampaignsResponse.
+type StopAllCampaignsResponse struct {
+	StoppedCampaignIds []string `json:"stopped_campaign_ids"`
+
+	// StoppingCampaignIds Campaigns whose calls already placed are still finishing.
+	StoppingCampaignIds []string `json:"stopping_campaign_ids"`
+}
+
 // StoredUsagePlatformLimit Platform limit with usage stored in Firestore. Example: credit usage tracked in Firestore.
 type StoredUsagePlatformLimit struct {
 	Limit *int `json:"limit,omitempty"`
@@ -43936,6 +45960,82 @@ type SubmitBusinessInfoParams struct {
 // SubmitBusinessInfoParamsSmbToolType defines model for SubmitBusinessInfoParams.SmbToolType.
 type SubmitBusinessInfoParamsSmbToolType string
 
+// SubmitCampaignRecipient defines model for SubmitCampaignRecipient.
+type SubmitCampaignRecipient struct {
+	// ConversationInitiationClientData Dynamic variables and overrides for this recipient's calls.
+	ConversationInitiationClientData *ConversationInitiationClientDataRequestInput `json:"conversation_initiation_client_data,omitempty"`
+
+	// Id Your identifier for the recipient, returned as its lead's `recipient_id`.
+	Id *string `json:"id,omitempty"`
+
+	// PhoneNumber The number to call, in E.164 format such as `+14155550100`.
+	PhoneNumber *string `json:"phone_number,omitempty"`
+
+	// PhoneNumbers More numbers to call, in order after `phone_number`. The lead moves on to the next one when calls to its current number keep failing.
+	PhoneNumbers *[]string `json:"phone_numbers,omitempty"`
+
+	// WhatsappUserId The contact's WhatsApp user ID. WhatsApp campaigns use it instead of the phone numbers.
+	WhatsappUserId *string `json:"whatsapp_user_id,omitempty"`
+}
+
+// SubmitCampaignRequest defines model for SubmitCampaignRequest.
+type SubmitCampaignRequest struct {
+	// AgentId The agent that places the calls.
+	AgentId string `json:"agent_id"`
+
+	// BranchId The agent branch to call with.
+	BranchId *string `json:"branch_id,omitempty"`
+
+	// CallName The campaign's name.
+	CallName      string                              `json:"call_name"`
+	ChannelConfig SubmitCampaignRequest_ChannelConfig `json:"channel_config"`
+
+	// Environment The environment to resolve the agent's environment variables in.
+	Environment *string `json:"environment,omitempty"`
+
+	// IdempotencyKey Makes the request safe to retry: a repeat with the same key returns the campaign it created.
+	IdempotencyKey *string `json:"idempotency_key,omitempty"`
+
+	// Outcome The result that counts as success for the campaign's calls.
+	Outcome *struct {
+		union json.RawMessage
+	} `json:"outcome,omitempty"`
+
+	// Policy Policy to snapshot onto the campaign. When set, it wins over the workspace default and any per-agent override; when omitted, the workspace configuration must exist and supplies the policy.
+	Policy *PolicyConfigInput `json:"policy,omitempty"`
+
+	// Recipients Who to call. Each recipient becomes a lead of the campaign.
+	Recipients []SubmitCampaignRecipient `json:"recipients"`
+
+	// ScheduledTimeUnix When to start calling; omit to start now. Calls still wait for the next calling window.
+	ScheduledTimeUnix *int `json:"scheduled_time_unix,omitempty"`
+
+	// TargetConcurrencyLimit The most calls to place at once.
+	TargetConcurrencyLimit *int `json:"target_concurrency_limit,omitempty"`
+
+	// Timezone IANA timezone to read the calling windows in, overriding the policy's.
+	Timezone *string `json:"timezone,omitempty"`
+
+	// Variant `simple` runs one attempt per recipient with always-on calling windows and nothing collected, and cannot be combined with `policy`. `advanced` uses `policy` or the workspace configuration, and is the default for phone campaigns.
+	Variant *CampaignVariant `json:"variant,omitempty"`
+}
+
+// SubmitCampaignRequest_ChannelConfig defines model for SubmitCampaignRequest.ChannelConfig.
+type SubmitCampaignRequest_ChannelConfig struct {
+	union json.RawMessage
+}
+
+// SubmitCampaignResponse defines model for SubmitCampaignResponse.
+type SubmitCampaignResponse struct {
+	Campaign CampaignResponse `json:"campaign"`
+
+	// Created False when the request repeated an earlier one and returned its campaign.
+	Created bool `json:"created"`
+
+	// WithinCallingWindow Whether calling starts right away rather than at the next calling window.
+	WithinCallingWindow bool `json:"within_calling_window"`
+}
+
 // SubmitOrderResponse defines model for SubmitOrderResponse.
 type SubmitOrderResponse struct {
 	// OrderId The ID of the submitted order.
@@ -43946,6 +46046,43 @@ type SubmitOrderResponse struct {
 
 	// SubmittedAt The timestamp when the order was submitted.
 	SubmittedAt time.Time `json:"submitted_at"`
+}
+
+// SubmitWhatsAppChannelConfig defines model for SubmitWhatsAppChannelConfig.
+type SubmitWhatsAppChannelConfig struct {
+	Channel    *SubmitWhatsAppChannelConfigChannel    `json:"channel,omitempty"`
+	ModeConfig SubmitWhatsAppChannelConfig_ModeConfig `json:"mode_config"`
+
+	// WhatsappPhoneNumberId The WhatsApp phone number to call or message from.
+	WhatsappPhoneNumberId string `json:"whatsapp_phone_number_id"`
+}
+
+// SubmitWhatsAppChannelConfigChannel defines model for SubmitWhatsAppChannelConfig.Channel.
+type SubmitWhatsAppChannelConfigChannel string
+
+// SubmitWhatsAppChannelConfig_ModeConfig defines model for SubmitWhatsAppChannelConfig.ModeConfig.
+type SubmitWhatsAppChannelConfig_ModeConfig struct {
+	union json.RawMessage
+}
+
+// SubmitWhatsAppMessageConfig defines model for SubmitWhatsAppMessageConfig.
+type SubmitWhatsAppMessageConfig struct {
+	Mode *SubmitWhatsAppMessageConfigMode `json:"mode,omitempty"`
+
+	// Template Names the approved Meta template to send. The server loads the template
+	// itself, so the client never supplies its components.
+	Template SubmitWhatsAppTemplateRef `json:"template"`
+}
+
+// SubmitWhatsAppMessageConfigMode defines model for SubmitWhatsAppMessageConfig.Mode.
+type SubmitWhatsAppMessageConfigMode string
+
+// SubmitWhatsAppTemplateRef Names the approved Meta template to send. The server loads the template
+// itself, so the client never supplies its components.
+type SubmitWhatsAppTemplateRef struct {
+	// Language The template's language code, such as `en_US`.
+	Language string `json:"language"`
+	Name     string `json:"name"`
 }
 
 // SubscriptionResponseModel defines model for SubscriptionResponseModel.
@@ -44085,6 +46222,15 @@ type SupportedVoice struct {
 	Speed                    *float32                     `json:"speed,omitempty"`
 	Stability                *float32                     `json:"stability,omitempty"`
 	VoiceId                  string                       `json:"voice_id"`
+}
+
+// SuppressLeadResponse defines model for SuppressLeadResponse.
+type SuppressLeadResponse struct {
+	CampaignId string `json:"campaign_id"`
+
+	// HasCallsInFlight Whether a call already handed off for dialing may still go through.
+	HasCallsInFlight bool   `json:"has_calls_in_flight"`
+	LeadId           string `json:"lead_id"`
 }
 
 // SystemDataCollectionId defines model for SystemDataCollectionId.
@@ -44458,11 +46604,16 @@ type TeamInviteOutcome string
 
 // TeamInviteRequest defines model for TeamInviteRequest.
 type TeamInviteRequest struct {
-	Email string                 `json:"email"`
-	Role  *TeamInviteRequestRole `json:"role,omitempty"`
+	// Email The email address to invite.
+	//
+	// Examples: sam@example.com
+	Email string `json:"email"`
+
+	// Role The role the invitee joins with: 'workspace_admin' or 'workspace_member'.
+	Role *TeamInviteRequestRole `json:"role,omitempty"`
 }
 
-// TeamInviteRequestRole defines model for TeamInviteRequest.Role.
+// TeamInviteRequestRole The role the invitee joins with: 'workspace_admin' or 'workspace_member'.
 type TeamInviteRequestRole string
 
 // TeamInviteResult defines model for TeamInviteResult.
@@ -45007,6 +47158,9 @@ type TemplateVideoOutputFailureReason string
 // TemplateVideoOutputType The kind of output: the `type` of the port's `content_schema`.
 type TemplateVideoOutputType string
 
+// TerminalDisposition defines model for TerminalDisposition.
+type TerminalDisposition string
+
 // TestConditionRationaleCommonModel Structured rationale for test condition results containing individual failure/success reasons.
 type TestConditionRationaleCommonModel struct {
 	// Messages List of individual parameter evaluation messages or reasons
@@ -45217,7 +47371,7 @@ type TicketStatusChangeResponseModel struct {
 	Status            AgentConversationTicketStatus `json:"status"`
 }
 
-// TimeOffType defines model for TimeOffType.
+// TimeOffType What a time-off entry blocks: a staff member, an asset, or a location.
 type TimeOffType string
 
 // TimeRange defines model for TimeRange.
@@ -45230,15 +47384,23 @@ type TimeRange struct {
 // working hours, available hours, or recurring schedules.
 type TimeRangeModel struct {
 	// EndHour End hour (0-24, where 24:00 means midnight end-of-day)
+	//
+	// Examples: 17
 	EndHour int `json:"end_hour"`
 
 	// EndMinute End minute (0-59)
+	//
+	// Examples: 30
 	EndMinute int `json:"end_minute"`
 
 	// StartHour Start hour (0-23)
+	//
+	// Examples: 9
 	StartHour int `json:"start_hour"`
 
 	// StartMinute Start minute (0-59)
+	//
+	// Examples: 0
 	StartMinute int `json:"start_minute"`
 }
 
@@ -45766,6 +47928,13 @@ type TriggerUserVerificationParamsSmbToolType string
 
 // TriggeredGuardrailCommonModel defines model for TriggeredGuardrailCommonModel.
 type TriggeredGuardrailCommonModel struct {
+	// ExecutionMode `blocking` if the agent's response waited for the guardrail, `streaming` if the guardrail ran while the response was sent.
+	ExecutionMode *GuardrailExecutionMode `json:"execution_mode,omitempty"`
+
+	// GuardrailDetails Why the guardrail triggered: the LLM's rationale for custom guardrails, or the score and threshold for moderation and content guardrails.
+	GuardrailDetails *struct {
+		union json.RawMessage
+	} `json:"guardrail_details,omitempty"`
 	GuardrailName *string       `json:"guardrail_name,omitempty"`
 	GuardrailType GuardrailType `json:"guardrail_type"`
 }
@@ -48154,6 +50323,23 @@ type WhatsAppCallPermissionRequest struct {
 // WhatsAppCallPermissionRequestState defines model for WhatsAppCallPermissionRequestState.
 type WhatsAppCallPermissionRequestState string
 
+// WhatsAppChannelConfig defines model for WhatsAppChannelConfig.
+type WhatsAppChannelConfig struct {
+	Channel    *WhatsAppChannelConfigChannel    `json:"channel,omitempty"`
+	ModeConfig WhatsAppChannelConfig_ModeConfig `json:"mode_config"`
+
+	// WhatsappPhoneNumberId The WhatsApp phone number to call or message from.
+	WhatsappPhoneNumberId string `json:"whatsapp_phone_number_id"`
+}
+
+// WhatsAppChannelConfigChannel defines model for WhatsAppChannelConfig.Channel.
+type WhatsAppChannelConfigChannel string
+
+// WhatsAppChannelConfig_ModeConfig defines model for WhatsAppChannelConfig.ModeConfig.
+type WhatsAppChannelConfig_ModeConfig struct {
+	union json.RawMessage
+}
+
 // WhatsAppConversationInfo defines model for WhatsAppConversationInfo.
 type WhatsAppConversationInfo struct {
 	AwaitingFirstUserMessage *bool                              `json:"awaiting_first_user_message,omitempty"`
@@ -48168,6 +50354,17 @@ type WhatsAppConversationInfo struct {
 
 // WhatsAppConversationInfoDirection defines model for WhatsAppConversationInfo.Direction.
 type WhatsAppConversationInfoDirection string
+
+// WhatsAppMessageConfig defines model for WhatsAppMessageConfig.
+type WhatsAppMessageConfig struct {
+	Mode *WhatsAppMessageConfigMode `json:"mode,omitempty"`
+
+	// Template The Meta template as it was approved at submission.
+	Template WhatsAppTemplate `json:"template"`
+}
+
+// WhatsAppMessageConfigMode defines model for WhatsAppMessageConfig.Mode.
+type WhatsAppMessageConfigMode string
 
 // WhatsAppOpeningMessage The template a business-initiated conversation opened with, and how far it got.
 type WhatsAppOpeningMessage struct {
@@ -48201,6 +50398,21 @@ type WhatsAppRecipient struct {
 	Phone *string `json:"phone,omitempty"`
 }
 
+// WhatsAppTemplate defines model for WhatsAppTemplate.
+type WhatsAppTemplate struct {
+	// Category https://developers.facebook.com/docs/graph-api/reference/whats-app-business-account/message_templates/
+	Category   *string                     `json:"category,omitempty"`
+	Components []WhatsAppTemplateComponent `json:"components"`
+
+	// Language https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages
+	Language        string                           `json:"language"`
+	Name            string                           `json:"name"`
+	ParameterFormat *WhatsAppTemplateParameterFormat `json:"parameter_format,omitempty"`
+}
+
+// WhatsAppTemplateParameterFormat defines model for WhatsAppTemplate.ParameterFormat.
+type WhatsAppTemplateParameterFormat string
+
 // WhatsAppTemplateBodyComponentParams defines model for WhatsAppTemplateBodyComponentParams.
 type WhatsAppTemplateBodyComponentParams struct {
 	Parameters []WhatsAppTemplateTextParam              `json:"parameters"`
@@ -48220,6 +50432,21 @@ type WhatsAppTemplateButtonComponentParams struct {
 
 // WhatsAppTemplateButtonComponentParamsType defines model for WhatsAppTemplateButtonComponentParams.Type.
 type WhatsAppTemplateButtonComponentParamsType string
+
+// WhatsAppTemplateComponent defines model for WhatsAppTemplateComponent.
+type WhatsAppTemplateComponent struct {
+	Buttons *[]WhatsAppTemplateComponentButton `json:"buttons,omitempty"`
+	Format  *string                            `json:"format,omitempty"`
+	Text    *string                            `json:"text,omitempty"`
+	Type    string                             `json:"type"`
+}
+
+// WhatsAppTemplateComponentButton defines model for WhatsAppTemplateComponentButton.
+type WhatsAppTemplateComponentButton struct {
+	Text *string `json:"text,omitempty"`
+	Type string  `json:"type"`
+	Url  *string `json:"url,omitempty"`
+}
 
 // WhatsAppTemplateDocumentParam defines model for WhatsAppTemplateDocumentParam.
 type WhatsAppTemplateDocumentParam struct {
@@ -48290,6 +50517,20 @@ type WhatsAppTemplateTextParam struct {
 
 // WhatsAppTemplateTextParamType defines model for WhatsAppTemplateTextParam.Type.
 type WhatsAppTemplateTextParamType string
+
+// WhatsAppVoiceConfig defines model for WhatsAppVoiceConfig.
+type WhatsAppVoiceConfig struct {
+	Mode *WhatsAppVoiceConfigMode `json:"mode,omitempty"`
+
+	// WhatsappCallPermissionRequestTemplateLanguageCode The language code of that template.
+	WhatsappCallPermissionRequestTemplateLanguageCode string `json:"whatsapp_call_permission_request_template_language_code"`
+
+	// WhatsappCallPermissionRequestTemplateName The approved template that asks the contact for permission to call.
+	WhatsappCallPermissionRequestTemplateName string `json:"whatsapp_call_permission_request_template_name"`
+}
+
+// WhatsAppVoiceConfigMode defines model for WhatsAppVoiceConfig.Mode.
+type WhatsAppVoiceConfigMode string
 
 // WidgetConfigInput defines model for WidgetConfig-Input.
 type WidgetConfigInput struct {
@@ -49658,9 +51899,12 @@ type WorkflowUnconditionalModelOutputType string
 
 // WorkingHours defines model for WorkingHours.
 type WorkingHours struct {
+	// Hours Open time ranges per day of the week, keyed 0 (Monday) to 6 (Sunday). A day with no ranges is closed.
 	Hours *map[string][]TimeRangeModel `json:"hours,omitempty"`
 
 	// Timezone Timezone of these hours. Null uses the business's timezone.
+	//
+	// Examples: America/New_York
 	Timezone *string `json:"timezone,omitempty"`
 }
 
@@ -49810,6 +52054,14 @@ type WorkspaceBatchCallsResponse struct {
 	NextDoc *string `json:"next_doc,omitempty"`
 }
 
+// WorkspaceConfigResponse defines model for WorkspaceConfigResponse.
+type WorkspaceConfigResponse struct {
+	Config CampaignConfigOutput `json:"config"`
+
+	// Version Increases with every replacement; send it as `expected_version`.
+	Version int `json:"version"`
+}
+
 // WorkspaceCreateApiKeyResponseModel defines model for WorkspaceCreateApiKeyResponseModel.
 type WorkspaceCreateApiKeyResponseModel struct {
 	KeyId    string `json:"key_id"`
@@ -49938,15 +52190,21 @@ type WorkspaceMemberResponseModel struct {
 // WorkspaceNow defines model for WorkspaceNow.
 type WorkspaceNow struct {
 	// FetchedAtMs Unix timestamp in milliseconds when this was generated
+	//
+	// Examples: 1767225600000
 	FetchedAtMs int `json:"fetched_at_ms"`
 
 	// Hour Current hour (0-23)
+	//
+	// Examples: 14
 	Hour int `json:"hour"`
 
 	// Minute Current minute (0-59)
+	//
+	// Examples: 30
 	Minute int `json:"minute"`
 
-	// Today Represents a calendar date as individual numeric components.
+	// Today Current date in the business's timezone.
 	Today DateModel `json:"today"`
 }
 
@@ -51051,11 +53309,26 @@ type GetConversationHistoriesRouteParams struct {
 	// ToolNamesErrored Filter conversations by tool names that had errored calls.
 	ToolNamesErrored *[]string `form:"tool_names_errored,omitempty" json:"tool_names_errored,omitempty"`
 
+	// ToolIds Filter conversations by IDs of tools used during the call. Use '__system_<tool_name>' for system tools. Unlike tool_names, distinguishes between tools that share a name.
+	ToolIds *[]string `form:"tool_ids,omitempty" json:"tool_ids,omitempty"`
+
+	// ToolIdsSuccessful Filter conversations by IDs of tools that had successful calls.
+	ToolIdsSuccessful *[]string `form:"tool_ids_successful,omitempty" json:"tool_ids_successful,omitempty"`
+
+	// ToolIdsErrored Filter conversations by IDs of tools that had errored calls.
+	ToolIdsErrored *[]string `form:"tool_ids_errored,omitempty" json:"tool_ids_errored,omitempty"`
+
 	// IncludeInvalidToolCalls Also match tool calls that never ran.
 	IncludeInvalidToolCalls *bool `form:"include_invalid_tool_calls,omitempty" json:"include_invalid_tool_calls,omitempty"`
 
 	// MainLanguages Filter conversations by detected main language (language code).
 	MainLanguages *[]string `form:"main_languages,omitempty" json:"main_languages,omitempty"`
+
+	// PhoneNumberIds Filter conversations by agent phone number IDs.
+	PhoneNumberIds *[]string `form:"phone_number_ids,omitempty" json:"phone_number_ids,omitempty"`
+
+	// WhatsappPhoneNumberIds Filter conversations by agent WhatsApp number IDs.
+	WhatsappPhoneNumberIds *[]string `form:"whatsapp_phone_number_ids,omitempty" json:"whatsapp_phone_number_ids,omitempty"`
 
 	// PageSize How many conversations to return at maximum. Can not exceed 100, defaults to 30.
 	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
@@ -51198,11 +53471,26 @@ type TextSearchConversationMessagesRouteParams struct {
 	// ToolNamesErrored Filter conversations by tool names that had errored calls.
 	ToolNamesErrored *[]string `form:"tool_names_errored,omitempty" json:"tool_names_errored,omitempty"`
 
+	// ToolIds Filter conversations by IDs of tools used during the call. Use '__system_<tool_name>' for system tools. Unlike tool_names, distinguishes between tools that share a name.
+	ToolIds *[]string `form:"tool_ids,omitempty" json:"tool_ids,omitempty"`
+
+	// ToolIdsSuccessful Filter conversations by IDs of tools that had successful calls.
+	ToolIdsSuccessful *[]string `form:"tool_ids_successful,omitempty" json:"tool_ids_successful,omitempty"`
+
+	// ToolIdsErrored Filter conversations by IDs of tools that had errored calls.
+	ToolIdsErrored *[]string `form:"tool_ids_errored,omitempty" json:"tool_ids_errored,omitempty"`
+
 	// IncludeInvalidToolCalls Also match tool calls that never ran.
 	IncludeInvalidToolCalls *bool `form:"include_invalid_tool_calls,omitempty" json:"include_invalid_tool_calls,omitempty"`
 
 	// MainLanguages Filter conversations by detected main language (language code).
 	MainLanguages *[]string `form:"main_languages,omitempty" json:"main_languages,omitempty"`
+
+	// PhoneNumberIds Filter conversations by agent phone number IDs.
+	PhoneNumberIds *[]string `form:"phone_number_ids,omitempty" json:"phone_number_ids,omitempty"`
+
+	// WhatsappPhoneNumberIds Filter conversations by agent WhatsApp number IDs.
+	WhatsappPhoneNumberIds *[]string `form:"whatsapp_phone_number_ids,omitempty" json:"whatsapp_phone_number_ids,omitempty"`
 
 	// ExcludeStatuses Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
 	ExcludeStatuses *[]TextSearchConversationMessagesRouteParamsExcludeStatuses `form:"exclude_statuses,omitempty" json:"exclude_statuses,omitempty"`
@@ -51302,6 +53590,12 @@ type UploadFileRouteParams struct {
 
 // CancelFileUploadRouteParams defines parameters for CancelFileUploadRoute.
 type CancelFileUploadRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetConversationFileRouteParams defines parameters for GetConversationFileRoute.
+type GetConversationFileRouteParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -51820,6 +54114,210 @@ type ListMcpServerToolsRouteParams struct {
 	// Environment Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.
 	Environment *string `form:"environment,omitempty" json:"environment,omitempty"`
 
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListAttentionParams defines parameters for ListAttention.
+type ListAttentionParams struct {
+	// CampaignId Only this campaign's items.
+	CampaignId *string `form:"campaign_id,omitempty" json:"campaign_id,omitempty"`
+
+	// IncludeResolved Include items that are already resolved.
+	IncludeResolved *bool `form:"include_resolved,omitempty" json:"include_resolved,omitempty"`
+
+	// PageSize How many items to return at most.
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// Cursor Used for fetching next page. Cursor is returned in the response.
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ResolveAttentionParams defines parameters for ResolveAttention.
+type ResolveAttentionParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// RetryAttentionParams defines parameters for RetryAttention.
+type RetryAttentionParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListCampaignsParams defines parameters for ListCampaigns.
+type ListCampaignsParams struct {
+	// PageSize How many items to return at most.
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// Status Only campaigns in one of these statuses.
+	Status *[]CampaignStatus `form:"status,omitempty" json:"status,omitempty"`
+
+	// AgentId Only campaigns run by this agent.
+	AgentId *string `form:"agent_id,omitempty" json:"agent_id,omitempty"`
+
+	// Channel Only campaigns on this channel.
+	Channel *OutboundChannel `form:"channel,omitempty" json:"channel,omitempty"`
+
+	// Mode Only voice or only message campaigns.
+	Mode *ListCampaignsParamsMode `form:"mode,omitempty" json:"mode,omitempty"`
+
+	// Search Only campaigns whose name contains this text.
+	Search *string `form:"search,omitempty" json:"search,omitempty"`
+
+	// Cursor Used for fetching next page. Cursor is returned in the response.
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListCampaignsParamsMode defines parameters for ListCampaigns.
+type ListCampaignsParamsMode string
+
+// PauseAllCampaignsParams defines parameters for PauseAllCampaigns.
+type PauseAllCampaignsParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// StopAllCampaignsParams defines parameters for StopAllCampaigns.
+type StopAllCampaignsParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SubmitCampaignParams defines parameters for SubmitCampaign.
+type SubmitCampaignParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetCampaignParams defines parameters for GetCampaign.
+type GetCampaignParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListCampaignCallsParams defines parameters for ListCampaignCalls.
+type ListCampaignCallsParams struct {
+	// PageSize How many items to return at most.
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// LeadId Only this lead's calls.
+	LeadId *string `form:"lead_id,omitempty" json:"lead_id,omitempty"`
+
+	// Status Only calls in this status.
+	Status *CallStatus `form:"status,omitempty" json:"status,omitempty"`
+
+	// CallResult Only calls that ended in one of these results.
+	CallResult *[]CallResult `form:"call_result,omitempty" json:"call_result,omitempty"`
+
+	// Stage Only messages at this delivery stage. Message campaigns only.
+	Stage *ListCampaignCallsParamsStage `form:"stage,omitempty" json:"stage,omitempty"`
+
+	// Cursor Used for fetching next page. Cursor is returned in the response.
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListCampaignCallsParamsStage defines parameters for ListCampaignCalls.
+type ListCampaignCallsParamsStage string
+
+// ExportCampaignParams defines parameters for ExportCampaign.
+type ExportCampaignParams struct {
+	// Limit Only export the first N calls; used to preview the columns. Omit to export every call.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetCampaignFollowUpRequestsParams defines parameters for GetCampaignFollowUpRequests.
+type GetCampaignFollowUpRequestsParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListCampaignLeadsParams defines parameters for ListCampaignLeads.
+type ListCampaignLeadsParams struct {
+	// PageSize How many items to return at most.
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// Search Only leads whose ID, user ID or phone number contains this text.
+	Search *string `form:"search,omitempty" json:"search,omitempty"`
+
+	// Status `in_progress` for leads still being called, `finished` for leads that won't be called again.
+	Status *ListCampaignLeadsParamsStatus `form:"status,omitempty" json:"status,omitempty"`
+
+	// Disposition Only leads that finished in one of these ways.
+	Disposition *[]TerminalDisposition `form:"disposition,omitempty" json:"disposition,omitempty"`
+
+	// Cursor Used for fetching next page. Cursor is returned in the response.
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListCampaignLeadsParamsStatus defines parameters for ListCampaignLeads.
+type ListCampaignLeadsParamsStatus string
+
+// SuppressLeadParams defines parameters for SuppressLead.
+type SuppressLeadParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetCampaignLeadParams defines parameters for GetCampaignLead.
+type GetCampaignLeadParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SetCampaignOutcomeParams defines parameters for SetCampaignOutcome.
+type SetCampaignOutcomeParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// PauseCampaignParams defines parameters for PauseCampaign.
+type PauseCampaignParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetCampaignProgressParams defines parameters for GetCampaignProgress.
+type GetCampaignProgressParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ResumeCampaignParams defines parameters for ResumeCampaign.
+type ResumeCampaignParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// StopCampaignParams defines parameters for StopCampaign.
+type StopCampaignParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetWorkspaceConfigParams defines parameters for GetWorkspaceConfig.
+type GetWorkspaceConfigParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ReplaceWorkspaceConfigParams defines parameters for ReplaceWorkspaceConfig.
+type ReplaceWorkspaceConfigParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -53309,7 +55807,7 @@ type SmbGetAgentInfoParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateAgentInfoParams defines parameters for SmbUpdateAgentInfo.
@@ -53318,7 +55816,7 @@ type SmbUpdateAgentInfoParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListAssetsParams defines parameters for SmbListAssets.
@@ -53327,7 +55825,7 @@ type SmbListAssetsParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbCreateAssetParams defines parameters for SmbCreateAsset.
@@ -53336,7 +55834,7 @@ type SmbCreateAssetParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteAssetParams defines parameters for SmbDeleteAsset.
@@ -53345,7 +55843,7 @@ type SmbDeleteAssetParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbGetAssetParams defines parameters for SmbGetAsset.
@@ -53354,7 +55852,7 @@ type SmbGetAssetParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateAssetParams defines parameters for SmbUpdateAsset.
@@ -53363,7 +55861,7 @@ type SmbUpdateAssetParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListCustomerFacingAgentsParams defines parameters for SmbListCustomerFacingAgents.
@@ -53372,7 +55870,7 @@ type SmbListCustomerFacingAgentsParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateCustomerFacingAgentParams defines parameters for SmbUpdateCustomerFacingAgent.
@@ -53381,7 +55879,7 @@ type SmbUpdateCustomerFacingAgentParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbActivateCustomerFacingAgentParams defines parameters for SmbActivateCustomerFacingAgent.
@@ -53390,7 +55888,7 @@ type SmbActivateCustomerFacingAgentParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListAgentProceduresParams defines parameters for SmbListAgentProcedures.
@@ -53399,7 +55897,7 @@ type SmbListAgentProceduresParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbAddAgentProcedureParams defines parameters for SmbAddAgentProcedure.
@@ -53408,7 +55906,7 @@ type SmbAddAgentProcedureParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteAgentProcedureParams defines parameters for SmbDeleteAgentProcedure.
@@ -53417,7 +55915,7 @@ type SmbDeleteAgentProcedureParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateAgentProcedureParams defines parameters for SmbUpdateAgentProcedure.
@@ -53426,7 +55924,7 @@ type SmbUpdateAgentProcedureParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbAddAgentRuleParams defines parameters for SmbAddAgentRule.
@@ -53435,7 +55933,7 @@ type SmbAddAgentRuleParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteAgentRuleParams defines parameters for SmbDeleteAgentRule.
@@ -53444,7 +55942,7 @@ type SmbDeleteAgentRuleParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateAgentRuleParams defines parameters for SmbUpdateAgentRule.
@@ -53453,7 +55951,7 @@ type SmbUpdateAgentRuleParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbAddTransferRuleParams defines parameters for SmbAddTransferRule.
@@ -53462,7 +55960,7 @@ type SmbAddTransferRuleParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteTransferRuleParams defines parameters for SmbDeleteTransferRule.
@@ -53471,7 +55969,7 @@ type SmbDeleteTransferRuleParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateTransferRuleParams defines parameters for SmbUpdateTransferRule.
@@ -53480,7 +55978,7 @@ type SmbUpdateTransferRuleParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListHolidaysParams defines parameters for SmbListHolidays.
@@ -53504,7 +56002,7 @@ type SmbListHolidaysParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbCreateHolidayParams defines parameters for SmbCreateHoliday.
@@ -53513,7 +56011,7 @@ type SmbCreateHolidayParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteHolidayParams defines parameters for SmbDeleteHoliday.
@@ -53522,7 +56020,7 @@ type SmbDeleteHolidayParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbGetHolidayParams defines parameters for SmbGetHoliday.
@@ -53531,7 +56029,7 @@ type SmbGetHolidayParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateHolidayParams defines parameters for SmbUpdateHoliday.
@@ -53540,7 +56038,7 @@ type SmbUpdateHolidayParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListKnowledgeSourcesParams defines parameters for SmbListKnowledgeSources.
@@ -53549,7 +56047,7 @@ type SmbListKnowledgeSourcesParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUploadKnowledgeSourceParams defines parameters for SmbUploadKnowledgeSource.
@@ -53558,7 +56056,7 @@ type SmbUploadKnowledgeSourceParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbAddUrlSourceParams defines parameters for SmbAddUrlSource.
@@ -53567,7 +56065,7 @@ type SmbAddUrlSourceParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteKnowledgeSourceParams defines parameters for SmbDeleteKnowledgeSource.
@@ -53576,7 +56074,7 @@ type SmbDeleteKnowledgeSourceParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbGetKnowledgeSourceParams defines parameters for SmbGetKnowledgeSource.
@@ -53585,7 +56083,7 @@ type SmbGetKnowledgeSourceParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListLocationsParams defines parameters for SmbListLocations.
@@ -53594,7 +56092,7 @@ type SmbListLocationsParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbCreateLocationParams defines parameters for SmbCreateLocation.
@@ -53603,7 +56101,7 @@ type SmbCreateLocationParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteLocationParams defines parameters for SmbDeleteLocation.
@@ -53612,7 +56110,7 @@ type SmbDeleteLocationParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbGetLocationParams defines parameters for SmbGetLocation.
@@ -53621,7 +56119,7 @@ type SmbGetLocationParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateLocationParams defines parameters for SmbUpdateLocation.
@@ -53630,7 +56128,7 @@ type SmbUpdateLocationParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListWorkspacePhoneAssignmentsParams defines parameters for SmbListWorkspacePhoneAssignments.
@@ -53639,7 +56137,7 @@ type SmbListWorkspacePhoneAssignmentsParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbAssignPhoneNumberParams defines parameters for SmbAssignPhoneNumber.
@@ -53648,7 +56146,7 @@ type SmbAssignPhoneNumberParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbReleasePhoneAssignmentParams defines parameters for SmbReleasePhoneAssignment.
@@ -53657,7 +56155,7 @@ type SmbReleasePhoneAssignmentParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbReassignPhoneToAgentParams defines parameters for SmbReassignPhoneToAgent.
@@ -53666,19 +56164,22 @@ type SmbReassignPhoneToAgentParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListProductsParams defines parameters for SmbListProducts.
 type SmbListProductsParams struct {
-	Group    *string `form:"group,omitempty" json:"group,omitempty"`
-	IsActive *bool   `form:"is_active,omitempty" json:"is_active,omitempty"`
+	// Group Only products filed under the group with this label.
+	Group *string `form:"group,omitempty" json:"group,omitempty"`
+
+	// IsActive Only active (`true`) or inactive (`false`) products.
+	IsActive *bool `form:"is_active,omitempty" json:"is_active,omitempty"`
 
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbCreateProductParams defines parameters for SmbCreateProduct.
@@ -53687,7 +56188,7 @@ type SmbCreateProductParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteProductParams defines parameters for SmbDeleteProduct.
@@ -53696,7 +56197,7 @@ type SmbDeleteProductParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbGetProductParams defines parameters for SmbGetProduct.
@@ -53705,7 +56206,7 @@ type SmbGetProductParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateProductParams defines parameters for SmbUpdateProduct.
@@ -53714,7 +56215,7 @@ type SmbUpdateProductParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateProductStockParams defines parameters for SmbUpdateProductStock.
@@ -53723,7 +56224,7 @@ type SmbUpdateProductStockParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbAdjustProductStockParams defines parameters for SmbAdjustProductStock.
@@ -53732,7 +56233,7 @@ type SmbAdjustProductStockParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListResellerInvoicesParams defines parameters for SmbListResellerInvoices.
@@ -53821,16 +56322,23 @@ type SmbRestoreResellerSubscriptionParams struct {
 
 // SmbListServicesParams defines parameters for SmbListServices.
 type SmbListServicesParams struct {
-	StaffId  *string         `form:"staff_id,omitempty" json:"staff_id,omitempty"`
-	AssetId  *string         `form:"asset_id,omitempty" json:"asset_id,omitempty"`
-	IsActive *bool           `form:"is_active,omitempty" json:"is_active,omitempty"`
-	Kind     *SMBServiceKind `form:"kind,omitempty" json:"kind,omitempty"`
+	// StaffId Only services this staff member performs.
+	StaffId *string `form:"staff_id,omitempty" json:"staff_id,omitempty"`
+
+	// AssetId Only services that book this asset.
+	AssetId *string `form:"asset_id,omitempty" json:"asset_id,omitempty"`
+
+	// IsActive Only active (`true`) or inactive (`false`) services.
+	IsActive *bool `form:"is_active,omitempty" json:"is_active,omitempty"`
+
+	// Kind Only services of this kind.
+	Kind *SMBServiceKind `form:"kind,omitempty" json:"kind,omitempty"`
 
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbCreateServiceParams defines parameters for SmbCreateService.
@@ -53839,7 +56347,7 @@ type SmbCreateServiceParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteServiceParams defines parameters for SmbDeleteService.
@@ -53848,7 +56356,7 @@ type SmbDeleteServiceParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbGetServiceParams defines parameters for SmbGetService.
@@ -53857,7 +56365,7 @@ type SmbGetServiceParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateServiceParams defines parameters for SmbUpdateService.
@@ -53866,18 +56374,19 @@ type SmbUpdateServiceParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbConfirmServiceUpdateParams defines parameters for SmbConfirmServiceUpdate.
 type SmbConfirmServiceUpdateParams struct {
+	// Reprice Also update the price on the service's future bookings.
 	Reprice *bool `form:"reprice,omitempty" json:"reprice,omitempty"`
 
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListStaffParams defines parameters for SmbListStaff.
@@ -53886,7 +56395,7 @@ type SmbListStaffParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbCreateStaffMemberParams defines parameters for SmbCreateStaffMember.
@@ -53895,7 +56404,7 @@ type SmbCreateStaffMemberParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbDeleteStaffMemberParams defines parameters for SmbDeleteStaffMember.
@@ -53904,7 +56413,7 @@ type SmbDeleteStaffMemberParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbGetStaffMemberParams defines parameters for SmbGetStaffMember.
@@ -53913,7 +56422,7 @@ type SmbGetStaffMemberParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateStaffMemberParams defines parameters for SmbUpdateStaffMember.
@@ -53922,7 +56431,7 @@ type SmbUpdateStaffMemberParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbCancelTeamInviteParams defines parameters for SmbCancelTeamInvite.
@@ -53931,7 +56440,7 @@ type SmbCancelTeamInviteParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListTeamInvitesParams defines parameters for SmbListTeamInvites.
@@ -53940,7 +56449,7 @@ type SmbListTeamInvitesParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbInviteTeamMemberParams defines parameters for SmbInviteTeamMember.
@@ -53949,7 +56458,7 @@ type SmbInviteTeamMemberParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbListTeamMembersParams defines parameters for SmbListTeamMembers.
@@ -53958,7 +56467,7 @@ type SmbListTeamMembersParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbRemoveTeamMemberParams defines parameters for SmbRemoveTeamMember.
@@ -53967,7 +56476,7 @@ type SmbRemoveTeamMemberParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // SmbUpdateTeamMemberRoleParams defines parameters for SmbUpdateTeamMemberRole.
@@ -53976,7 +56485,7 @@ type SmbUpdateTeamMemberRoleParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 
 	// XiWorkspaceId The customer workspace a reseller's API key acts on.
-	XiWorkspaceId *string `json:"xi-workspace-id,omitempty"`
+	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
 // GetWorkspaceServiceAccountsParams defines parameters for GetWorkspaceServiceAccounts.
@@ -55332,6 +57841,18 @@ type AddMcpToolConfigOverrideRouteJSONRequestBody = MCPToolConfigOverrideCreateR
 
 // UpdateMcpToolConfigOverrideRouteJSONRequestBody defines body for UpdateMcpToolConfigOverrideRoute for application/json ContentType.
 type UpdateMcpToolConfigOverrideRouteJSONRequestBody = MCPToolConfigOverrideUpdateRequestModel
+
+// ResolveAttentionJSONRequestBody defines body for ResolveAttention for application/json ContentType.
+type ResolveAttentionJSONRequestBody = AttentionResolutionRequest
+
+// SubmitCampaignJSONRequestBody defines body for SubmitCampaign for application/json ContentType.
+type SubmitCampaignJSONRequestBody = SubmitCampaignRequest
+
+// SetCampaignOutcomeJSONRequestBody defines body for SetCampaignOutcome for application/json ContentType.
+type SetCampaignOutcomeJSONRequestBody = SetCampaignOutcomeRequest
+
+// ReplaceWorkspaceConfigJSONRequestBody defines body for ReplaceWorkspaceConfig for application/json ContentType.
+type ReplaceWorkspaceConfigJSONRequestBody = ReplaceWorkspaceConfigRequest
 
 // CreatePhoneNumberRouteJSONRequestBody defines body for CreatePhoneNumberRoute for application/json ContentType.
 type CreatePhoneNumberRouteJSONRequestBody CreatePhoneNumberRouteJSONBody
@@ -61394,6 +63915,107 @@ func (t *BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKey
 	return err
 }
 
+// AsPhoneChannelConfigOutput returns the union data inside the CampaignResponse_ChannelConfig as a PhoneChannelConfigOutput
+func (t CampaignResponse_ChannelConfig) AsPhoneChannelConfigOutput() (PhoneChannelConfigOutput, error) {
+	var body PhoneChannelConfigOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneChannelConfigOutput overwrites any union data inside the CampaignResponse_ChannelConfig as the provided PhoneChannelConfigOutput
+func (t *CampaignResponse_ChannelConfig) FromPhoneChannelConfigOutput(v PhoneChannelConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"channel":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneChannelConfigOutput performs a merge with any union data inside the CampaignResponse_ChannelConfig, using the provided PhoneChannelConfigOutput
+func (t *CampaignResponse_ChannelConfig) MergePhoneChannelConfigOutput(v PhoneChannelConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"channel":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsWhatsAppChannelConfig returns the union data inside the CampaignResponse_ChannelConfig as a WhatsAppChannelConfig
+func (t CampaignResponse_ChannelConfig) AsWhatsAppChannelConfig() (WhatsAppChannelConfig, error) {
+	var body WhatsAppChannelConfig
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWhatsAppChannelConfig overwrites any union data inside the CampaignResponse_ChannelConfig as the provided WhatsAppChannelConfig
+func (t *CampaignResponse_ChannelConfig) FromWhatsAppChannelConfig(v WhatsAppChannelConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"channel":"whatsapp"}`))
+	t.union = b
+	return err
+}
+
+// MergeWhatsAppChannelConfig performs a merge with any union data inside the CampaignResponse_ChannelConfig, using the provided WhatsAppChannelConfig
+func (t *CampaignResponse_ChannelConfig) MergeWhatsAppChannelConfig(v WhatsAppChannelConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"channel":"whatsapp"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t CampaignResponse_ChannelConfig) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"channel"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t CampaignResponse_ChannelConfig) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneChannelConfigOutput()
+	case "whatsapp":
+		return t.AsWhatsAppChannelConfig()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t CampaignResponse_ChannelConfig) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *CampaignResponse_ChannelConfig) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsChapterContentBlockTtsNodeResponseModel returns the union data inside the ChapterContentBlockResponseModel_Nodes_Item as a ChapterContentBlockTtsNodeResponseModel
 func (t ChapterContentBlockResponseModel_Nodes_Item) AsChapterContentBlockTtsNodeResponseModel() (ChapterContentBlockTtsNodeResponseModel, error) {
 	var body ChapterContentBlockTtsNodeResponseModel
@@ -63545,6 +66167,120 @@ func (t CustomLLM_RequestHeaders_AdditionalProperties) MarshalJSON() ([]byte, er
 }
 
 func (t *CustomLLM_RequestHeaders_AdditionalProperties) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataCollectionOutcomeEquals0 returns the union data inside the DataCollectionOutcome_Equals_Item as a DataCollectionOutcomeEquals0
+func (t DataCollectionOutcome_Equals_Item) AsDataCollectionOutcomeEquals0() (DataCollectionOutcomeEquals0, error) {
+	var body DataCollectionOutcomeEquals0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataCollectionOutcomeEquals0 overwrites any union data inside the DataCollectionOutcome_Equals_Item as the provided DataCollectionOutcomeEquals0
+func (t *DataCollectionOutcome_Equals_Item) FromDataCollectionOutcomeEquals0(v DataCollectionOutcomeEquals0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataCollectionOutcomeEquals0 performs a merge with any union data inside the DataCollectionOutcome_Equals_Item, using the provided DataCollectionOutcomeEquals0
+func (t *DataCollectionOutcome_Equals_Item) MergeDataCollectionOutcomeEquals0(v DataCollectionOutcomeEquals0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataCollectionOutcomeEquals1 returns the union data inside the DataCollectionOutcome_Equals_Item as a DataCollectionOutcomeEquals1
+func (t DataCollectionOutcome_Equals_Item) AsDataCollectionOutcomeEquals1() (DataCollectionOutcomeEquals1, error) {
+	var body DataCollectionOutcomeEquals1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataCollectionOutcomeEquals1 overwrites any union data inside the DataCollectionOutcome_Equals_Item as the provided DataCollectionOutcomeEquals1
+func (t *DataCollectionOutcome_Equals_Item) FromDataCollectionOutcomeEquals1(v DataCollectionOutcomeEquals1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataCollectionOutcomeEquals1 performs a merge with any union data inside the DataCollectionOutcome_Equals_Item, using the provided DataCollectionOutcomeEquals1
+func (t *DataCollectionOutcome_Equals_Item) MergeDataCollectionOutcomeEquals1(v DataCollectionOutcomeEquals1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataCollectionOutcomeEquals2 returns the union data inside the DataCollectionOutcome_Equals_Item as a DataCollectionOutcomeEquals2
+func (t DataCollectionOutcome_Equals_Item) AsDataCollectionOutcomeEquals2() (DataCollectionOutcomeEquals2, error) {
+	var body DataCollectionOutcomeEquals2
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataCollectionOutcomeEquals2 overwrites any union data inside the DataCollectionOutcome_Equals_Item as the provided DataCollectionOutcomeEquals2
+func (t *DataCollectionOutcome_Equals_Item) FromDataCollectionOutcomeEquals2(v DataCollectionOutcomeEquals2) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataCollectionOutcomeEquals2 performs a merge with any union data inside the DataCollectionOutcome_Equals_Item, using the provided DataCollectionOutcomeEquals2
+func (t *DataCollectionOutcome_Equals_Item) MergeDataCollectionOutcomeEquals2(v DataCollectionOutcomeEquals2) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataCollectionOutcomeEquals3 returns the union data inside the DataCollectionOutcome_Equals_Item as a DataCollectionOutcomeEquals3
+func (t DataCollectionOutcome_Equals_Item) AsDataCollectionOutcomeEquals3() (DataCollectionOutcomeEquals3, error) {
+	var body DataCollectionOutcomeEquals3
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataCollectionOutcomeEquals3 overwrites any union data inside the DataCollectionOutcome_Equals_Item as the provided DataCollectionOutcomeEquals3
+func (t *DataCollectionOutcome_Equals_Item) FromDataCollectionOutcomeEquals3(v DataCollectionOutcomeEquals3) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataCollectionOutcomeEquals3 performs a merge with any union data inside the DataCollectionOutcome_Equals_Item, using the provided DataCollectionOutcomeEquals3
+func (t *DataCollectionOutcome_Equals_Item) MergeDataCollectionOutcomeEquals3(v DataCollectionOutcomeEquals3) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataCollectionOutcome_Equals_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataCollectionOutcome_Equals_Item) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -77832,6 +80568,208 @@ func (t *StartProcedureToolConfig_Procedures_AdditionalProperties) UnmarshalJSON
 	return err
 }
 
+// AsPhoneChannelConfigInput returns the union data inside the SubmitCampaignRequest_ChannelConfig as a PhoneChannelConfigInput
+func (t SubmitCampaignRequest_ChannelConfig) AsPhoneChannelConfigInput() (PhoneChannelConfigInput, error) {
+	var body PhoneChannelConfigInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneChannelConfigInput overwrites any union data inside the SubmitCampaignRequest_ChannelConfig as the provided PhoneChannelConfigInput
+func (t *SubmitCampaignRequest_ChannelConfig) FromPhoneChannelConfigInput(v PhoneChannelConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"channel":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneChannelConfigInput performs a merge with any union data inside the SubmitCampaignRequest_ChannelConfig, using the provided PhoneChannelConfigInput
+func (t *SubmitCampaignRequest_ChannelConfig) MergePhoneChannelConfigInput(v PhoneChannelConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"channel":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSubmitWhatsAppChannelConfig returns the union data inside the SubmitCampaignRequest_ChannelConfig as a SubmitWhatsAppChannelConfig
+func (t SubmitCampaignRequest_ChannelConfig) AsSubmitWhatsAppChannelConfig() (SubmitWhatsAppChannelConfig, error) {
+	var body SubmitWhatsAppChannelConfig
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSubmitWhatsAppChannelConfig overwrites any union data inside the SubmitCampaignRequest_ChannelConfig as the provided SubmitWhatsAppChannelConfig
+func (t *SubmitCampaignRequest_ChannelConfig) FromSubmitWhatsAppChannelConfig(v SubmitWhatsAppChannelConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"channel":"whatsapp"}`))
+	t.union = b
+	return err
+}
+
+// MergeSubmitWhatsAppChannelConfig performs a merge with any union data inside the SubmitCampaignRequest_ChannelConfig, using the provided SubmitWhatsAppChannelConfig
+func (t *SubmitCampaignRequest_ChannelConfig) MergeSubmitWhatsAppChannelConfig(v SubmitWhatsAppChannelConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"channel":"whatsapp"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SubmitCampaignRequest_ChannelConfig) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"channel"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SubmitCampaignRequest_ChannelConfig) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneChannelConfigInput()
+	case "whatsapp":
+		return t.AsSubmitWhatsAppChannelConfig()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SubmitCampaignRequest_ChannelConfig) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SubmitCampaignRequest_ChannelConfig) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsWhatsAppVoiceConfig returns the union data inside the SubmitWhatsAppChannelConfig_ModeConfig as a WhatsAppVoiceConfig
+func (t SubmitWhatsAppChannelConfig_ModeConfig) AsWhatsAppVoiceConfig() (WhatsAppVoiceConfig, error) {
+	var body WhatsAppVoiceConfig
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWhatsAppVoiceConfig overwrites any union data inside the SubmitWhatsAppChannelConfig_ModeConfig as the provided WhatsAppVoiceConfig
+func (t *SubmitWhatsAppChannelConfig_ModeConfig) FromWhatsAppVoiceConfig(v WhatsAppVoiceConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"mode":"voice"}`))
+	t.union = b
+	return err
+}
+
+// MergeWhatsAppVoiceConfig performs a merge with any union data inside the SubmitWhatsAppChannelConfig_ModeConfig, using the provided WhatsAppVoiceConfig
+func (t *SubmitWhatsAppChannelConfig_ModeConfig) MergeWhatsAppVoiceConfig(v WhatsAppVoiceConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"mode":"voice"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSubmitWhatsAppMessageConfig returns the union data inside the SubmitWhatsAppChannelConfig_ModeConfig as a SubmitWhatsAppMessageConfig
+func (t SubmitWhatsAppChannelConfig_ModeConfig) AsSubmitWhatsAppMessageConfig() (SubmitWhatsAppMessageConfig, error) {
+	var body SubmitWhatsAppMessageConfig
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSubmitWhatsAppMessageConfig overwrites any union data inside the SubmitWhatsAppChannelConfig_ModeConfig as the provided SubmitWhatsAppMessageConfig
+func (t *SubmitWhatsAppChannelConfig_ModeConfig) FromSubmitWhatsAppMessageConfig(v SubmitWhatsAppMessageConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"mode":"message"}`))
+	t.union = b
+	return err
+}
+
+// MergeSubmitWhatsAppMessageConfig performs a merge with any union data inside the SubmitWhatsAppChannelConfig_ModeConfig, using the provided SubmitWhatsAppMessageConfig
+func (t *SubmitWhatsAppChannelConfig_ModeConfig) MergeSubmitWhatsAppMessageConfig(v SubmitWhatsAppMessageConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"mode":"message"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SubmitWhatsAppChannelConfig_ModeConfig) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"mode"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SubmitWhatsAppChannelConfig_ModeConfig) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "message":
+		return t.AsSubmitWhatsAppMessageConfig()
+	case "voice":
+		return t.AsWhatsAppVoiceConfig()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SubmitWhatsAppChannelConfig_ModeConfig) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SubmitWhatsAppChannelConfig_ModeConfig) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsSubscriptionResponseModelMaxCreditLimitExtension0 returns the union data inside the SubscriptionResponseModel_MaxCreditLimitExtension as a SubscriptionResponseModelMaxCreditLimitExtension0
 func (t SubscriptionResponseModel_MaxCreditLimitExtension) AsSubscriptionResponseModelMaxCreditLimitExtension0() (SubscriptionResponseModelMaxCreditLimitExtension0, error) {
 	var body SubscriptionResponseModelMaxCreditLimitExtension0
@@ -81311,6 +84249,107 @@ func (t WebhookToolApiSchemaConfigOutput_RequestHeaders_AdditionalProperties) Ma
 }
 
 func (t *WebhookToolApiSchemaConfigOutput_RequestHeaders_AdditionalProperties) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsWhatsAppVoiceConfig returns the union data inside the WhatsAppChannelConfig_ModeConfig as a WhatsAppVoiceConfig
+func (t WhatsAppChannelConfig_ModeConfig) AsWhatsAppVoiceConfig() (WhatsAppVoiceConfig, error) {
+	var body WhatsAppVoiceConfig
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWhatsAppVoiceConfig overwrites any union data inside the WhatsAppChannelConfig_ModeConfig as the provided WhatsAppVoiceConfig
+func (t *WhatsAppChannelConfig_ModeConfig) FromWhatsAppVoiceConfig(v WhatsAppVoiceConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"mode":"voice"}`))
+	t.union = b
+	return err
+}
+
+// MergeWhatsAppVoiceConfig performs a merge with any union data inside the WhatsAppChannelConfig_ModeConfig, using the provided WhatsAppVoiceConfig
+func (t *WhatsAppChannelConfig_ModeConfig) MergeWhatsAppVoiceConfig(v WhatsAppVoiceConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"mode":"voice"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsWhatsAppMessageConfig returns the union data inside the WhatsAppChannelConfig_ModeConfig as a WhatsAppMessageConfig
+func (t WhatsAppChannelConfig_ModeConfig) AsWhatsAppMessageConfig() (WhatsAppMessageConfig, error) {
+	var body WhatsAppMessageConfig
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWhatsAppMessageConfig overwrites any union data inside the WhatsAppChannelConfig_ModeConfig as the provided WhatsAppMessageConfig
+func (t *WhatsAppChannelConfig_ModeConfig) FromWhatsAppMessageConfig(v WhatsAppMessageConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"mode":"message"}`))
+	t.union = b
+	return err
+}
+
+// MergeWhatsAppMessageConfig performs a merge with any union data inside the WhatsAppChannelConfig_ModeConfig, using the provided WhatsAppMessageConfig
+func (t *WhatsAppChannelConfig_ModeConfig) MergeWhatsAppMessageConfig(v WhatsAppMessageConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"mode":"message"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t WhatsAppChannelConfig_ModeConfig) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"mode"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t WhatsAppChannelConfig_ModeConfig) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "message":
+		return t.AsWhatsAppMessageConfig()
+	case "voice":
+		return t.AsWhatsAppVoiceConfig()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t WhatsAppChannelConfig_ModeConfig) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *WhatsAppChannelConfig_ModeConfig) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -88677,6 +91716,13 @@ type ClientInterface interface {
 	// Corresponds with DELETE /v1/convai/conversations/{conversation_id}/files/{file_id} (the `CancelFileUploadRoute` operationId).
 	CancelFileUploadRoute(ctx context.Context, conversationId string, fileId string, params *CancelFileUploadRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetConversationFileRoute Get Conversation File
+	//
+	// Download a file the user attached to a conversation, including while the conversation is still active.
+	//
+	// Corresponds with GET /v1/convai/conversations/{conversation_id}/files/{file_id} (the `GetConversationFileRoute` operationId).
+	GetConversationFileRoute(ctx context.Context, conversationId string, fileId string, params *GetConversationFileRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetConversationSipMessages Get Sip Messages For A Conversation
 	//
 	// Get SIP messages associated with a conversation's phone call.
@@ -89354,6 +92400,197 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /v1/convai/mcp-servers/{mcp_server_id}/tools (the `ListMcpServerToolsRoute` operationId).
 	ListMcpServerToolsRoute(ctx context.Context, mcpServerId string, params *ListMcpServerToolsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListAttention List Outbound Campaign Attention Items
+	//
+	// List problems in the workspace's outbound campaigns that need you to act, such as an agent or phone number that can no longer be used, newest first. A campaign with an open item holds back the calls it affects.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/attention (the `ListAttention` operationId).
+	ListAttention(ctx context.Context, params *ListAttentionParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ResolveAttentionWithBody Resolve An Outbound Campaign Attention Item
+	//
+	// Close an attention item that can't be retried, recording how it was handled.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/resolve (the `ResolveAttention` operationId).
+	ResolveAttentionWithBody(ctx context.Context, attentionId string, params *ResolveAttentionParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ResolveAttention Resolve An Outbound Campaign Attention Item
+	//
+	// Close an attention item that can't be retried, recording how it was handled.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/resolve (the `ResolveAttention` operationId).
+	ResolveAttention(ctx context.Context, attentionId string, params *ResolveAttentionParams, body ResolveAttentionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// RetryAttention Retry An Outbound Campaign Attention Item
+	//
+	// Place the calls a retryable attention item holds back, once its cause is fixed. Resumes the campaign.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/retry (the `RetryAttention` operationId).
+	RetryAttention(ctx context.Context, attentionId string, params *RetryAttentionParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListCampaigns List Outbound Campaigns
+	//
+	// List the workspace's outbound campaigns, newest first.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns (the `ListCampaigns` operationId).
+	ListCampaigns(ctx context.Context, params *ListCampaignsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PauseAllCampaigns Pause All Outbound Campaigns
+	//
+	// Pause every running outbound campaign in the workspace. Paused campaigns place no new calls until resumed.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/pause-all (the `PauseAllCampaigns` operationId).
+	PauseAllCampaigns(ctx context.Context, params *PauseAllCampaignsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// StopAllCampaigns Stop All Outbound Campaigns
+	//
+	// Stop every outbound campaign in the workspace that hasn't finished. Returns `202` while calls already placed are still finishing.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/stop-all (the `StopAllCampaigns` operationId).
+	StopAllCampaigns(ctx context.Context, params *StopAllCampaignsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SubmitCampaignWithBody Create An Outbound Campaign
+	//
+	// Create an outbound campaign that calls or messages each recipient with the agent, within the policy's calling windows, retrying and following up as it allows. Returns `201` for a new campaign. A repeated request, matched by `idempotency_key` or else by its body, returns the existing campaign with `created` false.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/submit (the `SubmitCampaign` operationId).
+	SubmitCampaignWithBody(ctx context.Context, params *SubmitCampaignParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SubmitCampaign Create An Outbound Campaign
+	//
+	// Create an outbound campaign that calls or messages each recipient with the agent, within the policy's calling windows, retrying and following up as it allows. Returns `201` for a new campaign. A repeated request, matched by `idempotency_key` or else by its body, returns the existing campaign with `created` false.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/submit (the `SubmitCampaign` operationId).
+	SubmitCampaign(ctx context.Context, params *SubmitCampaignParams, body SubmitCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetCampaign Get An Outbound Campaign
+	//
+	// Get an outbound campaign and its lead counts.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id} (the `GetCampaign` operationId).
+	GetCampaign(ctx context.Context, campaignId string, params *GetCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListCampaignCalls List Outbound Campaign Calls
+	//
+	// List the calls of an outbound campaign, newest first: first contacts, retries, callbacks and redirects, whether queued, under way or done.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/calls (the `ListCampaignCalls` operationId).
+	ListCampaignCalls(ctx context.Context, campaignId string, params *ListCampaignCallsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ExportCampaign Export Outbound Campaign Calls
+	//
+	// Download every call of a campaign, with its lead and conversation results, as CSV.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/export (the `ExportCampaign` operationId).
+	ExportCampaign(ctx context.Context, campaignId string, params *ExportCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetCampaignFollowUpRequests Get Outbound Campaign Follow-Up Requests
+	//
+	// Count the callbacks and redirects contacts asked for during an outbound campaign's calls.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/follow-up-requests (the `GetCampaignFollowUpRequests` operationId).
+	GetCampaignFollowUpRequests(ctx context.Context, campaignId string, params *GetCampaignFollowUpRequestsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListCampaignLeads List Outbound Campaign Leads
+	//
+	// List the leads of an outbound campaign, one per recipient.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `ListCampaignLeads` operationId).
+	ListCampaignLeads(ctx context.Context, campaignId string, params *ListCampaignLeadsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SuppressLead Remove An Outbound Campaign Lead
+	//
+	// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
+	//
+	// Corresponds with DELETE /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `SuppressLead` operationId).
+	SuppressLead(ctx context.Context, campaignId string, leadId string, params *SuppressLeadParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetCampaignLead Get An Outbound Campaign Lead
+	//
+	// Get one lead of an outbound campaign.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `GetCampaignLead` operationId).
+	GetCampaignLead(ctx context.Context, campaignId string, leadId string, params *GetCampaignLeadParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SetCampaignOutcomeWithBody Set An Outbound Campaign Outcome
+	//
+	// Set or clear the result that counts as success for an outbound campaign's calls.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
+	SetCampaignOutcomeWithBody(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SetCampaignOutcome Set An Outbound Campaign Outcome
+	//
+	// Set or clear the result that counts as success for an outbound campaign's calls.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
+	SetCampaignOutcome(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PauseCampaign Pause An Outbound Campaign
+	//
+	// Pause an outbound campaign. It places no new calls until resumed; calls already placed carry on.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/pause (the `PauseCampaign` operationId).
+	PauseCampaign(ctx context.Context, campaignId string, params *PauseCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetCampaignProgress Get Outbound Campaign Progress
+	//
+	// Get where an outbound campaign's leads and calls stand, and when its next call is due.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/progress (the `GetCampaignProgress` operationId).
+	GetCampaignProgress(ctx context.Context, campaignId string, params *GetCampaignProgressParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ResumeCampaign Resume An Outbound Campaign
+	//
+	// Resume a paused outbound campaign, including calls an attention item held back.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/resume (the `ResumeCampaign` operationId).
+	ResumeCampaign(ctx context.Context, campaignId string, params *ResumeCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// StopCampaign Stop An Outbound Campaign
+	//
+	// Stop an outbound campaign for good: queued calls are cancelled and no lead is called again. Returns `202` with the campaign `stopping` while calls already placed are still finishing.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/stop (the `StopCampaign` operationId).
+	StopCampaign(ctx context.Context, campaignId string, params *StopCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetWorkspaceConfig Get Outbound Campaign Configuration
+	//
+	// Get the workspace's outbound campaign configuration: the default policy new campaigns take, and per-agent overrides.
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/config (the `GetWorkspaceConfig` operationId).
+	GetWorkspaceConfig(ctx context.Context, params *GetWorkspaceConfigParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ReplaceWorkspaceConfigWithBody Replace Outbound Campaign Configuration
+	//
+	// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/convai/outbound-campaigns/config (the `ReplaceWorkspaceConfig` operationId).
+	ReplaceWorkspaceConfigWithBody(ctx context.Context, params *ReplaceWorkspaceConfigParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ReplaceWorkspaceConfig Replace Outbound Campaign Configuration
+	//
+	// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/convai/outbound-campaigns/config (the `ReplaceWorkspaceConfig` operationId).
+	ReplaceWorkspaceConfig(ctx context.Context, params *ReplaceWorkspaceConfigParams, body ReplaceWorkspaceConfigJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ListPhoneNumbersRoute List Phone Numbers
 	//
@@ -92078,7 +95315,7 @@ type ClientInterface interface {
 
 	// CreateServiceAccountWithBody Create Service Account
 	//
-	// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+	// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -92087,7 +95324,7 @@ type ClientInterface interface {
 
 	// CreateServiceAccount Create Service Account
 	//
-	// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+	// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -96104,6 +99341,23 @@ func (c *Client) CancelFileUploadRoute(ctx context.Context, conversationId strin
 	return c.Client.Do(req)
 }
 
+// GetConversationFileRoute Get Conversation File
+//
+// Download a file the user attached to a conversation, including while the conversation is still active.
+//
+// Corresponds with GET /v1/convai/conversations/{conversation_id}/files/{file_id} (the `GetConversationFileRoute` operationId).
+func (c *Client) GetConversationFileRoute(ctx context.Context, conversationId string, fileId string, params *GetConversationFileRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetConversationFileRouteRequest(c.Server, conversationId, fileId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // GetConversationSipMessages Get Sip Messages For A Conversation
 //
 // Get SIP messages associated with a conversation's phone call.
@@ -97589,6 +100843,447 @@ func (c *Client) UpdateMcpToolConfigOverrideRoute(ctx context.Context, mcpServer
 // Corresponds with GET /v1/convai/mcp-servers/{mcp_server_id}/tools (the `ListMcpServerToolsRoute` operationId).
 func (c *Client) ListMcpServerToolsRoute(ctx context.Context, mcpServerId string, params *ListMcpServerToolsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewListMcpServerToolsRouteRequest(c.Server, mcpServerId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListAttention List Outbound Campaign Attention Items
+//
+// List problems in the workspace's outbound campaigns that need you to act, such as an agent or phone number that can no longer be used, newest first. A campaign with an open item holds back the calls it affects.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/attention (the `ListAttention` operationId).
+func (c *Client) ListAttention(ctx context.Context, params *ListAttentionParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListAttentionRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ResolveAttentionWithBody Resolve An Outbound Campaign Attention Item
+//
+// Close an attention item that can't be retried, recording how it was handled.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/resolve (the `ResolveAttention` operationId).
+func (c *Client) ResolveAttentionWithBody(ctx context.Context, attentionId string, params *ResolveAttentionParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewResolveAttentionRequestWithBody(c.Server, attentionId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ResolveAttention Resolve An Outbound Campaign Attention Item
+//
+// Close an attention item that can't be retried, recording how it was handled.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/resolve (the `ResolveAttention` operationId).
+func (c *Client) ResolveAttention(ctx context.Context, attentionId string, params *ResolveAttentionParams, body ResolveAttentionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewResolveAttentionRequest(c.Server, attentionId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// RetryAttention Retry An Outbound Campaign Attention Item
+//
+// Place the calls a retryable attention item holds back, once its cause is fixed. Resumes the campaign.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/retry (the `RetryAttention` operationId).
+func (c *Client) RetryAttention(ctx context.Context, attentionId string, params *RetryAttentionParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewRetryAttentionRequest(c.Server, attentionId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListCampaigns List Outbound Campaigns
+//
+// List the workspace's outbound campaigns, newest first.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns (the `ListCampaigns` operationId).
+func (c *Client) ListCampaigns(ctx context.Context, params *ListCampaignsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListCampaignsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// PauseAllCampaigns Pause All Outbound Campaigns
+//
+// Pause every running outbound campaign in the workspace. Paused campaigns place no new calls until resumed.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/pause-all (the `PauseAllCampaigns` operationId).
+func (c *Client) PauseAllCampaigns(ctx context.Context, params *PauseAllCampaignsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewPauseAllCampaignsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// StopAllCampaigns Stop All Outbound Campaigns
+//
+// Stop every outbound campaign in the workspace that hasn't finished. Returns `202` while calls already placed are still finishing.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/stop-all (the `StopAllCampaigns` operationId).
+func (c *Client) StopAllCampaigns(ctx context.Context, params *StopAllCampaignsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewStopAllCampaignsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SubmitCampaignWithBody Create An Outbound Campaign
+//
+// Create an outbound campaign that calls or messages each recipient with the agent, within the policy's calling windows, retrying and following up as it allows. Returns `201` for a new campaign. A repeated request, matched by `idempotency_key` or else by its body, returns the existing campaign with `created` false.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/submit (the `SubmitCampaign` operationId).
+func (c *Client) SubmitCampaignWithBody(ctx context.Context, params *SubmitCampaignParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSubmitCampaignRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SubmitCampaign Create An Outbound Campaign
+//
+// Create an outbound campaign that calls or messages each recipient with the agent, within the policy's calling windows, retrying and following up as it allows. Returns `201` for a new campaign. A repeated request, matched by `idempotency_key` or else by its body, returns the existing campaign with `created` false.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/submit (the `SubmitCampaign` operationId).
+func (c *Client) SubmitCampaign(ctx context.Context, params *SubmitCampaignParams, body SubmitCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSubmitCampaignRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetCampaign Get An Outbound Campaign
+//
+// Get an outbound campaign and its lead counts.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id} (the `GetCampaign` operationId).
+func (c *Client) GetCampaign(ctx context.Context, campaignId string, params *GetCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetCampaignRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListCampaignCalls List Outbound Campaign Calls
+//
+// List the calls of an outbound campaign, newest first: first contacts, retries, callbacks and redirects, whether queued, under way or done.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/calls (the `ListCampaignCalls` operationId).
+func (c *Client) ListCampaignCalls(ctx context.Context, campaignId string, params *ListCampaignCallsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListCampaignCallsRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ExportCampaign Export Outbound Campaign Calls
+//
+// Download every call of a campaign, with its lead and conversation results, as CSV.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/export (the `ExportCampaign` operationId).
+func (c *Client) ExportCampaign(ctx context.Context, campaignId string, params *ExportCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewExportCampaignRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetCampaignFollowUpRequests Get Outbound Campaign Follow-Up Requests
+//
+// Count the callbacks and redirects contacts asked for during an outbound campaign's calls.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/follow-up-requests (the `GetCampaignFollowUpRequests` operationId).
+func (c *Client) GetCampaignFollowUpRequests(ctx context.Context, campaignId string, params *GetCampaignFollowUpRequestsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetCampaignFollowUpRequestsRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListCampaignLeads List Outbound Campaign Leads
+//
+// List the leads of an outbound campaign, one per recipient.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `ListCampaignLeads` operationId).
+func (c *Client) ListCampaignLeads(ctx context.Context, campaignId string, params *ListCampaignLeadsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListCampaignLeadsRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SuppressLead Remove An Outbound Campaign Lead
+//
+// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
+//
+// Corresponds with DELETE /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `SuppressLead` operationId).
+func (c *Client) SuppressLead(ctx context.Context, campaignId string, leadId string, params *SuppressLeadParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSuppressLeadRequest(c.Server, campaignId, leadId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetCampaignLead Get An Outbound Campaign Lead
+//
+// Get one lead of an outbound campaign.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `GetCampaignLead` operationId).
+func (c *Client) GetCampaignLead(ctx context.Context, campaignId string, leadId string, params *GetCampaignLeadParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetCampaignLeadRequest(c.Server, campaignId, leadId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SetCampaignOutcomeWithBody Set An Outbound Campaign Outcome
+//
+// Set or clear the result that counts as success for an outbound campaign's calls.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
+func (c *Client) SetCampaignOutcomeWithBody(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSetCampaignOutcomeRequestWithBody(c.Server, campaignId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SetCampaignOutcome Set An Outbound Campaign Outcome
+//
+// Set or clear the result that counts as success for an outbound campaign's calls.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
+func (c *Client) SetCampaignOutcome(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSetCampaignOutcomeRequest(c.Server, campaignId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// PauseCampaign Pause An Outbound Campaign
+//
+// Pause an outbound campaign. It places no new calls until resumed; calls already placed carry on.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/pause (the `PauseCampaign` operationId).
+func (c *Client) PauseCampaign(ctx context.Context, campaignId string, params *PauseCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewPauseCampaignRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetCampaignProgress Get Outbound Campaign Progress
+//
+// Get where an outbound campaign's leads and calls stand, and when its next call is due.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/progress (the `GetCampaignProgress` operationId).
+func (c *Client) GetCampaignProgress(ctx context.Context, campaignId string, params *GetCampaignProgressParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetCampaignProgressRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ResumeCampaign Resume An Outbound Campaign
+//
+// Resume a paused outbound campaign, including calls an attention item held back.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/resume (the `ResumeCampaign` operationId).
+func (c *Client) ResumeCampaign(ctx context.Context, campaignId string, params *ResumeCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewResumeCampaignRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// StopCampaign Stop An Outbound Campaign
+//
+// Stop an outbound campaign for good: queued calls are cancelled and no lead is called again. Returns `202` with the campaign `stopping` while calls already placed are still finishing.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/stop (the `StopCampaign` operationId).
+func (c *Client) StopCampaign(ctx context.Context, campaignId string, params *StopCampaignParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewStopCampaignRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetWorkspaceConfig Get Outbound Campaign Configuration
+//
+// Get the workspace's outbound campaign configuration: the default policy new campaigns take, and per-agent overrides.
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/config (the `GetWorkspaceConfig` operationId).
+func (c *Client) GetWorkspaceConfig(ctx context.Context, params *GetWorkspaceConfigParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetWorkspaceConfigRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ReplaceWorkspaceConfigWithBody Replace Outbound Campaign Configuration
+//
+// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/convai/outbound-campaigns/config (the `ReplaceWorkspaceConfig` operationId).
+func (c *Client) ReplaceWorkspaceConfigWithBody(ctx context.Context, params *ReplaceWorkspaceConfigParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewReplaceWorkspaceConfigRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ReplaceWorkspaceConfig Replace Outbound Campaign Configuration
+//
+// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/convai/outbound-campaigns/config (the `ReplaceWorkspaceConfig` operationId).
+func (c *Client) ReplaceWorkspaceConfig(ctx context.Context, params *ReplaceWorkspaceConfigParams, body ReplaceWorkspaceConfigJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewReplaceWorkspaceConfigRequest(c.Server, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -103502,7 +107197,7 @@ func (c *Client) GetWorkspaceServiceAccounts(ctx context.Context, params *GetWor
 
 // CreateServiceAccountWithBody Create Service Account
 //
-// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit.
 //
 // Takes any type of body and a specified content type.
 //
@@ -103521,7 +107216,7 @@ func (c *Client) CreateServiceAccountWithBody(ctx context.Context, params *Creat
 
 // CreateServiceAccount Create Service Account
 //
-// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -113967,6 +117662,42 @@ func NewGetConversationHistoriesRouteRequest(server string, params *GetConversat
 
 		}
 
+		if params.ToolIds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "tool_ids", *params.ToolIds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.ToolIdsSuccessful != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "tool_ids_successful", *params.ToolIdsSuccessful, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.ToolIdsErrored != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "tool_ids_errored", *params.ToolIdsErrored, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.IncludeInvalidToolCalls != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_invalid_tool_calls", *params.IncludeInvalidToolCalls, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
@@ -113982,6 +117713,30 @@ func NewGetConversationHistoriesRouteRequest(server string, params *GetConversat
 		if params.MainLanguages != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "main_languages", *params.MainLanguages, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PhoneNumberIds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "phone_number_ids", *params.PhoneNumberIds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.WhatsappPhoneNumberIds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "whatsapp_phone_number_ids", *params.WhatsappPhoneNumberIds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -114601,6 +118356,42 @@ func NewTextSearchConversationMessagesRouteRequest(server string, params *TextSe
 
 		}
 
+		if params.ToolIds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "tool_ids", *params.ToolIds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.ToolIdsSuccessful != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "tool_ids_successful", *params.ToolIdsSuccessful, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.ToolIdsErrored != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "tool_ids_errored", *params.ToolIdsErrored, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if params.IncludeInvalidToolCalls != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_invalid_tool_calls", *params.IncludeInvalidToolCalls, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
@@ -114616,6 +118407,30 @@ func NewTextSearchConversationMessagesRouteRequest(server string, params *TextSe
 		if params.MainLanguages != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "main_languages", *params.MainLanguages, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PhoneNumberIds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "phone_number_ids", *params.PhoneNumberIds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.WhatsappPhoneNumberIds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "whatsapp_phone_number_ids", *params.WhatsappPhoneNumberIds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -115288,6 +119103,62 @@ func NewCancelFileUploadRouteRequest(server string, conversationId string, fileI
 	}
 
 	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetConversationFileRouteRequest constructs an http.Request for the GetConversationFileRoute method
+func NewGetConversationFileRouteRequest(server string, conversationId string, fileId string, params *GetConversationFileRouteParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "conversation_id", conversationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "file_id", fileId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/conversations/%s/files/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -119116,6 +122987,1403 @@ func NewListMcpServerToolsRouteRequest(server string, mcpServerId string, params
 	if err != nil {
 		return nil, err
 	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewListAttentionRequest constructs an http.Request for the ListAttention method
+func NewListAttentionRequest(server string, params *ListAttentionParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/attention")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.CampaignId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "campaign_id", *params.CampaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeResolved != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_resolved", *params.IncludeResolved, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewResolveAttentionRequest calls the generic ResolveAttention builder with application/json body
+func NewResolveAttentionRequest(server string, attentionId string, params *ResolveAttentionParams, body ResolveAttentionJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewResolveAttentionRequestWithBody(server, attentionId, params, "application/json", bodyReader)
+}
+
+// NewResolveAttentionRequestWithBody constructs an http.Request for the ResolveAttention method, with any body, and a specified content type
+func NewResolveAttentionRequestWithBody(server string, attentionId string, params *ResolveAttentionParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "attention_id", attentionId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/attention/%s/resolve", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewRetryAttentionRequest constructs an http.Request for the RetryAttention method
+func NewRetryAttentionRequest(server string, attentionId string, params *RetryAttentionParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "attention_id", attentionId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/attention/%s/retry", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewListCampaignsRequest constructs an http.Request for the ListCampaigns method
+func NewListCampaignsRequest(server string, params *ListCampaignsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.AgentId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "agent_id", *params.AgentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Channel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "channel", *params.Channel, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Mode != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mode", *params.Mode, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Search != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewPauseAllCampaignsRequest constructs an http.Request for the PauseAllCampaigns method
+func NewPauseAllCampaignsRequest(server string, params *PauseAllCampaignsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/pause-all")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewStopAllCampaignsRequest constructs an http.Request for the StopAllCampaigns method
+func NewStopAllCampaignsRequest(server string, params *StopAllCampaignsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/stop-all")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSubmitCampaignRequest calls the generic SubmitCampaign builder with application/json body
+func NewSubmitCampaignRequest(server string, params *SubmitCampaignParams, body SubmitCampaignJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSubmitCampaignRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSubmitCampaignRequestWithBody constructs an http.Request for the SubmitCampaign method, with any body, and a specified content type
+func NewSubmitCampaignRequestWithBody(server string, params *SubmitCampaignParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/submit")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetCampaignRequest constructs an http.Request for the GetCampaign method
+func NewGetCampaignRequest(server string, campaignId string, params *GetCampaignParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewListCampaignCallsRequest constructs an http.Request for the ListCampaignCalls method
+func NewListCampaignCallsRequest(server string, campaignId string, params *ListCampaignCallsParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/calls", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.LeadId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "lead_id", *params.LeadId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CallResult != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "call_result", *params.CallResult, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Stage != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "stage", *params.Stage, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewExportCampaignRequest constructs an http.Request for the ExportCampaign method
+func NewExportCampaignRequest(server string, campaignId string, params *ExportCampaignParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/export", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "limit", *params.Limit, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetCampaignFollowUpRequestsRequest constructs an http.Request for the GetCampaignFollowUpRequests method
+func NewGetCampaignFollowUpRequestsRequest(server string, campaignId string, params *GetCampaignFollowUpRequestsParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/follow-up-requests", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewListCampaignLeadsRequest constructs an http.Request for the ListCampaignLeads method
+func NewListCampaignLeadsRequest(server string, campaignId string, params *ListCampaignLeadsParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/leads", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Search != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Disposition != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "disposition", *params.Disposition, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSuppressLeadRequest constructs an http.Request for the SuppressLead method
+func NewSuppressLeadRequest(server string, campaignId string, leadId string, params *SuppressLeadParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "lead_id", leadId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/leads/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetCampaignLeadRequest constructs an http.Request for the GetCampaignLead method
+func NewGetCampaignLeadRequest(server string, campaignId string, leadId string, params *GetCampaignLeadParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "lead_id", leadId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/leads/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSetCampaignOutcomeRequest calls the generic SetCampaignOutcome builder with application/json body
+func NewSetCampaignOutcomeRequest(server string, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSetCampaignOutcomeRequestWithBody(server, campaignId, params, "application/json", bodyReader)
+}
+
+// NewSetCampaignOutcomeRequestWithBody constructs an http.Request for the SetCampaignOutcome method, with any body, and a specified content type
+func NewSetCampaignOutcomeRequestWithBody(server string, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/outcome", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewPauseCampaignRequest constructs an http.Request for the PauseCampaign method
+func NewPauseCampaignRequest(server string, campaignId string, params *PauseCampaignParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/pause", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetCampaignProgressRequest constructs an http.Request for the GetCampaignProgress method
+func NewGetCampaignProgressRequest(server string, campaignId string, params *GetCampaignProgressParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/progress", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewResumeCampaignRequest constructs an http.Request for the ResumeCampaign method
+func NewResumeCampaignRequest(server string, campaignId string, params *ResumeCampaignParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/resume", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewStopCampaignRequest constructs an http.Request for the StopCampaign method
+func NewStopCampaignRequest(server string, campaignId string, params *StopCampaignParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/stop", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetWorkspaceConfigRequest constructs an http.Request for the GetWorkspaceConfig method
+func NewGetWorkspaceConfigRequest(server string, params *GetWorkspaceConfigParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/config")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewReplaceWorkspaceConfigRequest calls the generic ReplaceWorkspaceConfig builder with application/json body
+func NewReplaceWorkspaceConfigRequest(server string, params *ReplaceWorkspaceConfigParams, body ReplaceWorkspaceConfigJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewReplaceWorkspaceConfigRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewReplaceWorkspaceConfigRequestWithBody constructs an http.Request for the ReplaceWorkspaceConfig method, with any body, and a specified content type
+func NewReplaceWorkspaceConfigRequestWithBody(server string, params *ReplaceWorkspaceConfigParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/config")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	if params != nil {
 
@@ -129605,16 +134873,14 @@ func NewSmbGetAgentInfoRequest(server string, params *SmbGetAgentInfoParams) (*h
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -129671,16 +134937,14 @@ func NewSmbUpdateAgentInfoRequestWithBody(server string, params *SmbUpdateAgentI
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -129724,16 +134988,14 @@ func NewSmbListAssetsRequest(server string, params *SmbListAssetsParams) (*http.
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -129790,16 +135052,14 @@ func NewSmbCreateAssetRequestWithBody(server string, params *SmbCreateAssetParam
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -129850,16 +135110,14 @@ func NewSmbDeleteAssetRequest(server string, assetId string, params *SmbDeleteAs
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -129910,16 +135168,14 @@ func NewSmbGetAssetRequest(server string, assetId string, params *SmbGetAssetPar
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -129983,16 +135239,14 @@ func NewSmbUpdateAssetRequestWithBody(server string, assetId string, params *Smb
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130036,16 +135290,14 @@ func NewSmbListCustomerFacingAgentsRequest(server string, params *SmbListCustome
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130109,16 +135361,14 @@ func NewSmbUpdateCustomerFacingAgentRequestWithBody(server string, agentId strin
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130169,16 +135419,14 @@ func NewSmbActivateCustomerFacingAgentRequest(server string, agentId string, par
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130229,16 +135477,14 @@ func NewSmbListAgentProceduresRequest(server string, agentId string, params *Smb
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130302,16 +135548,14 @@ func NewSmbAddAgentProcedureRequestWithBody(server string, agentId string, param
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130369,16 +135613,14 @@ func NewSmbDeleteAgentProcedureRequest(server string, agentId string, procedureI
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130449,16 +135691,14 @@ func NewSmbUpdateAgentProcedureRequestWithBody(server string, agentId string, pr
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130522,16 +135762,14 @@ func NewSmbAddAgentRuleRequestWithBody(server string, agentId string, params *Sm
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130589,16 +135827,14 @@ func NewSmbDeleteAgentRuleRequest(server string, agentId string, ruleId string, 
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130669,16 +135905,14 @@ func NewSmbUpdateAgentRuleRequestWithBody(server string, agentId string, ruleId 
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130742,16 +135976,14 @@ func NewSmbAddTransferRuleRequestWithBody(server string, agentId string, params 
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130809,16 +136041,14 @@ func NewSmbDeleteTransferRuleRequest(server string, agentId string, ruleId strin
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -130889,16 +136119,14 @@ func NewSmbUpdateTransferRuleRequestWithBody(server string, agentId string, rule
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131017,16 +136245,14 @@ func NewSmbListHolidaysRequest(server string, params *SmbListHolidaysParams) (*h
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131083,16 +136309,14 @@ func NewSmbCreateHolidayRequestWithBody(server string, params *SmbCreateHolidayP
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131143,16 +136367,14 @@ func NewSmbDeleteHolidayRequest(server string, holidayId string, params *SmbDele
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131203,16 +136425,14 @@ func NewSmbGetHolidayRequest(server string, holidayId string, params *SmbGetHoli
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131276,16 +136496,14 @@ func NewSmbUpdateHolidayRequestWithBody(server string, holidayId string, params 
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131329,16 +136547,14 @@ func NewSmbListKnowledgeSourcesRequest(server string, params *SmbListKnowledgeSo
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131384,16 +136600,14 @@ func NewSmbUploadKnowledgeSourceRequestWithBody(server string, params *SmbUpload
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131450,16 +136664,14 @@ func NewSmbAddUrlSourceRequestWithBody(server string, params *SmbAddUrlSourcePar
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131510,16 +136722,14 @@ func NewSmbDeleteKnowledgeSourceRequest(server string, sourceId string, params *
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131570,16 +136780,14 @@ func NewSmbGetKnowledgeSourceRequest(server string, sourceId string, params *Smb
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131623,16 +136831,14 @@ func NewSmbListLocationsRequest(server string, params *SmbListLocationsParams) (
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131689,16 +136895,14 @@ func NewSmbCreateLocationRequestWithBody(server string, params *SmbCreateLocatio
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131749,16 +136953,14 @@ func NewSmbDeleteLocationRequest(server string, locationId string, params *SmbDe
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131809,16 +137011,14 @@ func NewSmbGetLocationRequest(server string, locationId string, params *SmbGetLo
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131882,16 +137082,14 @@ func NewSmbUpdateLocationRequestWithBody(server string, locationId string, param
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -131935,16 +137133,14 @@ func NewSmbListWorkspacePhoneAssignmentsRequest(server string, params *SmbListWo
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132001,16 +137197,14 @@ func NewSmbAssignPhoneNumberRequestWithBody(server string, params *SmbAssignPhon
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132061,16 +137255,14 @@ func NewSmbReleasePhoneAssignmentRequest(server string, phoneAssignmentId string
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132134,16 +137326,14 @@ func NewSmbReassignPhoneToAgentRequestWithBody(server string, phoneAssignmentId 
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132226,16 +137416,14 @@ func NewSmbListProductsRequest(server string, params *SmbListProductsParams) (*h
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132292,16 +137480,14 @@ func NewSmbCreateProductRequestWithBody(server string, params *SmbCreateProductP
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132352,16 +137538,14 @@ func NewSmbDeleteProductRequest(server string, productId string, params *SmbDele
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132412,16 +137596,14 @@ func NewSmbGetProductRequest(server string, productId string, params *SmbGetProd
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132485,16 +137667,14 @@ func NewSmbUpdateProductRequestWithBody(server string, productId string, params 
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132558,16 +137738,14 @@ func NewSmbUpdateProductStockRequestWithBody(server string, productId string, pa
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -132631,16 +137809,14 @@ func NewSmbAdjustProductStockRequestWithBody(server string, productId string, pa
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -133417,16 +138593,14 @@ func NewSmbListServicesRequest(server string, params *SmbListServicesParams) (*h
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -133483,16 +138657,14 @@ func NewSmbCreateServiceRequestWithBody(server string, params *SmbCreateServiceP
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -133543,16 +138715,14 @@ func NewSmbDeleteServiceRequest(server string, serviceId string, params *SmbDele
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -133603,16 +138773,14 @@ func NewSmbGetServiceRequest(server string, serviceId string, params *SmbGetServ
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -133676,16 +138844,14 @@ func NewSmbUpdateServiceRequestWithBody(server string, serviceId string, params 
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -133776,16 +138942,14 @@ func NewSmbConfirmServiceUpdateRequestWithBody(server string, serviceId string, 
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -133829,16 +138993,14 @@ func NewSmbListStaffRequest(server string, params *SmbListStaffParams) (*http.Re
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -133895,16 +139057,14 @@ func NewSmbCreateStaffMemberRequestWithBody(server string, params *SmbCreateStaf
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -133955,16 +139115,14 @@ func NewSmbDeleteStaffMemberRequest(server string, staffId string, params *SmbDe
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -134015,16 +139173,14 @@ func NewSmbGetStaffMemberRequest(server string, staffId string, params *SmbGetSt
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -134088,16 +139244,14 @@ func NewSmbUpdateStaffMemberRequestWithBody(server string, staffId string, param
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -134154,16 +139308,14 @@ func NewSmbCancelTeamInviteRequestWithBody(server string, params *SmbCancelTeamI
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -134207,16 +139359,14 @@ func NewSmbListTeamInvitesRequest(server string, params *SmbListTeamInvitesParam
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -134273,16 +139423,14 @@ func NewSmbInviteTeamMemberRequestWithBody(server string, params *SmbInviteTeamM
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -134326,16 +139474,14 @@ func NewSmbListTeamMembersRequest(server string, params *SmbListTeamMembersParam
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -134386,16 +139532,14 @@ func NewSmbRemoveTeamMemberRequest(server string, userId string, params *SmbRemo
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -134459,16 +139603,14 @@ func NewSmbUpdateTeamMemberRoleRequestWithBody(server string, userId string, par
 			req.Header.Set("xi-api-key", headerParam0)
 		}
 
-		if params.XiWorkspaceId != nil {
-			var headerParam1 string
+		var headerParam1 string
 
-			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", *params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-workspace-id", headerParam1)
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
 		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
 
 	}
 
@@ -144015,6 +149157,15 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with DELETE /v1/convai/conversations/{conversation_id}/files/{file_id} (the `CancelFileUploadRoute` operationId).
 	CancelFileUploadRouteWithResponse(ctx context.Context, conversationId string, fileId string, params *CancelFileUploadRouteParams, reqEditors ...RequestEditorFn) (*CancelFileUploadRouteResponse, error)
 
+	// GetConversationFileRouteWithResponse Get Conversation File
+	//
+	// Download a file the user attached to a conversation, including while the conversation is still active.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/conversations/{conversation_id}/files/{file_id} (the `GetConversationFileRoute` operationId).
+	GetConversationFileRouteWithResponse(ctx context.Context, conversationId string, fileId string, params *GetConversationFileRouteParams, reqEditors ...RequestEditorFn) (*GetConversationFileRouteResponse, error)
+
 	// GetConversationSipMessagesWithResponse Get Sip Messages For A Conversation
 	//
 	// Get SIP messages associated with a conversation's phone call.
@@ -144758,6 +149909,231 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /v1/convai/mcp-servers/{mcp_server_id}/tools (the `ListMcpServerToolsRoute` operationId).
 	ListMcpServerToolsRouteWithResponse(ctx context.Context, mcpServerId string, params *ListMcpServerToolsRouteParams, reqEditors ...RequestEditorFn) (*ListMcpServerToolsRouteResponse, error)
+
+	// ListAttentionWithResponse List Outbound Campaign Attention Items
+	//
+	// List problems in the workspace's outbound campaigns that need you to act, such as an agent or phone number that can no longer be used, newest first. A campaign with an open item holds back the calls it affects.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/attention (the `ListAttention` operationId).
+	ListAttentionWithResponse(ctx context.Context, params *ListAttentionParams, reqEditors ...RequestEditorFn) (*ListAttentionResponse, error)
+
+	// ResolveAttentionWithBodyWithResponse Resolve An Outbound Campaign Attention Item
+	//
+	// Close an attention item that can't be retried, recording how it was handled.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/resolve (the `ResolveAttention` operationId).
+	ResolveAttentionWithBodyWithResponse(ctx context.Context, attentionId string, params *ResolveAttentionParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ResolveAttentionResponse, error)
+
+	// ResolveAttentionWithResponse Resolve An Outbound Campaign Attention Item
+	//
+	// Close an attention item that can't be retried, recording how it was handled.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/resolve (the `ResolveAttention` operationId).
+	ResolveAttentionWithResponse(ctx context.Context, attentionId string, params *ResolveAttentionParams, body ResolveAttentionJSONRequestBody, reqEditors ...RequestEditorFn) (*ResolveAttentionResponse, error)
+
+	// RetryAttentionWithResponse Retry An Outbound Campaign Attention Item
+	//
+	// Place the calls a retryable attention item holds back, once its cause is fixed. Resumes the campaign.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/retry (the `RetryAttention` operationId).
+	RetryAttentionWithResponse(ctx context.Context, attentionId string, params *RetryAttentionParams, reqEditors ...RequestEditorFn) (*RetryAttentionResponse, error)
+
+	// ListCampaignsWithResponse List Outbound Campaigns
+	//
+	// List the workspace's outbound campaigns, newest first.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns (the `ListCampaigns` operationId).
+	ListCampaignsWithResponse(ctx context.Context, params *ListCampaignsParams, reqEditors ...RequestEditorFn) (*ListCampaignsResponse, error)
+
+	// PauseAllCampaignsWithResponse Pause All Outbound Campaigns
+	//
+	// Pause every running outbound campaign in the workspace. Paused campaigns place no new calls until resumed.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/pause-all (the `PauseAllCampaigns` operationId).
+	PauseAllCampaignsWithResponse(ctx context.Context, params *PauseAllCampaignsParams, reqEditors ...RequestEditorFn) (*PauseAllCampaignsResponse2, error)
+
+	// StopAllCampaignsWithResponse Stop All Outbound Campaigns
+	//
+	// Stop every outbound campaign in the workspace that hasn't finished. Returns `202` while calls already placed are still finishing.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/stop-all (the `StopAllCampaigns` operationId).
+	StopAllCampaignsWithResponse(ctx context.Context, params *StopAllCampaignsParams, reqEditors ...RequestEditorFn) (*StopAllCampaignsResponse2, error)
+
+	// SubmitCampaignWithBodyWithResponse Create An Outbound Campaign
+	//
+	// Create an outbound campaign that calls or messages each recipient with the agent, within the policy's calling windows, retrying and following up as it allows. Returns `201` for a new campaign. A repeated request, matched by `idempotency_key` or else by its body, returns the existing campaign with `created` false.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/submit (the `SubmitCampaign` operationId).
+	SubmitCampaignWithBodyWithResponse(ctx context.Context, params *SubmitCampaignParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SubmitCampaignResponse2, error)
+
+	// SubmitCampaignWithResponse Create An Outbound Campaign
+	//
+	// Create an outbound campaign that calls or messages each recipient with the agent, within the policy's calling windows, retrying and following up as it allows. Returns `201` for a new campaign. A repeated request, matched by `idempotency_key` or else by its body, returns the existing campaign with `created` false.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/submit (the `SubmitCampaign` operationId).
+	SubmitCampaignWithResponse(ctx context.Context, params *SubmitCampaignParams, body SubmitCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*SubmitCampaignResponse2, error)
+
+	// GetCampaignWithResponse Get An Outbound Campaign
+	//
+	// Get an outbound campaign and its lead counts.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id} (the `GetCampaign` operationId).
+	GetCampaignWithResponse(ctx context.Context, campaignId string, params *GetCampaignParams, reqEditors ...RequestEditorFn) (*GetCampaignResponse, error)
+
+	// ListCampaignCallsWithResponse List Outbound Campaign Calls
+	//
+	// List the calls of an outbound campaign, newest first: first contacts, retries, callbacks and redirects, whether queued, under way or done.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/calls (the `ListCampaignCalls` operationId).
+	ListCampaignCallsWithResponse(ctx context.Context, campaignId string, params *ListCampaignCallsParams, reqEditors ...RequestEditorFn) (*ListCampaignCallsResponse, error)
+
+	// ExportCampaignWithResponse Export Outbound Campaign Calls
+	//
+	// Download every call of a campaign, with its lead and conversation results, as CSV.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/export (the `ExportCampaign` operationId).
+	ExportCampaignWithResponse(ctx context.Context, campaignId string, params *ExportCampaignParams, reqEditors ...RequestEditorFn) (*ExportCampaignResponse, error)
+
+	// GetCampaignFollowUpRequestsWithResponse Get Outbound Campaign Follow-Up Requests
+	//
+	// Count the callbacks and redirects contacts asked for during an outbound campaign's calls.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/follow-up-requests (the `GetCampaignFollowUpRequests` operationId).
+	GetCampaignFollowUpRequestsWithResponse(ctx context.Context, campaignId string, params *GetCampaignFollowUpRequestsParams, reqEditors ...RequestEditorFn) (*GetCampaignFollowUpRequestsResponse, error)
+
+	// ListCampaignLeadsWithResponse List Outbound Campaign Leads
+	//
+	// List the leads of an outbound campaign, one per recipient.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `ListCampaignLeads` operationId).
+	ListCampaignLeadsWithResponse(ctx context.Context, campaignId string, params *ListCampaignLeadsParams, reqEditors ...RequestEditorFn) (*ListCampaignLeadsResponse, error)
+
+	// SuppressLeadWithResponse Remove An Outbound Campaign Lead
+	//
+	// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `SuppressLead` operationId).
+	SuppressLeadWithResponse(ctx context.Context, campaignId string, leadId string, params *SuppressLeadParams, reqEditors ...RequestEditorFn) (*SuppressLeadResponse2, error)
+
+	// GetCampaignLeadWithResponse Get An Outbound Campaign Lead
+	//
+	// Get one lead of an outbound campaign.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `GetCampaignLead` operationId).
+	GetCampaignLeadWithResponse(ctx context.Context, campaignId string, leadId string, params *GetCampaignLeadParams, reqEditors ...RequestEditorFn) (*GetCampaignLeadResponse, error)
+
+	// SetCampaignOutcomeWithBodyWithResponse Set An Outbound Campaign Outcome
+	//
+	// Set or clear the result that counts as success for an outbound campaign's calls.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
+	SetCampaignOutcomeWithBodyWithResponse(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SetCampaignOutcomeResponse, error)
+
+	// SetCampaignOutcomeWithResponse Set An Outbound Campaign Outcome
+	//
+	// Set or clear the result that counts as success for an outbound campaign's calls.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
+	SetCampaignOutcomeWithResponse(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody, reqEditors ...RequestEditorFn) (*SetCampaignOutcomeResponse, error)
+
+	// PauseCampaignWithResponse Pause An Outbound Campaign
+	//
+	// Pause an outbound campaign. It places no new calls until resumed; calls already placed carry on.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/pause (the `PauseCampaign` operationId).
+	PauseCampaignWithResponse(ctx context.Context, campaignId string, params *PauseCampaignParams, reqEditors ...RequestEditorFn) (*PauseCampaignResponse, error)
+
+	// GetCampaignProgressWithResponse Get Outbound Campaign Progress
+	//
+	// Get where an outbound campaign's leads and calls stand, and when its next call is due.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/progress (the `GetCampaignProgress` operationId).
+	GetCampaignProgressWithResponse(ctx context.Context, campaignId string, params *GetCampaignProgressParams, reqEditors ...RequestEditorFn) (*GetCampaignProgressResponse, error)
+
+	// ResumeCampaignWithResponse Resume An Outbound Campaign
+	//
+	// Resume a paused outbound campaign, including calls an attention item held back.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/resume (the `ResumeCampaign` operationId).
+	ResumeCampaignWithResponse(ctx context.Context, campaignId string, params *ResumeCampaignParams, reqEditors ...RequestEditorFn) (*ResumeCampaignResponse, error)
+
+	// StopCampaignWithResponse Stop An Outbound Campaign
+	//
+	// Stop an outbound campaign for good: queued calls are cancelled and no lead is called again. Returns `202` with the campaign `stopping` while calls already placed are still finishing.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/stop (the `StopCampaign` operationId).
+	StopCampaignWithResponse(ctx context.Context, campaignId string, params *StopCampaignParams, reqEditors ...RequestEditorFn) (*StopCampaignResponse, error)
+
+	// GetWorkspaceConfigWithResponse Get Outbound Campaign Configuration
+	//
+	// Get the workspace's outbound campaign configuration: the default policy new campaigns take, and per-agent overrides.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/outbound-campaigns/config (the `GetWorkspaceConfig` operationId).
+	GetWorkspaceConfigWithResponse(ctx context.Context, params *GetWorkspaceConfigParams, reqEditors ...RequestEditorFn) (*GetWorkspaceConfigResponse, error)
+
+	// ReplaceWorkspaceConfigWithBodyWithResponse Replace Outbound Campaign Configuration
+	//
+	// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/convai/outbound-campaigns/config (the `ReplaceWorkspaceConfig` operationId).
+	ReplaceWorkspaceConfigWithBodyWithResponse(ctx context.Context, params *ReplaceWorkspaceConfigParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ReplaceWorkspaceConfigResponse, error)
+
+	// ReplaceWorkspaceConfigWithResponse Replace Outbound Campaign Configuration
+	//
+	// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/convai/outbound-campaigns/config (the `ReplaceWorkspaceConfig` operationId).
+	ReplaceWorkspaceConfigWithResponse(ctx context.Context, params *ReplaceWorkspaceConfigParams, body ReplaceWorkspaceConfigJSONRequestBody, reqEditors ...RequestEditorFn) (*ReplaceWorkspaceConfigResponse, error)
 
 	// ListPhoneNumbersRouteWithResponse List Phone Numbers
 	//
@@ -147728,7 +153104,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateServiceAccountWithBodyWithResponse Create Service Account
 	//
-	// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+	// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -147737,7 +153113,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateServiceAccountWithResponse Create Service Account
 	//
-	// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+	// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -154365,6 +159741,47 @@ func (r CancelFileUploadRouteResponse) ContentType() string {
 	return ""
 }
 
+type GetConversationFileRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetConversationFileRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetConversationFileRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetConversationFileRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetConversationFileRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetConversationFileRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetConversationSipMessagesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -157142,6 +162559,1007 @@ func (r ListMcpServerToolsRouteResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r ListMcpServerToolsRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListAttentionResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *AttentionPageResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListAttentionResponse) GetJSON200() *AttentionPageResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ListAttentionResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ListAttentionResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListAttentionResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListAttentionResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListAttentionResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ResolveAttentionResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *AttentionView
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ResolveAttentionResponse) GetJSON200() *AttentionView {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ResolveAttentionResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ResolveAttentionResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ResolveAttentionResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ResolveAttentionResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ResolveAttentionResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type RetryAttentionResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *AttentionView
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r RetryAttentionResponse) GetJSON200() *AttentionView {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r RetryAttentionResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r RetryAttentionResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r RetryAttentionResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r RetryAttentionResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r RetryAttentionResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListCampaignsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignPageResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListCampaignsResponse) GetJSON200() *CampaignPageResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ListCampaignsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ListCampaignsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListCampaignsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListCampaignsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListCampaignsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type PauseAllCampaignsResponse2 struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *PauseAllCampaignsResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r PauseAllCampaignsResponse2) GetJSON200() *PauseAllCampaignsResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r PauseAllCampaignsResponse2) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r PauseAllCampaignsResponse2) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r PauseAllCampaignsResponse2) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PauseAllCampaignsResponse2) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r PauseAllCampaignsResponse2) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type StopAllCampaignsResponse2 struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *StopAllCampaignsResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r StopAllCampaignsResponse2) GetJSON200() *StopAllCampaignsResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r StopAllCampaignsResponse2) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r StopAllCampaignsResponse2) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r StopAllCampaignsResponse2) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StopAllCampaignsResponse2) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r StopAllCampaignsResponse2) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SubmitCampaignResponse2 struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SubmitCampaignResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SubmitCampaignResponse2) GetJSON200() *SubmitCampaignResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SubmitCampaignResponse2) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SubmitCampaignResponse2) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SubmitCampaignResponse2) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SubmitCampaignResponse2) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SubmitCampaignResponse2) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetCampaignResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetCampaignResponse) GetJSON200() *CampaignResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetCampaignResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetCampaignResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetCampaignResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetCampaignResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetCampaignResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListCampaignCallsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignCallsResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListCampaignCallsResponse) GetJSON200() *CampaignCallsResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ListCampaignCallsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ListCampaignCallsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListCampaignCallsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListCampaignCallsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListCampaignCallsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ExportCampaignResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ExportCampaignResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ExportCampaignResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ExportCampaignResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ExportCampaignResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ExportCampaignResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetCampaignFollowUpRequestsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignFollowUpRequestsResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetCampaignFollowUpRequestsResponse) GetJSON200() *CampaignFollowUpRequestsResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetCampaignFollowUpRequestsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetCampaignFollowUpRequestsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetCampaignFollowUpRequestsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetCampaignFollowUpRequestsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetCampaignFollowUpRequestsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListCampaignLeadsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignLeadsResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListCampaignLeadsResponse) GetJSON200() *CampaignLeadsResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ListCampaignLeadsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ListCampaignLeadsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListCampaignLeadsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListCampaignLeadsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListCampaignLeadsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SuppressLeadResponse2 struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SuppressLeadResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SuppressLeadResponse2) GetJSON200() *SuppressLeadResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SuppressLeadResponse2) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SuppressLeadResponse2) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SuppressLeadResponse2) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SuppressLeadResponse2) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SuppressLeadResponse2) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetCampaignLeadResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *LeadDetailResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetCampaignLeadResponse) GetJSON200() *LeadDetailResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetCampaignLeadResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetCampaignLeadResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetCampaignLeadResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetCampaignLeadResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetCampaignLeadResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SetCampaignOutcomeResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SetCampaignOutcomeResponse) GetJSON200() *CampaignResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SetCampaignOutcomeResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SetCampaignOutcomeResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SetCampaignOutcomeResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SetCampaignOutcomeResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SetCampaignOutcomeResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type PauseCampaignResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r PauseCampaignResponse) GetJSON200() *CampaignResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r PauseCampaignResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r PauseCampaignResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r PauseCampaignResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PauseCampaignResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r PauseCampaignResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetCampaignProgressResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignProgressResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetCampaignProgressResponse) GetJSON200() *CampaignProgressResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetCampaignProgressResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetCampaignProgressResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetCampaignProgressResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetCampaignProgressResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetCampaignProgressResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ResumeCampaignResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ResumeCampaignResponse) GetJSON200() *CampaignResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ResumeCampaignResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ResumeCampaignResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ResumeCampaignResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ResumeCampaignResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ResumeCampaignResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type StopCampaignResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CampaignResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r StopCampaignResponse) GetJSON200() *CampaignResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r StopCampaignResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r StopCampaignResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r StopCampaignResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StopCampaignResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r StopCampaignResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetWorkspaceConfigResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *WorkspaceConfigResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetWorkspaceConfigResponse) GetJSON200() *WorkspaceConfigResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetWorkspaceConfigResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetWorkspaceConfigResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetWorkspaceConfigResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetWorkspaceConfigResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetWorkspaceConfigResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ReplaceWorkspaceConfigResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *WorkspaceConfigResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ReplaceWorkspaceConfigResponse) GetJSON200() *WorkspaceConfigResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ReplaceWorkspaceConfigResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ReplaceWorkspaceConfigResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ReplaceWorkspaceConfigResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ReplaceWorkspaceConfigResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ReplaceWorkspaceConfigResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -175867,6 +182285,21 @@ func (c *ClientWithResponses) CancelFileUploadRouteWithResponse(ctx context.Cont
 	return ParseCancelFileUploadRouteResponse(rsp)
 }
 
+// GetConversationFileRouteWithResponse Get Conversation File
+//
+// Download a file the user attached to a conversation, including while the conversation is still active.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/conversations/{conversation_id}/files/{file_id} (the `GetConversationFileRoute` operationId).
+func (c *ClientWithResponses) GetConversationFileRouteWithResponse(ctx context.Context, conversationId string, fileId string, params *GetConversationFileRouteParams, reqEditors ...RequestEditorFn) (*GetConversationFileRouteResponse, error) {
+	rsp, err := c.GetConversationFileRoute(ctx, conversationId, fileId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetConversationFileRouteResponse(rsp)
+}
+
 // GetConversationSipMessagesWithResponse Get Sip Messages For A Conversation
 //
 // Get SIP messages associated with a conversation's phone call.
@@ -177100,6 +183533,381 @@ func (c *ClientWithResponses) ListMcpServerToolsRouteWithResponse(ctx context.Co
 		return nil, err
 	}
 	return ParseListMcpServerToolsRouteResponse(rsp)
+}
+
+// ListAttentionWithResponse List Outbound Campaign Attention Items
+//
+// List problems in the workspace's outbound campaigns that need you to act, such as an agent or phone number that can no longer be used, newest first. A campaign with an open item holds back the calls it affects.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/attention (the `ListAttention` operationId).
+func (c *ClientWithResponses) ListAttentionWithResponse(ctx context.Context, params *ListAttentionParams, reqEditors ...RequestEditorFn) (*ListAttentionResponse, error) {
+	rsp, err := c.ListAttention(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListAttentionResponse(rsp)
+}
+
+// ResolveAttentionWithBodyWithResponse Resolve An Outbound Campaign Attention Item
+//
+// Close an attention item that can't be retried, recording how it was handled.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/resolve (the `ResolveAttention` operationId).
+func (c *ClientWithResponses) ResolveAttentionWithBodyWithResponse(ctx context.Context, attentionId string, params *ResolveAttentionParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ResolveAttentionResponse, error) {
+	rsp, err := c.ResolveAttentionWithBody(ctx, attentionId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseResolveAttentionResponse(rsp)
+}
+
+// ResolveAttentionWithResponse Resolve An Outbound Campaign Attention Item
+//
+// Close an attention item that can't be retried, recording how it was handled.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/resolve (the `ResolveAttention` operationId).
+func (c *ClientWithResponses) ResolveAttentionWithResponse(ctx context.Context, attentionId string, params *ResolveAttentionParams, body ResolveAttentionJSONRequestBody, reqEditors ...RequestEditorFn) (*ResolveAttentionResponse, error) {
+	rsp, err := c.ResolveAttention(ctx, attentionId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseResolveAttentionResponse(rsp)
+}
+
+// RetryAttentionWithResponse Retry An Outbound Campaign Attention Item
+//
+// Place the calls a retryable attention item holds back, once its cause is fixed. Resumes the campaign.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/attention/{attention_id}/retry (the `RetryAttention` operationId).
+func (c *ClientWithResponses) RetryAttentionWithResponse(ctx context.Context, attentionId string, params *RetryAttentionParams, reqEditors ...RequestEditorFn) (*RetryAttentionResponse, error) {
+	rsp, err := c.RetryAttention(ctx, attentionId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseRetryAttentionResponse(rsp)
+}
+
+// ListCampaignsWithResponse List Outbound Campaigns
+//
+// List the workspace's outbound campaigns, newest first.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns (the `ListCampaigns` operationId).
+func (c *ClientWithResponses) ListCampaignsWithResponse(ctx context.Context, params *ListCampaignsParams, reqEditors ...RequestEditorFn) (*ListCampaignsResponse, error) {
+	rsp, err := c.ListCampaigns(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListCampaignsResponse(rsp)
+}
+
+// PauseAllCampaignsWithResponse Pause All Outbound Campaigns
+//
+// Pause every running outbound campaign in the workspace. Paused campaigns place no new calls until resumed.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/pause-all (the `PauseAllCampaigns` operationId).
+func (c *ClientWithResponses) PauseAllCampaignsWithResponse(ctx context.Context, params *PauseAllCampaignsParams, reqEditors ...RequestEditorFn) (*PauseAllCampaignsResponse2, error) {
+	rsp, err := c.PauseAllCampaigns(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParsePauseAllCampaignsResponse2(rsp)
+}
+
+// StopAllCampaignsWithResponse Stop All Outbound Campaigns
+//
+// Stop every outbound campaign in the workspace that hasn't finished. Returns `202` while calls already placed are still finishing.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/stop-all (the `StopAllCampaigns` operationId).
+func (c *ClientWithResponses) StopAllCampaignsWithResponse(ctx context.Context, params *StopAllCampaignsParams, reqEditors ...RequestEditorFn) (*StopAllCampaignsResponse2, error) {
+	rsp, err := c.StopAllCampaigns(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseStopAllCampaignsResponse2(rsp)
+}
+
+// SubmitCampaignWithBodyWithResponse Create An Outbound Campaign
+//
+// Create an outbound campaign that calls or messages each recipient with the agent, within the policy's calling windows, retrying and following up as it allows. Returns `201` for a new campaign. A repeated request, matched by `idempotency_key` or else by its body, returns the existing campaign with `created` false.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/submit (the `SubmitCampaign` operationId).
+func (c *ClientWithResponses) SubmitCampaignWithBodyWithResponse(ctx context.Context, params *SubmitCampaignParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SubmitCampaignResponse2, error) {
+	rsp, err := c.SubmitCampaignWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSubmitCampaignResponse2(rsp)
+}
+
+// SubmitCampaignWithResponse Create An Outbound Campaign
+//
+// Create an outbound campaign that calls or messages each recipient with the agent, within the policy's calling windows, retrying and following up as it allows. Returns `201` for a new campaign. A repeated request, matched by `idempotency_key` or else by its body, returns the existing campaign with `created` false.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/submit (the `SubmitCampaign` operationId).
+func (c *ClientWithResponses) SubmitCampaignWithResponse(ctx context.Context, params *SubmitCampaignParams, body SubmitCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*SubmitCampaignResponse2, error) {
+	rsp, err := c.SubmitCampaign(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSubmitCampaignResponse2(rsp)
+}
+
+// GetCampaignWithResponse Get An Outbound Campaign
+//
+// Get an outbound campaign and its lead counts.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id} (the `GetCampaign` operationId).
+func (c *ClientWithResponses) GetCampaignWithResponse(ctx context.Context, campaignId string, params *GetCampaignParams, reqEditors ...RequestEditorFn) (*GetCampaignResponse, error) {
+	rsp, err := c.GetCampaign(ctx, campaignId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetCampaignResponse(rsp)
+}
+
+// ListCampaignCallsWithResponse List Outbound Campaign Calls
+//
+// List the calls of an outbound campaign, newest first: first contacts, retries, callbacks and redirects, whether queued, under way or done.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/calls (the `ListCampaignCalls` operationId).
+func (c *ClientWithResponses) ListCampaignCallsWithResponse(ctx context.Context, campaignId string, params *ListCampaignCallsParams, reqEditors ...RequestEditorFn) (*ListCampaignCallsResponse, error) {
+	rsp, err := c.ListCampaignCalls(ctx, campaignId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListCampaignCallsResponse(rsp)
+}
+
+// ExportCampaignWithResponse Export Outbound Campaign Calls
+//
+// Download every call of a campaign, with its lead and conversation results, as CSV.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/export (the `ExportCampaign` operationId).
+func (c *ClientWithResponses) ExportCampaignWithResponse(ctx context.Context, campaignId string, params *ExportCampaignParams, reqEditors ...RequestEditorFn) (*ExportCampaignResponse, error) {
+	rsp, err := c.ExportCampaign(ctx, campaignId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseExportCampaignResponse(rsp)
+}
+
+// GetCampaignFollowUpRequestsWithResponse Get Outbound Campaign Follow-Up Requests
+//
+// Count the callbacks and redirects contacts asked for during an outbound campaign's calls.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/follow-up-requests (the `GetCampaignFollowUpRequests` operationId).
+func (c *ClientWithResponses) GetCampaignFollowUpRequestsWithResponse(ctx context.Context, campaignId string, params *GetCampaignFollowUpRequestsParams, reqEditors ...RequestEditorFn) (*GetCampaignFollowUpRequestsResponse, error) {
+	rsp, err := c.GetCampaignFollowUpRequests(ctx, campaignId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetCampaignFollowUpRequestsResponse(rsp)
+}
+
+// ListCampaignLeadsWithResponse List Outbound Campaign Leads
+//
+// List the leads of an outbound campaign, one per recipient.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `ListCampaignLeads` operationId).
+func (c *ClientWithResponses) ListCampaignLeadsWithResponse(ctx context.Context, campaignId string, params *ListCampaignLeadsParams, reqEditors ...RequestEditorFn) (*ListCampaignLeadsResponse, error) {
+	rsp, err := c.ListCampaignLeads(ctx, campaignId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListCampaignLeadsResponse(rsp)
+}
+
+// SuppressLeadWithResponse Remove An Outbound Campaign Lead
+//
+// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `SuppressLead` operationId).
+func (c *ClientWithResponses) SuppressLeadWithResponse(ctx context.Context, campaignId string, leadId string, params *SuppressLeadParams, reqEditors ...RequestEditorFn) (*SuppressLeadResponse2, error) {
+	rsp, err := c.SuppressLead(ctx, campaignId, leadId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSuppressLeadResponse2(rsp)
+}
+
+// GetCampaignLeadWithResponse Get An Outbound Campaign Lead
+//
+// Get one lead of an outbound campaign.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `GetCampaignLead` operationId).
+func (c *ClientWithResponses) GetCampaignLeadWithResponse(ctx context.Context, campaignId string, leadId string, params *GetCampaignLeadParams, reqEditors ...RequestEditorFn) (*GetCampaignLeadResponse, error) {
+	rsp, err := c.GetCampaignLead(ctx, campaignId, leadId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetCampaignLeadResponse(rsp)
+}
+
+// SetCampaignOutcomeWithBodyWithResponse Set An Outbound Campaign Outcome
+//
+// Set or clear the result that counts as success for an outbound campaign's calls.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
+func (c *ClientWithResponses) SetCampaignOutcomeWithBodyWithResponse(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SetCampaignOutcomeResponse, error) {
+	rsp, err := c.SetCampaignOutcomeWithBody(ctx, campaignId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSetCampaignOutcomeResponse(rsp)
+}
+
+// SetCampaignOutcomeWithResponse Set An Outbound Campaign Outcome
+//
+// Set or clear the result that counts as success for an outbound campaign's calls.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
+func (c *ClientWithResponses) SetCampaignOutcomeWithResponse(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody, reqEditors ...RequestEditorFn) (*SetCampaignOutcomeResponse, error) {
+	rsp, err := c.SetCampaignOutcome(ctx, campaignId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSetCampaignOutcomeResponse(rsp)
+}
+
+// PauseCampaignWithResponse Pause An Outbound Campaign
+//
+// Pause an outbound campaign. It places no new calls until resumed; calls already placed carry on.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/pause (the `PauseCampaign` operationId).
+func (c *ClientWithResponses) PauseCampaignWithResponse(ctx context.Context, campaignId string, params *PauseCampaignParams, reqEditors ...RequestEditorFn) (*PauseCampaignResponse, error) {
+	rsp, err := c.PauseCampaign(ctx, campaignId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParsePauseCampaignResponse(rsp)
+}
+
+// GetCampaignProgressWithResponse Get Outbound Campaign Progress
+//
+// Get where an outbound campaign's leads and calls stand, and when its next call is due.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/progress (the `GetCampaignProgress` operationId).
+func (c *ClientWithResponses) GetCampaignProgressWithResponse(ctx context.Context, campaignId string, params *GetCampaignProgressParams, reqEditors ...RequestEditorFn) (*GetCampaignProgressResponse, error) {
+	rsp, err := c.GetCampaignProgress(ctx, campaignId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetCampaignProgressResponse(rsp)
+}
+
+// ResumeCampaignWithResponse Resume An Outbound Campaign
+//
+// Resume a paused outbound campaign, including calls an attention item held back.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/resume (the `ResumeCampaign` operationId).
+func (c *ClientWithResponses) ResumeCampaignWithResponse(ctx context.Context, campaignId string, params *ResumeCampaignParams, reqEditors ...RequestEditorFn) (*ResumeCampaignResponse, error) {
+	rsp, err := c.ResumeCampaign(ctx, campaignId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseResumeCampaignResponse(rsp)
+}
+
+// StopCampaignWithResponse Stop An Outbound Campaign
+//
+// Stop an outbound campaign for good: queued calls are cancelled and no lead is called again. Returns `202` with the campaign `stopping` while calls already placed are still finishing.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/stop (the `StopCampaign` operationId).
+func (c *ClientWithResponses) StopCampaignWithResponse(ctx context.Context, campaignId string, params *StopCampaignParams, reqEditors ...RequestEditorFn) (*StopCampaignResponse, error) {
+	rsp, err := c.StopCampaign(ctx, campaignId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseStopCampaignResponse(rsp)
+}
+
+// GetWorkspaceConfigWithResponse Get Outbound Campaign Configuration
+//
+// Get the workspace's outbound campaign configuration: the default policy new campaigns take, and per-agent overrides.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/outbound-campaigns/config (the `GetWorkspaceConfig` operationId).
+func (c *ClientWithResponses) GetWorkspaceConfigWithResponse(ctx context.Context, params *GetWorkspaceConfigParams, reqEditors ...RequestEditorFn) (*GetWorkspaceConfigResponse, error) {
+	rsp, err := c.GetWorkspaceConfig(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetWorkspaceConfigResponse(rsp)
+}
+
+// ReplaceWorkspaceConfigWithBodyWithResponse Replace Outbound Campaign Configuration
+//
+// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/convai/outbound-campaigns/config (the `ReplaceWorkspaceConfig` operationId).
+func (c *ClientWithResponses) ReplaceWorkspaceConfigWithBodyWithResponse(ctx context.Context, params *ReplaceWorkspaceConfigParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ReplaceWorkspaceConfigResponse, error) {
+	rsp, err := c.ReplaceWorkspaceConfigWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseReplaceWorkspaceConfigResponse(rsp)
+}
+
+// ReplaceWorkspaceConfigWithResponse Replace Outbound Campaign Configuration
+//
+// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/convai/outbound-campaigns/config (the `ReplaceWorkspaceConfig` operationId).
+func (c *ClientWithResponses) ReplaceWorkspaceConfigWithResponse(ctx context.Context, params *ReplaceWorkspaceConfigParams, body ReplaceWorkspaceConfigJSONRequestBody, reqEditors ...RequestEditorFn) (*ReplaceWorkspaceConfigResponse, error) {
+	rsp, err := c.ReplaceWorkspaceConfig(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseReplaceWorkspaceConfigResponse(rsp)
 }
 
 // ListPhoneNumbersRouteWithResponse List Phone Numbers
@@ -181987,7 +188795,7 @@ func (c *ClientWithResponses) GetWorkspaceServiceAccountsWithResponse(ctx contex
 
 // CreateServiceAccountWithBodyWithResponse Create Service Account
 //
-// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -182002,7 +188810,7 @@ func (c *ClientWithResponses) CreateServiceAccountWithBodyWithResponse(ctx conte
 
 // CreateServiceAccountWithResponse Create Service Account
 //
-// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -188082,6 +194890,32 @@ func ParseCancelFileUploadRouteResponse(rsp *http.Response) (*CancelFileUploadRo
 	return response, nil
 }
 
+// ParseGetConversationFileRouteResponse parses an HTTP response from a GetConversationFileRouteWithResponse call
+func ParseGetConversationFileRouteResponse(rsp *http.Response) (*GetConversationFileRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetConversationFileRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetConversationSipMessagesResponse parses an HTTP response from a GetConversationSipMessagesWithResponse call
 func ParseGetConversationSipMessagesResponse(rsp *http.Response) (*GetConversationSipMessagesResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -190026,6 +196860,692 @@ func ParseListMcpServerToolsRouteResponse(rsp *http.Response) (*ListMcpServerToo
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest ListMCPToolsResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListAttentionResponse parses an HTTP response from a ListAttentionWithResponse call
+func ParseListAttentionResponse(rsp *http.Response) (*ListAttentionResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListAttentionResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AttentionPageResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseResolveAttentionResponse parses an HTTP response from a ResolveAttentionWithResponse call
+func ParseResolveAttentionResponse(rsp *http.Response) (*ResolveAttentionResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ResolveAttentionResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AttentionView
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseRetryAttentionResponse parses an HTTP response from a RetryAttentionWithResponse call
+func ParseRetryAttentionResponse(rsp *http.Response) (*RetryAttentionResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &RetryAttentionResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AttentionView
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListCampaignsResponse parses an HTTP response from a ListCampaignsWithResponse call
+func ParseListCampaignsResponse(rsp *http.Response) (*ListCampaignsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListCampaignsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignPageResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePauseAllCampaignsResponse2 parses an HTTP response from a PauseAllCampaignsWithResponse call
+func ParsePauseAllCampaignsResponse2(rsp *http.Response) (*PauseAllCampaignsResponse2, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PauseAllCampaignsResponse2{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PauseAllCampaignsResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseStopAllCampaignsResponse2 parses an HTTP response from a StopAllCampaignsWithResponse call
+func ParseStopAllCampaignsResponse2(rsp *http.Response) (*StopAllCampaignsResponse2, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StopAllCampaignsResponse2{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest StopAllCampaignsResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSubmitCampaignResponse2 parses an HTTP response from a SubmitCampaignWithResponse call
+func ParseSubmitCampaignResponse2(rsp *http.Response) (*SubmitCampaignResponse2, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SubmitCampaignResponse2{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SubmitCampaignResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetCampaignResponse parses an HTTP response from a GetCampaignWithResponse call
+func ParseGetCampaignResponse(rsp *http.Response) (*GetCampaignResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetCampaignResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListCampaignCallsResponse parses an HTTP response from a ListCampaignCallsWithResponse call
+func ParseListCampaignCallsResponse(rsp *http.Response) (*ListCampaignCallsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListCampaignCallsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignCallsResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseExportCampaignResponse parses an HTTP response from a ExportCampaignWithResponse call
+func ParseExportCampaignResponse(rsp *http.Response) (*ExportCampaignResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ExportCampaignResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetCampaignFollowUpRequestsResponse parses an HTTP response from a GetCampaignFollowUpRequestsWithResponse call
+func ParseGetCampaignFollowUpRequestsResponse(rsp *http.Response) (*GetCampaignFollowUpRequestsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetCampaignFollowUpRequestsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignFollowUpRequestsResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListCampaignLeadsResponse parses an HTTP response from a ListCampaignLeadsWithResponse call
+func ParseListCampaignLeadsResponse(rsp *http.Response) (*ListCampaignLeadsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListCampaignLeadsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignLeadsResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSuppressLeadResponse2 parses an HTTP response from a SuppressLeadWithResponse call
+func ParseSuppressLeadResponse2(rsp *http.Response) (*SuppressLeadResponse2, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SuppressLeadResponse2{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SuppressLeadResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetCampaignLeadResponse parses an HTTP response from a GetCampaignLeadWithResponse call
+func ParseGetCampaignLeadResponse(rsp *http.Response) (*GetCampaignLeadResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetCampaignLeadResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest LeadDetailResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSetCampaignOutcomeResponse parses an HTTP response from a SetCampaignOutcomeWithResponse call
+func ParseSetCampaignOutcomeResponse(rsp *http.Response) (*SetCampaignOutcomeResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SetCampaignOutcomeResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePauseCampaignResponse parses an HTTP response from a PauseCampaignWithResponse call
+func ParsePauseCampaignResponse(rsp *http.Response) (*PauseCampaignResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PauseCampaignResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetCampaignProgressResponse parses an HTTP response from a GetCampaignProgressWithResponse call
+func ParseGetCampaignProgressResponse(rsp *http.Response) (*GetCampaignProgressResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetCampaignProgressResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignProgressResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseResumeCampaignResponse parses an HTTP response from a ResumeCampaignWithResponse call
+func ParseResumeCampaignResponse(rsp *http.Response) (*ResumeCampaignResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ResumeCampaignResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseStopCampaignResponse parses an HTTP response from a StopCampaignWithResponse call
+func ParseStopCampaignResponse(rsp *http.Response) (*StopCampaignResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StopCampaignResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CampaignResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetWorkspaceConfigResponse parses an HTTP response from a GetWorkspaceConfigWithResponse call
+func ParseGetWorkspaceConfigResponse(rsp *http.Response) (*GetWorkspaceConfigResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetWorkspaceConfigResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest WorkspaceConfigResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseReplaceWorkspaceConfigResponse parses an HTTP response from a ReplaceWorkspaceConfigWithResponse call
+func ParseReplaceWorkspaceConfigResponse(rsp *http.Response) (*ReplaceWorkspaceConfigResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ReplaceWorkspaceConfigResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest WorkspaceConfigResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

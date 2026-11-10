@@ -2,6 +2,16 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.11.0, 2026-11-10
+
+- Breaking: `ClientInterface` gains 26 methods and `ClientWithResponsesInterface` gains 21. They cover campaigns (`SubmitCampaign`, `GetCampaign`, `ListCampaigns`, `PauseCampaign`, `ResumeCampaign`, `StopCampaign`, `PauseAllCampaigns`, `StopAllCampaigns`, `ExportCampaign`, `SetCampaignOutcome`), attention items (`ListAttention`, `ResolveAttention`, `RetryAttention`) and workspace config (`GetWorkspaceConfig`, `ReplaceWorkspaceConfig`). Custom implementations or mocks of these interfaces must add the methods.
+- Adds the matching methods to `Client` and `ClientWithResponses`, including `GetCampaignProgress`, `GetCampaignLead`, `GetCampaignFollowUpRequests`, `ListCampaignCalls`, `ListCampaignLeads`, `SuppressLead` and `GetConversationFileRoute`, plus the `WithBody` and `WithResponse` variants.
+- Breaking: the `XiWorkspaceId` field changes from `*string` to `string` in all `Smb...Params` types, for example `SmbListStaffParams` and `SmbCreateProductParams`. Callers must pass a value instead of a pointer.
+- Breaking: removes the `SMBTierEconomics` type, with `IvcVoiceLimit`, `KnowledgeSourceLimit` and `PoolOutboundSmsDailyLimit`. Adds `ResellerTierEconomics`.
+- Breaking: removes the `VOICECATEGORYFamous` constant.
+- Adds campaign types such as `SubmitCampaignRequest`, `CampaignResponse`, `CampaignConfigInput`, `CampaignConfigOutput`, `CampaignStatus`, `CampaignProgressResponse`, `LeadView`, `CallView`, `AttentionView`, `AttentionStatus` and `ReplaceWorkspaceConfigRequest`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.10.1, 2026-11-08
 
 - Adds the optional `EvaluatedAgentId` and `EvaluatedBranchId` fields (`*string`) to `RunConversationEvaluationsRequest`. `EvaluatedAgentId` picks the agent whose evaluation result to rerun when a conversation transferred between agents. `EvaluatedBranchId` picks the branch of that agent.
