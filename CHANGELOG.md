@@ -2,6 +2,16 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.12.0, 2026-11-11
+
+- Breaking: removes the campaign outcome endpoint. `SetCampaignOutcome`, `SetCampaignOutcomeWithBody`, `SetCampaignOutcomeWithResponse` and `SetCampaignOutcomeWithBodyWithResponse` are gone from `Client`, `ClientWithResponses`, `ClientInterface` and `ClientWithResponsesInterface`. Custom implementations or mocks of these interfaces can drop the methods.
+- Breaking: removes `SetCampaignOutcomeParams`, `SetCampaignOutcomeJSONRequestBody`, `SetCampaignOutcomeRequest`, `SetCampaignOutcomeResponse`, `NewSetCampaignOutcomeRequest`, `NewSetCampaignOutcomeRequestWithBody` and `ParseSetCampaignOutcomeResponse`.
+- Breaking: removes the `Outcome` field from `CampaignResponse` and `SubmitCampaignRequest`.
+- Breaking: removes the `DataCollectionOutcome` and `EvaluationCriterionOutcome` types, with their `...Type` enums, the `DataCollectionOutcomeEquals0` to `DataCollectionOutcomeEquals3` constants and `DataCollectionOutcome_Equals_Item`.
+- Adds the optional `NumbersFormat` and `SecondaryLanguageCodes` fields to `BodySpeechToTextV1SpeechToTextPost`. `NumbersFormat` has the new type `BodySpeechToTextV1SpeechToTextPostNumbersFormat` with the constants `BodySpeechToTextV1SpeechToTextPostNumbersFormatDigits` and `BodySpeechToTextV1SpeechToTextPostNumbersFormatWords`.
+- Adds `CancelsImmediately` to `ExtendedSubscriptionResponseModel`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.11.0, 2026-11-10
 
 - Breaking: `ClientInterface` gains 26 methods and `ClientWithResponsesInterface` gains 21. They cover campaigns (`SubmitCampaign`, `GetCampaign`, `ListCampaigns`, `PauseCampaign`, `ResumeCampaign`, `StopCampaign`, `PauseAllCampaigns`, `StopAllCampaigns`, `ExportCampaign`, `SetCampaignOutcome`), attention items (`ListAttention`, `ResolveAttention`, `RetryAttention`) and workspace config (`GetWorkspaceConfig`, `ReplaceWorkspaceConfig`). Custom implementations or mocks of these interfaces must add the methods.

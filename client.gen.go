@@ -3127,6 +3127,24 @@ func (e BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle) Valid() bool 
 	}
 }
 
+// Defines values for BodySpeechToTextV1SpeechToTextPostNumbersFormat.
+const (
+	BodySpeechToTextV1SpeechToTextPostNumbersFormatDigits BodySpeechToTextV1SpeechToTextPostNumbersFormat = "digits"
+	BodySpeechToTextV1SpeechToTextPostNumbersFormatWords  BodySpeechToTextV1SpeechToTextPostNumbersFormat = "words"
+)
+
+// Valid indicates whether the value is a known member of the BodySpeechToTextV1SpeechToTextPostNumbersFormat enum.
+func (e BodySpeechToTextV1SpeechToTextPostNumbersFormat) Valid() bool {
+	switch e {
+	case BodySpeechToTextV1SpeechToTextPostNumbersFormatDigits:
+		return true
+	case BodySpeechToTextV1SpeechToTextPostNumbersFormatWords:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for BodySpeechToTextV1SpeechToTextPostTimestampsGranularity.
 const (
 	BodySpeechToTextV1SpeechToTextPostTimestampsGranularityCharacter BodySpeechToTextV1SpeechToTextPostTimestampsGranularity = "character"
@@ -6796,21 +6814,6 @@ func (e DashboardDataCollectionChartModelType) Valid() bool {
 	}
 }
 
-// Defines values for DataCollectionOutcomeType.
-const (
-	DataCollectionOutcomeTypeDataCollection DataCollectionOutcomeType = "data_collection"
-)
-
-// Valid indicates whether the value is a known member of the DataCollectionOutcomeType enum.
-func (e DataCollectionOutcomeType) Valid() bool {
-	switch e {
-	case DataCollectionOutcomeTypeDataCollection:
-		return true
-	default:
-		return false
-	}
-}
-
 // Defines values for DataCollectionValueSchemaType0.
 const (
 	DataCollectionValueSchemaType0Boolean DataCollectionValueSchemaType0 = "boolean"
@@ -8119,21 +8122,6 @@ func (e EnvironmentVariableResponseType) Valid() bool {
 	case EnvironmentVariableResponseTypeSecret:
 		return true
 	case EnvironmentVariableResponseTypeString:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for EvaluationCriterionOutcomeType.
-const (
-	EvaluationCriterionOutcomeTypeEvaluationCriteria EvaluationCriterionOutcomeType = "evaluation_criteria"
-)
-
-// Valid indicates whether the value is a known member of the EvaluationCriterionOutcomeType enum.
-func (e EvaluationCriterionOutcomeType) Valid() bool {
-	switch e {
-	case EvaluationCriterionOutcomeTypeEvaluationCriteria:
 		return true
 	default:
 		return false
@@ -27363,17 +27351,23 @@ type BodySpeechToTextV1SpeechToTextPost struct {
 
 	// ModelId The ID of the model to use for transcription.
 	//
-	// Examples: scribe_v2, scribe_v2_medical
+	// Examples: scribe_v2, scribe_v2_medical, scribe_v3
 	ModelId string `json:"model_id"`
 
 	// MultichannelOutputStyle Controls the response shape when use_multi_channel is enabled. 'separate' (default) returns one transcript per channel under 'transcripts'. 'combined' merges all channels into a single transcript whose words are sorted by start time, each carrying a 'channel_index' - matching the single-channel response shape. 'combined' requires timestamps (timestamps_granularity must not be 'none') and does not support entity detection or redaction.
 	MultichannelOutputStyle *BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle `json:"multichannel_output_style,omitempty"`
 
-	// NoVerbatim If true, the transcription will not have any filler words, false starts and non-speech sounds.
+	// NoVerbatim If true, the transcription will not have any filler words, false starts and non-speech sounds. Supported by scribe_v2, scribe_v2_medical and scribe_v3.
 	NoVerbatim *bool `json:"no_verbatim,omitempty"`
 
 	// NumSpeakers The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.
 	NumSpeakers *int `json:"num_speakers,omitempty"`
+
+	// NumbersFormat How numbers are formatted in the transcript: 'digits' (e.g. '42') or 'words' (e.g. 'forty-two'). Supported by scribe_v3.
+	NumbersFormat *BodySpeechToTextV1SpeechToTextPostNumbersFormat `json:"numbers_format,omitempty"`
+
+	// SecondaryLanguageCodes Additional ISO-639-1 or ISO-639-3 language codes that may be present in the audio, alongside language_code. Improves transcription accuracy for multilingual audio. Supported by scribe_v3.
+	SecondaryLanguageCodes *[]string `json:"secondary_language_codes,omitempty"`
 
 	// Seed If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.
 	//
@@ -27444,6 +27438,9 @@ type BodySpeechToTextV1SpeechToTextPostFileFormat string
 
 // BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle Controls the response shape when use_multi_channel is enabled. 'separate' (default) returns one transcript per channel under 'transcripts'. 'combined' merges all channels into a single transcript whose words are sorted by start time, each carrying a 'channel_index' - matching the single-channel response shape. 'combined' requires timestamps (timestamps_granularity must not be 'none') and does not support entity detection or redaction.
 type BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle string
+
+// BodySpeechToTextV1SpeechToTextPostNumbersFormat defines model for BodySpeechToTextV1SpeechToTextPost.NumbersFormat.
+type BodySpeechToTextV1SpeechToTextPostNumbersFormat string
 
 // BodySpeechToTextV1SpeechToTextPostTimestampsGranularity The granularity of the timestamps in the transcription. 'word' provides word-level timestamps and 'character' provides character-level timestamps per word.
 type BodySpeechToTextV1SpeechToTextPostTimestampsGranularity string
@@ -28524,6 +28521,7 @@ type BodyTextToSpeechFull struct {
 	// ApplyLanguageTextNormalization This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
 	//
 	// Examples: true
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	ApplyLanguageTextNormalization *bool `json:"apply_language_text_normalization,omitempty"`
 
 	// ApplyTextNormalization This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
@@ -28596,6 +28594,7 @@ type BodyTextToSpeechFullWithTimestamps struct {
 	// ApplyLanguageTextNormalization This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
 	//
 	// Examples: true
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	ApplyLanguageTextNormalization *bool `json:"apply_language_text_normalization,omitempty"`
 
 	// ApplyTextNormalization This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
@@ -28668,6 +28667,7 @@ type BodyTextToSpeechStream struct {
 	// ApplyLanguageTextNormalization This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
 	//
 	// Examples: true
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	ApplyLanguageTextNormalization *bool `json:"apply_language_text_normalization,omitempty"`
 
 	// ApplyTextNormalization This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
@@ -28740,6 +28740,7 @@ type BodyTextToSpeechStreamWithTimestamps struct {
 	// ApplyLanguageTextNormalization This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
 	//
 	// Examples: true
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	ApplyLanguageTextNormalization *bool `json:"apply_language_text_normalization,omitempty"`
 
 	// ApplyTextNormalization This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
@@ -29408,11 +29409,6 @@ type CampaignResponse struct {
 	// Environment The environment the agent's environment variables resolve in.
 	Environment *string      `json:"environment"`
 	Mode        OutboundMode `json:"mode"`
-
-	// Outcome The result that counts as success for the campaign's calls.
-	Outcome *struct {
-		union json.RawMessage
-	} `json:"outcome"`
 
 	// Policy The policy the campaign took when it was created.
 	Policy CampaignPolicySnapshot `json:"policy"`
@@ -32762,36 +32758,6 @@ type DataCollectionConfig struct {
 	Stop *string `json:"stop,omitempty"`
 }
 
-// DataCollectionOutcome defines model for DataCollectionOutcome.
-type DataCollectionOutcome struct {
-	// DataCollectionId The agent's data collection item a successful call sets.
-	DataCollectionId string `json:"data_collection_id"`
-
-	// Equals Values that count as success, all of the item's type.
-	Equals []DataCollectionOutcome_Equals_Item `json:"equals"`
-	Type   *DataCollectionOutcomeType          `json:"type,omitempty"`
-}
-
-// DataCollectionOutcomeEquals0 defines model for DataCollectionOutcome.Equals.0.
-type DataCollectionOutcomeEquals0 = string
-
-// DataCollectionOutcomeEquals1 defines model for DataCollectionOutcome.Equals.1.
-type DataCollectionOutcomeEquals1 = int
-
-// DataCollectionOutcomeEquals2 defines model for DataCollectionOutcome.Equals.2.
-type DataCollectionOutcomeEquals2 = float32
-
-// DataCollectionOutcomeEquals3 defines model for DataCollectionOutcome.Equals.3.
-type DataCollectionOutcomeEquals3 = bool
-
-// DataCollectionOutcome_Equals_Item defines model for DataCollectionOutcome.equals.Item.
-type DataCollectionOutcome_Equals_Item struct {
-	union json.RawMessage
-}
-
-// DataCollectionOutcomeType defines model for DataCollectionOutcome.Type.
-type DataCollectionOutcomeType string
-
 // DataCollectionPolicy defines model for DataCollectionPolicy.
 type DataCollectionPolicy struct {
 	CallbackTime *string `json:"callback_time,omitempty"`
@@ -34324,16 +34290,6 @@ type EvaluationCriteriaSummaryResult struct {
 	Score    *int                    `json:"score,omitempty"`
 }
 
-// EvaluationCriterionOutcome defines model for EvaluationCriterionOutcome.
-type EvaluationCriterionOutcome struct {
-	// CriteriaId The agent's evaluation criterion a successful call meets.
-	CriteriaId string                          `json:"criteria_id"`
-	Type       *EvaluationCriterionOutcomeType `json:"type,omitempty"`
-}
-
-// EvaluationCriterionOutcomeType defines model for EvaluationCriterionOutcome.Type.
-type EvaluationCriterionOutcomeType string
-
 // EvaluationResultFilter defines model for EvaluationResultFilter.
 type EvaluationResultFilter string
 
@@ -34409,6 +34365,9 @@ type ExtendedSubscriptionResponseModel struct {
 
 	// CanUseProfessionalVoiceCloning Whether the user can use professional voice cloning.
 	CanUseProfessionalVoiceCloning bool `json:"can_use_professional_voice_cloning"`
+
+	// CancelsImmediately Whether cancelling the subscription now ends it immediately, because an unpaid invoice is being collected, rather than at the end of the billing period.
+	CancelsImmediately *bool `json:"cancels_immediately,omitempty"`
 
 	// CharacterCount The number of characters used by the user.
 	CharacterCount int `json:"character_count"`
@@ -45097,14 +45056,6 @@ type SetBookingSlugParams struct {
 // SetBookingSlugParamsSmbToolType defines model for SetBookingSlugParams.SmbToolType.
 type SetBookingSlugParamsSmbToolType string
 
-// SetCampaignOutcomeRequest defines model for SetCampaignOutcomeRequest.
-type SetCampaignOutcomeRequest struct {
-	// Outcome Omit or send `null` to clear the outcome.
-	Outcome *struct {
-		union json.RawMessage
-	} `json:"outcome,omitempty"`
-}
-
 // SetConversationGroupRequestModel defines model for SetConversationGroupRequestModel.
 type SetConversationGroupRequestModel struct {
 	// ConversationGroupId The conversation group to place the conversation in. A conversation belongs to at most one group, so this moves it out of any current group.
@@ -45995,11 +45946,6 @@ type SubmitCampaignRequest struct {
 
 	// IdempotencyKey Makes the request safe to retry: a repeat with the same key returns the campaign it created.
 	IdempotencyKey *string `json:"idempotency_key,omitempty"`
-
-	// Outcome The result that counts as success for the campaign's calls.
-	Outcome *struct {
-		union json.RawMessage
-	} `json:"outcome,omitempty"`
 
 	// Policy Policy to snapshot onto the campaign. When set, it wins over the workspace default and any per-agent override; when omitted, the workspace configuration must exist and supplies the policy.
 	Policy *PolicyConfigInput `json:"policy,omitempty"`
@@ -49830,13 +49776,13 @@ type VoiceSharingResponseModel struct {
 	// ClonedByCount The number of clones on the voice.
 	ClonedByCount int `json:"cloned_by_count"`
 
-	// DateUnix The date of the voice sharing in Unix time.
+	// DateUnix The Unix time, in seconds, at which the voice was shared.
 	DateUnix int `json:"date_unix"`
 
 	// Description The description of the voice.
 	Description *string `json:"description,omitempty"`
 
-	// DisableAtUnix The date of the voice sharing in Unix time.
+	// DisableAtUnix The Unix time, in seconds, at which users who added the voice from the Voice Library lose access to it.
 	DisableAtUnix *int `json:"disable_at_unix,omitempty"`
 
 	// EnabledInLibrary Whether the voice is enabled in the library.
@@ -54280,12 +54226,6 @@ type GetCampaignLeadParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
-// SetCampaignOutcomeParams defines parameters for SetCampaignOutcome.
-type SetCampaignOutcomeParams struct {
-	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-	XiApiKey *string `json:"xi-api-key,omitempty"`
-}
-
 // PauseCampaignParams defines parameters for PauseCampaign.
 type PauseCampaignParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -57847,9 +57787,6 @@ type ResolveAttentionJSONRequestBody = AttentionResolutionRequest
 
 // SubmitCampaignJSONRequestBody defines body for SubmitCampaign for application/json ContentType.
 type SubmitCampaignJSONRequestBody = SubmitCampaignRequest
-
-// SetCampaignOutcomeJSONRequestBody defines body for SetCampaignOutcome for application/json ContentType.
-type SetCampaignOutcomeJSONRequestBody = SetCampaignOutcomeRequest
 
 // ReplaceWorkspaceConfigJSONRequestBody defines body for ReplaceWorkspaceConfig for application/json ContentType.
 type ReplaceWorkspaceConfigJSONRequestBody = ReplaceWorkspaceConfigRequest
@@ -66167,120 +66104,6 @@ func (t CustomLLM_RequestHeaders_AdditionalProperties) MarshalJSON() ([]byte, er
 }
 
 func (t *CustomLLM_RequestHeaders_AdditionalProperties) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataCollectionOutcomeEquals0 returns the union data inside the DataCollectionOutcome_Equals_Item as a DataCollectionOutcomeEquals0
-func (t DataCollectionOutcome_Equals_Item) AsDataCollectionOutcomeEquals0() (DataCollectionOutcomeEquals0, error) {
-	var body DataCollectionOutcomeEquals0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataCollectionOutcomeEquals0 overwrites any union data inside the DataCollectionOutcome_Equals_Item as the provided DataCollectionOutcomeEquals0
-func (t *DataCollectionOutcome_Equals_Item) FromDataCollectionOutcomeEquals0(v DataCollectionOutcomeEquals0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataCollectionOutcomeEquals0 performs a merge with any union data inside the DataCollectionOutcome_Equals_Item, using the provided DataCollectionOutcomeEquals0
-func (t *DataCollectionOutcome_Equals_Item) MergeDataCollectionOutcomeEquals0(v DataCollectionOutcomeEquals0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataCollectionOutcomeEquals1 returns the union data inside the DataCollectionOutcome_Equals_Item as a DataCollectionOutcomeEquals1
-func (t DataCollectionOutcome_Equals_Item) AsDataCollectionOutcomeEquals1() (DataCollectionOutcomeEquals1, error) {
-	var body DataCollectionOutcomeEquals1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataCollectionOutcomeEquals1 overwrites any union data inside the DataCollectionOutcome_Equals_Item as the provided DataCollectionOutcomeEquals1
-func (t *DataCollectionOutcome_Equals_Item) FromDataCollectionOutcomeEquals1(v DataCollectionOutcomeEquals1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataCollectionOutcomeEquals1 performs a merge with any union data inside the DataCollectionOutcome_Equals_Item, using the provided DataCollectionOutcomeEquals1
-func (t *DataCollectionOutcome_Equals_Item) MergeDataCollectionOutcomeEquals1(v DataCollectionOutcomeEquals1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataCollectionOutcomeEquals2 returns the union data inside the DataCollectionOutcome_Equals_Item as a DataCollectionOutcomeEquals2
-func (t DataCollectionOutcome_Equals_Item) AsDataCollectionOutcomeEquals2() (DataCollectionOutcomeEquals2, error) {
-	var body DataCollectionOutcomeEquals2
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataCollectionOutcomeEquals2 overwrites any union data inside the DataCollectionOutcome_Equals_Item as the provided DataCollectionOutcomeEquals2
-func (t *DataCollectionOutcome_Equals_Item) FromDataCollectionOutcomeEquals2(v DataCollectionOutcomeEquals2) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataCollectionOutcomeEquals2 performs a merge with any union data inside the DataCollectionOutcome_Equals_Item, using the provided DataCollectionOutcomeEquals2
-func (t *DataCollectionOutcome_Equals_Item) MergeDataCollectionOutcomeEquals2(v DataCollectionOutcomeEquals2) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataCollectionOutcomeEquals3 returns the union data inside the DataCollectionOutcome_Equals_Item as a DataCollectionOutcomeEquals3
-func (t DataCollectionOutcome_Equals_Item) AsDataCollectionOutcomeEquals3() (DataCollectionOutcomeEquals3, error) {
-	var body DataCollectionOutcomeEquals3
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataCollectionOutcomeEquals3 overwrites any union data inside the DataCollectionOutcome_Equals_Item as the provided DataCollectionOutcomeEquals3
-func (t *DataCollectionOutcome_Equals_Item) FromDataCollectionOutcomeEquals3(v DataCollectionOutcomeEquals3) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataCollectionOutcomeEquals3 performs a merge with any union data inside the DataCollectionOutcome_Equals_Item, using the provided DataCollectionOutcomeEquals3
-func (t *DataCollectionOutcome_Equals_Item) MergeDataCollectionOutcomeEquals3(v DataCollectionOutcomeEquals3) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataCollectionOutcome_Equals_Item) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataCollectionOutcome_Equals_Item) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -92521,24 +92344,6 @@ type ClientInterface interface {
 	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `GetCampaignLead` operationId).
 	GetCampaignLead(ctx context.Context, campaignId string, leadId string, params *GetCampaignLeadParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// SetCampaignOutcomeWithBody Set An Outbound Campaign Outcome
-	//
-	// Set or clear the result that counts as success for an outbound campaign's calls.
-	//
-	// Takes any type of body and a specified content type.
-	//
-	// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
-	SetCampaignOutcomeWithBody(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// SetCampaignOutcome Set An Outbound Campaign Outcome
-	//
-	// Set or clear the result that counts as success for an outbound campaign's calls.
-	//
-	// Takes a body of the `application/json` content type.
-	//
-	// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
-	SetCampaignOutcome(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
-
 	// PauseCampaign Pause An Outbound Campaign
 	//
 	// Pause an outbound campaign. It places no new calls until resumed; calls already placed carry on.
@@ -101123,44 +100928,6 @@ func (c *Client) SuppressLead(ctx context.Context, campaignId string, leadId str
 // Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `GetCampaignLead` operationId).
 func (c *Client) GetCampaignLead(ctx context.Context, campaignId string, leadId string, params *GetCampaignLeadParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetCampaignLeadRequest(c.Server, campaignId, leadId, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-// SetCampaignOutcomeWithBody Set An Outbound Campaign Outcome
-//
-// Set or clear the result that counts as success for an outbound campaign's calls.
-//
-// Takes any type of body and a specified content type.
-//
-// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
-func (c *Client) SetCampaignOutcomeWithBody(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewSetCampaignOutcomeRequestWithBody(c.Server, campaignId, params, contentType, body)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-// SetCampaignOutcome Set An Outbound Campaign Outcome
-//
-// Set or clear the result that counts as success for an outbound campaign's calls.
-//
-// Takes a body of the `application/json` content type.
-//
-// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
-func (c *Client) SetCampaignOutcome(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewSetCampaignOutcomeRequest(c.Server, campaignId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -124029,68 +123796,6 @@ func NewGetCampaignLeadRequest(server string, campaignId string, leadId string, 
 	if err != nil {
 		return nil, err
 	}
-
-	if params != nil {
-
-		if params.XiApiKey != nil {
-			var headerParam0 string
-
-			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
-			if err != nil {
-				return nil, err
-			}
-
-			req.Header.Set("xi-api-key", headerParam0)
-		}
-
-	}
-
-	return req, nil
-}
-
-// NewSetCampaignOutcomeRequest calls the generic SetCampaignOutcome builder with application/json body
-func NewSetCampaignOutcomeRequest(server string, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody) (*http.Request, error) {
-	var bodyReader io.Reader
-	buf, err := json.Marshal(body)
-	if err != nil {
-		return nil, err
-	}
-	bodyReader = bytes.NewReader(buf)
-	return NewSetCampaignOutcomeRequestWithBody(server, campaignId, params, "application/json", bodyReader)
-}
-
-// NewSetCampaignOutcomeRequestWithBody constructs an http.Request for the SetCampaignOutcome method, with any body, and a specified content type
-func NewSetCampaignOutcomeRequestWithBody(server string, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader) (*http.Request, error) {
-	var err error
-
-	var pathParam0 string
-
-	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
-	if err != nil {
-		return nil, err
-	}
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/outcome", pathParam0)
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
-	if err != nil {
-		return nil, err
-	}
-
-	req.Header.Add("Content-Type", contentType)
 
 	if params != nil {
 
@@ -150054,24 +149759,6 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads/{lead_id} (the `GetCampaignLead` operationId).
 	GetCampaignLeadWithResponse(ctx context.Context, campaignId string, leadId string, params *GetCampaignLeadParams, reqEditors ...RequestEditorFn) (*GetCampaignLeadResponse, error)
 
-	// SetCampaignOutcomeWithBodyWithResponse Set An Outbound Campaign Outcome
-	//
-	// Set or clear the result that counts as success for an outbound campaign's calls.
-	//
-	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
-	//
-	// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
-	SetCampaignOutcomeWithBodyWithResponse(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SetCampaignOutcomeResponse, error)
-
-	// SetCampaignOutcomeWithResponse Set An Outbound Campaign Outcome
-	//
-	// Set or clear the result that counts as success for an outbound campaign's calls.
-	//
-	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
-	//
-	// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
-	SetCampaignOutcomeWithResponse(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody, reqEditors ...RequestEditorFn) (*SetCampaignOutcomeResponse, error)
-
 	// PauseCampaignWithResponse Pause An Outbound Campaign
 	//
 	// Pause an outbound campaign. It places no new calls until resumed; calls already placed carry on.
@@ -163224,54 +162911,6 @@ func (r GetCampaignLeadResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r GetCampaignLeadResponse) ContentType() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Header.Get("Content-Type")
-	}
-	return ""
-}
-
-type SetCampaignOutcomeResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *CampaignResponse
-	// JSON422 the response for an HTTP 422 `application/json` response
-	JSON422 *HTTPValidationError
-}
-
-// GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SetCampaignOutcomeResponse) GetJSON200() *CampaignResponse {
-	return r.JSON200
-}
-
-// GetJSON422 returns the response for an HTTP 422 `application/json` response
-func (r SetCampaignOutcomeResponse) GetJSON422() *HTTPValidationError {
-	return r.JSON422
-}
-
-// GetBody returns the raw response body bytes
-func (r SetCampaignOutcomeResponse) GetBody() []byte {
-	return r.Body
-}
-
-// Status returns HTTPResponse.Status
-func (r SetCampaignOutcomeResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r SetCampaignOutcomeResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
-func (r SetCampaignOutcomeResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -183775,36 +183414,6 @@ func (c *ClientWithResponses) GetCampaignLeadWithResponse(ctx context.Context, c
 	return ParseGetCampaignLeadResponse(rsp)
 }
 
-// SetCampaignOutcomeWithBodyWithResponse Set An Outbound Campaign Outcome
-//
-// Set or clear the result that counts as success for an outbound campaign's calls.
-//
-// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
-//
-// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
-func (c *ClientWithResponses) SetCampaignOutcomeWithBodyWithResponse(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SetCampaignOutcomeResponse, error) {
-	rsp, err := c.SetCampaignOutcomeWithBody(ctx, campaignId, params, contentType, body, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseSetCampaignOutcomeResponse(rsp)
-}
-
-// SetCampaignOutcomeWithResponse Set An Outbound Campaign Outcome
-//
-// Set or clear the result that counts as success for an outbound campaign's calls.
-//
-// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
-//
-// Corresponds with PUT /v1/convai/outbound-campaigns/campaigns/{campaign_id}/outcome (the `SetCampaignOutcome` operationId).
-func (c *ClientWithResponses) SetCampaignOutcomeWithResponse(ctx context.Context, campaignId string, params *SetCampaignOutcomeParams, body SetCampaignOutcomeJSONRequestBody, reqEditors ...RequestEditorFn) (*SetCampaignOutcomeResponse, error) {
-	rsp, err := c.SetCampaignOutcome(ctx, campaignId, params, body, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseSetCampaignOutcomeResponse(rsp)
-}
-
 // PauseCampaignWithResponse Pause An Outbound Campaign
 //
 // Pause an outbound campaign. It places no new calls until resumed; calls already placed carry on.
@@ -197315,39 +196924,6 @@ func ParseGetCampaignLeadResponse(rsp *http.Response) (*GetCampaignLeadResponse,
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest LeadDetailResponse
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
-		var dest HTTPValidationError
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON422 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseSetCampaignOutcomeResponse parses an HTTP response from a SetCampaignOutcomeWithResponse call
-func ParseSetCampaignOutcomeResponse(rsp *http.Response) (*SetCampaignOutcomeResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &SetCampaignOutcomeResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest CampaignResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
