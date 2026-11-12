@@ -2,6 +2,19 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.13.0, 2026-11-12
+
+- Breaking: `ClientInterface` gains `CheckContentProvenanceWatermarkWithBody` and `ClientWithResponsesInterface` gains `CheckContentProvenanceWatermarkWithBodyWithResponse`. Custom implementations or mocks of these interfaces must add the methods.
+- Adds the watermark check endpoint: `CheckContentProvenanceWatermarkWithBody` on `Client`, `CheckContentProvenanceWatermarkWithBodyWithResponse` on `ClientWithResponses`, `NewCheckContentProvenanceWatermarkRequestWithBody` and `ParseCheckContentProvenanceWatermarkResponse`.
+- Adds the watermark types `CheckContentProvenanceWatermarkParams`, `CheckContentProvenanceWatermarkMultipartRequestBody`, `CheckContentProvenanceWatermarkResponse`, `BodyCheckWatermarkV1ContentProvenanceWatermarkPost`, `WatermarkCheck` and `WatermarkDetails`.
+- Adds transfer rules to agent transfer tools: `TransferRules` on `TransferToNumberToolConfigInput` and `TransferToNumberToolConfigOutput`, with `TransferRuleInput` and `TransferRuleOutput`.
+- Adds provider transfer types in Input and Output forms: `TwilioTransfer...`, `SIPTransfer...` and `ExotelTransfer...`, with config types such as `TwilioColdBlindTransferConfigInput`, `TwilioWarmConferenceTransferConfigInput`, `SIPColdReferTransferConfigInput`, `SIPColdConferenceTransferConfigInput`, `ExotelColdBlindTransferConfigInput` and `ExotelWarmTransferConfigInput`.
+- Adds transfer destination types in Input and Output forms: `PhoneDestination...`, `PhoneDynamicVariableDestination...`, `SipUriDestination...` and `SipUriDynamicVariableDestination...`.
+- Adds `ProviderConfigs` to `WorkflowPhoneNumberNodeModelInput` and `WorkflowPhoneNumberNodeModelOutput`.
+- Adds the permission constants `PermissionTypeWatermark`, `PermissionTypeAgentsEnvironmentVariablesWrite`, `WorkspaceGroupPermissionWatermark` and `WorkspaceGroupPermissionAgentsEnvironmentVariablesWrite`.
+- Raises the Go toolchain to 1.26.11 in `go.mod` and `Dockerfile.dev`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.12.0, 2026-11-11
 
 - Breaking: removes the campaign outcome endpoint. `SetCampaignOutcome`, `SetCampaignOutcomeWithBody`, `SetCampaignOutcomeWithResponse` and `SetCampaignOutcomeWithBodyWithResponse` are gone from `Client`, `ClientWithResponses`, `ClientInterface` and `ClientWithResponsesInterface`. Custom implementations or mocks of these interfaces can drop the methods.

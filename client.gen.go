@@ -8206,6 +8206,96 @@ func (e ExotelApiSubdomain) Valid() bool {
 	}
 }
 
+// Defines values for ExotelColdBlindTransferConfigInputType.
+const (
+	ExotelColdBlindTransferConfigInputTypeExotelColdBlindTransfer ExotelColdBlindTransferConfigInputType = "exotel_cold_blind_transfer"
+)
+
+// Valid indicates whether the value is a known member of the ExotelColdBlindTransferConfigInputType enum.
+func (e ExotelColdBlindTransferConfigInputType) Valid() bool {
+	switch e {
+	case ExotelColdBlindTransferConfigInputTypeExotelColdBlindTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ExotelColdBlindTransferConfigOutputType.
+const (
+	ExotelColdBlindTransferConfigOutputTypeExotelColdBlindTransfer ExotelColdBlindTransferConfigOutputType = "exotel_cold_blind_transfer"
+)
+
+// Valid indicates whether the value is a known member of the ExotelColdBlindTransferConfigOutputType enum.
+func (e ExotelColdBlindTransferConfigOutputType) Valid() bool {
+	switch e {
+	case ExotelColdBlindTransferConfigOutputTypeExotelColdBlindTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ExotelTransferInputType.
+const (
+	ExotelTransferInputTypeExotel ExotelTransferInputType = "exotel"
+)
+
+// Valid indicates whether the value is a known member of the ExotelTransferInputType enum.
+func (e ExotelTransferInputType) Valid() bool {
+	switch e {
+	case ExotelTransferInputTypeExotel:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ExotelTransferOutputType.
+const (
+	ExotelTransferOutputTypeExotel ExotelTransferOutputType = "exotel"
+)
+
+// Valid indicates whether the value is a known member of the ExotelTransferOutputType enum.
+func (e ExotelTransferOutputType) Valid() bool {
+	switch e {
+	case ExotelTransferOutputTypeExotel:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ExotelWarmTransferConfigInputType.
+const (
+	ExotelWarmTransferConfigInputTypeExotelWarmTransfer ExotelWarmTransferConfigInputType = "exotel_warm_transfer"
+)
+
+// Valid indicates whether the value is a known member of the ExotelWarmTransferConfigInputType enum.
+func (e ExotelWarmTransferConfigInputType) Valid() bool {
+	switch e {
+	case ExotelWarmTransferConfigInputTypeExotelWarmTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ExotelWarmTransferConfigOutputType.
+const (
+	ExotelWarmTransferConfigOutputTypeExotelWarmTransfer ExotelWarmTransferConfigOutputType = "exotel_warm_transfer"
+)
+
+// Valid indicates whether the value is a known member of the ExotelWarmTransferConfigOutputType enum.
+func (e ExotelWarmTransferConfigOutputType) Valid() bool {
+	switch e {
+	case ExotelWarmTransferConfigOutputTypeExotelWarmTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ExpiresAfterAnchor.
 const (
 	ExpiresAfterAnchorCreatedAt ExpiresAfterAnchor = "created_at"
@@ -13104,58 +13194,60 @@ func (e PendingSubscriptionSwitchResponseModelNextTier) Valid() bool {
 
 // Defines values for PermissionType.
 const (
-	PermissionTypeAddVoiceFromVoiceLibrary       PermissionType = "add_voice_from_voice_library"
-	PermissionTypeAgentsArchitect                PermissionType = "agents_architect"
-	PermissionTypeAudioIsolation                 PermissionType = "audio_isolation"
-	PermissionTypeAudioNativeRead                PermissionType = "audio_native_read"
-	PermissionTypeAudioNativeWrite               PermissionType = "audio_native_write"
-	PermissionTypeAuditLogRead                   PermissionType = "audit_log_read"
-	PermissionTypeConvaiRead                     PermissionType = "convai_read"
-	PermissionTypeConvaiWrite                    PermissionType = "convai_write"
-	PermissionTypeConversationPrivacyManage      PermissionType = "conversation_privacy_manage"
-	PermissionTypeCopyResourcesCrossWorkspace    PermissionType = "copy_resources_cross_workspace"
-	PermissionTypeCreateInstantVoiceClone        PermissionType = "create_instant_voice_clone"
-	PermissionTypeCreateProfessionalVoiceClone   PermissionType = "create_professional_voice_clone"
-	PermissionTypeCreateUserApiKey               PermissionType = "create_user_api_key"
-	PermissionTypeDubbingRead                    PermissionType = "dubbing_read"
-	PermissionTypeDubbingWrite                   PermissionType = "dubbing_write"
-	PermissionTypeFlows                          PermissionType = "flows"
-	PermissionTypeForcedAlignment                PermissionType = "forced_alignment"
-	PermissionTypeGroupMembersManage             PermissionType = "group_members_manage"
-	PermissionTypeImageVideoGeneration           PermissionType = "image_video_generation"
-	PermissionTypeModelsRead                     PermissionType = "models_read"
-	PermissionTypeModelsWrite                    PermissionType = "models_write"
-	PermissionTypeMusicGeneration                PermissionType = "music_generation"
-	PermissionTypeProjectsRead                   PermissionType = "projects_read"
-	PermissionTypeProjectsWrite                  PermissionType = "projects_write"
-	PermissionTypePronunciationDictionariesRead  PermissionType = "pronunciation_dictionaries_read"
-	PermissionTypePronunciationDictionariesWrite PermissionType = "pronunciation_dictionaries_write"
-	PermissionTypePublishVoiceToVoiceLibrary     PermissionType = "publish_voice_to_voice_library"
-	PermissionTypeServiceAccountWrite            PermissionType = "service_account_write"
-	PermissionTypeShareVoiceExternally           PermissionType = "share_voice_externally"
-	PermissionTypeSoundGeneration                PermissionType = "sound_generation"
-	PermissionTypeSpeechHistoryRead              PermissionType = "speech_history_read"
-	PermissionTypeSpeechHistoryWrite             PermissionType = "speech_history_write"
-	PermissionTypeSpeechToSpeech                 PermissionType = "speech_to_speech"
-	PermissionTypeSpeechToText                   PermissionType = "speech_to_text"
-	PermissionTypeSynthidDetector                PermissionType = "synthid_detector"
-	PermissionTypeTemplates                      PermissionType = "templates"
-	PermissionTypeTermsOfServiceAccept           PermissionType = "terms_of_service_accept"
-	PermissionTypeTextToSpeech                   PermissionType = "text_to_speech"
-	PermissionTypeUserRead                       PermissionType = "user_read"
-	PermissionTypeUserWrite                      PermissionType = "user_write"
-	PermissionTypeVoiceCollectionsRead           PermissionType = "voice_collections_read"
-	PermissionTypeVoiceCollectionsWrite          PermissionType = "voice_collections_write"
-	PermissionTypeVoiceGeneration                PermissionType = "voice_generation"
-	PermissionTypeVoicesRead                     PermissionType = "voices_read"
-	PermissionTypeVoicesWrite                    PermissionType = "voices_write"
-	PermissionTypeWebhooksWrite                  PermissionType = "webhooks_write"
-	PermissionTypeWorkspaceAnalyticsFullRead     PermissionType = "workspace_analytics_full_read"
-	PermissionTypeWorkspaceMembersInvite         PermissionType = "workspace_members_invite"
-	PermissionTypeWorkspaceMembersRead           PermissionType = "workspace_members_read"
-	PermissionTypeWorkspaceMembersRemove         PermissionType = "workspace_members_remove"
-	PermissionTypeWorkspaceRead                  PermissionType = "workspace_read"
-	PermissionTypeWorkspaceWrite                 PermissionType = "workspace_write"
+	PermissionTypeAddVoiceFromVoiceLibrary        PermissionType = "add_voice_from_voice_library"
+	PermissionTypeAgentsArchitect                 PermissionType = "agents_architect"
+	PermissionTypeAgentsEnvironmentVariablesWrite PermissionType = "agents_environment_variables_write"
+	PermissionTypeAudioIsolation                  PermissionType = "audio_isolation"
+	PermissionTypeAudioNativeRead                 PermissionType = "audio_native_read"
+	PermissionTypeAudioNativeWrite                PermissionType = "audio_native_write"
+	PermissionTypeAuditLogRead                    PermissionType = "audit_log_read"
+	PermissionTypeConvaiRead                      PermissionType = "convai_read"
+	PermissionTypeConvaiWrite                     PermissionType = "convai_write"
+	PermissionTypeConversationPrivacyManage       PermissionType = "conversation_privacy_manage"
+	PermissionTypeCopyResourcesCrossWorkspace     PermissionType = "copy_resources_cross_workspace"
+	PermissionTypeCreateInstantVoiceClone         PermissionType = "create_instant_voice_clone"
+	PermissionTypeCreateProfessionalVoiceClone    PermissionType = "create_professional_voice_clone"
+	PermissionTypeCreateUserApiKey                PermissionType = "create_user_api_key"
+	PermissionTypeDubbingRead                     PermissionType = "dubbing_read"
+	PermissionTypeDubbingWrite                    PermissionType = "dubbing_write"
+	PermissionTypeFlows                           PermissionType = "flows"
+	PermissionTypeForcedAlignment                 PermissionType = "forced_alignment"
+	PermissionTypeGroupMembersManage              PermissionType = "group_members_manage"
+	PermissionTypeImageVideoGeneration            PermissionType = "image_video_generation"
+	PermissionTypeModelsRead                      PermissionType = "models_read"
+	PermissionTypeModelsWrite                     PermissionType = "models_write"
+	PermissionTypeMusicGeneration                 PermissionType = "music_generation"
+	PermissionTypeProjectsRead                    PermissionType = "projects_read"
+	PermissionTypeProjectsWrite                   PermissionType = "projects_write"
+	PermissionTypePronunciationDictionariesRead   PermissionType = "pronunciation_dictionaries_read"
+	PermissionTypePronunciationDictionariesWrite  PermissionType = "pronunciation_dictionaries_write"
+	PermissionTypePublishVoiceToVoiceLibrary      PermissionType = "publish_voice_to_voice_library"
+	PermissionTypeServiceAccountWrite             PermissionType = "service_account_write"
+	PermissionTypeShareVoiceExternally            PermissionType = "share_voice_externally"
+	PermissionTypeSoundGeneration                 PermissionType = "sound_generation"
+	PermissionTypeSpeechHistoryRead               PermissionType = "speech_history_read"
+	PermissionTypeSpeechHistoryWrite              PermissionType = "speech_history_write"
+	PermissionTypeSpeechToSpeech                  PermissionType = "speech_to_speech"
+	PermissionTypeSpeechToText                    PermissionType = "speech_to_text"
+	PermissionTypeSynthidDetector                 PermissionType = "synthid_detector"
+	PermissionTypeTemplates                       PermissionType = "templates"
+	PermissionTypeTermsOfServiceAccept            PermissionType = "terms_of_service_accept"
+	PermissionTypeTextToSpeech                    PermissionType = "text_to_speech"
+	PermissionTypeUserRead                        PermissionType = "user_read"
+	PermissionTypeUserWrite                       PermissionType = "user_write"
+	PermissionTypeVoiceCollectionsRead            PermissionType = "voice_collections_read"
+	PermissionTypeVoiceCollectionsWrite           PermissionType = "voice_collections_write"
+	PermissionTypeVoiceGeneration                 PermissionType = "voice_generation"
+	PermissionTypeVoicesRead                      PermissionType = "voices_read"
+	PermissionTypeVoicesWrite                     PermissionType = "voices_write"
+	PermissionTypeWatermark                       PermissionType = "watermark"
+	PermissionTypeWebhooksWrite                   PermissionType = "webhooks_write"
+	PermissionTypeWorkspaceAnalyticsFullRead      PermissionType = "workspace_analytics_full_read"
+	PermissionTypeWorkspaceMembersInvite          PermissionType = "workspace_members_invite"
+	PermissionTypeWorkspaceMembersRead            PermissionType = "workspace_members_read"
+	PermissionTypeWorkspaceMembersRemove          PermissionType = "workspace_members_remove"
+	PermissionTypeWorkspaceRead                   PermissionType = "workspace_read"
+	PermissionTypeWorkspaceWrite                  PermissionType = "workspace_write"
 )
 
 // Valid indicates whether the value is a known member of the PermissionType enum.
@@ -13164,6 +13256,8 @@ func (e PermissionType) Valid() bool {
 	case PermissionTypeAddVoiceFromVoiceLibrary:
 		return true
 	case PermissionTypeAgentsArchitect:
+		return true
+	case PermissionTypeAgentsEnvironmentVariablesWrite:
 		return true
 	case PermissionTypeAudioIsolation:
 		return true
@@ -13251,6 +13345,8 @@ func (e PermissionType) Valid() bool {
 		return true
 	case PermissionTypeVoicesWrite:
 		return true
+	case PermissionTypeWatermark:
+		return true
 	case PermissionTypeWebhooksWrite:
 		return true
 	case PermissionTypeWorkspaceAnalyticsFullRead:
@@ -13294,6 +13390,66 @@ const (
 func (e PhoneChannelConfigOutputChannel) Valid() bool {
 	switch e {
 	case PhoneChannelConfigOutputChannelPhone:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PhoneDestinationInputType.
+const (
+	PhoneDestinationInputTypePhone PhoneDestinationInputType = "phone"
+)
+
+// Valid indicates whether the value is a known member of the PhoneDestinationInputType enum.
+func (e PhoneDestinationInputType) Valid() bool {
+	switch e {
+	case PhoneDestinationInputTypePhone:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PhoneDestinationOutputType.
+const (
+	PhoneDestinationOutputTypePhone PhoneDestinationOutputType = "phone"
+)
+
+// Valid indicates whether the value is a known member of the PhoneDestinationOutputType enum.
+func (e PhoneDestinationOutputType) Valid() bool {
+	switch e {
+	case PhoneDestinationOutputTypePhone:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PhoneDynamicVariableDestinationInputType.
+const (
+	PhoneDynamicVariableDestinationInputTypePhoneDynamicVariable PhoneDynamicVariableDestinationInputType = "phone_dynamic_variable"
+)
+
+// Valid indicates whether the value is a known member of the PhoneDynamicVariableDestinationInputType enum.
+func (e PhoneDynamicVariableDestinationInputType) Valid() bool {
+	switch e {
+	case PhoneDynamicVariableDestinationInputTypePhoneDynamicVariable:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PhoneDynamicVariableDestinationOutputType.
+const (
+	PhoneDynamicVariableDestinationOutputTypePhoneDynamicVariable PhoneDynamicVariableDestinationOutputType = "phone_dynamic_variable"
+)
+
+// Valid indicates whether the value is a known member of the PhoneDynamicVariableDestinationOutputType enum.
+func (e PhoneDynamicVariableDestinationOutputType) Valid() bool {
+	switch e {
+	case PhoneDynamicVariableDestinationOutputTypePhoneDynamicVariable:
 		return true
 	default:
 		return false
@@ -14914,6 +15070,66 @@ func (e SFXModelId) Valid() bool {
 	}
 }
 
+// Defines values for SIPColdConferenceTransferConfigInputType.
+const (
+	SIPColdConferenceTransferConfigInputTypeSipColdConferenceTransfer SIPColdConferenceTransferConfigInputType = "sip_cold_conference_transfer"
+)
+
+// Valid indicates whether the value is a known member of the SIPColdConferenceTransferConfigInputType enum.
+func (e SIPColdConferenceTransferConfigInputType) Valid() bool {
+	switch e {
+	case SIPColdConferenceTransferConfigInputTypeSipColdConferenceTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SIPColdConferenceTransferConfigOutputType.
+const (
+	SIPColdConferenceTransferConfigOutputTypeSipColdConferenceTransfer SIPColdConferenceTransferConfigOutputType = "sip_cold_conference_transfer"
+)
+
+// Valid indicates whether the value is a known member of the SIPColdConferenceTransferConfigOutputType enum.
+func (e SIPColdConferenceTransferConfigOutputType) Valid() bool {
+	switch e {
+	case SIPColdConferenceTransferConfigOutputTypeSipColdConferenceTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SIPColdReferTransferConfigInputType.
+const (
+	SIPColdReferTransferConfigInputTypeSipColdReferTransfer SIPColdReferTransferConfigInputType = "sip_cold_refer_transfer"
+)
+
+// Valid indicates whether the value is a known member of the SIPColdReferTransferConfigInputType enum.
+func (e SIPColdReferTransferConfigInputType) Valid() bool {
+	switch e {
+	case SIPColdReferTransferConfigInputTypeSipColdReferTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SIPColdReferTransferConfigOutputType.
+const (
+	SIPColdReferTransferConfigOutputTypeSipColdReferTransfer SIPColdReferTransferConfigOutputType = "sip_cold_refer_transfer"
+)
+
+// Valid indicates whether the value is a known member of the SIPColdReferTransferConfigOutputType enum.
+func (e SIPColdReferTransferConfigOutputType) Valid() bool {
+	switch e {
+	case SIPColdReferTransferConfigOutputTypeSipColdReferTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for SIPLogMessageDirection.
 const (
 	SIPLogMessageDirectionIn  SIPLogMessageDirection = "in"
@@ -14947,6 +15163,36 @@ func (e SIPMediaEncryptionEnum) Valid() bool {
 	case SIPMediaEncryptionEnumDisabled:
 		return true
 	case SIPMediaEncryptionEnumRequired:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SIPTransferInputType.
+const (
+	SIPTransferInputTypeSipTrunk SIPTransferInputType = "sip_trunk"
+)
+
+// Valid indicates whether the value is a known member of the SIPTransferInputType enum.
+func (e SIPTransferInputType) Valid() bool {
+	switch e {
+	case SIPTransferInputTypeSipTrunk:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SIPTransferOutputType.
+const (
+	SIPTransferOutputTypeSipTrunk SIPTransferOutputType = "sip_trunk"
+)
+
+// Valid indicates whether the value is a known member of the SIPTransferOutputType enum.
+func (e SIPTransferOutputType) Valid() bool {
+	switch e {
+	case SIPTransferOutputTypeSipTrunk:
 		return true
 	default:
 		return false
@@ -15847,6 +16093,66 @@ func (e SingleUseTokenType) Valid() bool {
 	case SingleUseTokenTypeRealtimeScribe:
 		return true
 	case SingleUseTokenTypeTtsWebsocket:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SipUriDestinationInputType.
+const (
+	SipUriDestinationInputTypeSipUri SipUriDestinationInputType = "sip_uri"
+)
+
+// Valid indicates whether the value is a known member of the SipUriDestinationInputType enum.
+func (e SipUriDestinationInputType) Valid() bool {
+	switch e {
+	case SipUriDestinationInputTypeSipUri:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SipUriDestinationOutputType.
+const (
+	SipUriDestinationOutputTypeSipUri SipUriDestinationOutputType = "sip_uri"
+)
+
+// Valid indicates whether the value is a known member of the SipUriDestinationOutputType enum.
+func (e SipUriDestinationOutputType) Valid() bool {
+	switch e {
+	case SipUriDestinationOutputTypeSipUri:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SipUriDynamicVariableDestinationInputType.
+const (
+	SipUriDynamicVariableDestinationInputTypeSipUriDynamicVariable SipUriDynamicVariableDestinationInputType = "sip_uri_dynamic_variable"
+)
+
+// Valid indicates whether the value is a known member of the SipUriDynamicVariableDestinationInputType enum.
+func (e SipUriDynamicVariableDestinationInputType) Valid() bool {
+	switch e {
+	case SipUriDynamicVariableDestinationInputTypeSipUriDynamicVariable:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SipUriDynamicVariableDestinationOutputType.
+const (
+	SipUriDynamicVariableDestinationOutputTypeSipUriDynamicVariable SipUriDynamicVariableDestinationOutputType = "sip_uri_dynamic_variable"
+)
+
+// Valid indicates whether the value is a known member of the SipUriDynamicVariableDestinationOutputType enum.
+func (e SipUriDynamicVariableDestinationOutputType) Valid() bool {
+	switch e {
+	case SipUriDynamicVariableDestinationOutputTypeSipUriDynamicVariable:
 		return true
 	default:
 		return false
@@ -18151,6 +18457,36 @@ func (e TwilioAnsweredBy) Valid() bool {
 	}
 }
 
+// Defines values for TwilioColdBlindTransferConfigInputType.
+const (
+	TwilioColdBlindTransferConfigInputTypeTwilioColdBlindTransfer TwilioColdBlindTransferConfigInputType = "twilio_cold_blind_transfer"
+)
+
+// Valid indicates whether the value is a known member of the TwilioColdBlindTransferConfigInputType enum.
+func (e TwilioColdBlindTransferConfigInputType) Valid() bool {
+	switch e {
+	case TwilioColdBlindTransferConfigInputTypeTwilioColdBlindTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TwilioColdBlindTransferConfigOutputType.
+const (
+	TwilioColdBlindTransferConfigOutputTypeTwilioColdBlindTransfer TwilioColdBlindTransferConfigOutputType = "twilio_cold_blind_transfer"
+)
+
+// Valid indicates whether the value is a known member of the TwilioColdBlindTransferConfigOutputType enum.
+func (e TwilioColdBlindTransferConfigOutputType) Valid() bool {
+	switch e {
+	case TwilioColdBlindTransferConfigOutputTypeTwilioColdBlindTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for TwilioEdgeLocation.
 const (
 	TwilioEdgeLocationAshburn   TwilioEdgeLocation = "ashburn"
@@ -18238,6 +18574,66 @@ func (e TwilioRegionId) Valid() bool {
 	case TwilioRegionIdIe1:
 		return true
 	case TwilioRegionIdUs1:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TwilioTransferInputType.
+const (
+	TwilioTransferInputTypeTwilio TwilioTransferInputType = "twilio"
+)
+
+// Valid indicates whether the value is a known member of the TwilioTransferInputType enum.
+func (e TwilioTransferInputType) Valid() bool {
+	switch e {
+	case TwilioTransferInputTypeTwilio:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TwilioTransferOutputType.
+const (
+	TwilioTransferOutputTypeTwilio TwilioTransferOutputType = "twilio"
+)
+
+// Valid indicates whether the value is a known member of the TwilioTransferOutputType enum.
+func (e TwilioTransferOutputType) Valid() bool {
+	switch e {
+	case TwilioTransferOutputTypeTwilio:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TwilioWarmConferenceTransferConfigInputType.
+const (
+	TwilioWarmConferenceTransferConfigInputTypeTwilioWarmConferenceTransfer TwilioWarmConferenceTransferConfigInputType = "twilio_warm_conference_transfer"
+)
+
+// Valid indicates whether the value is a known member of the TwilioWarmConferenceTransferConfigInputType enum.
+func (e TwilioWarmConferenceTransferConfigInputType) Valid() bool {
+	switch e {
+	case TwilioWarmConferenceTransferConfigInputTypeTwilioWarmConferenceTransfer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TwilioWarmConferenceTransferConfigOutputType.
+const (
+	TwilioWarmConferenceTransferConfigOutputTypeTwilioWarmConferenceTransfer TwilioWarmConferenceTransferConfigOutputType = "twilio_warm_conference_transfer"
+)
+
+// Valid indicates whether the value is a known member of the TwilioWarmConferenceTransferConfigOutputType enum.
+func (e TwilioWarmConferenceTransferConfigOutputType) Valid() bool {
+	switch e {
+	case TwilioWarmConferenceTransferConfigOutputTypeTwilioWarmConferenceTransfer:
 		return true
 	default:
 		return false
@@ -20673,51 +21069,55 @@ func (e WorkspaceAnalyticsQueryResponseModelColumnTypes) Valid() bool {
 
 // Defines values for WorkspaceGroupPermission.
 const (
-	WorkspaceGroupPermissionAddVoiceFromVoiceLibrary     WorkspaceGroupPermission = "add_voice_from_voice_library"
-	WorkspaceGroupPermissionAiSpeechClassifier           WorkspaceGroupPermission = "ai_speech_classifier"
-	WorkspaceGroupPermissionAllResourcesAccess           WorkspaceGroupPermission = "all_resources_access"
-	WorkspaceGroupPermissionArchitect                    WorkspaceGroupPermission = "architect"
-	WorkspaceGroupPermissionAudioNative                  WorkspaceGroupPermission = "audio_native"
-	WorkspaceGroupPermissionAuditLogRead                 WorkspaceGroupPermission = "audit_log_read"
-	WorkspaceGroupPermissionConversationPrivacyManage    WorkspaceGroupPermission = "conversation_privacy_manage"
-	WorkspaceGroupPermissionConversationalAi             WorkspaceGroupPermission = "conversational_ai"
-	WorkspaceGroupPermissionConversationalAiRead         WorkspaceGroupPermission = "conversational_ai_read"
-	WorkspaceGroupPermissionCopyResourcesCrossWorkspace  WorkspaceGroupPermission = "copy_resources_cross_workspace"
-	WorkspaceGroupPermissionCreateInstantVoiceClone      WorkspaceGroupPermission = "create_instant_voice_clone"
-	WorkspaceGroupPermissionCreateProfessionalVoiceClone WorkspaceGroupPermission = "create_professional_voice_clone"
-	WorkspaceGroupPermissionCreateUserApiKey             WorkspaceGroupPermission = "create_user_api_key"
-	WorkspaceGroupPermissionDubbing                      WorkspaceGroupPermission = "dubbing"
-	WorkspaceGroupPermissionFlows                        WorkspaceGroupPermission = "flows"
-	WorkspaceGroupPermissionGroupMembersManage           WorkspaceGroupPermission = "group_members_manage"
-	WorkspaceGroupPermissionImageVideoGeneration         WorkspaceGroupPermission = "image_video_generation"
-	WorkspaceGroupPermissionMusic                        WorkspaceGroupPermission = "music"
-	WorkspaceGroupPermissionProjects                     WorkspaceGroupPermission = "projects"
-	WorkspaceGroupPermissionPublishStudioProject         WorkspaceGroupPermission = "publish_studio_project"
-	WorkspaceGroupPermissionPublishVoiceToVoiceLibrary   WorkspaceGroupPermission = "publish_voice_to_voice_library"
-	WorkspaceGroupPermissionServiceAccountsManage        WorkspaceGroupPermission = "service_accounts_manage"
-	WorkspaceGroupPermissionShareVoiceExternally         WorkspaceGroupPermission = "share_voice_externally"
-	WorkspaceGroupPermissionSoundEffects                 WorkspaceGroupPermission = "sound_effects"
-	WorkspaceGroupPermissionSpeechToSpeech               WorkspaceGroupPermission = "speech_to_speech"
-	WorkspaceGroupPermissionSpeechToText                 WorkspaceGroupPermission = "speech_to_text"
-	WorkspaceGroupPermissionSynthidDetector              WorkspaceGroupPermission = "synthid_detector"
-	WorkspaceGroupPermissionTemplates                    WorkspaceGroupPermission = "templates"
-	WorkspaceGroupPermissionTermsOfServiceAccept         WorkspaceGroupPermission = "terms_of_service_accept"
-	WorkspaceGroupPermissionTextToSpeech                 WorkspaceGroupPermission = "text_to_speech"
-	WorkspaceGroupPermissionViewFiatBalance              WorkspaceGroupPermission = "view_fiat_balance"
-	WorkspaceGroupPermissionVoiceDesign                  WorkspaceGroupPermission = "voice_design"
-	WorkspaceGroupPermissionVoiceIsolator                WorkspaceGroupPermission = "voice_isolator"
-	WorkspaceGroupPermissionVoiceLab                     WorkspaceGroupPermission = "voice_lab"
-	WorkspaceGroupPermissionVoiceoverStudio              WorkspaceGroupPermission = "voiceover_studio"
-	WorkspaceGroupPermissionWebhooksManage               WorkspaceGroupPermission = "webhooks_manage"
-	WorkspaceGroupPermissionWorkspaceAnalyticsFullRead   WorkspaceGroupPermission = "workspace_analytics_full_read"
-	WorkspaceGroupPermissionWorkspaceMembersInvite       WorkspaceGroupPermission = "workspace_members_invite"
-	WorkspaceGroupPermissionWorkspaceMembersRemove       WorkspaceGroupPermission = "workspace_members_remove"
+	WorkspaceGroupPermissionAddVoiceFromVoiceLibrary        WorkspaceGroupPermission = "add_voice_from_voice_library"
+	WorkspaceGroupPermissionAgentsEnvironmentVariablesWrite WorkspaceGroupPermission = "agents_environment_variables_write"
+	WorkspaceGroupPermissionAiSpeechClassifier              WorkspaceGroupPermission = "ai_speech_classifier"
+	WorkspaceGroupPermissionAllResourcesAccess              WorkspaceGroupPermission = "all_resources_access"
+	WorkspaceGroupPermissionArchitect                       WorkspaceGroupPermission = "architect"
+	WorkspaceGroupPermissionAudioNative                     WorkspaceGroupPermission = "audio_native"
+	WorkspaceGroupPermissionAuditLogRead                    WorkspaceGroupPermission = "audit_log_read"
+	WorkspaceGroupPermissionConversationPrivacyManage       WorkspaceGroupPermission = "conversation_privacy_manage"
+	WorkspaceGroupPermissionConversationalAi                WorkspaceGroupPermission = "conversational_ai"
+	WorkspaceGroupPermissionConversationalAiRead            WorkspaceGroupPermission = "conversational_ai_read"
+	WorkspaceGroupPermissionCopyResourcesCrossWorkspace     WorkspaceGroupPermission = "copy_resources_cross_workspace"
+	WorkspaceGroupPermissionCreateInstantVoiceClone         WorkspaceGroupPermission = "create_instant_voice_clone"
+	WorkspaceGroupPermissionCreateProfessionalVoiceClone    WorkspaceGroupPermission = "create_professional_voice_clone"
+	WorkspaceGroupPermissionCreateUserApiKey                WorkspaceGroupPermission = "create_user_api_key"
+	WorkspaceGroupPermissionDubbing                         WorkspaceGroupPermission = "dubbing"
+	WorkspaceGroupPermissionFlows                           WorkspaceGroupPermission = "flows"
+	WorkspaceGroupPermissionGroupMembersManage              WorkspaceGroupPermission = "group_members_manage"
+	WorkspaceGroupPermissionImageVideoGeneration            WorkspaceGroupPermission = "image_video_generation"
+	WorkspaceGroupPermissionMusic                           WorkspaceGroupPermission = "music"
+	WorkspaceGroupPermissionProjects                        WorkspaceGroupPermission = "projects"
+	WorkspaceGroupPermissionPublishStudioProject            WorkspaceGroupPermission = "publish_studio_project"
+	WorkspaceGroupPermissionPublishVoiceToVoiceLibrary      WorkspaceGroupPermission = "publish_voice_to_voice_library"
+	WorkspaceGroupPermissionServiceAccountsManage           WorkspaceGroupPermission = "service_accounts_manage"
+	WorkspaceGroupPermissionShareVoiceExternally            WorkspaceGroupPermission = "share_voice_externally"
+	WorkspaceGroupPermissionSoundEffects                    WorkspaceGroupPermission = "sound_effects"
+	WorkspaceGroupPermissionSpeechToSpeech                  WorkspaceGroupPermission = "speech_to_speech"
+	WorkspaceGroupPermissionSpeechToText                    WorkspaceGroupPermission = "speech_to_text"
+	WorkspaceGroupPermissionSynthidDetector                 WorkspaceGroupPermission = "synthid_detector"
+	WorkspaceGroupPermissionTemplates                       WorkspaceGroupPermission = "templates"
+	WorkspaceGroupPermissionTermsOfServiceAccept            WorkspaceGroupPermission = "terms_of_service_accept"
+	WorkspaceGroupPermissionTextToSpeech                    WorkspaceGroupPermission = "text_to_speech"
+	WorkspaceGroupPermissionViewFiatBalance                 WorkspaceGroupPermission = "view_fiat_balance"
+	WorkspaceGroupPermissionVoiceDesign                     WorkspaceGroupPermission = "voice_design"
+	WorkspaceGroupPermissionVoiceIsolator                   WorkspaceGroupPermission = "voice_isolator"
+	WorkspaceGroupPermissionVoiceLab                        WorkspaceGroupPermission = "voice_lab"
+	WorkspaceGroupPermissionVoiceoverStudio                 WorkspaceGroupPermission = "voiceover_studio"
+	WorkspaceGroupPermissionWatermark                       WorkspaceGroupPermission = "watermark"
+	WorkspaceGroupPermissionWebhooksManage                  WorkspaceGroupPermission = "webhooks_manage"
+	WorkspaceGroupPermissionWorkspaceAnalyticsFullRead      WorkspaceGroupPermission = "workspace_analytics_full_read"
+	WorkspaceGroupPermissionWorkspaceMembersInvite          WorkspaceGroupPermission = "workspace_members_invite"
+	WorkspaceGroupPermissionWorkspaceMembersRemove          WorkspaceGroupPermission = "workspace_members_remove"
 )
 
 // Valid indicates whether the value is a known member of the WorkspaceGroupPermission enum.
 func (e WorkspaceGroupPermission) Valid() bool {
 	switch e {
 	case WorkspaceGroupPermissionAddVoiceFromVoiceLibrary:
+		return true
+	case WorkspaceGroupPermissionAgentsEnvironmentVariablesWrite:
 		return true
 	case WorkspaceGroupPermissionAiSpeechClassifier:
 		return true
@@ -20786,6 +21186,8 @@ func (e WorkspaceGroupPermission) Valid() bool {
 	case WorkspaceGroupPermissionVoiceLab:
 		return true
 	case WorkspaceGroupPermissionVoiceoverStudio:
+		return true
+	case WorkspaceGroupPermissionWatermark:
 		return true
 	case WorkspaceGroupPermissionWebhooksManage:
 		return true
@@ -23077,7 +23479,7 @@ type AddPronunciationDictionaryResponseModelPermissionOnResource string
 
 // AddTicketCommentRequestModel defines model for AddTicketCommentRequestModel.
 type AddTicketCommentRequestModel struct {
-	// Comment A comment discussing how to resolve the ticket.
+	// Comment A comment discussing how to resolve the agent issue.
 	Comment string `json:"comment"`
 }
 
@@ -23461,7 +23863,7 @@ type AgentConversationTicketResponseModel struct {
 	Labels            []string                          `json:"labels"`
 	LastSeenUnixSecs  *int                              `json:"last_seen_unix_secs"`
 
-	// MergedIntoTicketId The ticket this one was merged into, set while its status is 'merged'.
+	// MergedIntoTicketId The agent issue this one was merged into, set while its status is 'merged'.
 	MergedIntoTicketId *string                             `json:"merged_into_ticket_id,omitempty"`
 	NeedsClustering    bool                                `json:"needs_clustering"`
 	OwnerUserId        string                              `json:"owner_user_id"`
@@ -23476,7 +23878,7 @@ type AgentConversationTicketResponseModel struct {
 	StatusChanges  []TicketStatusChangeResponseModel `json:"status_changes"`
 	TicketComments []TicketCommentResponseModel      `json:"ticket_comments"`
 
-	// Title One-line headline for the ticket. None only on tickets created before titles existed.
+	// Title One-line headline for the agent issue. None only on issues created before titles existed.
 	Title             *string                    `json:"title"`
 	TurnComments      []TurnCommentResponseModel `json:"turn_comments"`
 	UpdatedAtUnixSecs int                        `json:"updated_at_unix_secs"`
@@ -25727,6 +26129,15 @@ type BodyBulkMoveTestsToFolderV1ConvaiAgentTestingBulkMovePost struct {
 	MoveTo *string `json:"move_to,omitempty"`
 }
 
+// BodyCheckWatermarkV1ContentProvenanceWatermarkPost defines model for Body_Check_watermark_v1_content_provenance_watermark_post.
+type BodyCheckWatermarkV1ContentProvenanceWatermarkPost struct {
+	// File Audio file to check for an embedded watermark.
+	File openapi_types.File `json:"file"`
+
+	// Version Watermark decoder version. Defaults to latest.
+	Version *string `json:"version,omitempty"`
+}
+
 // BodyCommentOnAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdCommentsPost defines model for Body_Comment_on_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__comments_post.
 type BodyCommentOnAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdCommentsPost struct {
 	// Body The comment text. Markdown is supported.
@@ -26248,7 +26659,7 @@ type BodyCreateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsPost struct {
 	// Title Short title for the merge_proposal.
 	Title string `json:"title"`
 
-	// TriageTicketId Triage ticket of this agent that the merge_proposal resolves. Merging it resolves the ticket if still open.
+	// TriageTicketId Issue of this agent that the merge_proposal resolves. Merging it resolves the issue if still open.
 	TriageTicketId *string `json:"triage_ticket_id,omitempty"`
 }
 
@@ -31571,16 +31982,16 @@ type CreateAgentBranchResponseModel struct {
 
 // CreateAgentConversationTicketRequestModel defines model for CreateAgentConversationTicketRequestModel.
 type CreateAgentConversationTicketRequestModel struct {
-	// ConversationId Conversation this ticket is about.
+	// ConversationId Conversation this agent issue is about.
 	ConversationId string `json:"conversation_id"`
 
-	// Priority How urgently the ticket needs attention. If the conversation already has an open ticket, it is raised to this priority when lower.
+	// Priority How urgently the agent issue needs attention. If the conversation already has an open issue, it is raised to this priority when lower.
 	Priority *AgentConversationTicketPriority `json:"priority,omitempty"`
 
-	// QaComment The issue this ticket is about, covering the whole conversation rather than a single turn.
+	// QaComment The problem this agent issue is about, covering the whole conversation rather than a single turn.
 	QaComment *string `json:"qa_comment,omitempty"`
 
-	// Title One-line headline shown in the triage list. Defaults to one derived from the comments, falling back to the conversation's summary title. Ignored when the comment is added to the conversation's open ticket.
+	// Title One-line headline shown in the issues list. Defaults to one derived from the comments, falling back to the conversation's summary title. Ignored when the comment is added to the conversation's open issue.
 	Title *string `json:"title,omitempty"`
 
 	// TurnComments Optional turn-level comments on what went wrong.
@@ -31817,13 +32228,13 @@ type CreateMTLSAuthRequestAuthType string
 
 // CreateManualTicketRequestModel defines model for CreateManualTicketRequestModel.
 type CreateManualTicketRequestModel struct {
-	// Priority How urgently the ticket needs attention.
+	// Priority How urgently the agent issue needs attention.
 	Priority *AgentConversationTicketPriority `json:"priority,omitempty"`
 
-	// QaComment What the ticket is about, e.g. a follow-up task for the agent.
+	// QaComment What the agent issue is about, e.g. a follow-up task for the agent.
 	QaComment string `json:"qa_comment"`
 
-	// Title One-line headline shown in the triage list. Defaults to one derived from qa_comment.
+	// Title One-line headline shown in the issues list. Defaults to one derived from qa_comment.
 	Title *string `json:"title,omitempty"`
 }
 
@@ -34323,6 +34734,34 @@ type ExactParameterEvaluationStrategyType string
 // ExotelApiSubdomain defines model for ExotelApiSubdomain.
 type ExotelApiSubdomain string
 
+// ExotelColdBlindTransferConfigInput defines model for ExotelColdBlindTransferConfig-Input.
+type ExotelColdBlindTransferConfigInput struct {
+	TransferDestination ExotelColdBlindTransferConfigInput_TransferDestination `json:"transfer_destination"`
+	Type                *ExotelColdBlindTransferConfigInputType                `json:"type,omitempty"`
+}
+
+// ExotelColdBlindTransferConfigInput_TransferDestination defines model for ExotelColdBlindTransferConfigInput.TransferDestination.
+type ExotelColdBlindTransferConfigInput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// ExotelColdBlindTransferConfigInputType defines model for ExotelColdBlindTransferConfigInput.Type.
+type ExotelColdBlindTransferConfigInputType string
+
+// ExotelColdBlindTransferConfigOutput defines model for ExotelColdBlindTransferConfig-Output.
+type ExotelColdBlindTransferConfigOutput struct {
+	TransferDestination ExotelColdBlindTransferConfigOutput_TransferDestination `json:"transfer_destination"`
+	Type                ExotelColdBlindTransferConfigOutputType                 `json:"type"`
+}
+
+// ExotelColdBlindTransferConfigOutput_TransferDestination defines model for ExotelColdBlindTransferConfigOutput.TransferDestination.
+type ExotelColdBlindTransferConfigOutput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// ExotelColdBlindTransferConfigOutputType defines model for ExotelColdBlindTransferConfigOutput.Type.
+type ExotelColdBlindTransferConfigOutputType string
+
 // ExotelOutboundCallResponse defines model for ExotelOutboundCallResponse.
 type ExotelOutboundCallResponse struct {
 	// CallSid Exotel CallSid for the originated call
@@ -34331,6 +34770,62 @@ type ExotelOutboundCallResponse struct {
 	Message        string  `json:"message"`
 	Success        bool    `json:"success"`
 }
+
+// ExotelTransferInput defines model for ExotelTransfer-Input.
+type ExotelTransferInput struct {
+	Config ExotelTransferInput_Config `json:"config"`
+	Type   *ExotelTransferInputType   `json:"type,omitempty"`
+}
+
+// ExotelTransferInput_Config defines model for ExotelTransferInput.Config.
+type ExotelTransferInput_Config struct {
+	union json.RawMessage
+}
+
+// ExotelTransferInputType defines model for ExotelTransferInput.Type.
+type ExotelTransferInputType string
+
+// ExotelTransferOutput defines model for ExotelTransfer-Output.
+type ExotelTransferOutput struct {
+	Config ExotelTransferOutput_Config `json:"config"`
+	Type   ExotelTransferOutputType    `json:"type"`
+}
+
+// ExotelTransferOutput_Config defines model for ExotelTransferOutput.Config.
+type ExotelTransferOutput_Config struct {
+	union json.RawMessage
+}
+
+// ExotelTransferOutputType defines model for ExotelTransferOutput.Type.
+type ExotelTransferOutputType string
+
+// ExotelWarmTransferConfigInput defines model for ExotelWarmTransferConfig-Input.
+type ExotelWarmTransferConfigInput struct {
+	TransferDestination ExotelWarmTransferConfigInput_TransferDestination `json:"transfer_destination"`
+	Type                *ExotelWarmTransferConfigInputType                `json:"type,omitempty"`
+}
+
+// ExotelWarmTransferConfigInput_TransferDestination defines model for ExotelWarmTransferConfigInput.TransferDestination.
+type ExotelWarmTransferConfigInput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// ExotelWarmTransferConfigInputType defines model for ExotelWarmTransferConfigInput.Type.
+type ExotelWarmTransferConfigInputType string
+
+// ExotelWarmTransferConfigOutput defines model for ExotelWarmTransferConfig-Output.
+type ExotelWarmTransferConfigOutput struct {
+	TransferDestination ExotelWarmTransferConfigOutput_TransferDestination `json:"transfer_destination"`
+	Type                ExotelWarmTransferConfigOutputType                 `json:"type"`
+}
+
+// ExotelWarmTransferConfigOutput_TransferDestination defines model for ExotelWarmTransferConfigOutput.TransferDestination.
+type ExotelWarmTransferConfigOutput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// ExotelWarmTransferConfigOutputType defines model for ExotelWarmTransferConfigOutput.Type.
+type ExotelWarmTransferConfigOutputType string
 
 // ExpiresAfter defines model for ExpiresAfter.
 type ExpiresAfter struct {
@@ -38947,7 +39442,7 @@ type MediaId = string
 
 // MergeAgentConversationTicketsRequestModel defines model for MergeAgentConversationTicketsRequestModel.
 type MergeAgentConversationTicketsRequestModel struct {
-	// SourceTicketIds Open tickets of the same agent to fold into this one. They are kept with status 'merged', pointing at this ticket.
+	// SourceTicketIds Open issues of the same agent to fold into this one. They are kept with status 'merged', pointing at this issue.
 	SourceTicketIds []string `json:"source_ticket_ids"`
 }
 
@@ -40096,19 +40591,19 @@ type PairedLanguagesResponseKind string
 
 // PatchAgentConversationTicketRequestModel defines model for PatchAgentConversationTicketRequestModel.
 type PatchAgentConversationTicketRequestModel struct {
-	// AssigneeUserId If provided, updates who is responsible for resolving this ticket. Must be a workspace member with at least viewer access to the agent. Pass null to unassign. Omit to leave unchanged.
+	// AssigneeUserId If provided, updates who is responsible for resolving this agent issue. Must be a workspace member with at least viewer access to the agent. Pass null to unassign. Omit to leave unchanged.
 	AssigneeUserId *string `json:"assignee_user_id,omitempty"`
 
-	// Priority If provided, updates how urgently the ticket needs attention. Pass null to clear it. Omit to leave unchanged.
+	// Priority If provided, updates how urgently the agent issue needs attention. Pass null to clear it. Omit to leave unchanged.
 	Priority *AgentConversationTicketPriority `json:"priority,omitempty"`
 
-	// QaComment If provided, updates the ticket description. Omit to leave unchanged.
+	// QaComment If provided, updates the agent issue's description. Omit to leave unchanged.
 	QaComment *string `json:"qa_comment,omitempty"`
 
-	// Status If provided, updates the ticket status. Omit to leave unchanged.
+	// Status If provided, updates the agent issue's status. Omit to leave unchanged.
 	Status *AgentConversationTicketStatus `json:"status,omitempty"`
 
-	// Title If provided, updates the ticket title. Omit to leave unchanged.
+	// Title If provided, updates the agent issue's title. Omit to leave unchanged.
 	Title *string `json:"title,omitempty"`
 }
 
@@ -40257,6 +40752,46 @@ type PhoneChannelConfigOutput struct {
 
 // PhoneChannelConfigOutputChannel defines model for PhoneChannelConfigOutput.Channel.
 type PhoneChannelConfigOutputChannel string
+
+// PhoneDestinationInput defines model for PhoneDestination-Input.
+type PhoneDestinationInput struct {
+	// Destination Phone number, SIP URI, or the dynamic variable name that resolves to one.
+	Destination string                     `json:"destination"`
+	Type        *PhoneDestinationInputType `json:"type,omitempty"`
+}
+
+// PhoneDestinationInputType defines model for PhoneDestinationInput.Type.
+type PhoneDestinationInputType string
+
+// PhoneDestinationOutput defines model for PhoneDestination-Output.
+type PhoneDestinationOutput struct {
+	// Destination Phone number, SIP URI, or the dynamic variable name that resolves to one.
+	Destination string                     `json:"destination"`
+	Type        PhoneDestinationOutputType `json:"type"`
+}
+
+// PhoneDestinationOutputType defines model for PhoneDestinationOutput.Type.
+type PhoneDestinationOutputType string
+
+// PhoneDynamicVariableDestinationInput defines model for PhoneDynamicVariableDestination-Input.
+type PhoneDynamicVariableDestinationInput struct {
+	// Destination Phone number, SIP URI, or the dynamic variable name that resolves to one.
+	Destination string                                    `json:"destination"`
+	Type        *PhoneDynamicVariableDestinationInputType `json:"type,omitempty"`
+}
+
+// PhoneDynamicVariableDestinationInputType defines model for PhoneDynamicVariableDestinationInput.Type.
+type PhoneDynamicVariableDestinationInputType string
+
+// PhoneDynamicVariableDestinationOutput defines model for PhoneDynamicVariableDestination-Output.
+type PhoneDynamicVariableDestinationOutput struct {
+	// Destination Phone number, SIP URI, or the dynamic variable name that resolves to one.
+	Destination string                                    `json:"destination"`
+	Type        PhoneDynamicVariableDestinationOutputType `json:"type"`
+}
+
+// PhoneDynamicVariableDestinationOutputType defines model for PhoneDynamicVariableDestinationOutput.Type.
+type PhoneDynamicVariableDestinationOutputType string
 
 // PhoneNumber defines model for PhoneNumber.
 type PhoneNumber = string
@@ -42994,6 +43529,88 @@ type RunConversationEvaluationsRequest struct {
 // SFXModelId defines model for SFXModelId.
 type SFXModelId string
 
+// SIPColdConferenceTransferConfigInput defines model for SIPColdConferenceTransferConfig-Input.
+type SIPColdConferenceTransferConfigInput struct {
+	TransferDestination SIPColdConferenceTransferConfigInput_TransferDestination `json:"transfer_destination"`
+	Type                *SIPColdConferenceTransferConfigInputType                `json:"type,omitempty"`
+}
+
+// SIPColdConferenceTransferConfigInput_TransferDestination defines model for SIPColdConferenceTransferConfigInput.TransferDestination.
+type SIPColdConferenceTransferConfigInput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// SIPColdConferenceTransferConfigInputType defines model for SIPColdConferenceTransferConfigInput.Type.
+type SIPColdConferenceTransferConfigInputType string
+
+// SIPColdConferenceTransferConfigOutput defines model for SIPColdConferenceTransferConfig-Output.
+type SIPColdConferenceTransferConfigOutput struct {
+	TransferDestination SIPColdConferenceTransferConfigOutput_TransferDestination `json:"transfer_destination"`
+	Type                SIPColdConferenceTransferConfigOutputType                 `json:"type"`
+}
+
+// SIPColdConferenceTransferConfigOutput_TransferDestination defines model for SIPColdConferenceTransferConfigOutput.TransferDestination.
+type SIPColdConferenceTransferConfigOutput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// SIPColdConferenceTransferConfigOutputType defines model for SIPColdConferenceTransferConfigOutput.Type.
+type SIPColdConferenceTransferConfigOutputType string
+
+// SIPColdReferTransferConfigInput defines model for SIPColdReferTransferConfig-Input.
+type SIPColdReferTransferConfigInput struct {
+	// CustomSipHeaders Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference.
+	CustomSipHeaders *[]SIPColdReferTransferConfigInput_CustomSipHeaders_Item `json:"custom_sip_headers,omitempty"`
+
+	// PlayDialtone Play a ringing tone on the original call leg while the REFER completes. Disable if the receiving SBC/contact center should not hear it; the caller then hears silence until the transfer completes.
+	PlayDialtone        *bool                                               `json:"play_dialtone,omitempty"`
+	TransferDestination SIPColdReferTransferConfigInput_TransferDestination `json:"transfer_destination"`
+	Type                *SIPColdReferTransferConfigInputType                `json:"type,omitempty"`
+
+	// Uui User-to-User Information (RFC 7433) attached to the REFER. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
+	Uui *UUITransferConfig `json:"uui,omitempty"`
+}
+
+// SIPColdReferTransferConfigInput_CustomSipHeaders_Item defines model for SIPColdReferTransferConfig-Input.custom_sip_headers.Item.
+type SIPColdReferTransferConfigInput_CustomSipHeaders_Item struct {
+	union json.RawMessage
+}
+
+// SIPColdReferTransferConfigInput_TransferDestination defines model for SIPColdReferTransferConfigInput.TransferDestination.
+type SIPColdReferTransferConfigInput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// SIPColdReferTransferConfigInputType defines model for SIPColdReferTransferConfigInput.Type.
+type SIPColdReferTransferConfigInputType string
+
+// SIPColdReferTransferConfigOutput defines model for SIPColdReferTransferConfig-Output.
+type SIPColdReferTransferConfigOutput struct {
+	// CustomSipHeaders Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference.
+	CustomSipHeaders []SIPColdReferTransferConfigOutput_CustomSipHeaders_Item `json:"custom_sip_headers"`
+
+	// PlayDialtone Play a ringing tone on the original call leg while the REFER completes. Disable if the receiving SBC/contact center should not hear it; the caller then hears silence until the transfer completes.
+	PlayDialtone        bool                                                 `json:"play_dialtone"`
+	TransferDestination SIPColdReferTransferConfigOutput_TransferDestination `json:"transfer_destination"`
+	Type                SIPColdReferTransferConfigOutputType                 `json:"type"`
+
+	// Uui User-to-User Information (RFC 7433) attached to the REFER. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
+	Uui *UUITransferConfig `json:"uui"`
+}
+
+// SIPColdReferTransferConfigOutput_CustomSipHeaders_Item defines model for SIPColdReferTransferConfig-Output.custom_sip_headers.Item.
+type SIPColdReferTransferConfigOutput_CustomSipHeaders_Item struct {
+	union json.RawMessage
+}
+
+// SIPColdReferTransferConfigOutput_TransferDestination defines model for SIPColdReferTransferConfigOutput.TransferDestination.
+type SIPColdReferTransferConfigOutput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// SIPColdReferTransferConfigOutputType defines model for SIPColdReferTransferConfigOutput.Type.
+type SIPColdReferTransferConfigOutputType string
+
 // SIPLogMessage defines model for SIPLogMessage.
 type SIPLogMessage struct {
 	CallId             string                 `json:"call_id"`
@@ -43012,6 +43629,34 @@ type SIPLogMessageDirection string
 
 // SIPMediaEncryptionEnum defines model for SIPMediaEncryptionEnum.
 type SIPMediaEncryptionEnum string
+
+// SIPTransferInput defines model for SIPTransfer-Input.
+type SIPTransferInput struct {
+	Config SIPTransferInput_Config `json:"config"`
+	Type   *SIPTransferInputType   `json:"type,omitempty"`
+}
+
+// SIPTransferInput_Config defines model for SIPTransferInput.Config.
+type SIPTransferInput_Config struct {
+	union json.RawMessage
+}
+
+// SIPTransferInputType defines model for SIPTransferInput.Type.
+type SIPTransferInputType string
+
+// SIPTransferOutput defines model for SIPTransfer-Output.
+type SIPTransferOutput struct {
+	Config SIPTransferOutput_Config `json:"config"`
+	Type   SIPTransferOutputType    `json:"type"`
+}
+
+// SIPTransferOutput_Config defines model for SIPTransferOutput.Config.
+type SIPTransferOutput_Config struct {
+	union json.RawMessage
+}
+
+// SIPTransferOutputType defines model for SIPTransferOutput.Type.
+type SIPTransferOutputType string
 
 // SIPTrunkCredentialsRequestModel defines model for SIPTrunkCredentialsRequestModel.
 type SIPTrunkCredentialsRequestModel struct {
@@ -45204,6 +45849,46 @@ type SingleUseTokenResponseModel struct {
 // SingleUseTokenType defines model for SingleUseTokenType.
 type SingleUseTokenType string
 
+// SipUriDestinationInput defines model for SipUriDestination-Input.
+type SipUriDestinationInput struct {
+	// Destination Phone number, SIP URI, or the dynamic variable name that resolves to one.
+	Destination string                      `json:"destination"`
+	Type        *SipUriDestinationInputType `json:"type,omitempty"`
+}
+
+// SipUriDestinationInputType defines model for SipUriDestinationInput.Type.
+type SipUriDestinationInputType string
+
+// SipUriDestinationOutput defines model for SipUriDestination-Output.
+type SipUriDestinationOutput struct {
+	// Destination Phone number, SIP URI, or the dynamic variable name that resolves to one.
+	Destination string                      `json:"destination"`
+	Type        SipUriDestinationOutputType `json:"type"`
+}
+
+// SipUriDestinationOutputType defines model for SipUriDestinationOutput.Type.
+type SipUriDestinationOutputType string
+
+// SipUriDynamicVariableDestinationInput defines model for SipUriDynamicVariableDestination-Input.
+type SipUriDynamicVariableDestinationInput struct {
+	// Destination Phone number, SIP URI, or the dynamic variable name that resolves to one.
+	Destination string                                     `json:"destination"`
+	Type        *SipUriDynamicVariableDestinationInputType `json:"type,omitempty"`
+}
+
+// SipUriDynamicVariableDestinationInputType defines model for SipUriDynamicVariableDestinationInput.Type.
+type SipUriDynamicVariableDestinationInputType string
+
+// SipUriDynamicVariableDestinationOutput defines model for SipUriDynamicVariableDestination-Output.
+type SipUriDynamicVariableDestinationOutput struct {
+	// Destination Phone number, SIP URI, or the dynamic variable name that resolves to one.
+	Destination string                                     `json:"destination"`
+	Type        SipUriDynamicVariableDestinationOutputType `json:"type"`
+}
+
+// SipUriDynamicVariableDestinationOutputType defines model for SipUriDynamicVariableDestinationOutput.Type.
+type SipUriDynamicVariableDestinationOutputType string
+
 // SkipTurnToolConfig Allows the agent to explicitly skip its turn.
 //
 // This tool should be invoked by the LLM when the user indicates they would like
@@ -47294,7 +47979,7 @@ type TicketSearchMatchField string
 
 // TicketSearchMatchResponseModel defines model for TicketSearchMatchResponseModel.
 type TicketSearchMatchResponseModel struct {
-	// Field Which of the ticket's texts matched.
+	// Field Which of the agent issue's texts matched.
 	Field TicketSearchMatchField `json:"field"`
 
 	// HighlightEnd Exclusive end offset of the match in `snippet`.
@@ -47675,6 +48360,34 @@ type TransferBranchInfoTrafficSplit struct {
 // TransferBranchInfoTrafficSplitBranchReason defines model for TransferBranchInfoTrafficSplit.BranchReason.
 type TransferBranchInfoTrafficSplitBranchReason string
 
+// TransferRuleInput defines model for TransferRule-Input.
+type TransferRuleInput struct {
+	// Condition When the agent should pick this transfer. Supports dynamic variables.
+	Condition string `json:"condition"`
+
+	// ProviderConfigs At most one transfer configuration per telephony provider. A provider without an entry cannot use this transfer rule.
+	ProviderConfigs []TransferRuleInput_ProviderConfigs_Item `json:"provider_configs"`
+}
+
+// TransferRuleInput_ProviderConfigs_Item defines model for TransferRule-Input.provider_configs.Item.
+type TransferRuleInput_ProviderConfigs_Item struct {
+	union json.RawMessage
+}
+
+// TransferRuleOutput defines model for TransferRule-Output.
+type TransferRuleOutput struct {
+	// Condition When the agent should pick this transfer. Supports dynamic variables.
+	Condition string `json:"condition"`
+
+	// ProviderConfigs At most one transfer configuration per telephony provider. A provider without an entry cannot use this transfer rule.
+	ProviderConfigs []TransferRuleOutput_ProviderConfigs_Item `json:"provider_configs"`
+}
+
+// TransferRuleOutput_ProviderConfigs_Item defines model for TransferRule-Output.provider_configs.Item.
+type TransferRuleOutput_ProviderConfigs_Item struct {
+	union json.RawMessage
+}
+
 // TransferToAgentToolConfigInput defines model for TransferToAgentToolConfig-Input.
 type TransferToAgentToolConfigInput struct {
 	SystemToolType *TransferToAgentToolConfigInputSystemToolType `json:"system_tool_type,omitempty"`
@@ -47844,7 +48557,10 @@ type TransferToNumberToolConfigInput struct {
 	// EnableClientMessage Whether to play a message to the client while they wait for transfer. Defaults to true for backward compatibility.
 	EnableClientMessage *bool                                          `json:"enable_client_message,omitempty"`
 	SystemToolType      *TransferToNumberToolConfigInputSystemToolType `json:"system_tool_type,omitempty"`
-	Transfers           []PhoneNumberTransfer                          `json:"transfers"`
+
+	// TransferRules Per-provider transfer configuration. Mutually exclusive with `transfers`: a tool sets exactly one of the two. When present, the configuration matching the call's telephony provider is offered to the agent and executed.
+	TransferRules *[]TransferRuleInput  `json:"transfer_rules,omitempty"`
+	Transfers     []PhoneNumberTransfer `json:"transfers"`
 }
 
 // TransferToNumberToolConfigInputSystemToolType defines model for TransferToNumberToolConfigInput.SystemToolType.
@@ -47855,7 +48571,10 @@ type TransferToNumberToolConfigOutput struct {
 	// EnableClientMessage Whether to play a message to the client while they wait for transfer. Defaults to true for backward compatibility.
 	EnableClientMessage *bool                                           `json:"enable_client_message,omitempty"`
 	SystemToolType      *TransferToNumberToolConfigOutputSystemToolType `json:"system_tool_type,omitempty"`
-	Transfers           []PhoneNumberTransfer                           `json:"transfers"`
+
+	// TransferRules Per-provider transfer configuration. Mutually exclusive with `transfers`: a tool sets exactly one of the two. When present, the configuration matching the call's telephony provider is offered to the agent and executed.
+	TransferRules *[]TransferRuleOutput `json:"transfer_rules,omitempty"`
+	Transfers     []PhoneNumberTransfer `json:"transfers"`
 }
 
 // TransferToNumberToolConfigOutputSystemToolType defines model for TransferToNumberToolConfigOutput.SystemToolType.
@@ -48052,6 +48771,42 @@ type TurnModel string
 // TwilioAnsweredBy Carrier-level AMD verdict reported by Twilio via `AnsweredBy`.
 type TwilioAnsweredBy string
 
+// TwilioColdBlindTransferConfigInput defines model for TwilioColdBlindTransferConfig-Input.
+type TwilioColdBlindTransferConfigInput struct {
+	// PostDialDigits DTMF digits to send after the call connects (e.g. 'ww1234' for an extension). Static or a dynamic variable reference. Use 'w' for a 0.5s pause.
+	PostDialDigits *struct {
+		union json.RawMessage
+	} `json:"post_dial_digits,omitempty"`
+	TransferDestination TwilioColdBlindTransferConfigInput_TransferDestination `json:"transfer_destination"`
+	Type                *TwilioColdBlindTransferConfigInputType                `json:"type,omitempty"`
+}
+
+// TwilioColdBlindTransferConfigInput_TransferDestination defines model for TwilioColdBlindTransferConfigInput.TransferDestination.
+type TwilioColdBlindTransferConfigInput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// TwilioColdBlindTransferConfigInputType defines model for TwilioColdBlindTransferConfigInput.Type.
+type TwilioColdBlindTransferConfigInputType string
+
+// TwilioColdBlindTransferConfigOutput defines model for TwilioColdBlindTransferConfig-Output.
+type TwilioColdBlindTransferConfigOutput struct {
+	// PostDialDigits DTMF digits to send after the call connects (e.g. 'ww1234' for an extension). Static or a dynamic variable reference. Use 'w' for a 0.5s pause.
+	PostDialDigits *struct {
+		union json.RawMessage
+	} `json:"post_dial_digits"`
+	TransferDestination TwilioColdBlindTransferConfigOutput_TransferDestination `json:"transfer_destination"`
+	Type                TwilioColdBlindTransferConfigOutputType                 `json:"type"`
+}
+
+// TwilioColdBlindTransferConfigOutput_TransferDestination defines model for TwilioColdBlindTransferConfigOutput.TransferDestination.
+type TwilioColdBlindTransferConfigOutput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// TwilioColdBlindTransferConfigOutputType defines model for TwilioColdBlindTransferConfigOutput.Type.
+type TwilioColdBlindTransferConfigOutputType string
+
 // TwilioEdgeLocation Valid Twilio edge locations.
 type TwilioEdgeLocation string
 
@@ -48092,6 +48847,70 @@ type TwilioOutboundCallResponse struct {
 
 // TwilioRegionId Valid Twilio region IDs.
 type TwilioRegionId string
+
+// TwilioTransferInput defines model for TwilioTransfer-Input.
+type TwilioTransferInput struct {
+	Config TwilioTransferInput_Config `json:"config"`
+	Type   *TwilioTransferInputType   `json:"type,omitempty"`
+}
+
+// TwilioTransferInput_Config defines model for TwilioTransferInput.Config.
+type TwilioTransferInput_Config struct {
+	union json.RawMessage
+}
+
+// TwilioTransferInputType defines model for TwilioTransferInput.Type.
+type TwilioTransferInputType string
+
+// TwilioTransferOutput defines model for TwilioTransfer-Output.
+type TwilioTransferOutput struct {
+	Config TwilioTransferOutput_Config `json:"config"`
+	Type   TwilioTransferOutputType    `json:"type"`
+}
+
+// TwilioTransferOutput_Config defines model for TwilioTransferOutput.Config.
+type TwilioTransferOutput_Config struct {
+	union json.RawMessage
+}
+
+// TwilioTransferOutputType defines model for TwilioTransferOutput.Type.
+type TwilioTransferOutputType string
+
+// TwilioWarmConferenceTransferConfigInput defines model for TwilioWarmConferenceTransferConfig-Input.
+type TwilioWarmConferenceTransferConfigInput struct {
+	// PostDialDigits DTMF digits to send after the call connects (e.g. 'ww1234' for an extension). Static or a dynamic variable reference. Use 'w' for a 0.5s pause.
+	PostDialDigits *struct {
+		union json.RawMessage
+	} `json:"post_dial_digits,omitempty"`
+	TransferDestination TwilioWarmConferenceTransferConfigInput_TransferDestination `json:"transfer_destination"`
+	Type                *TwilioWarmConferenceTransferConfigInputType                `json:"type,omitempty"`
+}
+
+// TwilioWarmConferenceTransferConfigInput_TransferDestination defines model for TwilioWarmConferenceTransferConfigInput.TransferDestination.
+type TwilioWarmConferenceTransferConfigInput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// TwilioWarmConferenceTransferConfigInputType defines model for TwilioWarmConferenceTransferConfigInput.Type.
+type TwilioWarmConferenceTransferConfigInputType string
+
+// TwilioWarmConferenceTransferConfigOutput defines model for TwilioWarmConferenceTransferConfig-Output.
+type TwilioWarmConferenceTransferConfigOutput struct {
+	// PostDialDigits DTMF digits to send after the call connects (e.g. 'ww1234' for an extension). Static or a dynamic variable reference. Use 'w' for a 0.5s pause.
+	PostDialDigits *struct {
+		union json.RawMessage
+	} `json:"post_dial_digits"`
+	TransferDestination TwilioWarmConferenceTransferConfigOutput_TransferDestination `json:"transfer_destination"`
+	Type                TwilioWarmConferenceTransferConfigOutputType                 `json:"type"`
+}
+
+// TwilioWarmConferenceTransferConfigOutput_TransferDestination defines model for TwilioWarmConferenceTransferConfigOutput.TransferDestination.
+type TwilioWarmConferenceTransferConfigOutput_TransferDestination struct {
+	union json.RawMessage
+}
+
+// TwilioWarmConferenceTransferConfigOutputType defines model for TwilioWarmConferenceTransferConfigOutput.Type.
+type TwilioWarmConferenceTransferConfigOutputType string
 
 // TxtExportOptions defines model for TxtExportOptions.
 type TxtExportOptions struct {
@@ -49946,6 +50765,30 @@ type VoicesNotPermittedWarning struct {
 // VoicesNotPermittedWarningType Identifies this warning; branch on it to read the other fields.
 type VoicesNotPermittedWarningType string
 
+// WatermarkCheck defines model for WatermarkCheck.
+type WatermarkCheck struct {
+	// Details Matched generation record. Null when none matched.
+	Details *WatermarkDetails `json:"details"`
+
+	// IsDetected True when an ElevenLabs watermark was found.
+	IsDetected bool `json:"is_detected"`
+}
+
+// WatermarkDetails defines model for WatermarkDetails.
+type WatermarkDetails struct {
+	// GeneratedAt Generation time, when known.
+	GeneratedAt *string `json:"generated_at,omitempty"`
+
+	// Model Generating model, when known.
+	Model *string `json:"model,omitempty"`
+
+	// Product Product that generated the audio, when known.
+	Product *string `json:"product,omitempty"`
+
+	// UniqueId Identifier of the matched generation record, when known.
+	UniqueId *string `json:"unique_id,omitempty"`
+}
+
 // WebhookAuthMethodType defines model for WebhookAuthMethodType.
 type WebhookAuthMethodType string
 
@@ -51514,6 +52357,9 @@ type WorkflowPhoneNumberNodeModelInput struct {
 		union json.RawMessage
 	} `json:"post_dial_digits,omitempty"`
 
+	// ProviderConfigs Per-provider transfer configuration. Mutually exclusive with a non-empty `transfer_destination`: when present, the configuration matching the call's telephony provider is executed and the legacy transfer fields are ignored.
+	ProviderConfigs *[]WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item `json:"provider_configs,omitempty"`
+
 	// SipReferPlayDialtone When True, a ringing tone is played on the original call leg while a SIP REFER transfer completes. The tone is carried over RTP to the SIP peer executing the REFER, so disable this if the receiving system (e.g. an SBC or contact center) should not hear it. When disabled the caller hears silence until the transfer completes. SIP REFER transfers only.
 	SipReferPlayDialtone *bool                                                 `json:"sip_refer_play_dialtone,omitempty"`
 	TransferDestination  WorkflowPhoneNumberNodeModelInput_TransferDestination `json:"transfer_destination"`
@@ -51526,6 +52372,11 @@ type WorkflowPhoneNumberNodeModelInput struct {
 
 // WorkflowPhoneNumberNodeModelInput_CustomSipHeaders_Item defines model for WorkflowPhoneNumberNodeModel-Input.custom_sip_headers.Item.
 type WorkflowPhoneNumberNodeModelInput_CustomSipHeaders_Item struct {
+	union json.RawMessage
+}
+
+// WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item defines model for WorkflowPhoneNumberNodeModel-Input.provider_configs.Item.
+type WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item struct {
 	union json.RawMessage
 }
 
@@ -51553,6 +52404,9 @@ type WorkflowPhoneNumberNodeModelOutput struct {
 		union json.RawMessage
 	} `json:"post_dial_digits"`
 
+	// ProviderConfigs Per-provider transfer configuration. Mutually exclusive with a non-empty `transfer_destination`: when present, the configuration matching the call's telephony provider is executed and the legacy transfer fields are ignored.
+	ProviderConfigs []WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item `json:"provider_configs"`
+
 	// SipReferPlayDialtone When True, a ringing tone is played on the original call leg while a SIP REFER transfer completes. The tone is carried over RTP to the SIP peer executing the REFER, so disable this if the receiving system (e.g. an SBC or contact center) should not hear it. When disabled the caller hears silence until the transfer completes. SIP REFER transfers only.
 	SipReferPlayDialtone bool                                                   `json:"sip_refer_play_dialtone"`
 	TransferDestination  WorkflowPhoneNumberNodeModelOutput_TransferDestination `json:"transfer_destination"`
@@ -51565,6 +52419,11 @@ type WorkflowPhoneNumberNodeModelOutput struct {
 
 // WorkflowPhoneNumberNodeModelOutput_CustomSipHeaders_Item defines model for WorkflowPhoneNumberNodeModel-Output.custom_sip_headers.Item.
 type WorkflowPhoneNumberNodeModelOutput_CustomSipHeaders_Item struct {
+	union json.RawMessage
+}
+
+// WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item defines model for WorkflowPhoneNumberNodeModel-Output.provider_configs.Item.
+type WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item struct {
 	union json.RawMessage
 }
 
@@ -52326,6 +53185,12 @@ type GetAudioNativeProjectSettingsEndpointParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// CheckContentProvenanceWatermarkParams defines parameters for CheckContentProvenanceWatermark.
+type CheckContentProvenanceWatermarkParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // ListChatResponseTestsRouteParams defines parameters for ListChatResponseTestsRoute.
 type ListChatResponseTestsRouteParams struct {
 	// Cursor Used for fetching next page. Cursor is returned in the response.
@@ -52876,40 +53741,40 @@ type GetAgentTopicsRouteParams struct {
 
 // ListAgentConversationTicketsRouteParams defines parameters for ListAgentConversationTicketsRoute.
 type ListAgentConversationTicketsRouteParams struct {
-	// PageSize How many agent conversation tickets to return. Can not exceed 100.
+	// PageSize How many agent issues to return. Can not exceed 100.
 	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
 
-	// ConversationId Filter tickets by conversation id.
+	// ConversationId Filter agent issues by conversation id.
 	ConversationId *string `form:"conversation_id,omitempty" json:"conversation_id,omitempty"`
 
-	// Status Filter tickets by status.
+	// Status Filter agent issues by status.
 	Status *AgentConversationTicketStatus `form:"status,omitempty" json:"status,omitempty"`
 
-	// Sources Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+	// Sources Filter agent issues by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
 	Sources *[]AgentConversationTicketSource `form:"sources,omitempty" json:"sources,omitempty"`
 
-	// Priorities Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+	// Priorities Filter agent issues by priority. Repeat the parameter to filter by multiple priorities.
 	Priorities *[]AgentConversationTicketPriority `form:"priorities,omitempty" json:"priorities,omitempty"`
 
-	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).
+	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the agent issue, else its creation).
 	SortBy *AgentConversationTicketSortBy `form:"sort_by,omitempty" json:"sort_by,omitempty"`
 
-	// OwnerUserId Filter tickets by creator. Use 'agent' for agent-raised tickets.
+	// OwnerUserId Filter agent issues by creator. Use 'agent' for agent-raised issues.
 	OwnerUserId *string `form:"owner_user_id,omitempty" json:"owner_user_id,omitempty"`
 
-	// AssigneeUserId Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+	// AssigneeUserId Filter agent issues by assignee. Use 'unassigned' for issues with no assignee.
 	AssigneeUserId *string `form:"assignee_user_id,omitempty" json:"assignee_user_id,omitempty"`
 
-	// IssueType Filter clusters by issue type.
+	// IssueType Filter agent issues by type.
 	IssueType *AgentConversationTicketIssueType `form:"issue_type,omitempty" json:"issue_type,omitempty"`
 
-	// Label Filter tickets by an exact label.
+	// Label Filter agent issues by an exact label.
 	Label *string `form:"label,omitempty" json:"label,omitempty"`
 
-	// MergedIntoTicketId Filter tickets merged into this ticket.
+	// MergedIntoTicketId Filter agent issues merged into this issue.
 	MergedIntoTicketId *string `form:"merged_into_ticket_id,omitempty" json:"merged_into_ticket_id,omitempty"`
 
-	// Search Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+	// Search Case-insensitive free-text search across the agent issue's title, description, comments, and turn comments.
 	Search *string `form:"search,omitempty" json:"search,omitempty"`
 
 	// Cursor Used for fetching next page. Cursor is returned in the response.
@@ -54677,40 +55542,40 @@ type GetToolExecutionsRouteParams struct {
 
 // ListWorkspaceConversationTicketsRouteParams defines parameters for ListWorkspaceConversationTicketsRoute.
 type ListWorkspaceConversationTicketsRouteParams struct {
-	// PageSize How many agent conversation tickets to return. Can not exceed 100.
+	// PageSize How many agent issues to return. Can not exceed 100.
 	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
 
-	// AgentId Only tickets for this agent.
+	// AgentId Only issues for this agent.
 	AgentId *string `form:"agent_id,omitempty" json:"agent_id,omitempty"`
 
-	// Status Filter tickets by status.
+	// Status Filter agent issues by status.
 	Status *AgentConversationTicketStatus `form:"status,omitempty" json:"status,omitempty"`
 
-	// Sources Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+	// Sources Filter agent issues by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
 	Sources *[]AgentConversationTicketSource `form:"sources,omitempty" json:"sources,omitempty"`
 
-	// Priorities Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+	// Priorities Filter agent issues by priority. Repeat the parameter to filter by multiple priorities.
 	Priorities *[]AgentConversationTicketPriority `form:"priorities,omitempty" json:"priorities,omitempty"`
 
-	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).
+	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the agent issue, else its creation).
 	SortBy *AgentConversationTicketSortBy `form:"sort_by,omitempty" json:"sort_by,omitempty"`
 
-	// OwnerUserId Filter tickets by creator. Use 'agent' for agent-raised tickets.
+	// OwnerUserId Filter agent issues by creator. Use 'agent' for agent-raised issues.
 	OwnerUserId *string `form:"owner_user_id,omitempty" json:"owner_user_id,omitempty"`
 
-	// AssigneeUserId Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+	// AssigneeUserId Filter agent issues by assignee. Use 'unassigned' for issues with no assignee.
 	AssigneeUserId *string `form:"assignee_user_id,omitempty" json:"assignee_user_id,omitempty"`
 
-	// IssueType Filter clusters by issue type.
+	// IssueType Filter agent issues by type.
 	IssueType *AgentConversationTicketIssueType `form:"issue_type,omitempty" json:"issue_type,omitempty"`
 
-	// Label Filter tickets by an exact label.
+	// Label Filter agent issues by an exact label.
 	Label *string `form:"label,omitempty" json:"label,omitempty"`
 
-	// MergedIntoTicketId Filter tickets merged into this ticket.
+	// MergedIntoTicketId Filter agent issues merged into this issue.
 	MergedIntoTicketId *string `form:"merged_into_ticket_id,omitempty" json:"merged_into_ticket_id,omitempty"`
 
-	// Search Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+	// Search Case-insensitive free-text search across the agent issue's title, description, comments, and turn comments.
 	Search *string `form:"search,omitempty" json:"search,omitempty"`
 
 	// Cursor Used for fetching next page. Cursor is returned in the response.
@@ -57584,6 +58449,9 @@ type AudioNativeUpdateContentFromUrlJSONRequestBody = BodyUpdateAudioNativeConte
 
 // AudioNativeProjectUpdateContentEndpointMultipartRequestBody defines body for AudioNativeProjectUpdateContentEndpoint for multipart/form-data ContentType.
 type AudioNativeProjectUpdateContentEndpointMultipartRequestBody = BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost
+
+// CheckContentProvenanceWatermarkMultipartRequestBody defines body for CheckContentProvenanceWatermark for multipart/form-data ContentType.
+type CheckContentProvenanceWatermarkMultipartRequestBody = BodyCheckWatermarkV1ContentProvenanceWatermarkPost
 
 // AgentTestingBulkMoveRouteJSONRequestBody defines body for AgentTestingBulkMoveRoute for application/json ContentType.
 type AgentTestingBulkMoveRouteJSONRequestBody = BodyBulkMoveTestsToFolderV1ConvaiAgentTestingBulkMovePost
@@ -66430,6 +67298,612 @@ func (t EnvironmentVariableResponse_Values) MarshalJSON() ([]byte, error) {
 }
 
 func (t *EnvironmentVariableResponse_Values) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationInput returns the union data inside the ExotelColdBlindTransferConfigInput_TransferDestination as a PhoneDestinationInput
+func (t ExotelColdBlindTransferConfigInput_TransferDestination) AsPhoneDestinationInput() (PhoneDestinationInput, error) {
+	var body PhoneDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationInput overwrites any union data inside the ExotelColdBlindTransferConfigInput_TransferDestination as the provided PhoneDestinationInput
+func (t *ExotelColdBlindTransferConfigInput_TransferDestination) FromPhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationInput performs a merge with any union data inside the ExotelColdBlindTransferConfigInput_TransferDestination, using the provided PhoneDestinationInput
+func (t *ExotelColdBlindTransferConfigInput_TransferDestination) MergePhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationInput returns the union data inside the ExotelColdBlindTransferConfigInput_TransferDestination as a PhoneDynamicVariableDestinationInput
+func (t ExotelColdBlindTransferConfigInput_TransferDestination) AsPhoneDynamicVariableDestinationInput() (PhoneDynamicVariableDestinationInput, error) {
+	var body PhoneDynamicVariableDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationInput overwrites any union data inside the ExotelColdBlindTransferConfigInput_TransferDestination as the provided PhoneDynamicVariableDestinationInput
+func (t *ExotelColdBlindTransferConfigInput_TransferDestination) FromPhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationInput performs a merge with any union data inside the ExotelColdBlindTransferConfigInput_TransferDestination, using the provided PhoneDynamicVariableDestinationInput
+func (t *ExotelColdBlindTransferConfigInput_TransferDestination) MergePhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ExotelColdBlindTransferConfigInput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t ExotelColdBlindTransferConfigInput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationInput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t ExotelColdBlindTransferConfigInput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ExotelColdBlindTransferConfigInput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationOutput returns the union data inside the ExotelColdBlindTransferConfigOutput_TransferDestination as a PhoneDestinationOutput
+func (t ExotelColdBlindTransferConfigOutput_TransferDestination) AsPhoneDestinationOutput() (PhoneDestinationOutput, error) {
+	var body PhoneDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationOutput overwrites any union data inside the ExotelColdBlindTransferConfigOutput_TransferDestination as the provided PhoneDestinationOutput
+func (t *ExotelColdBlindTransferConfigOutput_TransferDestination) FromPhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationOutput performs a merge with any union data inside the ExotelColdBlindTransferConfigOutput_TransferDestination, using the provided PhoneDestinationOutput
+func (t *ExotelColdBlindTransferConfigOutput_TransferDestination) MergePhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationOutput returns the union data inside the ExotelColdBlindTransferConfigOutput_TransferDestination as a PhoneDynamicVariableDestinationOutput
+func (t ExotelColdBlindTransferConfigOutput_TransferDestination) AsPhoneDynamicVariableDestinationOutput() (PhoneDynamicVariableDestinationOutput, error) {
+	var body PhoneDynamicVariableDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationOutput overwrites any union data inside the ExotelColdBlindTransferConfigOutput_TransferDestination as the provided PhoneDynamicVariableDestinationOutput
+func (t *ExotelColdBlindTransferConfigOutput_TransferDestination) FromPhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationOutput performs a merge with any union data inside the ExotelColdBlindTransferConfigOutput_TransferDestination, using the provided PhoneDynamicVariableDestinationOutput
+func (t *ExotelColdBlindTransferConfigOutput_TransferDestination) MergePhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ExotelColdBlindTransferConfigOutput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t ExotelColdBlindTransferConfigOutput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationOutput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t ExotelColdBlindTransferConfigOutput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ExotelColdBlindTransferConfigOutput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsExotelColdBlindTransferConfigInput returns the union data inside the ExotelTransferInput_Config as a ExotelColdBlindTransferConfigInput
+func (t ExotelTransferInput_Config) AsExotelColdBlindTransferConfigInput() (ExotelColdBlindTransferConfigInput, error) {
+	var body ExotelColdBlindTransferConfigInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromExotelColdBlindTransferConfigInput overwrites any union data inside the ExotelTransferInput_Config as the provided ExotelColdBlindTransferConfigInput
+func (t *ExotelTransferInput_Config) FromExotelColdBlindTransferConfigInput(v ExotelColdBlindTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel_cold_blind_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeExotelColdBlindTransferConfigInput performs a merge with any union data inside the ExotelTransferInput_Config, using the provided ExotelColdBlindTransferConfigInput
+func (t *ExotelTransferInput_Config) MergeExotelColdBlindTransferConfigInput(v ExotelColdBlindTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel_cold_blind_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsExotelWarmTransferConfigInput returns the union data inside the ExotelTransferInput_Config as a ExotelWarmTransferConfigInput
+func (t ExotelTransferInput_Config) AsExotelWarmTransferConfigInput() (ExotelWarmTransferConfigInput, error) {
+	var body ExotelWarmTransferConfigInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromExotelWarmTransferConfigInput overwrites any union data inside the ExotelTransferInput_Config as the provided ExotelWarmTransferConfigInput
+func (t *ExotelTransferInput_Config) FromExotelWarmTransferConfigInput(v ExotelWarmTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel_warm_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeExotelWarmTransferConfigInput performs a merge with any union data inside the ExotelTransferInput_Config, using the provided ExotelWarmTransferConfigInput
+func (t *ExotelTransferInput_Config) MergeExotelWarmTransferConfigInput(v ExotelWarmTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel_warm_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ExotelTransferInput_Config) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t ExotelTransferInput_Config) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "exotel_cold_blind_transfer":
+		return t.AsExotelColdBlindTransferConfigInput()
+	case "exotel_warm_transfer":
+		return t.AsExotelWarmTransferConfigInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t ExotelTransferInput_Config) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ExotelTransferInput_Config) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsExotelColdBlindTransferConfigOutput returns the union data inside the ExotelTransferOutput_Config as a ExotelColdBlindTransferConfigOutput
+func (t ExotelTransferOutput_Config) AsExotelColdBlindTransferConfigOutput() (ExotelColdBlindTransferConfigOutput, error) {
+	var body ExotelColdBlindTransferConfigOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromExotelColdBlindTransferConfigOutput overwrites any union data inside the ExotelTransferOutput_Config as the provided ExotelColdBlindTransferConfigOutput
+func (t *ExotelTransferOutput_Config) FromExotelColdBlindTransferConfigOutput(v ExotelColdBlindTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel_cold_blind_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeExotelColdBlindTransferConfigOutput performs a merge with any union data inside the ExotelTransferOutput_Config, using the provided ExotelColdBlindTransferConfigOutput
+func (t *ExotelTransferOutput_Config) MergeExotelColdBlindTransferConfigOutput(v ExotelColdBlindTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel_cold_blind_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsExotelWarmTransferConfigOutput returns the union data inside the ExotelTransferOutput_Config as a ExotelWarmTransferConfigOutput
+func (t ExotelTransferOutput_Config) AsExotelWarmTransferConfigOutput() (ExotelWarmTransferConfigOutput, error) {
+	var body ExotelWarmTransferConfigOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromExotelWarmTransferConfigOutput overwrites any union data inside the ExotelTransferOutput_Config as the provided ExotelWarmTransferConfigOutput
+func (t *ExotelTransferOutput_Config) FromExotelWarmTransferConfigOutput(v ExotelWarmTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel_warm_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeExotelWarmTransferConfigOutput performs a merge with any union data inside the ExotelTransferOutput_Config, using the provided ExotelWarmTransferConfigOutput
+func (t *ExotelTransferOutput_Config) MergeExotelWarmTransferConfigOutput(v ExotelWarmTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel_warm_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ExotelTransferOutput_Config) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t ExotelTransferOutput_Config) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "exotel_cold_blind_transfer":
+		return t.AsExotelColdBlindTransferConfigOutput()
+	case "exotel_warm_transfer":
+		return t.AsExotelWarmTransferConfigOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t ExotelTransferOutput_Config) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ExotelTransferOutput_Config) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationInput returns the union data inside the ExotelWarmTransferConfigInput_TransferDestination as a PhoneDestinationInput
+func (t ExotelWarmTransferConfigInput_TransferDestination) AsPhoneDestinationInput() (PhoneDestinationInput, error) {
+	var body PhoneDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationInput overwrites any union data inside the ExotelWarmTransferConfigInput_TransferDestination as the provided PhoneDestinationInput
+func (t *ExotelWarmTransferConfigInput_TransferDestination) FromPhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationInput performs a merge with any union data inside the ExotelWarmTransferConfigInput_TransferDestination, using the provided PhoneDestinationInput
+func (t *ExotelWarmTransferConfigInput_TransferDestination) MergePhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationInput returns the union data inside the ExotelWarmTransferConfigInput_TransferDestination as a PhoneDynamicVariableDestinationInput
+func (t ExotelWarmTransferConfigInput_TransferDestination) AsPhoneDynamicVariableDestinationInput() (PhoneDynamicVariableDestinationInput, error) {
+	var body PhoneDynamicVariableDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationInput overwrites any union data inside the ExotelWarmTransferConfigInput_TransferDestination as the provided PhoneDynamicVariableDestinationInput
+func (t *ExotelWarmTransferConfigInput_TransferDestination) FromPhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationInput performs a merge with any union data inside the ExotelWarmTransferConfigInput_TransferDestination, using the provided PhoneDynamicVariableDestinationInput
+func (t *ExotelWarmTransferConfigInput_TransferDestination) MergePhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ExotelWarmTransferConfigInput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t ExotelWarmTransferConfigInput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationInput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t ExotelWarmTransferConfigInput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ExotelWarmTransferConfigInput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationOutput returns the union data inside the ExotelWarmTransferConfigOutput_TransferDestination as a PhoneDestinationOutput
+func (t ExotelWarmTransferConfigOutput_TransferDestination) AsPhoneDestinationOutput() (PhoneDestinationOutput, error) {
+	var body PhoneDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationOutput overwrites any union data inside the ExotelWarmTransferConfigOutput_TransferDestination as the provided PhoneDestinationOutput
+func (t *ExotelWarmTransferConfigOutput_TransferDestination) FromPhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationOutput performs a merge with any union data inside the ExotelWarmTransferConfigOutput_TransferDestination, using the provided PhoneDestinationOutput
+func (t *ExotelWarmTransferConfigOutput_TransferDestination) MergePhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationOutput returns the union data inside the ExotelWarmTransferConfigOutput_TransferDestination as a PhoneDynamicVariableDestinationOutput
+func (t ExotelWarmTransferConfigOutput_TransferDestination) AsPhoneDynamicVariableDestinationOutput() (PhoneDynamicVariableDestinationOutput, error) {
+	var body PhoneDynamicVariableDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationOutput overwrites any union data inside the ExotelWarmTransferConfigOutput_TransferDestination as the provided PhoneDynamicVariableDestinationOutput
+func (t *ExotelWarmTransferConfigOutput_TransferDestination) FromPhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationOutput performs a merge with any union data inside the ExotelWarmTransferConfigOutput_TransferDestination, using the provided PhoneDynamicVariableDestinationOutput
+func (t *ExotelWarmTransferConfigOutput_TransferDestination) MergePhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ExotelWarmTransferConfigOutput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t ExotelWarmTransferConfigOutput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationOutput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t ExotelWarmTransferConfigOutput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ExotelWarmTransferConfigOutput_TransferDestination) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -76792,6 +78266,958 @@ func (t *PromptAgentAPIModelWorkflowOverrideOutput_Tools_Item) UnmarshalJSON(b [
 	return err
 }
 
+// AsPhoneDestinationInput returns the union data inside the SIPColdConferenceTransferConfigInput_TransferDestination as a PhoneDestinationInput
+func (t SIPColdConferenceTransferConfigInput_TransferDestination) AsPhoneDestinationInput() (PhoneDestinationInput, error) {
+	var body PhoneDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationInput overwrites any union data inside the SIPColdConferenceTransferConfigInput_TransferDestination as the provided PhoneDestinationInput
+func (t *SIPColdConferenceTransferConfigInput_TransferDestination) FromPhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationInput performs a merge with any union data inside the SIPColdConferenceTransferConfigInput_TransferDestination, using the provided PhoneDestinationInput
+func (t *SIPColdConferenceTransferConfigInput_TransferDestination) MergePhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationInput returns the union data inside the SIPColdConferenceTransferConfigInput_TransferDestination as a PhoneDynamicVariableDestinationInput
+func (t SIPColdConferenceTransferConfigInput_TransferDestination) AsPhoneDynamicVariableDestinationInput() (PhoneDynamicVariableDestinationInput, error) {
+	var body PhoneDynamicVariableDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationInput overwrites any union data inside the SIPColdConferenceTransferConfigInput_TransferDestination as the provided PhoneDynamicVariableDestinationInput
+func (t *SIPColdConferenceTransferConfigInput_TransferDestination) FromPhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationInput performs a merge with any union data inside the SIPColdConferenceTransferConfigInput_TransferDestination, using the provided PhoneDynamicVariableDestinationInput
+func (t *SIPColdConferenceTransferConfigInput_TransferDestination) MergePhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPColdConferenceTransferConfigInput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPColdConferenceTransferConfigInput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationInput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPColdConferenceTransferConfigInput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPColdConferenceTransferConfigInput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationOutput returns the union data inside the SIPColdConferenceTransferConfigOutput_TransferDestination as a PhoneDestinationOutput
+func (t SIPColdConferenceTransferConfigOutput_TransferDestination) AsPhoneDestinationOutput() (PhoneDestinationOutput, error) {
+	var body PhoneDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationOutput overwrites any union data inside the SIPColdConferenceTransferConfigOutput_TransferDestination as the provided PhoneDestinationOutput
+func (t *SIPColdConferenceTransferConfigOutput_TransferDestination) FromPhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationOutput performs a merge with any union data inside the SIPColdConferenceTransferConfigOutput_TransferDestination, using the provided PhoneDestinationOutput
+func (t *SIPColdConferenceTransferConfigOutput_TransferDestination) MergePhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationOutput returns the union data inside the SIPColdConferenceTransferConfigOutput_TransferDestination as a PhoneDynamicVariableDestinationOutput
+func (t SIPColdConferenceTransferConfigOutput_TransferDestination) AsPhoneDynamicVariableDestinationOutput() (PhoneDynamicVariableDestinationOutput, error) {
+	var body PhoneDynamicVariableDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationOutput overwrites any union data inside the SIPColdConferenceTransferConfigOutput_TransferDestination as the provided PhoneDynamicVariableDestinationOutput
+func (t *SIPColdConferenceTransferConfigOutput_TransferDestination) FromPhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationOutput performs a merge with any union data inside the SIPColdConferenceTransferConfigOutput_TransferDestination, using the provided PhoneDynamicVariableDestinationOutput
+func (t *SIPColdConferenceTransferConfigOutput_TransferDestination) MergePhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPColdConferenceTransferConfigOutput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPColdConferenceTransferConfigOutput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationOutput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPColdConferenceTransferConfigOutput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPColdConferenceTransferConfigOutput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsCustomSIPHeader returns the union data inside the SIPColdReferTransferConfigInput_CustomSipHeaders_Item as a CustomSIPHeader
+func (t SIPColdReferTransferConfigInput_CustomSipHeaders_Item) AsCustomSIPHeader() (CustomSIPHeader, error) {
+	var body CustomSIPHeader
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCustomSIPHeader overwrites any union data inside the SIPColdReferTransferConfigInput_CustomSipHeaders_Item as the provided CustomSIPHeader
+func (t *SIPColdReferTransferConfigInput_CustomSipHeaders_Item) FromCustomSIPHeader(v CustomSIPHeader) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"static"}`))
+	t.union = b
+	return err
+}
+
+// MergeCustomSIPHeader performs a merge with any union data inside the SIPColdReferTransferConfigInput_CustomSipHeaders_Item, using the provided CustomSIPHeader
+func (t *SIPColdReferTransferConfigInput_CustomSipHeaders_Item) MergeCustomSIPHeader(v CustomSIPHeader) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"static"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsCustomSIPHeaderWithDynamicVariable returns the union data inside the SIPColdReferTransferConfigInput_CustomSipHeaders_Item as a CustomSIPHeaderWithDynamicVariable
+func (t SIPColdReferTransferConfigInput_CustomSipHeaders_Item) AsCustomSIPHeaderWithDynamicVariable() (CustomSIPHeaderWithDynamicVariable, error) {
+	var body CustomSIPHeaderWithDynamicVariable
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCustomSIPHeaderWithDynamicVariable overwrites any union data inside the SIPColdReferTransferConfigInput_CustomSipHeaders_Item as the provided CustomSIPHeaderWithDynamicVariable
+func (t *SIPColdReferTransferConfigInput_CustomSipHeaders_Item) FromCustomSIPHeaderWithDynamicVariable(v CustomSIPHeaderWithDynamicVariable) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"dynamic"}`))
+	t.union = b
+	return err
+}
+
+// MergeCustomSIPHeaderWithDynamicVariable performs a merge with any union data inside the SIPColdReferTransferConfigInput_CustomSipHeaders_Item, using the provided CustomSIPHeaderWithDynamicVariable
+func (t *SIPColdReferTransferConfigInput_CustomSipHeaders_Item) MergeCustomSIPHeaderWithDynamicVariable(v CustomSIPHeaderWithDynamicVariable) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"dynamic"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPColdReferTransferConfigInput_CustomSipHeaders_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPColdReferTransferConfigInput_CustomSipHeaders_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "dynamic":
+		return t.AsCustomSIPHeaderWithDynamicVariable()
+	case "static":
+		return t.AsCustomSIPHeader()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPColdReferTransferConfigInput_CustomSipHeaders_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPColdReferTransferConfigInput_CustomSipHeaders_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationInput returns the union data inside the SIPColdReferTransferConfigInput_TransferDestination as a PhoneDestinationInput
+func (t SIPColdReferTransferConfigInput_TransferDestination) AsPhoneDestinationInput() (PhoneDestinationInput, error) {
+	var body PhoneDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationInput overwrites any union data inside the SIPColdReferTransferConfigInput_TransferDestination as the provided PhoneDestinationInput
+func (t *SIPColdReferTransferConfigInput_TransferDestination) FromPhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationInput performs a merge with any union data inside the SIPColdReferTransferConfigInput_TransferDestination, using the provided PhoneDestinationInput
+func (t *SIPColdReferTransferConfigInput_TransferDestination) MergePhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSipUriDestinationInput returns the union data inside the SIPColdReferTransferConfigInput_TransferDestination as a SipUriDestinationInput
+func (t SIPColdReferTransferConfigInput_TransferDestination) AsSipUriDestinationInput() (SipUriDestinationInput, error) {
+	var body SipUriDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSipUriDestinationInput overwrites any union data inside the SIPColdReferTransferConfigInput_TransferDestination as the provided SipUriDestinationInput
+func (t *SIPColdReferTransferConfigInput_TransferDestination) FromSipUriDestinationInput(v SipUriDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_uri"}`))
+	t.union = b
+	return err
+}
+
+// MergeSipUriDestinationInput performs a merge with any union data inside the SIPColdReferTransferConfigInput_TransferDestination, using the provided SipUriDestinationInput
+func (t *SIPColdReferTransferConfigInput_TransferDestination) MergeSipUriDestinationInput(v SipUriDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_uri"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationInput returns the union data inside the SIPColdReferTransferConfigInput_TransferDestination as a PhoneDynamicVariableDestinationInput
+func (t SIPColdReferTransferConfigInput_TransferDestination) AsPhoneDynamicVariableDestinationInput() (PhoneDynamicVariableDestinationInput, error) {
+	var body PhoneDynamicVariableDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationInput overwrites any union data inside the SIPColdReferTransferConfigInput_TransferDestination as the provided PhoneDynamicVariableDestinationInput
+func (t *SIPColdReferTransferConfigInput_TransferDestination) FromPhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationInput performs a merge with any union data inside the SIPColdReferTransferConfigInput_TransferDestination, using the provided PhoneDynamicVariableDestinationInput
+func (t *SIPColdReferTransferConfigInput_TransferDestination) MergePhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSipUriDynamicVariableDestinationInput returns the union data inside the SIPColdReferTransferConfigInput_TransferDestination as a SipUriDynamicVariableDestinationInput
+func (t SIPColdReferTransferConfigInput_TransferDestination) AsSipUriDynamicVariableDestinationInput() (SipUriDynamicVariableDestinationInput, error) {
+	var body SipUriDynamicVariableDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSipUriDynamicVariableDestinationInput overwrites any union data inside the SIPColdReferTransferConfigInput_TransferDestination as the provided SipUriDynamicVariableDestinationInput
+func (t *SIPColdReferTransferConfigInput_TransferDestination) FromSipUriDynamicVariableDestinationInput(v SipUriDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_uri_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergeSipUriDynamicVariableDestinationInput performs a merge with any union data inside the SIPColdReferTransferConfigInput_TransferDestination, using the provided SipUriDynamicVariableDestinationInput
+func (t *SIPColdReferTransferConfigInput_TransferDestination) MergeSipUriDynamicVariableDestinationInput(v SipUriDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_uri_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPColdReferTransferConfigInput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPColdReferTransferConfigInput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationInput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationInput()
+	case "sip_uri":
+		return t.AsSipUriDestinationInput()
+	case "sip_uri_dynamic_variable":
+		return t.AsSipUriDynamicVariableDestinationInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPColdReferTransferConfigInput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPColdReferTransferConfigInput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsCustomSIPHeader returns the union data inside the SIPColdReferTransferConfigOutput_CustomSipHeaders_Item as a CustomSIPHeader
+func (t SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) AsCustomSIPHeader() (CustomSIPHeader, error) {
+	var body CustomSIPHeader
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCustomSIPHeader overwrites any union data inside the SIPColdReferTransferConfigOutput_CustomSipHeaders_Item as the provided CustomSIPHeader
+func (t *SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) FromCustomSIPHeader(v CustomSIPHeader) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"static"}`))
+	t.union = b
+	return err
+}
+
+// MergeCustomSIPHeader performs a merge with any union data inside the SIPColdReferTransferConfigOutput_CustomSipHeaders_Item, using the provided CustomSIPHeader
+func (t *SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) MergeCustomSIPHeader(v CustomSIPHeader) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"static"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsCustomSIPHeaderWithDynamicVariable returns the union data inside the SIPColdReferTransferConfigOutput_CustomSipHeaders_Item as a CustomSIPHeaderWithDynamicVariable
+func (t SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) AsCustomSIPHeaderWithDynamicVariable() (CustomSIPHeaderWithDynamicVariable, error) {
+	var body CustomSIPHeaderWithDynamicVariable
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCustomSIPHeaderWithDynamicVariable overwrites any union data inside the SIPColdReferTransferConfigOutput_CustomSipHeaders_Item as the provided CustomSIPHeaderWithDynamicVariable
+func (t *SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) FromCustomSIPHeaderWithDynamicVariable(v CustomSIPHeaderWithDynamicVariable) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"dynamic"}`))
+	t.union = b
+	return err
+}
+
+// MergeCustomSIPHeaderWithDynamicVariable performs a merge with any union data inside the SIPColdReferTransferConfigOutput_CustomSipHeaders_Item, using the provided CustomSIPHeaderWithDynamicVariable
+func (t *SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) MergeCustomSIPHeaderWithDynamicVariable(v CustomSIPHeaderWithDynamicVariable) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"dynamic"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "dynamic":
+		return t.AsCustomSIPHeaderWithDynamicVariable()
+	case "static":
+		return t.AsCustomSIPHeader()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPColdReferTransferConfigOutput_CustomSipHeaders_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationOutput returns the union data inside the SIPColdReferTransferConfigOutput_TransferDestination as a PhoneDestinationOutput
+func (t SIPColdReferTransferConfigOutput_TransferDestination) AsPhoneDestinationOutput() (PhoneDestinationOutput, error) {
+	var body PhoneDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationOutput overwrites any union data inside the SIPColdReferTransferConfigOutput_TransferDestination as the provided PhoneDestinationOutput
+func (t *SIPColdReferTransferConfigOutput_TransferDestination) FromPhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationOutput performs a merge with any union data inside the SIPColdReferTransferConfigOutput_TransferDestination, using the provided PhoneDestinationOutput
+func (t *SIPColdReferTransferConfigOutput_TransferDestination) MergePhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSipUriDestinationOutput returns the union data inside the SIPColdReferTransferConfigOutput_TransferDestination as a SipUriDestinationOutput
+func (t SIPColdReferTransferConfigOutput_TransferDestination) AsSipUriDestinationOutput() (SipUriDestinationOutput, error) {
+	var body SipUriDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSipUriDestinationOutput overwrites any union data inside the SIPColdReferTransferConfigOutput_TransferDestination as the provided SipUriDestinationOutput
+func (t *SIPColdReferTransferConfigOutput_TransferDestination) FromSipUriDestinationOutput(v SipUriDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_uri"}`))
+	t.union = b
+	return err
+}
+
+// MergeSipUriDestinationOutput performs a merge with any union data inside the SIPColdReferTransferConfigOutput_TransferDestination, using the provided SipUriDestinationOutput
+func (t *SIPColdReferTransferConfigOutput_TransferDestination) MergeSipUriDestinationOutput(v SipUriDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_uri"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationOutput returns the union data inside the SIPColdReferTransferConfigOutput_TransferDestination as a PhoneDynamicVariableDestinationOutput
+func (t SIPColdReferTransferConfigOutput_TransferDestination) AsPhoneDynamicVariableDestinationOutput() (PhoneDynamicVariableDestinationOutput, error) {
+	var body PhoneDynamicVariableDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationOutput overwrites any union data inside the SIPColdReferTransferConfigOutput_TransferDestination as the provided PhoneDynamicVariableDestinationOutput
+func (t *SIPColdReferTransferConfigOutput_TransferDestination) FromPhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationOutput performs a merge with any union data inside the SIPColdReferTransferConfigOutput_TransferDestination, using the provided PhoneDynamicVariableDestinationOutput
+func (t *SIPColdReferTransferConfigOutput_TransferDestination) MergePhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSipUriDynamicVariableDestinationOutput returns the union data inside the SIPColdReferTransferConfigOutput_TransferDestination as a SipUriDynamicVariableDestinationOutput
+func (t SIPColdReferTransferConfigOutput_TransferDestination) AsSipUriDynamicVariableDestinationOutput() (SipUriDynamicVariableDestinationOutput, error) {
+	var body SipUriDynamicVariableDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSipUriDynamicVariableDestinationOutput overwrites any union data inside the SIPColdReferTransferConfigOutput_TransferDestination as the provided SipUriDynamicVariableDestinationOutput
+func (t *SIPColdReferTransferConfigOutput_TransferDestination) FromSipUriDynamicVariableDestinationOutput(v SipUriDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_uri_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergeSipUriDynamicVariableDestinationOutput performs a merge with any union data inside the SIPColdReferTransferConfigOutput_TransferDestination, using the provided SipUriDynamicVariableDestinationOutput
+func (t *SIPColdReferTransferConfigOutput_TransferDestination) MergeSipUriDynamicVariableDestinationOutput(v SipUriDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_uri_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPColdReferTransferConfigOutput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPColdReferTransferConfigOutput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationOutput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationOutput()
+	case "sip_uri":
+		return t.AsSipUriDestinationOutput()
+	case "sip_uri_dynamic_variable":
+		return t.AsSipUriDynamicVariableDestinationOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPColdReferTransferConfigOutput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPColdReferTransferConfigOutput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsSIPColdConferenceTransferConfigInput returns the union data inside the SIPTransferInput_Config as a SIPColdConferenceTransferConfigInput
+func (t SIPTransferInput_Config) AsSIPColdConferenceTransferConfigInput() (SIPColdConferenceTransferConfigInput, error) {
+	var body SIPColdConferenceTransferConfigInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSIPColdConferenceTransferConfigInput overwrites any union data inside the SIPTransferInput_Config as the provided SIPColdConferenceTransferConfigInput
+func (t *SIPTransferInput_Config) FromSIPColdConferenceTransferConfigInput(v SIPColdConferenceTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_cold_conference_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeSIPColdConferenceTransferConfigInput performs a merge with any union data inside the SIPTransferInput_Config, using the provided SIPColdConferenceTransferConfigInput
+func (t *SIPTransferInput_Config) MergeSIPColdConferenceTransferConfigInput(v SIPColdConferenceTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_cold_conference_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSIPColdReferTransferConfigInput returns the union data inside the SIPTransferInput_Config as a SIPColdReferTransferConfigInput
+func (t SIPTransferInput_Config) AsSIPColdReferTransferConfigInput() (SIPColdReferTransferConfigInput, error) {
+	var body SIPColdReferTransferConfigInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSIPColdReferTransferConfigInput overwrites any union data inside the SIPTransferInput_Config as the provided SIPColdReferTransferConfigInput
+func (t *SIPTransferInput_Config) FromSIPColdReferTransferConfigInput(v SIPColdReferTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_cold_refer_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeSIPColdReferTransferConfigInput performs a merge with any union data inside the SIPTransferInput_Config, using the provided SIPColdReferTransferConfigInput
+func (t *SIPTransferInput_Config) MergeSIPColdReferTransferConfigInput(v SIPColdReferTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_cold_refer_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPTransferInput_Config) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPTransferInput_Config) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "sip_cold_conference_transfer":
+		return t.AsSIPColdConferenceTransferConfigInput()
+	case "sip_cold_refer_transfer":
+		return t.AsSIPColdReferTransferConfigInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPTransferInput_Config) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPTransferInput_Config) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsSIPColdConferenceTransferConfigOutput returns the union data inside the SIPTransferOutput_Config as a SIPColdConferenceTransferConfigOutput
+func (t SIPTransferOutput_Config) AsSIPColdConferenceTransferConfigOutput() (SIPColdConferenceTransferConfigOutput, error) {
+	var body SIPColdConferenceTransferConfigOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSIPColdConferenceTransferConfigOutput overwrites any union data inside the SIPTransferOutput_Config as the provided SIPColdConferenceTransferConfigOutput
+func (t *SIPTransferOutput_Config) FromSIPColdConferenceTransferConfigOutput(v SIPColdConferenceTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_cold_conference_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeSIPColdConferenceTransferConfigOutput performs a merge with any union data inside the SIPTransferOutput_Config, using the provided SIPColdConferenceTransferConfigOutput
+func (t *SIPTransferOutput_Config) MergeSIPColdConferenceTransferConfigOutput(v SIPColdConferenceTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_cold_conference_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSIPColdReferTransferConfigOutput returns the union data inside the SIPTransferOutput_Config as a SIPColdReferTransferConfigOutput
+func (t SIPTransferOutput_Config) AsSIPColdReferTransferConfigOutput() (SIPColdReferTransferConfigOutput, error) {
+	var body SIPColdReferTransferConfigOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSIPColdReferTransferConfigOutput overwrites any union data inside the SIPTransferOutput_Config as the provided SIPColdReferTransferConfigOutput
+func (t *SIPTransferOutput_Config) FromSIPColdReferTransferConfigOutput(v SIPColdReferTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_cold_refer_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeSIPColdReferTransferConfigOutput performs a merge with any union data inside the SIPTransferOutput_Config, using the provided SIPColdReferTransferConfigOutput
+func (t *SIPTransferOutput_Config) MergeSIPColdReferTransferConfigOutput(v SIPColdReferTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_cold_refer_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPTransferOutput_Config) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPTransferOutput_Config) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "sip_cold_conference_transfer":
+		return t.AsSIPColdConferenceTransferConfigOutput()
+	case "sip_cold_refer_transfer":
+		return t.AsSIPColdReferTransferConfigOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPTransferOutput_Config) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPTransferOutput_Config) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsSearchClientsParams returns the union data inside the SMBToolConfig_Params as a SearchClientsParams
 func (t SMBToolConfig_Params) AsSearchClientsParams() (SearchClientsParams, error) {
 	var body SearchClientsParams
@@ -82680,6 +85106,886 @@ func (t *ToolResponseModel_ToolConfig) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsTwilioTransferInput returns the union data inside the TransferRuleInput_ProviderConfigs_Item as a TwilioTransferInput
+func (t TransferRuleInput_ProviderConfigs_Item) AsTwilioTransferInput() (TwilioTransferInput, error) {
+	var body TwilioTransferInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTwilioTransferInput overwrites any union data inside the TransferRuleInput_ProviderConfigs_Item as the provided TwilioTransferInput
+func (t *TransferRuleInput_ProviderConfigs_Item) FromTwilioTransferInput(v TwilioTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio"}`))
+	t.union = b
+	return err
+}
+
+// MergeTwilioTransferInput performs a merge with any union data inside the TransferRuleInput_ProviderConfigs_Item, using the provided TwilioTransferInput
+func (t *TransferRuleInput_ProviderConfigs_Item) MergeTwilioTransferInput(v TwilioTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSIPTransferInput returns the union data inside the TransferRuleInput_ProviderConfigs_Item as a SIPTransferInput
+func (t TransferRuleInput_ProviderConfigs_Item) AsSIPTransferInput() (SIPTransferInput, error) {
+	var body SIPTransferInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSIPTransferInput overwrites any union data inside the TransferRuleInput_ProviderConfigs_Item as the provided SIPTransferInput
+func (t *TransferRuleInput_ProviderConfigs_Item) FromSIPTransferInput(v SIPTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_trunk"}`))
+	t.union = b
+	return err
+}
+
+// MergeSIPTransferInput performs a merge with any union data inside the TransferRuleInput_ProviderConfigs_Item, using the provided SIPTransferInput
+func (t *TransferRuleInput_ProviderConfigs_Item) MergeSIPTransferInput(v SIPTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_trunk"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsExotelTransferInput returns the union data inside the TransferRuleInput_ProviderConfigs_Item as a ExotelTransferInput
+func (t TransferRuleInput_ProviderConfigs_Item) AsExotelTransferInput() (ExotelTransferInput, error) {
+	var body ExotelTransferInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromExotelTransferInput overwrites any union data inside the TransferRuleInput_ProviderConfigs_Item as the provided ExotelTransferInput
+func (t *TransferRuleInput_ProviderConfigs_Item) FromExotelTransferInput(v ExotelTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel"}`))
+	t.union = b
+	return err
+}
+
+// MergeExotelTransferInput performs a merge with any union data inside the TransferRuleInput_ProviderConfigs_Item, using the provided ExotelTransferInput
+func (t *TransferRuleInput_ProviderConfigs_Item) MergeExotelTransferInput(v ExotelTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TransferRuleInput_ProviderConfigs_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TransferRuleInput_ProviderConfigs_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "exotel":
+		return t.AsExotelTransferInput()
+	case "sip_trunk":
+		return t.AsSIPTransferInput()
+	case "twilio":
+		return t.AsTwilioTransferInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TransferRuleInput_ProviderConfigs_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TransferRuleInput_ProviderConfigs_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTwilioTransferOutput returns the union data inside the TransferRuleOutput_ProviderConfigs_Item as a TwilioTransferOutput
+func (t TransferRuleOutput_ProviderConfigs_Item) AsTwilioTransferOutput() (TwilioTransferOutput, error) {
+	var body TwilioTransferOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTwilioTransferOutput overwrites any union data inside the TransferRuleOutput_ProviderConfigs_Item as the provided TwilioTransferOutput
+func (t *TransferRuleOutput_ProviderConfigs_Item) FromTwilioTransferOutput(v TwilioTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio"}`))
+	t.union = b
+	return err
+}
+
+// MergeTwilioTransferOutput performs a merge with any union data inside the TransferRuleOutput_ProviderConfigs_Item, using the provided TwilioTransferOutput
+func (t *TransferRuleOutput_ProviderConfigs_Item) MergeTwilioTransferOutput(v TwilioTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSIPTransferOutput returns the union data inside the TransferRuleOutput_ProviderConfigs_Item as a SIPTransferOutput
+func (t TransferRuleOutput_ProviderConfigs_Item) AsSIPTransferOutput() (SIPTransferOutput, error) {
+	var body SIPTransferOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSIPTransferOutput overwrites any union data inside the TransferRuleOutput_ProviderConfigs_Item as the provided SIPTransferOutput
+func (t *TransferRuleOutput_ProviderConfigs_Item) FromSIPTransferOutput(v SIPTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_trunk"}`))
+	t.union = b
+	return err
+}
+
+// MergeSIPTransferOutput performs a merge with any union data inside the TransferRuleOutput_ProviderConfigs_Item, using the provided SIPTransferOutput
+func (t *TransferRuleOutput_ProviderConfigs_Item) MergeSIPTransferOutput(v SIPTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_trunk"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsExotelTransferOutput returns the union data inside the TransferRuleOutput_ProviderConfigs_Item as a ExotelTransferOutput
+func (t TransferRuleOutput_ProviderConfigs_Item) AsExotelTransferOutput() (ExotelTransferOutput, error) {
+	var body ExotelTransferOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromExotelTransferOutput overwrites any union data inside the TransferRuleOutput_ProviderConfigs_Item as the provided ExotelTransferOutput
+func (t *TransferRuleOutput_ProviderConfigs_Item) FromExotelTransferOutput(v ExotelTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel"}`))
+	t.union = b
+	return err
+}
+
+// MergeExotelTransferOutput performs a merge with any union data inside the TransferRuleOutput_ProviderConfigs_Item, using the provided ExotelTransferOutput
+func (t *TransferRuleOutput_ProviderConfigs_Item) MergeExotelTransferOutput(v ExotelTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TransferRuleOutput_ProviderConfigs_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TransferRuleOutput_ProviderConfigs_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "exotel":
+		return t.AsExotelTransferOutput()
+	case "sip_trunk":
+		return t.AsSIPTransferOutput()
+	case "twilio":
+		return t.AsTwilioTransferOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TransferRuleOutput_ProviderConfigs_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TransferRuleOutput_ProviderConfigs_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationInput returns the union data inside the TwilioColdBlindTransferConfigInput_TransferDestination as a PhoneDestinationInput
+func (t TwilioColdBlindTransferConfigInput_TransferDestination) AsPhoneDestinationInput() (PhoneDestinationInput, error) {
+	var body PhoneDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationInput overwrites any union data inside the TwilioColdBlindTransferConfigInput_TransferDestination as the provided PhoneDestinationInput
+func (t *TwilioColdBlindTransferConfigInput_TransferDestination) FromPhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationInput performs a merge with any union data inside the TwilioColdBlindTransferConfigInput_TransferDestination, using the provided PhoneDestinationInput
+func (t *TwilioColdBlindTransferConfigInput_TransferDestination) MergePhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationInput returns the union data inside the TwilioColdBlindTransferConfigInput_TransferDestination as a PhoneDynamicVariableDestinationInput
+func (t TwilioColdBlindTransferConfigInput_TransferDestination) AsPhoneDynamicVariableDestinationInput() (PhoneDynamicVariableDestinationInput, error) {
+	var body PhoneDynamicVariableDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationInput overwrites any union data inside the TwilioColdBlindTransferConfigInput_TransferDestination as the provided PhoneDynamicVariableDestinationInput
+func (t *TwilioColdBlindTransferConfigInput_TransferDestination) FromPhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationInput performs a merge with any union data inside the TwilioColdBlindTransferConfigInput_TransferDestination, using the provided PhoneDynamicVariableDestinationInput
+func (t *TwilioColdBlindTransferConfigInput_TransferDestination) MergePhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TwilioColdBlindTransferConfigInput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TwilioColdBlindTransferConfigInput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationInput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TwilioColdBlindTransferConfigInput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TwilioColdBlindTransferConfigInput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationOutput returns the union data inside the TwilioColdBlindTransferConfigOutput_TransferDestination as a PhoneDestinationOutput
+func (t TwilioColdBlindTransferConfigOutput_TransferDestination) AsPhoneDestinationOutput() (PhoneDestinationOutput, error) {
+	var body PhoneDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationOutput overwrites any union data inside the TwilioColdBlindTransferConfigOutput_TransferDestination as the provided PhoneDestinationOutput
+func (t *TwilioColdBlindTransferConfigOutput_TransferDestination) FromPhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationOutput performs a merge with any union data inside the TwilioColdBlindTransferConfigOutput_TransferDestination, using the provided PhoneDestinationOutput
+func (t *TwilioColdBlindTransferConfigOutput_TransferDestination) MergePhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationOutput returns the union data inside the TwilioColdBlindTransferConfigOutput_TransferDestination as a PhoneDynamicVariableDestinationOutput
+func (t TwilioColdBlindTransferConfigOutput_TransferDestination) AsPhoneDynamicVariableDestinationOutput() (PhoneDynamicVariableDestinationOutput, error) {
+	var body PhoneDynamicVariableDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationOutput overwrites any union data inside the TwilioColdBlindTransferConfigOutput_TransferDestination as the provided PhoneDynamicVariableDestinationOutput
+func (t *TwilioColdBlindTransferConfigOutput_TransferDestination) FromPhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationOutput performs a merge with any union data inside the TwilioColdBlindTransferConfigOutput_TransferDestination, using the provided PhoneDynamicVariableDestinationOutput
+func (t *TwilioColdBlindTransferConfigOutput_TransferDestination) MergePhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TwilioColdBlindTransferConfigOutput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TwilioColdBlindTransferConfigOutput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationOutput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TwilioColdBlindTransferConfigOutput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TwilioColdBlindTransferConfigOutput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTwilioWarmConferenceTransferConfigInput returns the union data inside the TwilioTransferInput_Config as a TwilioWarmConferenceTransferConfigInput
+func (t TwilioTransferInput_Config) AsTwilioWarmConferenceTransferConfigInput() (TwilioWarmConferenceTransferConfigInput, error) {
+	var body TwilioWarmConferenceTransferConfigInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTwilioWarmConferenceTransferConfigInput overwrites any union data inside the TwilioTransferInput_Config as the provided TwilioWarmConferenceTransferConfigInput
+func (t *TwilioTransferInput_Config) FromTwilioWarmConferenceTransferConfigInput(v TwilioWarmConferenceTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio_warm_conference_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeTwilioWarmConferenceTransferConfigInput performs a merge with any union data inside the TwilioTransferInput_Config, using the provided TwilioWarmConferenceTransferConfigInput
+func (t *TwilioTransferInput_Config) MergeTwilioWarmConferenceTransferConfigInput(v TwilioWarmConferenceTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio_warm_conference_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTwilioColdBlindTransferConfigInput returns the union data inside the TwilioTransferInput_Config as a TwilioColdBlindTransferConfigInput
+func (t TwilioTransferInput_Config) AsTwilioColdBlindTransferConfigInput() (TwilioColdBlindTransferConfigInput, error) {
+	var body TwilioColdBlindTransferConfigInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTwilioColdBlindTransferConfigInput overwrites any union data inside the TwilioTransferInput_Config as the provided TwilioColdBlindTransferConfigInput
+func (t *TwilioTransferInput_Config) FromTwilioColdBlindTransferConfigInput(v TwilioColdBlindTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio_cold_blind_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeTwilioColdBlindTransferConfigInput performs a merge with any union data inside the TwilioTransferInput_Config, using the provided TwilioColdBlindTransferConfigInput
+func (t *TwilioTransferInput_Config) MergeTwilioColdBlindTransferConfigInput(v TwilioColdBlindTransferConfigInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio_cold_blind_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TwilioTransferInput_Config) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TwilioTransferInput_Config) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "twilio_cold_blind_transfer":
+		return t.AsTwilioColdBlindTransferConfigInput()
+	case "twilio_warm_conference_transfer":
+		return t.AsTwilioWarmConferenceTransferConfigInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TwilioTransferInput_Config) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TwilioTransferInput_Config) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTwilioWarmConferenceTransferConfigOutput returns the union data inside the TwilioTransferOutput_Config as a TwilioWarmConferenceTransferConfigOutput
+func (t TwilioTransferOutput_Config) AsTwilioWarmConferenceTransferConfigOutput() (TwilioWarmConferenceTransferConfigOutput, error) {
+	var body TwilioWarmConferenceTransferConfigOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTwilioWarmConferenceTransferConfigOutput overwrites any union data inside the TwilioTransferOutput_Config as the provided TwilioWarmConferenceTransferConfigOutput
+func (t *TwilioTransferOutput_Config) FromTwilioWarmConferenceTransferConfigOutput(v TwilioWarmConferenceTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio_warm_conference_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeTwilioWarmConferenceTransferConfigOutput performs a merge with any union data inside the TwilioTransferOutput_Config, using the provided TwilioWarmConferenceTransferConfigOutput
+func (t *TwilioTransferOutput_Config) MergeTwilioWarmConferenceTransferConfigOutput(v TwilioWarmConferenceTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio_warm_conference_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTwilioColdBlindTransferConfigOutput returns the union data inside the TwilioTransferOutput_Config as a TwilioColdBlindTransferConfigOutput
+func (t TwilioTransferOutput_Config) AsTwilioColdBlindTransferConfigOutput() (TwilioColdBlindTransferConfigOutput, error) {
+	var body TwilioColdBlindTransferConfigOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTwilioColdBlindTransferConfigOutput overwrites any union data inside the TwilioTransferOutput_Config as the provided TwilioColdBlindTransferConfigOutput
+func (t *TwilioTransferOutput_Config) FromTwilioColdBlindTransferConfigOutput(v TwilioColdBlindTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio_cold_blind_transfer"}`))
+	t.union = b
+	return err
+}
+
+// MergeTwilioColdBlindTransferConfigOutput performs a merge with any union data inside the TwilioTransferOutput_Config, using the provided TwilioColdBlindTransferConfigOutput
+func (t *TwilioTransferOutput_Config) MergeTwilioColdBlindTransferConfigOutput(v TwilioColdBlindTransferConfigOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio_cold_blind_transfer"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TwilioTransferOutput_Config) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TwilioTransferOutput_Config) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "twilio_cold_blind_transfer":
+		return t.AsTwilioColdBlindTransferConfigOutput()
+	case "twilio_warm_conference_transfer":
+		return t.AsTwilioWarmConferenceTransferConfigOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TwilioTransferOutput_Config) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TwilioTransferOutput_Config) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationInput returns the union data inside the TwilioWarmConferenceTransferConfigInput_TransferDestination as a PhoneDestinationInput
+func (t TwilioWarmConferenceTransferConfigInput_TransferDestination) AsPhoneDestinationInput() (PhoneDestinationInput, error) {
+	var body PhoneDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationInput overwrites any union data inside the TwilioWarmConferenceTransferConfigInput_TransferDestination as the provided PhoneDestinationInput
+func (t *TwilioWarmConferenceTransferConfigInput_TransferDestination) FromPhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationInput performs a merge with any union data inside the TwilioWarmConferenceTransferConfigInput_TransferDestination, using the provided PhoneDestinationInput
+func (t *TwilioWarmConferenceTransferConfigInput_TransferDestination) MergePhoneDestinationInput(v PhoneDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationInput returns the union data inside the TwilioWarmConferenceTransferConfigInput_TransferDestination as a PhoneDynamicVariableDestinationInput
+func (t TwilioWarmConferenceTransferConfigInput_TransferDestination) AsPhoneDynamicVariableDestinationInput() (PhoneDynamicVariableDestinationInput, error) {
+	var body PhoneDynamicVariableDestinationInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationInput overwrites any union data inside the TwilioWarmConferenceTransferConfigInput_TransferDestination as the provided PhoneDynamicVariableDestinationInput
+func (t *TwilioWarmConferenceTransferConfigInput_TransferDestination) FromPhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationInput performs a merge with any union data inside the TwilioWarmConferenceTransferConfigInput_TransferDestination, using the provided PhoneDynamicVariableDestinationInput
+func (t *TwilioWarmConferenceTransferConfigInput_TransferDestination) MergePhoneDynamicVariableDestinationInput(v PhoneDynamicVariableDestinationInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TwilioWarmConferenceTransferConfigInput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TwilioWarmConferenceTransferConfigInput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationInput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TwilioWarmConferenceTransferConfigInput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TwilioWarmConferenceTransferConfigInput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsPhoneDestinationOutput returns the union data inside the TwilioWarmConferenceTransferConfigOutput_TransferDestination as a PhoneDestinationOutput
+func (t TwilioWarmConferenceTransferConfigOutput_TransferDestination) AsPhoneDestinationOutput() (PhoneDestinationOutput, error) {
+	var body PhoneDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDestinationOutput overwrites any union data inside the TwilioWarmConferenceTransferConfigOutput_TransferDestination as the provided PhoneDestinationOutput
+func (t *TwilioWarmConferenceTransferConfigOutput_TransferDestination) FromPhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDestinationOutput performs a merge with any union data inside the TwilioWarmConferenceTransferConfigOutput_TransferDestination, using the provided PhoneDestinationOutput
+func (t *TwilioWarmConferenceTransferConfigOutput_TransferDestination) MergePhoneDestinationOutput(v PhoneDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPhoneDynamicVariableDestinationOutput returns the union data inside the TwilioWarmConferenceTransferConfigOutput_TransferDestination as a PhoneDynamicVariableDestinationOutput
+func (t TwilioWarmConferenceTransferConfigOutput_TransferDestination) AsPhoneDynamicVariableDestinationOutput() (PhoneDynamicVariableDestinationOutput, error) {
+	var body PhoneDynamicVariableDestinationOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPhoneDynamicVariableDestinationOutput overwrites any union data inside the TwilioWarmConferenceTransferConfigOutput_TransferDestination as the provided PhoneDynamicVariableDestinationOutput
+func (t *TwilioWarmConferenceTransferConfigOutput_TransferDestination) FromPhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	t.union = b
+	return err
+}
+
+// MergePhoneDynamicVariableDestinationOutput performs a merge with any union data inside the TwilioWarmConferenceTransferConfigOutput_TransferDestination, using the provided PhoneDynamicVariableDestinationOutput
+func (t *TwilioWarmConferenceTransferConfigOutput_TransferDestination) MergePhoneDynamicVariableDestinationOutput(v PhoneDynamicVariableDestinationOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"phone_dynamic_variable"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TwilioWarmConferenceTransferConfigOutput_TransferDestination) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TwilioWarmConferenceTransferConfigOutput_TransferDestination) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "phone":
+		return t.AsPhoneDestinationOutput()
+	case "phone_dynamic_variable":
+		return t.AsPhoneDynamicVariableDestinationOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TwilioWarmConferenceTransferConfigOutput_TransferDestination) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TwilioWarmConferenceTransferConfigOutput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsLLMParameterEvaluationStrategy returns the union data inside the UnitTestToolCallParameter_Eval as a LLMParameterEvaluationStrategy
 func (t UnitTestToolCallParameter_Eval) AsLLMParameterEvaluationStrategy() (LLMParameterEvaluationStrategy, error) {
 	var body LLMParameterEvaluationStrategy
@@ -84715,6 +88021,143 @@ func (t *WorkflowPhoneNumberNodeModelInput_CustomSipHeaders_Item) UnmarshalJSON(
 	return err
 }
 
+// AsTwilioTransferInput returns the union data inside the WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item as a TwilioTransferInput
+func (t WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) AsTwilioTransferInput() (TwilioTransferInput, error) {
+	var body TwilioTransferInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTwilioTransferInput overwrites any union data inside the WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item as the provided TwilioTransferInput
+func (t *WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) FromTwilioTransferInput(v TwilioTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio"}`))
+	t.union = b
+	return err
+}
+
+// MergeTwilioTransferInput performs a merge with any union data inside the WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item, using the provided TwilioTransferInput
+func (t *WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) MergeTwilioTransferInput(v TwilioTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSIPTransferInput returns the union data inside the WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item as a SIPTransferInput
+func (t WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) AsSIPTransferInput() (SIPTransferInput, error) {
+	var body SIPTransferInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSIPTransferInput overwrites any union data inside the WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item as the provided SIPTransferInput
+func (t *WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) FromSIPTransferInput(v SIPTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_trunk"}`))
+	t.union = b
+	return err
+}
+
+// MergeSIPTransferInput performs a merge with any union data inside the WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item, using the provided SIPTransferInput
+func (t *WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) MergeSIPTransferInput(v SIPTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_trunk"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsExotelTransferInput returns the union data inside the WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item as a ExotelTransferInput
+func (t WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) AsExotelTransferInput() (ExotelTransferInput, error) {
+	var body ExotelTransferInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromExotelTransferInput overwrites any union data inside the WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item as the provided ExotelTransferInput
+func (t *WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) FromExotelTransferInput(v ExotelTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel"}`))
+	t.union = b
+	return err
+}
+
+// MergeExotelTransferInput performs a merge with any union data inside the WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item, using the provided ExotelTransferInput
+func (t *WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) MergeExotelTransferInput(v ExotelTransferInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "exotel":
+		return t.AsExotelTransferInput()
+	case "sip_trunk":
+		return t.AsSIPTransferInput()
+	case "twilio":
+		return t.AsTwilioTransferInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *WorkflowPhoneNumberNodeModelInput_ProviderConfigs_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsPhoneNumberTransferDestination returns the union data inside the WorkflowPhoneNumberNodeModelInput_TransferDestination as a PhoneNumberTransferDestination
 func (t WorkflowPhoneNumberNodeModelInput_TransferDestination) AsPhoneNumberTransferDestination() (PhoneNumberTransferDestination, error) {
 	var body PhoneNumberTransferDestination
@@ -84985,6 +88428,143 @@ func (t WorkflowPhoneNumberNodeModelOutput_CustomSipHeaders_Item) MarshalJSON() 
 }
 
 func (t *WorkflowPhoneNumberNodeModelOutput_CustomSipHeaders_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTwilioTransferOutput returns the union data inside the WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item as a TwilioTransferOutput
+func (t WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) AsTwilioTransferOutput() (TwilioTransferOutput, error) {
+	var body TwilioTransferOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTwilioTransferOutput overwrites any union data inside the WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item as the provided TwilioTransferOutput
+func (t *WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) FromTwilioTransferOutput(v TwilioTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio"}`))
+	t.union = b
+	return err
+}
+
+// MergeTwilioTransferOutput performs a merge with any union data inside the WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item, using the provided TwilioTransferOutput
+func (t *WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) MergeTwilioTransferOutput(v TwilioTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"twilio"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSIPTransferOutput returns the union data inside the WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item as a SIPTransferOutput
+func (t WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) AsSIPTransferOutput() (SIPTransferOutput, error) {
+	var body SIPTransferOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSIPTransferOutput overwrites any union data inside the WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item as the provided SIPTransferOutput
+func (t *WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) FromSIPTransferOutput(v SIPTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_trunk"}`))
+	t.union = b
+	return err
+}
+
+// MergeSIPTransferOutput performs a merge with any union data inside the WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item, using the provided SIPTransferOutput
+func (t *WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) MergeSIPTransferOutput(v SIPTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"sip_trunk"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsExotelTransferOutput returns the union data inside the WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item as a ExotelTransferOutput
+func (t WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) AsExotelTransferOutput() (ExotelTransferOutput, error) {
+	var body ExotelTransferOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromExotelTransferOutput overwrites any union data inside the WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item as the provided ExotelTransferOutput
+func (t *WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) FromExotelTransferOutput(v ExotelTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel"}`))
+	t.union = b
+	return err
+}
+
+// MergeExotelTransferOutput performs a merge with any union data inside the WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item, using the provided ExotelTransferOutput
+func (t *WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) MergeExotelTransferOutput(v ExotelTransferOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"exotel"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "exotel":
+		return t.AsExotelTransferOutput()
+	case "sip_trunk":
+		return t.AsSIPTransferOutput()
+	case "twilio":
+		return t.AsTwilioTransferOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *WorkflowPhoneNumberNodeModelOutput_ProviderConfigs_Item) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -90498,6 +94078,15 @@ type ClientInterface interface {
 	// Corresponds with GET /v1/audio-native/{project_id}/settings (the `GetAudioNativeProjectSettingsEndpoint` operationId).
 	GetAudioNativeProjectSettingsEndpoint(ctx context.Context, projectId string, params *GetAudioNativeProjectSettingsEndpointParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// CheckContentProvenanceWatermarkWithBody Check Watermark
+	//
+	// Check an audio file for an embedded ElevenLabs watermark. This endpoint is in beta and may change.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/content-provenance/watermark (the `CheckContentProvenanceWatermark` operationId).
+	CheckContentProvenanceWatermarkWithBody(ctx context.Context, params *CheckContentProvenanceWatermarkParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ListChatResponseTestsRoute List Agent Response Tests
 	//
 	// Lists all agent response tests with pagination support and optional search filtering.
@@ -91201,14 +94790,14 @@ type ClientInterface interface {
 
 	// ListAgentConversationTicketsRoute List Agent Conversation Tickets
 	//
-	// List an agent's conversation triage tickets, ordered by most recently created first unless sorted by priority. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
+	// List an agent's issues, ordered by most recently created first unless sorted by priority. These are issues about the agent's own performance on a conversation (to work on with Architect), not tickets an agent opens for end users.
 	//
 	// Corresponds with GET /v1/convai/agents/{agent_id}/triage-tickets (the `ListAgentConversationTicketsRoute` operationId).
 	ListAgentConversationTicketsRoute(ctx context.Context, agentId string, params *ListAgentConversationTicketsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CreateManualAgentTicketRouteWithBody Create Manual Agent Ticket
 	//
-	// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
+	// Manually raise a follow-up issue against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -91217,7 +94806,7 @@ type ClientInterface interface {
 
 	// CreateManualAgentTicketRoute Create Manual Agent Ticket
 	//
-	// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
+	// Manually raise a follow-up issue against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -92880,14 +96469,14 @@ type ClientInterface interface {
 
 	// ListWorkspaceConversationTicketsRoute List Workspace Conversation Tickets
 	//
-	// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Tickets for agents the caller cannot access are omitted.
+	// List agent issues across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, issues assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Issues for agents the caller cannot access are omitted.
 	//
 	// Corresponds with GET /v1/convai/triage-tickets (the `ListWorkspaceConversationTicketsRoute` operationId).
 	ListWorkspaceConversationTicketsRoute(ctx context.Context, params *ListWorkspaceConversationTicketsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CreateAgentConversationTicketRouteWithBody Create Agent Conversation Ticket
 	//
-	// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+	// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -92896,7 +96485,7 @@ type ClientInterface interface {
 
 	// CreateAgentConversationTicketRoute Create Agent Conversation Ticket
 	//
-	// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+	// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -92905,21 +96494,21 @@ type ClientInterface interface {
 
 	// DeleteAgentConversationTicketRoute Delete Agent Conversation Ticket
 	//
-	// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
+	// Delete an agent issue. Restricted to the issue creator or a workspace admin.
 	//
 	// Corresponds with DELETE /v1/convai/triage-tickets/{agentqa_ticket_id} (the `DeleteAgentConversationTicketRoute` operationId).
 	DeleteAgentConversationTicketRoute(ctx context.Context, agentqaTicketId string, params *DeleteAgentConversationTicketRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetAgentConversationTicketRoute Get Agent Conversation Ticket
 	//
-	// Get an agent conversation ticket by ID.
+	// Get an agent issue by ID.
 	//
 	// Corresponds with GET /v1/convai/triage-tickets/{agentqa_ticket_id} (the `GetAgentConversationTicketRoute` operationId).
 	GetAgentConversationTicketRoute(ctx context.Context, agentqaTicketId string, params *GetAgentConversationTicketRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// UpdateAgentConversationTicketRouteWithBody Update Agent Conversation Ticket
 	//
-	// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
+	// Update an agent issue's title, comment, status, priority, and/or assignee. Requires viewer access to the issue's agent.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -92928,7 +96517,7 @@ type ClientInterface interface {
 
 	// UpdateAgentConversationTicketRoute Update Agent Conversation Ticket
 	//
-	// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
+	// Update an agent issue's title, comment, status, priority, and/or assignee. Requires viewer access to the issue's agent.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -92937,7 +96526,7 @@ type ClientInterface interface {
 
 	// AddTicketCommentRouteWithBody Add Comment To Agent Conversation Ticket
 	//
-	// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+	// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -92946,7 +96535,7 @@ type ClientInterface interface {
 
 	// AddTicketCommentRoute Add Comment To Agent Conversation Ticket
 	//
-	// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+	// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -92955,7 +96544,7 @@ type ClientInterface interface {
 
 	// MergeAgentConversationTicketsRouteWithBody Merge Agent Conversation Tickets
 	//
-	// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+	// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -92964,7 +96553,7 @@ type ClientInterface interface {
 
 	// MergeAgentConversationTicketsRoute Merge Agent Conversation Tickets
 	//
-	// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+	// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -92973,7 +96562,7 @@ type ClientInterface interface {
 
 	// AddTurnCommentRouteWithBody Add Turn Comment To Agent Conversation Ticket
 	//
-	// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+	// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -92982,7 +96571,7 @@ type ClientInterface interface {
 
 	// AddTurnCommentRoute Add Turn Comment To Agent Conversation Ticket
 	//
-	// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+	// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -96840,6 +100429,25 @@ func (c *Client) GetAudioNativeProjectSettingsEndpoint(ctx context.Context, proj
 	return c.Client.Do(req)
 }
 
+// CheckContentProvenanceWatermarkWithBody Check Watermark
+//
+// Check an audio file for an embedded ElevenLabs watermark. This endpoint is in beta and may change.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/content-provenance/watermark (the `CheckContentProvenanceWatermark` operationId).
+func (c *Client) CheckContentProvenanceWatermarkWithBody(ctx context.Context, params *CheckContentProvenanceWatermarkParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCheckContentProvenanceWatermarkRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // ListChatResponseTestsRoute List Agent Response Tests
 //
 // Lists all agent response tests with pagination support and optional search filtering.
@@ -98369,7 +101977,7 @@ func (c *Client) GetAgentTopicsRoute(ctx context.Context, agentId string, params
 
 // ListAgentConversationTicketsRoute List Agent Conversation Tickets
 //
-// List an agent's conversation triage tickets, ordered by most recently created first unless sorted by priority. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
+// List an agent's issues, ordered by most recently created first unless sorted by priority. These are issues about the agent's own performance on a conversation (to work on with Architect), not tickets an agent opens for end users.
 //
 // Corresponds with GET /v1/convai/agents/{agent_id}/triage-tickets (the `ListAgentConversationTicketsRoute` operationId).
 func (c *Client) ListAgentConversationTicketsRoute(ctx context.Context, agentId string, params *ListAgentConversationTicketsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -98386,7 +101994,7 @@ func (c *Client) ListAgentConversationTicketsRoute(ctx context.Context, agentId 
 
 // CreateManualAgentTicketRouteWithBody Create Manual Agent Ticket
 //
-// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
+// Manually raise a follow-up issue against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
 //
 // Takes any type of body and a specified content type.
 //
@@ -98405,7 +102013,7 @@ func (c *Client) CreateManualAgentTicketRouteWithBody(ctx context.Context, agent
 
 // CreateManualAgentTicketRoute Create Manual Agent Ticket
 //
-// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
+// Manually raise a follow-up issue against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -102134,7 +105742,7 @@ func (c *Client) GetToolExecutionsRoute(ctx context.Context, toolId string, para
 
 // ListWorkspaceConversationTicketsRoute List Workspace Conversation Tickets
 //
-// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Tickets for agents the caller cannot access are omitted.
+// List agent issues across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, issues assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Issues for agents the caller cannot access are omitted.
 //
 // Corresponds with GET /v1/convai/triage-tickets (the `ListWorkspaceConversationTicketsRoute` operationId).
 func (c *Client) ListWorkspaceConversationTicketsRoute(ctx context.Context, params *ListWorkspaceConversationTicketsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -102151,7 +105759,7 @@ func (c *Client) ListWorkspaceConversationTicketsRoute(ctx context.Context, para
 
 // CreateAgentConversationTicketRouteWithBody Create Agent Conversation Ticket
 //
-// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
 //
 // Takes any type of body and a specified content type.
 //
@@ -102170,7 +105778,7 @@ func (c *Client) CreateAgentConversationTicketRouteWithBody(ctx context.Context,
 
 // CreateAgentConversationTicketRoute Create Agent Conversation Ticket
 //
-// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -102189,7 +105797,7 @@ func (c *Client) CreateAgentConversationTicketRoute(ctx context.Context, params 
 
 // DeleteAgentConversationTicketRoute Delete Agent Conversation Ticket
 //
-// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
+// Delete an agent issue. Restricted to the issue creator or a workspace admin.
 //
 // Corresponds with DELETE /v1/convai/triage-tickets/{agentqa_ticket_id} (the `DeleteAgentConversationTicketRoute` operationId).
 func (c *Client) DeleteAgentConversationTicketRoute(ctx context.Context, agentqaTicketId string, params *DeleteAgentConversationTicketRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -102206,7 +105814,7 @@ func (c *Client) DeleteAgentConversationTicketRoute(ctx context.Context, agentqa
 
 // GetAgentConversationTicketRoute Get Agent Conversation Ticket
 //
-// Get an agent conversation ticket by ID.
+// Get an agent issue by ID.
 //
 // Corresponds with GET /v1/convai/triage-tickets/{agentqa_ticket_id} (the `GetAgentConversationTicketRoute` operationId).
 func (c *Client) GetAgentConversationTicketRoute(ctx context.Context, agentqaTicketId string, params *GetAgentConversationTicketRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -102223,7 +105831,7 @@ func (c *Client) GetAgentConversationTicketRoute(ctx context.Context, agentqaTic
 
 // UpdateAgentConversationTicketRouteWithBody Update Agent Conversation Ticket
 //
-// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
+// Update an agent issue's title, comment, status, priority, and/or assignee. Requires viewer access to the issue's agent.
 //
 // Takes any type of body and a specified content type.
 //
@@ -102242,7 +105850,7 @@ func (c *Client) UpdateAgentConversationTicketRouteWithBody(ctx context.Context,
 
 // UpdateAgentConversationTicketRoute Update Agent Conversation Ticket
 //
-// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
+// Update an agent issue's title, comment, status, priority, and/or assignee. Requires viewer access to the issue's agent.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -102261,7 +105869,7 @@ func (c *Client) UpdateAgentConversationTicketRoute(ctx context.Context, agentqa
 
 // AddTicketCommentRouteWithBody Add Comment To Agent Conversation Ticket
 //
-// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
 //
 // Takes any type of body and a specified content type.
 //
@@ -102280,7 +105888,7 @@ func (c *Client) AddTicketCommentRouteWithBody(ctx context.Context, agentqaTicke
 
 // AddTicketCommentRoute Add Comment To Agent Conversation Ticket
 //
-// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -102299,7 +105907,7 @@ func (c *Client) AddTicketCommentRoute(ctx context.Context, agentqaTicketId stri
 
 // MergeAgentConversationTicketsRouteWithBody Merge Agent Conversation Tickets
 //
-// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
 //
 // Takes any type of body and a specified content type.
 //
@@ -102318,7 +105926,7 @@ func (c *Client) MergeAgentConversationTicketsRouteWithBody(ctx context.Context,
 
 // MergeAgentConversationTicketsRoute Merge Agent Conversation Tickets
 //
-// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -102337,7 +105945,7 @@ func (c *Client) MergeAgentConversationTicketsRoute(ctx context.Context, agentqa
 
 // AddTurnCommentRouteWithBody Add Turn Comment To Agent Conversation Ticket
 //
-// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
 //
 // Takes any type of body and a specified content type.
 //
@@ -102356,7 +105964,7 @@ func (c *Client) AddTurnCommentRouteWithBody(ctx context.Context, agentqaTicketI
 
 // AddTurnCommentRoute Add Turn Comment To Agent Conversation Ticket
 //
-// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -110867,6 +114475,50 @@ func NewGetAudioNativeProjectSettingsEndpointRequest(server string, projectId st
 	if err != nil {
 		return nil, err
 	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewCheckContentProvenanceWatermarkRequestWithBody constructs an http.Request for the CheckContentProvenanceWatermark method, with any body, and a specified content type
+func NewCheckContentProvenanceWatermarkRequestWithBody(server string, params *CheckContentProvenanceWatermarkParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/content-provenance/watermark")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	if params != nil {
 
@@ -147709,6 +151361,15 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /v1/audio-native/{project_id}/settings (the `GetAudioNativeProjectSettingsEndpoint` operationId).
 	GetAudioNativeProjectSettingsEndpointWithResponse(ctx context.Context, projectId string, params *GetAudioNativeProjectSettingsEndpointParams, reqEditors ...RequestEditorFn) (*GetAudioNativeProjectSettingsEndpointResponse, error)
 
+	// CheckContentProvenanceWatermarkWithBodyWithResponse Check Watermark
+	//
+	// Check an audio file for an embedded ElevenLabs watermark. This endpoint is in beta and may change.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/content-provenance/watermark (the `CheckContentProvenanceWatermark` operationId).
+	CheckContentProvenanceWatermarkWithBodyWithResponse(ctx context.Context, params *CheckContentProvenanceWatermarkParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CheckContentProvenanceWatermarkResponse, error)
+
 	// ListChatResponseTestsRouteWithResponse List Agent Response Tests
 	//
 	// Lists all agent response tests with pagination support and optional search filtering.
@@ -148466,7 +152127,7 @@ type ClientWithResponsesInterface interface {
 
 	// ListAgentConversationTicketsRouteWithResponse List Agent Conversation Tickets
 	//
-	// List an agent's conversation triage tickets, ordered by most recently created first unless sorted by priority. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
+	// List an agent's issues, ordered by most recently created first unless sorted by priority. These are issues about the agent's own performance on a conversation (to work on with Architect), not tickets an agent opens for end users.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -148475,7 +152136,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateManualAgentTicketRouteWithBodyWithResponse Create Manual Agent Ticket
 	//
-	// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
+	// Manually raise a follow-up issue against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -148484,7 +152145,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateManualAgentTicketRouteWithResponse Create Manual Agent Ticket
 	//
-	// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
+	// Manually raise a follow-up issue against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150355,7 +154016,7 @@ type ClientWithResponsesInterface interface {
 
 	// ListWorkspaceConversationTicketsRouteWithResponse List Workspace Conversation Tickets
 	//
-	// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Tickets for agents the caller cannot access are omitted.
+	// List agent issues across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, issues assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Issues for agents the caller cannot access are omitted.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -150364,7 +154025,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateAgentConversationTicketRouteWithBodyWithResponse Create Agent Conversation Ticket
 	//
-	// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+	// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150373,7 +154034,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateAgentConversationTicketRouteWithResponse Create Agent Conversation Ticket
 	//
-	// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+	// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150382,7 +154043,7 @@ type ClientWithResponsesInterface interface {
 
 	// DeleteAgentConversationTicketRouteWithResponse Delete Agent Conversation Ticket
 	//
-	// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
+	// Delete an agent issue. Restricted to the issue creator or a workspace admin.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -150391,7 +154052,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetAgentConversationTicketRouteWithResponse Get Agent Conversation Ticket
 	//
-	// Get an agent conversation ticket by ID.
+	// Get an agent issue by ID.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -150400,7 +154061,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateAgentConversationTicketRouteWithBodyWithResponse Update Agent Conversation Ticket
 	//
-	// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
+	// Update an agent issue's title, comment, status, priority, and/or assignee. Requires viewer access to the issue's agent.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150409,7 +154070,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateAgentConversationTicketRouteWithResponse Update Agent Conversation Ticket
 	//
-	// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
+	// Update an agent issue's title, comment, status, priority, and/or assignee. Requires viewer access to the issue's agent.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150418,7 +154079,7 @@ type ClientWithResponsesInterface interface {
 
 	// AddTicketCommentRouteWithBodyWithResponse Add Comment To Agent Conversation Ticket
 	//
-	// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+	// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150427,7 +154088,7 @@ type ClientWithResponsesInterface interface {
 
 	// AddTicketCommentRouteWithResponse Add Comment To Agent Conversation Ticket
 	//
-	// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+	// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150436,7 +154097,7 @@ type ClientWithResponsesInterface interface {
 
 	// MergeAgentConversationTicketsRouteWithBodyWithResponse Merge Agent Conversation Tickets
 	//
-	// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+	// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150445,7 +154106,7 @@ type ClientWithResponsesInterface interface {
 
 	// MergeAgentConversationTicketsRouteWithResponse Merge Agent Conversation Tickets
 	//
-	// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+	// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150454,7 +154115,7 @@ type ClientWithResponsesInterface interface {
 
 	// AddTurnCommentRouteWithBodyWithResponse Add Turn Comment To Agent Conversation Ticket
 	//
-	// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+	// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -150463,7 +154124,7 @@ type ClientWithResponsesInterface interface {
 
 	// AddTurnCommentRouteWithResponse Add Turn Comment To Agent Conversation Ticket
 	//
-	// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+	// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -154993,6 +158654,54 @@ func (r GetAudioNativeProjectSettingsEndpointResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r GetAudioNativeProjectSettingsEndpointResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CheckContentProvenanceWatermarkResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *WatermarkCheck
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r CheckContentProvenanceWatermarkResponse) GetJSON200() *WatermarkCheck {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CheckContentProvenanceWatermarkResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CheckContentProvenanceWatermarkResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CheckContentProvenanceWatermarkResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CheckContentProvenanceWatermarkResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CheckContentProvenanceWatermarkResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -180011,6 +183720,21 @@ func (c *ClientWithResponses) GetAudioNativeProjectSettingsEndpointWithResponse(
 	return ParseGetAudioNativeProjectSettingsEndpointResponse(rsp)
 }
 
+// CheckContentProvenanceWatermarkWithBodyWithResponse Check Watermark
+//
+// Check an audio file for an embedded ElevenLabs watermark. This endpoint is in beta and may change.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/content-provenance/watermark (the `CheckContentProvenanceWatermark` operationId).
+func (c *ClientWithResponses) CheckContentProvenanceWatermarkWithBodyWithResponse(ctx context.Context, params *CheckContentProvenanceWatermarkParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CheckContentProvenanceWatermarkResponse, error) {
+	rsp, err := c.CheckContentProvenanceWatermarkWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCheckContentProvenanceWatermarkResponse(rsp)
+}
+
 // ListChatResponseTestsRouteWithResponse List Agent Response Tests
 //
 // Lists all agent response tests with pagination support and optional search filtering.
@@ -181264,7 +184988,7 @@ func (c *ClientWithResponses) GetAgentTopicsRouteWithResponse(ctx context.Contex
 
 // ListAgentConversationTicketsRouteWithResponse List Agent Conversation Tickets
 //
-// List an agent's conversation triage tickets, ordered by most recently created first unless sorted by priority. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
+// List an agent's issues, ordered by most recently created first unless sorted by priority. These are issues about the agent's own performance on a conversation (to work on with Architect), not tickets an agent opens for end users.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -181279,7 +185003,7 @@ func (c *ClientWithResponses) ListAgentConversationTicketsRouteWithResponse(ctx 
 
 // CreateManualAgentTicketRouteWithBodyWithResponse Create Manual Agent Ticket
 //
-// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
+// Manually raise a follow-up issue against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -181294,7 +185018,7 @@ func (c *ClientWithResponses) CreateManualAgentTicketRouteWithBodyWithResponse(c
 
 // CreateManualAgentTicketRouteWithResponse Create Manual Agent Ticket
 //
-// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
+// Manually raise a follow-up issue against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184406,7 +188130,7 @@ func (c *ClientWithResponses) GetToolExecutionsRouteWithResponse(ctx context.Con
 
 // ListWorkspaceConversationTicketsRouteWithResponse List Workspace Conversation Tickets
 //
-// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Tickets for agents the caller cannot access are omitted.
+// List agent issues across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, issues assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Issues for agents the caller cannot access are omitted.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -184421,7 +188145,7 @@ func (c *ClientWithResponses) ListWorkspaceConversationTicketsRouteWithResponse(
 
 // CreateAgentConversationTicketRouteWithBodyWithResponse Create Agent Conversation Ticket
 //
-// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184436,7 +188160,7 @@ func (c *ClientWithResponses) CreateAgentConversationTicketRouteWithBodyWithResp
 
 // CreateAgentConversationTicketRouteWithResponse Create Agent Conversation Ticket
 //
-// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184451,7 +188175,7 @@ func (c *ClientWithResponses) CreateAgentConversationTicketRouteWithResponse(ctx
 
 // DeleteAgentConversationTicketRouteWithResponse Delete Agent Conversation Ticket
 //
-// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
+// Delete an agent issue. Restricted to the issue creator or a workspace admin.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -184466,7 +188190,7 @@ func (c *ClientWithResponses) DeleteAgentConversationTicketRouteWithResponse(ctx
 
 // GetAgentConversationTicketRouteWithResponse Get Agent Conversation Ticket
 //
-// Get an agent conversation ticket by ID.
+// Get an agent issue by ID.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -184481,7 +188205,7 @@ func (c *ClientWithResponses) GetAgentConversationTicketRouteWithResponse(ctx co
 
 // UpdateAgentConversationTicketRouteWithBodyWithResponse Update Agent Conversation Ticket
 //
-// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
+// Update an agent issue's title, comment, status, priority, and/or assignee. Requires viewer access to the issue's agent.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184496,7 +188220,7 @@ func (c *ClientWithResponses) UpdateAgentConversationTicketRouteWithBodyWithResp
 
 // UpdateAgentConversationTicketRouteWithResponse Update Agent Conversation Ticket
 //
-// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
+// Update an agent issue's title, comment, status, priority, and/or assignee. Requires viewer access to the issue's agent.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184511,7 +188235,7 @@ func (c *ClientWithResponses) UpdateAgentConversationTicketRouteWithResponse(ctx
 
 // AddTicketCommentRouteWithBodyWithResponse Add Comment To Agent Conversation Ticket
 //
-// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184526,7 +188250,7 @@ func (c *ClientWithResponses) AddTicketCommentRouteWithBodyWithResponse(ctx cont
 
 // AddTicketCommentRouteWithResponse Add Comment To Agent Conversation Ticket
 //
-// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184541,7 +188265,7 @@ func (c *ClientWithResponses) AddTicketCommentRouteWithResponse(ctx context.Cont
 
 // MergeAgentConversationTicketsRouteWithBodyWithResponse Merge Agent Conversation Tickets
 //
-// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184556,7 +188280,7 @@ func (c *ClientWithResponses) MergeAgentConversationTicketsRouteWithBodyWithResp
 
 // MergeAgentConversationTicketsRouteWithResponse Merge Agent Conversation Tickets
 //
-// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184571,7 +188295,7 @@ func (c *ClientWithResponses) MergeAgentConversationTicketsRouteWithResponse(ctx
 
 // AddTurnCommentRouteWithBodyWithResponse Add Turn Comment To Agent Conversation Ticket
 //
-// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -184586,7 +188310,7 @@ func (c *ClientWithResponses) AddTurnCommentRouteWithBodyWithResponse(ctx contex
 
 // AddTurnCommentRouteWithResponse Add Turn Comment To Agent Conversation Ticket
 //
-// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -191433,6 +195157,39 @@ func ParseGetAudioNativeProjectSettingsEndpointResponse(rsp *http.Response) (*Ge
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest GetAudioNativeProjectSettingsResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCheckContentProvenanceWatermarkResponse parses an HTTP response from a CheckContentProvenanceWatermarkWithResponse call
+func ParseCheckContentProvenanceWatermarkResponse(rsp *http.Response) (*CheckContentProvenanceWatermarkResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CheckContentProvenanceWatermarkResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest WatermarkCheck
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
