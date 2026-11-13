@@ -2,6 +2,21 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.14.0, 2026-11-13
+
+- Breaking: `ClientInterface` gains 12 methods and `ClientWithResponsesInterface` gains 12 methods, for the new endpoints below. Custom implementations or mocks of these interfaces must add the methods.
+- Adds the agent conversation message endpoints: `CreateAgentConversationRoute`, `SendConversationMessageRoute`, `SendConversationMessageStreamRoute`, `GetConversationTurnRoute` and `StreamConversationTurnEventsRoute`, with `WithBody` and `WithResponse` variants on `Client` and `ClientWithResponses`, plus the matching `New...Request` builders and `Parse...Response` functions.
+- Adds request and response types for them, such as `CreateAgentConversationRequest`, `CreateAgentConversationResponse`, `SendConversationMessageRequest`, `SendConversationMessageStreamRequest`, `ConversationTurn`, `StreamEnvelope` and `ConversationInitiationSourceAgentMessagesApi`.
+- Adds the message input and output item types `UserMessageInputItem`, `ContextualUpdateInputItem`, `ClientToolResultItem`, `TextOutputItem`, `FileContentPart`, `TextContentPart`, `Base64FileSource` and `FileIdSource`, with their enum constants.
+- Adds streamed event types such as `AgentResponseClientEvent`, `AgentReasoningResponsePartClientEvent`, `AgentChatResponsePartClientEvent`, `ClientToolCallEvent`, `AgentToolRequestStreamedEvent`, `AgentToolResponseStreamedEvent` and `StreamEndedEvent`.
+- Adds the subagent dependents endpoint: `GetAgentSubagentDependentsRoute` and its `WithResponse` variant, with `GetAgentSubagentDependentsResponseModel`.
+- Adds subagent configuration: `SubagentConfig` on `AgentConfigAPIModelInput` and `AgentConfigAPIModelOutput`, with `SubagentConfigInput`, `SubagentConfigOutput`, `SubAgentInput`, `SubAgentOutput` and `SelfSubagent`.
+- Adds the knowledge base chunking override endpoints: `GetChunkingOverrideRoute`, `UpdateChunkingOverrideRoute` and `UpdateChunkingOverrideRouteWithBody`, with `ChunkingOverride`, `ChunkingOverrideRequestModel`, `GetDocumentChunkingOverrideResponseModel` and `UpdateDocumentChunkingOverrideRequestModel`.
+- Adds `ChunkingOverride` to the `GetKnowledgeBase...ResponseModel` and `GetKnowledgeBaseSummary...ResponseModel` types for files, folders, text and URLs.
+- Adds the `BytedanceSeedance25RequestResolutionN4k` constant.
+- Reworded the `DependentAgents` deprecation comment on four knowledge base summary types: the field is now documented as always empty.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.13.0, 2026-11-12
 
 - Breaking: `ClientInterface` gains `CheckContentProvenanceWatermarkWithBody` and `ClientWithResponsesInterface` gains `CheckContentProvenanceWatermarkWithBodyWithResponse`. Custom implementations or mocks of these interfaces must add the methods.

@@ -751,6 +751,42 @@ func (e AddPronunciationDictionaryResponseModelPermissionOnResource) Valid() boo
 	}
 }
 
+// Defines values for AgentChatResponsePartClientEventType.
+const (
+	AgentChatResponsePartClientEventTypeAgentChatResponsePart AgentChatResponsePartClientEventType = "agent_chat_response_part"
+)
+
+// Valid indicates whether the value is a known member of the AgentChatResponsePartClientEventType enum.
+func (e AgentChatResponsePartClientEventType) Valid() bool {
+	switch e {
+	case AgentChatResponsePartClientEventTypeAgentChatResponsePart:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AgentChatResponsePartType.
+const (
+	AgentChatResponsePartTypeDelta AgentChatResponsePartType = "delta"
+	AgentChatResponsePartTypeStart AgentChatResponsePartType = "start"
+	AgentChatResponsePartTypeStop  AgentChatResponsePartType = "stop"
+)
+
+// Valid indicates whether the value is a known member of the AgentChatResponsePartType enum.
+func (e AgentChatResponsePartType) Valid() bool {
+	switch e {
+	case AgentChatResponsePartTypeDelta:
+		return true
+	case AgentChatResponsePartTypeStart:
+		return true
+	case AgentChatResponsePartTypeStop:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AgentConversationTicketIssueType.
 const (
 	AgentConversationTicketIssueTypeDocumentationGap      AgentConversationTicketIssueType = "documentation_gap"
@@ -967,6 +1003,96 @@ func (e AgentFailureResponseExampleType) Valid() bool {
 	}
 }
 
+// Defines values for AgentMessagesPersistedAgentType.
+const (
+	AgentMessagesPersistedAgentTypePersisted AgentMessagesPersistedAgentType = "persisted"
+)
+
+// Valid indicates whether the value is a known member of the AgentMessagesPersistedAgentType enum.
+func (e AgentMessagesPersistedAgentType) Valid() bool {
+	switch e {
+	case AgentMessagesPersistedAgentTypePersisted:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AgentOutputStatus.
+const (
+	AgentOutputStatusCompleted      AgentOutputStatus = "completed"
+	AgentOutputStatusFailed         AgentOutputStatus = "failed"
+	AgentOutputStatusInProgress     AgentOutputStatus = "in_progress"
+	AgentOutputStatusRequiresAction AgentOutputStatus = "requires_action"
+	AgentOutputStatusTimedOut       AgentOutputStatus = "timed_out"
+)
+
+// Valid indicates whether the value is a known member of the AgentOutputStatus enum.
+func (e AgentOutputStatus) Valid() bool {
+	switch e {
+	case AgentOutputStatusCompleted:
+		return true
+	case AgentOutputStatusFailed:
+		return true
+	case AgentOutputStatusInProgress:
+		return true
+	case AgentOutputStatusRequiresAction:
+		return true
+	case AgentOutputStatusTimedOut:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AgentReasoningResponsePartClientEventType.
+const (
+	AgentReasoningResponsePartClientEventTypeAgentReasoningResponsePart AgentReasoningResponsePartClientEventType = "agent_reasoning_response_part"
+)
+
+// Valid indicates whether the value is a known member of the AgentReasoningResponsePartClientEventType enum.
+func (e AgentReasoningResponsePartClientEventType) Valid() bool {
+	switch e {
+	case AgentReasoningResponsePartClientEventTypeAgentReasoningResponsePart:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AgentResponseClientEventType.
+const (
+	AgentResponseClientEventTypeAgentResponse AgentResponseClientEventType = "agent_response"
+)
+
+// Valid indicates whether the value is a known member of the AgentResponseClientEventType enum.
+func (e AgentResponseClientEventType) Valid() bool {
+	switch e {
+	case AgentResponseClientEventTypeAgentResponse:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AgentResponseType.
+const (
+	AgentResponseTypeText  AgentResponseType = "text"
+	AgentResponseTypeVoice AgentResponseType = "voice"
+)
+
+// Valid indicates whether the value is a known member of the AgentResponseType enum.
+func (e AgentResponseType) Valid() bool {
+	switch e {
+	case AgentResponseTypeText:
+		return true
+	case AgentResponseTypeVoice:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AgentSortBy.
 const (
 	AgentSortByCallCount7d AgentSortBy = "call_count_7d"
@@ -1033,6 +1159,60 @@ func (e AgentTestEntityType) Valid() bool {
 	case AgentTestEntityTypeFolder:
 		return true
 	case AgentTestEntityTypeTest:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AgentToolRequestStreamedEventType.
+const (
+	AgentToolRequestStreamedEventTypeAgentToolRequest AgentToolRequestStreamedEventType = "agent_tool_request"
+)
+
+// Valid indicates whether the value is a known member of the AgentToolRequestStreamedEventType enum.
+func (e AgentToolRequestStreamedEventType) Valid() bool {
+	switch e {
+	case AgentToolRequestStreamedEventTypeAgentToolRequest:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AgentToolResponseStatus.
+const (
+	AgentToolResponseStatusBlocked AgentToolResponseStatus = "blocked"
+	AgentToolResponseStatusError   AgentToolResponseStatus = "error"
+	AgentToolResponseStatusSkipped AgentToolResponseStatus = "skipped"
+	AgentToolResponseStatusSuccess AgentToolResponseStatus = "success"
+)
+
+// Valid indicates whether the value is a known member of the AgentToolResponseStatus enum.
+func (e AgentToolResponseStatus) Valid() bool {
+	switch e {
+	case AgentToolResponseStatusBlocked:
+		return true
+	case AgentToolResponseStatusError:
+		return true
+	case AgentToolResponseStatusSkipped:
+		return true
+	case AgentToolResponseStatusSuccess:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AgentToolResponseStreamedEventType.
+const (
+	AgentToolResponseStreamedEventTypeAgentToolResponse AgentToolResponseStreamedEventType = "agent_tool_response"
+)
+
+// Valid indicates whether the value is a known member of the AgentToolResponseStreamedEventType enum.
+func (e AgentToolResponseStreamedEventType) Valid() bool {
+	switch e {
+	case AgentToolResponseStreamedEventTypeAgentToolResponse:
 		return true
 	default:
 		return false
@@ -2455,6 +2635,21 @@ func (e BackupLLMOverridePreference) Valid() bool {
 	}
 }
 
+// Defines values for Base64FileSourceType.
+const (
+	Base64FileSourceTypeBase64 Base64FileSourceType = "base64"
+)
+
+// Valid indicates whether the value is a known member of the Base64FileSourceType enum.
+func (e Base64FileSourceType) Valid() bool {
+	switch e {
+	case Base64FileSourceTypeBase64:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for BasicAuthResponseAuthType.
 const (
 	BasicAuthResponseAuthTypeBasicAuth BasicAuthResponseAuthType = "basic_auth"
@@ -3746,6 +3941,7 @@ func (e BytedanceSeedance25RequestModelId) Valid() bool {
 const (
 	BytedanceSeedance25RequestResolutionN1080p BytedanceSeedance25RequestResolution = "1080p"
 	BytedanceSeedance25RequestResolutionN480p  BytedanceSeedance25RequestResolution = "480p"
+	BytedanceSeedance25RequestResolutionN4k    BytedanceSeedance25RequestResolution = "4k"
 	BytedanceSeedance25RequestResolutionN720p  BytedanceSeedance25RequestResolution = "720p"
 )
 
@@ -3755,6 +3951,8 @@ func (e BytedanceSeedance25RequestResolution) Valid() bool {
 	case BytedanceSeedance25RequestResolutionN1080p:
 		return true
 	case BytedanceSeedance25RequestResolutionN480p:
+		return true
+	case BytedanceSeedance25RequestResolutionN4k:
 		return true
 	case BytedanceSeedance25RequestResolutionN720p:
 		return true
@@ -4912,6 +5110,36 @@ func (e ClientEvent) Valid() bool {
 	}
 }
 
+// Defines values for ClientToolCallEventType.
+const (
+	ClientToolCallEventTypeClientToolCall ClientToolCallEventType = "client_tool_call"
+)
+
+// Valid indicates whether the value is a known member of the ClientToolCallEventType enum.
+func (e ClientToolCallEventType) Valid() bool {
+	switch e {
+	case ClientToolCallEventTypeClientToolCall:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ClientToolCallRequiredActionType.
+const (
+	ClientToolCallRequiredActionTypeClientToolCall ClientToolCallRequiredActionType = "client_tool_call"
+)
+
+// Valid indicates whether the value is a known member of the ClientToolCallRequiredActionType enum.
+func (e ClientToolCallRequiredActionType) Valid() bool {
+	switch e {
+	case ClientToolCallRequiredActionTypeClientToolCall:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ClientToolConfigInputType.
 const (
 	ClientToolConfigInputTypeClient ClientToolConfigInputType = "client"
@@ -4936,6 +5164,51 @@ const (
 func (e ClientToolConfigOutputType) Valid() bool {
 	switch e {
 	case ClientToolConfigOutputTypeClient:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ClientToolResultItemErrorType.
+const (
+	ClientToolResultItemErrorTypeClientTimeout  ClientToolResultItemErrorType = "client_timeout"
+	ClientToolResultItemErrorTypeCustomerAuth   ClientToolResultItemErrorType = "customer_auth"
+	ClientToolResultItemErrorTypeExternalClient ClientToolResultItemErrorType = "external_client"
+	ClientToolResultItemErrorTypeExternalServer ClientToolResultItemErrorType = "external_server"
+	ClientToolResultItemErrorTypeUnknown        ClientToolResultItemErrorType = "unknown"
+	ClientToolResultItemErrorTypeUserRejected   ClientToolResultItemErrorType = "user_rejected"
+)
+
+// Valid indicates whether the value is a known member of the ClientToolResultItemErrorType enum.
+func (e ClientToolResultItemErrorType) Valid() bool {
+	switch e {
+	case ClientToolResultItemErrorTypeClientTimeout:
+		return true
+	case ClientToolResultItemErrorTypeCustomerAuth:
+		return true
+	case ClientToolResultItemErrorTypeExternalClient:
+		return true
+	case ClientToolResultItemErrorTypeExternalServer:
+		return true
+	case ClientToolResultItemErrorTypeUnknown:
+		return true
+	case ClientToolResultItemErrorTypeUserRejected:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ClientToolResultItemType.
+const (
+	ClientToolResultItemTypeClientToolResult ClientToolResultItemType = "client_tool_result"
+)
+
+// Valid indicates whether the value is a known member of the ClientToolResultItemType enum.
+func (e ClientToolResultItemType) Valid() bool {
+	switch e {
+	case ClientToolResultItemTypeClientToolResult:
 		return true
 	default:
 		return false
@@ -5428,6 +5701,39 @@ func (e ContentThresholdGuardrailThreshold1) Valid() bool {
 	}
 }
 
+// Defines values for ContextualUpdateInputItemType.
+const (
+	ContextualUpdateInputItemTypeContextualUpdate ContextualUpdateInputItemType = "contextual_update"
+)
+
+// Valid indicates whether the value is a known member of the ContextualUpdateInputItemType enum.
+func (e ContextualUpdateInputItemType) Valid() bool {
+	switch e {
+	case ContextualUpdateInputItemTypeContextualUpdate:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ContextualUpdatePlacement.
+const (
+	ContextualUpdatePlacementEnd     ContextualUpdatePlacement = "end"
+	ContextualUpdatePlacementInPlace ContextualUpdatePlacement = "in_place"
+)
+
+// Valid indicates whether the value is a known member of the ContextualUpdatePlacement enum.
+func (e ContextualUpdatePlacement) Valid() bool {
+	switch e {
+	case ContextualUpdatePlacementEnd:
+		return true
+	case ContextualUpdatePlacementInPlace:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ConvAIWorkspaceStoredSecretConfigType.
 const (
 	ConvAIWorkspaceStoredSecretConfigTypeStored ConvAIWorkspaceStoredSecretConfigType = "stored"
@@ -5751,6 +6057,7 @@ func (e ConversationHistoryTwilioPhoneCallModelType) Valid() bool {
 
 // Defines values for ConversationInitiationSource.
 const (
+	ConversationInitiationSourceAgentMessagesApi      ConversationInitiationSource = "agent_messages_api"
 	ConversationInitiationSourceAndroidSdk            ConversationInitiationSource = "android_sdk"
 	ConversationInitiationSourceAudiocodes            ConversationInitiationSource = "audiocodes"
 	ConversationInitiationSourceAvaya                 ConversationInitiationSource = "avaya"
@@ -5783,6 +6090,8 @@ const (
 // Valid indicates whether the value is a known member of the ConversationInitiationSource enum.
 func (e ConversationInitiationSource) Valid() bool {
 	switch e {
+	case ConversationInitiationSourceAgentMessagesApi:
+		return true
 	case ConversationInitiationSourceAndroidSdk:
 		return true
 	case ConversationInitiationSourceAudiocodes:
@@ -8374,6 +8683,66 @@ const (
 func (e ExternalSyncProvider) Valid() bool {
 	switch e {
 	case ExternalSyncProviderGoogleDrive:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for FileContentPartType.
+const (
+	FileContentPartTypeFile FileContentPartType = "file"
+)
+
+// Valid indicates whether the value is a known member of the FileContentPartType enum.
+func (e FileContentPartType) Valid() bool {
+	switch e {
+	case FileContentPartTypeFile:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for FileIdSourceType.
+const (
+	FileIdSourceTypeFileId FileIdSourceType = "file_id"
+)
+
+// Valid indicates whether the value is a known member of the FileIdSourceType enum.
+func (e FileIdSourceType) Valid() bool {
+	switch e {
+	case FileIdSourceTypeFileId:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for FileInputMimeType.
+const (
+	FileInputMimeTypeApplicationpdf FileInputMimeType = "application/pdf"
+	FileInputMimeTypeImagegif       FileInputMimeType = "image/gif"
+	FileInputMimeTypeImagejpeg      FileInputMimeType = "image/jpeg"
+	FileInputMimeTypeImagepng       FileInputMimeType = "image/png"
+	FileInputMimeTypeImagewebp      FileInputMimeType = "image/webp"
+	FileInputMimeTypeTextplain      FileInputMimeType = "text/plain"
+)
+
+// Valid indicates whether the value is a known member of the FileInputMimeType enum.
+func (e FileInputMimeType) Valid() bool {
+	switch e {
+	case FileInputMimeTypeApplicationpdf:
+		return true
+	case FileInputMimeTypeImagegif:
+		return true
+	case FileInputMimeTypeImagejpeg:
+		return true
+	case FileInputMimeTypeImagepng:
+		return true
+	case FileInputMimeTypeImagewebp:
+		return true
+	case FileInputMimeTypeTextplain:
 		return true
 	default:
 		return false
@@ -15928,6 +16297,24 @@ func (e SegmentedJsonExportOptionsFormat) Valid() bool {
 	}
 }
 
+// Defines values for SelfSubagentExecutionMode.
+const (
+	SelfSubagentExecutionModeAsync     SelfSubagentExecutionMode = "async"
+	SelfSubagentExecutionModeImmediate SelfSubagentExecutionMode = "immediate"
+)
+
+// Valid indicates whether the value is a known member of the SelfSubagentExecutionMode enum.
+func (e SelfSubagentExecutionMode) Valid() bool {
+	switch e {
+	case SelfSubagentExecutionModeAsync:
+		return true
+	case SelfSubagentExecutionModeImmediate:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for SendCustomEmailParamsSmbToolType.
 const (
 	SendCustomEmailParamsSmbToolTypeSendCustomEmail SendCustomEmailParamsSmbToolType = "send_custom_email"
@@ -16558,6 +16945,21 @@ func (e StatusId) Valid() bool {
 	}
 }
 
+// Defines values for StreamEndedEventType.
+const (
+	StreamEndedEventTypeStreamEnded StreamEndedEventType = "stream_ended"
+)
+
+// Valid indicates whether the value is a known member of the StreamEndedEventType enum.
+func (e StreamEndedEventType) Valid() bool {
+	switch e {
+	case StreamEndedEventTypeStreamEnded:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for StringSchemaType.
 const (
 	StringSchemaTypeString StringSchemaType = "string"
@@ -16591,6 +16993,42 @@ func (e StudioClipLocatorClipType) Valid() bool {
 	case StudioClipLocatorClipTypeTtsNode:
 		return true
 	case StudioClipLocatorClipTypeVideo:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SubAgentInputExecutionMode.
+const (
+	SubAgentInputExecutionModeAsync     SubAgentInputExecutionMode = "async"
+	SubAgentInputExecutionModeImmediate SubAgentInputExecutionMode = "immediate"
+)
+
+// Valid indicates whether the value is a known member of the SubAgentInputExecutionMode enum.
+func (e SubAgentInputExecutionMode) Valid() bool {
+	switch e {
+	case SubAgentInputExecutionModeAsync:
+		return true
+	case SubAgentInputExecutionModeImmediate:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SubAgentOutputExecutionMode.
+const (
+	SubAgentOutputExecutionModeAsync     SubAgentOutputExecutionMode = "async"
+	SubAgentOutputExecutionModeImmediate SubAgentOutputExecutionMode = "immediate"
+)
+
+// Valid indicates whether the value is a known member of the SubAgentOutputExecutionMode enum.
+func (e SubAgentOutputExecutionMode) Valid() bool {
+	switch e {
+	case SubAgentOutputExecutionModeAsync:
+		return true
+	case SubAgentOutputExecutionModeImmediate:
 		return true
 	default:
 		return false
@@ -17599,6 +18037,21 @@ func (e TestType) Valid() bool {
 	}
 }
 
+// Defines values for TextContentPartType.
+const (
+	TextContentPartTypeText TextContentPartType = "text"
+)
+
+// Valid indicates whether the value is a known member of the TextContentPartType enum.
+func (e TextContentPartType) Valid() bool {
+	switch e {
+	case TextContentPartTypeText:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for TextNormalisationType.
 const (
 	TextNormalisationTypeElevenlabs   TextNormalisationType = "elevenlabs"
@@ -17611,6 +18064,36 @@ func (e TextNormalisationType) Valid() bool {
 	case TextNormalisationTypeElevenlabs:
 		return true
 	case TextNormalisationTypeSystemPrompt:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TextOutputItemRole.
+const (
+	TextOutputItemRoleAgent TextOutputItemRole = "agent"
+)
+
+// Valid indicates whether the value is a known member of the TextOutputItemRole enum.
+func (e TextOutputItemRole) Valid() bool {
+	switch e {
+	case TextOutputItemRoleAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TextOutputItemType.
+const (
+	TextOutputItemTypeText TextOutputItemType = "text"
+)
+
+// Valid indicates whether the value is a known member of the TextOutputItemType enum.
+func (e TextOutputItemType) Valid() bool {
+	switch e {
+	case TextOutputItemTypeText:
 		return true
 	default:
 		return false
@@ -19339,6 +19822,21 @@ func (e UserFeedbackScore) Valid() bool {
 	case UserFeedbackScoreDislike:
 		return true
 	case UserFeedbackScoreLike:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for UserMessageInputItemType.
+const (
+	UserMessageInputItemTypeUserMessage UserMessageInputItemType = "user_message"
+)
+
+// Valid indicates whether the value is a known member of the UserMessageInputItemType enum.
+func (e UserMessageInputItemType) Valid() bool {
+	switch e {
+	case UserMessageInputItemTypeUserMessage:
 		return true
 	default:
 		return false
@@ -23692,6 +24190,26 @@ type AgentCallLimits struct {
 	DailyLimit *int `json:"daily_limit,omitempty"`
 }
 
+// AgentChatResponsePartClientEvent defines model for AgentChatResponsePartClientEvent.
+type AgentChatResponsePartClientEvent struct {
+	TextResponsePart AgentChatResponsePartClientEventData  `json:"text_response_part"`
+	Type             *AgentChatResponsePartClientEventType `json:"type,omitempty"`
+}
+
+// AgentChatResponsePartClientEventType defines model for AgentChatResponsePartClientEvent.Type.
+type AgentChatResponsePartClientEventType string
+
+// AgentChatResponsePartClientEventData defines model for AgentChatResponsePartClientEventData.
+type AgentChatResponsePartClientEventData struct {
+	EventId    int                       `json:"event_id"`
+	ResponseId string                    `json:"response_id"`
+	Text       string                    `json:"text"`
+	Type       AgentChatResponsePartType `json:"type"`
+}
+
+// AgentChatResponsePartType defines model for AgentChatResponsePartType.
+type AgentChatResponsePartType string
+
 // AgentConfigAPIModelInput defines model for AgentConfigAPIModel-Input.
 type AgentConfigAPIModelInput struct {
 	// DisableFirstMessageInterruptions If true, the user will not be able to interrupt the agent while the first message is being delivered.
@@ -23714,6 +24232,9 @@ type AgentConfigAPIModelInput struct {
 
 	// Prompt The prompt for the agent
 	Prompt *PromptAgentAPIModelInput `json:"prompt,omitempty"`
+
+	// SubagentConfig Agents this agent can hand a single turn to. They don't see this conversation.
+	SubagentConfig *SubagentConfigInput `json:"subagent_config,omitempty"`
 
 	// TextBehaviorOverrides Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset.
 	TextBehaviorOverrides *map[string]BehaviorOverride `json:"text_behavior_overrides,omitempty"`
@@ -23741,6 +24262,9 @@ type AgentConfigAPIModelOutput struct {
 
 	// Prompt The prompt for the agent
 	Prompt *PromptAgentAPIModelOutput `json:"prompt,omitempty"`
+
+	// SubagentConfig Agents this agent can hand a single turn to. They don't see this conversation.
+	SubagentConfig *SubagentConfigOutput `json:"subagent_config,omitempty"`
 
 	// TextBehaviorOverrides Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset.
 	TextBehaviorOverrides *map[string]BehaviorOverride `json:"text_behavior_overrides,omitempty"`
@@ -24132,6 +24656,48 @@ type AgentMergeProposalResponse_Outcome struct {
 	union json.RawMessage
 }
 
+// AgentMessagesOverrides defines model for AgentMessagesOverrides.
+type AgentMessagesOverrides struct {
+	// CustomLlmExtraBody Extra fields for the request body that goes to the custom LLM.
+	CustomLlmExtraBody *map[string]interface{} `json:"custom_llm_extra_body,omitempty"`
+
+	// KnowledgeBaseIds If set, the agent uses only these knowledge base documents. Each ID must be attached to the agent.
+	KnowledgeBaseIds *[]string `json:"knowledge_base_ids,omitempty"`
+
+	// Language Language of the agent
+	Language *string `json:"language,omitempty"`
+
+	// Llm The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment
+	Llm *LLM `json:"llm,omitempty"`
+
+	// NativeMcpServerIds If set, the agent uses only these native MCP servers. Each ID must be attached to the agent.
+	NativeMcpServerIds *[]string `json:"native_mcp_server_ids,omitempty"`
+
+	// ProcedureIds If set, only these procedures are available to the starting agent. Each ID must be attached to that agent. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client.
+	ProcedureIds *[]string `json:"procedure_ids,omitempty"`
+
+	// Prompt The prompt for the agent
+	Prompt *string `json:"prompt,omitempty"`
+
+	// ToolIds If set, only these tools are available in the conversation, including tools on workflow nodes. Each ID must be attached to the agent.
+	ToolIds *[]string `json:"tool_ids,omitempty"`
+}
+
+// AgentMessagesPersistedAgent defines model for AgentMessagesPersistedAgent.
+type AgentMessagesPersistedAgent struct {
+	AgentId string `json:"agent_id"`
+
+	// BranchId ID of the agent branch to use for this conversation
+	BranchId *string `json:"branch_id,omitempty"`
+
+	// Overrides Changes to the agent configuration for this conversation. The agent must allow each field that is set.
+	Overrides *AgentMessagesOverrides         `json:"overrides,omitempty"`
+	Type      AgentMessagesPersistedAgentType `json:"type"`
+}
+
+// AgentMessagesPersistedAgentType defines model for AgentMessagesPersistedAgent.Type.
+type AgentMessagesPersistedAgentType string
+
 // AgentMetadata defines model for AgentMetadata.
 type AgentMetadata struct {
 	AgentId        string  `json:"agent_id"`
@@ -24156,6 +24722,16 @@ type AgentMetadataResponseModel struct {
 	// UpdatedAtUnixSecs The last update time of the agent in unix seconds
 	UpdatedAtUnixSecs int `json:"updated_at_unix_secs"`
 }
+
+// AgentOutputError defines model for AgentOutputError.
+type AgentOutputError struct {
+	Code    string `json:"code"`
+	Message string `json:"message"`
+	Type    string `json:"type"`
+}
+
+// AgentOutputStatus defines model for AgentOutputStatus.
+type AgentOutputStatus string
 
 // AgentPlatformSettingsRequestModel defines model for AgentPlatformSettingsRequestModel.
 type AgentPlatformSettingsRequestModel struct {
@@ -24320,6 +24896,51 @@ type AgentQueueingConfig struct {
 	WaitTimeoutSeconds *int `json:"wait_timeout_seconds,omitempty"`
 }
 
+// AgentReasoningResponsePartClientEvent defines model for AgentReasoningResponsePartClientEvent.
+type AgentReasoningResponsePartClientEvent struct {
+	ReasoningResponsePart AgentReasoningResponsePartClientEventData  `json:"reasoning_response_part"`
+	Type                  *AgentReasoningResponsePartClientEventType `json:"type,omitempty"`
+}
+
+// AgentReasoningResponsePartClientEventType defines model for AgentReasoningResponsePartClientEvent.Type.
+type AgentReasoningResponsePartClientEventType string
+
+// AgentReasoningResponsePartClientEventData defines model for AgentReasoningResponsePartClientEventData.
+type AgentReasoningResponsePartClientEventData struct {
+	EventId int                       `json:"event_id"`
+	Text    string                    `json:"text"`
+	Type    AgentChatResponsePartType `json:"type"`
+}
+
+// AgentResponseAttachment defines model for AgentResponseAttachment.
+type AgentResponseAttachment struct {
+	MimeType *string `json:"mime_type,omitempty"`
+	Name     string  `json:"name"`
+	Url      string  `json:"url"`
+}
+
+// AgentResponseClientEvent defines model for AgentResponseClientEvent.
+type AgentResponseClientEvent struct {
+	AgentResponseEvent AgentResponseClientEventData  `json:"agent_response_event"`
+	Type               *AgentResponseClientEventType `json:"type,omitempty"`
+}
+
+// AgentResponseClientEventType defines model for AgentResponseClientEvent.Type.
+type AgentResponseClientEventType string
+
+// AgentResponseClientEventData defines model for AgentResponseClientEventData.
+type AgentResponseClientEventData struct {
+	AgentResponse   string                     `json:"agent_response"`
+	Attachments     *[]AgentResponseAttachment `json:"attachments,omitempty"`
+	EventId         int                        `json:"event_id"`
+	InResponseToIds *[]string                  `json:"in_response_to_ids,omitempty"`
+	ResponseId      string                     `json:"response_id"`
+	ResponseType    *AgentResponseType         `json:"response_type,omitempty"`
+}
+
+// AgentResponseType defines model for AgentResponseType.
+type AgentResponseType string
+
 // AgentRule A single behavioral rule for the agent.
 type AgentRule struct {
 	// CreatedAtUnix When the rule was created, as a Unix timestamp in seconds.
@@ -24413,6 +25034,53 @@ type AgentTestingSettings struct {
 	// AttachedTests List of test IDs that should be run for this agent
 	AttachedTests *[]AttachedTestModel `json:"attached_tests,omitempty"`
 }
+
+// AgentToolRequestClientEventData defines model for AgentToolRequestClientEventData.
+type AgentToolRequestClientEventData struct {
+	DisableInterruptions bool   `json:"disable_interruptions"`
+	EventId              int    `json:"event_id"`
+	ExecutionMode        string `json:"execution_mode"`
+	ExpectsResponse      bool   `json:"expects_response"`
+	ResponseTimeoutSecs  int    `json:"response_timeout_secs"`
+	ToolCallId           string `json:"tool_call_id"`
+	ToolName             string `json:"tool_name"`
+	ToolType             string `json:"tool_type"`
+}
+
+// AgentToolRequestStreamedEvent defines model for AgentToolRequestStreamedEvent.
+type AgentToolRequestStreamedEvent struct {
+	AgentToolRequest AgentToolRequestClientEventData    `json:"agent_tool_request"`
+	Type             *AgentToolRequestStreamedEventType `json:"type,omitempty"`
+}
+
+// AgentToolRequestStreamedEventType defines model for AgentToolRequestStreamedEvent.Type.
+type AgentToolRequestStreamedEventType string
+
+// AgentToolResponseClientEventData defines model for AgentToolResponseClientEventData.
+type AgentToolResponseClientEventData struct {
+	EventId   int   `json:"event_id"`
+	IsBlocked *bool `json:"is_blocked,omitempty"`
+	IsCalled  bool  `json:"is_called"`
+	IsError   bool  `json:"is_error"`
+
+	// Status Tool call status derived from execution flags.
+	Status     *AgentToolResponseStatus `json:"status,omitempty"`
+	ToolCallId string                   `json:"tool_call_id"`
+	ToolName   string                   `json:"tool_name"`
+	ToolType   string                   `json:"tool_type"`
+}
+
+// AgentToolResponseStatus defines model for AgentToolResponseStatus.
+type AgentToolResponseStatus string
+
+// AgentToolResponseStreamedEvent defines model for AgentToolResponseStreamedEvent.
+type AgentToolResponseStreamedEvent struct {
+	AgentToolResponse AgentToolResponseClientEventData    `json:"agent_tool_response"`
+	Type              *AgentToolResponseStreamedEventType `json:"type,omitempty"`
+}
+
+// AgentToolResponseStreamedEventType defines model for AgentToolResponseStreamedEvent.Type.
+type AgentToolResponseStreamedEventType string
 
 // AgentTopicResponseModel defines model for AgentTopicResponseModel.
 type AgentTopicResponseModel struct {
@@ -25696,6 +26364,20 @@ type BackupLLMOverride struct {
 
 // BackupLLMOverridePreference defines model for BackupLLMOverride.Preference.
 type BackupLLMOverridePreference string
+
+// Base64FileSource defines model for Base64FileSource.
+type Base64FileSource struct {
+	// Data The content of the file, base64-encoded.
+	Data string `json:"data"`
+
+	// Filename The name of the file, with its extension.
+	Filename  string               `json:"filename"`
+	MediaType FileInputMimeType    `json:"media_type"`
+	Type      Base64FileSourceType `json:"type"`
+}
+
+// Base64FileSourceType defines model for Base64FileSource.Type.
+type Base64FileSourceType string
 
 // BaseTurnConfig defines model for BaseTurnConfig.
 type BaseTurnConfig struct {
@@ -29348,9 +30030,9 @@ type BuiltInToolsWorkflowOverrideOutput struct {
 
 // BytedanceSeedance25Request Request body for the ByteDance Seedance 2.5 video model.
 //
-// Diverges from the Seedance 2.0 public shape: no 4K, durations up to 30s,
-// larger reference caps, audio-only input allowed, and no “seed“ (Ark
-// tolerates it but does not honour it).
+// Diverges from the Seedance 2.0 public shape: durations up to 30s, larger
+// reference caps, audio-only input allowed, and no “seed“ (Ark tolerates it
+// but does not honour it).
 //
 // ByteDance models are disabled by default and require explicit approval
 // before use. Contact support to request access.
@@ -30276,6 +30958,30 @@ type CheckServiceAvailabilityParams struct {
 // CheckServiceAvailabilityParamsSmbToolType defines model for CheckServiceAvailabilityParams.SmbToolType.
 type CheckServiceAvailabilityParamsSmbToolType string
 
+// ChunkingOverride defines model for ChunkingOverride.
+type ChunkingOverride struct {
+	// CustomSeparators Custom text separators used when splitting. Null uses the inherited value.
+	CustomSeparators *[]string `json:"custom_separators"`
+
+	// MaxChunkSize Maximum chunk size in tokens. Null uses the inherited value.
+	MaxChunkSize *int `json:"max_chunk_size"`
+
+	// OverlapPercentage Chunk overlap as a percentage of the chunk size. Null uses the inherited value.
+	OverlapPercentage *int `json:"overlap_percentage"`
+}
+
+// ChunkingOverrideRequestModel defines model for ChunkingOverrideRequestModel.
+type ChunkingOverrideRequestModel struct {
+	// CustomSeparators Custom text separators used when splitting. Null inherits from ancestors; an empty list clears inherited separators.
+	CustomSeparators *[]string `json:"custom_separators,omitempty"`
+
+	// MaxChunkSize Maximum chunk size in tokens. Null inherits from ancestors or the embedding model default.
+	MaxChunkSize *int `json:"max_chunk_size,omitempty"`
+
+	// OverlapPercentage Chunk overlap as a percentage of the final chunk size, applied after the chunk size is clamped to the embedding model. Null inherits from ancestors or the embedding model default.
+	OverlapPercentage *int `json:"overlap_percentage,omitempty"`
+}
+
 // ClientEvent defines model for ClientEvent.
 type ClientEvent string
 
@@ -30285,6 +30991,37 @@ type ClientSecretResponse struct {
 	Session   *OpenAISessionConfigOutput `json:"session,omitempty"`
 	Value     string                     `json:"value"`
 }
+
+// ClientToolCallClientEventData defines model for ClientToolCallClientEventData.
+type ClientToolCallClientEventData struct {
+	EventId int `json:"event_id"`
+
+	// ExpectsResponse Whether the server expects a ClientToolResult response.
+	ExpectsResponse bool                   `json:"expects_response"`
+	Parameters      map[string]interface{} `json:"parameters"`
+	ToolCallId      string                 `json:"tool_call_id"`
+	ToolName        string                 `json:"tool_name"`
+}
+
+// ClientToolCallEvent `ClientToolCallClientEvent` as a stream event, because its custom `__init__` can't parse its own JSON.
+type ClientToolCallEvent struct {
+	ClientToolCall ClientToolCallClientEventData `json:"client_tool_call"`
+	Type           *ClientToolCallEventType      `json:"type,omitempty"`
+}
+
+// ClientToolCallEventType defines model for ClientToolCallEvent.Type.
+type ClientToolCallEventType string
+
+// ClientToolCallRequiredAction defines model for ClientToolCallRequiredAction.
+type ClientToolCallRequiredAction struct {
+	Parameters map[string]interface{}            `json:"parameters"`
+	ToolCallId string                            `json:"tool_call_id"`
+	ToolName   string                            `json:"tool_name"`
+	Type       *ClientToolCallRequiredActionType `json:"type,omitempty"`
+}
+
+// ClientToolCallRequiredActionType defines model for ClientToolCallRequiredAction.Type.
+type ClientToolCallRequiredActionType string
 
 // ClientToolConfigInput A client tool is one that sends an event to the user's client to trigger something client side
 type ClientToolConfigInput struct {
@@ -30393,6 +31130,24 @@ type ClientToolConfigOutput struct {
 
 // ClientToolConfigOutputType The type of tool
 type ClientToolConfigOutputType string
+
+// ClientToolResultItem A `client_tool_result` whose `type` is required, so that it can share `input` with other items.
+type ClientToolResultItem struct {
+	// ErrorType Optional category for the failure reason. When set, `is_error` is treated as true. `user_rejected` is special-cased to mark the tool as not having been called.
+	ErrorType *ClientToolResultItemErrorType `json:"error_type,omitempty"`
+	IsError   bool                           `json:"is_error"`
+	Result    string                         `json:"result"`
+
+	// ToolCallId ID of the tool call this result corresponds to.
+	ToolCallId string                   `json:"tool_call_id"`
+	Type       ClientToolResultItemType `json:"type"`
+}
+
+// ClientToolResultItemErrorType defines model for ClientToolResultItem.ErrorType.
+type ClientToolResultItemErrorType string
+
+// ClientToolResultItemType defines model for ClientToolResultItem.Type.
+type ClientToolResultItemType string
 
 // ClipAnimation defines model for ClipAnimation.
 type ClipAnimation struct {
@@ -30600,6 +31355,25 @@ type ContextualUpdateInfo struct {
 	// IsSuperseded True when this contextual update has been replaced by a newer update with the same context_id.
 	IsSuperseded *bool `json:"is_superseded,omitempty"`
 }
+
+// ContextualUpdateInputItem defines model for ContextualUpdateInputItem.
+type ContextualUpdateInputItem struct {
+	// ContextId What the update describes. The agent sees only the latest update for each `context_id`.
+	ContextId string `json:"context_id"`
+
+	// Placement `in_place`: the update stays where it was sent, like an event. `end`: the update is current state, sent after the newest message or tool result.
+	Placement *ContextualUpdatePlacement `json:"placement,omitempty"`
+
+	// Text Context for the agent that the user did not write, such as the client's current state.
+	Text string                        `json:"text"`
+	Type ContextualUpdateInputItemType `json:"type"`
+}
+
+// ContextualUpdateInputItemType defines model for ContextualUpdateInputItem.Type.
+type ContextualUpdateInputItemType string
+
+// ContextualUpdatePlacement Where the LLM view renders a contextual update.
+type ContextualUpdatePlacement string
 
 // Contributor defines model for Contributor.
 type Contributor struct {
@@ -31820,6 +32594,20 @@ type ConversationTokenResponseModel struct {
 	TokenRequesterUserId *string `json:"token_requester_user_id,omitempty"`
 }
 
+// ConversationTurn defines model for ConversationTurn.
+type ConversationTurn struct {
+	Error  *AgentOutputError `json:"error,omitempty"`
+	Output *[]TextOutputItem `json:"output,omitempty"`
+
+	// RequiredActions The actions the agent waits on. Answer each `client_tool_call` with a `client_tool_result` item in `input` to continue.
+	RequiredActions *[]ClientToolCallRequiredAction `json:"required_actions,omitempty"`
+	Status          AgentOutputStatus               `json:"status"`
+
+	// StreamCursor Resume token for this turn's event stream. Present while the turn is in progress; pass it as Last-Event-ID to stream the turn's events.
+	StreamCursor *string `json:"stream_cursor,omitempty"`
+	TurnId       string  `json:"turn_id"`
+}
+
 // ConversationTurnMetrics defines model for ConversationTurnMetrics.
 type ConversationTurnMetrics struct {
 	ConvaiAsrProvider *string                  `json:"convai_asr_provider,omitempty"`
@@ -31978,6 +32766,24 @@ type CreateAgentBranchResponseModel struct {
 
 	// CreatedVersionId ID of the first version on the created branch
 	CreatedVersionId string `json:"created_version_id"`
+}
+
+// CreateAgentConversationRequest defines model for CreateAgentConversationRequest.
+type CreateAgentConversationRequest struct {
+	// Agent The agent that runs the turns.
+	Agent            AgentMessagesPersistedAgent `json:"agent"`
+	DynamicVariables *map[string]interface{}     `json:"dynamic_variables,omitempty"`
+
+	// Environment The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to the branch's environment, then 'production'.
+	Environment *string `json:"environment,omitempty"`
+
+	// UserId ID of the end user participating in this conversation (for agent owner's user identification)
+	UserId *string `json:"user_id,omitempty"`
+}
+
+// CreateAgentConversationResponse defines model for CreateAgentConversationResponse.
+type CreateAgentConversationResponse struct {
+	ConversationId string `json:"conversation_id"`
 }
 
 // CreateAgentConversationTicketRequestModel defines model for CreateAgentConversationTicketRequestModel.
@@ -35053,6 +35859,30 @@ type FieldConflict struct {
 	TargetValue interface{} `json:"target_value,omitempty"`
 }
 
+// FileContentPart defines model for FileContentPart.
+type FileContentPart struct {
+	Source FileContentPart_Source `json:"source"`
+	Type   FileContentPartType    `json:"type"`
+}
+
+// FileContentPart_Source defines model for FileContentPart.Source.
+type FileContentPart_Source struct {
+	union json.RawMessage
+}
+
+// FileContentPartType defines model for FileContentPart.Type.
+type FileContentPartType string
+
+// FileIdSource defines model for FileIdSource.
+type FileIdSource struct {
+	// FileId The ID that `POST /v1/convai/conversations/{conversation_id}/files` returned for this conversation.
+	FileId string           `json:"file_id"`
+	Type   FileIdSourceType `json:"type"`
+}
+
+// FileIdSourceType defines model for FileIdSource.Type.
+type FileIdSourceType string
+
 // FileInputConfig defines model for FileInputConfig.
 type FileInputConfig struct {
 	// Enabled When enabled, users may attach images, PDFs, or text files in chat when the LLM supports multimodal input.
@@ -35076,6 +35906,9 @@ type FileInputConfigWorkflowOverride struct {
 	// MaxFilesPerConversation Total files a user can upload in one conversation. Uploads are billed per file. Use -1 for no limit, or a value >= max_files_in_memory.
 	MaxFilesPerConversation *int `json:"max_files_per_conversation,omitempty"`
 }
+
+// FileInputMimeType defines model for FileInputMimeType.
+type FileInputMimeType string
 
 // FileRefreshStatus In-flight/last refresh state for an externally-synced KB file.
 type FileRefreshStatus struct {
@@ -35739,6 +36572,19 @@ type GetAgentResponseModel_PhoneNumbers_Item struct {
 	union json.RawMessage
 }
 
+// GetAgentSubagentDependentsResponseModel Agents and branches that use an agent as a subagent.
+type GetAgentSubagentDependentsResponseModel struct {
+	Agents     []GetAgentSubagentDependentsResponseModel_Agents_Item `json:"agents"`
+	Branches   *[]DependentBranchInfo                                `json:"branches,omitempty"`
+	HasMore    bool                                                  `json:"has_more"`
+	NextCursor *string                                               `json:"next_cursor,omitempty"`
+}
+
+// GetAgentSubagentDependentsResponseModel_Agents_Item defines model for GetAgentSubagentDependentsResponseModel.agents.Item.
+type GetAgentSubagentDependentsResponseModel_Agents_Item struct {
+	union json.RawMessage
+}
+
 // GetAgentTestFolderResponseModel defines model for GetAgentTestFolderResponseModel.
 type GetAgentTestFolderResponseModel struct {
 	// ChildrenCount The number of direct children (tests and subfolders) in this folder
@@ -36006,6 +36852,21 @@ type GetCrawlJobResponseModel struct {
 	UpdatedAt       int          `json:"updated_at"`
 }
 
+// GetDocumentChunkingOverrideResponseModel defines model for GetDocumentChunkingOverrideResponseModel.
+type GetDocumentChunkingOverrideResponseModel struct {
+	// ChunkingOverride Override stored directly on this entity. Null means every setting is inherited.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override"`
+
+	// EffectiveChunkingOverride Effective override after merging this entity with its ancestor folders. Null fields use embedding model defaults.
+	EffectiveChunkingOverride ChunkingOverride `json:"effective_chunking_override"`
+
+	// Id ID of the document or folder whose chunking settings were read.
+	Id string `json:"id"`
+
+	// InheritedChunkingOverride Override inherited from ancestor folders, ignoring this entity's own override. Null fields use embedding model defaults.
+	InheritedChunkingOverride ChunkingOverride `json:"inherited_chunking_override"`
+}
+
 // GetKnowledgeBaseDependentAgentsResponseModel defines model for GetKnowledgeBaseDependentAgentsResponseModel.
 type GetKnowledgeBaseDependentAgentsResponseModel struct {
 	Agents     []GetKnowledgeBaseDependentAgentsResponseModel_Agents_Item `json:"agents"`
@@ -36023,6 +36884,9 @@ type GetKnowledgeBaseDependentAgentsResponseModel_Agents_Item struct {
 type GetKnowledgeBaseFileResponseModel struct {
 	AccessInfo   ResourceAccessInfo `json:"access_info"`
 	AutoSyncInfo *AutoSyncInfo      `json:"auto_sync_info,omitempty"`
+
+	// ChunkingOverride Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override,omitempty"`
 
 	// ContentFormat Canonical representation of a knowledge base document's stored content.
 	//
@@ -36061,6 +36925,9 @@ type GetKnowledgeBaseFolderResponseModel struct {
 	AutoSyncInfo  *AutoSyncInfo      `json:"auto_sync_info,omitempty"`
 	ChildrenCount int                `json:"children_count"`
 
+	// ChunkingOverride Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override,omitempty"`
+
 	// DocumentCount Number of non-folder documents anywhere in this folder's subtree (recursive). Counting stops past 1000;
 	DocumentCount    int                     `json:"document_count"`
 	ExternalSyncInfo *ExternalFolderSyncInfo `json:"external_sync_info,omitempty"`
@@ -36098,7 +36965,10 @@ type GetKnowledgeBaseSummaryFileResponseModel struct {
 	AccessInfo   ResourceAccessInfo `json:"access_info"`
 	AutoSyncInfo *AutoSyncInfo      `json:"auto_sync_info,omitempty"`
 
-	// DependentAgents This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
+	// ChunkingOverride Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override,omitempty"`
+
+	// DependentAgents This field is deprecated, always empty, and will be removed in the future. Use the separate endpoint to get dependent agents instead.
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	DependentAgents  []GetKnowledgeBaseSummaryFileResponseModel_DependentAgents_Item `json:"dependent_agents"`
 	ExternalSyncInfo *ExternalFileSyncInfo                                           `json:"external_sync_info,omitempty"`
@@ -36131,7 +37001,10 @@ type GetKnowledgeBaseSummaryFolderResponseModel struct {
 	AutoSyncInfo  *AutoSyncInfo      `json:"auto_sync_info,omitempty"`
 	ChildrenCount int                `json:"children_count"`
 
-	// DependentAgents This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
+	// ChunkingOverride Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override,omitempty"`
+
+	// DependentAgents This field is deprecated, always empty, and will be removed in the future. Use the separate endpoint to get dependent agents instead.
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	DependentAgents []GetKnowledgeBaseSummaryFolderResponseModel_DependentAgents_Item `json:"dependent_agents"`
 
@@ -36164,7 +37037,10 @@ type GetKnowledgeBaseSummaryFolderResponseModelType string
 type GetKnowledgeBaseSummaryTextResponseModel struct {
 	AccessInfo ResourceAccessInfo `json:"access_info"`
 
-	// DependentAgents This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
+	// ChunkingOverride Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override,omitempty"`
+
+	// DependentAgents This field is deprecated, always empty, and will be removed in the future. Use the separate endpoint to get dependent agents instead.
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	DependentAgents []GetKnowledgeBaseSummaryTextResponseModel_DependentAgents_Item `json:"dependent_agents"`
 
@@ -36193,7 +37069,10 @@ type GetKnowledgeBaseSummaryURLResponseModel struct {
 	AccessInfo   ResourceAccessInfo `json:"access_info"`
 	AutoSyncInfo *AutoSyncInfo      `json:"auto_sync_info,omitempty"`
 
-	// DependentAgents This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
+	// ChunkingOverride Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override,omitempty"`
+
+	// DependentAgents This field is deprecated, always empty, and will be removed in the future. Use the separate endpoint to get dependent agents instead.
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	DependentAgents []GetKnowledgeBaseSummaryURLResponseModel_DependentAgents_Item `json:"dependent_agents"`
 
@@ -36222,6 +37101,9 @@ type GetKnowledgeBaseSummaryURLResponseModelType string
 type GetKnowledgeBaseTextResponseModel struct {
 	AccessInfo ResourceAccessInfo `json:"access_info"`
 
+	// ChunkingOverride Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override,omitempty"`
+
 	// ContentFormat Canonical representation of a knowledge base document's stored content.
 	//
 	// HTML is the legacy default; documents created before this field existed are
@@ -36248,6 +37130,9 @@ type GetKnowledgeBaseTextResponseModelType string
 type GetKnowledgeBaseURLResponseModel struct {
 	AccessInfo   ResourceAccessInfo `json:"access_info"`
 	AutoSyncInfo *AutoSyncInfo      `json:"auto_sync_info,omitempty"`
+
+	// ChunkingOverride Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override,omitempty"`
 
 	// ContentFormat Canonical representation of a knowledge base document's stored content.
 	//
@@ -37764,7 +38649,8 @@ type LLMSchemaOverrideSource string
 // STANDARD: default price and throughput.
 // FAST: pays a per-token price premium for higher throughput / lower latency.
 //
-//	See OpenAI's fast mode: https://openai.com/api-fast-mode/
+//	See OpenAI's fast mode: https://openai.com/api-fast-mode/ and, for Gemini, Vertex
+//	Priority PayGo: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo
 type LLMServiceTier string
 
 // LLMTokensCategoryUsage defines model for LLMTokensCategoryUsage.
@@ -45654,6 +46540,46 @@ type SegmentedJsonExportOptions struct {
 // SegmentedJsonExportOptionsFormat defines model for SegmentedJsonExportOptions.Format.
 type SegmentedJsonExportOptionsFormat string
 
+// SelfSubagent The agent itself, run on the same branch with none of the conversation.
+type SelfSubagent struct {
+	// Description When the agent should hand work to itself. Defaults to a built-in description.
+	Description *string `json:"description,omitempty"`
+
+	// ExecutionMode Whether to wait for the reply, or keep going and get it later in the conversation.
+	ExecutionMode *SelfSubagentExecutionMode `json:"execution_mode,omitempty"`
+
+	// TimeoutSecs How long the agent may run before it's stopped.
+	TimeoutSecs *int `json:"timeout_secs,omitempty"`
+}
+
+// SelfSubagentExecutionMode Whether to wait for the reply, or keep going and get it later in the conversation.
+type SelfSubagentExecutionMode string
+
+// SendConversationMessageRequest defines model for SendConversationMessageRequest.
+type SendConversationMessageRequest struct {
+	// Background If true, return a 202 handle after the turn is admitted instead of waiting for generation to finish.
+	Background *bool `json:"background,omitempty"`
+
+	// Input Either one `user_message`, which starts a new turn, or `client_tool_result` items, which answer the `required_actions` of the waiting turn and continue it. Calls that they leave out stay pending. Client tools wait with no timeout. While calls are pending, a `user_message` is rejected. A `user_message` can come with `contextual_update` items, at most one per `context_id`. `client_tool_result` items that answer every pending call can come with `end` updates.
+	Input []SendConversationMessageRequest_Input_Item `json:"input"`
+}
+
+// SendConversationMessageRequest_Input_Item defines model for SendConversationMessageRequest.input.Item.
+type SendConversationMessageRequest_Input_Item struct {
+	union json.RawMessage
+}
+
+// SendConversationMessageStreamRequest defines model for SendConversationMessageStreamRequest.
+type SendConversationMessageStreamRequest struct {
+	// Input Either one `user_message`, which starts a new turn, or `client_tool_result` items, which answer the `required_actions` of the waiting turn and continue it. Calls that they leave out stay pending. Client tools wait with no timeout. While calls are pending, a `user_message` is rejected. A `user_message` can come with `contextual_update` items, at most one per `context_id`. `client_tool_result` items that answer every pending call can come with `end` updates.
+	Input []SendConversationMessageStreamRequest_Input_Item `json:"input"`
+}
+
+// SendConversationMessageStreamRequest_Input_Item defines model for SendConversationMessageStreamRequest.input.Item.
+type SendConversationMessageStreamRequest_Input_Item struct {
+	union json.RawMessage
+}
+
 // SendCustomEmailParams defines model for SendCustomEmailParams.
 type SendCustomEmailParams struct {
 	SmbToolType *SendCustomEmailParamsSmbToolType `json:"smb_tool_type,omitempty"`
@@ -46506,6 +47432,37 @@ type StoredUsagePlatformLimit struct {
 	Usage *int `json:"usage,omitempty"`
 }
 
+// StreamEndedData defines model for StreamEndedData.
+type StreamEndedData struct {
+	Error *AgentOutputError `json:"error,omitempty"`
+
+	// RequiredActions The actions the agent waits on. Answer each `client_tool_call` with a `client_tool_result` item in `input` to continue.
+	RequiredActions *[]ClientToolCallRequiredAction `json:"required_actions,omitempty"`
+	Status          AgentOutputStatus               `json:"status"`
+}
+
+// StreamEndedEvent defines model for StreamEndedEvent.
+type StreamEndedEvent struct {
+	StreamEndedEvent StreamEndedData       `json:"stream_ended_event"`
+	Type             *StreamEndedEventType `json:"type,omitempty"`
+}
+
+// StreamEndedEventType defines model for StreamEndedEvent.Type.
+type StreamEndedEventType string
+
+// StreamEnvelope defines model for StreamEnvelope.
+type StreamEnvelope struct {
+	ConversationId  string               `json:"conversation_id"`
+	CreatedAtUnixMs int                  `json:"created_at_unix_ms"`
+	Event           StreamEnvelope_Event `json:"event"`
+	TurnId          string               `json:"turn_id"`
+}
+
+// StreamEnvelope_Event defines model for StreamEnvelope.Event.
+type StreamEnvelope_Event struct {
+	union json.RawMessage
+}
+
 // StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel defines model for StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel.
 type StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel struct {
 	// Alignment Timestamp information for each character in the original text
@@ -46586,6 +47543,72 @@ type StudioTextStyleShadowModel struct {
 	OffsetX float32 `json:"offset_x"`
 	OffsetY float32 `json:"offset_y"`
 	Opacity float32 `json:"opacity"`
+}
+
+// SubAgentInput defines model for SubAgent-Input.
+type SubAgentInput struct {
+	// AgentId The agent to run. Must be in the same workspace.
+	AgentId string `json:"agent_id"`
+
+	// BranchId The branch to run. Defaults to the agent's live deployment.
+	BranchId *string `json:"branch_id,omitempty"`
+
+	// Description What the agent is for. Shown to the LLM when it picks an agent.
+	Description string `json:"description"`
+
+	// ExecutionMode Whether to wait for the reply, or keep going and get it later in the conversation.
+	ExecutionMode *SubAgentInputExecutionMode `json:"execution_mode,omitempty"`
+
+	// Parameters Values passed to the agent as dynamic variables.
+	Parameters *ObjectJsonSchemaPropertyInput `json:"parameters,omitempty"`
+
+	// TimeoutSecs How long the agent may run before it's stopped.
+	TimeoutSecs *int `json:"timeout_secs,omitempty"`
+}
+
+// SubAgentInputExecutionMode Whether to wait for the reply, or keep going and get it later in the conversation.
+type SubAgentInputExecutionMode string
+
+// SubAgentOutput defines model for SubAgent-Output.
+type SubAgentOutput struct {
+	// AgentId The agent to run. Must be in the same workspace.
+	AgentId string `json:"agent_id"`
+
+	// BranchId The branch to run. Defaults to the agent's live deployment.
+	BranchId *string `json:"branch_id,omitempty"`
+
+	// Description What the agent is for. Shown to the LLM when it picks an agent.
+	Description string `json:"description"`
+
+	// ExecutionMode Whether to wait for the reply, or keep going and get it later in the conversation.
+	ExecutionMode *SubAgentOutputExecutionMode `json:"execution_mode,omitempty"`
+
+	// Parameters Values passed to the agent as dynamic variables.
+	Parameters *ObjectJsonSchemaPropertyOutput `json:"parameters,omitempty"`
+
+	// TimeoutSecs How long the agent may run before it's stopped.
+	TimeoutSecs *int `json:"timeout_secs,omitempty"`
+}
+
+// SubAgentOutputExecutionMode Whether to wait for the reply, or keep going and get it later in the conversation.
+type SubAgentOutputExecutionMode string
+
+// SubagentConfigInput defines model for SubagentConfig-Input.
+type SubagentConfigInput struct {
+	// Agents Agents this agent can hand a single turn to.
+	Agents *[]SubAgentInput `json:"agents,omitempty"`
+
+	// SelfSubagent Lets this agent hand a single turn to a fresh copy of itself.
+	SelfSubagent *SelfSubagent `json:"self_subagent,omitempty"`
+}
+
+// SubagentConfigOutput defines model for SubagentConfig-Output.
+type SubagentConfigOutput struct {
+	// Agents Agents this agent can hand a single turn to.
+	Agents *[]SubAgentOutput `json:"agents,omitempty"`
+
+	// SelfSubagent Lets this agent hand a single turn to a fresh copy of itself.
+	SelfSubagent *SelfSubagent `json:"self_subagent,omitempty"`
 }
 
 // SubmitBusinessInfoParams Finalize the onboarding interview: create a text knowledge source and mark done.
@@ -47946,8 +48969,32 @@ type TestsFeatureUsageCommonModel struct {
 	TestsRanInLast7Days           *bool `json:"tests_ran_in_last_7_days,omitempty"`
 }
 
+// TextContentPart defines model for TextContentPart.
+type TextContentPart struct {
+	Text string              `json:"text"`
+	Type TextContentPartType `json:"type"`
+}
+
+// TextContentPartType defines model for TextContentPart.Type.
+type TextContentPartType string
+
 // TextNormalisationType Method for converting numbers to words before sending to TTS
 type TextNormalisationType string
+
+// TextOutputItem defines model for TextOutputItem.
+type TextOutputItem struct {
+	CreatedAtUnixMs *int                `json:"created_at_unix_ms,omitempty"`
+	Id              *string             `json:"id,omitempty"`
+	Role            TextOutputItemRole  `json:"role"`
+	Text            string              `json:"text"`
+	Type            *TextOutputItemType `json:"type,omitempty"`
+}
+
+// TextOutputItemRole defines model for TextOutputItem.Role.
+type TextOutputItemRole string
+
+// TextOutputItemType defines model for TextOutputItem.Type.
+type TextOutputItemType string
 
 // TextToSpeechGenerationRequest defines model for TextToSpeechGenerationRequest.
 type TextToSpeechGenerationRequest struct {
@@ -49215,6 +50262,24 @@ type UpdateClientParams struct {
 // UpdateClientParamsSmbToolType defines model for UpdateClientParams.SmbToolType.
 type UpdateClientParamsSmbToolType string
 
+// UpdateDocumentChunkingOverrideRequestModel defines model for UpdateDocumentChunkingOverrideRequestModel.
+type UpdateDocumentChunkingOverrideRequestModel struct {
+	// ChunkingOverride RAG chunking override for a document or folder. Null clears the override so ancestors and embedding model defaults apply.
+	ChunkingOverride *ChunkingOverrideRequestModel `json:"chunking_override"`
+}
+
+// UpdateDocumentChunkingOverrideResponseModel defines model for UpdateDocumentChunkingOverrideResponseModel.
+type UpdateDocumentChunkingOverrideResponseModel struct {
+	// ChunkingOverride The resulting chunking override. Null means the entity inherits from ancestors or the embedding model default.
+	ChunkingOverride *ChunkingOverride `json:"chunking_override"`
+
+	// Id ID of the document or folder whose chunking override was updated.
+	Id string `json:"id"`
+
+	// ReindexQueued Whether the effective configuration changed and background reindexing was queued.
+	ReindexQueued bool `json:"reindex_queued"`
+}
+
 // UpdateEnvironmentVariableRequest defines model for UpdateEnvironmentVariableRequest.
 type UpdateEnvironmentVariableRequest struct {
 	// Values Values to replace. Set to null to remove the value for an environment (except 'production').
@@ -49738,6 +50803,21 @@ type UserFeedback struct {
 
 // UserFeedbackScore defines model for UserFeedbackScore.
 type UserFeedbackScore string
+
+// UserMessageInputItem defines model for UserMessageInputItem.
+type UserMessageInputItem struct {
+	// Content The parts of the message: at most one text part and up to 5 file parts.
+	Content []UserMessageInputItem_Content_Item `json:"content"`
+	Type    UserMessageInputItemType            `json:"type"`
+}
+
+// UserMessageInputItem_Content_Item defines model for UserMessageInputItem.content.Item.
+type UserMessageInputItem_Content_Item struct {
+	union json.RawMessage
+}
+
+// UserMessageInputItemType defines model for UserMessageInputItem.Type.
+type UserMessageInputItemType string
 
 // UserModel OCSF User object.
 //
@@ -53712,6 +54792,18 @@ type RunConversationSimulationRouteStreamParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// GetAgentSubagentDependentsRouteParams defines parameters for GetAgentSubagentDependentsRoute.
+type GetAgentSubagentDependentsRouteParams struct {
+	// PageSize How many Agents to return at maximum. Can not exceed 100, defaults to 30.
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// Cursor Used for fetching next page. Cursor is returned in the response.
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // GetAgentTopicsRouteParams defines parameters for GetAgentTopicsRoute.
 type GetAgentTopicsRouteParams struct {
 	// PageSize Number of top-level topic groups to return.
@@ -54199,6 +55291,12 @@ type GetConversationHistoriesRouteParamsSummaryMode string
 // GetConversationHistoriesRouteParamsExcludeStatuses defines parameters for GetConversationHistoriesRoute.
 type GetConversationHistoriesRouteParamsExcludeStatuses string
 
+// CreateAgentConversationRouteParams defines parameters for CreateAgentConversationRoute.
+type CreateAgentConversationRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // SmartSearchConversationMessagesRouteParams defines parameters for SmartSearchConversationMessagesRoute.
 type SmartSearchConversationMessagesRouteParams struct {
 	// TextQuery The search query text for semantic similarity matching
@@ -54411,6 +55509,18 @@ type GetConversationFileRouteParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// SendConversationMessageRouteParams defines parameters for SendConversationMessageRoute.
+type SendConversationMessageRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SendConversationMessageStreamRouteParams defines parameters for SendConversationMessageStreamRoute.
+type SendConversationMessageStreamRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // GetConversationSipMessagesParams defines parameters for GetConversationSipMessages.
 type GetConversationSipMessagesParams struct {
 	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
@@ -54439,6 +55549,20 @@ type AssignConversationTagsRouteParams struct {
 
 // UnassignConversationTagRouteParams defines parameters for UnassignConversationTagRoute.
 type UnassignConversationTagRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetConversationTurnRouteParams defines parameters for GetConversationTurnRoute.
+type GetConversationTurnRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// StreamConversationTurnEventsRouteParams defines parameters for StreamConversationTurnEventsRoute.
+type StreamConversationTurnEventsRouteParams struct {
+	LastEventID *string `json:"Last-Event-ID,omitempty"`
+
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -54750,6 +55874,18 @@ type GetDocumentationChunkFromKnowledgeBaseParams struct {
 	// EmbeddingModel The embedding model used to retrieve the chunk.
 	EmbeddingModel *EmbeddingModelEnum `form:"embedding_model,omitempty" json:"embedding_model,omitempty"`
 
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetChunkingOverrideRouteParams defines parameters for GetChunkingOverrideRoute.
+type GetChunkingOverrideRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// UpdateChunkingOverrideRouteParams defines parameters for UpdateChunkingOverrideRoute.
+type UpdateChunkingOverrideRouteParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -58559,6 +59695,9 @@ type UpdateAnalysisItemAttachmentsRouteJSONRequestBody = UpdateAnalysisItemAttac
 // CreateBatchCallJSONRequestBody defines body for CreateBatchCall for application/json ContentType.
 type CreateBatchCallJSONRequestBody = BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost
 
+// CreateAgentConversationRouteJSONRequestBody defines body for CreateAgentConversationRoute for application/json ContentType.
+type CreateAgentConversationRouteJSONRequestBody = CreateAgentConversationRequest
+
 // RunConversationEvaluationsJSONRequestBody defines body for RunConversationEvaluations for application/json ContentType.
 type RunConversationEvaluationsJSONRequestBody = RunConversationEvaluationsRequest
 
@@ -58567,6 +59706,12 @@ type PostConversationFeedbackRouteJSONRequestBody = ConversationFeedbackRequestM
 
 // UploadFileRouteMultipartRequestBody defines body for UploadFileRoute for multipart/form-data ContentType.
 type UploadFileRouteMultipartRequestBody = BodyUploadFileV1ConvaiConversationsConversationIdFilesPost
+
+// SendConversationMessageRouteJSONRequestBody defines body for SendConversationMessageRoute for application/json ContentType.
+type SendConversationMessageRouteJSONRequestBody = SendConversationMessageRequest
+
+// SendConversationMessageStreamRouteJSONRequestBody defines body for SendConversationMessageStreamRoute for application/json ContentType.
+type SendConversationMessageStreamRouteJSONRequestBody = SendConversationMessageStreamRequest
 
 // AssignConversationTagsRouteJSONRequestBody defines body for AssignConversationTagsRoute for application/json ContentType.
 type AssignConversationTagsRouteJSONRequestBody = AssignConversationTagsRequestModel
@@ -58620,6 +59765,9 @@ type PostKnowledgeBaseMoveRouteJSONRequestBody = BodyMoveEntityToFolderV1ConvaiK
 
 // UpdateDocumentRouteJSONRequestBody defines body for UpdateDocumentRoute for application/json ContentType.
 type UpdateDocumentRouteJSONRequestBody = BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch
+
+// UpdateChunkingOverrideRouteJSONRequestBody defines body for UpdateChunkingOverrideRoute for application/json ContentType.
+type UpdateChunkingOverrideRouteJSONRequestBody = UpdateDocumentChunkingOverrideRequestModel
 
 // RagIndexStatusJSONRequestBody defines body for RagIndexStatus for application/json ContentType.
 type RagIndexStatusJSONRequestBody = RAGIndexRequestModel
@@ -68277,6 +69425,107 @@ func (t *ExtendedSubscriptionResponseModel_PendingChange) UnmarshalJSON(b []byte
 	return err
 }
 
+// AsBase64FileSource returns the union data inside the FileContentPart_Source as a Base64FileSource
+func (t FileContentPart_Source) AsBase64FileSource() (Base64FileSource, error) {
+	var body Base64FileSource
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromBase64FileSource overwrites any union data inside the FileContentPart_Source as the provided Base64FileSource
+func (t *FileContentPart_Source) FromBase64FileSource(v Base64FileSource) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"base64"}`))
+	t.union = b
+	return err
+}
+
+// MergeBase64FileSource performs a merge with any union data inside the FileContentPart_Source, using the provided Base64FileSource
+func (t *FileContentPart_Source) MergeBase64FileSource(v Base64FileSource) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"base64"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileIdSource returns the union data inside the FileContentPart_Source as a FileIdSource
+func (t FileContentPart_Source) AsFileIdSource() (FileIdSource, error) {
+	var body FileIdSource
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileIdSource overwrites any union data inside the FileContentPart_Source as the provided FileIdSource
+func (t *FileContentPart_Source) FromFileIdSource(v FileIdSource) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"file_id"}`))
+	t.union = b
+	return err
+}
+
+// MergeFileIdSource performs a merge with any union data inside the FileContentPart_Source, using the provided FileIdSource
+func (t *FileContentPart_Source) MergeFileIdSource(v FileIdSource) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"file_id"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileContentPart_Source) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t FileContentPart_Source) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "base64":
+		return t.AsBase64FileSource()
+	case "file_id":
+		return t.AsFileIdSource()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t FileContentPart_Source) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileContentPart_Source) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsGetPhoneNumberTwilioResponseModel returns the union data inside the GetAgentResponseModel_PhoneNumbers_Item as a GetPhoneNumberTwilioResponseModel
 func (t GetAgentResponseModel_PhoneNumbers_Item) AsGetPhoneNumberTwilioResponseModel() (GetPhoneNumberTwilioResponseModel, error) {
 	var body GetPhoneNumberTwilioResponseModel
@@ -68410,6 +69659,107 @@ func (t GetAgentResponseModel_PhoneNumbers_Item) MarshalJSON() ([]byte, error) {
 }
 
 func (t *GetAgentResponseModel_PhoneNumbers_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDependentAvailableAgentIdentifier returns the union data inside the GetAgentSubagentDependentsResponseModel_Agents_Item as a DependentAvailableAgentIdentifier
+func (t GetAgentSubagentDependentsResponseModel_Agents_Item) AsDependentAvailableAgentIdentifier() (DependentAvailableAgentIdentifier, error) {
+	var body DependentAvailableAgentIdentifier
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDependentAvailableAgentIdentifier overwrites any union data inside the GetAgentSubagentDependentsResponseModel_Agents_Item as the provided DependentAvailableAgentIdentifier
+func (t *GetAgentSubagentDependentsResponseModel_Agents_Item) FromDependentAvailableAgentIdentifier(v DependentAvailableAgentIdentifier) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"available"}`))
+	t.union = b
+	return err
+}
+
+// MergeDependentAvailableAgentIdentifier performs a merge with any union data inside the GetAgentSubagentDependentsResponseModel_Agents_Item, using the provided DependentAvailableAgentIdentifier
+func (t *GetAgentSubagentDependentsResponseModel_Agents_Item) MergeDependentAvailableAgentIdentifier(v DependentAvailableAgentIdentifier) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"available"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDependentUnknownAgentIdentifier returns the union data inside the GetAgentSubagentDependentsResponseModel_Agents_Item as a DependentUnknownAgentIdentifier
+func (t GetAgentSubagentDependentsResponseModel_Agents_Item) AsDependentUnknownAgentIdentifier() (DependentUnknownAgentIdentifier, error) {
+	var body DependentUnknownAgentIdentifier
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDependentUnknownAgentIdentifier overwrites any union data inside the GetAgentSubagentDependentsResponseModel_Agents_Item as the provided DependentUnknownAgentIdentifier
+func (t *GetAgentSubagentDependentsResponseModel_Agents_Item) FromDependentUnknownAgentIdentifier(v DependentUnknownAgentIdentifier) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"unknown"}`))
+	t.union = b
+	return err
+}
+
+// MergeDependentUnknownAgentIdentifier performs a merge with any union data inside the GetAgentSubagentDependentsResponseModel_Agents_Item, using the provided DependentUnknownAgentIdentifier
+func (t *GetAgentSubagentDependentsResponseModel_Agents_Item) MergeDependentUnknownAgentIdentifier(v DependentUnknownAgentIdentifier) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"unknown"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t GetAgentSubagentDependentsResponseModel_Agents_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t GetAgentSubagentDependentsResponseModel_Agents_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "available":
+		return t.AsDependentAvailableAgentIdentifier()
+	case "unknown":
+		return t.AsDependentUnknownAgentIdentifier()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t GetAgentSubagentDependentsResponseModel_Agents_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *GetAgentSubagentDependentsResponseModel_Agents_Item) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -82667,6 +84017,280 @@ func (t *SMBToolConfig_Params) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsUserMessageInputItem returns the union data inside the SendConversationMessageRequest_Input_Item as a UserMessageInputItem
+func (t SendConversationMessageRequest_Input_Item) AsUserMessageInputItem() (UserMessageInputItem, error) {
+	var body UserMessageInputItem
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUserMessageInputItem overwrites any union data inside the SendConversationMessageRequest_Input_Item as the provided UserMessageInputItem
+func (t *SendConversationMessageRequest_Input_Item) FromUserMessageInputItem(v UserMessageInputItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"user_message"}`))
+	t.union = b
+	return err
+}
+
+// MergeUserMessageInputItem performs a merge with any union data inside the SendConversationMessageRequest_Input_Item, using the provided UserMessageInputItem
+func (t *SendConversationMessageRequest_Input_Item) MergeUserMessageInputItem(v UserMessageInputItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"user_message"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsClientToolResultItem returns the union data inside the SendConversationMessageRequest_Input_Item as a ClientToolResultItem
+func (t SendConversationMessageRequest_Input_Item) AsClientToolResultItem() (ClientToolResultItem, error) {
+	var body ClientToolResultItem
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromClientToolResultItem overwrites any union data inside the SendConversationMessageRequest_Input_Item as the provided ClientToolResultItem
+func (t *SendConversationMessageRequest_Input_Item) FromClientToolResultItem(v ClientToolResultItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"client_tool_result"}`))
+	t.union = b
+	return err
+}
+
+// MergeClientToolResultItem performs a merge with any union data inside the SendConversationMessageRequest_Input_Item, using the provided ClientToolResultItem
+func (t *SendConversationMessageRequest_Input_Item) MergeClientToolResultItem(v ClientToolResultItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"client_tool_result"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsContextualUpdateInputItem returns the union data inside the SendConversationMessageRequest_Input_Item as a ContextualUpdateInputItem
+func (t SendConversationMessageRequest_Input_Item) AsContextualUpdateInputItem() (ContextualUpdateInputItem, error) {
+	var body ContextualUpdateInputItem
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromContextualUpdateInputItem overwrites any union data inside the SendConversationMessageRequest_Input_Item as the provided ContextualUpdateInputItem
+func (t *SendConversationMessageRequest_Input_Item) FromContextualUpdateInputItem(v ContextualUpdateInputItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"contextual_update"}`))
+	t.union = b
+	return err
+}
+
+// MergeContextualUpdateInputItem performs a merge with any union data inside the SendConversationMessageRequest_Input_Item, using the provided ContextualUpdateInputItem
+func (t *SendConversationMessageRequest_Input_Item) MergeContextualUpdateInputItem(v ContextualUpdateInputItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"contextual_update"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SendConversationMessageRequest_Input_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SendConversationMessageRequest_Input_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "client_tool_result":
+		return t.AsClientToolResultItem()
+	case "contextual_update":
+		return t.AsContextualUpdateInputItem()
+	case "user_message":
+		return t.AsUserMessageInputItem()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SendConversationMessageRequest_Input_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SendConversationMessageRequest_Input_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsUserMessageInputItem returns the union data inside the SendConversationMessageStreamRequest_Input_Item as a UserMessageInputItem
+func (t SendConversationMessageStreamRequest_Input_Item) AsUserMessageInputItem() (UserMessageInputItem, error) {
+	var body UserMessageInputItem
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUserMessageInputItem overwrites any union data inside the SendConversationMessageStreamRequest_Input_Item as the provided UserMessageInputItem
+func (t *SendConversationMessageStreamRequest_Input_Item) FromUserMessageInputItem(v UserMessageInputItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"user_message"}`))
+	t.union = b
+	return err
+}
+
+// MergeUserMessageInputItem performs a merge with any union data inside the SendConversationMessageStreamRequest_Input_Item, using the provided UserMessageInputItem
+func (t *SendConversationMessageStreamRequest_Input_Item) MergeUserMessageInputItem(v UserMessageInputItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"user_message"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsClientToolResultItem returns the union data inside the SendConversationMessageStreamRequest_Input_Item as a ClientToolResultItem
+func (t SendConversationMessageStreamRequest_Input_Item) AsClientToolResultItem() (ClientToolResultItem, error) {
+	var body ClientToolResultItem
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromClientToolResultItem overwrites any union data inside the SendConversationMessageStreamRequest_Input_Item as the provided ClientToolResultItem
+func (t *SendConversationMessageStreamRequest_Input_Item) FromClientToolResultItem(v ClientToolResultItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"client_tool_result"}`))
+	t.union = b
+	return err
+}
+
+// MergeClientToolResultItem performs a merge with any union data inside the SendConversationMessageStreamRequest_Input_Item, using the provided ClientToolResultItem
+func (t *SendConversationMessageStreamRequest_Input_Item) MergeClientToolResultItem(v ClientToolResultItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"client_tool_result"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsContextualUpdateInputItem returns the union data inside the SendConversationMessageStreamRequest_Input_Item as a ContextualUpdateInputItem
+func (t SendConversationMessageStreamRequest_Input_Item) AsContextualUpdateInputItem() (ContextualUpdateInputItem, error) {
+	var body ContextualUpdateInputItem
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromContextualUpdateInputItem overwrites any union data inside the SendConversationMessageStreamRequest_Input_Item as the provided ContextualUpdateInputItem
+func (t *SendConversationMessageStreamRequest_Input_Item) FromContextualUpdateInputItem(v ContextualUpdateInputItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"contextual_update"}`))
+	t.union = b
+	return err
+}
+
+// MergeContextualUpdateInputItem performs a merge with any union data inside the SendConversationMessageStreamRequest_Input_Item, using the provided ContextualUpdateInputItem
+func (t *SendConversationMessageStreamRequest_Input_Item) MergeContextualUpdateInputItem(v ContextualUpdateInputItem) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"contextual_update"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SendConversationMessageStreamRequest_Input_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SendConversationMessageStreamRequest_Input_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "client_tool_result":
+		return t.AsClientToolResultItem()
+	case "contextual_update":
+		return t.AsContextualUpdateInputItem()
+	case "user_message":
+		return t.AsUserMessageInputItem()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SendConversationMessageStreamRequest_Input_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SendConversationMessageStreamRequest_Input_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsSpeechEngineConfigRequestHeaders0 returns the union data inside the SpeechEngineConfig_RequestHeaders_AdditionalProperties as a SpeechEngineConfigRequestHeaders0
 func (t SpeechEngineConfig_RequestHeaders_AdditionalProperties) AsSpeechEngineConfigRequestHeaders0() (SpeechEngineConfigRequestHeaders0, error) {
 	var body SpeechEngineConfigRequestHeaders0
@@ -82813,6 +84437,287 @@ func (t StartProcedureToolConfig_Procedures_AdditionalProperties) MarshalJSON() 
 }
 
 func (t *StartProcedureToolConfig_Procedures_AdditionalProperties) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsStreamEndedEvent returns the union data inside the StreamEnvelope_Event as a StreamEndedEvent
+func (t StreamEnvelope_Event) AsStreamEndedEvent() (StreamEndedEvent, error) {
+	var body StreamEndedEvent
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromStreamEndedEvent overwrites any union data inside the StreamEnvelope_Event as the provided StreamEndedEvent
+func (t *StreamEnvelope_Event) FromStreamEndedEvent(v StreamEndedEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"stream_ended"}`))
+	t.union = b
+	return err
+}
+
+// MergeStreamEndedEvent performs a merge with any union data inside the StreamEnvelope_Event, using the provided StreamEndedEvent
+func (t *StreamEnvelope_Event) MergeStreamEndedEvent(v StreamEndedEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"stream_ended"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAgentChatResponsePartClientEvent returns the union data inside the StreamEnvelope_Event as a AgentChatResponsePartClientEvent
+func (t StreamEnvelope_Event) AsAgentChatResponsePartClientEvent() (AgentChatResponsePartClientEvent, error) {
+	var body AgentChatResponsePartClientEvent
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAgentChatResponsePartClientEvent overwrites any union data inside the StreamEnvelope_Event as the provided AgentChatResponsePartClientEvent
+func (t *StreamEnvelope_Event) FromAgentChatResponsePartClientEvent(v AgentChatResponsePartClientEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_chat_response_part"}`))
+	t.union = b
+	return err
+}
+
+// MergeAgentChatResponsePartClientEvent performs a merge with any union data inside the StreamEnvelope_Event, using the provided AgentChatResponsePartClientEvent
+func (t *StreamEnvelope_Event) MergeAgentChatResponsePartClientEvent(v AgentChatResponsePartClientEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_chat_response_part"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAgentReasoningResponsePartClientEvent returns the union data inside the StreamEnvelope_Event as a AgentReasoningResponsePartClientEvent
+func (t StreamEnvelope_Event) AsAgentReasoningResponsePartClientEvent() (AgentReasoningResponsePartClientEvent, error) {
+	var body AgentReasoningResponsePartClientEvent
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAgentReasoningResponsePartClientEvent overwrites any union data inside the StreamEnvelope_Event as the provided AgentReasoningResponsePartClientEvent
+func (t *StreamEnvelope_Event) FromAgentReasoningResponsePartClientEvent(v AgentReasoningResponsePartClientEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_reasoning_response_part"}`))
+	t.union = b
+	return err
+}
+
+// MergeAgentReasoningResponsePartClientEvent performs a merge with any union data inside the StreamEnvelope_Event, using the provided AgentReasoningResponsePartClientEvent
+func (t *StreamEnvelope_Event) MergeAgentReasoningResponsePartClientEvent(v AgentReasoningResponsePartClientEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_reasoning_response_part"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAgentResponseClientEvent returns the union data inside the StreamEnvelope_Event as a AgentResponseClientEvent
+func (t StreamEnvelope_Event) AsAgentResponseClientEvent() (AgentResponseClientEvent, error) {
+	var body AgentResponseClientEvent
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAgentResponseClientEvent overwrites any union data inside the StreamEnvelope_Event as the provided AgentResponseClientEvent
+func (t *StreamEnvelope_Event) FromAgentResponseClientEvent(v AgentResponseClientEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_response"}`))
+	t.union = b
+	return err
+}
+
+// MergeAgentResponseClientEvent performs a merge with any union data inside the StreamEnvelope_Event, using the provided AgentResponseClientEvent
+func (t *StreamEnvelope_Event) MergeAgentResponseClientEvent(v AgentResponseClientEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_response"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAgentToolRequestStreamedEvent returns the union data inside the StreamEnvelope_Event as a AgentToolRequestStreamedEvent
+func (t StreamEnvelope_Event) AsAgentToolRequestStreamedEvent() (AgentToolRequestStreamedEvent, error) {
+	var body AgentToolRequestStreamedEvent
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAgentToolRequestStreamedEvent overwrites any union data inside the StreamEnvelope_Event as the provided AgentToolRequestStreamedEvent
+func (t *StreamEnvelope_Event) FromAgentToolRequestStreamedEvent(v AgentToolRequestStreamedEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_tool_request"}`))
+	t.union = b
+	return err
+}
+
+// MergeAgentToolRequestStreamedEvent performs a merge with any union data inside the StreamEnvelope_Event, using the provided AgentToolRequestStreamedEvent
+func (t *StreamEnvelope_Event) MergeAgentToolRequestStreamedEvent(v AgentToolRequestStreamedEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_tool_request"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAgentToolResponseStreamedEvent returns the union data inside the StreamEnvelope_Event as a AgentToolResponseStreamedEvent
+func (t StreamEnvelope_Event) AsAgentToolResponseStreamedEvent() (AgentToolResponseStreamedEvent, error) {
+	var body AgentToolResponseStreamedEvent
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAgentToolResponseStreamedEvent overwrites any union data inside the StreamEnvelope_Event as the provided AgentToolResponseStreamedEvent
+func (t *StreamEnvelope_Event) FromAgentToolResponseStreamedEvent(v AgentToolResponseStreamedEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_tool_response"}`))
+	t.union = b
+	return err
+}
+
+// MergeAgentToolResponseStreamedEvent performs a merge with any union data inside the StreamEnvelope_Event, using the provided AgentToolResponseStreamedEvent
+func (t *StreamEnvelope_Event) MergeAgentToolResponseStreamedEvent(v AgentToolResponseStreamedEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"agent_tool_response"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsClientToolCallEvent returns the union data inside the StreamEnvelope_Event as a ClientToolCallEvent
+func (t StreamEnvelope_Event) AsClientToolCallEvent() (ClientToolCallEvent, error) {
+	var body ClientToolCallEvent
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromClientToolCallEvent overwrites any union data inside the StreamEnvelope_Event as the provided ClientToolCallEvent
+func (t *StreamEnvelope_Event) FromClientToolCallEvent(v ClientToolCallEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"client_tool_call"}`))
+	t.union = b
+	return err
+}
+
+// MergeClientToolCallEvent performs a merge with any union data inside the StreamEnvelope_Event, using the provided ClientToolCallEvent
+func (t *StreamEnvelope_Event) MergeClientToolCallEvent(v ClientToolCallEvent) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"client_tool_call"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t StreamEnvelope_Event) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t StreamEnvelope_Event) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "agent_chat_response_part":
+		return t.AsAgentChatResponsePartClientEvent()
+	case "agent_reasoning_response_part":
+		return t.AsAgentReasoningResponsePartClientEvent()
+	case "agent_response":
+		return t.AsAgentResponseClientEvent()
+	case "agent_tool_request":
+		return t.AsAgentToolRequestStreamedEvent()
+	case "agent_tool_response":
+		return t.AsAgentToolResponseStreamedEvent()
+	case "client_tool_call":
+		return t.AsClientToolCallEvent()
+	case "stream_ended":
+		return t.AsStreamEndedEvent()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t StreamEnvelope_Event) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *StreamEnvelope_Event) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -86445,6 +88350,107 @@ func (t UserEvaluationAnalysisItem_Scoring) MarshalJSON() ([]byte, error) {
 }
 
 func (t *UserEvaluationAnalysisItem_Scoring) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTextContentPart returns the union data inside the UserMessageInputItem_Content_Item as a TextContentPart
+func (t UserMessageInputItem_Content_Item) AsTextContentPart() (TextContentPart, error) {
+	var body TextContentPart
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTextContentPart overwrites any union data inside the UserMessageInputItem_Content_Item as the provided TextContentPart
+func (t *UserMessageInputItem_Content_Item) FromTextContentPart(v TextContentPart) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"text"}`))
+	t.union = b
+	return err
+}
+
+// MergeTextContentPart performs a merge with any union data inside the UserMessageInputItem_Content_Item, using the provided TextContentPart
+func (t *UserMessageInputItem_Content_Item) MergeTextContentPart(v TextContentPart) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"text"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileContentPart returns the union data inside the UserMessageInputItem_Content_Item as a FileContentPart
+func (t UserMessageInputItem_Content_Item) AsFileContentPart() (FileContentPart, error) {
+	var body FileContentPart
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileContentPart overwrites any union data inside the UserMessageInputItem_Content_Item as the provided FileContentPart
+func (t *UserMessageInputItem_Content_Item) FromFileContentPart(v FileContentPart) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"file"}`))
+	t.union = b
+	return err
+}
+
+// MergeFileContentPart performs a merge with any union data inside the UserMessageInputItem_Content_Item, using the provided FileContentPart
+func (t *UserMessageInputItem_Content_Item) MergeFileContentPart(v FileContentPart) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"file"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t UserMessageInputItem_Content_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t UserMessageInputItem_Content_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "file":
+		return t.AsFileContentPart()
+	case "text":
+		return t.AsTextContentPart()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t UserMessageInputItem_Content_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *UserMessageInputItem_Content_Item) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -94781,6 +96787,13 @@ type ClientInterface interface {
 	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	RunConversationSimulationRouteStream(ctx context.Context, agentId string, params *RunConversationSimulationRouteStreamParams, body RunConversationSimulationRouteStreamJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetAgentSubagentDependentsRoute Get Agent Subagent Dependents
+	//
+	// Get a list of agents that use this agent as a subagent.
+	//
+	// Corresponds with GET /v1/convai/agents/{agent_id}/subagent-dependents (the `GetAgentSubagentDependentsRoute` operationId).
+	GetAgentSubagentDependentsRoute(ctx context.Context, agentId string, params *GetAgentSubagentDependentsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetAgentTopicsRoute Get Agent Conversation Topics
 	//
 	// Returns the latest topic discovery run results for a given agent.
@@ -95027,6 +97040,24 @@ type ClientInterface interface {
 	// Corresponds with GET /v1/convai/conversations (the `GetConversationHistoriesRoute` operationId).
 	GetConversationHistoriesRoute(ctx context.Context, params *GetConversationHistoriesRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// CreateAgentConversationRouteWithBody Create Conversation
+	//
+	// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/conversations (the `CreateAgentConversationRoute` operationId).
+	CreateAgentConversationRouteWithBody(ctx context.Context, params *CreateAgentConversationRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateAgentConversationRoute Create Conversation
+	//
+	// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/conversations (the `CreateAgentConversationRoute` operationId).
+	CreateAgentConversationRoute(ctx context.Context, params *CreateAgentConversationRouteParams, body CreateAgentConversationRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// SmartSearchConversationMessagesRoute Smart Search Conversation Messages
 	//
 	// Search conversation transcripts by semantic similarity to surface relevant messages based on meaning and intent, rather than exact keyword matches
@@ -95135,6 +97166,42 @@ type ClientInterface interface {
 	// Corresponds with GET /v1/convai/conversations/{conversation_id}/files/{file_id} (the `GetConversationFileRoute` operationId).
 	GetConversationFileRoute(ctx context.Context, conversationId string, fileId string, params *GetConversationFileRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// SendConversationMessageRouteWithBody Send Conversation Message
+	//
+	// Send input to a conversation, and wait until the agent finishes or waits on client tool results. With `background` set to true, the endpoint returns 202 when the server admits the turn. Then stream the turn's events with `Last-Event-ID` set to the `stream_cursor`. This endpoint is in alpha and may change.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages (the `SendConversationMessageRoute` operationId).
+	SendConversationMessageRouteWithBody(ctx context.Context, conversationId string, params *SendConversationMessageRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SendConversationMessageRoute Send Conversation Message
+	//
+	// Send input to a conversation, and wait until the agent finishes or waits on client tool results. With `background` set to true, the endpoint returns 202 when the server admits the turn. Then stream the turn's events with `Last-Event-ID` set to the `stream_cursor`. This endpoint is in alpha and may change.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages (the `SendConversationMessageRoute` operationId).
+	SendConversationMessageRoute(ctx context.Context, conversationId string, params *SendConversationMessageRouteParams, body SendConversationMessageRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SendConversationMessageStreamRouteWithBody Send Conversation Message Stream
+	//
+	// Send input to a conversation, and stream the events of the request as server-sent events. The last event is `stream_ended`, which has the outcome of the turn. This endpoint is in alpha and may change.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages/stream (the `SendConversationMessageStreamRoute` operationId).
+	SendConversationMessageStreamRouteWithBody(ctx context.Context, conversationId string, params *SendConversationMessageStreamRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SendConversationMessageStreamRoute Send Conversation Message Stream
+	//
+	// Send input to a conversation, and stream the events of the request as server-sent events. The last event is `stream_ended`, which has the outcome of the turn. This endpoint is in alpha and may change.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages/stream (the `SendConversationMessageStreamRoute` operationId).
+	SendConversationMessageStreamRoute(ctx context.Context, conversationId string, params *SendConversationMessageStreamRouteParams, body SendConversationMessageStreamRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetConversationSipMessages Get Sip Messages For A Conversation
 	//
 	// Get SIP messages associated with a conversation's phone call.
@@ -95173,6 +97240,20 @@ type ClientInterface interface {
 	//
 	// Corresponds with DELETE /v1/convai/conversations/{conversation_id}/tags/{tag_id} (the `UnassignConversationTagRoute` operationId).
 	UnassignConversationTagRoute(ctx context.Context, conversationId string, tagId string, params *UnassignConversationTagRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetConversationTurnRoute Get Conversation Turn
+	//
+	// Get the status and output of a turn. The status comes from the stored transcript, so a turn that failed after the agent started can show as completed. Only the `stream_ended` event has the real outcome. This endpoint is in alpha and may change.
+	//
+	// Corresponds with GET /v1/convai/conversations/{conversation_id}/turns/{turn_id} (the `GetConversationTurnRoute` operationId).
+	GetConversationTurnRoute(ctx context.Context, conversationId string, turnId string, params *GetConversationTurnRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// StreamConversationTurnEventsRoute Stream Conversation Turn Events
+	//
+	// Stream the events of a turn as server-sent events. Send `Last-Event-ID` to resume after an event. The server keeps events for about an hour. This endpoint is in alpha and may change.
+	//
+	// Corresponds with GET /v1/convai/conversations/{conversation_id}/turns/{turn_id}/events (the `StreamConversationTurnEventsRoute` operationId).
+	StreamConversationTurnEventsRoute(ctx context.Context, conversationId string, turnId string, params *StreamConversationTurnEventsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ListEnvironmentVariables List Environment Variables
 	//
@@ -95550,6 +97631,31 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /v1/convai/knowledge-base/{documentation_id}/chunk/{chunk_id} (the `GetDocumentationChunkFromKnowledgeBase` operationId).
 	GetDocumentationChunkFromKnowledgeBase(ctx context.Context, documentationId string, chunkId string, params *GetDocumentationChunkFromKnowledgeBaseParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetChunkingOverrideRoute Get Chunking Override
+	//
+	// Get the stored and effective RAG chunking overrides for a document or folder.
+	//
+	// Corresponds with GET /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `GetChunkingOverrideRoute` operationId).
+	GetChunkingOverrideRoute(ctx context.Context, documentationId string, params *GetChunkingOverrideRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateChunkingOverrideRouteWithBody Update Chunking Override
+	//
+	// Set or clear the RAG chunking override for a document or folder.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `UpdateChunkingOverrideRoute` operationId).
+	UpdateChunkingOverrideRouteWithBody(ctx context.Context, documentationId string, params *UpdateChunkingOverrideRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateChunkingOverrideRoute Update Chunking Override
+	//
+	// Set or clear the RAG chunking override for a document or folder.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `UpdateChunkingOverrideRoute` operationId).
+	UpdateChunkingOverrideRoute(ctx context.Context, documentationId string, params *UpdateChunkingOverrideRouteParams, body UpdateChunkingOverrideRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetDocumentationChunksFromKnowledgeBase Get All Rag Chunks For A Document
 	//
@@ -101958,6 +104064,23 @@ func (c *Client) RunConversationSimulationRouteStream(ctx context.Context, agent
 	return c.Client.Do(req)
 }
 
+// GetAgentSubagentDependentsRoute Get Agent Subagent Dependents
+//
+// Get a list of agents that use this agent as a subagent.
+//
+// Corresponds with GET /v1/convai/agents/{agent_id}/subagent-dependents (the `GetAgentSubagentDependentsRoute` operationId).
+func (c *Client) GetAgentSubagentDependentsRoute(ctx context.Context, agentId string, params *GetAgentSubagentDependentsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAgentSubagentDependentsRouteRequest(c.Server, agentId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // GetAgentTopicsRoute Get Agent Conversation Topics
 //
 // Returns the latest topic discovery run results for a given agent.
@@ -102523,6 +104646,44 @@ func (c *Client) GetConversationHistoriesRoute(ctx context.Context, params *GetC
 	return c.Client.Do(req)
 }
 
+// CreateAgentConversationRouteWithBody Create Conversation
+//
+// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/conversations (the `CreateAgentConversationRoute` operationId).
+func (c *Client) CreateAgentConversationRouteWithBody(ctx context.Context, params *CreateAgentConversationRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateAgentConversationRouteRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateAgentConversationRoute Create Conversation
+//
+// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/conversations (the `CreateAgentConversationRoute` operationId).
+func (c *Client) CreateAgentConversationRoute(ctx context.Context, params *CreateAgentConversationRouteParams, body CreateAgentConversationRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateAgentConversationRouteRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // SmartSearchConversationMessagesRoute Smart Search Conversation Messages
 //
 // # Search conversation transcripts by semantic similarity to surface relevant messages based on meaning and intent, rather than exact keyword matches
@@ -102771,6 +104932,82 @@ func (c *Client) GetConversationFileRoute(ctx context.Context, conversationId st
 	return c.Client.Do(req)
 }
 
+// SendConversationMessageRouteWithBody Send Conversation Message
+//
+// Send input to a conversation, and wait until the agent finishes or waits on client tool results. With `background` set to true, the endpoint returns 202 when the server admits the turn. Then stream the turn's events with `Last-Event-ID` set to the `stream_cursor`. This endpoint is in alpha and may change.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages (the `SendConversationMessageRoute` operationId).
+func (c *Client) SendConversationMessageRouteWithBody(ctx context.Context, conversationId string, params *SendConversationMessageRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendConversationMessageRouteRequestWithBody(c.Server, conversationId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SendConversationMessageRoute Send Conversation Message
+//
+// Send input to a conversation, and wait until the agent finishes or waits on client tool results. With `background` set to true, the endpoint returns 202 when the server admits the turn. Then stream the turn's events with `Last-Event-ID` set to the `stream_cursor`. This endpoint is in alpha and may change.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages (the `SendConversationMessageRoute` operationId).
+func (c *Client) SendConversationMessageRoute(ctx context.Context, conversationId string, params *SendConversationMessageRouteParams, body SendConversationMessageRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendConversationMessageRouteRequest(c.Server, conversationId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SendConversationMessageStreamRouteWithBody Send Conversation Message Stream
+//
+// Send input to a conversation, and stream the events of the request as server-sent events. The last event is `stream_ended`, which has the outcome of the turn. This endpoint is in alpha and may change.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages/stream (the `SendConversationMessageStreamRoute` operationId).
+func (c *Client) SendConversationMessageStreamRouteWithBody(ctx context.Context, conversationId string, params *SendConversationMessageStreamRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendConversationMessageStreamRouteRequestWithBody(c.Server, conversationId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SendConversationMessageStreamRoute Send Conversation Message Stream
+//
+// Send input to a conversation, and stream the events of the request as server-sent events. The last event is `stream_ended`, which has the outcome of the turn. This endpoint is in alpha and may change.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages/stream (the `SendConversationMessageStreamRoute` operationId).
+func (c *Client) SendConversationMessageStreamRoute(ctx context.Context, conversationId string, params *SendConversationMessageStreamRouteParams, body SendConversationMessageStreamRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendConversationMessageStreamRouteRequest(c.Server, conversationId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // GetConversationSipMessages Get Sip Messages For A Conversation
 //
 // Get SIP messages associated with a conversation's phone call.
@@ -102850,6 +105087,40 @@ func (c *Client) AssignConversationTagsRoute(ctx context.Context, conversationId
 // Corresponds with DELETE /v1/convai/conversations/{conversation_id}/tags/{tag_id} (the `UnassignConversationTagRoute` operationId).
 func (c *Client) UnassignConversationTagRoute(ctx context.Context, conversationId string, tagId string, params *UnassignConversationTagRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewUnassignConversationTagRouteRequest(c.Server, conversationId, tagId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetConversationTurnRoute Get Conversation Turn
+//
+// Get the status and output of a turn. The status comes from the stored transcript, so a turn that failed after the agent started can show as completed. Only the `stream_ended` event has the real outcome. This endpoint is in alpha and may change.
+//
+// Corresponds with GET /v1/convai/conversations/{conversation_id}/turns/{turn_id} (the `GetConversationTurnRoute` operationId).
+func (c *Client) GetConversationTurnRoute(ctx context.Context, conversationId string, turnId string, params *GetConversationTurnRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetConversationTurnRouteRequest(c.Server, conversationId, turnId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// StreamConversationTurnEventsRoute Stream Conversation Turn Events
+//
+// Stream the events of a turn as server-sent events. Send `Last-Event-ID` to resume after an event. The server keeps events for about an hour. This endpoint is in alpha and may change.
+//
+// Corresponds with GET /v1/convai/conversations/{conversation_id}/turns/{turn_id}/events (the `StreamConversationTurnEventsRoute` operationId).
+func (c *Client) StreamConversationTurnEventsRoute(ctx context.Context, conversationId string, turnId string, params *StreamConversationTurnEventsRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewStreamConversationTurnEventsRouteRequest(c.Server, conversationId, turnId, params)
 	if err != nil {
 		return nil, err
 	}
@@ -103676,6 +105947,61 @@ func (c *Client) UpdateDocumentRoute(ctx context.Context, documentationId string
 // Corresponds with GET /v1/convai/knowledge-base/{documentation_id}/chunk/{chunk_id} (the `GetDocumentationChunkFromKnowledgeBase` operationId).
 func (c *Client) GetDocumentationChunkFromKnowledgeBase(ctx context.Context, documentationId string, chunkId string, params *GetDocumentationChunkFromKnowledgeBaseParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetDocumentationChunkFromKnowledgeBaseRequest(c.Server, documentationId, chunkId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetChunkingOverrideRoute Get Chunking Override
+//
+// Get the stored and effective RAG chunking overrides for a document or folder.
+//
+// Corresponds with GET /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `GetChunkingOverrideRoute` operationId).
+func (c *Client) GetChunkingOverrideRoute(ctx context.Context, documentationId string, params *GetChunkingOverrideRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetChunkingOverrideRouteRequest(c.Server, documentationId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateChunkingOverrideRouteWithBody Update Chunking Override
+//
+// Set or clear the RAG chunking override for a document or folder.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `UpdateChunkingOverrideRoute` operationId).
+func (c *Client) UpdateChunkingOverrideRouteWithBody(ctx context.Context, documentationId string, params *UpdateChunkingOverrideRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateChunkingOverrideRouteRequestWithBody(c.Server, documentationId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateChunkingOverrideRoute Update Chunking Override
+//
+// Set or clear the RAG chunking override for a document or folder.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `UpdateChunkingOverrideRoute` operationId).
+func (c *Client) UpdateChunkingOverrideRoute(ctx context.Context, documentationId string, params *UpdateChunkingOverrideRouteParams, body UpdateChunkingOverrideRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateChunkingOverrideRouteRequest(c.Server, documentationId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -118608,6 +120934,94 @@ func NewRunConversationSimulationRouteStreamRequestWithBody(server string, agent
 	return req, nil
 }
 
+// NewGetAgentSubagentDependentsRouteRequest constructs an http.Request for the GetAgentSubagentDependentsRoute method
+func NewGetAgentSubagentDependentsRouteRequest(server string, agentId string, params *GetAgentSubagentDependentsRouteParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/agents/%s/subagent-dependents", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewGetAgentTopicsRouteRequest constructs an http.Request for the GetAgentTopicsRoute method
 func NewGetAgentTopicsRouteRequest(server string, agentId string, params *GetAgentTopicsRouteParams) (*http.Request, error) {
 	var err error
@@ -121398,6 +123812,61 @@ func NewGetConversationHistoriesRouteRequest(server string, params *GetConversat
 	return req, nil
 }
 
+// NewCreateAgentConversationRouteRequest calls the generic CreateAgentConversationRoute builder with application/json body
+func NewCreateAgentConversationRouteRequest(server string, params *CreateAgentConversationRouteParams, body CreateAgentConversationRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateAgentConversationRouteRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewCreateAgentConversationRouteRequestWithBody constructs an http.Request for the CreateAgentConversationRoute method, with any body, and a specified content type
+func NewCreateAgentConversationRouteRequestWithBody(server string, params *CreateAgentConversationRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/conversations")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewSmartSearchConversationMessagesRouteRequest constructs an http.Request for the SmartSearchConversationMessagesRoute method
 func NewSmartSearchConversationMessagesRouteRequest(server string, params *SmartSearchConversationMessagesRouteParams) (*http.Request, error) {
 	var err error
@@ -122600,6 +125069,130 @@ func NewGetConversationFileRouteRequest(server string, conversationId string, fi
 	return req, nil
 }
 
+// NewSendConversationMessageRouteRequest calls the generic SendConversationMessageRoute builder with application/json body
+func NewSendConversationMessageRouteRequest(server string, conversationId string, params *SendConversationMessageRouteParams, body SendConversationMessageRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSendConversationMessageRouteRequestWithBody(server, conversationId, params, "application/json", bodyReader)
+}
+
+// NewSendConversationMessageRouteRequestWithBody constructs an http.Request for the SendConversationMessageRoute method, with any body, and a specified content type
+func NewSendConversationMessageRouteRequestWithBody(server string, conversationId string, params *SendConversationMessageRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "conversation_id", conversationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/conversations/%s/messages", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSendConversationMessageStreamRouteRequest calls the generic SendConversationMessageStreamRoute builder with application/json body
+func NewSendConversationMessageStreamRouteRequest(server string, conversationId string, params *SendConversationMessageStreamRouteParams, body SendConversationMessageStreamRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSendConversationMessageStreamRouteRequestWithBody(server, conversationId, params, "application/json", bodyReader)
+}
+
+// NewSendConversationMessageStreamRouteRequestWithBody constructs an http.Request for the SendConversationMessageStreamRoute method, with any body, and a specified content type
+func NewSendConversationMessageStreamRouteRequestWithBody(server string, conversationId string, params *SendConversationMessageStreamRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "conversation_id", conversationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/conversations/%s/messages/stream", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewGetConversationSipMessagesRequest constructs an http.Request for the GetConversationSipMessages method
 func NewGetConversationSipMessagesRequest(server string, conversationId string, params *GetConversationSipMessagesParams) (*http.Request, error) {
 	var err error
@@ -122875,6 +125468,129 @@ func NewUnassignConversationTagRouteRequest(server string, conversationId string
 			}
 
 			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetConversationTurnRouteRequest constructs an http.Request for the GetConversationTurnRoute method
+func NewGetConversationTurnRouteRequest(server string, conversationId string, turnId string, params *GetConversationTurnRouteParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "conversation_id", conversationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "turn_id", turnId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/conversations/%s/turns/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewStreamConversationTurnEventsRouteRequest constructs an http.Request for the StreamConversationTurnEventsRoute method
+func NewStreamConversationTurnEventsRouteRequest(server string, conversationId string, turnId string, params *StreamConversationTurnEventsRouteParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "conversation_id", conversationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "turn_id", turnId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/conversations/%s/turns/%s/events", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.LastEventID != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "Last-Event-ID", *params.LastEventID, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("Last-Event-ID", headerParam0)
+		}
+
+		if params.XiApiKey != nil {
+			var headerParam1 string
+
+			headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam1)
 		}
 
 	}
@@ -124953,6 +127669,117 @@ func NewGetDocumentationChunkFromKnowledgeBaseRequest(server string, documentati
 	if err != nil {
 		return nil, err
 	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetChunkingOverrideRouteRequest constructs an http.Request for the GetChunkingOverrideRoute method
+func NewGetChunkingOverrideRouteRequest(server string, documentationId string, params *GetChunkingOverrideRouteParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "documentation_id", documentationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/knowledge-base/%s/chunking-override", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewUpdateChunkingOverrideRouteRequest calls the generic UpdateChunkingOverrideRoute builder with application/json body
+func NewUpdateChunkingOverrideRouteRequest(server string, documentationId string, params *UpdateChunkingOverrideRouteParams, body UpdateChunkingOverrideRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateChunkingOverrideRouteRequestWithBody(server, documentationId, params, "application/json", bodyReader)
+}
+
+// NewUpdateChunkingOverrideRouteRequestWithBody constructs an http.Request for the UpdateChunkingOverrideRoute method, with any body, and a specified content type
+func NewUpdateChunkingOverrideRouteRequestWithBody(server string, documentationId string, params *UpdateChunkingOverrideRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "documentation_id", documentationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/knowledge-base/%s/chunking-override", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	if params != nil {
 
@@ -152116,6 +154943,15 @@ type ClientWithResponsesInterface interface {
 	// Deprecated: this operation has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	RunConversationSimulationRouteStreamWithResponse(ctx context.Context, agentId string, params *RunConversationSimulationRouteStreamParams, body RunConversationSimulationRouteStreamJSONRequestBody, reqEditors ...RequestEditorFn) (*RunConversationSimulationRouteStreamResponse, error)
 
+	// GetAgentSubagentDependentsRouteWithResponse Get Agent Subagent Dependents
+	//
+	// Get a list of agents that use this agent as a subagent.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/agents/{agent_id}/subagent-dependents (the `GetAgentSubagentDependentsRoute` operationId).
+	GetAgentSubagentDependentsRouteWithResponse(ctx context.Context, agentId string, params *GetAgentSubagentDependentsRouteParams, reqEditors ...RequestEditorFn) (*GetAgentSubagentDependentsRouteResponse, error)
+
 	// GetAgentTopicsRouteWithResponse Get Agent Conversation Topics
 	//
 	// Returns the latest topic discovery run results for a given agent.
@@ -152406,6 +155242,24 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /v1/convai/conversations (the `GetConversationHistoriesRoute` operationId).
 	GetConversationHistoriesRouteWithResponse(ctx context.Context, params *GetConversationHistoriesRouteParams, reqEditors ...RequestEditorFn) (*GetConversationHistoriesRouteResponse, error)
 
+	// CreateAgentConversationRouteWithBodyWithResponse Create Conversation
+	//
+	// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/conversations (the `CreateAgentConversationRoute` operationId).
+	CreateAgentConversationRouteWithBodyWithResponse(ctx context.Context, params *CreateAgentConversationRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateAgentConversationRouteResponse, error)
+
+	// CreateAgentConversationRouteWithResponse Create Conversation
+	//
+	// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/conversations (the `CreateAgentConversationRoute` operationId).
+	CreateAgentConversationRouteWithResponse(ctx context.Context, params *CreateAgentConversationRouteParams, body CreateAgentConversationRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateAgentConversationRouteResponse, error)
+
 	// SmartSearchConversationMessagesRouteWithResponse Smart Search Conversation Messages
 	//
 	// Search conversation transcripts by semantic similarity to surface relevant messages based on meaning and intent, rather than exact keyword matches
@@ -152532,6 +155386,42 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /v1/convai/conversations/{conversation_id}/files/{file_id} (the `GetConversationFileRoute` operationId).
 	GetConversationFileRouteWithResponse(ctx context.Context, conversationId string, fileId string, params *GetConversationFileRouteParams, reqEditors ...RequestEditorFn) (*GetConversationFileRouteResponse, error)
 
+	// SendConversationMessageRouteWithBodyWithResponse Send Conversation Message
+	//
+	// Send input to a conversation, and wait until the agent finishes or waits on client tool results. With `background` set to true, the endpoint returns 202 when the server admits the turn. Then stream the turn's events with `Last-Event-ID` set to the `stream_cursor`. This endpoint is in alpha and may change.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages (the `SendConversationMessageRoute` operationId).
+	SendConversationMessageRouteWithBodyWithResponse(ctx context.Context, conversationId string, params *SendConversationMessageRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendConversationMessageRouteResponse, error)
+
+	// SendConversationMessageRouteWithResponse Send Conversation Message
+	//
+	// Send input to a conversation, and wait until the agent finishes or waits on client tool results. With `background` set to true, the endpoint returns 202 when the server admits the turn. Then stream the turn's events with `Last-Event-ID` set to the `stream_cursor`. This endpoint is in alpha and may change.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages (the `SendConversationMessageRoute` operationId).
+	SendConversationMessageRouteWithResponse(ctx context.Context, conversationId string, params *SendConversationMessageRouteParams, body SendConversationMessageRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*SendConversationMessageRouteResponse, error)
+
+	// SendConversationMessageStreamRouteWithBodyWithResponse Send Conversation Message Stream
+	//
+	// Send input to a conversation, and stream the events of the request as server-sent events. The last event is `stream_ended`, which has the outcome of the turn. This endpoint is in alpha and may change.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages/stream (the `SendConversationMessageStreamRoute` operationId).
+	SendConversationMessageStreamRouteWithBodyWithResponse(ctx context.Context, conversationId string, params *SendConversationMessageStreamRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendConversationMessageStreamRouteResponse, error)
+
+	// SendConversationMessageStreamRouteWithResponse Send Conversation Message Stream
+	//
+	// Send input to a conversation, and stream the events of the request as server-sent events. The last event is `stream_ended`, which has the outcome of the turn. This endpoint is in alpha and may change.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages/stream (the `SendConversationMessageStreamRoute` operationId).
+	SendConversationMessageStreamRouteWithResponse(ctx context.Context, conversationId string, params *SendConversationMessageStreamRouteParams, body SendConversationMessageStreamRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*SendConversationMessageStreamRouteResponse, error)
+
 	// GetConversationSipMessagesWithResponse Get Sip Messages For A Conversation
 	//
 	// Get SIP messages associated with a conversation's phone call.
@@ -152576,6 +155466,24 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with DELETE /v1/convai/conversations/{conversation_id}/tags/{tag_id} (the `UnassignConversationTagRoute` operationId).
 	UnassignConversationTagRouteWithResponse(ctx context.Context, conversationId string, tagId string, params *UnassignConversationTagRouteParams, reqEditors ...RequestEditorFn) (*UnassignConversationTagRouteResponse, error)
+
+	// GetConversationTurnRouteWithResponse Get Conversation Turn
+	//
+	// Get the status and output of a turn. The status comes from the stored transcript, so a turn that failed after the agent started can show as completed. Only the `stream_ended` event has the real outcome. This endpoint is in alpha and may change.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/conversations/{conversation_id}/turns/{turn_id} (the `GetConversationTurnRoute` operationId).
+	GetConversationTurnRouteWithResponse(ctx context.Context, conversationId string, turnId string, params *GetConversationTurnRouteParams, reqEditors ...RequestEditorFn) (*GetConversationTurnRouteResponse, error)
+
+	// StreamConversationTurnEventsRouteWithResponse Stream Conversation Turn Events
+	//
+	// Stream the events of a turn as server-sent events. Send `Last-Event-ID` to resume after an event. The server keeps events for about an hour. This endpoint is in alpha and may change.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/conversations/{conversation_id}/turns/{turn_id}/events (the `StreamConversationTurnEventsRoute` operationId).
+	StreamConversationTurnEventsRouteWithResponse(ctx context.Context, conversationId string, turnId string, params *StreamConversationTurnEventsRouteParams, reqEditors ...RequestEditorFn) (*StreamConversationTurnEventsRouteResponse, error)
 
 	// ListEnvironmentVariablesWithResponse List Environment Variables
 	//
@@ -152983,6 +155891,33 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /v1/convai/knowledge-base/{documentation_id}/chunk/{chunk_id} (the `GetDocumentationChunkFromKnowledgeBase` operationId).
 	GetDocumentationChunkFromKnowledgeBaseWithResponse(ctx context.Context, documentationId string, chunkId string, params *GetDocumentationChunkFromKnowledgeBaseParams, reqEditors ...RequestEditorFn) (*GetDocumentationChunkFromKnowledgeBaseResponse, error)
+
+	// GetChunkingOverrideRouteWithResponse Get Chunking Override
+	//
+	// Get the stored and effective RAG chunking overrides for a document or folder.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `GetChunkingOverrideRoute` operationId).
+	GetChunkingOverrideRouteWithResponse(ctx context.Context, documentationId string, params *GetChunkingOverrideRouteParams, reqEditors ...RequestEditorFn) (*GetChunkingOverrideRouteResponse, error)
+
+	// UpdateChunkingOverrideRouteWithBodyWithResponse Update Chunking Override
+	//
+	// Set or clear the RAG chunking override for a document or folder.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `UpdateChunkingOverrideRoute` operationId).
+	UpdateChunkingOverrideRouteWithBodyWithResponse(ctx context.Context, documentationId string, params *UpdateChunkingOverrideRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateChunkingOverrideRouteResponse, error)
+
+	// UpdateChunkingOverrideRouteWithResponse Update Chunking Override
+	//
+	// Set or clear the RAG chunking override for a document or folder.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `UpdateChunkingOverrideRoute` operationId).
+	UpdateChunkingOverrideRouteWithResponse(ctx context.Context, documentationId string, params *UpdateChunkingOverrideRouteParams, body UpdateChunkingOverrideRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateChunkingOverrideRouteResponse, error)
 
 	// GetDocumentationChunksFromKnowledgeBaseWithResponse Get All Rag Chunks For A Document
 	//
@@ -161334,6 +164269,54 @@ func (r RunConversationSimulationRouteStreamResponse) ContentType() string {
 	return ""
 }
 
+type GetAgentSubagentDependentsRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *GetAgentSubagentDependentsResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetAgentSubagentDependentsRouteResponse) GetJSON200() *GetAgentSubagentDependentsResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetAgentSubagentDependentsRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetAgentSubagentDependentsRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetAgentSubagentDependentsRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetAgentSubagentDependentsRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetAgentSubagentDependentsRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetAgentTopicsRouteResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -162616,6 +165599,54 @@ func (r GetConversationHistoriesRouteResponse) ContentType() string {
 	return ""
 }
 
+type CreateAgentConversationRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *CreateAgentConversationResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r CreateAgentConversationRouteResponse) GetJSON200() *CreateAgentConversationResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CreateAgentConversationRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateAgentConversationRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateAgentConversationRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateAgentConversationRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateAgentConversationRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type SmartSearchConversationMessagesRouteResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -163178,6 +166209,116 @@ func (r GetConversationFileRouteResponse) ContentType() string {
 	return ""
 }
 
+// SendConversationMessageRouteResponse202Headers the declared response headers of an HTTP 202 response for SendConversationMessageRoute
+type SendConversationMessageRouteResponse202Headers struct {
+	Location *string
+}
+
+type SendConversationMessageRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ConversationTurn
+	// JSON202 the response for an HTTP 202 `application/json` response
+	JSON202 *ConversationTurn
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+	// Headers202 the parsed response headers for an HTTP 202 response
+	Headers202 *SendConversationMessageRouteResponse202Headers
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SendConversationMessageRouteResponse) GetJSON200() *ConversationTurn {
+	return r.JSON200
+}
+
+// GetJSON202 returns the response for an HTTP 202 `application/json` response
+func (r SendConversationMessageRouteResponse) GetJSON202() *ConversationTurn {
+	return r.JSON202
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SendConversationMessageRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SendConversationMessageRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SendConversationMessageRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SendConversationMessageRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SendConversationMessageRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SendConversationMessageStreamRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *StreamEnvelope
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SendConversationMessageStreamRouteResponse) GetJSON200() *StreamEnvelope {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SendConversationMessageStreamRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SendConversationMessageStreamRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SendConversationMessageStreamRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SendConversationMessageStreamRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SendConversationMessageStreamRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetConversationSipMessagesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -163350,6 +166491,102 @@ func (r UnassignConversationTagRouteResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r UnassignConversationTagRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetConversationTurnRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ConversationTurn
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetConversationTurnRouteResponse) GetJSON200() *ConversationTurn {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetConversationTurnRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetConversationTurnRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetConversationTurnRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetConversationTurnRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetConversationTurnRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type StreamConversationTurnEventsRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *StreamEnvelope
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r StreamConversationTurnEventsRouteResponse) GetJSON200() *StreamEnvelope {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r StreamConversationTurnEventsRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r StreamConversationTurnEventsRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r StreamConversationTurnEventsRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StreamConversationTurnEventsRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r StreamConversationTurnEventsRouteResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -164810,6 +168047,102 @@ func (r GetDocumentationChunkFromKnowledgeBaseResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r GetDocumentationChunkFromKnowledgeBaseResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetChunkingOverrideRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *GetDocumentChunkingOverrideResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetChunkingOverrideRouteResponse) GetJSON200() *GetDocumentChunkingOverrideResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetChunkingOverrideRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetChunkingOverrideRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetChunkingOverrideRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetChunkingOverrideRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetChunkingOverrideRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type UpdateChunkingOverrideRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *UpdateDocumentChunkingOverrideResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r UpdateChunkingOverrideRouteResponse) GetJSON200() *UpdateDocumentChunkingOverrideResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r UpdateChunkingOverrideRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateChunkingOverrideRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateChunkingOverrideRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateChunkingOverrideRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateChunkingOverrideRouteResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -184971,6 +188304,21 @@ func (c *ClientWithResponses) RunConversationSimulationRouteStreamWithResponse(c
 	return ParseRunConversationSimulationRouteStreamResponse(rsp)
 }
 
+// GetAgentSubagentDependentsRouteWithResponse Get Agent Subagent Dependents
+//
+// Get a list of agents that use this agent as a subagent.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/agents/{agent_id}/subagent-dependents (the `GetAgentSubagentDependentsRoute` operationId).
+func (c *ClientWithResponses) GetAgentSubagentDependentsRouteWithResponse(ctx context.Context, agentId string, params *GetAgentSubagentDependentsRouteParams, reqEditors ...RequestEditorFn) (*GetAgentSubagentDependentsRouteResponse, error) {
+	rsp, err := c.GetAgentSubagentDependentsRoute(ctx, agentId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetAgentSubagentDependentsRouteResponse(rsp)
+}
+
 // GetAgentTopicsRouteWithResponse Get Agent Conversation Topics
 //
 // Returns the latest topic discovery run results for a given agent.
@@ -185453,6 +188801,36 @@ func (c *ClientWithResponses) GetConversationHistoriesRouteWithResponse(ctx cont
 	return ParseGetConversationHistoriesRouteResponse(rsp)
 }
 
+// CreateAgentConversationRouteWithBodyWithResponse Create Conversation
+//
+// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/conversations (the `CreateAgentConversationRoute` operationId).
+func (c *ClientWithResponses) CreateAgentConversationRouteWithBodyWithResponse(ctx context.Context, params *CreateAgentConversationRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateAgentConversationRouteResponse, error) {
+	rsp, err := c.CreateAgentConversationRouteWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateAgentConversationRouteResponse(rsp)
+}
+
+// CreateAgentConversationRouteWithResponse Create Conversation
+//
+// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/conversations (the `CreateAgentConversationRoute` operationId).
+func (c *ClientWithResponses) CreateAgentConversationRouteWithResponse(ctx context.Context, params *CreateAgentConversationRouteParams, body CreateAgentConversationRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateAgentConversationRouteResponse, error) {
+	rsp, err := c.CreateAgentConversationRoute(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateAgentConversationRouteResponse(rsp)
+}
+
 // SmartSearchConversationMessagesRouteWithResponse Smart Search Conversation Messages
 //
 // # Search conversation transcripts by semantic similarity to surface relevant messages based on meaning and intent, rather than exact keyword matches
@@ -185663,6 +189041,66 @@ func (c *ClientWithResponses) GetConversationFileRouteWithResponse(ctx context.C
 	return ParseGetConversationFileRouteResponse(rsp)
 }
 
+// SendConversationMessageRouteWithBodyWithResponse Send Conversation Message
+//
+// Send input to a conversation, and wait until the agent finishes or waits on client tool results. With `background` set to true, the endpoint returns 202 when the server admits the turn. Then stream the turn's events with `Last-Event-ID` set to the `stream_cursor`. This endpoint is in alpha and may change.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages (the `SendConversationMessageRoute` operationId).
+func (c *ClientWithResponses) SendConversationMessageRouteWithBodyWithResponse(ctx context.Context, conversationId string, params *SendConversationMessageRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendConversationMessageRouteResponse, error) {
+	rsp, err := c.SendConversationMessageRouteWithBody(ctx, conversationId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSendConversationMessageRouteResponse(rsp)
+}
+
+// SendConversationMessageRouteWithResponse Send Conversation Message
+//
+// Send input to a conversation, and wait until the agent finishes or waits on client tool results. With `background` set to true, the endpoint returns 202 when the server admits the turn. Then stream the turn's events with `Last-Event-ID` set to the `stream_cursor`. This endpoint is in alpha and may change.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages (the `SendConversationMessageRoute` operationId).
+func (c *ClientWithResponses) SendConversationMessageRouteWithResponse(ctx context.Context, conversationId string, params *SendConversationMessageRouteParams, body SendConversationMessageRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*SendConversationMessageRouteResponse, error) {
+	rsp, err := c.SendConversationMessageRoute(ctx, conversationId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSendConversationMessageRouteResponse(rsp)
+}
+
+// SendConversationMessageStreamRouteWithBodyWithResponse Send Conversation Message Stream
+//
+// Send input to a conversation, and stream the events of the request as server-sent events. The last event is `stream_ended`, which has the outcome of the turn. This endpoint is in alpha and may change.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages/stream (the `SendConversationMessageStreamRoute` operationId).
+func (c *ClientWithResponses) SendConversationMessageStreamRouteWithBodyWithResponse(ctx context.Context, conversationId string, params *SendConversationMessageStreamRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendConversationMessageStreamRouteResponse, error) {
+	rsp, err := c.SendConversationMessageStreamRouteWithBody(ctx, conversationId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSendConversationMessageStreamRouteResponse(rsp)
+}
+
+// SendConversationMessageStreamRouteWithResponse Send Conversation Message Stream
+//
+// Send input to a conversation, and stream the events of the request as server-sent events. The last event is `stream_ended`, which has the outcome of the turn. This endpoint is in alpha and may change.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/messages/stream (the `SendConversationMessageStreamRoute` operationId).
+func (c *ClientWithResponses) SendConversationMessageStreamRouteWithResponse(ctx context.Context, conversationId string, params *SendConversationMessageStreamRouteParams, body SendConversationMessageStreamRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*SendConversationMessageStreamRouteResponse, error) {
+	rsp, err := c.SendConversationMessageStreamRoute(ctx, conversationId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSendConversationMessageStreamRouteResponse(rsp)
+}
+
 // GetConversationSipMessagesWithResponse Get Sip Messages For A Conversation
 //
 // Get SIP messages associated with a conversation's phone call.
@@ -185736,6 +189174,36 @@ func (c *ClientWithResponses) UnassignConversationTagRouteWithResponse(ctx conte
 		return nil, err
 	}
 	return ParseUnassignConversationTagRouteResponse(rsp)
+}
+
+// GetConversationTurnRouteWithResponse Get Conversation Turn
+//
+// Get the status and output of a turn. The status comes from the stored transcript, so a turn that failed after the agent started can show as completed. Only the `stream_ended` event has the real outcome. This endpoint is in alpha and may change.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/conversations/{conversation_id}/turns/{turn_id} (the `GetConversationTurnRoute` operationId).
+func (c *ClientWithResponses) GetConversationTurnRouteWithResponse(ctx context.Context, conversationId string, turnId string, params *GetConversationTurnRouteParams, reqEditors ...RequestEditorFn) (*GetConversationTurnRouteResponse, error) {
+	rsp, err := c.GetConversationTurnRoute(ctx, conversationId, turnId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetConversationTurnRouteResponse(rsp)
+}
+
+// StreamConversationTurnEventsRouteWithResponse Stream Conversation Turn Events
+//
+// Stream the events of a turn as server-sent events. Send `Last-Event-ID` to resume after an event. The server keeps events for about an hour. This endpoint is in alpha and may change.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/conversations/{conversation_id}/turns/{turn_id}/events (the `StreamConversationTurnEventsRoute` operationId).
+func (c *ClientWithResponses) StreamConversationTurnEventsRouteWithResponse(ctx context.Context, conversationId string, turnId string, params *StreamConversationTurnEventsRouteParams, reqEditors ...RequestEditorFn) (*StreamConversationTurnEventsRouteResponse, error) {
+	rsp, err := c.StreamConversationTurnEventsRoute(ctx, conversationId, turnId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseStreamConversationTurnEventsRouteResponse(rsp)
 }
 
 // ListEnvironmentVariablesWithResponse List Environment Variables
@@ -186413,6 +189881,51 @@ func (c *ClientWithResponses) GetDocumentationChunkFromKnowledgeBaseWithResponse
 		return nil, err
 	}
 	return ParseGetDocumentationChunkFromKnowledgeBaseResponse(rsp)
+}
+
+// GetChunkingOverrideRouteWithResponse Get Chunking Override
+//
+// Get the stored and effective RAG chunking overrides for a document or folder.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `GetChunkingOverrideRoute` operationId).
+func (c *ClientWithResponses) GetChunkingOverrideRouteWithResponse(ctx context.Context, documentationId string, params *GetChunkingOverrideRouteParams, reqEditors ...RequestEditorFn) (*GetChunkingOverrideRouteResponse, error) {
+	rsp, err := c.GetChunkingOverrideRoute(ctx, documentationId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetChunkingOverrideRouteResponse(rsp)
+}
+
+// UpdateChunkingOverrideRouteWithBodyWithResponse Update Chunking Override
+//
+// Set or clear the RAG chunking override for a document or folder.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `UpdateChunkingOverrideRoute` operationId).
+func (c *ClientWithResponses) UpdateChunkingOverrideRouteWithBodyWithResponse(ctx context.Context, documentationId string, params *UpdateChunkingOverrideRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateChunkingOverrideRouteResponse, error) {
+	rsp, err := c.UpdateChunkingOverrideRouteWithBody(ctx, documentationId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateChunkingOverrideRouteResponse(rsp)
+}
+
+// UpdateChunkingOverrideRouteWithResponse Update Chunking Override
+//
+// Set or clear the RAG chunking override for a document or folder.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/convai/knowledge-base/{documentation_id}/chunking-override (the `UpdateChunkingOverrideRoute` operationId).
+func (c *ClientWithResponses) UpdateChunkingOverrideRouteWithResponse(ctx context.Context, documentationId string, params *UpdateChunkingOverrideRouteParams, body UpdateChunkingOverrideRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateChunkingOverrideRouteResponse, error) {
+	rsp, err := c.UpdateChunkingOverrideRoute(ctx, documentationId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateChunkingOverrideRouteResponse(rsp)
 }
 
 // GetDocumentationChunksFromKnowledgeBaseWithResponse Get All Rag Chunks For A Document
@@ -197020,6 +200533,39 @@ func ParseRunConversationSimulationRouteStreamResponse(rsp *http.Response) (*Run
 	return response, nil
 }
 
+// ParseGetAgentSubagentDependentsRouteResponse parses an HTTP response from a GetAgentSubagentDependentsRouteWithResponse call
+func ParseGetAgentSubagentDependentsRouteResponse(rsp *http.Response) (*GetAgentSubagentDependentsRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetAgentSubagentDependentsRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetAgentSubagentDependentsResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetAgentTopicsRouteResponse parses an HTTP response from a GetAgentTopicsRouteWithResponse call
 func ParseGetAgentTopicsRouteResponse(rsp *http.Response) (*GetAgentTopicsRouteResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -197900,6 +201446,39 @@ func ParseGetConversationHistoriesRouteResponse(rsp *http.Response) (*GetConvers
 	return response, nil
 }
 
+// ParseCreateAgentConversationRouteResponse parses an HTTP response from a CreateAgentConversationRouteWithResponse call
+func ParseCreateAgentConversationRouteResponse(rsp *http.Response) (*CreateAgentConversationRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateAgentConversationRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CreateAgentConversationResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseSmartSearchConversationMessagesRouteResponse parses an HTTP response from a SmartSearchConversationMessagesRouteWithResponse call
 func ParseSmartSearchConversationMessagesRouteResponse(rsp *http.Response) (*SmartSearchConversationMessagesRouteResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -198282,6 +201861,92 @@ func ParseGetConversationFileRouteResponse(rsp *http.Response) (*GetConversation
 	return response, nil
 }
 
+// ParseSendConversationMessageRouteResponse parses an HTTP response from a SendConversationMessageRouteWithResponse call
+func ParseSendConversationMessageRouteResponse(rsp *http.Response) (*SendConversationMessageRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SendConversationMessageRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ConversationTurn
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 202:
+		var dest ConversationTurn
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON202 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	switch {
+	case rsp.StatusCode == 202:
+		var headers SendConversationMessageRouteResponse202Headers
+		if values := rsp.Header.Values("Location"); len(values) > 0 {
+			var value string
+			if err := runtime.BindStyledParameterWithOptions("simple", "Location", values[0], &value, runtime.BindStyledParameterOptions{ParamLocation: runtime.ParamLocationHeader, Explode: false, Required: false, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			}
+			headers.Location = &value
+		}
+		response.Headers202 = &headers
+	}
+
+	return response, nil
+}
+
+// ParseSendConversationMessageStreamRouteResponse parses an HTTP response from a SendConversationMessageStreamRouteWithResponse call
+func ParseSendConversationMessageStreamRouteResponse(rsp *http.Response) (*SendConversationMessageStreamRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SendConversationMessageStreamRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest StreamEnvelope
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetConversationSipMessagesResponse parses an HTTP response from a GetConversationSipMessagesWithResponse call
 func ParseGetConversationSipMessagesResponse(rsp *http.Response) (*GetConversationSipMessagesResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -198393,6 +202058,72 @@ func ParseUnassignConversationTagRouteResponse(rsp *http.Response) (*UnassignCon
 	switch {
 	case rsp.StatusCode == 204:
 		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetConversationTurnRouteResponse parses an HTTP response from a GetConversationTurnRouteWithResponse call
+func ParseGetConversationTurnRouteResponse(rsp *http.Response) (*GetConversationTurnRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetConversationTurnRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ConversationTurn
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseStreamConversationTurnEventsRouteResponse parses an HTTP response from a StreamConversationTurnEventsRouteWithResponse call
+func ParseStreamConversationTurnEventsRouteResponse(rsp *http.Response) (*StreamConversationTurnEventsRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StreamConversationTurnEventsRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest StreamEnvelope
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
 		var dest HTTPValidationError
@@ -199432,6 +203163,72 @@ func ParseGetDocumentationChunkFromKnowledgeBaseResponse(rsp *http.Response) (*G
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest KnowledgeBaseDocumentChunkResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetChunkingOverrideRouteResponse parses an HTTP response from a GetChunkingOverrideRouteWithResponse call
+func ParseGetChunkingOverrideRouteResponse(rsp *http.Response) (*GetChunkingOverrideRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetChunkingOverrideRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetDocumentChunkingOverrideResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateChunkingOverrideRouteResponse parses an HTTP response from a UpdateChunkingOverrideRouteWithResponse call
+func ParseUpdateChunkingOverrideRouteResponse(rsp *http.Response) (*UpdateChunkingOverrideRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateChunkingOverrideRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest UpdateDocumentChunkingOverrideResponseModel
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
