@@ -14923,6 +14923,504 @@ func (e RealtimeModel) Valid() bool {
 	}
 }
 
+// Defines values for ReceptionAgentInfoResponseCurrency.
+const (
+	ReceptionAgentInfoResponseCurrencyAED ReceptionAgentInfoResponseCurrency = "AED"
+	ReceptionAgentInfoResponseCurrencyARS ReceptionAgentInfoResponseCurrency = "ARS"
+	ReceptionAgentInfoResponseCurrencyAUD ReceptionAgentInfoResponseCurrency = "AUD"
+	ReceptionAgentInfoResponseCurrencyBDT ReceptionAgentInfoResponseCurrency = "BDT"
+	ReceptionAgentInfoResponseCurrencyBGN ReceptionAgentInfoResponseCurrency = "BGN"
+	ReceptionAgentInfoResponseCurrencyBRL ReceptionAgentInfoResponseCurrency = "BRL"
+	ReceptionAgentInfoResponseCurrencyCAD ReceptionAgentInfoResponseCurrency = "CAD"
+	ReceptionAgentInfoResponseCurrencyCHF ReceptionAgentInfoResponseCurrency = "CHF"
+	ReceptionAgentInfoResponseCurrencyCLP ReceptionAgentInfoResponseCurrency = "CLP"
+	ReceptionAgentInfoResponseCurrencyCNY ReceptionAgentInfoResponseCurrency = "CNY"
+	ReceptionAgentInfoResponseCurrencyCOP ReceptionAgentInfoResponseCurrency = "COP"
+	ReceptionAgentInfoResponseCurrencyCZK ReceptionAgentInfoResponseCurrency = "CZK"
+	ReceptionAgentInfoResponseCurrencyDKK ReceptionAgentInfoResponseCurrency = "DKK"
+	ReceptionAgentInfoResponseCurrencyEGP ReceptionAgentInfoResponseCurrency = "EGP"
+	ReceptionAgentInfoResponseCurrencyEUR ReceptionAgentInfoResponseCurrency = "EUR"
+	ReceptionAgentInfoResponseCurrencyGBP ReceptionAgentInfoResponseCurrency = "GBP"
+	ReceptionAgentInfoResponseCurrencyHKD ReceptionAgentInfoResponseCurrency = "HKD"
+	ReceptionAgentInfoResponseCurrencyHUF ReceptionAgentInfoResponseCurrency = "HUF"
+	ReceptionAgentInfoResponseCurrencyIDR ReceptionAgentInfoResponseCurrency = "IDR"
+	ReceptionAgentInfoResponseCurrencyILS ReceptionAgentInfoResponseCurrency = "ILS"
+	ReceptionAgentInfoResponseCurrencyINR ReceptionAgentInfoResponseCurrency = "INR"
+	ReceptionAgentInfoResponseCurrencyISK ReceptionAgentInfoResponseCurrency = "ISK"
+	ReceptionAgentInfoResponseCurrencyJPY ReceptionAgentInfoResponseCurrency = "JPY"
+	ReceptionAgentInfoResponseCurrencyKES ReceptionAgentInfoResponseCurrency = "KES"
+	ReceptionAgentInfoResponseCurrencyKRW ReceptionAgentInfoResponseCurrency = "KRW"
+	ReceptionAgentInfoResponseCurrencyKWD ReceptionAgentInfoResponseCurrency = "KWD"
+	ReceptionAgentInfoResponseCurrencyMXN ReceptionAgentInfoResponseCurrency = "MXN"
+	ReceptionAgentInfoResponseCurrencyMYR ReceptionAgentInfoResponseCurrency = "MYR"
+	ReceptionAgentInfoResponseCurrencyNGN ReceptionAgentInfoResponseCurrency = "NGN"
+	ReceptionAgentInfoResponseCurrencyNOK ReceptionAgentInfoResponseCurrency = "NOK"
+	ReceptionAgentInfoResponseCurrencyNZD ReceptionAgentInfoResponseCurrency = "NZD"
+	ReceptionAgentInfoResponseCurrencyPEN ReceptionAgentInfoResponseCurrency = "PEN"
+	ReceptionAgentInfoResponseCurrencyPHP ReceptionAgentInfoResponseCurrency = "PHP"
+	ReceptionAgentInfoResponseCurrencyPKR ReceptionAgentInfoResponseCurrency = "PKR"
+	ReceptionAgentInfoResponseCurrencyPLN ReceptionAgentInfoResponseCurrency = "PLN"
+	ReceptionAgentInfoResponseCurrencyQAR ReceptionAgentInfoResponseCurrency = "QAR"
+	ReceptionAgentInfoResponseCurrencyRON ReceptionAgentInfoResponseCurrency = "RON"
+	ReceptionAgentInfoResponseCurrencyRUB ReceptionAgentInfoResponseCurrency = "RUB"
+	ReceptionAgentInfoResponseCurrencySAR ReceptionAgentInfoResponseCurrency = "SAR"
+	ReceptionAgentInfoResponseCurrencySEK ReceptionAgentInfoResponseCurrency = "SEK"
+	ReceptionAgentInfoResponseCurrencySGD ReceptionAgentInfoResponseCurrency = "SGD"
+	ReceptionAgentInfoResponseCurrencyTHB ReceptionAgentInfoResponseCurrency = "THB"
+	ReceptionAgentInfoResponseCurrencyTRY ReceptionAgentInfoResponseCurrency = "TRY"
+	ReceptionAgentInfoResponseCurrencyTWD ReceptionAgentInfoResponseCurrency = "TWD"
+	ReceptionAgentInfoResponseCurrencyUAH ReceptionAgentInfoResponseCurrency = "UAH"
+	ReceptionAgentInfoResponseCurrencyUSD ReceptionAgentInfoResponseCurrency = "USD"
+	ReceptionAgentInfoResponseCurrencyVND ReceptionAgentInfoResponseCurrency = "VND"
+	ReceptionAgentInfoResponseCurrencyZAR ReceptionAgentInfoResponseCurrency = "ZAR"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionAgentInfoResponseCurrency enum.
+func (e ReceptionAgentInfoResponseCurrency) Valid() bool {
+	switch e {
+	case ReceptionAgentInfoResponseCurrencyAED:
+		return true
+	case ReceptionAgentInfoResponseCurrencyARS:
+		return true
+	case ReceptionAgentInfoResponseCurrencyAUD:
+		return true
+	case ReceptionAgentInfoResponseCurrencyBDT:
+		return true
+	case ReceptionAgentInfoResponseCurrencyBGN:
+		return true
+	case ReceptionAgentInfoResponseCurrencyBRL:
+		return true
+	case ReceptionAgentInfoResponseCurrencyCAD:
+		return true
+	case ReceptionAgentInfoResponseCurrencyCHF:
+		return true
+	case ReceptionAgentInfoResponseCurrencyCLP:
+		return true
+	case ReceptionAgentInfoResponseCurrencyCNY:
+		return true
+	case ReceptionAgentInfoResponseCurrencyCOP:
+		return true
+	case ReceptionAgentInfoResponseCurrencyCZK:
+		return true
+	case ReceptionAgentInfoResponseCurrencyDKK:
+		return true
+	case ReceptionAgentInfoResponseCurrencyEGP:
+		return true
+	case ReceptionAgentInfoResponseCurrencyEUR:
+		return true
+	case ReceptionAgentInfoResponseCurrencyGBP:
+		return true
+	case ReceptionAgentInfoResponseCurrencyHKD:
+		return true
+	case ReceptionAgentInfoResponseCurrencyHUF:
+		return true
+	case ReceptionAgentInfoResponseCurrencyIDR:
+		return true
+	case ReceptionAgentInfoResponseCurrencyILS:
+		return true
+	case ReceptionAgentInfoResponseCurrencyINR:
+		return true
+	case ReceptionAgentInfoResponseCurrencyISK:
+		return true
+	case ReceptionAgentInfoResponseCurrencyJPY:
+		return true
+	case ReceptionAgentInfoResponseCurrencyKES:
+		return true
+	case ReceptionAgentInfoResponseCurrencyKRW:
+		return true
+	case ReceptionAgentInfoResponseCurrencyKWD:
+		return true
+	case ReceptionAgentInfoResponseCurrencyMXN:
+		return true
+	case ReceptionAgentInfoResponseCurrencyMYR:
+		return true
+	case ReceptionAgentInfoResponseCurrencyNGN:
+		return true
+	case ReceptionAgentInfoResponseCurrencyNOK:
+		return true
+	case ReceptionAgentInfoResponseCurrencyNZD:
+		return true
+	case ReceptionAgentInfoResponseCurrencyPEN:
+		return true
+	case ReceptionAgentInfoResponseCurrencyPHP:
+		return true
+	case ReceptionAgentInfoResponseCurrencyPKR:
+		return true
+	case ReceptionAgentInfoResponseCurrencyPLN:
+		return true
+	case ReceptionAgentInfoResponseCurrencyQAR:
+		return true
+	case ReceptionAgentInfoResponseCurrencyRON:
+		return true
+	case ReceptionAgentInfoResponseCurrencyRUB:
+		return true
+	case ReceptionAgentInfoResponseCurrencySAR:
+		return true
+	case ReceptionAgentInfoResponseCurrencySEK:
+		return true
+	case ReceptionAgentInfoResponseCurrencySGD:
+		return true
+	case ReceptionAgentInfoResponseCurrencyTHB:
+		return true
+	case ReceptionAgentInfoResponseCurrencyTRY:
+		return true
+	case ReceptionAgentInfoResponseCurrencyTWD:
+		return true
+	case ReceptionAgentInfoResponseCurrencyUAH:
+		return true
+	case ReceptionAgentInfoResponseCurrencyUSD:
+		return true
+	case ReceptionAgentInfoResponseCurrencyVND:
+		return true
+	case ReceptionAgentInfoResponseCurrencyZAR:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionCustomerFacingAgentDeactivationReason.
+const (
+	ReceptionCustomerFacingAgentDeactivationReasonTierDowngrade ReceptionCustomerFacingAgentDeactivationReason = "tier_downgrade"
+	ReceptionCustomerFacingAgentDeactivationReasonUser          ReceptionCustomerFacingAgentDeactivationReason = "user"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionCustomerFacingAgentDeactivationReason enum.
+func (e ReceptionCustomerFacingAgentDeactivationReason) Valid() bool {
+	switch e {
+	case ReceptionCustomerFacingAgentDeactivationReasonTierDowngrade:
+		return true
+	case ReceptionCustomerFacingAgentDeactivationReasonUser:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionLocationDeactivationReason.
+const (
+	ReceptionLocationDeactivationReasonTierDowngrade ReceptionLocationDeactivationReason = "tier_downgrade"
+	ReceptionLocationDeactivationReasonUser          ReceptionLocationDeactivationReason = "user"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionLocationDeactivationReason enum.
+func (e ReceptionLocationDeactivationReason) Valid() bool {
+	switch e {
+	case ReceptionLocationDeactivationReasonTierDowngrade:
+		return true
+	case ReceptionLocationDeactivationReasonUser:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionPhoneAssignmentDeactivationReason.
+const (
+	ReceptionPhoneAssignmentDeactivationReasonNoEntitlement ReceptionPhoneAssignmentDeactivationReason = "no_entitlement"
+	ReceptionPhoneAssignmentDeactivationReasonTierDowngrade ReceptionPhoneAssignmentDeactivationReason = "tier_downgrade"
+	ReceptionPhoneAssignmentDeactivationReasonUser          ReceptionPhoneAssignmentDeactivationReason = "user"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionPhoneAssignmentDeactivationReason enum.
+func (e ReceptionPhoneAssignmentDeactivationReason) Valid() bool {
+	switch e {
+	case ReceptionPhoneAssignmentDeactivationReasonNoEntitlement:
+		return true
+	case ReceptionPhoneAssignmentDeactivationReasonTierDowngrade:
+		return true
+	case ReceptionPhoneAssignmentDeactivationReasonUser:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionPhoneProvider.
+const (
+	ReceptionPhoneProviderSipTrunk ReceptionPhoneProvider = "sip_trunk"
+	ReceptionPhoneProviderTwilio   ReceptionPhoneProvider = "twilio"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionPhoneProvider enum.
+func (e ReceptionPhoneProvider) Valid() bool {
+	switch e {
+	case ReceptionPhoneProviderSipTrunk:
+		return true
+	case ReceptionPhoneProviderTwilio:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionPhoneRegulatoryStatus.
+const (
+	ReceptionPhoneRegulatoryStatusApproved ReceptionPhoneRegulatoryStatus = "approved"
+	ReceptionPhoneRegulatoryStatusHeld     ReceptionPhoneRegulatoryStatus = "held"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionPhoneRegulatoryStatus enum.
+func (e ReceptionPhoneRegulatoryStatus) Valid() bool {
+	switch e {
+	case ReceptionPhoneRegulatoryStatusApproved:
+		return true
+	case ReceptionPhoneRegulatoryStatusHeld:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionServiceKind.
+const (
+	ReceptionServiceKindClassic ReceptionServiceKind = "classic"
+	ReceptionServiceKindGroup   ReceptionServiceKind = "group"
+	ReceptionServiceKindRental  ReceptionServiceKind = "rental"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionServiceKind enum.
+func (e ReceptionServiceKind) Valid() bool {
+	switch e {
+	case ReceptionServiceKindClassic:
+		return true
+	case ReceptionServiceKindGroup:
+		return true
+	case ReceptionServiceKindRental:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionTurnEagerness.
+const (
+	ReceptionTurnEagernessEager   ReceptionTurnEagerness = "eager"
+	ReceptionTurnEagernessNormal  ReceptionTurnEagerness = "normal"
+	ReceptionTurnEagernessPatient ReceptionTurnEagerness = "patient"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionTurnEagerness enum.
+func (e ReceptionTurnEagerness) Valid() bool {
+	switch e {
+	case ReceptionTurnEagernessEager:
+		return true
+	case ReceptionTurnEagernessNormal:
+		return true
+	case ReceptionTurnEagernessPatient:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionUpdateAgentInfoRequestCurrency.
+const (
+	ReceptionUpdateAgentInfoRequestCurrencyAED ReceptionUpdateAgentInfoRequestCurrency = "AED"
+	ReceptionUpdateAgentInfoRequestCurrencyARS ReceptionUpdateAgentInfoRequestCurrency = "ARS"
+	ReceptionUpdateAgentInfoRequestCurrencyAUD ReceptionUpdateAgentInfoRequestCurrency = "AUD"
+	ReceptionUpdateAgentInfoRequestCurrencyBDT ReceptionUpdateAgentInfoRequestCurrency = "BDT"
+	ReceptionUpdateAgentInfoRequestCurrencyBGN ReceptionUpdateAgentInfoRequestCurrency = "BGN"
+	ReceptionUpdateAgentInfoRequestCurrencyBRL ReceptionUpdateAgentInfoRequestCurrency = "BRL"
+	ReceptionUpdateAgentInfoRequestCurrencyCAD ReceptionUpdateAgentInfoRequestCurrency = "CAD"
+	ReceptionUpdateAgentInfoRequestCurrencyCHF ReceptionUpdateAgentInfoRequestCurrency = "CHF"
+	ReceptionUpdateAgentInfoRequestCurrencyCLP ReceptionUpdateAgentInfoRequestCurrency = "CLP"
+	ReceptionUpdateAgentInfoRequestCurrencyCNY ReceptionUpdateAgentInfoRequestCurrency = "CNY"
+	ReceptionUpdateAgentInfoRequestCurrencyCOP ReceptionUpdateAgentInfoRequestCurrency = "COP"
+	ReceptionUpdateAgentInfoRequestCurrencyCZK ReceptionUpdateAgentInfoRequestCurrency = "CZK"
+	ReceptionUpdateAgentInfoRequestCurrencyDKK ReceptionUpdateAgentInfoRequestCurrency = "DKK"
+	ReceptionUpdateAgentInfoRequestCurrencyEGP ReceptionUpdateAgentInfoRequestCurrency = "EGP"
+	ReceptionUpdateAgentInfoRequestCurrencyEUR ReceptionUpdateAgentInfoRequestCurrency = "EUR"
+	ReceptionUpdateAgentInfoRequestCurrencyGBP ReceptionUpdateAgentInfoRequestCurrency = "GBP"
+	ReceptionUpdateAgentInfoRequestCurrencyHKD ReceptionUpdateAgentInfoRequestCurrency = "HKD"
+	ReceptionUpdateAgentInfoRequestCurrencyHUF ReceptionUpdateAgentInfoRequestCurrency = "HUF"
+	ReceptionUpdateAgentInfoRequestCurrencyIDR ReceptionUpdateAgentInfoRequestCurrency = "IDR"
+	ReceptionUpdateAgentInfoRequestCurrencyILS ReceptionUpdateAgentInfoRequestCurrency = "ILS"
+	ReceptionUpdateAgentInfoRequestCurrencyINR ReceptionUpdateAgentInfoRequestCurrency = "INR"
+	ReceptionUpdateAgentInfoRequestCurrencyISK ReceptionUpdateAgentInfoRequestCurrency = "ISK"
+	ReceptionUpdateAgentInfoRequestCurrencyJPY ReceptionUpdateAgentInfoRequestCurrency = "JPY"
+	ReceptionUpdateAgentInfoRequestCurrencyKES ReceptionUpdateAgentInfoRequestCurrency = "KES"
+	ReceptionUpdateAgentInfoRequestCurrencyKRW ReceptionUpdateAgentInfoRequestCurrency = "KRW"
+	ReceptionUpdateAgentInfoRequestCurrencyKWD ReceptionUpdateAgentInfoRequestCurrency = "KWD"
+	ReceptionUpdateAgentInfoRequestCurrencyMXN ReceptionUpdateAgentInfoRequestCurrency = "MXN"
+	ReceptionUpdateAgentInfoRequestCurrencyMYR ReceptionUpdateAgentInfoRequestCurrency = "MYR"
+	ReceptionUpdateAgentInfoRequestCurrencyNGN ReceptionUpdateAgentInfoRequestCurrency = "NGN"
+	ReceptionUpdateAgentInfoRequestCurrencyNOK ReceptionUpdateAgentInfoRequestCurrency = "NOK"
+	ReceptionUpdateAgentInfoRequestCurrencyNZD ReceptionUpdateAgentInfoRequestCurrency = "NZD"
+	ReceptionUpdateAgentInfoRequestCurrencyPEN ReceptionUpdateAgentInfoRequestCurrency = "PEN"
+	ReceptionUpdateAgentInfoRequestCurrencyPHP ReceptionUpdateAgentInfoRequestCurrency = "PHP"
+	ReceptionUpdateAgentInfoRequestCurrencyPKR ReceptionUpdateAgentInfoRequestCurrency = "PKR"
+	ReceptionUpdateAgentInfoRequestCurrencyPLN ReceptionUpdateAgentInfoRequestCurrency = "PLN"
+	ReceptionUpdateAgentInfoRequestCurrencyQAR ReceptionUpdateAgentInfoRequestCurrency = "QAR"
+	ReceptionUpdateAgentInfoRequestCurrencyRON ReceptionUpdateAgentInfoRequestCurrency = "RON"
+	ReceptionUpdateAgentInfoRequestCurrencyRUB ReceptionUpdateAgentInfoRequestCurrency = "RUB"
+	ReceptionUpdateAgentInfoRequestCurrencySAR ReceptionUpdateAgentInfoRequestCurrency = "SAR"
+	ReceptionUpdateAgentInfoRequestCurrencySEK ReceptionUpdateAgentInfoRequestCurrency = "SEK"
+	ReceptionUpdateAgentInfoRequestCurrencySGD ReceptionUpdateAgentInfoRequestCurrency = "SGD"
+	ReceptionUpdateAgentInfoRequestCurrencyTHB ReceptionUpdateAgentInfoRequestCurrency = "THB"
+	ReceptionUpdateAgentInfoRequestCurrencyTRY ReceptionUpdateAgentInfoRequestCurrency = "TRY"
+	ReceptionUpdateAgentInfoRequestCurrencyTWD ReceptionUpdateAgentInfoRequestCurrency = "TWD"
+	ReceptionUpdateAgentInfoRequestCurrencyUAH ReceptionUpdateAgentInfoRequestCurrency = "UAH"
+	ReceptionUpdateAgentInfoRequestCurrencyUSD ReceptionUpdateAgentInfoRequestCurrency = "USD"
+	ReceptionUpdateAgentInfoRequestCurrencyVND ReceptionUpdateAgentInfoRequestCurrency = "VND"
+	ReceptionUpdateAgentInfoRequestCurrencyZAR ReceptionUpdateAgentInfoRequestCurrency = "ZAR"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionUpdateAgentInfoRequestCurrency enum.
+func (e ReceptionUpdateAgentInfoRequestCurrency) Valid() bool {
+	switch e {
+	case ReceptionUpdateAgentInfoRequestCurrencyAED:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyARS:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyAUD:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyBDT:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyBGN:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyBRL:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyCAD:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyCHF:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyCLP:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyCNY:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyCOP:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyCZK:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyDKK:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyEGP:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyEUR:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyGBP:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyHKD:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyHUF:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyIDR:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyILS:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyINR:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyISK:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyJPY:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyKES:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyKRW:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyKWD:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyMXN:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyMYR:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyNGN:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyNOK:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyNZD:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyPEN:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyPHP:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyPKR:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyPLN:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyQAR:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyRON:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyRUB:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencySAR:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencySEK:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencySGD:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyTHB:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyTRY:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyTWD:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyUAH:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyUSD:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyVND:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyZAR:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionWidgetAppearancePlacement.
+const (
+	ReceptionWidgetAppearancePlacementBottom      ReceptionWidgetAppearancePlacement = "bottom"
+	ReceptionWidgetAppearancePlacementBottomLeft  ReceptionWidgetAppearancePlacement = "bottom-left"
+	ReceptionWidgetAppearancePlacementBottomRight ReceptionWidgetAppearancePlacement = "bottom-right"
+	ReceptionWidgetAppearancePlacementTop         ReceptionWidgetAppearancePlacement = "top"
+	ReceptionWidgetAppearancePlacementTopLeft     ReceptionWidgetAppearancePlacement = "top-left"
+	ReceptionWidgetAppearancePlacementTopRight    ReceptionWidgetAppearancePlacement = "top-right"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionWidgetAppearancePlacement enum.
+func (e ReceptionWidgetAppearancePlacement) Valid() bool {
+	switch e {
+	case ReceptionWidgetAppearancePlacementBottom:
+		return true
+	case ReceptionWidgetAppearancePlacementBottomLeft:
+		return true
+	case ReceptionWidgetAppearancePlacementBottomRight:
+		return true
+	case ReceptionWidgetAppearancePlacementTop:
+		return true
+	case ReceptionWidgetAppearancePlacementTopLeft:
+		return true
+	case ReceptionWidgetAppearancePlacementTopRight:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionWidgetAppearanceVariant.
+const (
+	ReceptionWidgetAppearanceVariantCompact ReceptionWidgetAppearanceVariant = "compact"
+	ReceptionWidgetAppearanceVariantFull    ReceptionWidgetAppearanceVariant = "full"
+	ReceptionWidgetAppearanceVariantTiny    ReceptionWidgetAppearanceVariant = "tiny"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionWidgetAppearanceVariant enum.
+func (e ReceptionWidgetAppearanceVariant) Valid() bool {
+	switch e {
+	case ReceptionWidgetAppearanceVariantCompact:
+		return true
+	case ReceptionWidgetAppearanceVariantFull:
+		return true
+	case ReceptionWidgetAppearanceVariantTiny:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ReferencedToolCommonModelType.
 const (
 	ReferencedToolCommonModelTypeApiIntegrationWebhook ReferencedToolCommonModelType = "api_integration_webhook"
@@ -15622,276 +16120,6 @@ func (e SIPUriTransferDestinationType) Valid() bool {
 	}
 }
 
-// Defines values for SMBAgentInfoResponseCurrency.
-const (
-	SMBAgentInfoResponseCurrencyAED SMBAgentInfoResponseCurrency = "AED"
-	SMBAgentInfoResponseCurrencyARS SMBAgentInfoResponseCurrency = "ARS"
-	SMBAgentInfoResponseCurrencyAUD SMBAgentInfoResponseCurrency = "AUD"
-	SMBAgentInfoResponseCurrencyBDT SMBAgentInfoResponseCurrency = "BDT"
-	SMBAgentInfoResponseCurrencyBGN SMBAgentInfoResponseCurrency = "BGN"
-	SMBAgentInfoResponseCurrencyBRL SMBAgentInfoResponseCurrency = "BRL"
-	SMBAgentInfoResponseCurrencyCAD SMBAgentInfoResponseCurrency = "CAD"
-	SMBAgentInfoResponseCurrencyCHF SMBAgentInfoResponseCurrency = "CHF"
-	SMBAgentInfoResponseCurrencyCLP SMBAgentInfoResponseCurrency = "CLP"
-	SMBAgentInfoResponseCurrencyCNY SMBAgentInfoResponseCurrency = "CNY"
-	SMBAgentInfoResponseCurrencyCOP SMBAgentInfoResponseCurrency = "COP"
-	SMBAgentInfoResponseCurrencyCZK SMBAgentInfoResponseCurrency = "CZK"
-	SMBAgentInfoResponseCurrencyDKK SMBAgentInfoResponseCurrency = "DKK"
-	SMBAgentInfoResponseCurrencyEGP SMBAgentInfoResponseCurrency = "EGP"
-	SMBAgentInfoResponseCurrencyEUR SMBAgentInfoResponseCurrency = "EUR"
-	SMBAgentInfoResponseCurrencyGBP SMBAgentInfoResponseCurrency = "GBP"
-	SMBAgentInfoResponseCurrencyHKD SMBAgentInfoResponseCurrency = "HKD"
-	SMBAgentInfoResponseCurrencyHUF SMBAgentInfoResponseCurrency = "HUF"
-	SMBAgentInfoResponseCurrencyIDR SMBAgentInfoResponseCurrency = "IDR"
-	SMBAgentInfoResponseCurrencyILS SMBAgentInfoResponseCurrency = "ILS"
-	SMBAgentInfoResponseCurrencyINR SMBAgentInfoResponseCurrency = "INR"
-	SMBAgentInfoResponseCurrencyISK SMBAgentInfoResponseCurrency = "ISK"
-	SMBAgentInfoResponseCurrencyJPY SMBAgentInfoResponseCurrency = "JPY"
-	SMBAgentInfoResponseCurrencyKES SMBAgentInfoResponseCurrency = "KES"
-	SMBAgentInfoResponseCurrencyKRW SMBAgentInfoResponseCurrency = "KRW"
-	SMBAgentInfoResponseCurrencyKWD SMBAgentInfoResponseCurrency = "KWD"
-	SMBAgentInfoResponseCurrencyMXN SMBAgentInfoResponseCurrency = "MXN"
-	SMBAgentInfoResponseCurrencyMYR SMBAgentInfoResponseCurrency = "MYR"
-	SMBAgentInfoResponseCurrencyNGN SMBAgentInfoResponseCurrency = "NGN"
-	SMBAgentInfoResponseCurrencyNOK SMBAgentInfoResponseCurrency = "NOK"
-	SMBAgentInfoResponseCurrencyNZD SMBAgentInfoResponseCurrency = "NZD"
-	SMBAgentInfoResponseCurrencyPEN SMBAgentInfoResponseCurrency = "PEN"
-	SMBAgentInfoResponseCurrencyPHP SMBAgentInfoResponseCurrency = "PHP"
-	SMBAgentInfoResponseCurrencyPKR SMBAgentInfoResponseCurrency = "PKR"
-	SMBAgentInfoResponseCurrencyPLN SMBAgentInfoResponseCurrency = "PLN"
-	SMBAgentInfoResponseCurrencyQAR SMBAgentInfoResponseCurrency = "QAR"
-	SMBAgentInfoResponseCurrencyRON SMBAgentInfoResponseCurrency = "RON"
-	SMBAgentInfoResponseCurrencyRUB SMBAgentInfoResponseCurrency = "RUB"
-	SMBAgentInfoResponseCurrencySAR SMBAgentInfoResponseCurrency = "SAR"
-	SMBAgentInfoResponseCurrencySEK SMBAgentInfoResponseCurrency = "SEK"
-	SMBAgentInfoResponseCurrencySGD SMBAgentInfoResponseCurrency = "SGD"
-	SMBAgentInfoResponseCurrencyTHB SMBAgentInfoResponseCurrency = "THB"
-	SMBAgentInfoResponseCurrencyTRY SMBAgentInfoResponseCurrency = "TRY"
-	SMBAgentInfoResponseCurrencyTWD SMBAgentInfoResponseCurrency = "TWD"
-	SMBAgentInfoResponseCurrencyUAH SMBAgentInfoResponseCurrency = "UAH"
-	SMBAgentInfoResponseCurrencyUSD SMBAgentInfoResponseCurrency = "USD"
-	SMBAgentInfoResponseCurrencyVND SMBAgentInfoResponseCurrency = "VND"
-	SMBAgentInfoResponseCurrencyZAR SMBAgentInfoResponseCurrency = "ZAR"
-)
-
-// Valid indicates whether the value is a known member of the SMBAgentInfoResponseCurrency enum.
-func (e SMBAgentInfoResponseCurrency) Valid() bool {
-	switch e {
-	case SMBAgentInfoResponseCurrencyAED:
-		return true
-	case SMBAgentInfoResponseCurrencyARS:
-		return true
-	case SMBAgentInfoResponseCurrencyAUD:
-		return true
-	case SMBAgentInfoResponseCurrencyBDT:
-		return true
-	case SMBAgentInfoResponseCurrencyBGN:
-		return true
-	case SMBAgentInfoResponseCurrencyBRL:
-		return true
-	case SMBAgentInfoResponseCurrencyCAD:
-		return true
-	case SMBAgentInfoResponseCurrencyCHF:
-		return true
-	case SMBAgentInfoResponseCurrencyCLP:
-		return true
-	case SMBAgentInfoResponseCurrencyCNY:
-		return true
-	case SMBAgentInfoResponseCurrencyCOP:
-		return true
-	case SMBAgentInfoResponseCurrencyCZK:
-		return true
-	case SMBAgentInfoResponseCurrencyDKK:
-		return true
-	case SMBAgentInfoResponseCurrencyEGP:
-		return true
-	case SMBAgentInfoResponseCurrencyEUR:
-		return true
-	case SMBAgentInfoResponseCurrencyGBP:
-		return true
-	case SMBAgentInfoResponseCurrencyHKD:
-		return true
-	case SMBAgentInfoResponseCurrencyHUF:
-		return true
-	case SMBAgentInfoResponseCurrencyIDR:
-		return true
-	case SMBAgentInfoResponseCurrencyILS:
-		return true
-	case SMBAgentInfoResponseCurrencyINR:
-		return true
-	case SMBAgentInfoResponseCurrencyISK:
-		return true
-	case SMBAgentInfoResponseCurrencyJPY:
-		return true
-	case SMBAgentInfoResponseCurrencyKES:
-		return true
-	case SMBAgentInfoResponseCurrencyKRW:
-		return true
-	case SMBAgentInfoResponseCurrencyKWD:
-		return true
-	case SMBAgentInfoResponseCurrencyMXN:
-		return true
-	case SMBAgentInfoResponseCurrencyMYR:
-		return true
-	case SMBAgentInfoResponseCurrencyNGN:
-		return true
-	case SMBAgentInfoResponseCurrencyNOK:
-		return true
-	case SMBAgentInfoResponseCurrencyNZD:
-		return true
-	case SMBAgentInfoResponseCurrencyPEN:
-		return true
-	case SMBAgentInfoResponseCurrencyPHP:
-		return true
-	case SMBAgentInfoResponseCurrencyPKR:
-		return true
-	case SMBAgentInfoResponseCurrencyPLN:
-		return true
-	case SMBAgentInfoResponseCurrencyQAR:
-		return true
-	case SMBAgentInfoResponseCurrencyRON:
-		return true
-	case SMBAgentInfoResponseCurrencyRUB:
-		return true
-	case SMBAgentInfoResponseCurrencySAR:
-		return true
-	case SMBAgentInfoResponseCurrencySEK:
-		return true
-	case SMBAgentInfoResponseCurrencySGD:
-		return true
-	case SMBAgentInfoResponseCurrencyTHB:
-		return true
-	case SMBAgentInfoResponseCurrencyTRY:
-		return true
-	case SMBAgentInfoResponseCurrencyTWD:
-		return true
-	case SMBAgentInfoResponseCurrencyUAH:
-		return true
-	case SMBAgentInfoResponseCurrencyUSD:
-		return true
-	case SMBAgentInfoResponseCurrencyVND:
-		return true
-	case SMBAgentInfoResponseCurrencyZAR:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBCustomerFacingAgentDeactivationReason.
-const (
-	SMBCustomerFacingAgentDeactivationReasonTierDowngrade SMBCustomerFacingAgentDeactivationReason = "tier_downgrade"
-	SMBCustomerFacingAgentDeactivationReasonUser          SMBCustomerFacingAgentDeactivationReason = "user"
-)
-
-// Valid indicates whether the value is a known member of the SMBCustomerFacingAgentDeactivationReason enum.
-func (e SMBCustomerFacingAgentDeactivationReason) Valid() bool {
-	switch e {
-	case SMBCustomerFacingAgentDeactivationReasonTierDowngrade:
-		return true
-	case SMBCustomerFacingAgentDeactivationReasonUser:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBLocationDeactivationReason.
-const (
-	SMBLocationDeactivationReasonTierDowngrade SMBLocationDeactivationReason = "tier_downgrade"
-	SMBLocationDeactivationReasonUser          SMBLocationDeactivationReason = "user"
-)
-
-// Valid indicates whether the value is a known member of the SMBLocationDeactivationReason enum.
-func (e SMBLocationDeactivationReason) Valid() bool {
-	switch e {
-	case SMBLocationDeactivationReasonTierDowngrade:
-		return true
-	case SMBLocationDeactivationReasonUser:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBPhoneAssignmentDeactivationReason.
-const (
-	SMBPhoneAssignmentDeactivationReasonNoEntitlement SMBPhoneAssignmentDeactivationReason = "no_entitlement"
-	SMBPhoneAssignmentDeactivationReasonTierDowngrade SMBPhoneAssignmentDeactivationReason = "tier_downgrade"
-	SMBPhoneAssignmentDeactivationReasonUser          SMBPhoneAssignmentDeactivationReason = "user"
-)
-
-// Valid indicates whether the value is a known member of the SMBPhoneAssignmentDeactivationReason enum.
-func (e SMBPhoneAssignmentDeactivationReason) Valid() bool {
-	switch e {
-	case SMBPhoneAssignmentDeactivationReasonNoEntitlement:
-		return true
-	case SMBPhoneAssignmentDeactivationReasonTierDowngrade:
-		return true
-	case SMBPhoneAssignmentDeactivationReasonUser:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBPhoneProvider.
-const (
-	SMBPhoneProviderSipTrunk SMBPhoneProvider = "sip_trunk"
-	SMBPhoneProviderTwilio   SMBPhoneProvider = "twilio"
-)
-
-// Valid indicates whether the value is a known member of the SMBPhoneProvider enum.
-func (e SMBPhoneProvider) Valid() bool {
-	switch e {
-	case SMBPhoneProviderSipTrunk:
-		return true
-	case SMBPhoneProviderTwilio:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBPhoneRegulatoryStatus.
-const (
-	SMBPhoneRegulatoryStatusApproved SMBPhoneRegulatoryStatus = "approved"
-	SMBPhoneRegulatoryStatusHeld     SMBPhoneRegulatoryStatus = "held"
-)
-
-// Valid indicates whether the value is a known member of the SMBPhoneRegulatoryStatus enum.
-func (e SMBPhoneRegulatoryStatus) Valid() bool {
-	switch e {
-	case SMBPhoneRegulatoryStatusApproved:
-		return true
-	case SMBPhoneRegulatoryStatusHeld:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBServiceKind.
-const (
-	SMBServiceKindClassic SMBServiceKind = "classic"
-	SMBServiceKindGroup   SMBServiceKind = "group"
-	SMBServiceKindRental  SMBServiceKind = "rental"
-)
-
-// Valid indicates whether the value is a known member of the SMBServiceKind enum.
-func (e SMBServiceKind) Valid() bool {
-	switch e {
-	case SMBServiceKindClassic:
-		return true
-	case SMBServiceKindGroup:
-		return true
-	case SMBServiceKindRental:
-		return true
-	default:
-		return false
-	}
-}
-
 // Defines values for SMBToolConfigType.
 const (
 	SMBToolConfigTypeSmb SMBToolConfigType = "smb"
@@ -15901,234 +16129,6 @@ const (
 func (e SMBToolConfigType) Valid() bool {
 	switch e {
 	case SMBToolConfigTypeSmb:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBTurnEagerness.
-const (
-	SMBTurnEagernessEager   SMBTurnEagerness = "eager"
-	SMBTurnEagernessNormal  SMBTurnEagerness = "normal"
-	SMBTurnEagernessPatient SMBTurnEagerness = "patient"
-)
-
-// Valid indicates whether the value is a known member of the SMBTurnEagerness enum.
-func (e SMBTurnEagerness) Valid() bool {
-	switch e {
-	case SMBTurnEagernessEager:
-		return true
-	case SMBTurnEagernessNormal:
-		return true
-	case SMBTurnEagernessPatient:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBUpdateAgentInfoRequestCurrency.
-const (
-	SMBUpdateAgentInfoRequestCurrencyAED SMBUpdateAgentInfoRequestCurrency = "AED"
-	SMBUpdateAgentInfoRequestCurrencyARS SMBUpdateAgentInfoRequestCurrency = "ARS"
-	SMBUpdateAgentInfoRequestCurrencyAUD SMBUpdateAgentInfoRequestCurrency = "AUD"
-	SMBUpdateAgentInfoRequestCurrencyBDT SMBUpdateAgentInfoRequestCurrency = "BDT"
-	SMBUpdateAgentInfoRequestCurrencyBGN SMBUpdateAgentInfoRequestCurrency = "BGN"
-	SMBUpdateAgentInfoRequestCurrencyBRL SMBUpdateAgentInfoRequestCurrency = "BRL"
-	SMBUpdateAgentInfoRequestCurrencyCAD SMBUpdateAgentInfoRequestCurrency = "CAD"
-	SMBUpdateAgentInfoRequestCurrencyCHF SMBUpdateAgentInfoRequestCurrency = "CHF"
-	SMBUpdateAgentInfoRequestCurrencyCLP SMBUpdateAgentInfoRequestCurrency = "CLP"
-	SMBUpdateAgentInfoRequestCurrencyCNY SMBUpdateAgentInfoRequestCurrency = "CNY"
-	SMBUpdateAgentInfoRequestCurrencyCOP SMBUpdateAgentInfoRequestCurrency = "COP"
-	SMBUpdateAgentInfoRequestCurrencyCZK SMBUpdateAgentInfoRequestCurrency = "CZK"
-	SMBUpdateAgentInfoRequestCurrencyDKK SMBUpdateAgentInfoRequestCurrency = "DKK"
-	SMBUpdateAgentInfoRequestCurrencyEGP SMBUpdateAgentInfoRequestCurrency = "EGP"
-	SMBUpdateAgentInfoRequestCurrencyEUR SMBUpdateAgentInfoRequestCurrency = "EUR"
-	SMBUpdateAgentInfoRequestCurrencyGBP SMBUpdateAgentInfoRequestCurrency = "GBP"
-	SMBUpdateAgentInfoRequestCurrencyHKD SMBUpdateAgentInfoRequestCurrency = "HKD"
-	SMBUpdateAgentInfoRequestCurrencyHUF SMBUpdateAgentInfoRequestCurrency = "HUF"
-	SMBUpdateAgentInfoRequestCurrencyIDR SMBUpdateAgentInfoRequestCurrency = "IDR"
-	SMBUpdateAgentInfoRequestCurrencyILS SMBUpdateAgentInfoRequestCurrency = "ILS"
-	SMBUpdateAgentInfoRequestCurrencyINR SMBUpdateAgentInfoRequestCurrency = "INR"
-	SMBUpdateAgentInfoRequestCurrencyISK SMBUpdateAgentInfoRequestCurrency = "ISK"
-	SMBUpdateAgentInfoRequestCurrencyJPY SMBUpdateAgentInfoRequestCurrency = "JPY"
-	SMBUpdateAgentInfoRequestCurrencyKES SMBUpdateAgentInfoRequestCurrency = "KES"
-	SMBUpdateAgentInfoRequestCurrencyKRW SMBUpdateAgentInfoRequestCurrency = "KRW"
-	SMBUpdateAgentInfoRequestCurrencyKWD SMBUpdateAgentInfoRequestCurrency = "KWD"
-	SMBUpdateAgentInfoRequestCurrencyMXN SMBUpdateAgentInfoRequestCurrency = "MXN"
-	SMBUpdateAgentInfoRequestCurrencyMYR SMBUpdateAgentInfoRequestCurrency = "MYR"
-	SMBUpdateAgentInfoRequestCurrencyNGN SMBUpdateAgentInfoRequestCurrency = "NGN"
-	SMBUpdateAgentInfoRequestCurrencyNOK SMBUpdateAgentInfoRequestCurrency = "NOK"
-	SMBUpdateAgentInfoRequestCurrencyNZD SMBUpdateAgentInfoRequestCurrency = "NZD"
-	SMBUpdateAgentInfoRequestCurrencyPEN SMBUpdateAgentInfoRequestCurrency = "PEN"
-	SMBUpdateAgentInfoRequestCurrencyPHP SMBUpdateAgentInfoRequestCurrency = "PHP"
-	SMBUpdateAgentInfoRequestCurrencyPKR SMBUpdateAgentInfoRequestCurrency = "PKR"
-	SMBUpdateAgentInfoRequestCurrencyPLN SMBUpdateAgentInfoRequestCurrency = "PLN"
-	SMBUpdateAgentInfoRequestCurrencyQAR SMBUpdateAgentInfoRequestCurrency = "QAR"
-	SMBUpdateAgentInfoRequestCurrencyRON SMBUpdateAgentInfoRequestCurrency = "RON"
-	SMBUpdateAgentInfoRequestCurrencyRUB SMBUpdateAgentInfoRequestCurrency = "RUB"
-	SMBUpdateAgentInfoRequestCurrencySAR SMBUpdateAgentInfoRequestCurrency = "SAR"
-	SMBUpdateAgentInfoRequestCurrencySEK SMBUpdateAgentInfoRequestCurrency = "SEK"
-	SMBUpdateAgentInfoRequestCurrencySGD SMBUpdateAgentInfoRequestCurrency = "SGD"
-	SMBUpdateAgentInfoRequestCurrencyTHB SMBUpdateAgentInfoRequestCurrency = "THB"
-	SMBUpdateAgentInfoRequestCurrencyTRY SMBUpdateAgentInfoRequestCurrency = "TRY"
-	SMBUpdateAgentInfoRequestCurrencyTWD SMBUpdateAgentInfoRequestCurrency = "TWD"
-	SMBUpdateAgentInfoRequestCurrencyUAH SMBUpdateAgentInfoRequestCurrency = "UAH"
-	SMBUpdateAgentInfoRequestCurrencyUSD SMBUpdateAgentInfoRequestCurrency = "USD"
-	SMBUpdateAgentInfoRequestCurrencyVND SMBUpdateAgentInfoRequestCurrency = "VND"
-	SMBUpdateAgentInfoRequestCurrencyZAR SMBUpdateAgentInfoRequestCurrency = "ZAR"
-)
-
-// Valid indicates whether the value is a known member of the SMBUpdateAgentInfoRequestCurrency enum.
-func (e SMBUpdateAgentInfoRequestCurrency) Valid() bool {
-	switch e {
-	case SMBUpdateAgentInfoRequestCurrencyAED:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyARS:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyAUD:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyBDT:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyBGN:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyBRL:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyCAD:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyCHF:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyCLP:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyCNY:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyCOP:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyCZK:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyDKK:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyEGP:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyEUR:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyGBP:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyHKD:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyHUF:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyIDR:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyILS:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyINR:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyISK:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyJPY:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyKES:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyKRW:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyKWD:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyMXN:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyMYR:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyNGN:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyNOK:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyNZD:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyPEN:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyPHP:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyPKR:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyPLN:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyQAR:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyRON:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyRUB:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencySAR:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencySEK:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencySGD:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyTHB:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyTRY:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyTWD:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyUAH:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyUSD:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyVND:
-		return true
-	case SMBUpdateAgentInfoRequestCurrencyZAR:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBWidgetAppearancePlacement.
-const (
-	SMBWidgetAppearancePlacementBottom      SMBWidgetAppearancePlacement = "bottom"
-	SMBWidgetAppearancePlacementBottomLeft  SMBWidgetAppearancePlacement = "bottom-left"
-	SMBWidgetAppearancePlacementBottomRight SMBWidgetAppearancePlacement = "bottom-right"
-	SMBWidgetAppearancePlacementTop         SMBWidgetAppearancePlacement = "top"
-	SMBWidgetAppearancePlacementTopLeft     SMBWidgetAppearancePlacement = "top-left"
-	SMBWidgetAppearancePlacementTopRight    SMBWidgetAppearancePlacement = "top-right"
-)
-
-// Valid indicates whether the value is a known member of the SMBWidgetAppearancePlacement enum.
-func (e SMBWidgetAppearancePlacement) Valid() bool {
-	switch e {
-	case SMBWidgetAppearancePlacementBottom:
-		return true
-	case SMBWidgetAppearancePlacementBottomLeft:
-		return true
-	case SMBWidgetAppearancePlacementBottomRight:
-		return true
-	case SMBWidgetAppearancePlacementTop:
-		return true
-	case SMBWidgetAppearancePlacementTopLeft:
-		return true
-	case SMBWidgetAppearancePlacementTopRight:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for SMBWidgetAppearanceVariant.
-const (
-	SMBWidgetAppearanceVariantCompact SMBWidgetAppearanceVariant = "compact"
-	SMBWidgetAppearanceVariantFull    SMBWidgetAppearanceVariant = "full"
-	SMBWidgetAppearanceVariantTiny    SMBWidgetAppearanceVariant = "tiny"
-)
-
-// Valid indicates whether the value is a known member of the SMBWidgetAppearanceVariant enum.
-func (e SMBWidgetAppearanceVariant) Valid() bool {
-	switch e {
-	case SMBWidgetAppearanceVariantCompact:
-		return true
-	case SMBWidgetAppearanceVariantFull:
-		return true
-	case SMBWidgetAppearanceVariantTiny:
 		return true
 	default:
 		return false
@@ -20542,6 +20542,45 @@ func (e WebhookHMACSettingsAuthType) Valid() bool {
 	}
 }
 
+// Defines values for WebhookOutcome.
+const (
+	WebhookOutcomeDelivered              WebhookOutcome = "delivered"
+	WebhookOutcomeDroppedPayloadTooLarge WebhookOutcome = "dropped_payload_too_large"
+	WebhookOutcomeDroppedQueueFull       WebhookOutcome = "dropped_queue_full"
+	WebhookOutcomeFailedExhausted        WebhookOutcome = "failed_exhausted"
+	WebhookOutcomeFailedNoRetry          WebhookOutcome = "failed_no_retry"
+	WebhookOutcomeFailedRetryError       WebhookOutcome = "failed_retry_error"
+	WebhookOutcomeFailedRetryScheduled   WebhookOutcome = "failed_retry_scheduled"
+	WebhookOutcomeNotSentConfiguration   WebhookOutcome = "not_sent_configuration"
+	WebhookOutcomeSkippedDisabled        WebhookOutcome = "skipped_disabled"
+)
+
+// Valid indicates whether the value is a known member of the WebhookOutcome enum.
+func (e WebhookOutcome) Valid() bool {
+	switch e {
+	case WebhookOutcomeDelivered:
+		return true
+	case WebhookOutcomeDroppedPayloadTooLarge:
+		return true
+	case WebhookOutcomeDroppedQueueFull:
+		return true
+	case WebhookOutcomeFailedExhausted:
+		return true
+	case WebhookOutcomeFailedNoRetry:
+		return true
+	case WebhookOutcomeFailedRetryError:
+		return true
+	case WebhookOutcomeFailedRetryScheduled:
+		return true
+	case WebhookOutcomeNotSentConfiguration:
+		return true
+	case WebhookOutcomeSkippedDisabled:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WebhookTargetAllType.
 const (
 	WebhookTargetAllTypeAll WebhookTargetAllType = "all"
@@ -20704,6 +20743,99 @@ func (e WebhookTranscriptFormat) Valid() bool {
 	case WebhookTranscriptFormatJson:
 		return true
 	case WebhookTranscriptFormatOpentelemetry:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WebhookTypes.
+const (
+	WebhookTypesAgentQaEvaluationCompleted          WebhookTypes = "agent_qa_evaluation_completed"
+	WebhookTypesAnsweringMachineDetection           WebhookTypes = "answering_machine_detection"
+	WebhookTypesCallInitiationFailure               WebhookTypes = "call_initiation_failure"
+	WebhookTypesChapterConversionStatus             WebhookTypes = "chapter_conversion_status"
+	WebhookTypesConvaiAlertingNotification          WebhookTypes = "convai_alerting_notification"
+	WebhookTypesConversationInitiationClientData    WebhookTypes = "conversation_initiation_client_data"
+	WebhookTypesDubbingLanguageCompleted            WebhookTypes = "dubbing_language_completed"
+	WebhookTypesDubbingLanguageFailed               WebhookTypes = "dubbing_language_failed"
+	WebhookTypesDubbingProjectFailed                WebhookTypes = "dubbing_project_failed"
+	WebhookTypesDubbingProjectReady                 WebhookTypes = "dubbing_project_ready"
+	WebhookTypesFlowsGeneration                     WebhookTypes = "flows_generation"
+	WebhookTypesFlowsTemplateRun                    WebhookTypes = "flows_template_run"
+	WebhookTypesPostCallAnalysis                    WebhookTypes = "post_call_analysis"
+	WebhookTypesPostCallAudio                       WebhookTypes = "post_call_audio"
+	WebhookTypesPostCallTranscription               WebhookTypes = "post_call_transcription"
+	WebhookTypesPostCallTranscriptionOtel           WebhookTypes = "post_call_transcription_otel"
+	WebhookTypesPostCallUnredactedAudio             WebhookTypes = "post_call_unredacted_audio"
+	WebhookTypesPostCallUnredactedTranscription     WebhookTypes = "post_call_unredacted_transcription"
+	WebhookTypesPostCallUnredactedTranscriptionOtel WebhookTypes = "post_call_unredacted_transcription_otel"
+	WebhookTypesProjectConversionStatus             WebhookTypes = "project_conversion_status"
+	WebhookTypesSpeechToTextBatch                   WebhookTypes = "speech_to_text_batch"
+	WebhookTypesSpeechToTextTranscription           WebhookTypes = "speech_to_text_transcription"
+	WebhookTypesSupportTicketMessageAdded           WebhookTypes = "support_ticket_message_added"
+	WebhookTypesVoiceRemovalNotice                  WebhookTypes = "voice_removal_notice"
+	WebhookTypesVoiceRemovalNoticeWithdrawn         WebhookTypes = "voice_removal_notice_withdrawn"
+	WebhookTypesVoiceRemoved                        WebhookTypes = "voice_removed"
+	WebhookTypesWebhookError                        WebhookTypes = "webhook_error"
+)
+
+// Valid indicates whether the value is a known member of the WebhookTypes enum.
+func (e WebhookTypes) Valid() bool {
+	switch e {
+	case WebhookTypesAgentQaEvaluationCompleted:
+		return true
+	case WebhookTypesAnsweringMachineDetection:
+		return true
+	case WebhookTypesCallInitiationFailure:
+		return true
+	case WebhookTypesChapterConversionStatus:
+		return true
+	case WebhookTypesConvaiAlertingNotification:
+		return true
+	case WebhookTypesConversationInitiationClientData:
+		return true
+	case WebhookTypesDubbingLanguageCompleted:
+		return true
+	case WebhookTypesDubbingLanguageFailed:
+		return true
+	case WebhookTypesDubbingProjectFailed:
+		return true
+	case WebhookTypesDubbingProjectReady:
+		return true
+	case WebhookTypesFlowsGeneration:
+		return true
+	case WebhookTypesFlowsTemplateRun:
+		return true
+	case WebhookTypesPostCallAnalysis:
+		return true
+	case WebhookTypesPostCallAudio:
+		return true
+	case WebhookTypesPostCallTranscription:
+		return true
+	case WebhookTypesPostCallTranscriptionOtel:
+		return true
+	case WebhookTypesPostCallUnredactedAudio:
+		return true
+	case WebhookTypesPostCallUnredactedTranscription:
+		return true
+	case WebhookTypesPostCallUnredactedTranscriptionOtel:
+		return true
+	case WebhookTypesProjectConversionStatus:
+		return true
+	case WebhookTypesSpeechToTextBatch:
+		return true
+	case WebhookTypesSpeechToTextTranscription:
+		return true
+	case WebhookTypesSupportTicketMessageAdded:
+		return true
+	case WebhookTypesVoiceRemovalNotice:
+		return true
+	case WebhookTypesVoiceRemovalNoticeWithdrawn:
+		return true
+	case WebhookTypesVoiceRemoved:
+		return true
+	case WebhookTypesWebhookError:
 		return true
 	default:
 		return false
@@ -28305,6 +28437,12 @@ type BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePost_Tem
 	union json.RawMessage
 }
 
+// BodySendTestWebhookEventV1WorkspaceWebhooksWebhookIdTestPost defines model for Body_Send_test_webhook_event_v1_workspace_webhooks__webhook_id__test_post.
+type BodySendTestWebhookEventV1WorkspaceWebhooksWebhookIdTestPost struct {
+	// WebhookType The event type to send a sample of.
+	WebhookType WebhookTypes `json:"webhook_type"`
+}
+
 // BodySetRulesOnThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdSetRulesPost defines model for Body_Set_rules_on_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__set_rules_post.
 type BodySetRulesOnThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdSetRulesPost struct {
 	// Rules List of pronunciation rules. Rule can be either:
@@ -29118,6 +29256,11 @@ type BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch struct {
 	//
 	// Examples: true
 	IsDisabled bool `json:"is_disabled"`
+
+	// LogRedactedFields Field names whose values the delivery log hides when it shows the request payload, matched at any depth, ignoring case and punctuation such as _ or -. Fields with secret-looking names, such as tokens and passwords, are always hidden. The stored log and redeliveries keep the original values. At most 50 names, each 1 to 128 characters, with no whitespace, dots or wildcards.
+	//
+	// Examples: ["email","phone_number"]
+	LogRedactedFields *[]string `json:"log_redacted_fields,omitempty"`
 
 	// Name The display name of the webhook (used for display purposes only).
 	//
@@ -33655,7 +33798,10 @@ type CustomGuardrailConfig struct {
 	Name string `json:"name"`
 
 	// Prompt Instruction describing what to block, e.g. 'don't talk about politics'
-	Prompt        string                               `json:"prompt"`
+	Prompt string `json:"prompt"`
+
+	// ServiceTier Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.
+	ServiceTier   *LLMServiceTier                      `json:"service_tier,omitempty"`
 	TriggerAction *CustomGuardrailConfig_TriggerAction `json:"trigger_action,omitempty"`
 }
 
@@ -33774,149 +33920,6 @@ type CustomSIPHeaderWithDynamicVariable struct {
 
 // CustomSIPHeaderWithDynamicVariableType defines model for CustomSIPHeaderWithDynamicVariable.Type.
 type CustomSIPHeaderWithDynamicVariableType string
-
-// CustomerFacingConfigOutput defines model for CustomerFacingConfig-Output.
-type CustomerFacingConfigOutput struct {
-	// AdditionalInstructions Extra instructions for the agent (e.g., 'Always ask callers to spell out their name')
-	AdditionalInstructions *StrippedStr `json:"additional_instructions,omitempty"`
-
-	// AdditionalLanguages Additional language codes the agent can communicate in
-	AdditionalLanguages *[]SupportedLang `json:"additional_languages,omitempty"`
-
-	// AgentRules Behavioral rules this agent must follow.
-	AgentRules *[]AgentRule `json:"agent_rules,omitempty"`
-
-	// BackgroundVoiceDetection Filter out far-field human speech before transcription.
-	BackgroundVoiceDetection *bool `json:"background_voice_detection,omitempty"`
-
-	// DetailsToCollect Details the agent should always try to collect from callers (presets + custom labels, e.g. ['full name', 'phone number']).
-	DetailsToCollect *[]StrippedStr `json:"details_to_collect,omitempty"`
-
-	// DisableFirstMessageInterruptions When true, callers cannot interrupt the receptionist while the first message is being delivered. Use when the greeting carries a recording or legal notice callers must hear in full.
-	DisableFirstMessageInterruptions *bool `json:"disable_first_message_interruptions,omitempty"`
-
-	// DisableRag When true, the whole knowledge base is given to the receptionist up front instead of searched on each turn. Faster, but only for small knowledge bases; larger ones are still searched.
-	DisableRag *bool `json:"disable_rag,omitempty"`
-
-	// EnableEndCallTool Allow the end_call system tool during conversations.
-	EnableEndCallTool *bool `json:"enable_end_call_tool,omitempty"`
-
-	// EnablePlayKeypadTouchToneTool Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step.
-	EnablePlayKeypadTouchToneTool *bool `json:"enable_play_keypad_touch_tone_tool,omitempty"`
-
-	// EnableSecureMode When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number.
-	EnableSecureMode *bool `json:"enable_secure_mode,omitempty"`
-
-	// EnableSkipTurnTool Allow the skip_turn system tool during conversations.
-	EnableSkipTurnTool *bool `json:"enable_skip_turn_tool,omitempty"`
-
-	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.
-	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
-
-	// FirstMessage The first message the agent says when starting a conversation
-	//
-	// Examples: Hi, thanks for calling Bloom Salon! How can I help you today?
-	FirstMessage *string `json:"first_message,omitempty"`
-
-	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
-	HideCallerNumberOnTransfers *bool `json:"hide_caller_number_on_transfers,omitempty"`
-
-	// Language Primary language code
-	Language *SupportedLang `json:"language,omitempty"`
-
-	// Llm Model the receptionist runs on. Null uses the default.
-	Llm *LLM `json:"llm,omitempty"`
-
-	// Procedures Standard operating procedures (SOPs) this agent can run on calls.
-	Procedures *[]SMBProcedure `json:"procedures,omitempty"`
-
-	// ReasoningEffort Reasoning effort for the receptionist's model, up to `medium` and only among the efforts the model supports. Null uses the model's default.
-	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
-
-	// RecordAfterTransfers Keep recording after a call is transferred and add that audio to the call recording.
-	RecordAfterTransfers *bool `json:"record_after_transfers,omitempty"`
-
-	// ToneTraits Personality traits for the receptionist, e.g. `['professional', 'concise']`.
-	ToneTraits *[]StrippedStr `json:"tone_traits,omitempty"`
-
-	// TransferRules Phone numbers this agent can transfer calls to.
-	TransferRules *[]SMBTransferRule `json:"transfer_rules,omitempty"`
-
-	// TurnEagerness How quickly the receptionist decides the caller has finished speaking. Eager replies soonest; patient waits for a clearer end of turn.
-	TurnEagerness *SMBTurnEagerness `json:"turn_eagerness,omitempty"`
-
-	// VoiceId ElevenLabs voice ID
-	//
-	// Examples: 21m00Tcm4TlvDq8ikWAM
-	VoiceId *string `json:"voice_id,omitempty"`
-}
-
-// CustomerFacingConfigPatch Rules, procedures and transfer rules are changed through their own endpoints, not here.
-type CustomerFacingConfigPatch struct {
-	// AdditionalInstructions Extra instructions for the agent (e.g., 'Always ask callers to spell out their name')
-	AdditionalInstructions *StrippedStr `json:"additional_instructions,omitempty"`
-
-	// AdditionalLanguages Additional language codes the agent can communicate in
-	AdditionalLanguages *[]SupportedLang `json:"additional_languages,omitempty"`
-
-	// BackgroundVoiceDetection Filter out far-field human speech before transcription.
-	BackgroundVoiceDetection *bool `json:"background_voice_detection,omitempty"`
-
-	// DetailsToCollect Details the agent should always try to collect from callers (presets + custom labels, e.g. ['full name', 'phone number']).
-	DetailsToCollect *[]StrippedStr `json:"details_to_collect,omitempty"`
-
-	// DisableFirstMessageInterruptions When true, callers cannot interrupt the receptionist while the first message is being delivered. Use when the greeting carries a recording or legal notice callers must hear in full.
-	DisableFirstMessageInterruptions *bool `json:"disable_first_message_interruptions,omitempty"`
-
-	// DisableRag When true, the whole knowledge base is given to the receptionist up front instead of searched on each turn. Faster, but only for small knowledge bases; larger ones are still searched.
-	DisableRag *bool `json:"disable_rag,omitempty"`
-
-	// EnableEndCallTool Allow the end_call system tool during conversations.
-	EnableEndCallTool *bool `json:"enable_end_call_tool,omitempty"`
-
-	// EnablePlayKeypadTouchToneTool Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step.
-	EnablePlayKeypadTouchToneTool *bool `json:"enable_play_keypad_touch_tone_tool,omitempty"`
-
-	// EnableSecureMode When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number.
-	EnableSecureMode *bool `json:"enable_secure_mode,omitempty"`
-
-	// EnableSkipTurnTool Allow the skip_turn system tool during conversations.
-	EnableSkipTurnTool *bool `json:"enable_skip_turn_tool,omitempty"`
-
-	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.
-	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
-
-	// FirstMessage The first message the agent says when starting a conversation
-	//
-	// Examples: Hi, thanks for calling Bloom Salon! How can I help you today?
-	FirstMessage *string `json:"first_message,omitempty"`
-
-	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
-	HideCallerNumberOnTransfers *bool `json:"hide_caller_number_on_transfers,omitempty"`
-
-	// Language Primary language code
-	Language *SupportedLang `json:"language,omitempty"`
-
-	// Llm Model the receptionist runs on. Null uses the default.
-	Llm *LLM `json:"llm,omitempty"`
-
-	// ReasoningEffort Reasoning effort for the receptionist's model, up to `medium` and only among the efforts the model supports. Null uses the model's default.
-	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
-
-	// RecordAfterTransfers Keep recording after a call is transferred and add that audio to the call recording.
-	RecordAfterTransfers *bool `json:"record_after_transfers,omitempty"`
-
-	// ToneTraits Personality traits for the receptionist, e.g. `['professional', 'concise']`.
-	ToneTraits *[]StrippedStr `json:"tone_traits,omitempty"`
-
-	// TurnEagerness How quickly the receptionist decides the caller has finished speaking. Eager replies soonest; patient waits for a clearer end of turn.
-	TurnEagerness *SMBTurnEagerness `json:"turn_eagerness,omitempty"`
-
-	// VoiceId ElevenLabs voice ID
-	//
-	// Examples: 21m00Tcm4TlvDq8ikWAM
-	VoiceId *string `json:"voice_id,omitempty"`
-}
 
 // DTMFInputConfig Configuration for DTMF (keypad) input collection during phone calls.
 type DTMFInputConfig struct {
@@ -39351,45 +39354,6 @@ type LiteralJsonSchemaProperty_Type struct {
 // LivekitStackType defines model for LivekitStackType.
 type LivekitStackType string
 
-// LocationResponse A business location.
-type LocationResponse struct {
-	// UnderscoreId The location's ID.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	UnderscoreId string `json:"_id"`
-
-	// Address Street address.
-	Address *StrippedStr `json:"address,omitempty"`
-
-	// CustomerFacingName Name shown to customers; empty reuses name.
-	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-
-	// DeactivatedAtUnix Unix timestamp when this location was deactivated. None when active.
-	//
-	// Examples: 1767225600
-	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
-
-	// DeactivationReason Why this location was deactivated. None when active.
-	DeactivationReason *SMBLocationDeactivationReason `json:"deactivation_reason,omitempty"`
-
-	// IsActive Whether the location is active. Inactive locations take no bookings.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
-	//
-	// Examples: 3
-	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
-
-	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
-	Name StrippedStr `json:"name"`
-
-	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
-	Notes *StrippedStr `json:"notes,omitempty"`
-
-	// OperatingHours When this location is open.
-	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
-}
-
 // LockReason defines model for LockReason.
 type LockReason string
 
@@ -42263,6 +42227,9 @@ type ProcedureListItemResponseModel struct {
 
 	// VersionId Version ID of a version of the procedure. None for a procedure never versioned.
 	VersionId *string `json:"version_id,omitempty"`
+
+	// WrittenDynamicVariables Dynamic variable names written by Update state steps
+	WrittenDynamicVariables *[]string `json:"written_dynamic_variables,omitempty"`
 }
 
 // ProcedureRefResponseModel defines model for ProcedureRefResponseModel.
@@ -42296,6 +42263,9 @@ type ProcedureRefResponseModel struct {
 
 	// VersionId Version ID of a version of the procedure. None for a procedure never versioned.
 	VersionId *string `json:"version_id,omitempty"`
+
+	// WrittenDynamicVariables Dynamic variable names written by Update state steps
+	WrittenDynamicVariables *[]string `json:"written_dynamic_variables,omitempty"`
 }
 
 // ProcedureType defines model for ProcedureType.
@@ -43791,6 +43761,1898 @@ type ReassignPhoneRequest struct {
 	CustomerFacingAgentId string `json:"customer_facing_agent_id"`
 }
 
+// ReceptionAddOn A standalone add-on that can be tacked onto a service or rental booking.
+//
+// An add-on is a small, free-form extra (e.g. "Hot towel", "Valet parking")
+// that extends the parent booking's duration and total price without
+// creating a separate calendar event.
+type ReceptionAddOn struct {
+	// AddDurationMinutes Minutes added to the parent booking when this add-on is selected.
+	//
+	// Examples: 10
+	AddDurationMinutes *int `json:"add_duration_minutes,omitempty"`
+
+	// AddPrice Amount added to the parent booking's total when this add-on is selected.
+	//
+	// Examples: 5
+	AddPrice *float32 `json:"add_price,omitempty"`
+
+	// Description Short owner-authored blurb shown to customers and voice agents when they're choosing add-ons. Empty string means no description.
+	//
+	// Examples: A warm towel to finish your shave.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// Id Stable identifier used by booking requests and calendar snapshots. Survives name/price edits, so rebooking and reporting stay consistent.
+	//
+	// Examples: addon_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// Name Add-on name shown to customers and the receptionist.
+	//
+	// Examples: Hot towel
+	Name StrippedStr `json:"name"`
+}
+
+// ReceptionAdjustProductStockRequest defines model for ReceptionAdjustProductStockRequest.
+type ReceptionAdjustProductStockRequest struct {
+	// Delta Signed change to apply to on-hand. Prefer this over an absolute write whenever the intent is 'a few more/fewer'.
+	//
+	// Examples: -2
+	Delta int `json:"delta"`
+
+	// LocationId Location whose count changes.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId string `json:"location_id"`
+}
+
+// ReceptionAgentInfoResponse The business profile, with the current time in the business's timezone.
+type ReceptionAgentInfoResponse struct {
+	// BusinessCountry ISO 3166-1 alpha-2 country code where the business is based (e.g. 'US', 'PL', 'DE').
+	BusinessCountry *CountryCode `json:"business_country,omitempty"`
+
+	// BusinessDescription What the business does, given to the receptionist.
+	//
+	// Examples: A hair salon offering cuts, color and styling.
+	BusinessDescription *string `json:"business_description,omitempty"`
+
+	// BusinessName Name of the business.
+	//
+	// Examples: Bloom Salon
+	BusinessName *string `json:"business_name,omitempty"`
+
+	// CreatedAtUnix When the business profile was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix int `json:"created_at_unix"`
+
+	// Currency Currency code for all prices (ISO 4217)
+	Currency *ReceptionAgentInfoResponseCurrency `json:"currency,omitempty"`
+
+	// Id ID of the business profile.
+	//
+	// Examples: agentinfo_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
+
+	// OperatingHours Default business hours. Each location's own operating_hours decide when that location is open.
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+
+	// Timezone IANA timezone of the business.
+	//
+	// Examples: America/New_York
+	Timezone *string `json:"timezone,omitempty"`
+
+	// ToolCallSound Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
+	ToolCallSound *ToolCallSoundType `json:"tool_call_sound,omitempty"`
+
+	// UpdatedAtUnix When the business profile was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix int `json:"updated_at_unix"`
+
+	// WorkspaceNow Current time in workspace timezone, computed on each request.
+	WorkspaceNow *WorkspaceNow `json:"workspace_now,omitempty"`
+}
+
+// ReceptionAgentInfoResponseCurrency Currency code for all prices (ISO 4217)
+type ReceptionAgentInfoResponseCurrency string
+
+// ReceptionAssetResource Represents a physical resource that can be booked (rooms, equipment, vehicles).
+type ReceptionAssetResource struct {
+	// AvailableHours Custom availability hours for this asset. Null means follow the assigned location's operating_hours (requires location_id).
+	AvailableHours *WorkingHours `json:"available_hours,omitempty"`
+
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// Description Description of the asset.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// Id The asset's ID.
+	//
+	// Examples: asset_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
+
+	// IsActive Whether the asset can be booked. Inactive assets keep their booking history.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationId Location this asset belongs to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Internal/admin name of the asset, shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// PhotoUrl URL of a photo of the asset.
+	//
+	// Examples: https://example.com/photos/court-1.jpg
+	PhotoUrl *string `json:"photo_url,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+}
+
+// ReceptionConfirmServiceUpdateRequest defines model for ReceptionConfirmServiceUpdateRequest.
+type ReceptionConfirmServiceUpdateRequest struct {
+	// AddOns Optional extras that can be added to a booking of this service.
+	AddOns *[]ReceptionAddOn `json:"add_ons,omitempty"`
+
+	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
+	//
+	// Examples: 10080
+	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
+
+	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
+	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
+
+	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
+	//
+	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	AssetIds *[]string `json:"asset_ids,omitempty"`
+
+	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
+	//
+	// Examples: 15
+	BufferMinutes *int `json:"buffer_minutes,omitempty"`
+
+	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
+	Capacity *int `json:"capacity,omitempty"`
+
+	// Description Details about the service for customers and the receptionist; empty string means none.
+	//
+	// Examples: A classic cut, finished with a wash and style.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether the service is listed on the public booking page.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// DurationMinutes Sets the first variant's duration. Ignored when `variants` is sent.
+	//
+	// Examples: 60
+	DurationMinutes *int `json:"duration_minutes,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]ReceptionIntakeQuestion `json:"intake_questions,omitempty"`
+
+	// IsActive Whether the service is offered; inactive services can't be booked.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
+	Kind *ReceptionServiceKind `json:"kind,omitempty"`
+
+	// LocationIds Locations where this service is offered; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
+	//
+	// Examples: 12
+	MaxParticipants *int `json:"max_participants,omitempty"`
+
+	// Name Service name shown to customers and the receptionist.
+	//
+	// Examples: Haircut
+	Name *StrippedStr `json:"name,omitempty"`
+
+	// Price Sets the first variant's price. Ignored when `variants` is sent.
+	//
+	// Examples: 45
+	Price *float32 `json:"price,omitempty"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// Promotions Time-bound discounts applicable to this service or specific variants.
+	Promotions *[]ReceptionServicePromotion `json:"promotions,omitempty"`
+
+	// ServiceLocation Where the service is delivered. `business` = client visits the business location (default); `customer` = staff travels to the client. Only meaningful for `kind='classic'`.
+	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
+
+	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	//
+	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	StaffIds *[]string `json:"staff_ids,omitempty"`
+
+	// TravelAfter Add travel time after the appointment (return trip).
+	TravelAfter *bool `json:"travel_after,omitempty"`
+
+	// TravelBefore Add travel time before the appointment (outbound trip).
+	TravelBefore *bool `json:"travel_before,omitempty"`
+
+	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
+	//
+	// Examples: 15
+	TravelMinutes *int `json:"travel_minutes,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// Variants Bookable options for this service. Always non-empty; `variants[0]` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
+	Variants *[]ReceptionServiceVariant `json:"variants,omitempty"`
+}
+
+// ReceptionCreateAgentRuleRequest Request model for creating a new agent rule.
+type ReceptionCreateAgentRuleRequest struct {
+	// Description What the agent should do, in detail.
+	Description StrippedStr `json:"description"`
+
+	// Priority strict: the agent must always follow the rule; suggestion: a guideline.
+	Priority *RulePriority `json:"priority,omitempty"`
+
+	// Title Title of the rule.
+	Title StrippedStr `json:"title"`
+}
+
+// ReceptionCreateAssetRequest defines model for ReceptionCreateAssetRequest.
+type ReceptionCreateAssetRequest struct {
+	// AvailableHours Custom availability hours for this asset. Null means follow the assigned location's operating_hours (requires location_id).
+	AvailableHours *WorkingHours `json:"available_hours,omitempty"`
+
+	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// Description Description of the asset.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// IsActive Whether the asset can be booked. Inactive assets keep their booking history.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationId Location this asset belongs to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Internal/admin name of the asset, shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// PhotoUrl URL of a photo of the asset.
+	//
+	// Examples: https://example.com/photos/court-1.jpg
+	PhotoUrl *string `json:"photo_url,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+}
+
+// ReceptionCreateHolidayRequest defines model for ReceptionCreateHolidayRequest.
+type ReceptionCreateHolidayRequest struct {
+	// EndDate Last day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":26,"month":12,"year":2026}
+	EndDate DateModel `json:"end_date"`
+
+	// HolidayType 'closed' for no availability, or 'override' to use override_hours instead of the regular hours.
+	HolidayType *HolidayType `json:"holiday_type,omitempty"`
+
+	// LocationId For LOCATION type: the location this closure applies to.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Display name of the closure or time off.
+	//
+	// Examples: Christmas Eve
+	Name string `json:"name"`
+
+	// OverrideHours Replacement working hours when holiday_type is 'override'.
+	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
+
+	// Reason Optional note on why the closure or time off happens, up to 500 characters.
+	//
+	// Examples: Closed for the holidays
+	Reason *string `json:"reason,omitempty"`
+
+	// ResourceId The staff member or asset ID; required when time_off_type is 'staff' or 'asset'.
+	//
+	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	ResourceId *string `json:"resource_id,omitempty"`
+
+	// StartDate First day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":24,"month":12,"year":2026}
+	StartDate DateModel `json:"start_date"`
+
+	// TimeOffType What the entry applies to: a location, a staff member, or an asset.
+	TimeOffType TimeOffType `json:"time_off_type"`
+}
+
+// ReceptionCreateProcedureRequest Request model for creating a new procedure.
+type ReceptionCreateProcedureRequest struct {
+	// Body Step-by-step instructions, as markdown.
+	//
+	// Examples: 1. Ask for the caller's name and order number.
+	// 2. Look up the order and read back its status.
+	Body *string `json:"body,omitempty"`
+
+	// Name Name of the procedure.
+	Name StrippedStr `json:"name"`
+
+	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
+	Trigger StrippedStr `json:"trigger"`
+}
+
+// ReceptionCreateProductRequest defines model for ReceptionCreateProductRequest.
+type ReceptionCreateProductRequest struct {
+	// AllowedFulfillmentTypes Fulfillment options customers may choose when ordering this product.
+	AllowedFulfillmentTypes *[]OrderFulfillmentType `json:"allowed_fulfillment_types,omitempty"`
+
+	// Description Description of the product.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]ReceptionIntakeQuestion `json:"intake_questions,omitempty"`
+
+	// IsActive False hides the product without deleting it.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationIds Locations where this product is sold; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// Name Name of the product.
+	Name StrippedStr `json:"name"`
+
+	// Orderable False keeps the product listed (callers can ask about it) but not orderable.
+	Orderable *bool `json:"orderable,omitempty"`
+
+	// Price Price of the product; null for no listed price.
+	//
+	// Examples: 4.5
+	Price *float32 `json:"price,omitempty"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// TrackQuantity Whether this product is counted. A counted product starts with nothing on hand at every location.
+	TrackQuantity *bool `json:"track_quantity,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+}
+
+// ReceptionCreateServiceRequest defines model for ReceptionCreateServiceRequest.
+type ReceptionCreateServiceRequest struct {
+	// AddOns Optional extras that can be added to a booking of this service.
+	AddOns *[]ReceptionAddOn `json:"add_ons,omitempty"`
+
+	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
+	//
+	// Examples: 10080
+	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
+
+	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
+	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
+
+	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
+	//
+	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	AssetIds *[]string `json:"asset_ids,omitempty"`
+
+	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
+	//
+	// Examples: 15
+	BufferMinutes *int `json:"buffer_minutes,omitempty"`
+
+	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
+	Capacity *int `json:"capacity,omitempty"`
+
+	// Description Details about the service for customers and the receptionist; empty string means none.
+	//
+	// Examples: A classic cut, finished with a wash and style.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether the service is listed on the public booking page.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]ReceptionIntakeQuestion `json:"intake_questions,omitempty"`
+
+	// IsActive Whether the service is offered; inactive services can't be booked.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
+	Kind *ReceptionServiceKind `json:"kind,omitempty"`
+
+	// LocationIds Locations where this service is offered; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
+	//
+	// Examples: 12
+	MaxParticipants *int `json:"max_participants,omitempty"`
+
+	// Name Service name shown to customers and the receptionist.
+	//
+	// Examples: Haircut
+	Name StrippedStr `json:"name"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// Promotions Time-bound discounts applicable to this service or specific variants.
+	Promotions *[]ReceptionServicePromotion `json:"promotions,omitempty"`
+
+	// ServiceLocation Where the service is delivered. `business` = client visits the business location (default); `customer` = staff travels to the client. Only meaningful for `kind='classic'`.
+	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
+
+	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	//
+	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	StaffIds *[]string `json:"staff_ids,omitempty"`
+
+	// TravelAfter Add travel time after the appointment (return trip).
+	TravelAfter *bool `json:"travel_after,omitempty"`
+
+	// TravelBefore Add travel time before the appointment (outbound trip).
+	TravelBefore *bool `json:"travel_before,omitempty"`
+
+	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
+	//
+	// Examples: 15
+	TravelMinutes *int `json:"travel_minutes,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// Variants Bookable options for this service. Always non-empty; `variants[0]` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
+	Variants *[]ReceptionServiceVariant `json:"variants,omitempty"`
+}
+
+// ReceptionCreateStaffRequest defines model for ReceptionCreateStaffRequest.
+type ReceptionCreateStaffRequest struct {
+	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// Description Description or bio of the staff member.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether customers can see and pick this staff member by name on the booking page. False keeps them bookable, just not shown by name.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// Email Email address of the staff member.
+	//
+	// Examples: jane@example.com
+	Email *string `json:"email,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// IsActive Whether the staff member can be booked. Inactive staff keep their booking history.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationId Location this staff member is assigned to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
+	Phone *PhoneNumberOptional `json:"phone,omitempty"`
+
+	// PhotoUrl URL of a photo of the staff member.
+	//
+	// Examples: https://example.com/photos/jane.jpg
+	PhotoUrl *string `json:"photo_url,omitempty"`
+
+	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
+	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// WorkingHours Custom working hours for this staff member. Null means follow the assigned location's operating_hours (requires location_id).
+	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
+}
+
+// ReceptionCreateTransferRuleRequest Request model for creating a new transfer rule.
+type ReceptionCreateTransferRuleRequest struct {
+	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
+	Condition StrippedStr `json:"condition"`
+
+	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
+	Label StrippedStr `json:"label"`
+
+	// PhoneNumber Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad.
+	PhoneNumber PhoneNumber `json:"phone_number"`
+
+	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
+	//
+	// Examples: www1234
+	PostDialDigits *string `json:"post_dial_digits,omitempty"`
+}
+
+// ReceptionCustomerFacingAgentDeactivationReason Why a receptionist is currently inactive (live calls disabled).
+type ReceptionCustomerFacingAgentDeactivationReason string
+
+// ReceptionCustomerFacingAgentResponse A receptionist.
+type ReceptionCustomerFacingAgentResponse struct {
+	// AgentExists False when the receptionist's underlying agent was deleted; it cannot take calls until it is set up again.
+	AgentExists *bool `json:"agent_exists,omitempty"`
+
+	// AgentId ID of the ElevenLabs agent behind this receptionist.
+	//
+	// Examples: agent_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	AgentId *string `json:"agent_id,omitempty"`
+
+	// Config The receptionist's voice, language, greeting, rules and other settings.
+	Config *ReceptionCustomerFacingConfigOutput `json:"config,omitempty"`
+
+	// DeactivatedAtUnix Unix timestamp when this receptionist was deactivated. None when active.
+	//
+	// Examples: 1767225600
+	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
+
+	// DeactivationReason Why this receptionist was deactivated. None when active.
+	DeactivationReason *ReceptionCustomerFacingAgentDeactivationReason `json:"deactivation_reason,omitempty"`
+
+	// IsActive Whether the receptionist is active. Inactive receptionists take no live calls.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// IsTransferAllowed Whether this receptionist can configure and use transfer rules.
+	IsTransferAllowed *bool `json:"is_transfer_allowed,omitempty"`
+
+	// Name Display name of the receptionist.
+	//
+	// Examples: Front Desk
+	Name *string `json:"name,omitempty"`
+
+	// Widget How the website widget looks. Null when the agent is missing. Unset labels follow the receptionist's language.
+	Widget *ReceptionWidgetAppearance `json:"widget,omitempty"`
+}
+
+// ReceptionCustomerFacingConfigOutput defines model for ReceptionCustomerFacingConfig-Output.
+type ReceptionCustomerFacingConfigOutput struct {
+	// AdditionalInstructions Extra instructions for the agent (e.g., 'Always ask callers to spell out their name')
+	AdditionalInstructions *StrippedStr `json:"additional_instructions,omitempty"`
+
+	// AdditionalLanguages Additional language codes the agent can communicate in
+	AdditionalLanguages *[]SupportedLang `json:"additional_languages,omitempty"`
+
+	// AgentRules Behavioral rules this agent must follow.
+	AgentRules *[]AgentRule `json:"agent_rules,omitempty"`
+
+	// BackgroundVoiceDetection Filter out far-field human speech before transcription.
+	BackgroundVoiceDetection *bool `json:"background_voice_detection,omitempty"`
+
+	// DetailsToCollect Details the agent should always try to collect from callers (presets + custom labels, e.g. ['full name', 'phone number']).
+	DetailsToCollect *[]StrippedStr `json:"details_to_collect,omitempty"`
+
+	// DisableFirstMessageInterruptions When true, callers cannot interrupt the receptionist while the first message is being delivered. Use when the greeting carries a recording or legal notice callers must hear in full.
+	DisableFirstMessageInterruptions *bool `json:"disable_first_message_interruptions,omitempty"`
+
+	// DisableRag When true, the whole knowledge base is given to the receptionist up front instead of searched on each turn. Faster, but only for small knowledge bases; larger ones are still searched.
+	DisableRag *bool `json:"disable_rag,omitempty"`
+
+	// EnableEndCallTool Allow the end_call system tool during conversations.
+	EnableEndCallTool *bool `json:"enable_end_call_tool,omitempty"`
+
+	// EnablePlayKeypadTouchToneTool Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step.
+	EnablePlayKeypadTouchToneTool *bool `json:"enable_play_keypad_touch_tone_tool,omitempty"`
+
+	// EnableSecureMode When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number.
+	EnableSecureMode *bool `json:"enable_secure_mode,omitempty"`
+
+	// EnableSkipTurnTool Allow the skip_turn system tool during conversations.
+	EnableSkipTurnTool *bool `json:"enable_skip_turn_tool,omitempty"`
+
+	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.
+	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
+
+	// FirstMessage The first message the agent says when starting a conversation
+	//
+	// Examples: Hi, thanks for calling Bloom Salon! How can I help you today?
+	FirstMessage *string `json:"first_message,omitempty"`
+
+	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
+	HideCallerNumberOnTransfers *bool `json:"hide_caller_number_on_transfers,omitempty"`
+
+	// Language Primary language code
+	Language *SupportedLang `json:"language,omitempty"`
+
+	// Llm Model the receptionist runs on. Null uses the default.
+	Llm *LLM `json:"llm,omitempty"`
+
+	// Procedures Standard operating procedures (SOPs) this agent can run on calls.
+	Procedures *[]ReceptionProcedure `json:"procedures,omitempty"`
+
+	// ReasoningEffort Reasoning effort for the receptionist's model, up to `medium` and only among the efforts the model supports. Null uses the model's default.
+	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
+
+	// RecordAfterTransfers Keep recording after a call is transferred and add that audio to the call recording.
+	RecordAfterTransfers *bool `json:"record_after_transfers,omitempty"`
+
+	// ToneTraits Personality traits for the receptionist, e.g. `['professional', 'concise']`.
+	ToneTraits *[]StrippedStr `json:"tone_traits,omitempty"`
+
+	// TransferRules Phone numbers this agent can transfer calls to.
+	TransferRules *[]ReceptionTransferRule `json:"transfer_rules,omitempty"`
+
+	// TurnEagerness How quickly the receptionist decides the caller has finished speaking. Eager replies soonest; patient waits for a clearer end of turn.
+	TurnEagerness *ReceptionTurnEagerness `json:"turn_eagerness,omitempty"`
+
+	// VoiceId ElevenLabs voice ID
+	//
+	// Examples: 21m00Tcm4TlvDq8ikWAM
+	VoiceId *string `json:"voice_id,omitempty"`
+}
+
+// ReceptionCustomerFacingConfigPatch Rules, procedures and transfer rules are changed through their own endpoints, not here.
+type ReceptionCustomerFacingConfigPatch struct {
+	// AdditionalInstructions Extra instructions for the agent (e.g., 'Always ask callers to spell out their name')
+	AdditionalInstructions *StrippedStr `json:"additional_instructions,omitempty"`
+
+	// AdditionalLanguages Additional language codes the agent can communicate in
+	AdditionalLanguages *[]SupportedLang `json:"additional_languages,omitempty"`
+
+	// BackgroundVoiceDetection Filter out far-field human speech before transcription.
+	BackgroundVoiceDetection *bool `json:"background_voice_detection,omitempty"`
+
+	// DetailsToCollect Details the agent should always try to collect from callers (presets + custom labels, e.g. ['full name', 'phone number']).
+	DetailsToCollect *[]StrippedStr `json:"details_to_collect,omitempty"`
+
+	// DisableFirstMessageInterruptions When true, callers cannot interrupt the receptionist while the first message is being delivered. Use when the greeting carries a recording or legal notice callers must hear in full.
+	DisableFirstMessageInterruptions *bool `json:"disable_first_message_interruptions,omitempty"`
+
+	// DisableRag When true, the whole knowledge base is given to the receptionist up front instead of searched on each turn. Faster, but only for small knowledge bases; larger ones are still searched.
+	DisableRag *bool `json:"disable_rag,omitempty"`
+
+	// EnableEndCallTool Allow the end_call system tool during conversations.
+	EnableEndCallTool *bool `json:"enable_end_call_tool,omitempty"`
+
+	// EnablePlayKeypadTouchToneTool Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step.
+	EnablePlayKeypadTouchToneTool *bool `json:"enable_play_keypad_touch_tone_tool,omitempty"`
+
+	// EnableSecureMode When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number.
+	EnableSecureMode *bool `json:"enable_secure_mode,omitempty"`
+
+	// EnableSkipTurnTool Allow the skip_turn system tool during conversations.
+	EnableSkipTurnTool *bool `json:"enable_skip_turn_tool,omitempty"`
+
+	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.
+	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
+
+	// FirstMessage The first message the agent says when starting a conversation
+	//
+	// Examples: Hi, thanks for calling Bloom Salon! How can I help you today?
+	FirstMessage *string `json:"first_message,omitempty"`
+
+	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
+	HideCallerNumberOnTransfers *bool `json:"hide_caller_number_on_transfers,omitempty"`
+
+	// Language Primary language code
+	Language *SupportedLang `json:"language,omitempty"`
+
+	// Llm Model the receptionist runs on. Null uses the default.
+	Llm *LLM `json:"llm,omitempty"`
+
+	// ReasoningEffort Reasoning effort for the receptionist's model, up to `medium` and only among the efforts the model supports. Null uses the model's default.
+	ReasoningEffort *LLMReasoningEffort `json:"reasoning_effort,omitempty"`
+
+	// RecordAfterTransfers Keep recording after a call is transferred and add that audio to the call recording.
+	RecordAfterTransfers *bool `json:"record_after_transfers,omitempty"`
+
+	// ToneTraits Personality traits for the receptionist, e.g. `['professional', 'concise']`.
+	ToneTraits *[]StrippedStr `json:"tone_traits,omitempty"`
+
+	// TurnEagerness How quickly the receptionist decides the caller has finished speaking. Eager replies soonest; patient waits for a clearer end of turn.
+	TurnEagerness *ReceptionTurnEagerness `json:"turn_eagerness,omitempty"`
+
+	// VoiceId ElevenLabs voice ID
+	//
+	// Examples: 21m00Tcm4TlvDq8ikWAM
+	VoiceId *string `json:"voice_id,omitempty"`
+}
+
+// ReceptionGroupMembership Membership of an item in a single user-defined group, with its display rank inside that group.
+type ReceptionGroupMembership struct {
+	// Label Name of the group.
+	//
+	// Examples: Haircuts
+	Label StrippedStr `json:"label"`
+
+	// Rank 0-based display position within this group. Change it with the reorder endpoint; send back the value you read to keep the order, a membership sent without it goes to position 0.
+	Rank *int `json:"rank,omitempty"`
+}
+
+// ReceptionIntakeQuestion A question the receptionist asks before booking or ordering this item.
+type ReceptionIntakeQuestion struct {
+	// Id Stable identifier referenced by stored answers. Survives label edits so history stays attributable to the right question.
+	//
+	// Examples: intakeq_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// IsActive Retired questions are deactivated rather than deleted, so answers already stored against them keep resolving.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Kind The answer's shape: free text, a number, or one of options.
+	Kind *IntakeQuestionKind `json:"kind,omitempty"`
+
+	// Label The question as the agent should ask it, e.g. 'How many rooms?'. Phrased by the owner; the agent may rephrase for conversational flow but must not change what is being asked.
+	Label StrippedStr `json:"label"`
+
+	// Options Allowed answers for `kind='choice'`. Must be empty for the other kinds.
+	Options *[]StrippedStr `json:"options,omitempty"`
+
+	// Required Enforced on the booking page. On calls the receptionist asks, but still books if the caller won't answer.
+	Required *bool `json:"required,omitempty"`
+}
+
+// ReceptionKnowledgeSource A file or web page the receptionists learn from.
+type ReceptionKnowledgeSource struct {
+	// ContentPreview A short plain-text preview of the content.
+	//
+	// Examples: Welcome to Main Street Salon. We offer haircuts, color and styling.
+	ContentPreview *string `json:"content_preview,omitempty"`
+
+	// ContentType The uploaded file's MIME type; empty for URLs.
+	//
+	// Examples: application/pdf
+	ContentType *string `json:"content_type,omitempty"`
+
+	// CrawlEntireSite Whether the whole site was crawled rather than the single page at source_url.
+	CrawlEntireSite *bool `json:"crawl_entire_site,omitempty"`
+
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// ErrorMessage Why processing failed, when status is 'error'.
+	//
+	// Examples: We couldn't reach that website.
+	ErrorMessage *string `json:"error_message,omitempty"`
+
+	// FailureReason Machine-readable cause of the failure, when status is 'error'.
+	FailureReason *IngestFailure `json:"failure_reason,omitempty"`
+
+	// FileSizeBytes The uploaded file's size in bytes; 0 for URLs.
+	//
+	// Examples: 204800
+	FileSizeBytes *int `json:"file_size_bytes,omitempty"`
+
+	// Id The knowledge source's ID.
+	//
+	// Examples: ksource_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
+
+	// LastScrapedAtUnix When the URL was last read, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	LastScrapedAtUnix *int `json:"last_scraped_at_unix,omitempty"`
+
+	// OriginalFilename The uploaded file's name for 'file' sources; empty for URLs.
+	//
+	// Examples: price-list.pdf
+	OriginalFilename *string `json:"original_filename,omitempty"`
+
+	// ProcessingStartedAtUnix When processing started, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	ProcessingStartedAtUnix *int `json:"processing_started_at_unix,omitempty"`
+
+	// ScrapedPagesCount How many pages were read for 'url' sources.
+	//
+	// Examples: 12
+	ScrapedPagesCount *int `json:"scraped_pages_count,omitempty"`
+
+	// SourceType Whether the source is an uploaded file or a web page or site.
+	SourceType *KnowledgeSourceType `json:"source_type,omitempty"`
+
+	// SourceUrl The page or site URL for 'url' sources.
+	//
+	// Examples: https://example.com
+	SourceUrl *string `json:"source_url,omitempty"`
+
+	// Status Where processing stands: 'processing', 'ready' or 'error'.
+	Status *KnowledgeSourceStatus `json:"status,omitempty"`
+
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+}
+
+// ReceptionLocationDeactivationReason Why a location is currently inactive.
+type ReceptionLocationDeactivationReason string
+
+// ReceptionLocationRequest Request model for creating or updating a location.
+type ReceptionLocationRequest struct {
+	// Address Street address.
+	Address *StrippedStr `json:"address,omitempty"`
+
+	// CustomerFacingName Name shown to customers; empty reuses name.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// IsActive Whether the location is active. Inactive locations take no bookings.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
+	//
+	// Examples: 3
+	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
+
+	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
+	Notes *StrippedStr `json:"notes,omitempty"`
+
+	// OperatingHours Per-location operating hours. On create, omit to have the server prefill from the most recently added active location.
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+}
+
+// ReceptionLocationRequestPatch defines model for ReceptionLocationRequestPatch.
+type ReceptionLocationRequestPatch struct {
+	// Address Street address.
+	Address *StrippedStr `json:"address,omitempty"`
+
+	// CustomerFacingName Name shown to customers; empty reuses name.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// IsActive Whether the location is active. Inactive locations take no bookings.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
+	//
+	// Examples: 3
+	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
+
+	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
+	Name *StrippedStr `json:"name,omitempty"`
+
+	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
+	Notes *StrippedStr `json:"notes,omitempty"`
+
+	// OperatingHours Per-location operating hours. On create, omit to have the server prefill from the most recently added active location.
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+}
+
+// ReceptionLocationResponse A business location.
+type ReceptionLocationResponse struct {
+	// Address Street address.
+	Address *StrippedStr `json:"address,omitempty"`
+
+	// CustomerFacingName Name shown to customers; empty reuses name.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// DeactivatedAtUnix Unix timestamp when this location was deactivated. None when active.
+	//
+	// Examples: 1767225600
+	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
+
+	// DeactivationReason Why this location was deactivated. None when active.
+	DeactivationReason *ReceptionLocationDeactivationReason `json:"deactivation_reason,omitempty"`
+
+	// Id The location's ID.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
+
+	// IsActive Whether the location is active. Inactive locations take no bookings.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
+	//
+	// Examples: 3
+	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
+
+	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
+	Notes *StrippedStr `json:"notes,omitempty"`
+
+	// OperatingHours When this location is open.
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+}
+
+// ReceptionPhoneAssignment A phone number held by the workspace.
+type ReceptionPhoneAssignment struct {
+	// AcceptsPublicCalls Whether inbound calls from the public may reach the receptionist.
+	AcceptsPublicCalls *bool `json:"accepts_public_calls,omitempty"`
+
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// CustomerFacingAgentId The receptionist that answers this number. Null when the workspace holds the number but no receptionist answers it yet.
+	//
+	// Examples: agent_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	CustomerFacingAgentId *string `json:"customer_facing_agent_id,omitempty"`
+
+	// DeactivatedAtUnix Unix timestamp when this number was deactivated; it is released 14 days later. Null when active.
+	//
+	// Examples: 1767225600
+	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
+
+	// DeactivationReason Why this number was deactivated. Null when active.
+	DeactivationReason *ReceptionPhoneAssignmentDeactivationReason `json:"deactivation_reason,omitempty"`
+
+	// Id The phone number assignment's ID.
+	//
+	// Examples: phone_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
+
+	// IsActive Whether the number is active; false during the 14 days before a deactivated number is released.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// IsByo True when the phone is bring-your-own: registered by the workspace using their own telephony provider (Twilio credentials or SIP trunk). BYO phones are never part of the shared pool, do not count against the plan's phone number limit, and are deleted (rather than returned to the pool) on release.
+	IsByo *bool `json:"is_byo,omitempty"`
+
+	// NanpAreaCode US/Canada NANP area code (NPA) as an integer.
+	//
+	// Examples: 415
+	NanpAreaCode *int `json:"nanp_area_code,omitempty"`
+
+	// PhoneNumber Phone number in E.164 format.
+	PhoneNumber *PhoneNumber `json:"phone_number,omitempty"`
+
+	// Provider Telephony provider for this phone number.
+	Provider *ReceptionPhoneProvider `json:"provider,omitempty"`
+
+	// RegulatoryCountry ISO country the regulated number was issued in. Null for numbers that need no paperwork.
+	RegulatoryCountry *CountryCode `json:"regulatory_country,omitempty"`
+
+	// RegulatoryNumberType The regulated number type this number was issued as. Null for numbers that need no paperwork.
+	RegulatoryNumberType *ApplicationNumberType `json:"regulatory_number_type,omitempty"`
+
+	// RegulatoryStatus Null for numbers that need no paperwork. `held` while the workspace's own application is under review, `approved` once it passed and the number is fully usable.
+	RegulatoryStatus *ReceptionPhoneRegulatoryStatus `json:"regulatory_status,omitempty"`
+
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+}
+
+// ReceptionPhoneAssignmentDeactivationReason Why a phone assignment is currently inactive.
+type ReceptionPhoneAssignmentDeactivationReason string
+
+// ReceptionPhoneProvider How calls to the number reach ElevenLabs: through Twilio or a SIP trunk.
+type ReceptionPhoneProvider string
+
+// ReceptionPhoneRegulatoryStatus Regulatory standing of a number in a country that requires paperwork.
+//
+// Null for numbers that need no paperwork, such as US and Canadian numbers.
+type ReceptionPhoneRegulatoryStatus string
+
+// ReceptionProcedure A standard operating procedure (SOP) the receptionist can run on calls.
+type ReceptionProcedure struct {
+	// Body Step-by-step instructions, as markdown.
+	//
+	// Examples: 1. Ask for the caller's name and order number.
+	// 2. Look up the order and read back its status.
+	Body *string `json:"body,omitempty"`
+
+	// CreatedAtUnix When the procedure was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// Id ID of the procedure.
+	//
+	// Examples: agtprc_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// Name Name of the procedure.
+	Name StrippedStr `json:"name"`
+
+	// SourceKey Set when the procedure was copied from an integration's template; null for procedures you create.
+	SourceKey *string `json:"source_key,omitempty"`
+
+	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
+	Trigger StrippedStr `json:"trigger"`
+}
+
+// ReceptionProcedureResponse A stored procedure plus whether the receptionist can actually run it.
+type ReceptionProcedureResponse struct {
+	// Body Step-by-step instructions, as markdown.
+	//
+	// Examples: 1. Ask for the caller's name and order number.
+	// 2. Look up the order and read back its status.
+	Body *string `json:"body,omitempty"`
+
+	// CreatedAtUnix When the procedure was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// Id ID of the procedure.
+	//
+	// Examples: agtprc_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// MissingTools Tool API names the steps point at that the receptionist does not have. While non-empty the procedure is left off calls.
+	MissingTools *[]string `json:"missing_tools,omitempty"`
+
+	// Name Name of the procedure.
+	Name StrippedStr `json:"name"`
+
+	// SourceKey Set when the procedure was copied from an integration's template; null for procedures you create.
+	SourceKey *string `json:"source_key,omitempty"`
+
+	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
+	Trigger StrippedStr `json:"trigger"`
+}
+
+// ReceptionProduct Represents a product, menu item, or catalog item.
+//
+// Used for restaurants (menu), e-commerce (products), salons (retail items), etc.
+type ReceptionProduct struct {
+	// AllowedFulfillmentTypes Fulfillment options customers may choose when ordering this product.
+	AllowedFulfillmentTypes *[]OrderFulfillmentType `json:"allowed_fulfillment_types,omitempty"`
+
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// Description Description of the product.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// Id The product's ID.
+	//
+	// Examples: product_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]ReceptionIntakeQuestion `json:"intake_questions,omitempty"`
+
+	// IsActive False hides the product without deleting it.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationIds Locations where this product is sold; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// Name Name of the product.
+	Name StrippedStr `json:"name"`
+
+	// Orderable False keeps the product listed (callers can ask about it) but not orderable.
+	Orderable *bool `json:"orderable,omitempty"`
+
+	// Price Price of the product; null for no listed price.
+	//
+	// Examples: 4.5
+	Price *float32 `json:"price,omitempty"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// Stock On-hand quantity by location. None means unlimited. A missing location key means zero.
+	Stock *map[string]int `json:"stock,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+}
+
+// ReceptionService Represents a bookable service (e.g., haircut, massage, consultation).
+type ReceptionService struct {
+	// AddOns Optional extras that can be added to a booking of this service.
+	AddOns *[]ReceptionAddOn `json:"add_ons,omitempty"`
+
+	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
+	//
+	// Examples: 10080
+	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
+
+	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
+	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
+
+	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
+	//
+	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	AssetIds *[]string `json:"asset_ids,omitempty"`
+
+	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
+	//
+	// Examples: 15
+	BufferMinutes *int `json:"buffer_minutes,omitempty"`
+
+	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
+	Capacity *int `json:"capacity,omitempty"`
+
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// Description Details about the service for customers and the receptionist; empty string means none.
+	//
+	// Examples: A classic cut, finished with a wash and style.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether the service is listed on the public booking page.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// DurationMinutes Duration of the first variant.
+	//
+	// Examples: 60
+	DurationMinutes *int `json:"duration_minutes,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// Id The service's ID.
+	//
+	// Examples: service_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]ReceptionIntakeQuestion `json:"intake_questions,omitempty"`
+
+	// IsActive Whether the service is offered; inactive services can't be booked.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
+	Kind *ReceptionServiceKind `json:"kind,omitempty"`
+
+	// LocationIds Locations where this service is offered; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
+	//
+	// Examples: 12
+	MaxParticipants *int `json:"max_participants,omitempty"`
+
+	// Name Service name shown to customers and the receptionist.
+	//
+	// Examples: Haircut
+	Name StrippedStr `json:"name"`
+
+	// Price Price of the first variant.
+	//
+	// Examples: 45
+	Price *float32 `json:"price,omitempty"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// Promotions Time-bound discounts applicable to this service or specific variants.
+	Promotions *[]ReceptionServicePromotion `json:"promotions,omitempty"`
+
+	// ServiceLocation Where the service is delivered. `business` = client visits the business location (default); `customer` = staff travels to the client. Only meaningful for `kind='classic'`.
+	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
+
+	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	//
+	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	StaffIds *[]string `json:"staff_ids,omitempty"`
+
+	// TravelAfter Add travel time after the appointment (return trip).
+	TravelAfter *bool `json:"travel_after,omitempty"`
+
+	// TravelBefore Add travel time before the appointment (outbound trip).
+	TravelBefore *bool `json:"travel_before,omitempty"`
+
+	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
+	//
+	// Examples: 15
+	TravelMinutes *int `json:"travel_minutes,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+
+	// Variants Bookable options for this service; `variants[0]` is the default.
+	Variants []ReceptionServiceVariant `json:"variants"`
+}
+
+// ReceptionServiceKind What a service books.
+//
+// - `classic`: a staff-delivered service (haircut, consultation, massage, ...).
+// - `rental`: an asset reservation (court, room, equipment).
+// - `group`: seats in a multi-participant session (class, workshop, tour).
+type ReceptionServiceKind string
+
+// ReceptionServicePromotion A time-bound promotion on a service/variant or on add-ons.
+type ReceptionServicePromotion struct {
+	// AddOnId When set (target=add_on), the promotion applies only to this add-on.
+	//
+	// Examples: addon_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	AddOnId *string `json:"add_on_id,omitempty"`
+
+	// DaysOfWeek Days when the promotion is active (0=Monday, 6=Sunday); empty means every day.
+	DaysOfWeek *[]int `json:"days_of_week,omitempty"`
+
+	// EndDate Last day the promotion applies, inclusive; on or after `start_date`.
+	//
+	// Examples: 2026-12-31
+	EndDate openapi_types.Date `json:"end_date"`
+
+	// Id Stable ID of this promotion.
+	//
+	// Examples: promo_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// IsActive Whether the promotion applies; inactive promotions are ignored.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Name Display name of the promotion.
+	//
+	// Examples: Holiday special
+	Name StrippedStr `json:"name"`
+
+	// PromotionalPrice The final price when this promotion is applied to a matching line item.
+	//
+	// Examples: 35
+	PromotionalPrice float32 `json:"promotional_price"`
+
+	// StartDate First day the promotion applies, inclusive.
+	//
+	// Examples: 2026-12-01
+	StartDate openapi_types.Date `json:"start_date"`
+
+	// Target Whether this promotion targets the service/variant price or add-on prices.
+	Target *PromotionTarget `json:"target,omitempty"`
+
+	// VariantId When set (target=service), the promotion applies only to this variant.
+	//
+	// Examples: variant_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	VariantId *string `json:"variant_id,omitempty"`
+}
+
+// ReceptionServiceUpdateResponse defines model for ReceptionServiceUpdateResponse.
+type ReceptionServiceUpdateResponse struct {
+	// HasAffectedEvents True when the update changes the price of upcoming bookings and was not saved; send it again to the confirm-update endpoint to apply it.
+	HasAffectedEvents bool `json:"has_affected_events"`
+
+	// Service The updated service, or null when the update was held back because it reprices existing bookings.
+	Service *ReceptionService `json:"service,omitempty"`
+}
+
+// ReceptionServiceVariant A variant of a service identified by its duration, with optional price override.
+type ReceptionServiceVariant struct {
+	// DurationMinutes How long this option takes, in minutes.
+	//
+	// Examples: 60
+	DurationMinutes int `json:"duration_minutes"`
+
+	// Id Stable ID of this option; keep it when editing so bookings and promotions still match.
+	//
+	// Examples: variant_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// IsActive Whether customers can book this option.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Price Price of this option in the workspace's currency; null means no listed price.
+	//
+	// Examples: 45
+	Price *float32 `json:"price,omitempty"`
+}
+
+// ReceptionStaffResource Represents a staff member who can provide services.
+type ReceptionStaffResource struct {
+	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// Description Description or bio of the staff member.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether customers can see and pick this staff member by name on the booking page. False keeps them bookable, just not shown by name.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// Email Email address of the staff member.
+	//
+	// Examples: jane@example.com
+	Email *string `json:"email,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// Id The staff member's ID.
+	//
+	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id string `json:"id"`
+
+	// IsActive Whether the staff member can be booked. Inactive staff keep their booking history.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationId Location this staff member is assigned to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
+	Name StrippedStr `json:"name"`
+
+	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
+	Phone *PhoneNumberOptional `json:"phone,omitempty"`
+
+	// PhotoUrl URL of a photo of the staff member.
+	//
+	// Examples: https://example.com/photos/jane.jpg
+	PhotoUrl *string `json:"photo_url,omitempty"`
+
+	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
+	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+
+	// WorkingHours Custom working hours for this staff member. Null means follow the assigned location's operating_hours (requires location_id).
+	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
+}
+
+// ReceptionTeamInviteResponse defines model for ReceptionTeamInviteResponse.
+type ReceptionTeamInviteResponse struct {
+	// CreatedAtUnix When the invite was sent, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *int `json:"created_at_unix,omitempty"`
+
+	// Email The invited email address.
+	//
+	// Examples: sam@example.com
+	Email string `json:"email"`
+
+	// InvitingUserEmail Email address of the member who sent the invite, if known.
+	//
+	// Examples: jane@example.com
+	InvitingUserEmail *string `json:"inviting_user_email,omitempty"`
+
+	// SeatType The role the invitee joins with.
+	SeatType SeatType `json:"seat_type"`
+}
+
+// ReceptionTeamMemberResponse defines model for ReceptionTeamMemberResponse.
+type ReceptionTeamMemberResponse struct {
+	// Email The member's email address.
+	//
+	// Examples: jane@example.com
+	Email string `json:"email"`
+
+	// FirstName The member's first name, if set.
+	//
+	// Examples: Jane
+	FirstName *string `json:"first_name,omitempty"`
+
+	// IsAdmin Whether the member is a workspace admin.
+	IsAdmin bool `json:"is_admin"`
+
+	// IsOwner Whether the member owns the workspace.
+	IsOwner bool `json:"is_owner"`
+
+	// IsSuspended Whether the member's access to the workspace is suspended.
+	IsSuspended *bool `json:"is_suspended,omitempty"`
+
+	// PictureUrl URL of the member's profile picture, if set.
+	//
+	// Examples: https://example.com/jane.png
+	PictureUrl *string `json:"picture_url,omitempty"`
+
+	// UserId The member's user ID.
+	//
+	// Examples: Xr8bG2kQ9PZt4vLmN1aY6cDe3Hf2
+	UserId string `json:"user_id"`
+}
+
+// ReceptionTransferRule A configured phone number that the agent can transfer calls to.
+type ReceptionTransferRule struct {
+	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
+	Condition StrippedStr `json:"condition"`
+
+	// CreatedAtUnix When the transfer rule was created, as a Unix timestamp in seconds.
+	//
+	// Examples: 1767225600
+	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
+
+	// Id ID of the transfer rule.
+	//
+	// Examples: transferrule_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	Id *string `json:"id,omitempty"`
+
+	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
+	Label StrippedStr `json:"label"`
+
+	// PhoneNumber Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad.
+	PhoneNumber PhoneNumber `json:"phone_number"`
+
+	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
+	//
+	// Examples: www1234
+	PostDialDigits *string `json:"post_dial_digits,omitempty"`
+}
+
+// ReceptionTurnEagerness How quickly the receptionist decides the caller has finished speaking.
+type ReceptionTurnEagerness string
+
+// ReceptionUpdateAgentInfoRequest Fields to change on the business profile.
+type ReceptionUpdateAgentInfoRequest struct {
+	// BusinessCountry ISO 3166-1 alpha-2 country code where the business is based (e.g. 'US', 'PL', 'DE').
+	BusinessCountry *CountryCode `json:"business_country,omitempty"`
+
+	// BusinessDescription What the business does, given to the receptionist.
+	//
+	// Examples: A hair salon offering cuts, color and styling.
+	BusinessDescription *string `json:"business_description,omitempty"`
+
+	// BusinessName Name of the business.
+	//
+	// Examples: Bloom Salon
+	BusinessName *string `json:"business_name,omitempty"`
+
+	// Currency Currency code for all prices (ISO 4217)
+	Currency *ReceptionUpdateAgentInfoRequestCurrency `json:"currency,omitempty"`
+
+	// OperatingHours Default business hours. Each location's own operating_hours decide when that location is open.
+	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
+
+	// Timezone IANA timezone of the business.
+	//
+	// Examples: America/New_York
+	Timezone *string `json:"timezone,omitempty"`
+
+	// ToolCallSound Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
+	ToolCallSound *ToolCallSoundType `json:"tool_call_sound,omitempty"`
+}
+
+// ReceptionUpdateAgentInfoRequestCurrency Currency code for all prices (ISO 4217)
+type ReceptionUpdateAgentInfoRequestCurrency string
+
+// ReceptionUpdateAgentRuleRequest Request model for updating an existing agent rule.
+type ReceptionUpdateAgentRuleRequest struct {
+	// Description What the agent should do, in detail.
+	Description StrippedStr `json:"description"`
+
+	// Priority strict: the agent must always follow the rule; suggestion: a guideline.
+	Priority *RulePriority `json:"priority,omitempty"`
+
+	// Title Title of the rule.
+	Title StrippedStr `json:"title"`
+}
+
+// ReceptionUpdateAssetRequestPatch defines model for ReceptionUpdateAssetRequestPatch.
+type ReceptionUpdateAssetRequestPatch struct {
+	// AvailableHours Custom availability hours for this asset. Null means follow the assigned location's operating_hours (requires location_id).
+	AvailableHours *WorkingHours `json:"available_hours,omitempty"`
+
+	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// Description Description of the asset.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// IsActive Whether the asset can be booked. Inactive assets keep their booking history.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationId Location this asset belongs to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Internal/admin name of the asset, shown in the dashboard and owner notifications.
+	Name *StrippedStr `json:"name,omitempty"`
+
+	// PhotoUrl URL of a photo of the asset.
+	//
+	// Examples: https://example.com/photos/court-1.jpg
+	PhotoUrl *string `json:"photo_url,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+}
+
+// ReceptionUpdateCustomerFacingAgentRequest defines model for ReceptionUpdateCustomerFacingAgentRequest.
+type ReceptionUpdateCustomerFacingAgentRequest struct {
+	// Config Receptionist settings to change; omitted settings keep their value.
+	Config *ReceptionCustomerFacingConfigPatch `json:"config,omitempty"`
+
+	// Name New display name for the receptionist.
+	//
+	// Examples: Front Desk
+	Name *string `json:"name,omitempty"`
+
+	// Widget New website widget appearance.
+	Widget *ReceptionWidgetAppearance `json:"widget,omitempty"`
+}
+
+// ReceptionUpdateHolidayRequestPatch defines model for ReceptionUpdateHolidayRequestPatch.
+type ReceptionUpdateHolidayRequestPatch struct {
+	// EndDate Last day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":26,"month":12,"year":2026}
+	EndDate *DateModel `json:"end_date,omitempty"`
+
+	// HolidayType 'closed' for no availability, or 'override' to use override_hours instead of the regular hours.
+	HolidayType *HolidayType `json:"holiday_type,omitempty"`
+
+	// LocationId For LOCATION type: the location this closure applies to.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Display name of the closure or time off.
+	//
+	// Examples: Christmas Eve
+	Name *string `json:"name,omitempty"`
+
+	// OverrideHours Replacement working hours when holiday_type is 'override'.
+	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
+
+	// Reason Optional note on why the closure or time off happens, up to 500 characters.
+	//
+	// Examples: Closed for the holidays
+	Reason *string `json:"reason,omitempty"`
+
+	// ResourceId The staff member or asset ID; required when time_off_type is 'staff' or 'asset'.
+	//
+	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	ResourceId *string `json:"resource_id,omitempty"`
+
+	// StartDate First day of the closure or time off, inclusive.
+	//
+	// Examples: {"day":24,"month":12,"year":2026}
+	StartDate *DateModel `json:"start_date,omitempty"`
+
+	// TimeOffType What the entry applies to: a location, a staff member, or an asset.
+	TimeOffType *TimeOffType `json:"time_off_type,omitempty"`
+}
+
+// ReceptionUpdateProcedureRequest Request model for updating an existing procedure.
+type ReceptionUpdateProcedureRequest struct {
+	// Body Step-by-step instructions, as markdown.
+	//
+	// Examples: 1. Ask for the caller's name and order number.
+	// 2. Look up the order and read back its status.
+	Body *string `json:"body,omitempty"`
+
+	// Name Name of the procedure.
+	Name StrippedStr `json:"name"`
+
+	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
+	Trigger StrippedStr `json:"trigger"`
+}
+
+// ReceptionUpdateProductRequestPatch defines model for ReceptionUpdateProductRequestPatch.
+type ReceptionUpdateProductRequestPatch struct {
+	// AllowedFulfillmentTypes Fulfillment options customers may choose when ordering this product.
+	AllowedFulfillmentTypes *[]OrderFulfillmentType `json:"allowed_fulfillment_types,omitempty"`
+
+	// Description Description of the product.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]ReceptionIntakeQuestion `json:"intake_questions,omitempty"`
+
+	// IsActive False hides the product without deleting it.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationIds Locations where this product is sold; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// Name Name of the product.
+	Name *StrippedStr `json:"name,omitempty"`
+
+	// Orderable False keeps the product listed (callers can ask about it) but not orderable.
+	Orderable *bool `json:"orderable,omitempty"`
+
+	// Price Price of the product; null for no listed price.
+	//
+	// Examples: 4.5
+	Price *float32 `json:"price,omitempty"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// TrackQuantity Whether this product is counted. Switching it only changes the mode: turning it on keeps whatever is already on hand, turning it off drops the counts. Use the stock endpoints to change the amounts themselves.
+	TrackQuantity *bool `json:"track_quantity,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+}
+
+// ReceptionUpdateProductStockRequest defines model for ReceptionUpdateProductStockRequest.
+type ReceptionUpdateProductStockRequest struct {
+	// ExpectedOnHand On-hand value the caller last saw. The write is rejected with a 409 if it no longer matches, so a sale made while the caller was editing is never overwritten.
+	//
+	// Examples: 25
+	ExpectedOnHand int `json:"expected_on_hand"`
+
+	// LocationId Location whose count is set.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId string `json:"location_id"`
+
+	// OnHand The new on-hand quantity.
+	//
+	// Examples: 24
+	OnHand int `json:"on_hand"`
+}
+
+// ReceptionUpdateServiceRequestPatch defines model for ReceptionUpdateServiceRequestPatch.
+type ReceptionUpdateServiceRequestPatch struct {
+	// AddOns Optional extras that can be added to a booking of this service.
+	AddOns *[]ReceptionAddOn `json:"add_ons,omitempty"`
+
+	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
+	//
+	// Examples: 10080
+	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
+
+	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
+	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
+
+	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
+	//
+	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	AssetIds *[]string `json:"asset_ids,omitempty"`
+
+	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
+	//
+	// Examples: 15
+	BufferMinutes *int `json:"buffer_minutes,omitempty"`
+
+	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
+	Capacity *int `json:"capacity,omitempty"`
+
+	// Description Details about the service for customers and the receptionist; empty string means none.
+	//
+	// Examples: A classic cut, finished with a wash and style.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether the service is listed on the public booking page.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// DurationMinutes Sets the first variant's duration. Ignored when `variants` is sent.
+	//
+	// Examples: 60
+	DurationMinutes *int `json:"duration_minutes,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
+	IntakeQuestions *[]ReceptionIntakeQuestion `json:"intake_questions,omitempty"`
+
+	// IsActive Whether the service is offered; inactive services can't be booked.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
+	Kind *ReceptionServiceKind `json:"kind,omitempty"`
+
+	// LocationIds Locations where this service is offered; empty list means all locations.
+	//
+	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	LocationIds *[]string `json:"location_ids,omitempty"`
+
+	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
+	//
+	// Examples: 12
+	MaxParticipants *int `json:"max_participants,omitempty"`
+
+	// Name Service name shown to customers and the receptionist.
+	//
+	// Examples: Haircut
+	Name *StrippedStr `json:"name,omitempty"`
+
+	// Price Sets the first variant's price. Ignored when `variants` is sent.
+	//
+	// Examples: 45
+	Price *float32 `json:"price,omitempty"`
+
+	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
+	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
+
+	// Promotions Time-bound discounts applicable to this service or specific variants.
+	Promotions *[]ReceptionServicePromotion `json:"promotions,omitempty"`
+
+	// ServiceLocation Where the service is delivered. `business` = client visits the business location (default); `customer` = staff travels to the client. Only meaningful for `kind='classic'`.
+	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
+
+	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
+	//
+	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
+	StaffIds *[]string `json:"staff_ids,omitempty"`
+
+	// TravelAfter Add travel time after the appointment (return trip).
+	TravelAfter *bool `json:"travel_after,omitempty"`
+
+	// TravelBefore Add travel time before the appointment (outbound trip).
+	TravelBefore *bool `json:"travel_before,omitempty"`
+
+	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
+	//
+	// Examples: 15
+	TravelMinutes *int `json:"travel_minutes,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// Variants Bookable options for this service. Always non-empty; `variants[0]` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
+	Variants *[]ReceptionServiceVariant `json:"variants,omitempty"`
+}
+
+// ReceptionUpdateStaffRequestPatch defines model for ReceptionUpdateStaffRequestPatch.
+type ReceptionUpdateStaffRequestPatch struct {
+	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
+	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
+
+	// Description Description or bio of the staff member.
+	Description *StrippedStr `json:"description,omitempty"`
+
+	// DisplayOnBookingPage Whether customers can see and pick this staff member by name on the booking page. False keeps them bookable, just not shown by name.
+	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
+
+	// Email Email address of the staff member.
+	//
+	// Examples: jane@example.com
+	Email *string `json:"email,omitempty"`
+
+	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
+	Groups *[]ReceptionGroupMembership `json:"groups,omitempty"`
+
+	// IsActive Whether the staff member can be booked. Inactive staff keep their booking history.
+	IsActive *bool `json:"is_active,omitempty"`
+
+	// LocationId Location this staff member is assigned to; empty means available at all locations.
+	//
+	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
+	LocationId *string `json:"location_id,omitempty"`
+
+	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
+	Name *StrippedStr `json:"name,omitempty"`
+
+	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
+	Phone *PhoneNumberOptional `json:"phone,omitempty"`
+
+	// PhotoUrl URL of a photo of the staff member.
+	//
+	// Examples: https://example.com/photos/jane.jpg
+	PhotoUrl *string `json:"photo_url,omitempty"`
+
+	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
+	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
+
+	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
+	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
+
+	// WorkingHours Custom working hours for this staff member. Null means follow the assigned location's operating_hours (requires location_id).
+	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
+}
+
+// ReceptionUpdateTransferRuleRequest Request model for updating an existing transfer rule.
+type ReceptionUpdateTransferRuleRequest struct {
+	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
+	Condition StrippedStr `json:"condition"`
+
+	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
+	Label StrippedStr `json:"label"`
+
+	// PhoneNumber Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad.
+	PhoneNumber PhoneNumber `json:"phone_number"`
+
+	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
+	//
+	// Examples: www1234
+	PostDialDigits *string `json:"post_dial_digits,omitempty"`
+}
+
+// ReceptionWidgetAppearance How the website widget looks. A null label follows the receptionist's language.
+type ReceptionWidgetAppearance struct {
+	// Dismissible Whether visitors can close the widget.
+	Dismissible bool `json:"dismissible"`
+
+	// MainLabel Text shown on the widget; null uses the default for the receptionist's language.
+	//
+	// Examples: Need help?
+	MainLabel *string `json:"main_label,omitempty"`
+
+	// OrbColor1 First color of the widget's orb gradient, as a hex color.
+	//
+	// Examples: #2792dc
+	OrbColor1 string `json:"orb_color_1"`
+
+	// OrbColor2 Second color of the widget's orb gradient, as a hex color.
+	//
+	// Examples: #9ce6e6
+	OrbColor2 string `json:"orb_color_2"`
+
+	// Placement Where on the page the widget sits.
+	Placement ReceptionWidgetAppearancePlacement `json:"placement"`
+
+	// StartCall Text on the button that starts a call; null uses the default for the receptionist's language.
+	//
+	// Examples: Call us
+	StartCall *string `json:"start_call,omitempty"`
+
+	// Variant Widget size, from the smallest ('tiny') to the largest ('full').
+	Variant ReceptionWidgetAppearanceVariant `json:"variant"`
+}
+
+// ReceptionWidgetAppearancePlacement Where on the page the widget sits.
+type ReceptionWidgetAppearancePlacement string
+
+// ReceptionWidgetAppearanceVariant Widget size, from the smallest ('tiny') to the largest ('full').
+type ReceptionWidgetAppearanceVariant string
+
 // RecipientDeliveryCounts defines model for RecipientDeliveryCounts.
 type RecipientDeliveryCounts struct {
 	Delivered *int `json:"delivered,omitempty"`
@@ -44582,1260 +46444,6 @@ type SIPUriTransferDestination struct {
 // SIPUriTransferDestinationType defines model for SIPUriTransferDestination.Type.
 type SIPUriTransferDestinationType string
 
-// SMBAddOn A standalone add-on that can be tacked onto a service or rental booking.
-//
-// An add-on is a small, free-form extra (e.g. "Hot towel", "Valet parking")
-// that extends the parent booking's duration and total price without
-// creating a separate calendar event.
-type SMBAddOn struct {
-	// AddDurationMinutes Minutes added to the parent booking when this add-on is selected.
-	//
-	// Examples: 10
-	AddDurationMinutes *int `json:"add_duration_minutes,omitempty"`
-
-	// AddPrice Amount added to the parent booking's total when this add-on is selected.
-	//
-	// Examples: 5
-	AddPrice *float32 `json:"add_price,omitempty"`
-
-	// Description Short owner-authored blurb shown to customers and voice agents when they're choosing add-ons. Empty string means no description.
-	//
-	// Examples: A warm towel to finish your shave.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// Id Stable identifier used by booking requests and calendar snapshots. Survives name/price edits, so rebooking and reporting stay consistent.
-	//
-	// Examples: addon_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	Id *string `json:"id,omitempty"`
-
-	// Name Add-on name shown to customers and the receptionist.
-	//
-	// Examples: Hot towel
-	Name StrippedStr `json:"name"`
-}
-
-// SMBAdjustProductStockRequest defines model for SMBAdjustProductStockRequest.
-type SMBAdjustProductStockRequest struct {
-	// Delta Signed change to apply to on-hand. Prefer this over an absolute write whenever the intent is 'a few more/fewer'.
-	//
-	// Examples: -2
-	Delta int `json:"delta"`
-
-	// LocationId Location whose count changes.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId string `json:"location_id"`
-}
-
-// SMBAgentInfoResponse The business profile, with the current time in the business's timezone.
-type SMBAgentInfoResponse struct {
-	// BusinessCountry ISO 3166-1 alpha-2 country code where the business is based (e.g. 'US', 'PL', 'DE').
-	BusinessCountry *CountryCode `json:"business_country,omitempty"`
-
-	// BusinessDescription What the business does, given to the receptionist.
-	//
-	// Examples: A hair salon offering cuts, color and styling.
-	BusinessDescription *string `json:"business_description,omitempty"`
-
-	// BusinessName Name of the business.
-	//
-	// Examples: Bloom Salon
-	BusinessName *string `json:"business_name,omitempty"`
-
-	// CreatedAtUnix When the business profile was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix int `json:"created_at_unix"`
-
-	// Currency Currency code for all prices (ISO 4217)
-	Currency *SMBAgentInfoResponseCurrency `json:"currency,omitempty"`
-
-	// Id ID of the business profile.
-	//
-	// Examples: agentinfo_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	Id string `json:"id"`
-
-	// OperatingHours Default business hours. Each location's own operating_hours decide when that location is open.
-	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
-
-	// Timezone IANA timezone of the business.
-	//
-	// Examples: America/New_York
-	Timezone *string `json:"timezone,omitempty"`
-
-	// ToolCallSound Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
-	ToolCallSound *ToolCallSoundType `json:"tool_call_sound,omitempty"`
-
-	// UpdatedAtUnix When the business profile was last updated, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	UpdatedAtUnix int `json:"updated_at_unix"`
-
-	// WorkspaceNow Current time in workspace timezone, computed on each request.
-	WorkspaceNow *WorkspaceNow `json:"workspace_now,omitempty"`
-}
-
-// SMBAgentInfoResponseCurrency Currency code for all prices (ISO 4217)
-type SMBAgentInfoResponseCurrency string
-
-// SMBAssetResourceDBModel Represents a physical resource that can be booked (rooms, equipment, vehicles).
-type SMBAssetResourceDBModel struct {
-	// UnderscoreId The asset's ID.
-	//
-	// Examples: asset_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	UnderscoreId string `json:"_id"`
-
-	// AvailableHours Custom availability hours for this asset. Null means follow the assigned location's operating_hours (requires location_id).
-	AvailableHours *WorkingHours `json:"available_hours,omitempty"`
-
-	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-
-	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
-	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-
-	// Description Description of the asset.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IsActive Whether the asset can be booked. Inactive assets keep their booking history.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// LocationId Location this asset belongs to; empty means available at all locations.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId *string `json:"location_id,omitempty"`
-
-	// Name Internal/admin name of the asset, shown in the dashboard and owner notifications.
-	Name StrippedStr `json:"name"`
-
-	// PhotoUrl URL of a photo of the asset.
-	//
-	// Examples: https://example.com/photos/court-1.jpg
-	PhotoUrl *string `json:"photo_url,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-
-	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
-}
-
-// SMBConfirmServiceUpdateRequest defines model for SMBConfirmServiceUpdateRequest.
-type SMBConfirmServiceUpdateRequest struct {
-	// AddOns Optional extras that can be added to a booking of this service.
-	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
-
-	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
-	//
-	// Examples: 10080
-	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
-
-	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
-	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
-
-	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
-	//
-	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	AssetIds *[]string `json:"asset_ids,omitempty"`
-
-	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
-	//
-	// Examples: 15
-	BufferMinutes *int `json:"buffer_minutes,omitempty"`
-
-	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
-	Capacity *int `json:"capacity,omitempty"`
-
-	// Description Details about the service for customers and the receptionist; empty string means none.
-	//
-	// Examples: A classic cut, finished with a wash and style.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// DisplayOnBookingPage Whether the service is listed on the public booking page.
-	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
-
-	// DurationMinutes Sets the first variant's duration. Ignored when `variants` is sent.
-	//
-	// Examples: 60
-	DurationMinutes *int `json:"duration_minutes,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
-	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-
-	// IsActive Whether the service is offered; inactive services can't be booked.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
-	Kind *SMBServiceKind `json:"kind,omitempty"`
-
-	// LocationIds Locations where this service is offered; empty list means all locations.
-	//
-	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	LocationIds *[]string `json:"location_ids,omitempty"`
-
-	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
-	//
-	// Examples: 12
-	MaxParticipants *int `json:"max_participants,omitempty"`
-
-	// Name Service name shown to customers and the receptionist.
-	//
-	// Examples: Haircut
-	Name *StrippedStr `json:"name,omitempty"`
-
-	// Price Sets the first variant's price. Ignored when `variants` is sent.
-	//
-	// Examples: 45
-	Price *float32 `json:"price,omitempty"`
-
-	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
-	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
-
-	// Promotions Time-bound discounts applicable to this service or specific variants.
-	Promotions *[]SMBServicePromotion `json:"promotions,omitempty"`
-
-	// ServiceLocation Where the service is delivered. `business` = client visits the business location (default); `customer` = staff travels to the client. Only meaningful for `kind='classic'`.
-	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
-
-	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
-	//
-	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	StaffIds *[]string `json:"staff_ids,omitempty"`
-
-	// TravelAfter Add travel time after the appointment (return trip).
-	TravelAfter *bool `json:"travel_after,omitempty"`
-
-	// TravelBefore Add travel time before the appointment (outbound trip).
-	TravelBefore *bool `json:"travel_before,omitempty"`
-
-	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
-	//
-	// Examples: 15
-	TravelMinutes *int `json:"travel_minutes,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-
-	// Variants Bookable options for this service. Always non-empty; `variants[0]` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
-	Variants *[]SMBServiceVariant `json:"variants,omitempty"`
-}
-
-// SMBCreateAgentRuleRequest Request model for creating a new agent rule.
-type SMBCreateAgentRuleRequest struct {
-	// Description What the agent should do, in detail.
-	Description StrippedStr `json:"description"`
-
-	// Priority strict: the agent must always follow the rule; suggestion: a guideline.
-	Priority *RulePriority `json:"priority,omitempty"`
-
-	// Title Title of the rule.
-	Title StrippedStr `json:"title"`
-}
-
-// SMBCreateAssetRequest defines model for SMBCreateAssetRequest.
-type SMBCreateAssetRequest struct {
-	// AvailableHours Custom availability hours for this asset. Null means follow the assigned location's operating_hours (requires location_id).
-	AvailableHours *WorkingHours `json:"available_hours,omitempty"`
-
-	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
-	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-
-	// Description Description of the asset.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IsActive Whether the asset can be booked. Inactive assets keep their booking history.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// LocationId Location this asset belongs to; empty means available at all locations.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId *string `json:"location_id,omitempty"`
-
-	// Name Internal/admin name of the asset, shown in the dashboard and owner notifications.
-	Name StrippedStr `json:"name"`
-
-	// PhotoUrl URL of a photo of the asset.
-	//
-	// Examples: https://example.com/photos/court-1.jpg
-	PhotoUrl *string `json:"photo_url,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-}
-
-// SMBCreateHolidayRequest defines model for SMBCreateHolidayRequest.
-type SMBCreateHolidayRequest struct {
-	// EndDate Last day of the closure or time off, inclusive.
-	//
-	// Examples: {"day":26,"month":12,"year":2026}
-	EndDate DateModel `json:"end_date"`
-
-	// HolidayType 'closed' for no availability, or 'override' to use override_hours instead of the regular hours.
-	HolidayType *HolidayType `json:"holiday_type,omitempty"`
-
-	// LocationId For LOCATION type: the location this closure applies to.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId *string `json:"location_id,omitempty"`
-
-	// Name Display name of the closure or time off.
-	//
-	// Examples: Christmas Eve
-	Name string `json:"name"`
-
-	// OverrideHours Replacement working hours when holiday_type is 'override'.
-	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
-
-	// Reason Optional note on why the closure or time off happens, up to 500 characters.
-	//
-	// Examples: Closed for the holidays
-	Reason *string `json:"reason,omitempty"`
-
-	// ResourceId The staff member or asset ID; required when time_off_type is 'staff' or 'asset'.
-	//
-	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	ResourceId *string `json:"resource_id,omitempty"`
-
-	// StartDate First day of the closure or time off, inclusive.
-	//
-	// Examples: {"day":24,"month":12,"year":2026}
-	StartDate DateModel `json:"start_date"`
-
-	// TimeOffType What the entry applies to: a location, a staff member, or an asset.
-	TimeOffType TimeOffType `json:"time_off_type"`
-}
-
-// SMBCreateProcedureRequest Request model for creating a new procedure.
-type SMBCreateProcedureRequest struct {
-	// Body Step-by-step instructions, as markdown.
-	//
-	// Examples: 1. Ask for the caller's name and order number.
-	// 2. Look up the order and read back its status.
-	Body *string `json:"body,omitempty"`
-
-	// Name Name of the procedure.
-	Name StrippedStr `json:"name"`
-
-	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
-	Trigger StrippedStr `json:"trigger"`
-}
-
-// SMBCreateProductRequest defines model for SMBCreateProductRequest.
-type SMBCreateProductRequest struct {
-	// AllowedFulfillmentTypes Fulfillment options customers may choose when ordering this product.
-	AllowedFulfillmentTypes *[]OrderFulfillmentType `json:"allowed_fulfillment_types,omitempty"`
-
-	// Description Description of the product.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
-	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-
-	// IsActive False hides the product without deleting it.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// LocationIds Locations where this product is sold; empty list means all locations.
-	//
-	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	LocationIds *[]string `json:"location_ids,omitempty"`
-
-	// Name Name of the product.
-	Name StrippedStr `json:"name"`
-
-	// Orderable False keeps the product listed (callers can ask about it) but not orderable.
-	Orderable *bool `json:"orderable,omitempty"`
-
-	// Price Price of the product; null for no listed price.
-	//
-	// Examples: 4.5
-	Price *float32 `json:"price,omitempty"`
-
-	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
-	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
-
-	// TrackQuantity Whether this product is counted. A counted product starts with nothing on hand at every location.
-	TrackQuantity *bool `json:"track_quantity,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-}
-
-// SMBCreateServiceRequest defines model for SMBCreateServiceRequest.
-type SMBCreateServiceRequest struct {
-	// AddOns Optional extras that can be added to a booking of this service.
-	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
-
-	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
-	//
-	// Examples: 10080
-	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
-
-	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
-	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
-
-	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
-	//
-	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	AssetIds *[]string `json:"asset_ids,omitempty"`
-
-	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
-	//
-	// Examples: 15
-	BufferMinutes *int `json:"buffer_minutes,omitempty"`
-
-	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
-	Capacity *int `json:"capacity,omitempty"`
-
-	// Description Details about the service for customers and the receptionist; empty string means none.
-	//
-	// Examples: A classic cut, finished with a wash and style.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// DisplayOnBookingPage Whether the service is listed on the public booking page.
-	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
-	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-
-	// IsActive Whether the service is offered; inactive services can't be booked.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
-	Kind *SMBServiceKind `json:"kind,omitempty"`
-
-	// LocationIds Locations where this service is offered; empty list means all locations.
-	//
-	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	LocationIds *[]string `json:"location_ids,omitempty"`
-
-	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
-	//
-	// Examples: 12
-	MaxParticipants *int `json:"max_participants,omitempty"`
-
-	// Name Service name shown to customers and the receptionist.
-	//
-	// Examples: Haircut
-	Name StrippedStr `json:"name"`
-
-	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
-	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
-
-	// Promotions Time-bound discounts applicable to this service or specific variants.
-	Promotions *[]SMBServicePromotion `json:"promotions,omitempty"`
-
-	// ServiceLocation Where the service is delivered. `business` = client visits the business location (default); `customer` = staff travels to the client. Only meaningful for `kind='classic'`.
-	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
-
-	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
-	//
-	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	StaffIds *[]string `json:"staff_ids,omitempty"`
-
-	// TravelAfter Add travel time after the appointment (return trip).
-	TravelAfter *bool `json:"travel_after,omitempty"`
-
-	// TravelBefore Add travel time before the appointment (outbound trip).
-	TravelBefore *bool `json:"travel_before,omitempty"`
-
-	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
-	//
-	// Examples: 15
-	TravelMinutes *int `json:"travel_minutes,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-
-	// Variants Bookable options for this service. Always non-empty; `variants[0]` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
-	Variants *[]SMBServiceVariant `json:"variants,omitempty"`
-}
-
-// SMBCreateStaffRequest defines model for SMBCreateStaffRequest.
-type SMBCreateStaffRequest struct {
-	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
-	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-
-	// Description Description or bio of the staff member.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// DisplayOnBookingPage Whether customers can see and pick this staff member by name on the booking page. False keeps them bookable, just not shown by name.
-	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
-
-	// Email Email address of the staff member.
-	//
-	// Examples: jane@example.com
-	Email *string `json:"email,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IsActive Whether the staff member can be booked. Inactive staff keep their booking history.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// LocationId Location this staff member is assigned to; empty means available at all locations.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId *string `json:"location_id,omitempty"`
-
-	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
-	Name StrippedStr `json:"name"`
-
-	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
-	Phone *PhoneNumberOptional `json:"phone,omitempty"`
-
-	// PhotoUrl URL of a photo of the staff member.
-	//
-	// Examples: https://example.com/photos/jane.jpg
-	PhotoUrl *string `json:"photo_url,omitempty"`
-
-	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
-	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-
-	// WorkingHours Custom working hours for this staff member. Null means follow the assigned location's operating_hours (requires location_id).
-	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
-}
-
-// SMBCreateTransferRuleRequest Request model for creating a new transfer rule.
-type SMBCreateTransferRuleRequest struct {
-	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
-	Condition StrippedStr `json:"condition"`
-
-	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
-	Label StrippedStr `json:"label"`
-
-	// PhoneNumber Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad.
-	PhoneNumber PhoneNumber `json:"phone_number"`
-
-	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
-	//
-	// Examples: www1234
-	PostDialDigits *string `json:"post_dial_digits,omitempty"`
-}
-
-// SMBCustomerFacingAgentDeactivationReason Why a receptionist is currently inactive (live calls disabled).
-type SMBCustomerFacingAgentDeactivationReason string
-
-// SMBCustomerFacingAgentResponse A receptionist.
-type SMBCustomerFacingAgentResponse struct {
-	// AgentExists False when the receptionist's underlying agent was deleted; it cannot take calls until it is set up again.
-	AgentExists *bool `json:"agent_exists,omitempty"`
-
-	// AgentId ID of the ElevenLabs agent behind this receptionist.
-	//
-	// Examples: agent_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	AgentId *string `json:"agent_id,omitempty"`
-
-	// Config The receptionist's voice, language, greeting, rules and other settings.
-	Config *CustomerFacingConfigOutput `json:"config,omitempty"`
-
-	// DeactivatedAtUnix Unix timestamp when this receptionist was deactivated. None when active.
-	//
-	// Examples: 1767225600
-	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
-
-	// DeactivationReason Why this receptionist was deactivated. None when active.
-	DeactivationReason *SMBCustomerFacingAgentDeactivationReason `json:"deactivation_reason,omitempty"`
-
-	// IsActive Whether the receptionist is active. Inactive receptionists take no live calls.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// IsTransferAllowed Whether this receptionist can configure and use transfer rules.
-	IsTransferAllowed *bool `json:"is_transfer_allowed,omitempty"`
-
-	// Name Display name of the receptionist.
-	//
-	// Examples: Front Desk
-	Name *string `json:"name,omitempty"`
-
-	// Widget How the website widget looks. Null when the agent is missing. Unset labels follow the receptionist's language.
-	Widget *SMBWidgetAppearance `json:"widget,omitempty"`
-}
-
-// SMBGroupMembership Membership of an item in a single user-defined group, with its display rank inside that group.
-type SMBGroupMembership struct {
-	// Label Name of the group.
-	//
-	// Examples: Haircuts
-	Label StrippedStr `json:"label"`
-
-	// Rank 0-based display position within this group. Change it with the reorder endpoint; send back the value you read to keep the order, a membership sent without it goes to position 0.
-	Rank *int `json:"rank,omitempty"`
-}
-
-// SMBIntakeQuestion A question the receptionist asks before booking or ordering this item.
-type SMBIntakeQuestion struct {
-	// Id Stable identifier referenced by stored answers. Survives label edits so history stays attributable to the right question.
-	//
-	// Examples: intakeq_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	Id *string `json:"id,omitempty"`
-
-	// IsActive Retired questions are deactivated rather than deleted, so answers already stored against them keep resolving.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// Kind The answer's shape: free text, a number, or one of options.
-	Kind *IntakeQuestionKind `json:"kind,omitempty"`
-
-	// Label The question as the agent should ask it, e.g. 'How many rooms?'. Phrased by the owner; the agent may rephrase for conversational flow but must not change what is being asked.
-	Label StrippedStr `json:"label"`
-
-	// Options Allowed answers for `kind='choice'`. Must be empty for the other kinds.
-	Options *[]StrippedStr `json:"options,omitempty"`
-
-	// Required Enforced on the booking page. On calls the receptionist asks, but still books if the caller won't answer.
-	Required *bool `json:"required,omitempty"`
-}
-
-// SMBKnowledgeSourceDBModel A file or web page the receptionists learn from.
-type SMBKnowledgeSourceDBModel struct {
-	// UnderscoreId The knowledge source's ID.
-	//
-	// Examples: ksource_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	UnderscoreId string `json:"_id"`
-
-	// ContentPreview A short plain-text preview of the content.
-	//
-	// Examples: Welcome to Main Street Salon. We offer haircuts, color and styling.
-	ContentPreview *string `json:"content_preview,omitempty"`
-
-	// ContentType The uploaded file's MIME type; empty for URLs.
-	//
-	// Examples: application/pdf
-	ContentType *string `json:"content_type,omitempty"`
-
-	// CrawlEntireSite Whether the whole site was crawled rather than the single page at source_url.
-	CrawlEntireSite *bool `json:"crawl_entire_site,omitempty"`
-
-	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-
-	// ErrorMessage Why processing failed, when status is 'error'.
-	//
-	// Examples: We couldn't reach that website.
-	ErrorMessage *string `json:"error_message,omitempty"`
-
-	// FailureReason Machine-readable cause of the failure, when status is 'error'.
-	FailureReason *IngestFailure `json:"failure_reason,omitempty"`
-
-	// FileSizeBytes The uploaded file's size in bytes; 0 for URLs.
-	//
-	// Examples: 204800
-	FileSizeBytes *int `json:"file_size_bytes,omitempty"`
-
-	// LastScrapedAtUnix When the URL was last read, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	LastScrapedAtUnix *int `json:"last_scraped_at_unix,omitempty"`
-
-	// OriginalFilename The uploaded file's name for 'file' sources; empty for URLs.
-	//
-	// Examples: price-list.pdf
-	OriginalFilename *string `json:"original_filename,omitempty"`
-
-	// ProcessingStartedAtUnix When processing started, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	ProcessingStartedAtUnix *int `json:"processing_started_at_unix,omitempty"`
-
-	// ScrapedPagesCount How many pages were read for 'url' sources.
-	//
-	// Examples: 12
-	ScrapedPagesCount *int `json:"scraped_pages_count,omitempty"`
-
-	// SourceType Whether the source is an uploaded file or a web page or site.
-	SourceType *KnowledgeSourceType `json:"source_type,omitempty"`
-
-	// SourceUrl The page or site URL for 'url' sources.
-	//
-	// Examples: https://example.com
-	SourceUrl *string `json:"source_url,omitempty"`
-
-	// Status Where processing stands: 'processing', 'ready' or 'error'.
-	Status *KnowledgeSourceStatus `json:"status,omitempty"`
-
-	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
-}
-
-// SMBLocationDeactivationReason Why a location is currently inactive.
-type SMBLocationDeactivationReason string
-
-// SMBLocationRequest Request model for creating or updating a location.
-type SMBLocationRequest struct {
-	// Address Street address.
-	Address *StrippedStr `json:"address,omitempty"`
-
-	// CustomerFacingName Name shown to customers; empty reuses name.
-	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-
-	// IsActive Whether the location is active. Inactive locations take no bookings.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
-	//
-	// Examples: 3
-	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
-
-	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
-	Name StrippedStr `json:"name"`
-
-	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
-	Notes *StrippedStr `json:"notes,omitempty"`
-
-	// OperatingHours Per-location operating hours. On create, omit to have the server prefill from the most recently added active location.
-	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
-}
-
-// SMBLocationRequestPatch defines model for SMBLocationRequestPatch.
-type SMBLocationRequestPatch struct {
-	// Address Street address.
-	Address *StrippedStr `json:"address,omitempty"`
-
-	// CustomerFacingName Name shown to customers; empty reuses name.
-	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-
-	// IsActive Whether the location is active. Inactive locations take no bookings.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// MaxConcurrentAppointments Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
-	//
-	// Examples: 3
-	MaxConcurrentAppointments *int `json:"max_concurrent_appointments,omitempty"`
-
-	// Name Internal name, e.g. 'Main Office' or 'Downtown Branch', shown in the dashboard and owner notifications.
-	Name *StrippedStr `json:"name,omitempty"`
-
-	// Notes Directions or other notes for customers, e.g. 'Free parking behind the building'.
-	Notes *StrippedStr `json:"notes,omitempty"`
-
-	// OperatingHours Per-location operating hours. On create, omit to have the server prefill from the most recently added active location.
-	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
-}
-
-// SMBPhoneAssignmentDBModel A phone number held by the workspace.
-type SMBPhoneAssignmentDBModel struct {
-	// UnderscoreId The phone number assignment's ID.
-	//
-	// Examples: phone_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	UnderscoreId string `json:"_id"`
-
-	// AcceptsPublicCalls Whether inbound calls from the public may reach the receptionist.
-	AcceptsPublicCalls *bool `json:"accepts_public_calls,omitempty"`
-
-	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-
-	// CustomerFacingAgentId The receptionist that answers this number. Null when the workspace holds the number but no receptionist answers it yet.
-	//
-	// Examples: agent_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	CustomerFacingAgentId *string `json:"customer_facing_agent_id,omitempty"`
-
-	// DeactivatedAtUnix Unix timestamp when this number was deactivated; it is released 14 days later. Null when active.
-	//
-	// Examples: 1767225600
-	DeactivatedAtUnix *int `json:"deactivated_at_unix,omitempty"`
-
-	// DeactivationReason Why this number was deactivated. Null when active.
-	DeactivationReason *SMBPhoneAssignmentDeactivationReason `json:"deactivation_reason,omitempty"`
-
-	// IsActive Whether the number is active; false during the 14 days before a deactivated number is released.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// IsByo True when the phone is bring-your-own: registered by the workspace using their own telephony provider (Twilio credentials or SIP trunk). BYO phones are never part of the shared pool, do not count against the plan's phone number limit, and are deleted (rather than returned to the pool) on release.
-	IsByo *bool `json:"is_byo,omitempty"`
-
-	// NanpAreaCode US/Canada NANP area code (NPA) as an integer.
-	//
-	// Examples: 415
-	NanpAreaCode *int `json:"nanp_area_code,omitempty"`
-
-	// PhoneNumber Phone number in E.164 format.
-	PhoneNumber *PhoneNumber `json:"phone_number,omitempty"`
-
-	// Provider Telephony provider for this phone number.
-	Provider *SMBPhoneProvider `json:"provider,omitempty"`
-
-	// RegulatoryCountry ISO country the regulated number was issued in. Null for numbers that need no paperwork.
-	RegulatoryCountry *CountryCode `json:"regulatory_country,omitempty"`
-
-	// RegulatoryNumberType The regulated number type this number was issued as. Null for numbers that need no paperwork.
-	RegulatoryNumberType *ApplicationNumberType `json:"regulatory_number_type,omitempty"`
-
-	// RegulatoryStatus Null for numbers that need no paperwork. `held` while the workspace's own application is under review, `approved` once it passed and the number is fully usable.
-	RegulatoryStatus *SMBPhoneRegulatoryStatus `json:"regulatory_status,omitempty"`
-
-	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
-}
-
-// SMBPhoneAssignmentDeactivationReason Why a phone assignment is currently inactive.
-type SMBPhoneAssignmentDeactivationReason string
-
-// SMBPhoneProvider How calls to the number reach ElevenLabs: through Twilio or a SIP trunk.
-type SMBPhoneProvider string
-
-// SMBPhoneRegulatoryStatus Regulatory standing of a number in a country that requires paperwork.
-//
-// Null for numbers that need no paperwork, such as US and Canadian numbers.
-type SMBPhoneRegulatoryStatus string
-
-// SMBProcedure A standard operating procedure (SOP) the receptionist can run on calls.
-type SMBProcedure struct {
-	// Body Step-by-step instructions, as markdown.
-	//
-	// Examples: 1. Ask for the caller's name and order number.
-	// 2. Look up the order and read back its status.
-	Body *string `json:"body,omitempty"`
-
-	// CreatedAtUnix When the procedure was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-
-	// Id ID of the procedure.
-	//
-	// Examples: agtprc_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	Id *string `json:"id,omitempty"`
-
-	// Name Name of the procedure.
-	Name StrippedStr `json:"name"`
-
-	// SourceKey Set when the procedure was copied from an integration's template; null for procedures you create.
-	SourceKey *string `json:"source_key,omitempty"`
-
-	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
-	Trigger StrippedStr `json:"trigger"`
-}
-
-// SMBProcedureResponse A stored procedure plus whether the receptionist can actually run it.
-type SMBProcedureResponse struct {
-	// Body Step-by-step instructions, as markdown.
-	//
-	// Examples: 1. Ask for the caller's name and order number.
-	// 2. Look up the order and read back its status.
-	Body *string `json:"body,omitempty"`
-
-	// CreatedAtUnix When the procedure was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-
-	// Id ID of the procedure.
-	//
-	// Examples: agtprc_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	Id *string `json:"id,omitempty"`
-
-	// MissingTools Tool API names the steps point at that the receptionist does not have. While non-empty the procedure is left off calls.
-	MissingTools *[]string `json:"missing_tools,omitempty"`
-
-	// Name Name of the procedure.
-	Name StrippedStr `json:"name"`
-
-	// SourceKey Set when the procedure was copied from an integration's template; null for procedures you create.
-	SourceKey *string `json:"source_key,omitempty"`
-
-	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
-	Trigger StrippedStr `json:"trigger"`
-}
-
-// SMBProductDBModel Represents a product, menu item, or catalog item.
-//
-// Used for restaurants (menu), e-commerce (products), salons (retail items), etc.
-type SMBProductDBModel struct {
-	// UnderscoreId The product's ID.
-	//
-	// Examples: product_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	UnderscoreId string `json:"_id"`
-
-	// AllowedFulfillmentTypes Fulfillment options customers may choose when ordering this product.
-	AllowedFulfillmentTypes *[]OrderFulfillmentType `json:"allowed_fulfillment_types,omitempty"`
-
-	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-
-	// Description Description of the product.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
-	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-
-	// IsActive False hides the product without deleting it.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// LocationIds Locations where this product is sold; empty list means all locations.
-	//
-	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	LocationIds *[]string `json:"location_ids,omitempty"`
-
-	// Name Name of the product.
-	Name StrippedStr `json:"name"`
-
-	// Orderable False keeps the product listed (callers can ask about it) but not orderable.
-	Orderable *bool `json:"orderable,omitempty"`
-
-	// Price Price of the product; null for no listed price.
-	//
-	// Examples: 4.5
-	Price *float32 `json:"price,omitempty"`
-
-	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
-	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
-
-	// Stock On-hand quantity by location. None means unlimited. A missing location key means zero.
-	Stock *map[string]int `json:"stock,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-
-	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
-}
-
-// SMBServiceDBModel Represents a bookable service (e.g., haircut, massage, consultation).
-type SMBServiceDBModel struct {
-	// UnderscoreId The service's ID.
-	//
-	// Examples: service_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	UnderscoreId string `json:"_id"`
-
-	// AddOns Optional extras that can be added to a booking of this service.
-	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
-
-	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
-	//
-	// Examples: 10080
-	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
-
-	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
-	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
-
-	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
-	//
-	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	AssetIds *[]string `json:"asset_ids,omitempty"`
-
-	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
-	//
-	// Examples: 15
-	BufferMinutes *int `json:"buffer_minutes,omitempty"`
-
-	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
-	Capacity *int `json:"capacity,omitempty"`
-
-	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-
-	// Description Details about the service for customers and the receptionist; empty string means none.
-	//
-	// Examples: A classic cut, finished with a wash and style.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// DisplayOnBookingPage Whether the service is listed on the public booking page.
-	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
-
-	// DurationMinutes Duration of the first variant.
-	//
-	// Examples: 60
-	DurationMinutes *int `json:"duration_minutes,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
-	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-
-	// IsActive Whether the service is offered; inactive services can't be booked.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
-	Kind *SMBServiceKind `json:"kind,omitempty"`
-
-	// LocationIds Locations where this service is offered; empty list means all locations.
-	//
-	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	LocationIds *[]string `json:"location_ids,omitempty"`
-
-	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
-	//
-	// Examples: 12
-	MaxParticipants *int `json:"max_participants,omitempty"`
-
-	// Name Service name shown to customers and the receptionist.
-	//
-	// Examples: Haircut
-	Name StrippedStr `json:"name"`
-
-	// Price Price of the first variant.
-	//
-	// Examples: 45
-	Price *float32 `json:"price,omitempty"`
-
-	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
-	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
-
-	// Promotions Time-bound discounts applicable to this service or specific variants.
-	Promotions *[]SMBServicePromotion `json:"promotions,omitempty"`
-
-	// ServiceLocation Where the service is delivered. `business` = client visits the business location (default); `customer` = staff travels to the client. Only meaningful for `kind='classic'`.
-	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
-
-	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
-	//
-	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	StaffIds *[]string `json:"staff_ids,omitempty"`
-
-	// TravelAfter Add travel time after the appointment (return trip).
-	TravelAfter *bool `json:"travel_after,omitempty"`
-
-	// TravelBefore Add travel time before the appointment (outbound trip).
-	TravelBefore *bool `json:"travel_before,omitempty"`
-
-	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
-	//
-	// Examples: 15
-	TravelMinutes *int `json:"travel_minutes,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-
-	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
-
-	// Variants Bookable options for this service; `variants[0]` is the default.
-	Variants []SMBServiceVariant `json:"variants"`
-}
-
-// SMBServiceKind What a service books.
-//
-// - `classic`: a staff-delivered service (haircut, consultation, massage, ...).
-// - `rental`: an asset reservation (court, room, equipment).
-// - `group`: seats in a multi-participant session (class, workshop, tour).
-type SMBServiceKind string
-
-// SMBServicePromotion A time-bound promotion on a service/variant or on add-ons.
-type SMBServicePromotion struct {
-	// AddOnId When set (target=add_on), the promotion applies only to this add-on.
-	//
-	// Examples: addon_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	AddOnId *string `json:"add_on_id,omitempty"`
-
-	// DaysOfWeek Days when the promotion is active (0=Monday, 6=Sunday); empty means every day.
-	DaysOfWeek *UniqueListAnnotatedIntFieldInfoAnnotationNoneTypeRequiredTrueMetadataGeGe0LeLe6 `json:"days_of_week,omitempty"`
-
-	// EndDate Last day the promotion applies, inclusive; on or after `start_date`.
-	//
-	// Examples: 2026-12-31
-	EndDate openapi_types.Date `json:"end_date"`
-
-	// Id Stable ID of this promotion.
-	//
-	// Examples: promo_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	Id *string `json:"id,omitempty"`
-
-	// IsActive Whether the promotion applies; inactive promotions are ignored.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// Name Display name of the promotion.
-	//
-	// Examples: Holiday special
-	Name StrippedStr `json:"name"`
-
-	// PromotionalPrice The final price when this promotion is applied to a matching line item.
-	//
-	// Examples: 35
-	PromotionalPrice float32 `json:"promotional_price"`
-
-	// StartDate First day the promotion applies, inclusive.
-	//
-	// Examples: 2026-12-01
-	StartDate openapi_types.Date `json:"start_date"`
-
-	// Target Whether this promotion targets the service/variant price or add-on prices.
-	Target *PromotionTarget `json:"target,omitempty"`
-
-	// VariantId When set (target=service), the promotion applies only to this variant.
-	//
-	// Examples: variant_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	VariantId *string `json:"variant_id,omitempty"`
-}
-
-// SMBServiceVariant A variant of a service identified by its duration, with optional price override.
-type SMBServiceVariant struct {
-	// DurationMinutes How long this option takes, in minutes.
-	//
-	// Examples: 60
-	DurationMinutes int `json:"duration_minutes"`
-
-	// Id Stable ID of this option; keep it when editing so bookings and promotions still match.
-	//
-	// Examples: variant_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	Id *string `json:"id,omitempty"`
-
-	// IsActive Whether customers can book this option.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// Price Price of this option in the workspace's currency; null means no listed price.
-	//
-	// Examples: 45
-	Price *float32 `json:"price,omitempty"`
-}
-
-// SMBStaffResourceDBModel Represents a staff member who can provide services.
-type SMBStaffResourceDBModel struct {
-	// UnderscoreId The staff member's ID.
-	//
-	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	UnderscoreId string `json:"_id"`
-
-	// CreatedAtUnix When this was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-
-	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
-	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-
-	// Description Description or bio of the staff member.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// DisplayOnBookingPage Whether customers can see and pick this staff member by name on the booking page. False keeps them bookable, just not shown by name.
-	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
-
-	// Email Email address of the staff member.
-	//
-	// Examples: jane@example.com
-	Email *string `json:"email,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IsActive Whether the staff member can be booked. Inactive staff keep their booking history.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// LocationId Location this staff member is assigned to; empty means available at all locations.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId *string `json:"location_id,omitempty"`
-
-	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
-	Name StrippedStr `json:"name"`
-
-	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
-	Phone *PhoneNumberOptional `json:"phone,omitempty"`
-
-	// PhotoUrl URL of a photo of the staff member.
-	//
-	// Examples: https://example.com/photos/jane.jpg
-	PhotoUrl *string `json:"photo_url,omitempty"`
-
-	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
-	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-
-	// UpdatedAtUnix When this was last updated, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
-
-	// WorkingHours Custom working hours for this staff member. Null means follow the assigned location's operating_hours (requires location_id).
-	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
-}
-
-// SMBTeamInviteResponse defines model for SMBTeamInviteResponse.
-type SMBTeamInviteResponse struct {
-	// CreatedAtUnix When the invite was sent, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *int `json:"created_at_unix,omitempty"`
-
-	// Email The invited email address.
-	//
-	// Examples: sam@example.com
-	Email string `json:"email"`
-
-	// InvitingUserEmail Email address of the member who sent the invite, if known.
-	//
-	// Examples: jane@example.com
-	InvitingUserEmail *string `json:"inviting_user_email,omitempty"`
-
-	// SeatType The role the invitee joins with.
-	SeatType SeatType `json:"seat_type"`
-}
-
-// SMBTeamMemberResponse defines model for SMBTeamMemberResponse.
-type SMBTeamMemberResponse struct {
-	// Email The member's email address.
-	//
-	// Examples: jane@example.com
-	Email string `json:"email"`
-
-	// FirstName The member's first name, if set.
-	//
-	// Examples: Jane
-	FirstName *string `json:"first_name,omitempty"`
-
-	// IsAdmin Whether the member is a workspace admin.
-	IsAdmin bool `json:"is_admin"`
-
-	// IsOwner Whether the member owns the workspace.
-	IsOwner bool `json:"is_owner"`
-
-	// IsSuspended Whether the member's access to the workspace is suspended.
-	IsSuspended *bool `json:"is_suspended,omitempty"`
-
-	// PictureUrl URL of the member's profile picture, if set.
-	//
-	// Examples: https://example.com/jane.png
-	PictureUrl *string `json:"picture_url,omitempty"`
-
-	// UserId The member's user ID.
-	//
-	// Examples: Xr8bG2kQ9PZt4vLmN1aY6cDe3Hf2
-	UserId string `json:"user_id"`
-}
-
 // SMBToolConfig SMB tool configuration that wraps SMB tool parameters.
 //
 // Examples: {"description":"","enabled":true,"name":"search_clients","params":{"smb_tool_type":"search_clients"},"type":"smb"}
@@ -45891,453 +46499,6 @@ type SMBToolConfig_Params struct {
 
 // SMBToolConfigType Tool type identifier
 type SMBToolConfigType string
-
-// SMBTransferRule A configured phone number that the agent can transfer calls to.
-type SMBTransferRule struct {
-	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
-	Condition StrippedStr `json:"condition"`
-
-	// CreatedAtUnix When the transfer rule was created, as a Unix timestamp in seconds.
-	//
-	// Examples: 1767225600
-	CreatedAtUnix *UnixTimestamp `json:"created_at_unix,omitempty"`
-
-	// Id ID of the transfer rule.
-	//
-	// Examples: transferrule_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	Id *string `json:"id,omitempty"`
-
-	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
-	Label StrippedStr `json:"label"`
-
-	// PhoneNumber Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad.
-	PhoneNumber PhoneNumber `json:"phone_number"`
-
-	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
-	//
-	// Examples: www1234
-	PostDialDigits *string `json:"post_dial_digits,omitempty"`
-}
-
-// SMBTurnEagerness How quickly the receptionist decides the caller has finished speaking.
-type SMBTurnEagerness string
-
-// SMBUpdateAgentInfoRequest Fields to change on the business profile.
-type SMBUpdateAgentInfoRequest struct {
-	// BusinessCountry ISO 3166-1 alpha-2 country code where the business is based (e.g. 'US', 'PL', 'DE').
-	BusinessCountry *CountryCode `json:"business_country,omitempty"`
-
-	// BusinessDescription What the business does, given to the receptionist.
-	//
-	// Examples: A hair salon offering cuts, color and styling.
-	BusinessDescription *string `json:"business_description,omitempty"`
-
-	// BusinessName Name of the business.
-	//
-	// Examples: Bloom Salon
-	BusinessName *string `json:"business_name,omitempty"`
-
-	// Currency Currency code for all prices (ISO 4217)
-	Currency *SMBUpdateAgentInfoRequestCurrency `json:"currency,omitempty"`
-
-	// OperatingHours Default business hours. Each location's own operating_hours decide when that location is open.
-	OperatingHours *WorkingHours `json:"operating_hours,omitempty"`
-
-	// Timezone IANA timezone of the business.
-	//
-	// Examples: America/New_York
-	Timezone *string `json:"timezone,omitempty"`
-
-	// ToolCallSound Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
-	ToolCallSound *ToolCallSoundType `json:"tool_call_sound,omitempty"`
-}
-
-// SMBUpdateAgentInfoRequestCurrency Currency code for all prices (ISO 4217)
-type SMBUpdateAgentInfoRequestCurrency string
-
-// SMBUpdateAgentRuleRequest Request model for updating an existing agent rule.
-type SMBUpdateAgentRuleRequest struct {
-	// Description What the agent should do, in detail.
-	Description StrippedStr `json:"description"`
-
-	// Priority strict: the agent must always follow the rule; suggestion: a guideline.
-	Priority *RulePriority `json:"priority,omitempty"`
-
-	// Title Title of the rule.
-	Title StrippedStr `json:"title"`
-}
-
-// SMBUpdateAssetRequestPatch defines model for SMBUpdateAssetRequestPatch.
-type SMBUpdateAssetRequestPatch struct {
-	// AvailableHours Custom availability hours for this asset. Null means follow the assigned location's operating_hours (requires location_id).
-	AvailableHours *WorkingHours `json:"available_hours,omitempty"`
-
-	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
-	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-
-	// Description Description of the asset.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IsActive Whether the asset can be booked. Inactive assets keep their booking history.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// LocationId Location this asset belongs to; empty means available at all locations.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId *string `json:"location_id,omitempty"`
-
-	// Name Internal/admin name of the asset, shown in the dashboard and owner notifications.
-	Name *StrippedStr `json:"name,omitempty"`
-
-	// PhotoUrl URL of a photo of the asset.
-	//
-	// Examples: https://example.com/photos/court-1.jpg
-	PhotoUrl *string `json:"photo_url,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-}
-
-// SMBUpdateCustomerFacingAgentRequest defines model for SMBUpdateCustomerFacingAgentRequest.
-type SMBUpdateCustomerFacingAgentRequest struct {
-	// Config Receptionist settings to change; omitted settings keep their value.
-	Config *CustomerFacingConfigPatch `json:"config,omitempty"`
-
-	// Name New display name for the receptionist.
-	//
-	// Examples: Front Desk
-	Name *string `json:"name,omitempty"`
-
-	// Widget New website widget appearance.
-	Widget *SMBWidgetAppearance `json:"widget,omitempty"`
-}
-
-// SMBUpdateHolidayRequestPatch defines model for SMBUpdateHolidayRequestPatch.
-type SMBUpdateHolidayRequestPatch struct {
-	// EndDate Last day of the closure or time off, inclusive.
-	//
-	// Examples: {"day":26,"month":12,"year":2026}
-	EndDate *DateModel `json:"end_date,omitempty"`
-
-	// HolidayType 'closed' for no availability, or 'override' to use override_hours instead of the regular hours.
-	HolidayType *HolidayType `json:"holiday_type,omitempty"`
-
-	// LocationId For LOCATION type: the location this closure applies to.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId *string `json:"location_id,omitempty"`
-
-	// Name Display name of the closure or time off.
-	//
-	// Examples: Christmas Eve
-	Name *string `json:"name,omitempty"`
-
-	// OverrideHours Replacement working hours when holiday_type is 'override'.
-	OverrideHours *[]TimeRangeModel `json:"override_hours,omitempty"`
-
-	// Reason Optional note on why the closure or time off happens, up to 500 characters.
-	//
-	// Examples: Closed for the holidays
-	Reason *string `json:"reason,omitempty"`
-
-	// ResourceId The staff member or asset ID; required when time_off_type is 'staff' or 'asset'.
-	//
-	// Examples: staff_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	ResourceId *string `json:"resource_id,omitempty"`
-
-	// StartDate First day of the closure or time off, inclusive.
-	//
-	// Examples: {"day":24,"month":12,"year":2026}
-	StartDate *DateModel `json:"start_date,omitempty"`
-
-	// TimeOffType What the entry applies to: a location, a staff member, or an asset.
-	TimeOffType *TimeOffType `json:"time_off_type,omitempty"`
-}
-
-// SMBUpdateProcedureRequest Request model for updating an existing procedure.
-type SMBUpdateProcedureRequest struct {
-	// Body Step-by-step instructions, as markdown.
-	//
-	// Examples: 1. Ask for the caller's name and order number.
-	// 2. Look up the order and read back its status.
-	Body *string `json:"body,omitempty"`
-
-	// Name Name of the procedure.
-	Name StrippedStr `json:"name"`
-
-	// Trigger When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'.
-	Trigger StrippedStr `json:"trigger"`
-}
-
-// SMBUpdateProductRequestPatch defines model for SMBUpdateProductRequestPatch.
-type SMBUpdateProductRequestPatch struct {
-	// AllowedFulfillmentTypes Fulfillment options customers may choose when ordering this product.
-	AllowedFulfillmentTypes *[]OrderFulfillmentType `json:"allowed_fulfillment_types,omitempty"`
-
-	// Description Description of the product.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
-	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-
-	// IsActive False hides the product without deleting it.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// LocationIds Locations where this product is sold; empty list means all locations.
-	//
-	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	LocationIds *[]string `json:"location_ids,omitempty"`
-
-	// Name Name of the product.
-	Name *StrippedStr `json:"name,omitempty"`
-
-	// Orderable False keeps the product listed (callers can ask about it) but not orderable.
-	Orderable *bool `json:"orderable,omitempty"`
-
-	// Price Price of the product; null for no listed price.
-	//
-	// Examples: 4.5
-	Price *float32 `json:"price,omitempty"`
-
-	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
-	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
-
-	// TrackQuantity Whether this product is counted. Switching it only changes the mode: turning it on keeps whatever is already on hand, turning it off drops the counts. Use the stock endpoints to change the amounts themselves.
-	TrackQuantity *bool `json:"track_quantity,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-}
-
-// SMBUpdateProductStockRequest defines model for SMBUpdateProductStockRequest.
-type SMBUpdateProductStockRequest struct {
-	// ExpectedOnHand On-hand value the caller last saw. The write is rejected with a 409 if it no longer matches, so a sale made while the caller was editing is never overwritten.
-	//
-	// Examples: 25
-	ExpectedOnHand int `json:"expected_on_hand"`
-
-	// LocationId Location whose count is set.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId string `json:"location_id"`
-
-	// OnHand The new on-hand quantity.
-	//
-	// Examples: 24
-	OnHand int `json:"on_hand"`
-}
-
-// SMBUpdateServiceRequestPatch defines model for SMBUpdateServiceRequestPatch.
-type SMBUpdateServiceRequestPatch struct {
-	// AddOns Optional extras that can be added to a booking of this service.
-	AddOns *[]SMBAddOn `json:"add_ons,omitempty"`
-
-	// AdvanceBookingMinutes How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
-	//
-	// Examples: 10080
-	AdvanceBookingMinutes *int `json:"advance_booking_minutes,omitempty"`
-
-	// AnyStaffMember Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
-	AnyStaffMember *bool `json:"any_staff_member,omitempty"`
-
-	// AssetIds Assets, such as rooms or equipment, this service can be booked on.
-	//
-	// Examples: ["asset_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	AssetIds *[]string `json:"asset_ids,omitempty"`
-
-	// BufferMinutes Turnover/cleanup time reserved after each booking. Applies to every service kind; default 0 means no buffer.
-	//
-	// Examples: 15
-	BufferMinutes *int `json:"buffer_minutes,omitempty"`
-
-	// Capacity Not used to limit bookings; set `max_participants` on group services instead.
-	Capacity *int `json:"capacity,omitempty"`
-
-	// Description Details about the service for customers and the receptionist; empty string means none.
-	//
-	// Examples: A classic cut, finished with a wash and style.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// DisplayOnBookingPage Whether the service is listed on the public booking page.
-	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
-
-	// DurationMinutes Sets the first variant's duration. Ignored when `variants` is sent.
-	//
-	// Examples: 60
-	DurationMinutes *int `json:"duration_minutes,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IntakeQuestions Questions the agent asks before booking or ordering this item. Required for a useful `pricing_mode='quote'` item -- without them a quote request arrives with nothing to price -- but also valid on fixed-price items that need extra detail (current hair color before a dye job, allergies before a treatment).
-	IntakeQuestions *[]SMBIntakeQuestion `json:"intake_questions,omitempty"`
-
-	// IsActive Whether the service is offered; inactive services can't be booked.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// Kind Classic = staff-delivered; rental = asset-based; group = multi-participant session.
-	Kind *SMBServiceKind `json:"kind,omitempty"`
-
-	// LocationIds Locations where this service is offered; empty list means all locations.
-	//
-	// Examples: ["location_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	LocationIds *[]string `json:"location_ids,omitempty"`
-
-	// MaxParticipants Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
-	//
-	// Examples: 12
-	MaxParticipants *int `json:"max_participants,omitempty"`
-
-	// Name Service name shown to customers and the receptionist.
-	//
-	// Examples: Haircut
-	Name *StrippedStr `json:"name,omitempty"`
-
-	// Price Sets the first variant's price. Ignored when `variants` is sent.
-	//
-	// Examples: 45
-	Price *float32 `json:"price,omitempty"`
-
-	// PricingMode 'fixed' (default): the item has a known price the agent can quote, and customers can book or order it directly. 'quote': the price depends on the job (renovation, catering, custom work), so no price or slot is offered; the agent collects the intake_questions and files a quote request instead. Takes effect only while quotes are enabled for the business. Group services cannot use 'quote'.
-	PricingMode *PricingMode `json:"pricing_mode,omitempty"`
-
-	// Promotions Time-bound discounts applicable to this service or specific variants.
-	Promotions *[]SMBServicePromotion `json:"promotions,omitempty"`
-
-	// ServiceLocation Where the service is delivered. `business` = client visits the business location (default); `customer` = staff travels to the client. Only meaningful for `kind='classic'`.
-	ServiceLocation *ServiceLocationType `json:"service_location,omitempty"`
-
-	// StaffIds Staff assigned to this service; must be empty for kind='rental'.
-	//
-	// Examples: ["staff_4801jx8k3m5n7p9q2r4s6t8v0w2y"]
-	StaffIds *[]string `json:"staff_ids,omitempty"`
-
-	// TravelAfter Add travel time after the appointment (return trip).
-	TravelAfter *bool `json:"travel_after,omitempty"`
-
-	// TravelBefore Add travel time before the appointment (outbound trip).
-	TravelBefore *bool `json:"travel_before,omitempty"`
-
-	// TravelMinutes Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
-	//
-	// Examples: 15
-	TravelMinutes *int `json:"travel_minutes,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-
-	// Variants Bookable options for this service. Always non-empty; `variants[0]` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
-	Variants *[]SMBServiceVariant `json:"variants,omitempty"`
-}
-
-// SMBUpdateStaffRequestPatch defines model for SMBUpdateStaffRequestPatch.
-type SMBUpdateStaffRequestPatch struct {
-	// CustomerFacingName Optional public-facing label. When empty, `name` is shown to customers too. `name` stays the internal/admin label used in the dashboard and business-owner notifications.
-	CustomerFacingName *StrippedStr `json:"customer_facing_name,omitempty"`
-
-	// Description Description or bio of the staff member.
-	Description *StrippedStr `json:"description,omitempty"`
-
-	// DisplayOnBookingPage Whether customers can see and pick this staff member by name on the booking page. False keeps them bookable, just not shown by name.
-	DisplayOnBookingPage *bool `json:"display_on_booking_page,omitempty"`
-
-	// Email Email address of the staff member.
-	//
-	// Examples: jane@example.com
-	Email *string `json:"email,omitempty"`
-
-	// Groups Group memberships for this item. Each entry carries the group label and the item's 0-based rank within that group.
-	Groups *[]SMBGroupMembership `json:"groups,omitempty"`
-
-	// IsActive Whether the staff member can be booked. Inactive staff keep their booking history.
-	IsActive *bool `json:"is_active,omitempty"`
-
-	// LocationId Location this staff member is assigned to; empty means available at all locations.
-	//
-	// Examples: location_4801jx8k3m5n7p9q2r4s6t8v0w2y
-	LocationId *string `json:"location_id,omitempty"`
-
-	// Name Internal/admin name of the staff member, shown in the dashboard and owner notifications.
-	Name *StrippedStr `json:"name,omitempty"`
-
-	// Phone Phone number of the staff member. Without a country code, +1 (US) is assumed.
-	Phone *PhoneNumberOptional `json:"phone,omitempty"`
-
-	// PhotoUrl URL of a photo of the staff member.
-	//
-	// Examples: https://example.com/photos/jane.jpg
-	PhotoUrl *string `json:"photo_url,omitempty"`
-
-	// SmsNotificationsOptedIn Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
-	SmsNotificationsOptedIn *bool `json:"sms_notifications_opted_in,omitempty"`
-
-	// UngroupedRank Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
-	UngroupedRank *int `json:"ungrouped_rank,omitempty"`
-
-	// WorkingHours Custom working hours for this staff member. Null means follow the assigned location's operating_hours (requires location_id).
-	WorkingHours *WorkingHours `json:"working_hours,omitempty"`
-}
-
-// SMBUpdateTransferRuleRequest Request model for updating an existing transfer rule.
-type SMBUpdateTransferRuleRequest struct {
-	// Condition What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'.
-	Condition StrippedStr `json:"condition"`
-
-	// Label Name of the transfer destination, e.g. 'Alvin' or 'Billing team'.
-	Label StrippedStr `json:"label"`
-
-	// PhoneNumber Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad.
-	PhoneNumber PhoneNumber `json:"phone_number"`
-
-	// PostDialDigits DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only.
-	//
-	// Examples: www1234
-	PostDialDigits *string `json:"post_dial_digits,omitempty"`
-}
-
-// SMBWidgetAppearance How the website widget looks. A null label follows the receptionist's language.
-type SMBWidgetAppearance struct {
-	// Dismissible Whether visitors can close the widget.
-	Dismissible bool `json:"dismissible"`
-
-	// MainLabel Text shown on the widget; null uses the default for the receptionist's language.
-	//
-	// Examples: Need help?
-	MainLabel *string `json:"main_label,omitempty"`
-
-	// OrbColor1 First color of the widget's orb gradient, as a hex color.
-	//
-	// Examples: #2792dc
-	OrbColor1 string `json:"orb_color_1"`
-
-	// OrbColor2 Second color of the widget's orb gradient, as a hex color.
-	//
-	// Examples: #9ce6e6
-	OrbColor2 string `json:"orb_color_2"`
-
-	// Placement Where on the page the widget sits.
-	Placement SMBWidgetAppearancePlacement `json:"placement"`
-
-	// StartCall Text on the button that starts a call; null uses the default for the receptionist's language.
-	//
-	// Examples: Call us
-	StartCall *string `json:"start_call,omitempty"`
-
-	// Variant Widget size, from the smallest ('tiny') to the largest ('full').
-	Variant SMBWidgetAppearanceVariant `json:"variant"`
-}
-
-// SMBWidgetAppearancePlacement Where on the page the widget sits.
-type SMBWidgetAppearancePlacement string
-
-// SMBWidgetAppearanceVariant Widget size, from the smallest ('tiny') to the largest ('full').
-type SMBWidgetAppearanceVariant string
 
 // SMSConversationInfo defines model for SMSConversationInfo.
 type SMSConversationInfo struct {
@@ -46609,15 +46770,6 @@ type SentimentAnalysisSettings = map[string]interface{}
 
 // ServiceLocationType Where a classic service is delivered.
 type ServiceLocationType string
-
-// ServiceUpdateResponse defines model for ServiceUpdateResponse.
-type ServiceUpdateResponse struct {
-	// HasAffectedEvents True when the update changes the price of upcoming bookings and was not saved; send it again to the confirm-update endpoint to apply it.
-	HasAffectedEvents bool `json:"has_affected_events"`
-
-	// Service The updated service, or null when the update was held back because it reprices existing bookings.
-	Service *SMBServiceDBModel `json:"service,omitempty"`
-}
 
 // SetBookingSlugParams defines model for SetBookingSlugParams.
 type SetBookingSlugParams struct {
@@ -50006,9 +50158,6 @@ type UUITransferConfig struct {
 // UUITransferConfigProtocolDiscriminatorMode How to attach protocol_discriminator. 'prefix' prepends the octet to the hex payload (User-to-User=XX<hex>;encoding=hex). 'pd_parameter' sends it as a separate parameter (User-to-User=<hex>;pd=XX;encoding=hex). Ignored when protocol_discriminator is unset.
 type UUITransferConfigProtocolDiscriminatorMode string
 
-// UniqueListAnnotatedIntFieldInfoAnnotationNoneTypeRequiredTrueMetadataGeGe0LeLe6 defines model for UniqueList_Annotated_int__FieldInfo_annotation_NoneType__required_True__metadata__Ge_ge_0___Le_le_6_____.
-type UniqueListAnnotatedIntFieldInfoAnnotationNoneTypeRequiredTrueMetadataGeGe0LeLe6 = []int
-
 // UnitTestGuardrailTriggerEvaluationModel defines model for UnitTestGuardrailTriggerEvaluationModel.
 type UnitTestGuardrailTriggerEvaluationModel struct {
 	// Type Match any guardrail triggered by the generated turn.
@@ -51880,6 +52029,9 @@ type WebhookHMACSettings struct {
 	// AuthType The authentication type for this webhook
 	AuthType WebhookHMACSettingsAuthType `json:"auth_type"`
 
+	// LogRedactedFields Field names whose values the delivery log hides when it shows the request payload, matched at any depth, ignoring case and punctuation such as _ or -. Fields with secret-looking names, such as tokens and passwords, are always hidden. The stored log and redeliveries keep the original values. At most 50 names, each 1 to 128 characters, with no whitespace, dots or wildcards.
+	LogRedactedFields *[]string `json:"log_redacted_fields,omitempty"`
+
 	// Name The display name for this webhook
 	Name string `json:"name"`
 
@@ -51892,6 +52044,33 @@ type WebhookHMACSettings struct {
 
 // WebhookHMACSettingsAuthType The authentication type for this webhook
 type WebhookHMACSettingsAuthType string
+
+// WebhookOutcome defines model for WebhookOutcome.
+type WebhookOutcome string
+
+// WebhookSendResultResponseModel defines model for WebhookSendResultResponseModel.
+type WebhookSendResultResponseModel struct {
+	// DeliveryId The delivery ID, also sent in the ElevenLabs-Webhook-Delivery-Id header.
+	DeliveryId string `json:"delivery_id"`
+
+	// FailureOrigin Where a failure came from: recipient, configuration, external_transport or timeout.
+	FailureOrigin *string `json:"failure_origin"`
+
+	// LatencyMs How long your endpoint took to answer, in milliseconds.
+	LatencyMs *int `json:"latency_ms"`
+
+	// Outcome What happened to this attempt.
+	Outcome WebhookOutcome `json:"outcome"`
+
+	// ResponseBodyBytes The size of your endpoint's response body in bytes, if it answered. The body itself is never stored or returned.
+	ResponseBodyBytes *int `json:"response_body_bytes"`
+
+	// ResponseCode The HTTP status your endpoint returned, if it answered.
+	ResponseCode *int `json:"response_code"`
+
+	// ResponseContentType The Content-Type your endpoint answered with, if it answered.
+	ResponseContentType *string `json:"response_content_type"`
+}
 
 // WebhookTarget defines model for WebhookTarget.
 type WebhookTarget struct {
@@ -52147,6 +52326,9 @@ type WebhookToolConfigOutputType string
 
 // WebhookTranscriptFormat defines model for WebhookTranscriptFormat.
 type WebhookTranscriptFormat string
+
+// WebhookTypes defines model for WebhookTypes.
+type WebhookTypes string
 
 // WebhookUsageType defines model for WebhookUsageType.
 type WebhookUsageType string
@@ -53370,6 +53552,9 @@ type WorkflowOverrideAgentNodeModelInput struct {
 	// AdditionalToolIds IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools.
 	AdditionalToolIds *[]string `json:"additional_tool_ids,omitempty"`
 
+	// AllowInterruptionsOnEntry Lets the caller interrupt the response this node gives on entry. Ignored unless entry_behavior is "generate_immediately".
+	AllowInterruptionsOnEntry *bool `json:"allow_interruptions_on_entry,omitempty"`
+
 	// ConversationConfig Configuration overrides applied while the subagent is conducting the conversation.
 	ConversationConfig *ConversationalConfigAPIModelWorkflowOverrideInput `json:"conversation_config,omitempty"`
 
@@ -53400,6 +53585,9 @@ type WorkflowOverrideAgentNodeModelOutput struct {
 
 	// AdditionalToolIds IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools.
 	AdditionalToolIds []string `json:"additional_tool_ids"`
+
+	// AllowInterruptionsOnEntry Lets the caller interrupt the response this node gives on entry. Ignored unless entry_behavior is "generate_immediately".
+	AllowInterruptionsOnEntry bool `json:"allow_interruptions_on_entry"`
 
 	// ConversationConfig Configuration overrides applied while the subagent is conducting the conversation.
 	ConversationConfig ConversationalConfigAPIModelWorkflowOverrideOutput `json:"conversation_config"`
@@ -58273,7 +58461,7 @@ type SmbListServicesParams struct {
 	IsActive *bool `form:"is_active,omitempty" json:"is_active,omitempty"`
 
 	// Kind Only services of this kind.
-	Kind *SMBServiceKind `form:"kind,omitempty" json:"kind,omitempty"`
+	Kind *ReceptionServiceKind `form:"kind,omitempty" json:"kind,omitempty"`
 
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
@@ -59487,6 +59675,18 @@ type EditWorkspaceWebhookRouteParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// RedeliverWebhookDeliveryRouteParams defines parameters for RedeliverWebhookDeliveryRoute.
+type RedeliverWebhookDeliveryRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SendTestWebhookEventRouteParams defines parameters for SendTestWebhookEventRoute.
+type SendTestWebhookEventRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // DisableParams defines parameters for Disable.
 type DisableParams struct {
 	// ApiKeyName Must be set to `self` to disable the API key used to authenticate this request. Required as an explicit confirmation to avoid accidentally disabling the wrong key.
@@ -60043,40 +60243,40 @@ type RemoveRulesJSONRequestBody = BodyRemoveRulesFromThePronunciationDictionaryV
 type SetRulesJSONRequestBody = BodySetRulesOnThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdSetRulesPost
 
 // SmbUpdateAgentInfoJSONRequestBody defines body for SmbUpdateAgentInfo for application/json ContentType.
-type SmbUpdateAgentInfoJSONRequestBody = SMBUpdateAgentInfoRequest
+type SmbUpdateAgentInfoJSONRequestBody = ReceptionUpdateAgentInfoRequest
 
 // SmbCreateAssetJSONRequestBody defines body for SmbCreateAsset for application/json ContentType.
-type SmbCreateAssetJSONRequestBody = SMBCreateAssetRequest
+type SmbCreateAssetJSONRequestBody = ReceptionCreateAssetRequest
 
 // SmbUpdateAssetJSONRequestBody defines body for SmbUpdateAsset for application/json ContentType.
-type SmbUpdateAssetJSONRequestBody = SMBUpdateAssetRequestPatch
+type SmbUpdateAssetJSONRequestBody = ReceptionUpdateAssetRequestPatch
 
 // SmbUpdateCustomerFacingAgentJSONRequestBody defines body for SmbUpdateCustomerFacingAgent for application/json ContentType.
-type SmbUpdateCustomerFacingAgentJSONRequestBody = SMBUpdateCustomerFacingAgentRequest
+type SmbUpdateCustomerFacingAgentJSONRequestBody = ReceptionUpdateCustomerFacingAgentRequest
 
 // SmbAddAgentProcedureJSONRequestBody defines body for SmbAddAgentProcedure for application/json ContentType.
-type SmbAddAgentProcedureJSONRequestBody = SMBCreateProcedureRequest
+type SmbAddAgentProcedureJSONRequestBody = ReceptionCreateProcedureRequest
 
 // SmbUpdateAgentProcedureJSONRequestBody defines body for SmbUpdateAgentProcedure for application/json ContentType.
-type SmbUpdateAgentProcedureJSONRequestBody = SMBUpdateProcedureRequest
+type SmbUpdateAgentProcedureJSONRequestBody = ReceptionUpdateProcedureRequest
 
 // SmbAddAgentRuleJSONRequestBody defines body for SmbAddAgentRule for application/json ContentType.
-type SmbAddAgentRuleJSONRequestBody = SMBCreateAgentRuleRequest
+type SmbAddAgentRuleJSONRequestBody = ReceptionCreateAgentRuleRequest
 
 // SmbUpdateAgentRuleJSONRequestBody defines body for SmbUpdateAgentRule for application/json ContentType.
-type SmbUpdateAgentRuleJSONRequestBody = SMBUpdateAgentRuleRequest
+type SmbUpdateAgentRuleJSONRequestBody = ReceptionUpdateAgentRuleRequest
 
 // SmbAddTransferRuleJSONRequestBody defines body for SmbAddTransferRule for application/json ContentType.
-type SmbAddTransferRuleJSONRequestBody = SMBCreateTransferRuleRequest
+type SmbAddTransferRuleJSONRequestBody = ReceptionCreateTransferRuleRequest
 
 // SmbUpdateTransferRuleJSONRequestBody defines body for SmbUpdateTransferRule for application/json ContentType.
-type SmbUpdateTransferRuleJSONRequestBody = SMBUpdateTransferRuleRequest
+type SmbUpdateTransferRuleJSONRequestBody = ReceptionUpdateTransferRuleRequest
 
 // SmbCreateHolidayJSONRequestBody defines body for SmbCreateHoliday for application/json ContentType.
-type SmbCreateHolidayJSONRequestBody = SMBCreateHolidayRequest
+type SmbCreateHolidayJSONRequestBody = ReceptionCreateHolidayRequest
 
 // SmbUpdateHolidayJSONRequestBody defines body for SmbUpdateHoliday for application/json ContentType.
-type SmbUpdateHolidayJSONRequestBody = SMBUpdateHolidayRequestPatch
+type SmbUpdateHolidayJSONRequestBody = ReceptionUpdateHolidayRequestPatch
 
 // SmbUploadKnowledgeSourceMultipartRequestBody defines body for SmbUploadKnowledgeSource for multipart/form-data ContentType.
 type SmbUploadKnowledgeSourceMultipartRequestBody = BodySmbUploadKnowledgeSource
@@ -60085,10 +60285,10 @@ type SmbUploadKnowledgeSourceMultipartRequestBody = BodySmbUploadKnowledgeSource
 type SmbAddUrlSourceJSONRequestBody = AddUrlRequest
 
 // SmbCreateLocationJSONRequestBody defines body for SmbCreateLocation for application/json ContentType.
-type SmbCreateLocationJSONRequestBody = SMBLocationRequest
+type SmbCreateLocationJSONRequestBody = ReceptionLocationRequest
 
 // SmbUpdateLocationJSONRequestBody defines body for SmbUpdateLocation for application/json ContentType.
-type SmbUpdateLocationJSONRequestBody = SMBLocationRequestPatch
+type SmbUpdateLocationJSONRequestBody = ReceptionLocationRequestPatch
 
 // SmbAssignPhoneNumberJSONRequestBody defines body for SmbAssignPhoneNumber for application/json ContentType.
 type SmbAssignPhoneNumberJSONRequestBody = CreatePhoneAssignmentRequest
@@ -60097,16 +60297,16 @@ type SmbAssignPhoneNumberJSONRequestBody = CreatePhoneAssignmentRequest
 type SmbReassignPhoneToAgentJSONRequestBody = ReassignPhoneRequest
 
 // SmbCreateProductJSONRequestBody defines body for SmbCreateProduct for application/json ContentType.
-type SmbCreateProductJSONRequestBody = SMBCreateProductRequest
+type SmbCreateProductJSONRequestBody = ReceptionCreateProductRequest
 
 // SmbUpdateProductJSONRequestBody defines body for SmbUpdateProduct for application/json ContentType.
-type SmbUpdateProductJSONRequestBody = SMBUpdateProductRequestPatch
+type SmbUpdateProductJSONRequestBody = ReceptionUpdateProductRequestPatch
 
 // SmbUpdateProductStockJSONRequestBody defines body for SmbUpdateProductStock for application/json ContentType.
-type SmbUpdateProductStockJSONRequestBody = SMBUpdateProductStockRequest
+type SmbUpdateProductStockJSONRequestBody = ReceptionUpdateProductStockRequest
 
 // SmbAdjustProductStockJSONRequestBody defines body for SmbAdjustProductStock for application/json ContentType.
-type SmbAdjustProductStockJSONRequestBody = SMBAdjustProductStockRequest
+type SmbAdjustProductStockJSONRequestBody = ReceptionAdjustProductStockRequest
 
 // SmbResellerProvisionWorkspaceJSONRequestBody defines body for SmbResellerProvisionWorkspace for application/json ContentType.
 type SmbResellerProvisionWorkspaceJSONRequestBody = ProvisionResellerWorkspaceRequest
@@ -60118,19 +60318,19 @@ type SmbChangeResellerTierJSONRequestBody = ChangeResellerTierRequest
 type SmbAssignResellerTierJSONRequestBody = AssignResellerTierRequest
 
 // SmbCreateServiceJSONRequestBody defines body for SmbCreateService for application/json ContentType.
-type SmbCreateServiceJSONRequestBody = SMBCreateServiceRequest
+type SmbCreateServiceJSONRequestBody = ReceptionCreateServiceRequest
 
 // SmbUpdateServiceJSONRequestBody defines body for SmbUpdateService for application/json ContentType.
-type SmbUpdateServiceJSONRequestBody = SMBUpdateServiceRequestPatch
+type SmbUpdateServiceJSONRequestBody = ReceptionUpdateServiceRequestPatch
 
 // SmbConfirmServiceUpdateJSONRequestBody defines body for SmbConfirmServiceUpdate for application/json ContentType.
-type SmbConfirmServiceUpdateJSONRequestBody = SMBConfirmServiceUpdateRequest
+type SmbConfirmServiceUpdateJSONRequestBody = ReceptionConfirmServiceUpdateRequest
 
 // SmbCreateStaffMemberJSONRequestBody defines body for SmbCreateStaffMember for application/json ContentType.
-type SmbCreateStaffMemberJSONRequestBody = SMBCreateStaffRequest
+type SmbCreateStaffMemberJSONRequestBody = ReceptionCreateStaffRequest
 
 // SmbUpdateStaffMemberJSONRequestBody defines body for SmbUpdateStaffMember for application/json ContentType.
-type SmbUpdateStaffMemberJSONRequestBody = SMBUpdateStaffRequestPatch
+type SmbUpdateStaffMemberJSONRequestBody = ReceptionUpdateStaffRequestPatch
 
 // SmbCancelTeamInviteJSONRequestBody defines body for SmbCancelTeamInvite for application/json ContentType.
 type SmbCancelTeamInviteJSONRequestBody = BodySmbCancelTeamInvite
@@ -60328,6 +60528,9 @@ type CreateWorkspaceWebhookRouteJSONRequestBody = BodyCreateWorkspaceWebhookV1Wo
 
 // EditWorkspaceWebhookRouteJSONRequestBody defines body for EditWorkspaceWebhookRoute for application/json ContentType.
 type EditWorkspaceWebhookRouteJSONRequestBody = BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch
+
+// SendTestWebhookEventRouteJSONRequestBody defines body for SendTestWebhookEventRoute for application/json ContentType.
+type SendTestWebhookEventRouteJSONRequestBody = BodySendTestWebhookEventV1WorkspaceWebhooksWebhookIdTestPost
 
 // SetThirdPartyDisablingPolicyJSONRequestBody defines body for SetThirdPartyDisablingPolicy for application/json ContentType.
 type SetThirdPartyDisablingPolicyJSONRequestBody = BodySetWorkspaceThirdPartyDisablingPolicyV1WorkspacesApiKeysThirdPartyDisablingPost
@@ -97282,7 +97485,7 @@ type ClientInterface interface {
 
 	// DeleteEnvironmentVariable Delete Environment Variable
 	//
-	// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
+	// Delete an environment variable and its values in all environments. The delete is rejected while the latest version of an unarchived agent branch, a tool, an MCP server or the workspace conversation initiation webhook uses the variable. Archived branches and earlier versions are not checked.
 	//
 	// Corresponds with DELETE /v1/convai/environment-variables/{env_var_id} (the `DeleteEnvironmentVariable` operationId).
 	DeleteEnvironmentVariable(ctx context.Context, envVarId string, params *DeleteEnvironmentVariableParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -102235,6 +102438,31 @@ type ClientInterface interface {
 	// Corresponds with PATCH /v1/workspace/webhooks/{webhook_id} (the `EditWorkspaceWebhookRoute` operationId).
 	EditWorkspaceWebhookRoute(ctx context.Context, webhookId string, params *EditWorkspaceWebhookRouteParams, body EditWorkspaceWebhookRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// RedeliverWebhookDeliveryRoute Redeliver Webhook Delivery
+	//
+	// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Only workspace admins on a web session can redeliver, and only deliveries whose payload is stored. Redeliveries and test events share a limit of 10 per webhook per minute.
+	//
+	// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/deliveries/{delivery_id}/redeliver (the `RedeliverWebhookDeliveryRoute` operationId).
+	RedeliverWebhookDeliveryRoute(ctx context.Context, webhookId string, deliveryId string, params *RedeliverWebhookDeliveryRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SendTestWebhookEventRouteWithBody Send Test Webhook Event
+	//
+	// Sends a sample event of the given type to the webhook once and returns the endpoint's status code, response time, content type and response size. Test events are signed like real ones, are never retried, and share a limit of 10 per webhook per minute with redeliveries.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/test (the `SendTestWebhookEventRoute` operationId).
+	SendTestWebhookEventRouteWithBody(ctx context.Context, webhookId string, params *SendTestWebhookEventRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SendTestWebhookEventRoute Send Test Webhook Event
+	//
+	// Sends a sample event of the given type to the webhook once and returns the endpoint's status code, response time, content type and response size. Test events are signed like real ones, are never retried, and share a limit of 10 per webhook per minute with redeliveries.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/test (the `SendTestWebhookEventRoute` operationId).
+	SendTestWebhookEventRoute(ctx context.Context, webhookId string, params *SendTestWebhookEventRouteParams, body SendTestWebhookEventRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// Disable Disable Api Key
 	//
 	// Disable the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation.
@@ -105188,7 +105416,7 @@ func (c *Client) CreateEnvironmentVariable(ctx context.Context, params *CreateEn
 
 // DeleteEnvironmentVariable Delete Environment Variable
 //
-// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
+// Delete an environment variable and its values in all environments. The delete is rejected while the latest version of an unarchived agent branch, a tool, an MCP server or the workspace conversation initiation webhook uses the variable. Archived branches and earlier versions are not checked.
 //
 // Corresponds with DELETE /v1/convai/environment-variables/{env_var_id} (the `DeleteEnvironmentVariable` operationId).
 func (c *Client) DeleteEnvironmentVariable(ctx context.Context, envVarId string, params *DeleteEnvironmentVariableParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -116005,6 +116233,61 @@ func (c *Client) EditWorkspaceWebhookRouteWithBody(ctx context.Context, webhookI
 // Corresponds with PATCH /v1/workspace/webhooks/{webhook_id} (the `EditWorkspaceWebhookRoute` operationId).
 func (c *Client) EditWorkspaceWebhookRoute(ctx context.Context, webhookId string, params *EditWorkspaceWebhookRouteParams, body EditWorkspaceWebhookRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewEditWorkspaceWebhookRouteRequest(c.Server, webhookId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// RedeliverWebhookDeliveryRoute Redeliver Webhook Delivery
+//
+// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Only workspace admins on a web session can redeliver, and only deliveries whose payload is stored. Redeliveries and test events share a limit of 10 per webhook per minute.
+//
+// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/deliveries/{delivery_id}/redeliver (the `RedeliverWebhookDeliveryRoute` operationId).
+func (c *Client) RedeliverWebhookDeliveryRoute(ctx context.Context, webhookId string, deliveryId string, params *RedeliverWebhookDeliveryRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewRedeliverWebhookDeliveryRouteRequest(c.Server, webhookId, deliveryId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SendTestWebhookEventRouteWithBody Send Test Webhook Event
+//
+// Sends a sample event of the given type to the webhook once and returns the endpoint's status code, response time, content type and response size. Test events are signed like real ones, are never retried, and share a limit of 10 per webhook per minute with redeliveries.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/test (the `SendTestWebhookEventRoute` operationId).
+func (c *Client) SendTestWebhookEventRouteWithBody(ctx context.Context, webhookId string, params *SendTestWebhookEventRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendTestWebhookEventRouteRequestWithBody(c.Server, webhookId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SendTestWebhookEventRoute Send Test Webhook Event
+//
+// Sends a sample event of the given type to the webhook once and returns the endpoint's status code, response time, content type and response size. Test events are signed like real ones, are never retried, and share a limit of 10 per webhook per minute with redeliveries.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/test (the `SendTestWebhookEventRoute` operationId).
+func (c *Client) SendTestWebhookEventRoute(ctx context.Context, webhookId string, params *SendTestWebhookEventRouteParams, body SendTestWebhookEventRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendTestWebhookEventRouteRequest(c.Server, webhookId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -153594,6 +153877,124 @@ func NewEditWorkspaceWebhookRouteRequestWithBody(server string, webhookId string
 	return req, nil
 }
 
+// NewRedeliverWebhookDeliveryRouteRequest constructs an http.Request for the RedeliverWebhookDeliveryRoute method
+func NewRedeliverWebhookDeliveryRouteRequest(server string, webhookId string, deliveryId string, params *RedeliverWebhookDeliveryRouteParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "webhook_id", webhookId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "delivery_id", deliveryId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/workspace/webhooks/%s/deliveries/%s/redeliver", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSendTestWebhookEventRouteRequest calls the generic SendTestWebhookEventRoute builder with application/json body
+func NewSendTestWebhookEventRouteRequest(server string, webhookId string, params *SendTestWebhookEventRouteParams, body SendTestWebhookEventRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSendTestWebhookEventRouteRequestWithBody(server, webhookId, params, "application/json", bodyReader)
+}
+
+// NewSendTestWebhookEventRouteRequestWithBody constructs an http.Request for the SendTestWebhookEventRoute method, with any body, and a specified content type
+func NewSendTestWebhookEventRouteRequestWithBody(server string, webhookId string, params *SendTestWebhookEventRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "webhook_id", webhookId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/workspace/webhooks/%s/test", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewDisableRequest constructs an http.Request for the Disable method
 func NewDisableRequest(server string, params *DisableParams) (*http.Request, error) {
 	var err error
@@ -155514,7 +155915,7 @@ type ClientWithResponsesInterface interface {
 
 	// DeleteEnvironmentVariableWithResponse Delete Environment Variable
 	//
-	// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
+	// Delete an environment variable and its values in all environments. The delete is rejected while the latest version of an unarchived agent branch, a tool, an MCP server or the workspace conversation initiation webhook uses the variable. Archived branches and earlier versions are not checked.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -160920,6 +161321,33 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with PATCH /v1/workspace/webhooks/{webhook_id} (the `EditWorkspaceWebhookRoute` operationId).
 	EditWorkspaceWebhookRouteWithResponse(ctx context.Context, webhookId string, params *EditWorkspaceWebhookRouteParams, body EditWorkspaceWebhookRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*EditWorkspaceWebhookRouteResponse, error)
+
+	// RedeliverWebhookDeliveryRouteWithResponse Redeliver Webhook Delivery
+	//
+	// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Only workspace admins on a web session can redeliver, and only deliveries whose payload is stored. Redeliveries and test events share a limit of 10 per webhook per minute.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/deliveries/{delivery_id}/redeliver (the `RedeliverWebhookDeliveryRoute` operationId).
+	RedeliverWebhookDeliveryRouteWithResponse(ctx context.Context, webhookId string, deliveryId string, params *RedeliverWebhookDeliveryRouteParams, reqEditors ...RequestEditorFn) (*RedeliverWebhookDeliveryRouteResponse, error)
+
+	// SendTestWebhookEventRouteWithBodyWithResponse Send Test Webhook Event
+	//
+	// Sends a sample event of the given type to the webhook once and returns the endpoint's status code, response time, content type and response size. Test events are signed like real ones, are never retried, and share a limit of 10 per webhook per minute with redeliveries.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/test (the `SendTestWebhookEventRoute` operationId).
+	SendTestWebhookEventRouteWithBodyWithResponse(ctx context.Context, webhookId string, params *SendTestWebhookEventRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendTestWebhookEventRouteResponse, error)
+
+	// SendTestWebhookEventRouteWithResponse Send Test Webhook Event
+	//
+	// Sends a sample event of the given type to the webhook once and returns the endpoint's status code, response time, content type and response size. Test events are signed like real ones, are never retried, and share a limit of 10 per webhook per minute with redeliveries.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/test (the `SendTestWebhookEventRoute` operationId).
+	SendTestWebhookEventRouteWithResponse(ctx context.Context, webhookId string, params *SendTestWebhookEventRouteParams, body SendTestWebhookEventRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*SendTestWebhookEventRouteResponse, error)
 
 	// DisableWithResponse Disable Api Key
 	//
@@ -177435,13 +177863,13 @@ type SmbGetAgentInfoResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBAgentInfoResponse
+	JSON200 *ReceptionAgentInfoResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbGetAgentInfoResponse) GetJSON200() *SMBAgentInfoResponse {
+func (r SmbGetAgentInfoResponse) GetJSON200() *ReceptionAgentInfoResponse {
 	return r.JSON200
 }
 
@@ -177483,13 +177911,13 @@ type SmbUpdateAgentInfoResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBAgentInfoResponse
+	JSON200 *ReceptionAgentInfoResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateAgentInfoResponse) GetJSON200() *SMBAgentInfoResponse {
+func (r SmbUpdateAgentInfoResponse) GetJSON200() *ReceptionAgentInfoResponse {
 	return r.JSON200
 }
 
@@ -177531,13 +177959,13 @@ type SmbListAssetsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBAssetResourceDBModel
+	JSON200 *[]ReceptionAssetResource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListAssetsResponse) GetJSON200() *[]SMBAssetResourceDBModel {
+func (r SmbListAssetsResponse) GetJSON200() *[]ReceptionAssetResource {
 	return r.JSON200
 }
 
@@ -177579,13 +178007,13 @@ type SmbCreateAssetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBAssetResourceDBModel
+	JSON200 *ReceptionAssetResource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbCreateAssetResponse) GetJSON200() *SMBAssetResourceDBModel {
+func (r SmbCreateAssetResponse) GetJSON200() *ReceptionAssetResource {
 	return r.JSON200
 }
 
@@ -177675,13 +178103,13 @@ type SmbGetAssetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBAssetResourceDBModel
+	JSON200 *ReceptionAssetResource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbGetAssetResponse) GetJSON200() *SMBAssetResourceDBModel {
+func (r SmbGetAssetResponse) GetJSON200() *ReceptionAssetResource {
 	return r.JSON200
 }
 
@@ -177723,13 +178151,13 @@ type SmbUpdateAssetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBAssetResourceDBModel
+	JSON200 *ReceptionAssetResource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateAssetResponse) GetJSON200() *SMBAssetResourceDBModel {
+func (r SmbUpdateAssetResponse) GetJSON200() *ReceptionAssetResource {
 	return r.JSON200
 }
 
@@ -177771,13 +178199,13 @@ type SmbListCustomerFacingAgentsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBCustomerFacingAgentResponse
+	JSON200 *[]ReceptionCustomerFacingAgentResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListCustomerFacingAgentsResponse) GetJSON200() *[]SMBCustomerFacingAgentResponse {
+func (r SmbListCustomerFacingAgentsResponse) GetJSON200() *[]ReceptionCustomerFacingAgentResponse {
 	return r.JSON200
 }
 
@@ -177819,13 +178247,13 @@ type SmbUpdateCustomerFacingAgentResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBCustomerFacingAgentResponse
+	JSON200 *ReceptionCustomerFacingAgentResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateCustomerFacingAgentResponse) GetJSON200() *SMBCustomerFacingAgentResponse {
+func (r SmbUpdateCustomerFacingAgentResponse) GetJSON200() *ReceptionCustomerFacingAgentResponse {
 	return r.JSON200
 }
 
@@ -177867,13 +178295,13 @@ type SmbActivateCustomerFacingAgentResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBCustomerFacingAgentResponse
+	JSON200 *ReceptionCustomerFacingAgentResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbActivateCustomerFacingAgentResponse) GetJSON200() *SMBCustomerFacingAgentResponse {
+func (r SmbActivateCustomerFacingAgentResponse) GetJSON200() *ReceptionCustomerFacingAgentResponse {
 	return r.JSON200
 }
 
@@ -177915,13 +178343,13 @@ type SmbListAgentProceduresResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBProcedureResponse
+	JSON200 *[]ReceptionProcedureResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListAgentProceduresResponse) GetJSON200() *[]SMBProcedureResponse {
+func (r SmbListAgentProceduresResponse) GetJSON200() *[]ReceptionProcedureResponse {
 	return r.JSON200
 }
 
@@ -177963,13 +178391,13 @@ type SmbAddAgentProcedureResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON201 the response for an HTTP 201 `application/json` response
-	JSON201 *SMBProcedure
+	JSON201 *ReceptionProcedure
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON201 returns the response for an HTTP 201 `application/json` response
-func (r SmbAddAgentProcedureResponse) GetJSON201() *SMBProcedure {
+func (r SmbAddAgentProcedureResponse) GetJSON201() *ReceptionProcedure {
 	return r.JSON201
 }
 
@@ -178059,13 +178487,13 @@ type SmbUpdateAgentProcedureResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBProcedure
+	JSON200 *ReceptionProcedure
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateAgentProcedureResponse) GetJSON200() *SMBProcedure {
+func (r SmbUpdateAgentProcedureResponse) GetJSON200() *ReceptionProcedure {
 	return r.JSON200
 }
 
@@ -178251,13 +178679,13 @@ type SmbAddTransferRuleResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBTransferRule
+	JSON200 *ReceptionTransferRule
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbAddTransferRuleResponse) GetJSON200() *SMBTransferRule {
+func (r SmbAddTransferRuleResponse) GetJSON200() *ReceptionTransferRule {
 	return r.JSON200
 }
 
@@ -178347,13 +178775,13 @@ type SmbUpdateTransferRuleResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBTransferRule
+	JSON200 *ReceptionTransferRule
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateTransferRuleResponse) GetJSON200() *SMBTransferRule {
+func (r SmbUpdateTransferRuleResponse) GetJSON200() *ReceptionTransferRule {
 	return r.JSON200
 }
 
@@ -178635,13 +179063,13 @@ type SmbListKnowledgeSourcesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBKnowledgeSourceDBModel
+	JSON200 *[]ReceptionKnowledgeSource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListKnowledgeSourcesResponse) GetJSON200() *[]SMBKnowledgeSourceDBModel {
+func (r SmbListKnowledgeSourcesResponse) GetJSON200() *[]ReceptionKnowledgeSource {
 	return r.JSON200
 }
 
@@ -178683,13 +179111,13 @@ type SmbUploadKnowledgeSourceResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBKnowledgeSourceDBModel
+	JSON200 *ReceptionKnowledgeSource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUploadKnowledgeSourceResponse) GetJSON200() *SMBKnowledgeSourceDBModel {
+func (r SmbUploadKnowledgeSourceResponse) GetJSON200() *ReceptionKnowledgeSource {
 	return r.JSON200
 }
 
@@ -178731,13 +179159,13 @@ type SmbAddUrlSourceResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBKnowledgeSourceDBModel
+	JSON200 *ReceptionKnowledgeSource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbAddUrlSourceResponse) GetJSON200() *SMBKnowledgeSourceDBModel {
+func (r SmbAddUrlSourceResponse) GetJSON200() *ReceptionKnowledgeSource {
 	return r.JSON200
 }
 
@@ -178827,13 +179255,13 @@ type SmbGetKnowledgeSourceResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBKnowledgeSourceDBModel
+	JSON200 *ReceptionKnowledgeSource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbGetKnowledgeSourceResponse) GetJSON200() *SMBKnowledgeSourceDBModel {
+func (r SmbGetKnowledgeSourceResponse) GetJSON200() *ReceptionKnowledgeSource {
 	return r.JSON200
 }
 
@@ -178875,13 +179303,13 @@ type SmbListLocationsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]LocationResponse
+	JSON200 *[]ReceptionLocationResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListLocationsResponse) GetJSON200() *[]LocationResponse {
+func (r SmbListLocationsResponse) GetJSON200() *[]ReceptionLocationResponse {
 	return r.JSON200
 }
 
@@ -178923,13 +179351,13 @@ type SmbCreateLocationResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *LocationResponse
+	JSON200 *ReceptionLocationResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbCreateLocationResponse) GetJSON200() *LocationResponse {
+func (r SmbCreateLocationResponse) GetJSON200() *ReceptionLocationResponse {
 	return r.JSON200
 }
 
@@ -179019,13 +179447,13 @@ type SmbGetLocationResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *LocationResponse
+	JSON200 *ReceptionLocationResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbGetLocationResponse) GetJSON200() *LocationResponse {
+func (r SmbGetLocationResponse) GetJSON200() *ReceptionLocationResponse {
 	return r.JSON200
 }
 
@@ -179067,13 +179495,13 @@ type SmbUpdateLocationResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *LocationResponse
+	JSON200 *ReceptionLocationResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateLocationResponse) GetJSON200() *LocationResponse {
+func (r SmbUpdateLocationResponse) GetJSON200() *ReceptionLocationResponse {
 	return r.JSON200
 }
 
@@ -179115,13 +179543,13 @@ type SmbListWorkspacePhoneAssignmentsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBPhoneAssignmentDBModel
+	JSON200 *[]ReceptionPhoneAssignment
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListWorkspacePhoneAssignmentsResponse) GetJSON200() *[]SMBPhoneAssignmentDBModel {
+func (r SmbListWorkspacePhoneAssignmentsResponse) GetJSON200() *[]ReceptionPhoneAssignment {
 	return r.JSON200
 }
 
@@ -179163,13 +179591,13 @@ type SmbAssignPhoneNumberResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON201 the response for an HTTP 201 `application/json` response
-	JSON201 *SMBPhoneAssignmentDBModel
+	JSON201 *ReceptionPhoneAssignment
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON201 returns the response for an HTTP 201 `application/json` response
-func (r SmbAssignPhoneNumberResponse) GetJSON201() *SMBPhoneAssignmentDBModel {
+func (r SmbAssignPhoneNumberResponse) GetJSON201() *ReceptionPhoneAssignment {
 	return r.JSON201
 }
 
@@ -179252,13 +179680,13 @@ type SmbReassignPhoneToAgentResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBPhoneAssignmentDBModel
+	JSON200 *ReceptionPhoneAssignment
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbReassignPhoneToAgentResponse) GetJSON200() *SMBPhoneAssignmentDBModel {
+func (r SmbReassignPhoneToAgentResponse) GetJSON200() *ReceptionPhoneAssignment {
 	return r.JSON200
 }
 
@@ -179300,13 +179728,13 @@ type SmbListProductsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBProductDBModel
+	JSON200 *[]ReceptionProduct
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListProductsResponse) GetJSON200() *[]SMBProductDBModel {
+func (r SmbListProductsResponse) GetJSON200() *[]ReceptionProduct {
 	return r.JSON200
 }
 
@@ -179348,13 +179776,13 @@ type SmbCreateProductResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBProductDBModel
+	JSON200 *ReceptionProduct
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbCreateProductResponse) GetJSON200() *SMBProductDBModel {
+func (r SmbCreateProductResponse) GetJSON200() *ReceptionProduct {
 	return r.JSON200
 }
 
@@ -179444,13 +179872,13 @@ type SmbGetProductResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBProductDBModel
+	JSON200 *ReceptionProduct
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbGetProductResponse) GetJSON200() *SMBProductDBModel {
+func (r SmbGetProductResponse) GetJSON200() *ReceptionProduct {
 	return r.JSON200
 }
 
@@ -179492,13 +179920,13 @@ type SmbUpdateProductResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBProductDBModel
+	JSON200 *ReceptionProduct
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateProductResponse) GetJSON200() *SMBProductDBModel {
+func (r SmbUpdateProductResponse) GetJSON200() *ReceptionProduct {
 	return r.JSON200
 }
 
@@ -179540,13 +179968,13 @@ type SmbUpdateProductStockResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBProductDBModel
+	JSON200 *ReceptionProduct
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateProductStockResponse) GetJSON200() *SMBProductDBModel {
+func (r SmbUpdateProductStockResponse) GetJSON200() *ReceptionProduct {
 	return r.JSON200
 }
 
@@ -179588,13 +180016,13 @@ type SmbAdjustProductStockResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBProductDBModel
+	JSON200 *ReceptionProduct
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbAdjustProductStockResponse) GetJSON200() *SMBProductDBModel {
+func (r SmbAdjustProductStockResponse) GetJSON200() *ReceptionProduct {
 	return r.JSON200
 }
 
@@ -180212,13 +180640,13 @@ type SmbListServicesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBServiceDBModel
+	JSON200 *[]ReceptionService
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListServicesResponse) GetJSON200() *[]SMBServiceDBModel {
+func (r SmbListServicesResponse) GetJSON200() *[]ReceptionService {
 	return r.JSON200
 }
 
@@ -180260,13 +180688,13 @@ type SmbCreateServiceResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBServiceDBModel
+	JSON200 *ReceptionService
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbCreateServiceResponse) GetJSON200() *SMBServiceDBModel {
+func (r SmbCreateServiceResponse) GetJSON200() *ReceptionService {
 	return r.JSON200
 }
 
@@ -180356,13 +180784,13 @@ type SmbGetServiceResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBServiceDBModel
+	JSON200 *ReceptionService
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbGetServiceResponse) GetJSON200() *SMBServiceDBModel {
+func (r SmbGetServiceResponse) GetJSON200() *ReceptionService {
 	return r.JSON200
 }
 
@@ -180404,13 +180832,13 @@ type SmbUpdateServiceResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *ServiceUpdateResponse
+	JSON200 *ReceptionServiceUpdateResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateServiceResponse) GetJSON200() *ServiceUpdateResponse {
+func (r SmbUpdateServiceResponse) GetJSON200() *ReceptionServiceUpdateResponse {
 	return r.JSON200
 }
 
@@ -180452,13 +180880,13 @@ type SmbConfirmServiceUpdateResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *ServiceUpdateResponse
+	JSON200 *ReceptionServiceUpdateResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbConfirmServiceUpdateResponse) GetJSON200() *ServiceUpdateResponse {
+func (r SmbConfirmServiceUpdateResponse) GetJSON200() *ReceptionServiceUpdateResponse {
 	return r.JSON200
 }
 
@@ -180500,13 +180928,13 @@ type SmbListStaffResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBStaffResourceDBModel
+	JSON200 *[]ReceptionStaffResource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListStaffResponse) GetJSON200() *[]SMBStaffResourceDBModel {
+func (r SmbListStaffResponse) GetJSON200() *[]ReceptionStaffResource {
 	return r.JSON200
 }
 
@@ -180548,13 +180976,13 @@ type SmbCreateStaffMemberResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBStaffResourceDBModel
+	JSON200 *ReceptionStaffResource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbCreateStaffMemberResponse) GetJSON200() *SMBStaffResourceDBModel {
+func (r SmbCreateStaffMemberResponse) GetJSON200() *ReceptionStaffResource {
 	return r.JSON200
 }
 
@@ -180644,13 +181072,13 @@ type SmbGetStaffMemberResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBStaffResourceDBModel
+	JSON200 *ReceptionStaffResource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbGetStaffMemberResponse) GetJSON200() *SMBStaffResourceDBModel {
+func (r SmbGetStaffMemberResponse) GetJSON200() *ReceptionStaffResource {
 	return r.JSON200
 }
 
@@ -180692,13 +181120,13 @@ type SmbUpdateStaffMemberResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *SMBStaffResourceDBModel
+	JSON200 *ReceptionStaffResource
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbUpdateStaffMemberResponse) GetJSON200() *SMBStaffResourceDBModel {
+func (r SmbUpdateStaffMemberResponse) GetJSON200() *ReceptionStaffResource {
 	return r.JSON200
 }
 
@@ -180788,13 +181216,13 @@ type SmbListTeamInvitesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBTeamInviteResponse
+	JSON200 *[]ReceptionTeamInviteResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListTeamInvitesResponse) GetJSON200() *[]SMBTeamInviteResponse {
+func (r SmbListTeamInvitesResponse) GetJSON200() *[]ReceptionTeamInviteResponse {
 	return r.JSON200
 }
 
@@ -180884,13 +181312,13 @@ type SmbListTeamMembersResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]SMBTeamMemberResponse
+	JSON200 *[]ReceptionTeamMemberResponse
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *HTTPValidationError
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r SmbListTeamMembersResponse) GetJSON200() *[]SMBTeamMemberResponse {
+func (r SmbListTeamMembersResponse) GetJSON200() *[]ReceptionTeamMemberResponse {
 	return r.JSON200
 }
 
@@ -186686,6 +187114,102 @@ func (r EditWorkspaceWebhookRouteResponse) ContentType() string {
 	return ""
 }
 
+type RedeliverWebhookDeliveryRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *WebhookSendResultResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r RedeliverWebhookDeliveryRouteResponse) GetJSON200() *WebhookSendResultResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r RedeliverWebhookDeliveryRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r RedeliverWebhookDeliveryRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r RedeliverWebhookDeliveryRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r RedeliverWebhookDeliveryRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r RedeliverWebhookDeliveryRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SendTestWebhookEventRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *WebhookSendResultResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SendTestWebhookEventRouteResponse) GetJSON200() *WebhookSendResultResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SendTestWebhookEventRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SendTestWebhookEventRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SendTestWebhookEventRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SendTestWebhookEventRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SendTestWebhookEventRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type DisableResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -189253,7 +189777,7 @@ func (c *ClientWithResponses) CreateEnvironmentVariableWithResponse(ctx context.
 
 // DeleteEnvironmentVariableWithResponse Delete Environment Variable
 //
-// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
+// Delete an environment variable and its values in all environments. The delete is rejected while the latest version of an unarchived agent branch, a tool, an MCP server or the workspace conversation initiation webhook uses the variable. Archived branches and earlier versions are not checked.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -198192,6 +198716,51 @@ func (c *ClientWithResponses) EditWorkspaceWebhookRouteWithResponse(ctx context.
 		return nil, err
 	}
 	return ParseEditWorkspaceWebhookRouteResponse(rsp)
+}
+
+// RedeliverWebhookDeliveryRouteWithResponse Redeliver Webhook Delivery
+//
+// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Only workspace admins on a web session can redeliver, and only deliveries whose payload is stored. Redeliveries and test events share a limit of 10 per webhook per minute.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/deliveries/{delivery_id}/redeliver (the `RedeliverWebhookDeliveryRoute` operationId).
+func (c *ClientWithResponses) RedeliverWebhookDeliveryRouteWithResponse(ctx context.Context, webhookId string, deliveryId string, params *RedeliverWebhookDeliveryRouteParams, reqEditors ...RequestEditorFn) (*RedeliverWebhookDeliveryRouteResponse, error) {
+	rsp, err := c.RedeliverWebhookDeliveryRoute(ctx, webhookId, deliveryId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseRedeliverWebhookDeliveryRouteResponse(rsp)
+}
+
+// SendTestWebhookEventRouteWithBodyWithResponse Send Test Webhook Event
+//
+// Sends a sample event of the given type to the webhook once and returns the endpoint's status code, response time, content type and response size. Test events are signed like real ones, are never retried, and share a limit of 10 per webhook per minute with redeliveries.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/test (the `SendTestWebhookEventRoute` operationId).
+func (c *ClientWithResponses) SendTestWebhookEventRouteWithBodyWithResponse(ctx context.Context, webhookId string, params *SendTestWebhookEventRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendTestWebhookEventRouteResponse, error) {
+	rsp, err := c.SendTestWebhookEventRouteWithBody(ctx, webhookId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSendTestWebhookEventRouteResponse(rsp)
+}
+
+// SendTestWebhookEventRouteWithResponse Send Test Webhook Event
+//
+// Sends a sample event of the given type to the webhook once and returns the endpoint's status code, response time, content type and response size. Test events are signed like real ones, are never retried, and share a limit of 10 per webhook per minute with redeliveries.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/test (the `SendTestWebhookEventRoute` operationId).
+func (c *ClientWithResponses) SendTestWebhookEventRouteWithResponse(ctx context.Context, webhookId string, params *SendTestWebhookEventRouteParams, body SendTestWebhookEventRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*SendTestWebhookEventRouteResponse, error) {
+	rsp, err := c.SendTestWebhookEventRoute(ctx, webhookId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSendTestWebhookEventRouteResponse(rsp)
 }
 
 // DisableWithResponse Disable Api Key
@@ -209708,7 +210277,7 @@ func ParseSmbGetAgentInfoResponse(rsp *http.Response) (*SmbGetAgentInfoResponse,
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBAgentInfoResponse
+		var dest ReceptionAgentInfoResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -209741,7 +210310,7 @@ func ParseSmbUpdateAgentInfoResponse(rsp *http.Response) (*SmbUpdateAgentInfoRes
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBAgentInfoResponse
+		var dest ReceptionAgentInfoResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -209774,7 +210343,7 @@ func ParseSmbListAssetsResponse(rsp *http.Response) (*SmbListAssetsResponse, err
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBAssetResourceDBModel
+		var dest []ReceptionAssetResource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -209807,7 +210376,7 @@ func ParseSmbCreateAssetResponse(rsp *http.Response) (*SmbCreateAssetResponse, e
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBAssetResourceDBModel
+		var dest ReceptionAssetResource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -209873,7 +210442,7 @@ func ParseSmbGetAssetResponse(rsp *http.Response) (*SmbGetAssetResponse, error) 
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBAssetResourceDBModel
+		var dest ReceptionAssetResource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -209906,7 +210475,7 @@ func ParseSmbUpdateAssetResponse(rsp *http.Response) (*SmbUpdateAssetResponse, e
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBAssetResourceDBModel
+		var dest ReceptionAssetResource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -209939,7 +210508,7 @@ func ParseSmbListCustomerFacingAgentsResponse(rsp *http.Response) (*SmbListCusto
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBCustomerFacingAgentResponse
+		var dest []ReceptionCustomerFacingAgentResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -209972,7 +210541,7 @@ func ParseSmbUpdateCustomerFacingAgentResponse(rsp *http.Response) (*SmbUpdateCu
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBCustomerFacingAgentResponse
+		var dest ReceptionCustomerFacingAgentResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210005,7 +210574,7 @@ func ParseSmbActivateCustomerFacingAgentResponse(rsp *http.Response) (*SmbActiva
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBCustomerFacingAgentResponse
+		var dest ReceptionCustomerFacingAgentResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210038,7 +210607,7 @@ func ParseSmbListAgentProceduresResponse(rsp *http.Response) (*SmbListAgentProce
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBProcedureResponse
+		var dest []ReceptionProcedureResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210071,7 +210640,7 @@ func ParseSmbAddAgentProcedureResponse(rsp *http.Response) (*SmbAddAgentProcedur
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
-		var dest SMBProcedure
+		var dest ReceptionProcedure
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210137,7 +210706,7 @@ func ParseSmbUpdateAgentProcedureResponse(rsp *http.Response) (*SmbUpdateAgentPr
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBProcedure
+		var dest ReceptionProcedure
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210269,7 +210838,7 @@ func ParseSmbAddTransferRuleResponse(rsp *http.Response) (*SmbAddTransferRuleRes
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBTransferRule
+		var dest ReceptionTransferRule
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210335,7 +210904,7 @@ func ParseSmbUpdateTransferRuleResponse(rsp *http.Response) (*SmbUpdateTransferR
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBTransferRule
+		var dest ReceptionTransferRule
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210533,7 +211102,7 @@ func ParseSmbListKnowledgeSourcesResponse(rsp *http.Response) (*SmbListKnowledge
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBKnowledgeSourceDBModel
+		var dest []ReceptionKnowledgeSource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210566,7 +211135,7 @@ func ParseSmbUploadKnowledgeSourceResponse(rsp *http.Response) (*SmbUploadKnowle
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBKnowledgeSourceDBModel
+		var dest ReceptionKnowledgeSource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210599,7 +211168,7 @@ func ParseSmbAddUrlSourceResponse(rsp *http.Response) (*SmbAddUrlSourceResponse,
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBKnowledgeSourceDBModel
+		var dest ReceptionKnowledgeSource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210665,7 +211234,7 @@ func ParseSmbGetKnowledgeSourceResponse(rsp *http.Response) (*SmbGetKnowledgeSou
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBKnowledgeSourceDBModel
+		var dest ReceptionKnowledgeSource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210698,7 +211267,7 @@ func ParseSmbListLocationsResponse(rsp *http.Response) (*SmbListLocationsRespons
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []LocationResponse
+		var dest []ReceptionLocationResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210731,7 +211300,7 @@ func ParseSmbCreateLocationResponse(rsp *http.Response) (*SmbCreateLocationRespo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest LocationResponse
+		var dest ReceptionLocationResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210797,7 +211366,7 @@ func ParseSmbGetLocationResponse(rsp *http.Response) (*SmbGetLocationResponse, e
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest LocationResponse
+		var dest ReceptionLocationResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210830,7 +211399,7 @@ func ParseSmbUpdateLocationResponse(rsp *http.Response) (*SmbUpdateLocationRespo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest LocationResponse
+		var dest ReceptionLocationResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210863,7 +211432,7 @@ func ParseSmbListWorkspacePhoneAssignmentsResponse(rsp *http.Response) (*SmbList
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBPhoneAssignmentDBModel
+		var dest []ReceptionPhoneAssignment
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210896,7 +211465,7 @@ func ParseSmbAssignPhoneNumberResponse(rsp *http.Response) (*SmbAssignPhoneNumbe
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
-		var dest SMBPhoneAssignmentDBModel
+		var dest ReceptionPhoneAssignment
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210958,7 +211527,7 @@ func ParseSmbReassignPhoneToAgentResponse(rsp *http.Response) (*SmbReassignPhone
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBPhoneAssignmentDBModel
+		var dest ReceptionPhoneAssignment
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -210991,7 +211560,7 @@ func ParseSmbListProductsResponse(rsp *http.Response) (*SmbListProductsResponse,
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBProductDBModel
+		var dest []ReceptionProduct
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211024,7 +211593,7 @@ func ParseSmbCreateProductResponse(rsp *http.Response) (*SmbCreateProductRespons
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBProductDBModel
+		var dest ReceptionProduct
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211090,7 +211659,7 @@ func ParseSmbGetProductResponse(rsp *http.Response) (*SmbGetProductResponse, err
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBProductDBModel
+		var dest ReceptionProduct
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211123,7 +211692,7 @@ func ParseSmbUpdateProductResponse(rsp *http.Response) (*SmbUpdateProductRespons
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBProductDBModel
+		var dest ReceptionProduct
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211156,7 +211725,7 @@ func ParseSmbUpdateProductStockResponse(rsp *http.Response) (*SmbUpdateProductSt
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBProductDBModel
+		var dest ReceptionProduct
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211189,7 +211758,7 @@ func ParseSmbAdjustProductStockResponse(rsp *http.Response) (*SmbAdjustProductSt
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBProductDBModel
+		var dest ReceptionProduct
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211618,7 +212187,7 @@ func ParseSmbListServicesResponse(rsp *http.Response) (*SmbListServicesResponse,
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBServiceDBModel
+		var dest []ReceptionService
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211651,7 +212220,7 @@ func ParseSmbCreateServiceResponse(rsp *http.Response) (*SmbCreateServiceRespons
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBServiceDBModel
+		var dest ReceptionService
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211717,7 +212286,7 @@ func ParseSmbGetServiceResponse(rsp *http.Response) (*SmbGetServiceResponse, err
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBServiceDBModel
+		var dest ReceptionService
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211750,7 +212319,7 @@ func ParseSmbUpdateServiceResponse(rsp *http.Response) (*SmbUpdateServiceRespons
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest ServiceUpdateResponse
+		var dest ReceptionServiceUpdateResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211783,7 +212352,7 @@ func ParseSmbConfirmServiceUpdateResponse(rsp *http.Response) (*SmbConfirmServic
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest ServiceUpdateResponse
+		var dest ReceptionServiceUpdateResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211816,7 +212385,7 @@ func ParseSmbListStaffResponse(rsp *http.Response) (*SmbListStaffResponse, error
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBStaffResourceDBModel
+		var dest []ReceptionStaffResource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211849,7 +212418,7 @@ func ParseSmbCreateStaffMemberResponse(rsp *http.Response) (*SmbCreateStaffMembe
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBStaffResourceDBModel
+		var dest ReceptionStaffResource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211915,7 +212484,7 @@ func ParseSmbGetStaffMemberResponse(rsp *http.Response) (*SmbGetStaffMemberRespo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBStaffResourceDBModel
+		var dest ReceptionStaffResource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -211948,7 +212517,7 @@ func ParseSmbUpdateStaffMemberResponse(rsp *http.Response) (*SmbUpdateStaffMembe
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest SMBStaffResourceDBModel
+		var dest ReceptionStaffResource
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -212014,7 +212583,7 @@ func ParseSmbListTeamInvitesResponse(rsp *http.Response) (*SmbListTeamInvitesRes
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBTeamInviteResponse
+		var dest []ReceptionTeamInviteResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -212080,7 +212649,7 @@ func ParseSmbListTeamMembersResponse(rsp *http.Response) (*SmbListTeamMembersRes
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []SMBTeamMemberResponse
+		var dest []ReceptionTeamMemberResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -216036,6 +216605,72 @@ func ParseEditWorkspaceWebhookRouteResponse(rsp *http.Response) (*EditWorkspaceW
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest PatchWorkspaceWebhookResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseRedeliverWebhookDeliveryRouteResponse parses an HTTP response from a RedeliverWebhookDeliveryRouteWithResponse call
+func ParseRedeliverWebhookDeliveryRouteResponse(rsp *http.Response) (*RedeliverWebhookDeliveryRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &RedeliverWebhookDeliveryRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest WebhookSendResultResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSendTestWebhookEventRouteResponse parses an HTTP response from a SendTestWebhookEventRouteWithResponse call
+func ParseSendTestWebhookEventRouteResponse(rsp *http.Response) (*SendTestWebhookEventRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SendTestWebhookEventRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest WebhookSendResultResponseModel
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

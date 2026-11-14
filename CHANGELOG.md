@@ -2,6 +2,19 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.15.0, 2026-11-14
+
+- Breaking: `ClientInterface` gains `SendTestWebhookEventRoute`, `SendTestWebhookEventRouteWithBody` and `RedeliverWebhookDeliveryRoute`. `ClientWithResponsesInterface` gains `SendTestWebhookEventRouteWithResponse`, `SendTestWebhookEventRouteWithBodyWithResponse` and `RedeliverWebhookDeliveryRouteWithResponse`. Custom implementations or mocks must add them.
+- Breaking: the `SMB`-prefixed types are removed and replaced by `Reception`-prefixed ones. For example `SMBAgentInfoResponse` is now `ReceptionAgentInfoResponse`, `SMBCreateServiceRequest` is `ReceptionCreateServiceRequest`, `SMBWidgetAppearance` is `ReceptionWidgetAppearance` and `SMBTurnEagerness` is `ReceptionTurnEagerness`, with their enum constants (currencies, placements, service kinds, deactivation reasons).
+- Breaking: `LocationResponse` is replaced by `ReceptionLocationResponse`. `CustomerFacingConfigOutput` and `CustomerFacingConfigPatch` become `ReceptionCustomerFacingConfigOutput` and `ReceptionCustomerFacingConfigPatch`. `ServiceUpdateResponse` becomes `ReceptionServiceUpdateResponse`.
+- Breaking: the `UnderscoreId` field is removed from `SMBAssetResourceDBModel`, `SMBKnowledgeSourceDBModel`, `SMBPhoneAssignmentDBModel`, `SMBProductDBModel`, `SMBServiceDBModel` and `SMBStaffResourceDBModel`. Each has an `Id` field instead.
+- Breaking: removes `UniqueListAnnotatedIntFieldInfoAnnotationNoneTypeRequiredTrueMetadataGeGe0LeLe6`.
+- Adds the webhook test and redeliver endpoints: `SendTestWebhookEventRoute`, `SendTestWebhookEventRouteWithBody`, `RedeliverWebhookDeliveryRoute` and their `WithResponse` variants, with the `New...Request` builders and `Parse...Response` functions.
+- Adds `SendTestWebhookEventRouteJSONRequestBody`, `BodySendTestWebhookEventV1WorkspaceWebhooksWebhookIdTestPost`, `WebhookSendResultResponseModel`, and the `WebhookOutcome` and `WebhookTypes` enums with their constants.
+- Adds `LogRedactedFields` to `WebhookHMACSettings` and `BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch`.
+- Adds `ServiceTier` to `CustomGuardrailConfig`, `AllowInterruptionsOnEntry` to `WorkflowOverrideAgentNodeModelInput` and `WorkflowOverrideAgentNodeModelOutput`, and `WrittenDynamicVariables` to `ProcedureListItemResponseModel` and `ProcedureRefResponseModel`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.14.0, 2026-11-13
 
 - Breaking: `ClientInterface` gains 12 methods and `ClientWithResponsesInterface` gains 12 methods, for the new endpoints below. Custom implementations or mocks of these interfaces must add the methods.
