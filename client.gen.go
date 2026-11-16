@@ -32284,6 +32284,7 @@ type ConversationHistoryTranscriptSystemToolResultCommonModelOutputType string
 // ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput defines model for ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails-Input.
 type ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput struct {
 	CredentialId            *string                                                                     `json:"credential_id,omitempty"`
+	FunctionDetails         *ConversationHistoryTranscriptToolCallIntegrationFunctionDetails            `json:"function_details,omitempty"`
 	IntegrationConnectionId *string                                                                     `json:"integration_connection_id,omitempty"`
 	IntegrationId           *string                                                                     `json:"integration_id,omitempty"`
 	Type                    *ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInputType `json:"type,omitempty"`
@@ -32296,6 +32297,7 @@ type ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInputType 
 // ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput defines model for ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails-Output.
 type ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput struct {
 	CredentialId            string                                                                      `json:"credential_id"`
+	FunctionDetails         *ConversationHistoryTranscriptToolCallIntegrationFunctionDetails            `json:"function_details"`
 	IntegrationConnectionId string                                                                      `json:"integration_connection_id"`
 	IntegrationId           string                                                                      `json:"integration_id"`
 	Type                    ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutputType `json:"type"`
@@ -32342,6 +32344,11 @@ type ConversationHistoryTranscriptToolCallCommonModelOutput struct {
 	ToolId   *string   `json:"tool_id,omitempty"`
 	ToolName string    `json:"tool_name"`
 	Type     *ToolType `json:"type,omitempty"`
+}
+
+// ConversationHistoryTranscriptToolCallIntegrationFunctionDetails defines model for ConversationHistoryTranscriptToolCallIntegrationFunctionDetails.
+type ConversationHistoryTranscriptToolCallIntegrationFunctionDetails struct {
+	ResolvedParameters map[string]string `json:"resolved_parameters"`
 }
 
 // ConversationHistoryTranscriptToolCallMCPDetails defines model for ConversationHistoryTranscriptToolCallMCPDetails.

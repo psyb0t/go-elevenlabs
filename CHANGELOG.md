@@ -2,6 +2,12 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.15.1, 2026-11-16
+
+- Adds the type `ConversationHistoryTranscriptToolCallIntegrationFunctionDetails` with the field `ResolvedParameters` (`map[string]string`).
+- Adds `FunctionDetails` (`*ConversationHistoryTranscriptToolCallIntegrationFunctionDetails`) to `ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput` and `ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.15.0, 2026-11-14
 
 - Breaking: `ClientInterface` gains `SendTestWebhookEventRoute`, `SendTestWebhookEventRouteWithBody` and `RedeliverWebhookDeliveryRoute`. `ClientWithResponsesInterface` gains `SendTestWebhookEventRouteWithResponse`, `SendTestWebhookEventRouteWithBodyWithResponse` and `RedeliverWebhookDeliveryRouteWithResponse`. Custom implementations or mocks must add them.
