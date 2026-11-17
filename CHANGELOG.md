@@ -2,6 +2,16 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.16.0, 2026-11-17
+
+- Breaking: removes the `LLMGrokBeta` constant (`"grok-beta"`) from the `LLM` enum. `LLM.Valid` now returns false for `"grok-beta"`.
+- Adds the workflow node types `WorkflowStartProcedureNodeModelInput` and `WorkflowStartProcedureNodeModelOutput`, with their `...Type` enums and the `...TypeStartProcedure` constants.
+- Adds `AsWorkflowStartProcedureNodeModelInput`, `FromWorkflowStartProcedureNodeModelInput` and `MergeWorkflowStartProcedureNodeModelInput` to `AgentWorkflowRequestModel_Nodes_AdditionalProperties`, and the matching `...Output` methods to `AgentWorkflowResponseModel_Nodes_AdditionalProperties`.
+- Adds the optional `MaxSessionDurationSeconds` (`*int`) to `GetSingleUseTokenParams`. It closes a realtime transcription session after that many seconds.
+- Adds the `AuditActivityName` constants for OAuth app authorization (`AuditActivityNameOAuthAppAuthorizationGrant`, `AuditActivityNameOAuthAppAuthorizationManagement`, `AuditActivityNameOAuthAppAuthorizationRevocation`) and workload identity federation pools and assignments (for example `AuditActivityNameWorkloadIdentityFederationPoolCreation` and `AuditActivityNameWorkloadIdentityFederationAssignmentDeletion`).
+- Adds `ConfigEntityTypeCriminalRecord`, `ReceptionAgentInfoResponseCurrencyGEL` and `ReceptionUpdateAgentInfoRequestCurrencyGEL`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.15.1, 2026-11-16
 
 - Adds the type `ConversationHistoryTranscriptToolCallIntegrationFunctionDetails` with the field `ResolvedParameters` (`map[string]string`).

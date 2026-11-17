@@ -1971,136 +1971,146 @@ func (e AudioSchemaType) Valid() bool {
 
 // Defines values for AuditActivityName.
 const (
-	AuditActivityNameAPIKeyCreation                         AuditActivityName = "API Key Creation"
-	AuditActivityNameAPIKeyDeletion                         AuditActivityName = "API Key Deletion"
-	AuditActivityNameAPIKeyManagement                       AuditActivityName = "API Key Management"
-	AuditActivityNameAPIKeyUpdate                           AuditActivityName = "API Key Update"
-	AuditActivityNameAccountSecurityChange                  AuditActivityName = "Account Security Change"
-	AuditActivityNameAgentsUserMemoryEntityDeleted          AuditActivityName = "Agents User Memory Entity Deleted"
-	AuditActivityNameAgentsUserMemoryErased                 AuditActivityName = "Agents User Memory Erased"
-	AuditActivityNameAgentsUserMemoryExported               AuditActivityName = "Agents User Memory Exported"
-	AuditActivityNameAgentsUserMemoryFactDeleted            AuditActivityName = "Agents User Memory Fact Deleted"
-	AuditActivityNameAgentsUserMemoryViewed                 AuditActivityName = "Agents User Memory Viewed"
-	AuditActivityNameAgentsUserPropertiesReordered          AuditActivityName = "Agents User Properties Reordered"
-	AuditActivityNameAgentsUserPropertyArchived             AuditActivityName = "Agents User Property Archived"
-	AuditActivityNameAgentsUserPropertyCreated              AuditActivityName = "Agents User Property Created"
-	AuditActivityNameAgentsUserPropertyUnarchived           AuditActivityName = "Agents User Property Unarchived"
-	AuditActivityNameAgentsUserPropertyUpdated              AuditActivityName = "Agents User Property Updated"
-	AuditActivityNameArchitectMemberSpendLimitsUpdate       AuditActivityName = "Architect Member Spend Limits Update"
-	AuditActivityNameAuthConnectionCreation                 AuditActivityName = "Auth Connection Creation"
-	AuditActivityNameAuthConnectionDeletion                 AuditActivityName = "Auth Connection Deletion"
-	AuditActivityNameAuthConnectionManagement               AuditActivityName = "Auth Connection Management"
-	AuditActivityNameAuthConnectionUpdate                   AuditActivityName = "Auth Connection Update"
-	AuditActivityNameBillingManagement                      AuditActivityName = "Billing Management"
-	AuditActivityNameChildWorkspaceResourceOverride         AuditActivityName = "Child Workspace Resource Override"
-	AuditActivityNameContentGenerationTermsUpdate           AuditActivityName = "Content Generation Terms Update"
-	AuditActivityNameCreateWorkspaceCustomRole              AuditActivityName = "Create workspace custom role"
-	AuditActivityNameCustomAuthTokenCreated                 AuditActivityName = "Custom Auth Token Created"
-	AuditActivityNameDataExportRequest                      AuditActivityName = "Data Export Request"
-	AuditActivityNameDeleteScribeMeeting                    AuditActivityName = "Delete Scribe meeting"
-	AuditActivityNameDeleteWorkspaceCustomRole              AuditActivityName = "Delete workspace custom role"
-	AuditActivityNameDomainVerificationAddition             AuditActivityName = "Domain Verification Addition"
-	AuditActivityNameDomainVerificationManagement           AuditActivityName = "Domain Verification Management"
-	AuditActivityNameDomainVerificationRemoval              AuditActivityName = "Domain Verification Removal"
-	AuditActivityNameDomainVerificationStatusUpdate         AuditActivityName = "Domain Verification Status Update"
-	AuditActivityNameEncryptionKeyDeleted                   AuditActivityName = "Encryption Key Deleted"
-	AuditActivityNameEncryptionKeyPaused                    AuditActivityName = "Encryption Key Paused"
-	AuditActivityNameEncryptionKeyRegistered                AuditActivityName = "Encryption Key Registered"
-	AuditActivityNameEncryptionKeyUnpaused                  AuditActivityName = "Encryption Key Unpaused"
-	AuditActivityNameEnterpriseCopyingToggle                AuditActivityName = "Enterprise Copying Toggle"
-	AuditActivityNameGiftCreditCodeApplied                  AuditActivityName = "Gift Credit Code Applied"
-	AuditActivityNameGroupCreation                          AuditActivityName = "Group Creation"
-	AuditActivityNameGroupDeletion                          AuditActivityName = "Group Deletion"
-	AuditActivityNameGroupManagement                        AuditActivityName = "Group Management"
-	AuditActivityNameGroupMemberAddition                    AuditActivityName = "Group Member Addition"
-	AuditActivityNameGroupMemberRemoval                     AuditActivityName = "Group Member Removal"
-	AuditActivityNameGroupToBillingGroupConversion          AuditActivityName = "Group to Billing Group Conversion"
-	AuditActivityNameGroupUpdate                            AuditActivityName = "Group Update"
-	AuditActivityNameIdentityProviderUpdate                 AuditActivityName = "Identity Provider Update"
-	AuditActivityNameInAppTermAcceptance                    AuditActivityName = "In-App Term Acceptance"
-	AuditActivityNameInfluencerCodeApplied                  AuditActivityName = "Influencer Code Applied"
-	AuditActivityNameLogon                                  AuditActivityName = "Logon"
-	AuditActivityNameMFAFactorEnrollment                    AuditActivityName = "MFA Factor Enrollment"
-	AuditActivityNameMFAFactorEnrollmentRevertedUnverified  AuditActivityName = "MFA Factor Enrollment Reverted (unverified)"
-	AuditActivityNameMFAFactorRemoval                       AuditActivityName = "MFA Factor Removal"
-	AuditActivityNameMFARemovalViaBackupCode                AuditActivityName = "MFA Removal via Backup Code"
-	AuditActivityNameModelApprovalsUpdate                   AuditActivityName = "Model Approvals Update"
-	AuditActivityNameNotificationPreferenceCreation         AuditActivityName = "Notification Preference Creation"
-	AuditActivityNameNotificationPreferenceDeletion         AuditActivityName = "Notification Preference Deletion"
-	AuditActivityNameNotificationPreferenceManagement       AuditActivityName = "Notification Preference Management"
-	AuditActivityNameNotificationPreferenceUpdate           AuditActivityName = "Notification Preference Update"
-	AuditActivityNamePasswordResetEmailRequest              AuditActivityName = "Password Reset Email Request"
-	AuditActivityNamePasswordResetLinkGeneration            AuditActivityName = "Password Reset Link Generation"
-	AuditActivityNameReportingWorkspaceSSOInheritanceUpdate AuditActivityName = "Reporting Workspace SSO Inheritance Update"
-	AuditActivityNameResourceAccessGranted                  AuditActivityName = "Resource Access Granted"
-	AuditActivityNameResourceAccessManagement               AuditActivityName = "Resource Access Management"
-	AuditActivityNameResourceAccessRevoked                  AuditActivityName = "Resource Access Revoked"
-	AuditActivityNameResourceCopiedToWorkspace              AuditActivityName = "Resource Copied to Workspace"
-	AuditActivityNameResourceLocatorCreation                AuditActivityName = "Resource Locator Creation"
-	AuditActivityNameResourceLocatorDeletion                AuditActivityName = "Resource Locator Deletion"
-	AuditActivityNameResourceLocatorManagement              AuditActivityName = "Resource Locator Management"
-	AuditActivityNameResourceLocatorUpdate                  AuditActivityName = "Resource Locator Update"
-	AuditActivityNameResourceOwnershipTransferred           AuditActivityName = "Resource Ownership Transferred"
-	AuditActivityNameSCIMGroupCreation                      AuditActivityName = "SCIM Group Creation"
-	AuditActivityNameSCIMGroupDeletion                      AuditActivityName = "SCIM Group Deletion"
-	AuditActivityNameSCIMGroupManagement                    AuditActivityName = "SCIM Group Management"
-	AuditActivityNameSCIMGroupUpdate                        AuditActivityName = "SCIM Group Update"
-	AuditActivityNameSCIMProvisioningSeatTypeUpdated        AuditActivityName = "SCIM Provisioning Seat Type Updated"
-	AuditActivityNameSCIMTokenDeleted                       AuditActivityName = "SCIM Token Deleted"
-	AuditActivityNameSCIMTokenGenerated                     AuditActivityName = "SCIM Token Generated"
-	AuditActivityNameSCIMTokenManagement                    AuditActivityName = "SCIM Token Management"
-	AuditActivityNameSCIMTokenRotated                       AuditActivityName = "SCIM Token Rotated"
-	AuditActivityNameSCIMUserCreation                       AuditActivityName = "SCIM User Creation"
-	AuditActivityNameSCIMUserDeletion                       AuditActivityName = "SCIM User Deletion"
-	AuditActivityNameSCIMUserManagement                     AuditActivityName = "SCIM User Management"
-	AuditActivityNameSCIMUserUpdate                         AuditActivityName = "SCIM User Update"
-	AuditActivityNameSMBFreeTrialActivation                 AuditActivityName = "SMB Free Trial Activation"
-	AuditActivityNameSMBResellerSubscriptionLifecycle       AuditActivityName = "SMB Reseller Subscription Lifecycle"
-	AuditActivityNameSMBResellerTierAssignment              AuditActivityName = "SMB Reseller Tier Assignment"
-	AuditActivityNameSMBResellerTierChange                  AuditActivityName = "SMB Reseller Tier Change"
-	AuditActivityNameSSOManagement                          AuditActivityName = "SSO Management"
-	AuditActivityNameSSOProviderConfiguration               AuditActivityName = "SSO Provider Configuration"
-	AuditActivityNameSSOProviderRemoval                     AuditActivityName = "SSO Provider Removal"
-	AuditActivityNameSensitiveActionVerification            AuditActivityName = "Sensitive Action Verification"
-	AuditActivityNameServiceAccountCreation                 AuditActivityName = "Service Account Creation"
-	AuditActivityNameServiceAccountDeletion                 AuditActivityName = "Service Account Deletion"
-	AuditActivityNameServiceAccountManagement               AuditActivityName = "Service Account Management"
-	AuditActivityNameServiceAccountUpdate                   AuditActivityName = "Service Account Update"
-	AuditActivityNameSharedSSOSiblingWorkspacesUpdate       AuditActivityName = "Shared SSO Sibling Workspaces Update"
-	AuditActivityNameSignInRequestApproval                  AuditActivityName = "Sign-In Request Approval"
-	AuditActivityNameSignInRequestDecline                   AuditActivityName = "Sign-In Request Decline"
-	AuditActivityNameUpdateWorkspaceCustomRole              AuditActivityName = "Update workspace custom role"
-	AuditActivityNameUserAPIKeyCreation                     AuditActivityName = "User API Key Creation"
-	AuditActivityNameUserAPIKeyDeletion                     AuditActivityName = "User API Key Deletion"
-	AuditActivityNameUserAPIKeyManagement                   AuditActivityName = "User API Key Management"
-	AuditActivityNameUserAPIKeyUpdate                       AuditActivityName = "User API Key Update"
-	AuditActivityNameUserAutoProvisioningDisabled           AuditActivityName = "User Auto-Provisioning Disabled"
-	AuditActivityNameUserAutoProvisioningEnabled            AuditActivityName = "User Auto-Provisioning Enabled"
-	AuditActivityNameUserCreation                           AuditActivityName = "User Creation"
-	AuditActivityNameUserMetadataUpdate                     AuditActivityName = "User Metadata Update"
-	AuditActivityNameUserSelfDeletion                       AuditActivityName = "User Self-Deletion"
-	AuditActivityNameUserSharingPreferencesUpdate           AuditActivityName = "User Sharing Preferences Update"
-	AuditActivityNameUserSharingPreferencesUpdateAdmin      AuditActivityName = "User Sharing Preferences Update (Admin)"
-	AuditActivityNameWebhookCreation                        AuditActivityName = "Webhook Creation"
-	AuditActivityNameWebhookDeletion                        AuditActivityName = "Webhook Deletion"
-	AuditActivityNameWebhookManagement                      AuditActivityName = "Webhook Management"
-	AuditActivityNameWebhookUpdate                          AuditActivityName = "Webhook Update"
-	AuditActivityNameWorkspaceCreation                      AuditActivityName = "Workspace Creation"
-	AuditActivityNameWorkspaceDeletion                      AuditActivityName = "Workspace Deletion"
-	AuditActivityNameWorkspaceDeletionCancellation          AuditActivityName = "Workspace Deletion Cancellation"
-	AuditActivityNameWorkspaceInvitationAccepted            AuditActivityName = "Workspace Invitation Accepted"
-	AuditActivityNameWorkspaceInvitationDeclined            AuditActivityName = "Workspace Invitation Declined"
-	AuditActivityNameWorkspaceInvitationManagement          AuditActivityName = "Workspace Invitation Management"
-	AuditActivityNameWorkspaceInvitationReminderSent        AuditActivityName = "Workspace Invitation Reminder Sent"
-	AuditActivityNameWorkspaceInvitationRevoked             AuditActivityName = "Workspace Invitation Revoked"
-	AuditActivityNameWorkspaceInvitationSent                AuditActivityName = "Workspace Invitation Sent"
-	AuditActivityNameWorkspaceMemberRemoval                 AuditActivityName = "Workspace Member Removal"
-	AuditActivityNameWorkspaceMemberResourceTransfer        AuditActivityName = "Workspace Member Resource Transfer"
-	AuditActivityNameWorkspaceMemberUpdate                  AuditActivityName = "Workspace Member Update"
-	AuditActivityNameWorkspaceMemberUsageLimitUpdate        AuditActivityName = "Workspace Member Usage Limit Update"
-	AuditActivityNameWorkspaceMetadataUpdate                AuditActivityName = "Workspace Metadata Update"
-	AuditActivityNameWorkspaceOwnershipTransfer             AuditActivityName = "Workspace Ownership Transfer"
-	AuditActivityNameWorkspaceSignIn                        AuditActivityName = "Workspace Sign-In"
+	AuditActivityNameAPIKeyCreation                                 AuditActivityName = "API Key Creation"
+	AuditActivityNameAPIKeyDeletion                                 AuditActivityName = "API Key Deletion"
+	AuditActivityNameAPIKeyManagement                               AuditActivityName = "API Key Management"
+	AuditActivityNameAPIKeyUpdate                                   AuditActivityName = "API Key Update"
+	AuditActivityNameAccountSecurityChange                          AuditActivityName = "Account Security Change"
+	AuditActivityNameAgentsUserMemoryEntityDeleted                  AuditActivityName = "Agents User Memory Entity Deleted"
+	AuditActivityNameAgentsUserMemoryErased                         AuditActivityName = "Agents User Memory Erased"
+	AuditActivityNameAgentsUserMemoryExported                       AuditActivityName = "Agents User Memory Exported"
+	AuditActivityNameAgentsUserMemoryFactDeleted                    AuditActivityName = "Agents User Memory Fact Deleted"
+	AuditActivityNameAgentsUserMemoryViewed                         AuditActivityName = "Agents User Memory Viewed"
+	AuditActivityNameAgentsUserPropertiesReordered                  AuditActivityName = "Agents User Properties Reordered"
+	AuditActivityNameAgentsUserPropertyArchived                     AuditActivityName = "Agents User Property Archived"
+	AuditActivityNameAgentsUserPropertyCreated                      AuditActivityName = "Agents User Property Created"
+	AuditActivityNameAgentsUserPropertyUnarchived                   AuditActivityName = "Agents User Property Unarchived"
+	AuditActivityNameAgentsUserPropertyUpdated                      AuditActivityName = "Agents User Property Updated"
+	AuditActivityNameArchitectMemberSpendLimitsUpdate               AuditActivityName = "Architect Member Spend Limits Update"
+	AuditActivityNameAuthConnectionCreation                         AuditActivityName = "Auth Connection Creation"
+	AuditActivityNameAuthConnectionDeletion                         AuditActivityName = "Auth Connection Deletion"
+	AuditActivityNameAuthConnectionManagement                       AuditActivityName = "Auth Connection Management"
+	AuditActivityNameAuthConnectionUpdate                           AuditActivityName = "Auth Connection Update"
+	AuditActivityNameBillingManagement                              AuditActivityName = "Billing Management"
+	AuditActivityNameChildWorkspaceResourceOverride                 AuditActivityName = "Child Workspace Resource Override"
+	AuditActivityNameContentGenerationTermsUpdate                   AuditActivityName = "Content Generation Terms Update"
+	AuditActivityNameCreateWorkspaceCustomRole                      AuditActivityName = "Create workspace custom role"
+	AuditActivityNameCustomAuthTokenCreated                         AuditActivityName = "Custom Auth Token Created"
+	AuditActivityNameDataExportRequest                              AuditActivityName = "Data Export Request"
+	AuditActivityNameDeleteScribeMeeting                            AuditActivityName = "Delete Scribe meeting"
+	AuditActivityNameDeleteWorkspaceCustomRole                      AuditActivityName = "Delete workspace custom role"
+	AuditActivityNameDomainVerificationAddition                     AuditActivityName = "Domain Verification Addition"
+	AuditActivityNameDomainVerificationManagement                   AuditActivityName = "Domain Verification Management"
+	AuditActivityNameDomainVerificationRemoval                      AuditActivityName = "Domain Verification Removal"
+	AuditActivityNameDomainVerificationStatusUpdate                 AuditActivityName = "Domain Verification Status Update"
+	AuditActivityNameEncryptionKeyDeleted                           AuditActivityName = "Encryption Key Deleted"
+	AuditActivityNameEncryptionKeyPaused                            AuditActivityName = "Encryption Key Paused"
+	AuditActivityNameEncryptionKeyRegistered                        AuditActivityName = "Encryption Key Registered"
+	AuditActivityNameEncryptionKeyUnpaused                          AuditActivityName = "Encryption Key Unpaused"
+	AuditActivityNameEnterpriseCopyingToggle                        AuditActivityName = "Enterprise Copying Toggle"
+	AuditActivityNameGiftCreditCodeApplied                          AuditActivityName = "Gift Credit Code Applied"
+	AuditActivityNameGroupCreation                                  AuditActivityName = "Group Creation"
+	AuditActivityNameGroupDeletion                                  AuditActivityName = "Group Deletion"
+	AuditActivityNameGroupManagement                                AuditActivityName = "Group Management"
+	AuditActivityNameGroupMemberAddition                            AuditActivityName = "Group Member Addition"
+	AuditActivityNameGroupMemberRemoval                             AuditActivityName = "Group Member Removal"
+	AuditActivityNameGroupToBillingGroupConversion                  AuditActivityName = "Group to Billing Group Conversion"
+	AuditActivityNameGroupUpdate                                    AuditActivityName = "Group Update"
+	AuditActivityNameIdentityProviderUpdate                         AuditActivityName = "Identity Provider Update"
+	AuditActivityNameInAppTermAcceptance                            AuditActivityName = "In-App Term Acceptance"
+	AuditActivityNameInfluencerCodeApplied                          AuditActivityName = "Influencer Code Applied"
+	AuditActivityNameLogon                                          AuditActivityName = "Logon"
+	AuditActivityNameMFAFactorEnrollment                            AuditActivityName = "MFA Factor Enrollment"
+	AuditActivityNameMFAFactorEnrollmentRevertedUnverified          AuditActivityName = "MFA Factor Enrollment Reverted (unverified)"
+	AuditActivityNameMFAFactorRemoval                               AuditActivityName = "MFA Factor Removal"
+	AuditActivityNameMFARemovalViaBackupCode                        AuditActivityName = "MFA Removal via Backup Code"
+	AuditActivityNameModelApprovalsUpdate                           AuditActivityName = "Model Approvals Update"
+	AuditActivityNameNotificationPreferenceCreation                 AuditActivityName = "Notification Preference Creation"
+	AuditActivityNameNotificationPreferenceDeletion                 AuditActivityName = "Notification Preference Deletion"
+	AuditActivityNameNotificationPreferenceManagement               AuditActivityName = "Notification Preference Management"
+	AuditActivityNameNotificationPreferenceUpdate                   AuditActivityName = "Notification Preference Update"
+	AuditActivityNameOAuthAppAuthorizationGrant                     AuditActivityName = "OAuth App Authorization Grant"
+	AuditActivityNameOAuthAppAuthorizationManagement                AuditActivityName = "OAuth App Authorization Management"
+	AuditActivityNameOAuthAppAuthorizationRevocation                AuditActivityName = "OAuth App Authorization Revocation"
+	AuditActivityNamePasswordResetEmailRequest                      AuditActivityName = "Password Reset Email Request"
+	AuditActivityNamePasswordResetLinkGeneration                    AuditActivityName = "Password Reset Link Generation"
+	AuditActivityNameReportingWorkspaceSSOInheritanceUpdate         AuditActivityName = "Reporting Workspace SSO Inheritance Update"
+	AuditActivityNameResourceAccessGranted                          AuditActivityName = "Resource Access Granted"
+	AuditActivityNameResourceAccessManagement                       AuditActivityName = "Resource Access Management"
+	AuditActivityNameResourceAccessRevoked                          AuditActivityName = "Resource Access Revoked"
+	AuditActivityNameResourceCopiedToWorkspace                      AuditActivityName = "Resource Copied to Workspace"
+	AuditActivityNameResourceLocatorCreation                        AuditActivityName = "Resource Locator Creation"
+	AuditActivityNameResourceLocatorDeletion                        AuditActivityName = "Resource Locator Deletion"
+	AuditActivityNameResourceLocatorManagement                      AuditActivityName = "Resource Locator Management"
+	AuditActivityNameResourceLocatorUpdate                          AuditActivityName = "Resource Locator Update"
+	AuditActivityNameResourceOwnershipTransferred                   AuditActivityName = "Resource Ownership Transferred"
+	AuditActivityNameSCIMGroupCreation                              AuditActivityName = "SCIM Group Creation"
+	AuditActivityNameSCIMGroupDeletion                              AuditActivityName = "SCIM Group Deletion"
+	AuditActivityNameSCIMGroupManagement                            AuditActivityName = "SCIM Group Management"
+	AuditActivityNameSCIMGroupUpdate                                AuditActivityName = "SCIM Group Update"
+	AuditActivityNameSCIMProvisioningSeatTypeUpdated                AuditActivityName = "SCIM Provisioning Seat Type Updated"
+	AuditActivityNameSCIMTokenDeleted                               AuditActivityName = "SCIM Token Deleted"
+	AuditActivityNameSCIMTokenGenerated                             AuditActivityName = "SCIM Token Generated"
+	AuditActivityNameSCIMTokenManagement                            AuditActivityName = "SCIM Token Management"
+	AuditActivityNameSCIMTokenRotated                               AuditActivityName = "SCIM Token Rotated"
+	AuditActivityNameSCIMUserCreation                               AuditActivityName = "SCIM User Creation"
+	AuditActivityNameSCIMUserDeletion                               AuditActivityName = "SCIM User Deletion"
+	AuditActivityNameSCIMUserManagement                             AuditActivityName = "SCIM User Management"
+	AuditActivityNameSCIMUserUpdate                                 AuditActivityName = "SCIM User Update"
+	AuditActivityNameSMBFreeTrialActivation                         AuditActivityName = "SMB Free Trial Activation"
+	AuditActivityNameSMBResellerSubscriptionLifecycle               AuditActivityName = "SMB Reseller Subscription Lifecycle"
+	AuditActivityNameSMBResellerTierAssignment                      AuditActivityName = "SMB Reseller Tier Assignment"
+	AuditActivityNameSMBResellerTierChange                          AuditActivityName = "SMB Reseller Tier Change"
+	AuditActivityNameSSOManagement                                  AuditActivityName = "SSO Management"
+	AuditActivityNameSSOProviderConfiguration                       AuditActivityName = "SSO Provider Configuration"
+	AuditActivityNameSSOProviderRemoval                             AuditActivityName = "SSO Provider Removal"
+	AuditActivityNameSensitiveActionVerification                    AuditActivityName = "Sensitive Action Verification"
+	AuditActivityNameServiceAccountCreation                         AuditActivityName = "Service Account Creation"
+	AuditActivityNameServiceAccountDeletion                         AuditActivityName = "Service Account Deletion"
+	AuditActivityNameServiceAccountManagement                       AuditActivityName = "Service Account Management"
+	AuditActivityNameServiceAccountUpdate                           AuditActivityName = "Service Account Update"
+	AuditActivityNameSharedSSOSiblingWorkspacesUpdate               AuditActivityName = "Shared SSO Sibling Workspaces Update"
+	AuditActivityNameSignInRequestApproval                          AuditActivityName = "Sign-In Request Approval"
+	AuditActivityNameSignInRequestDecline                           AuditActivityName = "Sign-In Request Decline"
+	AuditActivityNameUpdateWorkspaceCustomRole                      AuditActivityName = "Update workspace custom role"
+	AuditActivityNameUserAPIKeyCreation                             AuditActivityName = "User API Key Creation"
+	AuditActivityNameUserAPIKeyDeletion                             AuditActivityName = "User API Key Deletion"
+	AuditActivityNameUserAPIKeyManagement                           AuditActivityName = "User API Key Management"
+	AuditActivityNameUserAPIKeyUpdate                               AuditActivityName = "User API Key Update"
+	AuditActivityNameUserAutoProvisioningDisabled                   AuditActivityName = "User Auto-Provisioning Disabled"
+	AuditActivityNameUserAutoProvisioningEnabled                    AuditActivityName = "User Auto-Provisioning Enabled"
+	AuditActivityNameUserCreation                                   AuditActivityName = "User Creation"
+	AuditActivityNameUserMetadataUpdate                             AuditActivityName = "User Metadata Update"
+	AuditActivityNameUserSelfDeletion                               AuditActivityName = "User Self-Deletion"
+	AuditActivityNameUserSharingPreferencesUpdate                   AuditActivityName = "User Sharing Preferences Update"
+	AuditActivityNameUserSharingPreferencesUpdateAdmin              AuditActivityName = "User Sharing Preferences Update (Admin)"
+	AuditActivityNameWebhookCreation                                AuditActivityName = "Webhook Creation"
+	AuditActivityNameWebhookDeletion                                AuditActivityName = "Webhook Deletion"
+	AuditActivityNameWebhookManagement                              AuditActivityName = "Webhook Management"
+	AuditActivityNameWebhookUpdate                                  AuditActivityName = "Webhook Update"
+	AuditActivityNameWorkloadIdentityFederationAssignmentCreation   AuditActivityName = "Workload Identity Federation Assignment Creation"
+	AuditActivityNameWorkloadIdentityFederationAssignmentDeletion   AuditActivityName = "Workload Identity Federation Assignment Deletion"
+	AuditActivityNameWorkloadIdentityFederationAssignmentManagement AuditActivityName = "Workload Identity Federation Assignment Management"
+	AuditActivityNameWorkloadIdentityFederationPoolCreation         AuditActivityName = "Workload Identity Federation Pool Creation"
+	AuditActivityNameWorkloadIdentityFederationPoolDeletion         AuditActivityName = "Workload Identity Federation Pool Deletion"
+	AuditActivityNameWorkloadIdentityFederationPoolManagement       AuditActivityName = "Workload Identity Federation Pool Management"
+	AuditActivityNameWorkloadIdentityFederationPoolUpdate           AuditActivityName = "Workload Identity Federation Pool Update"
+	AuditActivityNameWorkspaceCreation                              AuditActivityName = "Workspace Creation"
+	AuditActivityNameWorkspaceDeletion                              AuditActivityName = "Workspace Deletion"
+	AuditActivityNameWorkspaceDeletionCancellation                  AuditActivityName = "Workspace Deletion Cancellation"
+	AuditActivityNameWorkspaceInvitationAccepted                    AuditActivityName = "Workspace Invitation Accepted"
+	AuditActivityNameWorkspaceInvitationDeclined                    AuditActivityName = "Workspace Invitation Declined"
+	AuditActivityNameWorkspaceInvitationManagement                  AuditActivityName = "Workspace Invitation Management"
+	AuditActivityNameWorkspaceInvitationReminderSent                AuditActivityName = "Workspace Invitation Reminder Sent"
+	AuditActivityNameWorkspaceInvitationRevoked                     AuditActivityName = "Workspace Invitation Revoked"
+	AuditActivityNameWorkspaceInvitationSent                        AuditActivityName = "Workspace Invitation Sent"
+	AuditActivityNameWorkspaceMemberRemoval                         AuditActivityName = "Workspace Member Removal"
+	AuditActivityNameWorkspaceMemberResourceTransfer                AuditActivityName = "Workspace Member Resource Transfer"
+	AuditActivityNameWorkspaceMemberUpdate                          AuditActivityName = "Workspace Member Update"
+	AuditActivityNameWorkspaceMemberUsageLimitUpdate                AuditActivityName = "Workspace Member Usage Limit Update"
+	AuditActivityNameWorkspaceMetadataUpdate                        AuditActivityName = "Workspace Metadata Update"
+	AuditActivityNameWorkspaceOwnershipTransfer                     AuditActivityName = "Workspace Ownership Transfer"
+	AuditActivityNameWorkspaceSignIn                                AuditActivityName = "Workspace Sign-In"
 )
 
 // Valid indicates whether the value is a known member of the AuditActivityName enum.
@@ -2222,6 +2232,12 @@ func (e AuditActivityName) Valid() bool {
 		return true
 	case AuditActivityNameNotificationPreferenceUpdate:
 		return true
+	case AuditActivityNameOAuthAppAuthorizationGrant:
+		return true
+	case AuditActivityNameOAuthAppAuthorizationManagement:
+		return true
+	case AuditActivityNameOAuthAppAuthorizationRevocation:
+		return true
 	case AuditActivityNamePasswordResetEmailRequest:
 		return true
 	case AuditActivityNamePasswordResetLinkGeneration:
@@ -2333,6 +2349,20 @@ func (e AuditActivityName) Valid() bool {
 	case AuditActivityNameWebhookManagement:
 		return true
 	case AuditActivityNameWebhookUpdate:
+		return true
+	case AuditActivityNameWorkloadIdentityFederationAssignmentCreation:
+		return true
+	case AuditActivityNameWorkloadIdentityFederationAssignmentDeletion:
+		return true
+	case AuditActivityNameWorkloadIdentityFederationAssignmentManagement:
+		return true
+	case AuditActivityNameWorkloadIdentityFederationPoolCreation:
+		return true
+	case AuditActivityNameWorkloadIdentityFederationPoolDeletion:
+		return true
+	case AuditActivityNameWorkloadIdentityFederationPoolManagement:
+		return true
+	case AuditActivityNameWorkloadIdentityFederationPoolUpdate:
 		return true
 	case AuditActivityNameWorkspaceCreation:
 		return true
@@ -5450,6 +5480,7 @@ func (e ConditionStrength) Valid() bool {
 const (
 	ConfigEntityTypeAge                                                 ConfigEntityType = "age"
 	ConfigEntityTypeContactNumber                                       ConfigEntityType = "contact_number"
+	ConfigEntityTypeCriminalRecord                                      ConfigEntityType = "criminal_record"
 	ConfigEntityTypeDate                                                ConfigEntityType = "date"
 	ConfigEntityTypeDateInterval                                        ConfigEntityType = "date_interval"
 	ConfigEntityTypeDob                                                 ConfigEntityType = "dob"
@@ -5511,6 +5542,8 @@ func (e ConfigEntityType) Valid() bool {
 	case ConfigEntityTypeAge:
 		return true
 	case ConfigEntityTypeContactNumber:
+		return true
+	case ConfigEntityTypeCriminalRecord:
 		return true
 	case ConfigEntityTypeDate:
 		return true
@@ -11216,7 +11249,6 @@ const (
 	LLMGpt6Sol                        LLM = "gpt-6-sol"
 	LLMGptOss120b                     LLM = "gpt-oss-120b"
 	LLMGptOss20b                      LLM = "gpt-oss-20b"
-	LLMGrokBeta                       LLM = "grok-beta"
 	LLMNemotron35SuperVlNvfp4         LLM = "nemotron-35-super-vl-nvfp4"
 	LLMQwen330bA3b                    LLM = "qwen3-30b-a3b"
 	LLMQwen34b                        LLM = "qwen3-4b"
@@ -11436,8 +11468,6 @@ func (e LLM) Valid() bool {
 	case LLMGptOss120b:
 		return true
 	case LLMGptOss20b:
-		return true
-	case LLMGrokBeta:
 		return true
 	case LLMNemotron35SuperVlNvfp4:
 		return true
@@ -14941,6 +14971,7 @@ const (
 	ReceptionAgentInfoResponseCurrencyEGP ReceptionAgentInfoResponseCurrency = "EGP"
 	ReceptionAgentInfoResponseCurrencyEUR ReceptionAgentInfoResponseCurrency = "EUR"
 	ReceptionAgentInfoResponseCurrencyGBP ReceptionAgentInfoResponseCurrency = "GBP"
+	ReceptionAgentInfoResponseCurrencyGEL ReceptionAgentInfoResponseCurrency = "GEL"
 	ReceptionAgentInfoResponseCurrencyHKD ReceptionAgentInfoResponseCurrency = "HKD"
 	ReceptionAgentInfoResponseCurrencyHUF ReceptionAgentInfoResponseCurrency = "HUF"
 	ReceptionAgentInfoResponseCurrencyIDR ReceptionAgentInfoResponseCurrency = "IDR"
@@ -15009,6 +15040,8 @@ func (e ReceptionAgentInfoResponseCurrency) Valid() bool {
 	case ReceptionAgentInfoResponseCurrencyEUR:
 		return true
 	case ReceptionAgentInfoResponseCurrencyGBP:
+		return true
+	case ReceptionAgentInfoResponseCurrencyGEL:
 		return true
 	case ReceptionAgentInfoResponseCurrencyHKD:
 		return true
@@ -15232,6 +15265,7 @@ const (
 	ReceptionUpdateAgentInfoRequestCurrencyEGP ReceptionUpdateAgentInfoRequestCurrency = "EGP"
 	ReceptionUpdateAgentInfoRequestCurrencyEUR ReceptionUpdateAgentInfoRequestCurrency = "EUR"
 	ReceptionUpdateAgentInfoRequestCurrencyGBP ReceptionUpdateAgentInfoRequestCurrency = "GBP"
+	ReceptionUpdateAgentInfoRequestCurrencyGEL ReceptionUpdateAgentInfoRequestCurrency = "GEL"
 	ReceptionUpdateAgentInfoRequestCurrencyHKD ReceptionUpdateAgentInfoRequestCurrency = "HKD"
 	ReceptionUpdateAgentInfoRequestCurrencyHUF ReceptionUpdateAgentInfoRequestCurrency = "HUF"
 	ReceptionUpdateAgentInfoRequestCurrencyIDR ReceptionUpdateAgentInfoRequestCurrency = "IDR"
@@ -15300,6 +15334,8 @@ func (e ReceptionUpdateAgentInfoRequestCurrency) Valid() bool {
 	case ReceptionUpdateAgentInfoRequestCurrencyEUR:
 		return true
 	case ReceptionUpdateAgentInfoRequestCurrencyGBP:
+		return true
+	case ReceptionUpdateAgentInfoRequestCurrencyGEL:
 		return true
 	case ReceptionUpdateAgentInfoRequestCurrencyHKD:
 		return true
@@ -21535,6 +21571,36 @@ const (
 func (e WorkflowStartNodeModelOutputType) Valid() bool {
 	switch e {
 	case WorkflowStartNodeModelOutputTypeStart:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WorkflowStartProcedureNodeModelInputType.
+const (
+	WorkflowStartProcedureNodeModelInputTypeStartProcedure WorkflowStartProcedureNodeModelInputType = "start_procedure"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowStartProcedureNodeModelInputType enum.
+func (e WorkflowStartProcedureNodeModelInputType) Valid() bool {
+	switch e {
+	case WorkflowStartProcedureNodeModelInputTypeStartProcedure:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WorkflowStartProcedureNodeModelOutputType.
+const (
+	WorkflowStartProcedureNodeModelOutputTypeStartProcedure WorkflowStartProcedureNodeModelOutputType = "start_procedure"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowStartProcedureNodeModelOutputType enum.
+func (e WorkflowStartProcedureNodeModelOutputType) Valid() bool {
+	switch e {
+	case WorkflowStartProcedureNodeModelOutputTypeStartProcedure:
 		return true
 	default:
 		return false
@@ -53836,6 +53902,48 @@ type WorkflowStartNodeModelOutput struct {
 // WorkflowStartNodeModelOutputType defines model for WorkflowStartNodeModelOutput.Type.
 type WorkflowStartNodeModelOutputType string
 
+// WorkflowStartProcedureNodeModelInput Starts one procedure when the workflow reaches it.
+//
+// A freeform procedure is injected and traversal continues along the node's
+// outgoing edges in the same turn. A structured procedure transfers into its
+// compiled island with this node as the return node; when it ends, the
+// workflow runner hosts this node and evaluates its outgoing edges.
+type WorkflowStartProcedureNodeModelInput struct {
+	// EdgeOrder The ids of outgoing edges in the order they should be evaluated.
+	EdgeOrder *[]string `json:"edge_order,omitempty"`
+
+	// Position Position of the node in the workflow.
+	Position *PositionInput `json:"position,omitempty"`
+
+	// ProcedureId ID of the procedure to start when the workflow reaches this node.
+	ProcedureId string                                    `json:"procedure_id"`
+	Type        *WorkflowStartProcedureNodeModelInputType `json:"type,omitempty"`
+}
+
+// WorkflowStartProcedureNodeModelInputType defines model for WorkflowStartProcedureNodeModelInput.Type.
+type WorkflowStartProcedureNodeModelInputType string
+
+// WorkflowStartProcedureNodeModelOutput Starts one procedure when the workflow reaches it.
+//
+// A freeform procedure is injected and traversal continues along the node's
+// outgoing edges in the same turn. A structured procedure transfers into its
+// compiled island with this node as the return node; when it ends, the
+// workflow runner hosts this node and evaluates its outgoing edges.
+type WorkflowStartProcedureNodeModelOutput struct {
+	// EdgeOrder The ids of outgoing edges in the order they should be evaluated.
+	EdgeOrder []string `json:"edge_order"`
+
+	// Position Position of the node in the workflow.
+	Position PositionOutput `json:"position"`
+
+	// ProcedureId ID of the procedure to start when the workflow reaches this node.
+	ProcedureId string                                    `json:"procedure_id"`
+	Type        WorkflowStartProcedureNodeModelOutputType `json:"type"`
+}
+
+// WorkflowStartProcedureNodeModelOutputType defines model for WorkflowStartProcedureNodeModelOutput.Type.
+type WorkflowStartProcedureNodeModelOutputType string
+
 // WorkflowToolEdgeStepModel defines model for WorkflowToolEdgeStepModel.
 type WorkflowToolEdgeStepModel struct {
 	EdgeId          string                         `json:"edge_id"`
@@ -58732,6 +58840,9 @@ type GetSimilarLibraryVoicesParams struct {
 
 // GetSingleUseTokenParams defines parameters for GetSingleUseToken.
 type GetSingleUseTokenParams struct {
+	// MaxSessionDurationSeconds Closes the realtime transcription session opened with this token after this many seconds. Only for realtime_scribe tokens.
+	MaxSessionDurationSeconds *int `form:"max_session_duration_seconds,omitempty" json:"max_session_duration_seconds,omitempty"`
+
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -62899,6 +63010,40 @@ func (t *AgentWorkflowRequestModel_Nodes_AdditionalProperties) MergeWorkflowTool
 	return err
 }
 
+// AsWorkflowStartProcedureNodeModelInput returns the union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties as a WorkflowStartProcedureNodeModelInput
+func (t AgentWorkflowRequestModel_Nodes_AdditionalProperties) AsWorkflowStartProcedureNodeModelInput() (WorkflowStartProcedureNodeModelInput, error) {
+	var body WorkflowStartProcedureNodeModelInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWorkflowStartProcedureNodeModelInput overwrites any union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties as the provided WorkflowStartProcedureNodeModelInput
+func (t *AgentWorkflowRequestModel_Nodes_AdditionalProperties) FromWorkflowStartProcedureNodeModelInput(v WorkflowStartProcedureNodeModelInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"start_procedure"}`))
+	t.union = b
+	return err
+}
+
+// MergeWorkflowStartProcedureNodeModelInput performs a merge with any union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties, using the provided WorkflowStartProcedureNodeModelInput
+func (t *AgentWorkflowRequestModel_Nodes_AdditionalProperties) MergeWorkflowStartProcedureNodeModelInput(v WorkflowStartProcedureNodeModelInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"start_procedure"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 func (t AgentWorkflowRequestModel_Nodes_AdditionalProperties) Discriminator() (string, error) {
 	var discriminator struct {
 		Discriminator string `json:"type"`
@@ -62923,6 +63068,8 @@ func (t AgentWorkflowRequestModel_Nodes_AdditionalProperties) ValueByDiscriminat
 		return t.AsWorkflowStandaloneAgentNodeModelInput()
 	case "start":
 		return t.AsWorkflowStartNodeModelInput()
+	case "start_procedure":
+		return t.AsWorkflowStartProcedureNodeModelInput()
 	case "tool":
 		return t.AsWorkflowToolNodeModelInput()
 	default:
@@ -63144,6 +63291,40 @@ func (t *AgentWorkflowResponseModel_Nodes_AdditionalProperties) MergeWorkflowToo
 	return err
 }
 
+// AsWorkflowStartProcedureNodeModelOutput returns the union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties as a WorkflowStartProcedureNodeModelOutput
+func (t AgentWorkflowResponseModel_Nodes_AdditionalProperties) AsWorkflowStartProcedureNodeModelOutput() (WorkflowStartProcedureNodeModelOutput, error) {
+	var body WorkflowStartProcedureNodeModelOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWorkflowStartProcedureNodeModelOutput overwrites any union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties as the provided WorkflowStartProcedureNodeModelOutput
+func (t *AgentWorkflowResponseModel_Nodes_AdditionalProperties) FromWorkflowStartProcedureNodeModelOutput(v WorkflowStartProcedureNodeModelOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"start_procedure"}`))
+	t.union = b
+	return err
+}
+
+// MergeWorkflowStartProcedureNodeModelOutput performs a merge with any union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties, using the provided WorkflowStartProcedureNodeModelOutput
+func (t *AgentWorkflowResponseModel_Nodes_AdditionalProperties) MergeWorkflowStartProcedureNodeModelOutput(v WorkflowStartProcedureNodeModelOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"start_procedure"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 func (t AgentWorkflowResponseModel_Nodes_AdditionalProperties) Discriminator() (string, error) {
 	var discriminator struct {
 		Discriminator string `json:"type"`
@@ -63168,6 +63349,8 @@ func (t AgentWorkflowResponseModel_Nodes_AdditionalProperties) ValueByDiscrimina
 		return t.AsWorkflowStandaloneAgentNodeModelOutput()
 	case "start":
 		return t.AsWorkflowStartNodeModelOutput()
+	case "start_procedure":
+		return t.AsWorkflowStartProcedureNodeModelOutput()
 	case "tool":
 		return t.AsWorkflowToolNodeModelOutput()
 	default:
@@ -146821,6 +147004,33 @@ func NewGetSingleUseTokenRequest(server string, tokenType SingleUseTokenType, pa
 	queryURL, err := serverURL.Parse(operationPath)
 	if err != nil {
 		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.MaxSessionDurationSeconds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "max_session_duration_seconds", *params.MaxSessionDurationSeconds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
 	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
