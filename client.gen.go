@@ -57,6 +57,7 @@ const (
 	ASRProviderElevenlabs     ASRProvider = "elevenlabs"
 	ASRProviderScribeRealtime ASRProvider = "scribe_realtime"
 	ASRProviderScribeV2Turbo  ASRProvider = "scribe_v2_turbo"
+	ASRProviderScribeV3Live   ASRProvider = "scribe_v3_live"
 )
 
 // Valid indicates whether the value is a known member of the ASRProvider enum.
@@ -67,6 +68,8 @@ func (e ASRProvider) Valid() bool {
 	case ASRProviderScribeRealtime:
 		return true
 	case ASRProviderScribeV2Turbo:
+		return true
+	case ASRProviderScribeV3Live:
 		return true
 	default:
 		return false
@@ -2095,6 +2098,7 @@ const (
 	AuditActivityNameWorkloadIdentityFederationPoolDeletion         AuditActivityName = "Workload Identity Federation Pool Deletion"
 	AuditActivityNameWorkloadIdentityFederationPoolManagement       AuditActivityName = "Workload Identity Federation Pool Management"
 	AuditActivityNameWorkloadIdentityFederationPoolUpdate           AuditActivityName = "Workload Identity Federation Pool Update"
+	AuditActivityNameWorkloadIdentityFederationTokenExchange        AuditActivityName = "Workload Identity Federation Token Exchange"
 	AuditActivityNameWorkspaceCreation                              AuditActivityName = "Workspace Creation"
 	AuditActivityNameWorkspaceDeletion                              AuditActivityName = "Workspace Deletion"
 	AuditActivityNameWorkspaceDeletionCancellation                  AuditActivityName = "Workspace Deletion Cancellation"
@@ -2363,6 +2367,8 @@ func (e AuditActivityName) Valid() bool {
 	case AuditActivityNameWorkloadIdentityFederationPoolManagement:
 		return true
 	case AuditActivityNameWorkloadIdentityFederationPoolUpdate:
+		return true
+	case AuditActivityNameWorkloadIdentityFederationTokenExchange:
 		return true
 	case AuditActivityNameWorkspaceCreation:
 		return true
@@ -11198,6 +11204,7 @@ const (
 	LLMGemini3FlashPreview            LLM = "gemini-3-flash-preview"
 	LLMGemini3ProPreview              LLM = "gemini-3-pro-preview"
 	LLMGemini4Argon                   LLM = "gemini-4-argon"
+	LLMGemini4Hydrogen                LLM = "gemini-4-hydrogen"
 	LLMGlm45AirFp8                    LLM = "glm-45-air-fp8"
 	LLMGlm52                          LLM = "glm-52"
 	LLMGpt35Turbo                     LLM = "gpt-3.5-turbo"
@@ -11366,6 +11373,8 @@ func (e LLM) Valid() bool {
 	case LLMGemini3ProPreview:
 		return true
 	case LLMGemini4Argon:
+		return true
+	case LLMGemini4Hydrogen:
 		return true
 	case LLMGlm45AirFp8:
 		return true
@@ -14836,6 +14845,54 @@ func (e QualityPresetType) Valid() bool {
 	case QualityPresetTypeUltra:
 		return true
 	case QualityPresetTypeUltraLossless:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for QueryArrayJsonSchemaPropertyInputPropertyKind.
+const (
+	QueryArrayJsonSchemaPropertyInputPropertyKindArray  QueryArrayJsonSchemaPropertyInputPropertyKind = "array"
+	QueryArrayJsonSchemaPropertyInputPropertyKindObject QueryArrayJsonSchemaPropertyInputPropertyKind = "object"
+)
+
+// Valid indicates whether the value is a known member of the QueryArrayJsonSchemaPropertyInputPropertyKind enum.
+func (e QueryArrayJsonSchemaPropertyInputPropertyKind) Valid() bool {
+	switch e {
+	case QueryArrayJsonSchemaPropertyInputPropertyKindArray:
+		return true
+	case QueryArrayJsonSchemaPropertyInputPropertyKindObject:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for QueryArrayJsonSchemaPropertyInputType.
+const (
+	QueryArrayJsonSchemaPropertyInputTypeArray QueryArrayJsonSchemaPropertyInputType = "array"
+)
+
+// Valid indicates whether the value is a known member of the QueryArrayJsonSchemaPropertyInputType enum.
+func (e QueryArrayJsonSchemaPropertyInputType) Valid() bool {
+	switch e {
+	case QueryArrayJsonSchemaPropertyInputTypeArray:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for QueryArrayJsonSchemaPropertyOutputType.
+const (
+	QueryArrayJsonSchemaPropertyOutputTypeArray QueryArrayJsonSchemaPropertyOutputType = "array"
+)
+
+// Valid indicates whether the value is a known member of the QueryArrayJsonSchemaPropertyOutputType enum.
+func (e QueryArrayJsonSchemaPropertyOutputType) Valid() bool {
+	switch e {
+	case QueryArrayJsonSchemaPropertyOutputTypeArray:
 		return true
 	default:
 		return false
@@ -43533,16 +43590,80 @@ type PydanticPronunciationDictionaryVersionLocator struct {
 // QualityPresetType defines model for QualityPresetType.
 type QualityPresetType string
 
+// QueryArrayJsonSchemaPropertyInput A query param holding several literals, sent as a repeated key (?a=x&a=y).
+type QueryArrayJsonSchemaPropertyInput struct {
+	// ConstantValue When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array), dynamic_variable, and is_omitted.
+	ConstantValue *[]interface{} `json:"constant_value,omitempty"`
+	Description   *string        `json:"description,omitempty"`
+
+	// DynamicVariable When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.
+	DynamicVariable *string `json:"dynamic_variable,omitempty"`
+
+	// IsOmitted If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.
+	IsOmitted *bool `json:"is_omitted,omitempty"`
+
+	// Items Schema for each value; must be a string, number or boolean.
+	Items        *QueryArrayJsonSchemaPropertyInput_Items       `json:"items,omitempty"`
+	PropertyKind *QueryArrayJsonSchemaPropertyInputPropertyKind `json:"property_kind,omitempty"`
+	Type         QueryArrayJsonSchemaPropertyInputType          `json:"type"`
+}
+
+// QueryArrayJsonSchemaPropertyInput_Items Schema for each value; must be a string, number or boolean.
+type QueryArrayJsonSchemaPropertyInput_Items struct {
+	union json.RawMessage
+}
+
+// QueryArrayJsonSchemaPropertyInputPropertyKind defines model for QueryArrayJsonSchemaPropertyInput.PropertyKind.
+type QueryArrayJsonSchemaPropertyInputPropertyKind string
+
+// QueryArrayJsonSchemaPropertyInputType defines model for QueryArrayJsonSchemaPropertyInput.Type.
+type QueryArrayJsonSchemaPropertyInputType string
+
+// QueryArrayJsonSchemaPropertyOutput A query param holding several literals, sent as a repeated key (?a=x&a=y).
+type QueryArrayJsonSchemaPropertyOutput struct {
+	// ConstantValue When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array), dynamic_variable, and is_omitted.
+	ConstantValue *[]interface{} `json:"constant_value,omitempty"`
+	Description   *string        `json:"description,omitempty"`
+
+	// DynamicVariable When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.
+	DynamicVariable *string `json:"dynamic_variable,omitempty"`
+
+	// IsOmitted If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.
+	IsOmitted *bool `json:"is_omitted,omitempty"`
+
+	// Items Schema for each value; must be a string, number or boolean.
+	Items *QueryArrayJsonSchemaPropertyOutput_Items `json:"items,omitempty"`
+	Type  QueryArrayJsonSchemaPropertyOutputType    `json:"type"`
+}
+
+// QueryArrayJsonSchemaPropertyOutput_Items Schema for each value; must be a string, number or boolean.
+type QueryArrayJsonSchemaPropertyOutput_Items struct {
+	union json.RawMessage
+}
+
+// QueryArrayJsonSchemaPropertyOutputType defines model for QueryArrayJsonSchemaPropertyOutput.Type.
+type QueryArrayJsonSchemaPropertyOutputType string
+
 // QueryParamsJsonSchemaInput defines model for QueryParamsJsonSchema-Input.
 type QueryParamsJsonSchemaInput struct {
-	Properties map[string]LiteralJsonSchemaProperty `json:"properties"`
-	Required   *[]string                            `json:"required,omitempty"`
+	Properties map[string]QueryParamsJsonSchemaInput_Properties_AdditionalProperties `json:"properties"`
+	Required   *[]string                                                             `json:"required,omitempty"`
+}
+
+// QueryParamsJsonSchemaInput_Properties_AdditionalProperties defines model for QueryParamsJsonSchema-Input.properties.AdditionalProperties.
+type QueryParamsJsonSchemaInput_Properties_AdditionalProperties struct {
+	union json.RawMessage
 }
 
 // QueryParamsJsonSchemaOutput defines model for QueryParamsJsonSchema-Output.
 type QueryParamsJsonSchemaOutput struct {
-	Properties map[string]LiteralJsonSchemaProperty `json:"properties"`
-	Required   *[]string                            `json:"required,omitempty"`
+	Properties map[string]QueryParamsJsonSchemaOutput_Properties_AdditionalProperties `json:"properties"`
+	Required   *[]string                                                              `json:"required,omitempty"`
+}
+
+// QueryParamsJsonSchemaOutput_Properties_AdditionalProperties defines model for QueryParamsJsonSchema-Output.properties.AdditionalProperties.
+type QueryParamsJsonSchemaOutput_Properties_AdditionalProperties struct {
+	union json.RawMessage
 }
 
 // QuoteInfo defines model for QuoteInfo.
@@ -80005,6 +80126,306 @@ func (t PromptAgentAPIModelWorkflowOverrideOutput_Tools_Item) MarshalJSON() ([]b
 }
 
 func (t *PromptAgentAPIModelWorkflowOverrideOutput_Tools_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsLiteralJsonSchemaProperty returns the union data inside the QueryArrayJsonSchemaPropertyInput_Items as a LiteralJsonSchemaProperty
+func (t QueryArrayJsonSchemaPropertyInput_Items) AsLiteralJsonSchemaProperty() (LiteralJsonSchemaProperty, error) {
+	var body LiteralJsonSchemaProperty
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromLiteralJsonSchemaProperty overwrites any union data inside the QueryArrayJsonSchemaPropertyInput_Items as the provided LiteralJsonSchemaProperty
+func (t *QueryArrayJsonSchemaPropertyInput_Items) FromLiteralJsonSchemaProperty(v LiteralJsonSchemaProperty) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeLiteralJsonSchemaProperty performs a merge with any union data inside the QueryArrayJsonSchemaPropertyInput_Items, using the provided LiteralJsonSchemaProperty
+func (t *QueryArrayJsonSchemaPropertyInput_Items) MergeLiteralJsonSchemaProperty(v LiteralJsonSchemaProperty) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsObjectJsonSchemaPropertyInput returns the union data inside the QueryArrayJsonSchemaPropertyInput_Items as a ObjectJsonSchemaPropertyInput
+func (t QueryArrayJsonSchemaPropertyInput_Items) AsObjectJsonSchemaPropertyInput() (ObjectJsonSchemaPropertyInput, error) {
+	var body ObjectJsonSchemaPropertyInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromObjectJsonSchemaPropertyInput overwrites any union data inside the QueryArrayJsonSchemaPropertyInput_Items as the provided ObjectJsonSchemaPropertyInput
+func (t *QueryArrayJsonSchemaPropertyInput_Items) FromObjectJsonSchemaPropertyInput(v ObjectJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeObjectJsonSchemaPropertyInput performs a merge with any union data inside the QueryArrayJsonSchemaPropertyInput_Items, using the provided ObjectJsonSchemaPropertyInput
+func (t *QueryArrayJsonSchemaPropertyInput_Items) MergeObjectJsonSchemaPropertyInput(v ObjectJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsArrayJsonSchemaPropertyInput returns the union data inside the QueryArrayJsonSchemaPropertyInput_Items as a ArrayJsonSchemaPropertyInput
+func (t QueryArrayJsonSchemaPropertyInput_Items) AsArrayJsonSchemaPropertyInput() (ArrayJsonSchemaPropertyInput, error) {
+	var body ArrayJsonSchemaPropertyInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromArrayJsonSchemaPropertyInput overwrites any union data inside the QueryArrayJsonSchemaPropertyInput_Items as the provided ArrayJsonSchemaPropertyInput
+func (t *QueryArrayJsonSchemaPropertyInput_Items) FromArrayJsonSchemaPropertyInput(v ArrayJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeArrayJsonSchemaPropertyInput performs a merge with any union data inside the QueryArrayJsonSchemaPropertyInput_Items, using the provided ArrayJsonSchemaPropertyInput
+func (t *QueryArrayJsonSchemaPropertyInput_Items) MergeArrayJsonSchemaPropertyInput(v ArrayJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t QueryArrayJsonSchemaPropertyInput_Items) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *QueryArrayJsonSchemaPropertyInput_Items) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsLiteralJsonSchemaProperty returns the union data inside the QueryArrayJsonSchemaPropertyOutput_Items as a LiteralJsonSchemaProperty
+func (t QueryArrayJsonSchemaPropertyOutput_Items) AsLiteralJsonSchemaProperty() (LiteralJsonSchemaProperty, error) {
+	var body LiteralJsonSchemaProperty
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromLiteralJsonSchemaProperty overwrites any union data inside the QueryArrayJsonSchemaPropertyOutput_Items as the provided LiteralJsonSchemaProperty
+func (t *QueryArrayJsonSchemaPropertyOutput_Items) FromLiteralJsonSchemaProperty(v LiteralJsonSchemaProperty) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeLiteralJsonSchemaProperty performs a merge with any union data inside the QueryArrayJsonSchemaPropertyOutput_Items, using the provided LiteralJsonSchemaProperty
+func (t *QueryArrayJsonSchemaPropertyOutput_Items) MergeLiteralJsonSchemaProperty(v LiteralJsonSchemaProperty) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsObjectJsonSchemaPropertyOutput returns the union data inside the QueryArrayJsonSchemaPropertyOutput_Items as a ObjectJsonSchemaPropertyOutput
+func (t QueryArrayJsonSchemaPropertyOutput_Items) AsObjectJsonSchemaPropertyOutput() (ObjectJsonSchemaPropertyOutput, error) {
+	var body ObjectJsonSchemaPropertyOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromObjectJsonSchemaPropertyOutput overwrites any union data inside the QueryArrayJsonSchemaPropertyOutput_Items as the provided ObjectJsonSchemaPropertyOutput
+func (t *QueryArrayJsonSchemaPropertyOutput_Items) FromObjectJsonSchemaPropertyOutput(v ObjectJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeObjectJsonSchemaPropertyOutput performs a merge with any union data inside the QueryArrayJsonSchemaPropertyOutput_Items, using the provided ObjectJsonSchemaPropertyOutput
+func (t *QueryArrayJsonSchemaPropertyOutput_Items) MergeObjectJsonSchemaPropertyOutput(v ObjectJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsArrayJsonSchemaPropertyOutput returns the union data inside the QueryArrayJsonSchemaPropertyOutput_Items as a ArrayJsonSchemaPropertyOutput
+func (t QueryArrayJsonSchemaPropertyOutput_Items) AsArrayJsonSchemaPropertyOutput() (ArrayJsonSchemaPropertyOutput, error) {
+	var body ArrayJsonSchemaPropertyOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromArrayJsonSchemaPropertyOutput overwrites any union data inside the QueryArrayJsonSchemaPropertyOutput_Items as the provided ArrayJsonSchemaPropertyOutput
+func (t *QueryArrayJsonSchemaPropertyOutput_Items) FromArrayJsonSchemaPropertyOutput(v ArrayJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeArrayJsonSchemaPropertyOutput performs a merge with any union data inside the QueryArrayJsonSchemaPropertyOutput_Items, using the provided ArrayJsonSchemaPropertyOutput
+func (t *QueryArrayJsonSchemaPropertyOutput_Items) MergeArrayJsonSchemaPropertyOutput(v ArrayJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t QueryArrayJsonSchemaPropertyOutput_Items) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *QueryArrayJsonSchemaPropertyOutput_Items) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsLiteralJsonSchemaProperty returns the union data inside the QueryParamsJsonSchemaInput_Properties_AdditionalProperties as a LiteralJsonSchemaProperty
+func (t QueryParamsJsonSchemaInput_Properties_AdditionalProperties) AsLiteralJsonSchemaProperty() (LiteralJsonSchemaProperty, error) {
+	var body LiteralJsonSchemaProperty
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromLiteralJsonSchemaProperty overwrites any union data inside the QueryParamsJsonSchemaInput_Properties_AdditionalProperties as the provided LiteralJsonSchemaProperty
+func (t *QueryParamsJsonSchemaInput_Properties_AdditionalProperties) FromLiteralJsonSchemaProperty(v LiteralJsonSchemaProperty) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeLiteralJsonSchemaProperty performs a merge with any union data inside the QueryParamsJsonSchemaInput_Properties_AdditionalProperties, using the provided LiteralJsonSchemaProperty
+func (t *QueryParamsJsonSchemaInput_Properties_AdditionalProperties) MergeLiteralJsonSchemaProperty(v LiteralJsonSchemaProperty) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsQueryArrayJsonSchemaPropertyInput returns the union data inside the QueryParamsJsonSchemaInput_Properties_AdditionalProperties as a QueryArrayJsonSchemaPropertyInput
+func (t QueryParamsJsonSchemaInput_Properties_AdditionalProperties) AsQueryArrayJsonSchemaPropertyInput() (QueryArrayJsonSchemaPropertyInput, error) {
+	var body QueryArrayJsonSchemaPropertyInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromQueryArrayJsonSchemaPropertyInput overwrites any union data inside the QueryParamsJsonSchemaInput_Properties_AdditionalProperties as the provided QueryArrayJsonSchemaPropertyInput
+func (t *QueryParamsJsonSchemaInput_Properties_AdditionalProperties) FromQueryArrayJsonSchemaPropertyInput(v QueryArrayJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeQueryArrayJsonSchemaPropertyInput performs a merge with any union data inside the QueryParamsJsonSchemaInput_Properties_AdditionalProperties, using the provided QueryArrayJsonSchemaPropertyInput
+func (t *QueryParamsJsonSchemaInput_Properties_AdditionalProperties) MergeQueryArrayJsonSchemaPropertyInput(v QueryArrayJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t QueryParamsJsonSchemaInput_Properties_AdditionalProperties) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *QueryParamsJsonSchemaInput_Properties_AdditionalProperties) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsLiteralJsonSchemaProperty returns the union data inside the QueryParamsJsonSchemaOutput_Properties_AdditionalProperties as a LiteralJsonSchemaProperty
+func (t QueryParamsJsonSchemaOutput_Properties_AdditionalProperties) AsLiteralJsonSchemaProperty() (LiteralJsonSchemaProperty, error) {
+	var body LiteralJsonSchemaProperty
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromLiteralJsonSchemaProperty overwrites any union data inside the QueryParamsJsonSchemaOutput_Properties_AdditionalProperties as the provided LiteralJsonSchemaProperty
+func (t *QueryParamsJsonSchemaOutput_Properties_AdditionalProperties) FromLiteralJsonSchemaProperty(v LiteralJsonSchemaProperty) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeLiteralJsonSchemaProperty performs a merge with any union data inside the QueryParamsJsonSchemaOutput_Properties_AdditionalProperties, using the provided LiteralJsonSchemaProperty
+func (t *QueryParamsJsonSchemaOutput_Properties_AdditionalProperties) MergeLiteralJsonSchemaProperty(v LiteralJsonSchemaProperty) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsQueryArrayJsonSchemaPropertyOutput returns the union data inside the QueryParamsJsonSchemaOutput_Properties_AdditionalProperties as a QueryArrayJsonSchemaPropertyOutput
+func (t QueryParamsJsonSchemaOutput_Properties_AdditionalProperties) AsQueryArrayJsonSchemaPropertyOutput() (QueryArrayJsonSchemaPropertyOutput, error) {
+	var body QueryArrayJsonSchemaPropertyOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromQueryArrayJsonSchemaPropertyOutput overwrites any union data inside the QueryParamsJsonSchemaOutput_Properties_AdditionalProperties as the provided QueryArrayJsonSchemaPropertyOutput
+func (t *QueryParamsJsonSchemaOutput_Properties_AdditionalProperties) FromQueryArrayJsonSchemaPropertyOutput(v QueryArrayJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeQueryArrayJsonSchemaPropertyOutput performs a merge with any union data inside the QueryParamsJsonSchemaOutput_Properties_AdditionalProperties, using the provided QueryArrayJsonSchemaPropertyOutput
+func (t *QueryParamsJsonSchemaOutput_Properties_AdditionalProperties) MergeQueryArrayJsonSchemaPropertyOutput(v QueryArrayJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t QueryParamsJsonSchemaOutput_Properties_AdditionalProperties) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *QueryParamsJsonSchemaOutput_Properties_AdditionalProperties) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }

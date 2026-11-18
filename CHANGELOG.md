@@ -2,6 +2,16 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.17.0, 2026-11-18
+
+- Breaking: the `Properties` field of `QueryParamsJsonSchemaInput` changes from `map[string]LiteralJsonSchemaProperty` to `map[string]QueryParamsJsonSchemaInput_Properties_AdditionalProperties`. `QueryParamsJsonSchemaOutput.Properties` changes the same way, to `QueryParamsJsonSchemaOutput_Properties_AdditionalProperties`. Callers must read values with `AsLiteralJsonSchemaProperty` and set them with `FromLiteralJsonSchemaProperty`.
+- Adds the union types `QueryParamsJsonSchemaInput_Properties_AdditionalProperties` and `QueryParamsJsonSchemaOutput_Properties_AdditionalProperties`, with `As`, `From` and `Merge` methods for `LiteralJsonSchemaProperty` and for `QueryArrayJsonSchemaPropertyInput` or `QueryArrayJsonSchemaPropertyOutput`.
+- Adds the query array property types `QueryArrayJsonSchemaPropertyInput` and `QueryArrayJsonSchemaPropertyOutput`, which describe a query parameter sent as a repeated key. They have `ConstantValue`, `Description`, `DynamicVariable`, `IsOmitted`, `Items`, `PropertyKind` (input only) and `Type`.
+- Adds `QueryArrayJsonSchemaPropertyInput_Items` and `QueryArrayJsonSchemaPropertyOutput_Items`, which hold a literal, object or array schema.
+- Adds the enums `QueryArrayJsonSchemaPropertyInputPropertyKind`, `QueryArrayJsonSchemaPropertyInputType` and `QueryArrayJsonSchemaPropertyOutputType`, with the constants `QueryArrayJsonSchemaPropertyInputPropertyKindArray`, `QueryArrayJsonSchemaPropertyInputPropertyKindObject`, `QueryArrayJsonSchemaPropertyInputTypeArray` and `QueryArrayJsonSchemaPropertyOutputTypeArray`.
+- Adds `ASRProviderScribeV3Live`, `AuditActivityNameWorkloadIdentityFederationTokenExchange` and `LLMGemini4Hydrogen`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.16.0, 2026-11-17
 
 - Breaking: removes the `LLMGrokBeta` constant (`"grok-beta"`) from the `LLM` enum. `LLM.Valid` now returns false for `"grok-beta"`.
