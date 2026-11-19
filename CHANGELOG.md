@@ -2,6 +2,19 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.18.0, 2026-11-19
+
+- Breaking: `ProvisionResellerWorkspaceRequest` is renamed to `ReceptionProvisionResellerWorkspaceRequest`. `SmbResellerProvisionWorkspaceJSONRequestBody` now aliases the new name. The new type adds the optional `Vertical` (`*ReceptionVertical`).
+- Breaking: `ReceptionCustomerFacingConfigOutput` and `ReceptionCustomerFacingConfigPatch` lose `DisableFirstMessageInterruptions`. They gain the optional `FirstMessageMode` (`*FirstMessageMode`) instead.
+- Breaking: `ConversationConfig` and `PlatformSettings` in `AdhocAgentConfigOverrideForTestRequestModel` change from values to pointers (`*ConversationalConfigAPIModelInput`, `*AgentPlatformSettingsRequestModel`) and are now optional.
+- Adds the `FirstMessageMode` enum with `FirstMessageModeInterruptible`, `FirstMessageModeRecordingNotice` and `FirstMessageModeUninterruptible`.
+- Adds the `ReceptionVertical` enum with 16 constants, from `ReceptionVerticalAutoService` to `ReceptionVerticalVeterinary`.
+- Adds `DateOverride` and `DateOverridePolicy`, and the `DateOverrides` field on `AgentPolicyOverrideInput`, `AgentPolicyOverrideOutput`, `CampaignPolicySnapshot`, `PolicyConfigInput` and `PolicyConfigOutput`.
+- Adds the `ConfirmChangeParams` tool params type with `ConfirmChangeParamsSmbToolType`, and `AsConfirmChangeParams`, `FromConfirmChangeParams` and `MergeConfirmChangeParams` on `SMBToolConfig_Params`.
+- Adds the `Environments` field to `AlertingSettings` and `AlertingSettingsResponse`.
+- Adds `ASRProviderScribeV3LiveMedical`, `ConversationInitiationSourcePlainIntegration`, `LLMGpt62Astra` and `LLMGpt62Sol`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.17.0, 2026-11-18
 
 - Breaking: the `Properties` field of `QueryParamsJsonSchemaInput` changes from `map[string]LiteralJsonSchemaProperty` to `map[string]QueryParamsJsonSchemaInput_Properties_AdditionalProperties`. `QueryParamsJsonSchemaOutput.Properties` changes the same way, to `QueryParamsJsonSchemaOutput_Properties_AdditionalProperties`. Callers must read values with `AsLiteralJsonSchemaProperty` and set them with `FromLiteralJsonSchemaProperty`.

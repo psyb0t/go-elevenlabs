@@ -54,10 +54,11 @@ func (e ASRInputFormat) Valid() bool {
 
 // Defines values for ASRProvider.
 const (
-	ASRProviderElevenlabs     ASRProvider = "elevenlabs"
-	ASRProviderScribeRealtime ASRProvider = "scribe_realtime"
-	ASRProviderScribeV2Turbo  ASRProvider = "scribe_v2_turbo"
-	ASRProviderScribeV3Live   ASRProvider = "scribe_v3_live"
+	ASRProviderElevenlabs          ASRProvider = "elevenlabs"
+	ASRProviderScribeRealtime      ASRProvider = "scribe_realtime"
+	ASRProviderScribeV2Turbo       ASRProvider = "scribe_v2_turbo"
+	ASRProviderScribeV3Live        ASRProvider = "scribe_v3_live"
+	ASRProviderScribeV3LiveMedical ASRProvider = "scribe_v3_live_medical"
 )
 
 // Valid indicates whether the value is a known member of the ASRProvider enum.
@@ -70,6 +71,8 @@ func (e ASRProvider) Valid() bool {
 	case ASRProviderScribeV2Turbo:
 		return true
 	case ASRProviderScribeV3Live:
+		return true
+	case ASRProviderScribeV3LiveMedical:
 		return true
 	default:
 		return false
@@ -5662,6 +5665,21 @@ func (e ConfigEntityType) Valid() bool {
 	}
 }
 
+// Defines values for ConfirmChangeParamsSmbToolType.
+const (
+	ConfirmChangeParamsSmbToolTypeSmbConfirmChange ConfirmChangeParamsSmbToolType = "smb_confirm_change"
+)
+
+// Valid indicates whether the value is a known member of the ConfirmChangeParamsSmbToolType enum.
+func (e ConfirmChangeParamsSmbToolType) Valid() bool {
+	switch e {
+	case ConfirmChangeParamsSmbToolTypeSmbConfirmChange:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ConflictSection.
 const (
 	ConflictSectionConversationConfig ConflictSection = "conversation_config"
@@ -6108,6 +6126,7 @@ const (
 	ConversationInitiationSourceIntercomIntegration   ConversationInitiationSource = "intercom_integration"
 	ConversationInitiationSourceJsSdk                 ConversationInitiationSource = "js_sdk"
 	ConversationInitiationSourceNodeJsSdk             ConversationInitiationSource = "node_js_sdk"
+	ConversationInitiationSourcePlainIntegration      ConversationInitiationSource = "plain_integration"
 	ConversationInitiationSourcePythonSdk             ConversationInitiationSource = "python_sdk"
 	ConversationInitiationSourceReactNativeSdk        ConversationInitiationSource = "react_native_sdk"
 	ConversationInitiationSourceReactSdk              ConversationInitiationSource = "react_sdk"
@@ -6152,6 +6171,8 @@ func (e ConversationInitiationSource) Valid() bool {
 	case ConversationInitiationSourceJsSdk:
 		return true
 	case ConversationInitiationSourceNodeJsSdk:
+		return true
+	case ConversationInitiationSourcePlainIntegration:
 		return true
 	case ConversationInitiationSourcePythonSdk:
 		return true
@@ -8860,6 +8881,27 @@ func (e FinetuneVisibility) Valid() bool {
 	}
 }
 
+// Defines values for FirstMessageMode.
+const (
+	FirstMessageModeInterruptible   FirstMessageMode = "interruptible"
+	FirstMessageModeRecordingNotice FirstMessageMode = "recording_notice"
+	FirstMessageModeUninterruptible FirstMessageMode = "uninterruptible"
+)
+
+// Valid indicates whether the value is a known member of the FirstMessageMode enum.
+func (e FirstMessageMode) Valid() bool {
+	switch e {
+	case FirstMessageModeInterruptible:
+		return true
+	case FirstMessageModeRecordingNotice:
+		return true
+	case FirstMessageModeUninterruptible:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for FrustratedConversationRefOverallLabel.
 const (
 	FrustratedConversationRefOverallLabelNegative FrustratedConversationRefOverallLabel = "negative"
@@ -11251,6 +11293,8 @@ const (
 	LLMGpt5Nano20250807               LLM = "gpt-5-nano-2025-08-07"
 	LLMGpt61Sol                       LLM = "gpt-6.1-sol"
 	LLMGpt61Terra                     LLM = "gpt-6.1-terra"
+	LLMGpt62Astra                     LLM = "gpt-6.2-astra"
+	LLMGpt62Sol                       LLM = "gpt-6.2-sol"
 	LLMGpt6Astra                      LLM = "gpt-6-astra"
 	LLMGpt6Luna                       LLM = "gpt-6-luna"
 	LLMGpt6Sol                        LLM = "gpt-6-sol"
@@ -11467,6 +11511,10 @@ func (e LLM) Valid() bool {
 	case LLMGpt61Sol:
 		return true
 	case LLMGpt61Terra:
+		return true
+	case LLMGpt62Astra:
+		return true
+	case LLMGpt62Sol:
 		return true
 	case LLMGpt6Astra:
 		return true
@@ -15457,6 +15505,66 @@ func (e ReceptionUpdateAgentInfoRequestCurrency) Valid() bool {
 	case ReceptionUpdateAgentInfoRequestCurrencyVND:
 		return true
 	case ReceptionUpdateAgentInfoRequestCurrencyZAR:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ReceptionVertical.
+const (
+	ReceptionVerticalAutoService     ReceptionVertical = "auto_service"
+	ReceptionVerticalConsulting      ReceptionVertical = "consulting"
+	ReceptionVerticalDental          ReceptionVertical = "dental"
+	ReceptionVerticalFitness         ReceptionVertical = "fitness"
+	ReceptionVerticalHomeServices    ReceptionVertical = "home_services"
+	ReceptionVerticalLegal           ReceptionVertical = "legal"
+	ReceptionVerticalMedical         ReceptionVertical = "medical"
+	ReceptionVerticalNailBeauty      ReceptionVertical = "nail_beauty"
+	ReceptionVerticalOther           ReceptionVertical = "other"
+	ReceptionVerticalPhotography     ReceptionVertical = "photography"
+	ReceptionVerticalRealEstate      ReceptionVertical = "real_estate"
+	ReceptionVerticalRestaurant      ReceptionVertical = "restaurant"
+	ReceptionVerticalSalonBarbershop ReceptionVertical = "salon_barbershop"
+	ReceptionVerticalSpa             ReceptionVertical = "spa"
+	ReceptionVerticalTutoring        ReceptionVertical = "tutoring"
+	ReceptionVerticalVeterinary      ReceptionVertical = "veterinary"
+)
+
+// Valid indicates whether the value is a known member of the ReceptionVertical enum.
+func (e ReceptionVertical) Valid() bool {
+	switch e {
+	case ReceptionVerticalAutoService:
+		return true
+	case ReceptionVerticalConsulting:
+		return true
+	case ReceptionVerticalDental:
+		return true
+	case ReceptionVerticalFitness:
+		return true
+	case ReceptionVerticalHomeServices:
+		return true
+	case ReceptionVerticalLegal:
+		return true
+	case ReceptionVerticalMedical:
+		return true
+	case ReceptionVerticalNailBeauty:
+		return true
+	case ReceptionVerticalOther:
+		return true
+	case ReceptionVerticalPhotography:
+		return true
+	case ReceptionVerticalRealEstate:
+		return true
+	case ReceptionVerticalRestaurant:
+		return true
+	case ReceptionVerticalSalonBarbershop:
+		return true
+	case ReceptionVerticalSpa:
+		return true
+	case ReceptionVerticalTutoring:
+		return true
+	case ReceptionVerticalVeterinary:
 		return true
 	default:
 		return false
@@ -24318,9 +24426,14 @@ type AdditionalFormats = []ExportOptions
 
 // AdhocAgentConfigOverrideForTestRequestModel defines model for AdhocAgentConfigOverrideForTestRequestModel.
 type AdhocAgentConfigOverrideForTestRequestModel struct {
-	ConversationConfig ConversationalConfigAPIModelInput `json:"conversation_config"`
-	PlatformSettings   AgentPlatformSettingsRequestModel `json:"platform_settings"`
-	Workflow           *AgentWorkflowRequestModel        `json:"workflow,omitempty"`
+	// ConversationConfig Conversation config fields to change for this run. Fields left out keep the agent's values.
+	ConversationConfig *ConversationalConfigAPIModelInput `json:"conversation_config,omitempty"`
+
+	// PlatformSettings Platform settings fields to change for this run. Fields left out keep the agent's values.
+	PlatformSettings *AgentPlatformSettingsRequestModel `json:"platform_settings,omitempty"`
+
+	// Workflow A workflow to run instead of the agent's. It replaces the agent's workflow whole.
+	Workflow *AgentWorkflowRequestModel `json:"workflow,omitempty"`
 }
 
 // AgentAnalysisItemsInput defines model for AgentAnalysisItems-Input.
@@ -25123,8 +25236,11 @@ type AgentPlatformSettingsResponseModel struct {
 
 // AgentPolicyOverrideInput Each section set here replaces the whole matching section of the policy.
 type AgentPolicyOverrideInput struct {
-	CallingPeriods  *[]CallingPeriod       `json:"calling_periods,omitempty"`
-	DataCollection  *DataCollectionConfig  `json:"data_collection,omitempty"`
+	CallingPeriods *[]CallingPeriod      `json:"calling_periods,omitempty"`
+	DataCollection *DataCollectionConfig `json:"data_collection,omitempty"`
+
+	// DateOverrides Replaces the inherited date overrides; unset inherits them and an empty list clears them.
+	DateOverrides   *[]DateOverride        `json:"date_overrides,omitempty"`
 	FollowupContext *FollowupContextPolicy `json:"followup_context,omitempty"`
 	Retry           *RetryPolicy           `json:"retry,omitempty"`
 	Timezone        *string                `json:"timezone,omitempty"`
@@ -25132,8 +25248,11 @@ type AgentPolicyOverrideInput struct {
 
 // AgentPolicyOverrideOutput Each section set here replaces the whole matching section of the policy.
 type AgentPolicyOverrideOutput struct {
-	CallingPeriods  *[]CallingPeriod       `json:"calling_periods,omitempty"`
-	DataCollection  *DataCollectionConfig  `json:"data_collection,omitempty"`
+	CallingPeriods *[]CallingPeriod      `json:"calling_periods,omitempty"`
+	DataCollection *DataCollectionConfig `json:"data_collection,omitempty"`
+
+	// DateOverrides Replaces the inherited date overrides; unset inherits them and an empty list clears them.
+	DateOverrides   *[]DateOverride        `json:"date_overrides,omitempty"`
 	FollowupContext *FollowupContextPolicy `json:"followup_context,omitempty"`
 	Retry           *RetryPolicy           `json:"retry,omitempty"`
 	Timezone        *string                `json:"timezone,omitempty"`
@@ -25526,6 +25645,9 @@ type AlertingSettings struct {
 	// AutoResolveAfterInactiveMinutes How many minutes an alert can stay inactive before it is auto-resolved. Unset values fall through to the next layer.
 	AutoResolveAfterInactiveMinutes *int `json:"auto_resolve_after_inactive_minutes,omitempty"`
 
+	// Environments Environments whose conversations are monitored, e.g. ``['production']``. The list must include ``production``. Unset values fall through to the next layer; when no layer sets it, every environment is monitored.
+	Environments *[]string `json:"environments,omitempty"`
+
 	// MonitorConfigs Alerting configuration keyed by monitor name.
 	MonitorConfigs *map[string]AlertingMonitorConfig `json:"monitor_configs,omitempty"`
 
@@ -25543,6 +25665,7 @@ type AlertingSettings_Notifiers_Item struct {
 // channels whose URLs must never be returned outside the admin API.
 type AlertingSettingsResponse struct {
 	AutoResolveAfterInactiveMinutes *int                                       `json:"auto_resolve_after_inactive_minutes,omitempty"`
+	Environments                    *[]string                                  `json:"environments,omitempty"`
 	MonitorConfigs                  *map[string]AlertingMonitorConfig          `json:"monitor_configs,omitempty"`
 	Notifiers                       *[]AlertingSettingsResponse_Notifiers_Item `json:"notifiers,omitempty"`
 }
@@ -30733,6 +30856,7 @@ type CampaignPageResponse struct {
 type CampaignPolicySnapshot struct {
 	CallingPeriods []CallingPeriodPolicy `json:"calling_periods"`
 	DataCollection DataCollectionPolicy  `json:"data_collection"`
+	DateOverrides  *[]DateOverridePolicy `json:"date_overrides,omitempty"`
 
 	// FollowupContext Which `campaign__` dynamic variables follow-up calls get.
 	FollowupContext FollowupContextPolicy `json:"followup_context"`
@@ -31513,6 +31637,17 @@ type ConditionStrength string
 //
 // When converted for service use, parent types expand to all their terminal subtypes.
 type ConfigEntityType string
+
+// ConfirmChangeParams The owner's spoken answer to changes the assistant read back to them.
+//
+// Runs in the agent runtime rather than Reception: it needs the conversation's
+// chat to check the owner actually answered after hearing the changes.
+type ConfirmChangeParams struct {
+	SmbToolType *ConfirmChangeParamsSmbToolType `json:"smb_tool_type,omitempty"`
+}
+
+// ConfirmChangeParamsSmbToolType defines model for ConfirmChangeParams.SmbToolType.
+type ConfirmChangeParamsSmbToolType string
 
 // ConflictSection defines model for ConflictSection.
 type ConflictSection string
@@ -34202,6 +34337,34 @@ type DateModel struct {
 	Year int `json:"year"`
 }
 
+// DateOverride defines model for DateOverride.
+type DateOverride struct {
+	// EndDate Last local date the override applies on, inclusive.
+	EndDate openapi_types.Date `json:"end_date"`
+
+	// Intervals Calling windows on every day from `start_date` to `end_date`, replacing the weekly ones. Empty means no calls on those days.
+	Intervals *[]CallingIntervalPolicy `json:"intervals,omitempty"`
+
+	// Name What the override is for, such as `Christmas`.
+	Name *string `json:"name,omitempty"`
+
+	// StartDate First local date the override applies on.
+	StartDate openapi_types.Date `json:"start_date"`
+}
+
+// DateOverridePolicy defines model for DateOverridePolicy.
+type DateOverridePolicy struct {
+	// EndDate Last local date the override applies on, inclusive.
+	EndDate openapi_types.Date `json:"end_date"`
+
+	// Intervals Calling windows on every day from `start_date` to `end_date`, replacing the weekly ones. Empty means no calls on those days.
+	Intervals *[]CallingIntervalPolicy `json:"intervals,omitempty"`
+	Name      *string                  `json:"name,omitempty"`
+
+	// StartDate First local date the override applies on.
+	StartDate openapi_types.Date `json:"start_date"`
+}
+
 // DecisionDisposition How a settled call's decision left its lead.
 type DecisionDisposition string
 
@@ -36106,6 +36269,9 @@ type FinetuneCreatedBy string
 
 // FinetuneVisibility defines model for FinetuneVisibility.
 type FinetuneVisibility string
+
+// FirstMessageMode How the receptionist's greeting plays.
+type FirstMessageMode string
 
 // FlattenedConfigOverrides defines model for FlattenedConfigOverrides.
 type FlattenedConfigOverrides struct {
@@ -42051,6 +42217,9 @@ type PolicyConfigInput struct {
 	// to the built-in item for its purpose; `null` turns it off.
 	DataCollection *DataCollectionConfig `json:"data_collection,omitempty"`
 
+	// DateOverrides Local dates in `timezone` whose calling windows replace `calling_periods`. Date ranges may not overlap.
+	DateOverrides *[]DateOverride `json:"date_overrides,omitempty"`
+
 	// FollowupContext Which `campaign__` dynamic variables follow-up calls get.
 	FollowupContext *FollowupContextPolicy `json:"followup_context,omitempty"`
 	Retry           *RetryPolicy           `json:"retry,omitempty"`
@@ -42067,6 +42236,9 @@ type PolicyConfigOutput struct {
 	// DataCollection The agent's data collection items that steer follow-up calls. Each defaults
 	// to the built-in item for its purpose; `null` turns it off.
 	DataCollection *DataCollectionConfig `json:"data_collection,omitempty"`
+
+	// DateOverrides Local dates in `timezone` whose calling windows replace `calling_periods`. Date ranges may not overlap.
+	DateOverrides *[]DateOverride `json:"date_overrides,omitempty"`
 
 	// FollowupContext Which `campaign__` dynamic variables follow-up calls get.
 	FollowupContext *FollowupContextPolicy `json:"followup_context,omitempty"`
@@ -43525,28 +43697,6 @@ type PronunciationDictionaryVersionResponseModel struct {
 // PronunciationDictionaryVersionResponseModelPermissionOnResource defines model for PronunciationDictionaryVersionResponseModel.PermissionOnResource.
 type PronunciationDictionaryVersionResponseModelPermissionOnResource string
 
-// ProvisionResellerWorkspaceRequest defines model for ProvisionResellerWorkspaceRequest.
-type ProvisionResellerWorkspaceRequest struct {
-	BusinessName string `json:"business_name"`
-
-	// CompleteOnboarding Finish setup right away, as `POST /v1/reception/reseller/workspaces/{workspace_id}/complete-onboarding` does. Best-effort: `onboarding_completed_at_unix` stays null on failure, and that call can be retried.
-	CompleteOnboarding *bool `json:"complete_onboarding,omitempty"`
-
-	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
-	//
-	// Examples: 3c1d2b7e-8f4a-4e5b-9c6d-1a2b3c4d5e6f
-	IdempotencyKey *string `json:"idempotency_key,omitempty"`
-
-	// Members People to invite once the workspace exists, capped by the tier's team size. Best-effort: each outcome is in `member_results`.
-	Members *[]TeamInviteRequest `json:"members,omitempty"`
-
-	// PhoneNumber A free number from the reseller's phone pool, reserved for the workspace until onboarding binds it to the receptionist.
-	PhoneNumber *string `json:"phone_number,omitempty"`
-
-	// Subscription Paid tier to subscribe to. Omitted leaves the workspace with no subscription.
-	Subscription *ProvisionResellerWorkspaceSubscription `json:"subscription,omitempty"`
-}
-
 // ProvisionResellerWorkspaceResponse defines model for ProvisionResellerWorkspaceResponse.
 type ProvisionResellerWorkspaceResponse struct {
 	BillingTier     *string `json:"billing_tier"`
@@ -44563,9 +44713,6 @@ type ReceptionCustomerFacingConfigOutput struct {
 	// DetailsToCollect Details the agent should always try to collect from callers (presets + custom labels, e.g. ['full name', 'phone number']).
 	DetailsToCollect *[]StrippedStr `json:"details_to_collect,omitempty"`
 
-	// DisableFirstMessageInterruptions When true, callers cannot interrupt the receptionist while the first message is being delivered. Use when the greeting carries a recording or legal notice callers must hear in full.
-	DisableFirstMessageInterruptions *bool `json:"disable_first_message_interruptions,omitempty"`
-
 	// DisableRag When true, the whole knowledge base is given to the receptionist up front instead of searched on each turn. Faster, but only for small knowledge bases; larger ones are still searched.
 	DisableRag *bool `json:"disable_rag,omitempty"`
 
@@ -44588,6 +44735,9 @@ type ReceptionCustomerFacingConfigOutput struct {
 	//
 	// Examples: Hi, thanks for calling Bloom Salon! How can I help you today?
 	FirstMessage *string `json:"first_message,omitempty"`
+
+	// FirstMessageMode How the first message plays. interruptible: callers can talk over it. uninterruptible: it always plays to the end. recording_notice: it opens with a short 'this call may be recorded' notice in the receptionist's language, spoken by a separate voice, and always plays to the end.
+	FirstMessageMode *FirstMessageMode `json:"first_message_mode,omitempty"`
 
 	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
 	HideCallerNumberOnTransfers *bool `json:"hide_caller_number_on_transfers,omitempty"`
@@ -44636,9 +44786,6 @@ type ReceptionCustomerFacingConfigPatch struct {
 	// DetailsToCollect Details the agent should always try to collect from callers (presets + custom labels, e.g. ['full name', 'phone number']).
 	DetailsToCollect *[]StrippedStr `json:"details_to_collect,omitempty"`
 
-	// DisableFirstMessageInterruptions When true, callers cannot interrupt the receptionist while the first message is being delivered. Use when the greeting carries a recording or legal notice callers must hear in full.
-	DisableFirstMessageInterruptions *bool `json:"disable_first_message_interruptions,omitempty"`
-
 	// DisableRag When true, the whole knowledge base is given to the receptionist up front instead of searched on each turn. Faster, but only for small knowledge bases; larger ones are still searched.
 	DisableRag *bool `json:"disable_rag,omitempty"`
 
@@ -44661,6 +44808,9 @@ type ReceptionCustomerFacingConfigPatch struct {
 	//
 	// Examples: Hi, thanks for calling Bloom Salon! How can I help you today?
 	FirstMessage *string `json:"first_message,omitempty"`
+
+	// FirstMessageMode How the first message plays. interruptible: callers can talk over it. uninterruptible: it always plays to the end. recording_notice: it opens with a short 'this call may be recorded' notice in the receptionist's language, spoken by a separate voice, and always plays to the end.
+	FirstMessageMode *FirstMessageMode `json:"first_message_mode,omitempty"`
 
 	// HideCallerNumberOnTransfers Show the business's own number, rather than the caller's, as the caller ID on transferred calls.
 	HideCallerNumberOnTransfers *bool `json:"hide_caller_number_on_transfers,omitempty"`
@@ -45080,6 +45230,31 @@ type ReceptionProduct struct {
 	//
 	// Examples: 1767225600
 	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
+}
+
+// ReceptionProvisionResellerWorkspaceRequest defines model for ReceptionProvisionResellerWorkspaceRequest.
+type ReceptionProvisionResellerWorkspaceRequest struct {
+	BusinessName string `json:"business_name"`
+
+	// CompleteOnboarding Finish setup right away, as `POST /v1/reception/reseller/workspaces/{workspace_id}/complete-onboarding` does. Best-effort: `onboarding_completed_at_unix` stays null on failure, and that call can be retried.
+	CompleteOnboarding *bool `json:"complete_onboarding,omitempty"`
+
+	// IdempotencyKey Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+	//
+	// Examples: 3c1d2b7e-8f4a-4e5b-9c6d-1a2b3c4d5e6f
+	IdempotencyKey *string `json:"idempotency_key,omitempty"`
+
+	// Members People to invite once the workspace exists, capped by the tier's team size. Best-effort: each outcome is in `member_results`.
+	Members *[]TeamInviteRequest `json:"members,omitempty"`
+
+	// PhoneNumber A free number from the reseller's phone pool, reserved for the workspace until onboarding binds it to the receptionist.
+	PhoneNumber *string `json:"phone_number,omitempty"`
+
+	// Subscription Paid tier to subscribe to. Omitted leaves the workspace with no subscription.
+	Subscription *ProvisionResellerWorkspaceSubscription `json:"subscription,omitempty"`
+
+	// Vertical The business's vertical, used with `complete_onboarding`. Without it, onboarding picks the vertical as usual.
+	Vertical *ReceptionVertical `json:"vertical,omitempty"`
 }
 
 // ReceptionService Represents a bookable service (e.g., haircut, massage, consultation).
@@ -45808,6 +45983,9 @@ type ReceptionUpdateTransferRuleRequest struct {
 	// Examples: www1234
 	PostDialDigits *string `json:"post_dial_digits,omitempty"`
 }
+
+// ReceptionVertical defines model for ReceptionVertical.
+type ReceptionVertical string
 
 // ReceptionWidgetAppearance How the website widget looks. A null label follows the receptionist's language.
 type ReceptionWidgetAppearance struct {
@@ -55272,7 +55450,7 @@ type ListAgentConversationTicketsRouteParams struct {
 	// Priorities Filter agent issues by priority. Repeat the parameter to filter by multiple priorities.
 	Priorities *[]AgentConversationTicketPriority `form:"priorities,omitempty" json:"priorities,omitempty"`
 
-	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the agent issue, else its creation).
+	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), by most recently reported (the newest report merged into the agent issue, else its creation), or by report count (most reports merged into the agent issue first, then most recently created).
 	SortBy *AgentConversationTicketSortBy `form:"sort_by,omitempty" json:"sort_by,omitempty"`
 
 	// OwnerUserId Filter agent issues by creator. Use 'agent' for agent-raised issues.
@@ -57117,7 +57295,7 @@ type ListWorkspaceConversationTicketsRouteParams struct {
 	// Priorities Filter agent issues by priority. Repeat the parameter to filter by multiple priorities.
 	Priorities *[]AgentConversationTicketPriority `form:"priorities,omitempty" json:"priorities,omitempty"`
 
-	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the agent issue, else its creation).
+	// SortBy Order by most recently created, by priority (most urgent first, then most recently created), by most recently reported (the newest report merged into the agent issue, else its creation), or by report count (most reports merged into the agent issue first, then most recently created).
 	SortBy *AgentConversationTicketSortBy `form:"sort_by,omitempty" json:"sort_by,omitempty"`
 
 	// OwnerUserId Filter agent issues by creator. Use 'agent' for agent-raised issues.
@@ -60548,7 +60726,7 @@ type SmbUpdateProductStockJSONRequestBody = ReceptionUpdateProductStockRequest
 type SmbAdjustProductStockJSONRequestBody = ReceptionAdjustProductStockRequest
 
 // SmbResellerProvisionWorkspaceJSONRequestBody defines body for SmbResellerProvisionWorkspace for application/json ContentType.
-type SmbResellerProvisionWorkspaceJSONRequestBody = ProvisionResellerWorkspaceRequest
+type SmbResellerProvisionWorkspaceJSONRequestBody = ReceptionProvisionResellerWorkspaceRequest
 
 // SmbChangeResellerTierJSONRequestBody defines body for SmbChangeResellerTier for application/json ContentType.
 type SmbChangeResellerTierJSONRequestBody = ChangeResellerTierRequest
@@ -83864,6 +84042,40 @@ func (t *SMBToolConfig_Params) MergeGetBookingSlugStatusParams(v GetBookingSlugS
 	return err
 }
 
+// AsConfirmChangeParams returns the union data inside the SMBToolConfig_Params as a ConfirmChangeParams
+func (t SMBToolConfig_Params) AsConfirmChangeParams() (ConfirmChangeParams, error) {
+	var body ConfirmChangeParams
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromConfirmChangeParams overwrites any union data inside the SMBToolConfig_Params as the provided ConfirmChangeParams
+func (t *SMBToolConfig_Params) FromConfirmChangeParams(v ConfirmChangeParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"smb_confirm_change"}`))
+	t.union = b
+	return err
+}
+
+// MergeConfirmChangeParams performs a merge with any union data inside the SMBToolConfig_Params, using the provided ConfirmChangeParams
+func (t *SMBToolConfig_Params) MergeConfirmChangeParams(v ConfirmChangeParams) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"smb_tool_type":"smb_confirm_change"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsSetBookingSlugParams returns the union data inside the SMBToolConfig_Params as a SetBookingSlugParams
 func (t SMBToolConfig_Params) AsSetBookingSlugParams() (SetBookingSlugParams, error) {
 	var body SetBookingSlugParams
@@ -84776,6 +84988,8 @@ func (t SMBToolConfig_Params) ValueByDiscriminator() (interface{}, error) {
 		return t.AsSendCustomEmailParams()
 	case "set_booking_slug":
 		return t.AsSetBookingSlugParams()
+	case "smb_confirm_change":
+		return t.AsConfirmChangeParams()
 	case "submit_business_info":
 		return t.AsSubmitBusinessInfoParams()
 	case "trigger_user_verification":
@@ -103051,7 +103265,7 @@ type ClientInterface interface {
 
 	// RedeliverWebhookDeliveryRoute Redeliver Webhook Delivery
 	//
-	// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Only workspace admins on a web session can redeliver, and only deliveries whose payload is stored. Redeliveries and test events share a limit of 10 per webhook per minute.
+	// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Redelivering needs permission to manage webhooks and a web session, and the delivery's payload must be stored. Redeliveries and test events share a limit of 10 per webhook per minute.
 	//
 	// Corresponds with POST /v1/workspace/webhooks/{webhook_id}/deliveries/{delivery_id}/redeliver (the `RedeliverWebhookDeliveryRoute` operationId).
 	RedeliverWebhookDeliveryRoute(ctx context.Context, webhookId string, deliveryId string, params *RedeliverWebhookDeliveryRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -116856,7 +117070,7 @@ func (c *Client) EditWorkspaceWebhookRoute(ctx context.Context, webhookId string
 
 // RedeliverWebhookDeliveryRoute Redeliver Webhook Delivery
 //
-// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Only workspace admins on a web session can redeliver, and only deliveries whose payload is stored. Redeliveries and test events share a limit of 10 per webhook per minute.
+// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Redelivering needs permission to manage webhooks and a web session, and the delivery's payload must be stored. Redeliveries and test events share a limit of 10 per webhook per minute.
 //
 // Corresponds with POST /v1/workspace/webhooks/{webhook_id}/deliveries/{delivery_id}/redeliver (the `RedeliverWebhookDeliveryRoute` operationId).
 func (c *Client) RedeliverWebhookDeliveryRoute(ctx context.Context, webhookId string, deliveryId string, params *RedeliverWebhookDeliveryRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -161962,7 +162176,7 @@ type ClientWithResponsesInterface interface {
 
 	// RedeliverWebhookDeliveryRouteWithResponse Redeliver Webhook Delivery
 	//
-	// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Only workspace admins on a web session can redeliver, and only deliveries whose payload is stored. Redeliveries and test events share a limit of 10 per webhook per minute.
+	// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Redelivering needs permission to manage webhooks and a web session, and the delivery's payload must be stored. Redeliveries and test events share a limit of 10 per webhook per minute.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -199358,7 +199572,7 @@ func (c *ClientWithResponses) EditWorkspaceWebhookRouteWithResponse(ctx context.
 
 // RedeliverWebhookDeliveryRouteWithResponse Redeliver Webhook Delivery
 //
-// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Only workspace admins on a web session can redeliver, and only deliveries whose payload is stored. Redeliveries and test events share a limit of 10 per webhook per minute.
+// Sends a stored delivery again, once, with the same delivery ID, a new signature and an ElevenLabs-Webhook-Redelivery header. A retry that is already scheduled is still sent. Redelivering needs permission to manage webhooks and a web session, and the delivery's payload must be stored. Redeliveries and test events share a limit of 10 per webhook per minute.
 //
 // Returns a wrapper object for the known response body format(s).
 //
