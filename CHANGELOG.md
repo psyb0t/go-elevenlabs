@@ -2,6 +2,18 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.19.0, 2026-11-20
+
+- Breaking: the `IssueType` field of `AgentConversationTicketResponseModel` changes from `*AgentConversationTicketIssueType` to `any`. Upstream now marks it deprecated and always null, with issue types stored as `issue_type:<value>` labels.
+- Breaking: removes the `AgentConversationTicketIssueType` type, its `Valid` method and its nine constants, from `AgentConversationTicketIssueTypeDocumentationGap` to `AgentConversationTicketIssueTypeWrongAction`.
+- Breaking: removes the `IssueType` query field from `ListAgentConversationTicketsRouteParams` and `ListWorkspaceConversationTicketsRouteParams`. The client no longer sends `issue_type`.
+- Breaking: `RebaseBranchOntoMainJSONRequestBody` changes from `map[string]interface{}` to the struct `BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost`. It has the optional `BranchTipId`, `ConflictResolutions` and `SourceTipId`. This changes the parameter type of `RebaseBranchOntoMain`, `RebaseBranchOntoMainWithResponse` and `NewRebaseBranchOntoMainRequest`.
+- Adds `ConflictResolution` (`Choice`, `ConflictId`, `CustomValue`) and the `ConflictResolutionChoice` enum with `ConflictResolutionChoiceCustom`, `ConflictResolutionChoiceSource` and `ConflictResolutionChoiceTarget`.
+- Adds `ConflictResolutions`, `SourceTipId` and `TargetTipId` to the branch merge request body. A merge with conflicts now needs `ConflictResolutions` unless `Force` is set.
+- Adds `AcceptsCustomValue` and `Id` to `FieldConflict`.
+- Adds `MergeError`, `SourceTipVersionId` and `TargetTipVersionId` to `MergePreviewResponseModel`.
+- Adds `LLMGemini4Neon`.
+
 ## v0.18.0, 2026-11-19
 
 - Breaking: `ProvisionResellerWorkspaceRequest` is renamed to `ReceptionProvisionResellerWorkspaceRequest`. `SmbResellerProvisionWorkspaceJSONRequestBody` now aliases the new name. The new type adds the optional `Vertical` (`*ReceptionVertical`).

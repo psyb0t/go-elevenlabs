@@ -793,45 +793,6 @@ func (e AgentChatResponsePartType) Valid() bool {
 	}
 }
 
-// Defines values for AgentConversationTicketIssueType.
-const (
-	AgentConversationTicketIssueTypeDocumentationGap      AgentConversationTicketIssueType = "documentation_gap"
-	AgentConversationTicketIssueTypeIncorrectInformation  AgentConversationTicketIssueType = "incorrect_information"
-	AgentConversationTicketIssueTypeKnowledgeGap          AgentConversationTicketIssueType = "knowledge_gap"
-	AgentConversationTicketIssueTypeMissingTool           AgentConversationTicketIssueType = "missing_tool"
-	AgentConversationTicketIssueTypePlatformBug           AgentConversationTicketIssueType = "platform_bug"
-	AgentConversationTicketIssueTypeProductFeedback       AgentConversationTicketIssueType = "product_feedback"
-	AgentConversationTicketIssueTypeToolIssue             AgentConversationTicketIssueType = "tool_issue"
-	AgentConversationTicketIssueTypeUnnecessaryEscalation AgentConversationTicketIssueType = "unnecessary_escalation"
-	AgentConversationTicketIssueTypeWrongAction           AgentConversationTicketIssueType = "wrong_action"
-)
-
-// Valid indicates whether the value is a known member of the AgentConversationTicketIssueType enum.
-func (e AgentConversationTicketIssueType) Valid() bool {
-	switch e {
-	case AgentConversationTicketIssueTypeDocumentationGap:
-		return true
-	case AgentConversationTicketIssueTypeIncorrectInformation:
-		return true
-	case AgentConversationTicketIssueTypeKnowledgeGap:
-		return true
-	case AgentConversationTicketIssueTypeMissingTool:
-		return true
-	case AgentConversationTicketIssueTypePlatformBug:
-		return true
-	case AgentConversationTicketIssueTypeProductFeedback:
-		return true
-	case AgentConversationTicketIssueTypeToolIssue:
-		return true
-	case AgentConversationTicketIssueTypeUnnecessaryEscalation:
-		return true
-	case AgentConversationTicketIssueTypeWrongAction:
-		return true
-	default:
-		return false
-	}
-}
-
 // Defines values for AgentConversationTicketPriority.
 const (
 	AgentConversationTicketPriorityHigh   AgentConversationTicketPriority = "high"
@@ -5674,6 +5635,27 @@ const (
 func (e ConfirmChangeParamsSmbToolType) Valid() bool {
 	switch e {
 	case ConfirmChangeParamsSmbToolTypeSmbConfirmChange:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ConflictResolutionChoice.
+const (
+	ConflictResolutionChoiceCustom ConflictResolutionChoice = "custom"
+	ConflictResolutionChoiceSource ConflictResolutionChoice = "source"
+	ConflictResolutionChoiceTarget ConflictResolutionChoice = "target"
+)
+
+// Valid indicates whether the value is a known member of the ConflictResolutionChoice enum.
+func (e ConflictResolutionChoice) Valid() bool {
+	switch e {
+	case ConflictResolutionChoiceCustom:
+		return true
+	case ConflictResolutionChoiceSource:
+		return true
+	case ConflictResolutionChoiceTarget:
 		return true
 	default:
 		return false
@@ -11247,6 +11229,7 @@ const (
 	LLMGemini3ProPreview              LLM = "gemini-3-pro-preview"
 	LLMGemini4Argon                   LLM = "gemini-4-argon"
 	LLMGemini4Hydrogen                LLM = "gemini-4-hydrogen"
+	LLMGemini4Neon                    LLM = "gemini-4-neon"
 	LLMGlm45AirFp8                    LLM = "glm-45-air-fp8"
 	LLMGlm52                          LLM = "glm-52"
 	LLMGpt35Turbo                     LLM = "gpt-3.5-turbo"
@@ -11419,6 +11402,8 @@ func (e LLM) Valid() bool {
 	case LLMGemini4Argon:
 		return true
 	case LLMGemini4Hydrogen:
+		return true
+	case LLMGemini4Neon:
 		return true
 	case LLMGlm45AirFp8:
 		return true
@@ -24737,23 +24722,23 @@ type AgentConfigOverrideConfig struct {
 	Prompt *PromptAgentAPIModelOverrideConfig `json:"prompt,omitempty"`
 }
 
-// AgentConversationTicketIssueType defines model for AgentConversationTicketIssueType.
-type AgentConversationTicketIssueType string
-
 // AgentConversationTicketPriority defines model for AgentConversationTicketPriority.
 type AgentConversationTicketPriority string
 
 // AgentConversationTicketResponseModel defines model for AgentConversationTicketResponseModel.
 type AgentConversationTicketResponseModel struct {
-	AgentId           string                            `json:"agent_id"`
-	AgentqaTicketId   string                            `json:"agentqa_ticket_id"`
-	AssigneeUserId    *string                           `json:"assignee_user_id"`
-	ConversationIds   []string                          `json:"conversation_ids"`
-	CreatedAtUnixSecs int                               `json:"created_at_unix_secs"`
-	FirstSeenUnixSecs *int                              `json:"first_seen_unix_secs"`
-	IssueType         *AgentConversationTicketIssueType `json:"issue_type"`
-	Labels            []string                          `json:"labels"`
-	LastSeenUnixSecs  *int                              `json:"last_seen_unix_secs"`
+	AgentId           string   `json:"agent_id"`
+	AgentqaTicketId   string   `json:"agentqa_ticket_id"`
+	AssigneeUserId    *string  `json:"assignee_user_id"`
+	ConversationIds   []string `json:"conversation_ids"`
+	CreatedAtUnixSecs int      `json:"created_at_unix_secs"`
+	FirstSeenUnixSecs *int     `json:"first_seen_unix_secs"`
+
+	// IssueType Always null. Issue types are labels, written as `issue_type:<value>`.
+	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
+	IssueType        any      `json:"issue_type,omitempty"`
+	Labels           []string `json:"labels"`
+	LastSeenUnixSecs *int     `json:"last_seen_unix_secs"`
 
 	// MergedIntoTicketId The agent issue this one was merged into, set while its status is 'merged'.
 	MergedIntoTicketId *string                             `json:"merged_into_ticket_id,omitempty"`
@@ -28529,8 +28514,23 @@ type BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchI
 	// ArchiveSourceBranch Whether to archive the source branch after merging
 	ArchiveSourceBranch *bool `json:"archive_source_branch,omitempty"`
 
-	// Force Force source branch changes onto the target, overriding timestamp-based conflict resolution
+	// ConflictResolutions Side to keep, or custom text where the conflict accepts it, for each conflict the preview reported. A merge or rebase with conflicts is rejected unless there is one for every conflict, sent with both tip ids. On a merge it can't be combined with `force`, which lets the source win every conflict instead.
+	//
+	// Examples: [{"choice":"source","conflict_id":"conversation_config:agent.first_message"}]
+	ConflictResolutions *[]ConflictResolution `json:"conflict_resolutions,omitempty"`
+
+	// Force Keep the source branch's value for every conflict instead of sending `conflict_resolutions`
 	Force *bool `json:"force,omitempty"`
+
+	// SourceTipId Source branch tip version the conflicts were resolved against (`source_tip_version_id` of the preview). The request fails with 409 if the branch moved since.
+	//
+	// Examples: agtvrsn_0901k4aafjxxfxt93gd841r7tv5t
+	SourceTipId *string `json:"source_tip_id,omitempty"`
+
+	// TargetTipId Target branch tip version the conflicts were resolved against (`target_tip_version_id` of the preview). The request fails with 409 if the branch moved since.
+	//
+	// Examples: agtvrsn_0901k4aafjxxfxt93gd841r7tv5t
+	TargetTipId *string `json:"target_tip_id,omitempty"`
 }
 
 // BodyMergeAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdMergePost defines model for Body_Merge_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__merge_post.
@@ -28538,7 +28538,7 @@ type BodyMergeAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdMe
 	// ArchiveSourceBranch Whether to archive the source branch after merging.
 	ArchiveSourceBranch *bool `json:"archive_source_branch,omitempty"`
 
-	// Force Force source branch changes onto the target, overriding timestamp-based conflict resolution.
+	// Force Keep the source branch's value for every conflict.
 	Force *bool `json:"force,omitempty"`
 }
 
@@ -28595,7 +28595,22 @@ type BodyPostAgentHoldAudioV1ConvaiAgentsAgentIdHoldAudioPost struct {
 }
 
 // BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost defines model for Body_Rebase_a_branch_onto_main_v1_convai_agents__agent_id__branches__branch_id__rebase_post.
-type BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost = map[string]interface{}
+type BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost struct {
+	// BranchTipId Tip version of the branch being rebased (`source_tip_version_id` of the rebase preview) the conflicts were resolved against. The request fails with 409 if it moved since.
+	//
+	// Examples: agtvrsn_0901k4aafjxxfxt93gd841r7tv5t
+	BranchTipId *string `json:"branch_tip_id,omitempty"`
+
+	// ConflictResolutions Side to keep, or custom text where the conflict accepts it, for each conflict the preview reported. A merge or rebase with conflicts is rejected unless there is one for every conflict, sent with both tip ids. On a merge it can't be combined with `force`, which lets the source win every conflict instead.
+	//
+	// Examples: [{"choice":"source","conflict_id":"conversation_config:agent.first_message"}]
+	ConflictResolutions *[]ConflictResolution `json:"conflict_resolutions,omitempty"`
+
+	// SourceTipId Tip version of the branch the changes are pulled from (`source_branch_id`, the main branch by default; `target_tip_version_id` of the rebase preview) the conflicts were resolved against. The request fails with 409 if it moved since.
+	//
+	// Examples: agtvrsn_0901k4aafjxxfxt93gd841r7tv5t
+	SourceTipId *string `json:"source_tip_id,omitempty"`
+}
 
 // BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPost defines model for Body_Register_a_Twilio_call_and_return_TwiML_v1_convai_twilio_register_call_post.
 type BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPost struct {
@@ -31648,6 +31663,23 @@ type ConfirmChangeParams struct {
 
 // ConfirmChangeParamsSmbToolType defines model for ConfirmChangeParams.SmbToolType.
 type ConfirmChangeParamsSmbToolType string
+
+// ConflictResolution defines model for ConflictResolution.
+type ConflictResolution struct {
+	// Choice Keep the source value, the target value, or `custom_value`. On a list of entities, the side settles the entities both branches changed; ones only one branch changed still merge in.
+	Choice ConflictResolutionChoice `json:"choice"`
+
+	// ConflictId `id` of the conflict this resolves, as the merge or rebase preview reported it.
+	//
+	// Examples: conversation_config:agent.first_message
+	ConflictId string `json:"conflict_id"`
+
+	// CustomValue Text to keep when `choice` is `custom`, or for a procedure conflict the id of the procedure version to pin. Only conflicts with `accepts_custom_value` take one.
+	CustomValue *string `json:"custom_value,omitempty"`
+}
+
+// ConflictResolutionChoice defines model for ConflictResolutionChoice.
+type ConflictResolutionChoice string
 
 // ConflictSection defines model for ConflictSection.
 type ConflictSection string
@@ -36139,8 +36171,14 @@ type FeaturesUsageCommonModel struct {
 
 // FieldConflict defines model for FieldConflict.
 type FieldConflict struct {
+	// AcceptsCustomValue Whether a resolution of this conflict may use `custom` with a `custom_value` instead of keeping a side.
+	AcceptsCustomValue *bool `json:"accepts_custom_value,omitempty"`
+
 	// BaseValue Value at the common ancestor (merge base).
 	BaseValue interface{} `json:"base_value,omitempty"`
+
+	// Id Stable identifier of this conflict within a merge.
+	Id *string `json:"id,omitempty"`
 
 	// Path Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings (e.g. `tts.voice_id`), a procedure id, or a workflow path: `nodes.<id>`, `edges.<id>`, or the name of a top-level workflow setting.
 	Path string `json:"path"`
@@ -40603,7 +40641,7 @@ type MergePreviewResponseModel struct {
 	// BranchId The ID of the branch the agent is on
 	BranchId *string `json:"branch_id,omitempty"`
 
-	// Conflicts Structured view of the same conflicts as overridden_fields, each carrying the value on the base (common ancestor), source branch, and target branch so the divergence can be presented and resolved field-by-field.
+	// Conflicts Structured view of the same conflicts as overridden_fields, each carrying the value on the base (common ancestor), source branch, and target branch so the divergence can be presented and resolved field-by-field. A merge or rebase is rejected while any of them has no resolution in `conflict_resolutions`, unless the merge is forced.
 	Conflicts *[]FieldConflict `json:"conflicts,omitempty"`
 
 	// ConversationConfig The conversation configuration of the agent
@@ -40614,6 +40652,9 @@ type MergePreviewResponseModel struct {
 
 	// MainBranchId The ID of the main branch for this agent
 	MainBranchId *string `json:"main_branch_id,omitempty"`
+
+	// MergeError Why the merge doesn't combine into a valid configuration while conflicts are left to resolve. The preview then shows the branch the merge writes unchanged.
+	MergeError *string `json:"merge_error,omitempty"`
 
 	// Metadata The metadata of the agent
 	Metadata AgentMetadataResponseModel `json:"metadata"`
@@ -40636,8 +40677,14 @@ type MergePreviewResponseModel struct {
 	// SourceIdenticalToTarget True when the merge/rebase would be a no-op, i.e. the merged result is identical to the source branch tip. The rebase endpoint rejects in this case.
 	SourceIdenticalToTarget *bool `json:"source_identical_to_target,omitempty"`
 
+	// SourceTipVersionId Tip version of the source branch (the rebased branch for a rebase) the preview was computed from.
+	SourceTipVersionId *string `json:"source_tip_version_id,omitempty"`
+
 	// Tags Agent tags used to categorize the agent
 	Tags *[]string `json:"tags,omitempty"`
+
+	// TargetTipVersionId Tip version of the target branch (main for a rebase) the preview was computed from.
+	TargetTipVersionId *string `json:"target_tip_version_id,omitempty"`
 
 	// VersionId The ID of the version the agent is on
 	VersionId *string `json:"version_id,omitempty"`
@@ -55237,7 +55284,7 @@ type MergePreviewRouteParams struct {
 	// TargetBranchId The ID of the target branch to merge into.
 	TargetBranchId string `form:"target_branch_id" json:"target_branch_id"`
 
-	// Force When true, source branch changes always win conflicts regardless of timestamps
+	// Force When true, the preview keeps the source branch's value for every conflict, as a merge with `force` does. Without it, a merge with conflicts needs `conflict_resolutions`.
 	Force *bool `form:"force,omitempty" json:"force,omitempty"`
 
 	// IncludeProcedureGeneratedWorkflowElements Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.
@@ -55458,9 +55505,6 @@ type ListAgentConversationTicketsRouteParams struct {
 
 	// AssigneeUserId Filter agent issues by assignee. Use 'unassigned' for issues with no assignee.
 	AssigneeUserId *string `form:"assignee_user_id,omitempty" json:"assignee_user_id,omitempty"`
-
-	// IssueType Filter agent issues by type.
-	IssueType *AgentConversationTicketIssueType `form:"issue_type,omitempty" json:"issue_type,omitempty"`
 
 	// Label Filter agent issues by an exact label.
 	Label *string `form:"label,omitempty" json:"label,omitempty"`
@@ -57303,9 +57347,6 @@ type ListWorkspaceConversationTicketsRouteParams struct {
 
 	// AssigneeUserId Filter agent issues by assignee. Use 'unassigned' for issues with no assignee.
 	AssigneeUserId *string `form:"assignee_user_id,omitempty" json:"assignee_user_id,omitempty"`
-
-	// IssueType Filter agent issues by type.
-	IssueType *AgentConversationTicketIssueType `form:"issue_type,omitempty" json:"issue_type,omitempty"`
 
 	// Label Filter agent issues by an exact label.
 	Label *string `form:"label,omitempty" json:"label,omitempty"`
@@ -97492,7 +97533,7 @@ type ClientInterface interface {
 
 	// RebaseBranchOntoMainWithBody Rebase A Branch Onto Main
 	//
-	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -97501,7 +97542,7 @@ type ClientInterface interface {
 
 	// RebaseBranchOntoMain Rebase A Branch Onto Main
 	//
-	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -97510,14 +97551,14 @@ type ClientInterface interface {
 
 	// RebasePreviewRoute Preview Rebased Configuration
 	//
-	// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
+	// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it. When `conflicts` is not empty, the rebase itself is rejected unless `conflict_resolutions` settles every conflict; until then the returned configuration keeps the given branch's side of each conflict.
 	//
 	// Corresponds with GET /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase-preview (the `RebasePreviewRoute` operationId).
 	RebasePreviewRoute(ctx context.Context, agentId string, branchId string, params *RebasePreviewRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// MergeBranchIntoTargetWithBody Merge A Branch Into A Target Branch
 	//
-	// Merge a branch into a target branch.
+	// Merge a branch into a target branch. If both branches changed the same field, the merge returns 409 unless `conflict_resolutions` settles every conflict the merge preview reports, or `force` is set.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -97526,7 +97567,7 @@ type ClientInterface interface {
 
 	// MergeBranchIntoTarget Merge A Branch Into A Target Branch
 	//
-	// Merge a branch into a target branch.
+	// Merge a branch into a target branch. If both branches changed the same field, the merge returns 409 unless `conflict_resolutions` settles every conflict the merge preview reports, or `force` is set.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -97535,7 +97576,7 @@ type ClientInterface interface {
 
 	// MergePreviewRoute Preview Merged Configuration
 	//
-	// Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.
+	// Returns the result of merging the source branch into the target branch without performing the merge. When `conflicts` is not empty, the merge itself is rejected unless `conflict_resolutions` settles every conflict or `force` is set; until then the returned configuration shows one side of each conflict only as a placeholder.
 	//
 	// Corresponds with GET /v1/convai/agents/{agent_id}/branches/{source_branch_id}/merge-preview (the `MergePreviewRoute` operationId).
 	MergePreviewRoute(ctx context.Context, agentId string, sourceBranchId string, params *MergePreviewRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -104428,7 +104469,7 @@ func (c *Client) UpdateProcedureDraftRoute(ctx context.Context, agentId string, 
 
 // RebaseBranchOntoMainWithBody Rebase A Branch Onto Main
 //
-// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
 //
 // Takes any type of body and a specified content type.
 //
@@ -104447,7 +104488,7 @@ func (c *Client) RebaseBranchOntoMainWithBody(ctx context.Context, agentId strin
 
 // RebaseBranchOntoMain Rebase A Branch Onto Main
 //
-// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -104466,7 +104507,7 @@ func (c *Client) RebaseBranchOntoMain(ctx context.Context, agentId string, branc
 
 // RebasePreviewRoute Preview Rebased Configuration
 //
-// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
+// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it. When `conflicts` is not empty, the rebase itself is rejected unless `conflict_resolutions` settles every conflict; until then the returned configuration keeps the given branch's side of each conflict.
 //
 // Corresponds with GET /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase-preview (the `RebasePreviewRoute` operationId).
 func (c *Client) RebasePreviewRoute(ctx context.Context, agentId string, branchId string, params *RebasePreviewRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -104483,7 +104524,7 @@ func (c *Client) RebasePreviewRoute(ctx context.Context, agentId string, branchI
 
 // MergeBranchIntoTargetWithBody Merge A Branch Into A Target Branch
 //
-// Merge a branch into a target branch.
+// Merge a branch into a target branch. If both branches changed the same field, the merge returns 409 unless `conflict_resolutions` settles every conflict the merge preview reports, or `force` is set.
 //
 // Takes any type of body and a specified content type.
 //
@@ -104502,7 +104543,7 @@ func (c *Client) MergeBranchIntoTargetWithBody(ctx context.Context, agentId stri
 
 // MergeBranchIntoTarget Merge A Branch Into A Target Branch
 //
-// Merge a branch into a target branch.
+// Merge a branch into a target branch. If both branches changed the same field, the merge returns 409 unless `conflict_resolutions` settles every conflict the merge preview reports, or `force` is set.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -104521,7 +104562,7 @@ func (c *Client) MergeBranchIntoTarget(ctx context.Context, agentId string, sour
 
 // MergePreviewRoute Preview Merged Configuration
 //
-// Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.
+// Returns the result of merging the source branch into the target branch without performing the merge. When `conflicts` is not empty, the merge itself is rejected unless `conflict_resolutions` settles every conflict or `force` is set; until then the returned configuration shows one side of each conflict only as a placeholder.
 //
 // Corresponds with GET /v1/convai/agents/{agent_id}/branches/{source_branch_id}/merge-preview (the `MergePreviewRoute` operationId).
 func (c *Client) MergePreviewRoute(ctx context.Context, agentId string, sourceBranchId string, params *MergePreviewRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -122409,18 +122450,6 @@ func NewListAgentConversationTicketsRouteRequest(server string, agentId string, 
 
 		}
 
-		if params.IssueType != nil {
-
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "issue_type", *params.IssueType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
-				return nil, err
-			} else {
-				for _, qp := range strings.Split(queryFrag, "&") {
-					rawQueryFragments = append(rawQueryFragments, qp)
-				}
-			}
-
-		}
-
 		if params.Label != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "label", *params.Label, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
@@ -134709,18 +134738,6 @@ func NewListWorkspaceConversationTicketsRouteRequest(server string, params *List
 		if params.AssigneeUserId != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "assignee_user_id", *params.AssigneeUserId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
-				return nil, err
-			} else {
-				for _, qp := range strings.Split(queryFrag, "&") {
-					rawQueryFragments = append(rawQueryFragments, qp)
-				}
-			}
-
-		}
-
-		if params.IssueType != nil {
-
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "issue_type", *params.IssueType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -155857,7 +155874,7 @@ type ClientWithResponsesInterface interface {
 
 	// RebaseBranchOntoMainWithBodyWithResponse Rebase A Branch Onto Main
 	//
-	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -155866,7 +155883,7 @@ type ClientWithResponsesInterface interface {
 
 	// RebaseBranchOntoMainWithResponse Rebase A Branch Onto Main
 	//
-	// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -155875,7 +155892,7 @@ type ClientWithResponsesInterface interface {
 
 	// RebasePreviewRouteWithResponse Preview Rebased Configuration
 	//
-	// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
+	// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it. When `conflicts` is not empty, the rebase itself is rejected unless `conflict_resolutions` settles every conflict; until then the returned configuration keeps the given branch's side of each conflict.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -155884,7 +155901,7 @@ type ClientWithResponsesInterface interface {
 
 	// MergeBranchIntoTargetWithBodyWithResponse Merge A Branch Into A Target Branch
 	//
-	// Merge a branch into a target branch.
+	// Merge a branch into a target branch. If both branches changed the same field, the merge returns 409 unless `conflict_resolutions` settles every conflict the merge preview reports, or `force` is set.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -155893,7 +155910,7 @@ type ClientWithResponsesInterface interface {
 
 	// MergeBranchIntoTargetWithResponse Merge A Branch Into A Target Branch
 	//
-	// Merge a branch into a target branch.
+	// Merge a branch into a target branch. If both branches changed the same field, the merge returns 409 unless `conflict_resolutions` settles every conflict the merge preview reports, or `force` is set.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -155902,7 +155919,7 @@ type ClientWithResponsesInterface interface {
 
 	// MergePreviewRouteWithResponse Preview Merged Configuration
 	//
-	// Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.
+	// Returns the result of merging the source branch into the target branch without performing the merge. When `conflicts` is not empty, the merge itself is rejected unless `conflict_resolutions` settles every conflict or `force` is set; until then the returned configuration shows one side of each conflict only as a placeholder.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -189121,7 +189138,7 @@ func (c *ClientWithResponses) UpdateProcedureDraftRouteWithResponse(ctx context.
 
 // RebaseBranchOntoMainWithBodyWithResponse Rebase A Branch Onto Main
 //
-// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -189136,7 +189153,7 @@ func (c *ClientWithResponses) RebaseBranchOntoMainWithBodyWithResponse(ctx conte
 
 // RebaseBranchOntoMainWithResponse Rebase A Branch Onto Main
 //
-// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -189151,7 +189168,7 @@ func (c *ClientWithResponses) RebaseBranchOntoMainWithResponse(ctx context.Conte
 
 // RebasePreviewRouteWithResponse Preview Rebased Configuration
 //
-// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
+// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it. When `conflicts` is not empty, the rebase itself is rejected unless `conflict_resolutions` settles every conflict; until then the returned configuration keeps the given branch's side of each conflict.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -189166,7 +189183,7 @@ func (c *ClientWithResponses) RebasePreviewRouteWithResponse(ctx context.Context
 
 // MergeBranchIntoTargetWithBodyWithResponse Merge A Branch Into A Target Branch
 //
-// Merge a branch into a target branch.
+// Merge a branch into a target branch. If both branches changed the same field, the merge returns 409 unless `conflict_resolutions` settles every conflict the merge preview reports, or `force` is set.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -189181,7 +189198,7 @@ func (c *ClientWithResponses) MergeBranchIntoTargetWithBodyWithResponse(ctx cont
 
 // MergeBranchIntoTargetWithResponse Merge A Branch Into A Target Branch
 //
-// Merge a branch into a target branch.
+// Merge a branch into a target branch. If both branches changed the same field, the merge returns 409 unless `conflict_resolutions` settles every conflict the merge preview reports, or `force` is set.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -189196,7 +189213,7 @@ func (c *ClientWithResponses) MergeBranchIntoTargetWithResponse(ctx context.Cont
 
 // MergePreviewRouteWithResponse Preview Merged Configuration
 //
-// Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.
+// Returns the result of merging the source branch into the target branch without performing the merge. When `conflicts` is not empty, the merge itself is rejected unless `conflict_resolutions` settles every conflict or `force` is set; until then the returned configuration shows one side of each conflict only as a placeholder.
 //
 // Returns a wrapper object for the known response body format(s).
 //
