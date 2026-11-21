@@ -2,6 +2,19 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.20.0, 2026-11-21
+
+- Breaking: removes `LLMArrayJsonSchemaPropertyInput` and `LLMArrayJsonSchemaPropertyOutput`, with their `_Items` unions and `Type` enums (`LLMArrayJsonSchemaPropertyInputTypeArray`, `LLMArrayJsonSchemaPropertyOutputTypeArray`).
+- Breaking: removes `LLMObjectJsonSchemaPropertyInput` and `LLMObjectJsonSchemaPropertyOutput`, with their `_Properties_AdditionalProperties` unions and `Type` enums (`LLMObjectJsonSchemaPropertyInputTypeObject`, `LLMObjectJsonSchemaPropertyOutputTypeObject`).
+- Breaking: removes `LLMAnyOfJsonSchemaPropertyInput` and `LLMAnyOfJsonSchemaPropertyOutput`.
+- Adds `AnyOfJsonSchemaPropertyInput` and `AnyOfJsonSchemaPropertyOutput` (`AnyOf`, `Description`, `Discriminator`). The array items and object properties unions gain `AsAnyOfJsonSchemaProperty*`, `FromAnyOfJsonSchemaProperty*` and `MergeAnyOfJsonSchemaProperty*` methods.
+- Adds `MtlsAuthConnection` (`*CustomLLM_MtlsAuthConnection`) to `CustomLLM`.
+- Adds `Age`, `Category`, `Gender`, `IncludeCustomRates`, `IncludeLiveModerated`, `MinNoticePeriodDays`, `OwnerId` and `UseCases` to `GetSimilarLibraryVoicesParams`. The client sends them as query parameters.
+- Adds `TimezoneOverride` to `LeadDetailResponse`, `LeadView` and `SubmitCampaignRecipient`.
+- Adds `PauseAfterFiller` to `SoftTimeoutConfig` and `SoftTimeoutConfigWorkflowOverride`.
+- Adds `ConversationInitiationSourceUnitySdk`.
+- Regenerated from the ElevenLabs OpenAPI spec, still version 1.0.
+
 ## v0.19.0, 2026-11-20
 
 - Breaking: the `IssueType` field of `AgentConversationTicketResponseModel` changes from `*AgentConversationTicketIssueType` to `any`. Upstream now marks it deprecated and always null, with issue types stored as `issue_type:<value>` labels.

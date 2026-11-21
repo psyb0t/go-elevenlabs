@@ -6121,6 +6121,7 @@ const (
 	ConversationInitiationSourceTemplatePreview       ConversationInitiationSource = "template_preview"
 	ConversationInitiationSourceTwilio                ConversationInitiationSource = "twilio"
 	ConversationInitiationSourceTwilioSms             ConversationInitiationSource = "twilio_sms"
+	ConversationInitiationSourceUnitySdk              ConversationInitiationSource = "unity_sdk"
 	ConversationInitiationSourceUnknown               ConversationInitiationSource = "unknown"
 	ConversationInitiationSourceWhatsapp              ConversationInitiationSource = "whatsapp"
 	ConversationInitiationSourceWidget                ConversationInitiationSource = "widget"
@@ -6179,6 +6180,8 @@ func (e ConversationInitiationSource) Valid() bool {
 	case ConversationInitiationSourceTwilio:
 		return true
 	case ConversationInitiationSourceTwilioSms:
+		return true
+	case ConversationInitiationSourceUnitySdk:
 		return true
 	case ConversationInitiationSourceUnknown:
 		return true
@@ -11530,36 +11533,6 @@ func (e LLM) Valid() bool {
 	}
 }
 
-// Defines values for LLMArrayJsonSchemaPropertyInputType.
-const (
-	LLMArrayJsonSchemaPropertyInputTypeArray LLMArrayJsonSchemaPropertyInputType = "array"
-)
-
-// Valid indicates whether the value is a known member of the LLMArrayJsonSchemaPropertyInputType enum.
-func (e LLMArrayJsonSchemaPropertyInputType) Valid() bool {
-	switch e {
-	case LLMArrayJsonSchemaPropertyInputTypeArray:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for LLMArrayJsonSchemaPropertyOutputType.
-const (
-	LLMArrayJsonSchemaPropertyOutputTypeArray LLMArrayJsonSchemaPropertyOutputType = "array"
-)
-
-// Valid indicates whether the value is a known member of the LLMArrayJsonSchemaPropertyOutputType enum.
-func (e LLMArrayJsonSchemaPropertyOutputType) Valid() bool {
-	switch e {
-	case LLMArrayJsonSchemaPropertyOutputTypeArray:
-		return true
-	default:
-		return false
-	}
-}
-
 // Defines values for LLMLiteralJsonSchemaPropertyType0.
 const (
 	LLMLiteralJsonSchemaPropertyType0Boolean LLMLiteralJsonSchemaPropertyType0 = "boolean"
@@ -11578,36 +11551,6 @@ func (e LLMLiteralJsonSchemaPropertyType0) Valid() bool {
 	case LLMLiteralJsonSchemaPropertyType0Number:
 		return true
 	case LLMLiteralJsonSchemaPropertyType0String:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for LLMObjectJsonSchemaPropertyInputType.
-const (
-	LLMObjectJsonSchemaPropertyInputTypeObject LLMObjectJsonSchemaPropertyInputType = "object"
-)
-
-// Valid indicates whether the value is a known member of the LLMObjectJsonSchemaPropertyInputType enum.
-func (e LLMObjectJsonSchemaPropertyInputType) Valid() bool {
-	switch e {
-	case LLMObjectJsonSchemaPropertyInputTypeObject:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for LLMObjectJsonSchemaPropertyOutputType.
-const (
-	LLMObjectJsonSchemaPropertyOutputTypeObject LLMObjectJsonSchemaPropertyOutputType = "object"
-)
-
-// Valid indicates whether the value is a known member of the LLMObjectJsonSchemaPropertyOutputType enum.
-func (e LLMObjectJsonSchemaPropertyOutputType) Valid() bool {
-	switch e {
-	case LLMObjectJsonSchemaPropertyOutputTypeObject:
 		return true
 	default:
 		return false
@@ -25881,6 +25824,30 @@ type AnalysisRunningTotal struct {
 // AnalysisScope defines model for AnalysisScope.
 type AnalysisScope string
 
+// AnyOfJsonSchemaPropertyInput defines model for AnyOfJsonSchemaProperty-Input.
+type AnyOfJsonSchemaPropertyInput struct {
+	// AnyOf The object shapes the value can take.
+	AnyOf []ObjectJsonSchemaPropertyInput `json:"any_of"`
+
+	// Description What the value is, for the LLM.
+	Description *string `json:"description,omitempty"`
+
+	// Discriminator The property every branch declares as a required string with a single enum value; that value names the branch.
+	Discriminator string `json:"discriminator"`
+}
+
+// AnyOfJsonSchemaPropertyOutput defines model for AnyOfJsonSchemaProperty-Output.
+type AnyOfJsonSchemaPropertyOutput struct {
+	// AnyOf The object shapes the value can take.
+	AnyOf []ObjectJsonSchemaPropertyOutput `json:"any_of"`
+
+	// Description What the value is, for the LLM.
+	Description *string `json:"description,omitempty"`
+
+	// Discriminator The property every branch declares as a required string with a single enum value; that value names the branch.
+	Discriminator string `json:"discriminator"`
+}
+
 // ApiIntegrationOAuth2AuthCodeResponse Response model for integration-managed OAuth2 Auth Code auth connections
 type ApiIntegrationOAuth2AuthCodeResponse struct {
 	AuthType     *ApiIntegrationOAuth2AuthCodeResponseAuthType `json:"auth_type,omitempty"`
@@ -31938,7 +31905,7 @@ type ConversationChargingCommonModel struct {
 	Tier          *string                    `json:"tier,omitempty"`
 	TtsUsage      *ConversationTTSUsageModel `json:"tts_usage,omitempty"`
 
-	// VoiceSurchargeCharge Credits charged as the voice actor reward for the Voice Library voices this conversation used. It is not included in `cost`.
+	// VoiceSurchargeCharge Credits charged as the voice owner fee for the custom rate voices this conversation used. It is not included in `cost`.
 	VoiceSurchargeCharge *int `json:"voice_surcharge_charge,omitempty"`
 }
 
@@ -34162,6 +34129,9 @@ type CustomLLM struct {
 	// ModelId The model ID to be used if URL serves multiple models
 	ModelId *string `json:"model_id,omitempty"`
 
+	// MtlsAuthConnection Optional mTLS auth connection. When set, its client certificate is used for the TLS handshake with the LLM endpoint and, when auth_connection is OAuth2 client credentials or OAuth2 JWT, with its token endpoint too. Application auth stays on auth_connection or api_key. auth_connection must then be OAuth2 client credentials, OAuth2 JWT or bearer.
+	MtlsAuthConnection *CustomLLM_MtlsAuthConnection `json:"mtls_auth_connection,omitempty"`
+
 	// RequestHeaders Headers that should be included in the request
 	RequestHeaders *map[string]CustomLLM_RequestHeaders_AdditionalProperties `json:"request_headers,omitempty"`
 
@@ -34176,6 +34146,11 @@ type CustomLLM_ApiKey struct {
 
 // CustomLLM_AuthConnection Optional workspace auth connection for authentication. Only auth connections that produce an Authorization Bearer token are supported; Basic auth, mTLS, custom header, and URL secret auth connections are not supported.
 type CustomLLM_AuthConnection struct {
+	union json.RawMessage
+}
+
+// CustomLLM_MtlsAuthConnection Optional mTLS auth connection. When set, its client certificate is used for the TLS handshake with the LLM endpoint and, when auth_connection is OAuth2 client credentials or OAuth2 JWT, with its token endpoint too. Application auth stays on auth_connection or api_key. auth_connection must then be OAuth2 client credentials, OAuth2 JWT or bearer.
+type CustomLLM_MtlsAuthConnection struct {
 	union json.RawMessage
 }
 
@@ -38753,45 +38728,6 @@ type KnowledgeSourceType string
 // LLM defines model for LLM.
 type LLM string
 
-// LLMAnyOfJsonSchemaPropertyInput defines model for LLMAnyOfJsonSchemaProperty-Input.
-type LLMAnyOfJsonSchemaPropertyInput struct {
-	AnyOf       []LLMObjectJsonSchemaPropertyInput `json:"any_of"`
-	Description *string                            `json:"description,omitempty"`
-}
-
-// LLMAnyOfJsonSchemaPropertyOutput defines model for LLMAnyOfJsonSchemaProperty-Output.
-type LLMAnyOfJsonSchemaPropertyOutput map[string]interface{}
-
-// LLMArrayJsonSchemaPropertyInput defines model for LLMArrayJsonSchemaProperty-Input.
-type LLMArrayJsonSchemaPropertyInput struct {
-	Description *string                               `json:"description,omitempty"`
-	Items       LLMArrayJsonSchemaPropertyInput_Items `json:"items"`
-	Type        *LLMArrayJsonSchemaPropertyInputType  `json:"type,omitempty"`
-}
-
-// LLMArrayJsonSchemaPropertyInput_Items defines model for LLMArrayJsonSchemaPropertyInput.Items.
-type LLMArrayJsonSchemaPropertyInput_Items struct {
-	union json.RawMessage
-}
-
-// LLMArrayJsonSchemaPropertyInputType defines model for LLMArrayJsonSchemaPropertyInput.Type.
-type LLMArrayJsonSchemaPropertyInputType string
-
-// LLMArrayJsonSchemaPropertyOutput defines model for LLMArrayJsonSchemaProperty-Output.
-type LLMArrayJsonSchemaPropertyOutput struct {
-	Description *string                                `json:"description,omitempty"`
-	Items       LLMArrayJsonSchemaPropertyOutput_Items `json:"items"`
-	Type        *LLMArrayJsonSchemaPropertyOutputType  `json:"type,omitempty"`
-}
-
-// LLMArrayJsonSchemaPropertyOutput_Items defines model for LLMArrayJsonSchemaPropertyOutput.Items.
-type LLMArrayJsonSchemaPropertyOutput_Items struct {
-	union json.RawMessage
-}
-
-// LLMArrayJsonSchemaPropertyOutputType defines model for LLMArrayJsonSchemaPropertyOutput.Type.
-type LLMArrayJsonSchemaPropertyOutputType string
-
 // LLMCategoryUsage LLM usage of a conversation, split by whether the generated response reached the user.
 type LLMCategoryUsage struct {
 	// InitiatedGeneration Usage of every LLM call made during the conversation: turns the user heard, turns the user interrupted, and speculative turns that were started and dropped before any audio was sent. LLM charges are based on this block; its prices sum to `llm_price`. Always greater than or equal to `irreversible_generation`.
@@ -38925,38 +38861,6 @@ type LLMLiteralJsonSchemaPropertyType1 = []string
 type LLMLiteralJsonSchemaProperty_Type struct {
 	union json.RawMessage
 }
-
-// LLMObjectJsonSchemaPropertyInput defines model for LLMObjectJsonSchemaProperty-Input.
-type LLMObjectJsonSchemaPropertyInput struct {
-	Description *string                                                                      `json:"description,omitempty"`
-	Properties  *map[string]LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties `json:"properties,omitempty"`
-	Required    *[]string                                                                    `json:"required,omitempty"`
-	Type        *LLMObjectJsonSchemaPropertyInputType                                        `json:"type,omitempty"`
-}
-
-// LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties defines model for LLMObjectJsonSchemaProperty-Input.properties.AdditionalProperties.
-type LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties struct {
-	union json.RawMessage
-}
-
-// LLMObjectJsonSchemaPropertyInputType defines model for LLMObjectJsonSchemaPropertyInput.Type.
-type LLMObjectJsonSchemaPropertyInputType string
-
-// LLMObjectJsonSchemaPropertyOutput defines model for LLMObjectJsonSchemaProperty-Output.
-type LLMObjectJsonSchemaPropertyOutput struct {
-	Description *string                                                                       `json:"description,omitempty"`
-	Properties  *map[string]LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties `json:"properties,omitempty"`
-	Required    *[]string                                                                     `json:"required,omitempty"`
-	Type        *LLMObjectJsonSchemaPropertyOutputType                                        `json:"type,omitempty"`
-}
-
-// LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties defines model for LLMObjectJsonSchemaProperty-Output.properties.AdditionalProperties.
-type LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties struct {
-	union json.RawMessage
-}
-
-// LLMObjectJsonSchemaPropertyOutputType defines model for LLMObjectJsonSchemaPropertyOutput.Type.
-type LLMObjectJsonSchemaPropertyOutputType string
 
 // LLMParameterEvaluationStrategy defines model for LLMParameterEvaluationStrategy.
 type LLMParameterEvaluationStrategy struct {
@@ -39213,7 +39117,10 @@ type LeadDetailResponse struct {
 
 	// TerminalDisposition Why the lead won't be called again; unset while it may be.
 	TerminalDisposition *TerminalDisposition `json:"terminal_disposition"`
-	UpdatedAtUnix       int                  `json:"updated_at_unix"`
+
+	// TimezoneOverride The timezone the recipient's calling windows are read in; unset when the lead follows the campaign's.
+	TimezoneOverride *string `json:"timezone_override,omitempty"`
+	UpdatedAtUnix    int     `json:"updated_at_unix"`
 
 	// UserId The contact's identity: the `user_id` submitted in `conversation_initiation_client_data`, else the lead's phone number.
 	UserId string `json:"user_id"`
@@ -39263,7 +39170,10 @@ type LeadView struct {
 
 	// TerminalDisposition Why the lead won't be called again; unset while it may be.
 	TerminalDisposition *TerminalDisposition `json:"terminal_disposition"`
-	UpdatedAtUnix       int                  `json:"updated_at_unix"`
+
+	// TimezoneOverride The timezone the recipient's calling windows are read in; unset when the lead follows the campaign's.
+	TimezoneOverride *string `json:"timezone_override,omitempty"`
+	UpdatedAtUnix    int     `json:"updated_at_unix"`
 
 	// UserId The contact's identity: the `user_id` submitted in `conversation_initiation_client_data`, else the lead's phone number.
 	UserId string `json:"user_id"`
@@ -47461,6 +47371,9 @@ type SoftTimeoutConfig struct {
 	// Message Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).
 	Message *string `json:"message,omitempty"`
 
+	// PauseAfterFiller If enabled, leave a short pause after a filler message before the agent's response, so the two do not run together.
+	PauseAfterFiller *bool `json:"pause_after_filler,omitempty"`
+
 	// RandomizeFillers If enabled, shuffle the order of static soft timeout messages once at the start of each turn. Only applies when use_llm_generated_message is false.
 	RandomizeFillers *bool `json:"randomize_fillers,omitempty"`
 
@@ -47507,6 +47420,9 @@ type SoftTimeoutConfigWorkflowOverride struct {
 
 	// Message Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).
 	Message *string `json:"message,omitempty"`
+
+	// PauseAfterFiller If enabled, leave a short pause after a filler message before the agent's response, so the two do not run together.
+	PauseAfterFiller *bool `json:"pause_after_filler,omitempty"`
 
 	// RandomizeFillers If enabled, shuffle the order of static soft timeout messages once at the start of each turn. Only applies when use_llm_generated_message is false.
 	RandomizeFillers *bool `json:"randomize_fillers,omitempty"`
@@ -48203,6 +48119,9 @@ type SubmitCampaignRecipient struct {
 
 	// PhoneNumbers More numbers to call, in order after `phone_number`. The lead moves on to the next one when calls to its current number keep failing.
 	PhoneNumbers *[]string `json:"phone_numbers,omitempty"`
+
+	// TimezoneOverride IANA timezone to read the calling windows and callback times in for this recipient, overriding the campaign's.
+	TimezoneOverride *string `json:"timezone_override,omitempty"`
 
 	// WhatsappUserId The contact's WhatsApp user ID. WhatsApp campaigns use it instead of the phone numbers.
 	WhatsappUserId *string `json:"whatsapp_user_id,omitempty"`
@@ -59174,6 +59093,30 @@ type GetLibraryVoicesParams struct {
 
 // GetSimilarLibraryVoicesParams defines parameters for GetSimilarLibraryVoices.
 type GetSimilarLibraryVoicesParams struct {
+	// Category Voice category used for filtering
+	Category *string `form:"category,omitempty" json:"category,omitempty"`
+
+	// Gender Gender used for filtering
+	Gender *string `form:"gender,omitempty" json:"gender,omitempty"`
+
+	// Age Age used for filtering
+	Age *string `form:"age,omitempty" json:"age,omitempty"`
+
+	// UseCases Use-case used for filtering
+	UseCases *[]string `form:"use_cases,omitempty" json:"use_cases,omitempty"`
+
+	// MinNoticePeriodDays Filter voices with a minimum notice period of the given number of days.
+	MinNoticePeriodDays *int `form:"min_notice_period_days,omitempty" json:"min_notice_period_days,omitempty"`
+
+	// IncludeCustomRates Include/exclude voices with custom rates
+	IncludeCustomRates *bool `form:"include_custom_rates,omitempty" json:"include_custom_rates,omitempty"`
+
+	// IncludeLiveModerated Include/exclude voices that are live moderated
+	IncludeLiveModerated *bool `form:"include_live_moderated,omitempty" json:"include_live_moderated,omitempty"`
+
+	// OwnerId Filter voices by public owner ID
+	OwnerId *string `form:"owner_id,omitempty" json:"owner_id,omitempty"`
+
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -64513,6 +64456,32 @@ func (t *ArrayJsonSchemaPropertyInput_Items) MergeArrayJsonSchemaPropertyInput(v
 	return err
 }
 
+// AsAnyOfJsonSchemaPropertyInput returns the union data inside the ArrayJsonSchemaPropertyInput_Items as a AnyOfJsonSchemaPropertyInput
+func (t ArrayJsonSchemaPropertyInput_Items) AsAnyOfJsonSchemaPropertyInput() (AnyOfJsonSchemaPropertyInput, error) {
+	var body AnyOfJsonSchemaPropertyInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAnyOfJsonSchemaPropertyInput overwrites any union data inside the ArrayJsonSchemaPropertyInput_Items as the provided AnyOfJsonSchemaPropertyInput
+func (t *ArrayJsonSchemaPropertyInput_Items) FromAnyOfJsonSchemaPropertyInput(v AnyOfJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAnyOfJsonSchemaPropertyInput performs a merge with any union data inside the ArrayJsonSchemaPropertyInput_Items, using the provided AnyOfJsonSchemaPropertyInput
+func (t *ArrayJsonSchemaPropertyInput_Items) MergeAnyOfJsonSchemaPropertyInput(v AnyOfJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 func (t ArrayJsonSchemaPropertyInput_Items) MarshalJSON() ([]byte, error) {
 	b, err := t.union.MarshalJSON()
 	return b, err
@@ -64591,6 +64560,32 @@ func (t *ArrayJsonSchemaPropertyOutput_Items) FromArrayJsonSchemaPropertyOutput(
 
 // MergeArrayJsonSchemaPropertyOutput performs a merge with any union data inside the ArrayJsonSchemaPropertyOutput_Items, using the provided ArrayJsonSchemaPropertyOutput
 func (t *ArrayJsonSchemaPropertyOutput_Items) MergeArrayJsonSchemaPropertyOutput(v ArrayJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAnyOfJsonSchemaPropertyOutput returns the union data inside the ArrayJsonSchemaPropertyOutput_Items as a AnyOfJsonSchemaPropertyOutput
+func (t ArrayJsonSchemaPropertyOutput_Items) AsAnyOfJsonSchemaPropertyOutput() (AnyOfJsonSchemaPropertyOutput, error) {
+	var body AnyOfJsonSchemaPropertyOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAnyOfJsonSchemaPropertyOutput overwrites any union data inside the ArrayJsonSchemaPropertyOutput_Items as the provided AnyOfJsonSchemaPropertyOutput
+func (t *ArrayJsonSchemaPropertyOutput_Items) FromAnyOfJsonSchemaPropertyOutput(v AnyOfJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAnyOfJsonSchemaPropertyOutput performs a merge with any union data inside the ArrayJsonSchemaPropertyOutput_Items, using the provided AnyOfJsonSchemaPropertyOutput
+func (t *ArrayJsonSchemaPropertyOutput_Items) MergeAnyOfJsonSchemaPropertyOutput(v AnyOfJsonSchemaPropertyOutput) error {
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -68739,6 +68734,68 @@ func (t CustomLLM_AuthConnection) MarshalJSON() ([]byte, error) {
 }
 
 func (t *CustomLLM_AuthConnection) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsAuthConnectionLocator returns the union data inside the CustomLLM_MtlsAuthConnection as a AuthConnectionLocator
+func (t CustomLLM_MtlsAuthConnection) AsAuthConnectionLocator() (AuthConnectionLocator, error) {
+	var body AuthConnectionLocator
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAuthConnectionLocator overwrites any union data inside the CustomLLM_MtlsAuthConnection as the provided AuthConnectionLocator
+func (t *CustomLLM_MtlsAuthConnection) FromAuthConnectionLocator(v AuthConnectionLocator) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAuthConnectionLocator performs a merge with any union data inside the CustomLLM_MtlsAuthConnection, using the provided AuthConnectionLocator
+func (t *CustomLLM_MtlsAuthConnection) MergeAuthConnectionLocator(v AuthConnectionLocator) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEnvironmentAuthConnectionLocator returns the union data inside the CustomLLM_MtlsAuthConnection as a EnvironmentAuthConnectionLocator
+func (t CustomLLM_MtlsAuthConnection) AsEnvironmentAuthConnectionLocator() (EnvironmentAuthConnectionLocator, error) {
+	var body EnvironmentAuthConnectionLocator
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEnvironmentAuthConnectionLocator overwrites any union data inside the CustomLLM_MtlsAuthConnection as the provided EnvironmentAuthConnectionLocator
+func (t *CustomLLM_MtlsAuthConnection) FromEnvironmentAuthConnectionLocator(v EnvironmentAuthConnectionLocator) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEnvironmentAuthConnectionLocator performs a merge with any union data inside the CustomLLM_MtlsAuthConnection, using the provided EnvironmentAuthConnectionLocator
+func (t *CustomLLM_MtlsAuthConnection) MergeEnvironmentAuthConnectionLocator(v EnvironmentAuthConnectionLocator) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t CustomLLM_MtlsAuthConnection) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *CustomLLM_MtlsAuthConnection) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -72911,234 +72968,6 @@ func (t *KnowledgeBaseSummaryBatchSuccessfulResponseModel_Data) UnmarshalJSON(b 
 	return err
 }
 
-// AsLLMLiteralJsonSchemaProperty returns the union data inside the LLMArrayJsonSchemaPropertyInput_Items as a LLMLiteralJsonSchemaProperty
-func (t LLMArrayJsonSchemaPropertyInput_Items) AsLLMLiteralJsonSchemaProperty() (LLMLiteralJsonSchemaProperty, error) {
-	var body LLMLiteralJsonSchemaProperty
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMLiteralJsonSchemaProperty overwrites any union data inside the LLMArrayJsonSchemaPropertyInput_Items as the provided LLMLiteralJsonSchemaProperty
-func (t *LLMArrayJsonSchemaPropertyInput_Items) FromLLMLiteralJsonSchemaProperty(v LLMLiteralJsonSchemaProperty) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMLiteralJsonSchemaProperty performs a merge with any union data inside the LLMArrayJsonSchemaPropertyInput_Items, using the provided LLMLiteralJsonSchemaProperty
-func (t *LLMArrayJsonSchemaPropertyInput_Items) MergeLLMLiteralJsonSchemaProperty(v LLMLiteralJsonSchemaProperty) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMObjectJsonSchemaPropertyInput returns the union data inside the LLMArrayJsonSchemaPropertyInput_Items as a LLMObjectJsonSchemaPropertyInput
-func (t LLMArrayJsonSchemaPropertyInput_Items) AsLLMObjectJsonSchemaPropertyInput() (LLMObjectJsonSchemaPropertyInput, error) {
-	var body LLMObjectJsonSchemaPropertyInput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMObjectJsonSchemaPropertyInput overwrites any union data inside the LLMArrayJsonSchemaPropertyInput_Items as the provided LLMObjectJsonSchemaPropertyInput
-func (t *LLMArrayJsonSchemaPropertyInput_Items) FromLLMObjectJsonSchemaPropertyInput(v LLMObjectJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMObjectJsonSchemaPropertyInput performs a merge with any union data inside the LLMArrayJsonSchemaPropertyInput_Items, using the provided LLMObjectJsonSchemaPropertyInput
-func (t *LLMArrayJsonSchemaPropertyInput_Items) MergeLLMObjectJsonSchemaPropertyInput(v LLMObjectJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMArrayJsonSchemaPropertyInput returns the union data inside the LLMArrayJsonSchemaPropertyInput_Items as a LLMArrayJsonSchemaPropertyInput
-func (t LLMArrayJsonSchemaPropertyInput_Items) AsLLMArrayJsonSchemaPropertyInput() (LLMArrayJsonSchemaPropertyInput, error) {
-	var body LLMArrayJsonSchemaPropertyInput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMArrayJsonSchemaPropertyInput overwrites any union data inside the LLMArrayJsonSchemaPropertyInput_Items as the provided LLMArrayJsonSchemaPropertyInput
-func (t *LLMArrayJsonSchemaPropertyInput_Items) FromLLMArrayJsonSchemaPropertyInput(v LLMArrayJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMArrayJsonSchemaPropertyInput performs a merge with any union data inside the LLMArrayJsonSchemaPropertyInput_Items, using the provided LLMArrayJsonSchemaPropertyInput
-func (t *LLMArrayJsonSchemaPropertyInput_Items) MergeLLMArrayJsonSchemaPropertyInput(v LLMArrayJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMAnyOfJsonSchemaPropertyInput returns the union data inside the LLMArrayJsonSchemaPropertyInput_Items as a LLMAnyOfJsonSchemaPropertyInput
-func (t LLMArrayJsonSchemaPropertyInput_Items) AsLLMAnyOfJsonSchemaPropertyInput() (LLMAnyOfJsonSchemaPropertyInput, error) {
-	var body LLMAnyOfJsonSchemaPropertyInput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMAnyOfJsonSchemaPropertyInput overwrites any union data inside the LLMArrayJsonSchemaPropertyInput_Items as the provided LLMAnyOfJsonSchemaPropertyInput
-func (t *LLMArrayJsonSchemaPropertyInput_Items) FromLLMAnyOfJsonSchemaPropertyInput(v LLMAnyOfJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMAnyOfJsonSchemaPropertyInput performs a merge with any union data inside the LLMArrayJsonSchemaPropertyInput_Items, using the provided LLMAnyOfJsonSchemaPropertyInput
-func (t *LLMArrayJsonSchemaPropertyInput_Items) MergeLLMAnyOfJsonSchemaPropertyInput(v LLMAnyOfJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t LLMArrayJsonSchemaPropertyInput_Items) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *LLMArrayJsonSchemaPropertyInput_Items) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsLLMLiteralJsonSchemaProperty returns the union data inside the LLMArrayJsonSchemaPropertyOutput_Items as a LLMLiteralJsonSchemaProperty
-func (t LLMArrayJsonSchemaPropertyOutput_Items) AsLLMLiteralJsonSchemaProperty() (LLMLiteralJsonSchemaProperty, error) {
-	var body LLMLiteralJsonSchemaProperty
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMLiteralJsonSchemaProperty overwrites any union data inside the LLMArrayJsonSchemaPropertyOutput_Items as the provided LLMLiteralJsonSchemaProperty
-func (t *LLMArrayJsonSchemaPropertyOutput_Items) FromLLMLiteralJsonSchemaProperty(v LLMLiteralJsonSchemaProperty) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMLiteralJsonSchemaProperty performs a merge with any union data inside the LLMArrayJsonSchemaPropertyOutput_Items, using the provided LLMLiteralJsonSchemaProperty
-func (t *LLMArrayJsonSchemaPropertyOutput_Items) MergeLLMLiteralJsonSchemaProperty(v LLMLiteralJsonSchemaProperty) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMObjectJsonSchemaPropertyOutput returns the union data inside the LLMArrayJsonSchemaPropertyOutput_Items as a LLMObjectJsonSchemaPropertyOutput
-func (t LLMArrayJsonSchemaPropertyOutput_Items) AsLLMObjectJsonSchemaPropertyOutput() (LLMObjectJsonSchemaPropertyOutput, error) {
-	var body LLMObjectJsonSchemaPropertyOutput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMObjectJsonSchemaPropertyOutput overwrites any union data inside the LLMArrayJsonSchemaPropertyOutput_Items as the provided LLMObjectJsonSchemaPropertyOutput
-func (t *LLMArrayJsonSchemaPropertyOutput_Items) FromLLMObjectJsonSchemaPropertyOutput(v LLMObjectJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMObjectJsonSchemaPropertyOutput performs a merge with any union data inside the LLMArrayJsonSchemaPropertyOutput_Items, using the provided LLMObjectJsonSchemaPropertyOutput
-func (t *LLMArrayJsonSchemaPropertyOutput_Items) MergeLLMObjectJsonSchemaPropertyOutput(v LLMObjectJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMArrayJsonSchemaPropertyOutput returns the union data inside the LLMArrayJsonSchemaPropertyOutput_Items as a LLMArrayJsonSchemaPropertyOutput
-func (t LLMArrayJsonSchemaPropertyOutput_Items) AsLLMArrayJsonSchemaPropertyOutput() (LLMArrayJsonSchemaPropertyOutput, error) {
-	var body LLMArrayJsonSchemaPropertyOutput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMArrayJsonSchemaPropertyOutput overwrites any union data inside the LLMArrayJsonSchemaPropertyOutput_Items as the provided LLMArrayJsonSchemaPropertyOutput
-func (t *LLMArrayJsonSchemaPropertyOutput_Items) FromLLMArrayJsonSchemaPropertyOutput(v LLMArrayJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMArrayJsonSchemaPropertyOutput performs a merge with any union data inside the LLMArrayJsonSchemaPropertyOutput_Items, using the provided LLMArrayJsonSchemaPropertyOutput
-func (t *LLMArrayJsonSchemaPropertyOutput_Items) MergeLLMArrayJsonSchemaPropertyOutput(v LLMArrayJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMAnyOfJsonSchemaPropertyOutput returns the union data inside the LLMArrayJsonSchemaPropertyOutput_Items as a LLMAnyOfJsonSchemaPropertyOutput
-func (t LLMArrayJsonSchemaPropertyOutput_Items) AsLLMAnyOfJsonSchemaPropertyOutput() (LLMAnyOfJsonSchemaPropertyOutput, error) {
-	var body LLMAnyOfJsonSchemaPropertyOutput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMAnyOfJsonSchemaPropertyOutput overwrites any union data inside the LLMArrayJsonSchemaPropertyOutput_Items as the provided LLMAnyOfJsonSchemaPropertyOutput
-func (t *LLMArrayJsonSchemaPropertyOutput_Items) FromLLMAnyOfJsonSchemaPropertyOutput(v LLMAnyOfJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMAnyOfJsonSchemaPropertyOutput performs a merge with any union data inside the LLMArrayJsonSchemaPropertyOutput_Items, using the provided LLMAnyOfJsonSchemaPropertyOutput
-func (t *LLMArrayJsonSchemaPropertyOutput_Items) MergeLLMAnyOfJsonSchemaPropertyOutput(v LLMAnyOfJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t LLMArrayJsonSchemaPropertyOutput_Items) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *LLMArrayJsonSchemaPropertyOutput_Items) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
 // AsLLMLiteralJsonSchemaPropertyType0 returns the union data inside the LLMLiteralJsonSchemaProperty_Type as a LLMLiteralJsonSchemaPropertyType0
 func (t LLMLiteralJsonSchemaProperty_Type) AsLLMLiteralJsonSchemaPropertyType0() (LLMLiteralJsonSchemaPropertyType0, error) {
 	var body LLMLiteralJsonSchemaPropertyType0
@@ -73197,234 +73026,6 @@ func (t LLMLiteralJsonSchemaProperty_Type) MarshalJSON() ([]byte, error) {
 }
 
 func (t *LLMLiteralJsonSchemaProperty_Type) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsLLMLiteralJsonSchemaProperty returns the union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as a LLMLiteralJsonSchemaProperty
-func (t LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) AsLLMLiteralJsonSchemaProperty() (LLMLiteralJsonSchemaProperty, error) {
-	var body LLMLiteralJsonSchemaProperty
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMLiteralJsonSchemaProperty overwrites any union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as the provided LLMLiteralJsonSchemaProperty
-func (t *LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) FromLLMLiteralJsonSchemaProperty(v LLMLiteralJsonSchemaProperty) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMLiteralJsonSchemaProperty performs a merge with any union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties, using the provided LLMLiteralJsonSchemaProperty
-func (t *LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) MergeLLMLiteralJsonSchemaProperty(v LLMLiteralJsonSchemaProperty) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMObjectJsonSchemaPropertyInput returns the union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as a LLMObjectJsonSchemaPropertyInput
-func (t LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) AsLLMObjectJsonSchemaPropertyInput() (LLMObjectJsonSchemaPropertyInput, error) {
-	var body LLMObjectJsonSchemaPropertyInput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMObjectJsonSchemaPropertyInput overwrites any union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as the provided LLMObjectJsonSchemaPropertyInput
-func (t *LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) FromLLMObjectJsonSchemaPropertyInput(v LLMObjectJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMObjectJsonSchemaPropertyInput performs a merge with any union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties, using the provided LLMObjectJsonSchemaPropertyInput
-func (t *LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) MergeLLMObjectJsonSchemaPropertyInput(v LLMObjectJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMArrayJsonSchemaPropertyInput returns the union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as a LLMArrayJsonSchemaPropertyInput
-func (t LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) AsLLMArrayJsonSchemaPropertyInput() (LLMArrayJsonSchemaPropertyInput, error) {
-	var body LLMArrayJsonSchemaPropertyInput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMArrayJsonSchemaPropertyInput overwrites any union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as the provided LLMArrayJsonSchemaPropertyInput
-func (t *LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) FromLLMArrayJsonSchemaPropertyInput(v LLMArrayJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMArrayJsonSchemaPropertyInput performs a merge with any union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties, using the provided LLMArrayJsonSchemaPropertyInput
-func (t *LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) MergeLLMArrayJsonSchemaPropertyInput(v LLMArrayJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMAnyOfJsonSchemaPropertyInput returns the union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as a LLMAnyOfJsonSchemaPropertyInput
-func (t LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) AsLLMAnyOfJsonSchemaPropertyInput() (LLMAnyOfJsonSchemaPropertyInput, error) {
-	var body LLMAnyOfJsonSchemaPropertyInput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMAnyOfJsonSchemaPropertyInput overwrites any union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as the provided LLMAnyOfJsonSchemaPropertyInput
-func (t *LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) FromLLMAnyOfJsonSchemaPropertyInput(v LLMAnyOfJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMAnyOfJsonSchemaPropertyInput performs a merge with any union data inside the LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties, using the provided LLMAnyOfJsonSchemaPropertyInput
-func (t *LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) MergeLLMAnyOfJsonSchemaPropertyInput(v LLMAnyOfJsonSchemaPropertyInput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *LLMObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsLLMLiteralJsonSchemaProperty returns the union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as a LLMLiteralJsonSchemaProperty
-func (t LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) AsLLMLiteralJsonSchemaProperty() (LLMLiteralJsonSchemaProperty, error) {
-	var body LLMLiteralJsonSchemaProperty
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMLiteralJsonSchemaProperty overwrites any union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as the provided LLMLiteralJsonSchemaProperty
-func (t *LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) FromLLMLiteralJsonSchemaProperty(v LLMLiteralJsonSchemaProperty) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMLiteralJsonSchemaProperty performs a merge with any union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties, using the provided LLMLiteralJsonSchemaProperty
-func (t *LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) MergeLLMLiteralJsonSchemaProperty(v LLMLiteralJsonSchemaProperty) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMObjectJsonSchemaPropertyOutput returns the union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as a LLMObjectJsonSchemaPropertyOutput
-func (t LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) AsLLMObjectJsonSchemaPropertyOutput() (LLMObjectJsonSchemaPropertyOutput, error) {
-	var body LLMObjectJsonSchemaPropertyOutput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMObjectJsonSchemaPropertyOutput overwrites any union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as the provided LLMObjectJsonSchemaPropertyOutput
-func (t *LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) FromLLMObjectJsonSchemaPropertyOutput(v LLMObjectJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMObjectJsonSchemaPropertyOutput performs a merge with any union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties, using the provided LLMObjectJsonSchemaPropertyOutput
-func (t *LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) MergeLLMObjectJsonSchemaPropertyOutput(v LLMObjectJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMArrayJsonSchemaPropertyOutput returns the union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as a LLMArrayJsonSchemaPropertyOutput
-func (t LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) AsLLMArrayJsonSchemaPropertyOutput() (LLMArrayJsonSchemaPropertyOutput, error) {
-	var body LLMArrayJsonSchemaPropertyOutput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMArrayJsonSchemaPropertyOutput overwrites any union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as the provided LLMArrayJsonSchemaPropertyOutput
-func (t *LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) FromLLMArrayJsonSchemaPropertyOutput(v LLMArrayJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMArrayJsonSchemaPropertyOutput performs a merge with any union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties, using the provided LLMArrayJsonSchemaPropertyOutput
-func (t *LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) MergeLLMArrayJsonSchemaPropertyOutput(v LLMArrayJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsLLMAnyOfJsonSchemaPropertyOutput returns the union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as a LLMAnyOfJsonSchemaPropertyOutput
-func (t LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) AsLLMAnyOfJsonSchemaPropertyOutput() (LLMAnyOfJsonSchemaPropertyOutput, error) {
-	var body LLMAnyOfJsonSchemaPropertyOutput
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromLLMAnyOfJsonSchemaPropertyOutput overwrites any union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as the provided LLMAnyOfJsonSchemaPropertyOutput
-func (t *LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) FromLLMAnyOfJsonSchemaPropertyOutput(v LLMAnyOfJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeLLMAnyOfJsonSchemaPropertyOutput performs a merge with any union data inside the LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties, using the provided LLMAnyOfJsonSchemaPropertyOutput
-func (t *LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) MergeLLMAnyOfJsonSchemaPropertyOutput(v LLMAnyOfJsonSchemaPropertyOutput) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *LLMObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -77474,6 +77075,32 @@ func (t *ObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) MergeArr
 	return err
 }
 
+// AsAnyOfJsonSchemaPropertyInput returns the union data inside the ObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as a AnyOfJsonSchemaPropertyInput
+func (t ObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) AsAnyOfJsonSchemaPropertyInput() (AnyOfJsonSchemaPropertyInput, error) {
+	var body AnyOfJsonSchemaPropertyInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAnyOfJsonSchemaPropertyInput overwrites any union data inside the ObjectJsonSchemaPropertyInput_Properties_AdditionalProperties as the provided AnyOfJsonSchemaPropertyInput
+func (t *ObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) FromAnyOfJsonSchemaPropertyInput(v AnyOfJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAnyOfJsonSchemaPropertyInput performs a merge with any union data inside the ObjectJsonSchemaPropertyInput_Properties_AdditionalProperties, using the provided AnyOfJsonSchemaPropertyInput
+func (t *ObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) MergeAnyOfJsonSchemaPropertyInput(v AnyOfJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 func (t ObjectJsonSchemaPropertyInput_Properties_AdditionalProperties) MarshalJSON() ([]byte, error) {
 	b, err := t.union.MarshalJSON()
 	return b, err
@@ -77552,6 +77179,32 @@ func (t *ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) FromArr
 
 // MergeArrayJsonSchemaPropertyOutput performs a merge with any union data inside the ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties, using the provided ArrayJsonSchemaPropertyOutput
 func (t *ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) MergeArrayJsonSchemaPropertyOutput(v ArrayJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAnyOfJsonSchemaPropertyOutput returns the union data inside the ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as a AnyOfJsonSchemaPropertyOutput
+func (t ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) AsAnyOfJsonSchemaPropertyOutput() (AnyOfJsonSchemaPropertyOutput, error) {
+	var body AnyOfJsonSchemaPropertyOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAnyOfJsonSchemaPropertyOutput overwrites any union data inside the ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties as the provided AnyOfJsonSchemaPropertyOutput
+func (t *ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) FromAnyOfJsonSchemaPropertyOutput(v AnyOfJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAnyOfJsonSchemaPropertyOutput performs a merge with any union data inside the ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties, using the provided AnyOfJsonSchemaPropertyOutput
+func (t *ObjectJsonSchemaPropertyOutput_Properties_AdditionalProperties) MergeAnyOfJsonSchemaPropertyOutput(v AnyOfJsonSchemaPropertyOutput) error {
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -80427,6 +80080,32 @@ func (t *QueryArrayJsonSchemaPropertyInput_Items) MergeArrayJsonSchemaPropertyIn
 	return err
 }
 
+// AsAnyOfJsonSchemaPropertyInput returns the union data inside the QueryArrayJsonSchemaPropertyInput_Items as a AnyOfJsonSchemaPropertyInput
+func (t QueryArrayJsonSchemaPropertyInput_Items) AsAnyOfJsonSchemaPropertyInput() (AnyOfJsonSchemaPropertyInput, error) {
+	var body AnyOfJsonSchemaPropertyInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAnyOfJsonSchemaPropertyInput overwrites any union data inside the QueryArrayJsonSchemaPropertyInput_Items as the provided AnyOfJsonSchemaPropertyInput
+func (t *QueryArrayJsonSchemaPropertyInput_Items) FromAnyOfJsonSchemaPropertyInput(v AnyOfJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAnyOfJsonSchemaPropertyInput performs a merge with any union data inside the QueryArrayJsonSchemaPropertyInput_Items, using the provided AnyOfJsonSchemaPropertyInput
+func (t *QueryArrayJsonSchemaPropertyInput_Items) MergeAnyOfJsonSchemaPropertyInput(v AnyOfJsonSchemaPropertyInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 func (t QueryArrayJsonSchemaPropertyInput_Items) MarshalJSON() ([]byte, error) {
 	b, err := t.union.MarshalJSON()
 	return b, err
@@ -80505,6 +80184,32 @@ func (t *QueryArrayJsonSchemaPropertyOutput_Items) FromArrayJsonSchemaPropertyOu
 
 // MergeArrayJsonSchemaPropertyOutput performs a merge with any union data inside the QueryArrayJsonSchemaPropertyOutput_Items, using the provided ArrayJsonSchemaPropertyOutput
 func (t *QueryArrayJsonSchemaPropertyOutput_Items) MergeArrayJsonSchemaPropertyOutput(v ArrayJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAnyOfJsonSchemaPropertyOutput returns the union data inside the QueryArrayJsonSchemaPropertyOutput_Items as a AnyOfJsonSchemaPropertyOutput
+func (t QueryArrayJsonSchemaPropertyOutput_Items) AsAnyOfJsonSchemaPropertyOutput() (AnyOfJsonSchemaPropertyOutput, error) {
+	var body AnyOfJsonSchemaPropertyOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAnyOfJsonSchemaPropertyOutput overwrites any union data inside the QueryArrayJsonSchemaPropertyOutput_Items as the provided AnyOfJsonSchemaPropertyOutput
+func (t *QueryArrayJsonSchemaPropertyOutput_Items) FromAnyOfJsonSchemaPropertyOutput(v AnyOfJsonSchemaPropertyOutput) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAnyOfJsonSchemaPropertyOutput performs a merge with any union data inside the QueryArrayJsonSchemaPropertyOutput_Items, using the provided AnyOfJsonSchemaPropertyOutput
+func (t *QueryArrayJsonSchemaPropertyOutput_Items) MergeAnyOfJsonSchemaPropertyOutput(v AnyOfJsonSchemaPropertyOutput) error {
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -147605,6 +147310,117 @@ func NewGetSimilarLibraryVoicesRequestWithBody(server string, params *GetSimilar
 	queryURL, err := serverURL.Parse(operationPath)
 	if err != nil {
 		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Category != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "category", *params.Category, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Gender != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "gender", *params.Gender, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Age != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "age", *params.Age, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.UseCases != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "use_cases", *params.UseCases, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.MinNoticePeriodDays != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "min_notice_period_days", *params.MinNoticePeriodDays, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeCustomRates != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_custom_rates", *params.IncludeCustomRates, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeLiveModerated != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_live_moderated", *params.IncludeLiveModerated, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.OwnerId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "owner_id", *params.OwnerId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
 	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
