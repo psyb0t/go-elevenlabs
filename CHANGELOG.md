@@ -2,6 +2,11 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.20.1, 2026-11-22
+
+- Adds the `Currency` field to `ResellerTierResponse`, typed as the new `ResellerTierResponseCurrency` string enum.
+- Adds 50 currency constants such as `ResellerTierResponseCurrencyUSD`, `ResellerTierResponseCurrencyEUR` and `ResellerTierResponseCurrencyZAR`, and a `Valid` method on `ResellerTierResponseCurrency`.
+
 ## v0.20.0, 2026-11-21
 
 - Breaking: removes `LLMArrayJsonSchemaPropertyInput` and `LLMArrayJsonSchemaPropertyOutput`, with their `_Items` unions and `Type` enums (`LLMArrayJsonSchemaPropertyInputTypeArray`, `LLMArrayJsonSchemaPropertyOutputTypeArray`).

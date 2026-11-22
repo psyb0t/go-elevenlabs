@@ -15748,6 +15748,165 @@ func (e ResellerInvoiceStatus) Valid() bool {
 	}
 }
 
+// Defines values for ResellerTierResponseCurrency.
+const (
+	ResellerTierResponseCurrencyAED ResellerTierResponseCurrency = "AED"
+	ResellerTierResponseCurrencyARS ResellerTierResponseCurrency = "ARS"
+	ResellerTierResponseCurrencyAUD ResellerTierResponseCurrency = "AUD"
+	ResellerTierResponseCurrencyBDT ResellerTierResponseCurrency = "BDT"
+	ResellerTierResponseCurrencyBGN ResellerTierResponseCurrency = "BGN"
+	ResellerTierResponseCurrencyBRL ResellerTierResponseCurrency = "BRL"
+	ResellerTierResponseCurrencyCAD ResellerTierResponseCurrency = "CAD"
+	ResellerTierResponseCurrencyCHF ResellerTierResponseCurrency = "CHF"
+	ResellerTierResponseCurrencyCLP ResellerTierResponseCurrency = "CLP"
+	ResellerTierResponseCurrencyCNY ResellerTierResponseCurrency = "CNY"
+	ResellerTierResponseCurrencyCOP ResellerTierResponseCurrency = "COP"
+	ResellerTierResponseCurrencyCZK ResellerTierResponseCurrency = "CZK"
+	ResellerTierResponseCurrencyDKK ResellerTierResponseCurrency = "DKK"
+	ResellerTierResponseCurrencyEGP ResellerTierResponseCurrency = "EGP"
+	ResellerTierResponseCurrencyEUR ResellerTierResponseCurrency = "EUR"
+	ResellerTierResponseCurrencyGBP ResellerTierResponseCurrency = "GBP"
+	ResellerTierResponseCurrencyGEL ResellerTierResponseCurrency = "GEL"
+	ResellerTierResponseCurrencyHKD ResellerTierResponseCurrency = "HKD"
+	ResellerTierResponseCurrencyHUF ResellerTierResponseCurrency = "HUF"
+	ResellerTierResponseCurrencyIDR ResellerTierResponseCurrency = "IDR"
+	ResellerTierResponseCurrencyILS ResellerTierResponseCurrency = "ILS"
+	ResellerTierResponseCurrencyINR ResellerTierResponseCurrency = "INR"
+	ResellerTierResponseCurrencyISK ResellerTierResponseCurrency = "ISK"
+	ResellerTierResponseCurrencyJPY ResellerTierResponseCurrency = "JPY"
+	ResellerTierResponseCurrencyKES ResellerTierResponseCurrency = "KES"
+	ResellerTierResponseCurrencyKRW ResellerTierResponseCurrency = "KRW"
+	ResellerTierResponseCurrencyKWD ResellerTierResponseCurrency = "KWD"
+	ResellerTierResponseCurrencyMXN ResellerTierResponseCurrency = "MXN"
+	ResellerTierResponseCurrencyMYR ResellerTierResponseCurrency = "MYR"
+	ResellerTierResponseCurrencyNGN ResellerTierResponseCurrency = "NGN"
+	ResellerTierResponseCurrencyNOK ResellerTierResponseCurrency = "NOK"
+	ResellerTierResponseCurrencyNZD ResellerTierResponseCurrency = "NZD"
+	ResellerTierResponseCurrencyPEN ResellerTierResponseCurrency = "PEN"
+	ResellerTierResponseCurrencyPHP ResellerTierResponseCurrency = "PHP"
+	ResellerTierResponseCurrencyPKR ResellerTierResponseCurrency = "PKR"
+	ResellerTierResponseCurrencyPLN ResellerTierResponseCurrency = "PLN"
+	ResellerTierResponseCurrencyQAR ResellerTierResponseCurrency = "QAR"
+	ResellerTierResponseCurrencyRON ResellerTierResponseCurrency = "RON"
+	ResellerTierResponseCurrencyRUB ResellerTierResponseCurrency = "RUB"
+	ResellerTierResponseCurrencySAR ResellerTierResponseCurrency = "SAR"
+	ResellerTierResponseCurrencySEK ResellerTierResponseCurrency = "SEK"
+	ResellerTierResponseCurrencySGD ResellerTierResponseCurrency = "SGD"
+	ResellerTierResponseCurrencyTHB ResellerTierResponseCurrency = "THB"
+	ResellerTierResponseCurrencyTRY ResellerTierResponseCurrency = "TRY"
+	ResellerTierResponseCurrencyTWD ResellerTierResponseCurrency = "TWD"
+	ResellerTierResponseCurrencyUAH ResellerTierResponseCurrency = "UAH"
+	ResellerTierResponseCurrencyUSD ResellerTierResponseCurrency = "USD"
+	ResellerTierResponseCurrencyVND ResellerTierResponseCurrency = "VND"
+	ResellerTierResponseCurrencyZAR ResellerTierResponseCurrency = "ZAR"
+)
+
+// Valid indicates whether the value is a known member of the ResellerTierResponseCurrency enum.
+func (e ResellerTierResponseCurrency) Valid() bool {
+	switch e {
+	case ResellerTierResponseCurrencyAED:
+		return true
+	case ResellerTierResponseCurrencyARS:
+		return true
+	case ResellerTierResponseCurrencyAUD:
+		return true
+	case ResellerTierResponseCurrencyBDT:
+		return true
+	case ResellerTierResponseCurrencyBGN:
+		return true
+	case ResellerTierResponseCurrencyBRL:
+		return true
+	case ResellerTierResponseCurrencyCAD:
+		return true
+	case ResellerTierResponseCurrencyCHF:
+		return true
+	case ResellerTierResponseCurrencyCLP:
+		return true
+	case ResellerTierResponseCurrencyCNY:
+		return true
+	case ResellerTierResponseCurrencyCOP:
+		return true
+	case ResellerTierResponseCurrencyCZK:
+		return true
+	case ResellerTierResponseCurrencyDKK:
+		return true
+	case ResellerTierResponseCurrencyEGP:
+		return true
+	case ResellerTierResponseCurrencyEUR:
+		return true
+	case ResellerTierResponseCurrencyGBP:
+		return true
+	case ResellerTierResponseCurrencyGEL:
+		return true
+	case ResellerTierResponseCurrencyHKD:
+		return true
+	case ResellerTierResponseCurrencyHUF:
+		return true
+	case ResellerTierResponseCurrencyIDR:
+		return true
+	case ResellerTierResponseCurrencyILS:
+		return true
+	case ResellerTierResponseCurrencyINR:
+		return true
+	case ResellerTierResponseCurrencyISK:
+		return true
+	case ResellerTierResponseCurrencyJPY:
+		return true
+	case ResellerTierResponseCurrencyKES:
+		return true
+	case ResellerTierResponseCurrencyKRW:
+		return true
+	case ResellerTierResponseCurrencyKWD:
+		return true
+	case ResellerTierResponseCurrencyMXN:
+		return true
+	case ResellerTierResponseCurrencyMYR:
+		return true
+	case ResellerTierResponseCurrencyNGN:
+		return true
+	case ResellerTierResponseCurrencyNOK:
+		return true
+	case ResellerTierResponseCurrencyNZD:
+		return true
+	case ResellerTierResponseCurrencyPEN:
+		return true
+	case ResellerTierResponseCurrencyPHP:
+		return true
+	case ResellerTierResponseCurrencyPKR:
+		return true
+	case ResellerTierResponseCurrencyPLN:
+		return true
+	case ResellerTierResponseCurrencyQAR:
+		return true
+	case ResellerTierResponseCurrencyRON:
+		return true
+	case ResellerTierResponseCurrencyRUB:
+		return true
+	case ResellerTierResponseCurrencySAR:
+		return true
+	case ResellerTierResponseCurrencySEK:
+		return true
+	case ResellerTierResponseCurrencySGD:
+		return true
+	case ResellerTierResponseCurrencyTHB:
+		return true
+	case ResellerTierResponseCurrencyTRY:
+		return true
+	case ResellerTierResponseCurrencyTWD:
+		return true
+	case ResellerTierResponseCurrencyUAH:
+		return true
+	case ResellerTierResponseCurrencyUSD:
+		return true
+	case ResellerTierResponseCurrencyVND:
+		return true
+	case ResellerTierResponseCurrencyZAR:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ResellerWorkspaceSubscriptionBillingPeriod.
 const (
 	ResellerWorkspaceSubscriptionBillingPeriodAnnualPeriod  ResellerWorkspaceSubscriptionBillingPeriod = "annual_period"
@@ -46298,12 +46457,21 @@ type ResellerTierEconomics struct {
 
 // ResellerTierResponse A tier you can sell.
 type ResellerTierResponse struct {
-	DisplayName string `json:"display_name"`
+	// Currency What the prices are in. The same for every tier on a ladder.
+	//
+	// Examples: USD
+	Currency    ResellerTierResponseCurrency `json:"currency"`
+	DisplayName string                       `json:"display_name"`
 
 	// TierEconomics A tier's prices and the limits shown on its tier card.
 	TierEconomics ResellerTierEconomics `json:"tier_economics"`
 	TierId        string                `json:"tier_id"`
 }
+
+// ResellerTierResponseCurrency What the prices are in. The same for every tier on a ladder.
+//
+// Examples: USD
+type ResellerTierResponseCurrency string
 
 // ResellerUpcomingPayment A workspace's next renewal, estimated before its invoice is created.
 type ResellerUpcomingPayment struct {
