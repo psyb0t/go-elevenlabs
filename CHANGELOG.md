@@ -2,6 +2,14 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.20.2, 2026-11-24
+
+- Adds `Sources` (`*[]GetSpeechHistoryParamsSources`) to `GetSpeechHistoryParams`. The client sends it as the `sources` query parameter and it cannot be combined with `Source`.
+- Adds the `GetSpeechHistoryParamsSources` string enum with `GetSpeechHistoryParamsSourcesFlows`, `GetSpeechHistoryParamsSourcesSTS` and `GetSpeechHistoryParamsSourcesTTS`, and a `Valid` method.
+- Adds `ChargeCustomer` to `ReceptionProvisionResellerWorkspaceRequest`, `ProvisionResellerWorkspaceResponse` and `ResellerWorkspaceSummary`. It bills the workspace's own customer instead of the reseller, and is only for resellers on standard billing.
+- Adds `OutputTotalReasoningPortion` to `LLMInputOutputTokensUsage`. It is the part of `OutputTotal` spent on reasoning and is already charged in `OutputTotal`.
+- Documents that the `Search` field of `ListCampaignsParams` also matches a campaign ID exactly.
+
 ## v0.20.1, 2026-11-22
 
 - Adds the `Currency` field to `ResellerTierResponse`, typed as the new `ResellerTierResponseCurrency` string enum.

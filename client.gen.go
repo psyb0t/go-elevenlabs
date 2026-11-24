@@ -22936,6 +22936,27 @@ func (e GetSpeechHistoryParamsSource) Valid() bool {
 	}
 }
 
+// Defines values for GetSpeechHistoryParamsSources.
+const (
+	GetSpeechHistoryParamsSourcesFlows GetSpeechHistoryParamsSources = "Flows"
+	GetSpeechHistoryParamsSourcesSTS   GetSpeechHistoryParamsSources = "STS"
+	GetSpeechHistoryParamsSourcesTTS   GetSpeechHistoryParamsSources = "TTS"
+)
+
+// Valid indicates whether the value is a known member of the GetSpeechHistoryParamsSources enum.
+func (e GetSpeechHistoryParamsSources) Valid() bool {
+	switch e {
+	case GetSpeechHistoryParamsSourcesFlows:
+		return true
+	case GetSpeechHistoryParamsSourcesSTS:
+		return true
+	case GetSpeechHistoryParamsSourcesTTS:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for GenerateParamsOutputFormat.
 const (
 	GenerateParamsOutputFormatAlaw8000     GenerateParamsOutputFormat = "alaw_8000"
@@ -38990,6 +39011,9 @@ type LLMInputOutputTokensUsage struct {
 
 	// OutputTotal Output (completion) tokens.
 	OutputTotal *LLMTokensCategoryUsage `json:"output_total,omitempty"`
+
+	// OutputTotalReasoningPortion Subset of `output_total` spent on reasoning, when the provider reports it. Informational; already charged as part of `output_total`.
+	OutputTotalReasoningPortion *LLMTokensCategoryUsage `json:"output_total_reasoning_portion,omitempty"`
 }
 
 // LLMListResponseModel defines model for LLMListResponseModel.
@@ -43818,7 +43842,10 @@ type ProvisionResellerWorkspaceResponse struct {
 	BillingTier     *string `json:"billing_tier"`
 	BusinessName    string  `json:"business_name"`
 	CallsLast30Days int     `json:"calls_last_30_days"`
-	CreatedAtUnix   int     `json:"created_at_unix"`
+
+	// ChargeCustomer The workspace pays for its own subscription, so its tier can't be assigned or changed here.
+	ChargeCustomer *bool `json:"charge_customer,omitempty"`
+	CreatedAtUnix  int   `json:"created_at_unix"`
 
 	// HasPaymentIssue A charge for this workspace is unpaid. Assigning or changing a tier is refused until it clears, so surface it rather than letting it fail.
 	HasPaymentIssue *bool               `json:"has_payment_issue,omitempty"`
@@ -43828,7 +43855,7 @@ type ProvisionResellerWorkspaceResponse struct {
 	OnboardingCompletedAtUnix *int `json:"onboarding_completed_at_unix,omitempty"`
 	ReceptionistCount         int  `json:"receptionist_count"`
 
-	// Subscription The reseller-managed subscription, when this workspace has one. None means nothing is sold here yet and a tier can be assigned.
+	// Subscription The reseller-managed subscription, when this workspace has one. None means the reseller sells nothing here: no tier is assigned yet, or the workspace pays for its own subscription (see charge_customer).
 	Subscription *ResellerWorkspaceSubscription `json:"subscription,omitempty"`
 	WorkspaceId  string                         `json:"workspace_id"`
 }
@@ -45352,6 +45379,9 @@ type ReceptionProduct struct {
 type ReceptionProvisionResellerWorkspaceRequest struct {
 	BusinessName string `json:"business_name"`
 
+	// ChargeCustomer Bill the workspace's own customer instead of the reseller: it checks out and sees its billing itself, and the reseller earns a commission. Only for a reseller on standard billing.
+	ChargeCustomer *bool `json:"charge_customer,omitempty"`
+
 	// CompleteOnboarding Finish setup right away, as `POST /v1/reception/reseller/workspaces/{workspace_id}/complete-onboarding` does. Best-effort: `onboarding_completed_at_unix` stays null on failure, and that call can be retried.
 	CompleteOnboarding *bool `json:"complete_onboarding,omitempty"`
 
@@ -46534,7 +46564,10 @@ type ResellerWorkspaceSummary struct {
 	BillingTier     *string `json:"billing_tier"`
 	BusinessName    string  `json:"business_name"`
 	CallsLast30Days int     `json:"calls_last_30_days"`
-	CreatedAtUnix   int     `json:"created_at_unix"`
+
+	// ChargeCustomer The workspace pays for its own subscription, so its tier can't be assigned or changed here.
+	ChargeCustomer *bool `json:"charge_customer,omitempty"`
+	CreatedAtUnix  int   `json:"created_at_unix"`
 
 	// HasPaymentIssue A charge for this workspace is unpaid. Assigning or changing a tier is refused until it clears, so surface it rather than letting it fail.
 	HasPaymentIssue *bool `json:"has_payment_issue,omitempty"`
@@ -46543,7 +46576,7 @@ type ResellerWorkspaceSummary struct {
 	OnboardingCompletedAtUnix *int `json:"onboarding_completed_at_unix,omitempty"`
 	ReceptionistCount         int  `json:"receptionist_count"`
 
-	// Subscription The reseller-managed subscription, when this workspace has one. None means nothing is sold here yet and a tier can be assigned.
+	// Subscription The reseller-managed subscription, when this workspace has one. None means the reseller sells nothing here: no tier is assigned yet, or the workspace pays for its own subscription (see charge_customer).
 	Subscription *ResellerWorkspaceSubscription `json:"subscription,omitempty"`
 	WorkspaceId  string                         `json:"workspace_id"`
 }
@@ -56845,7 +56878,7 @@ type ListCampaignsParams struct {
 	// Mode Only voice or only message campaigns.
 	Mode *ListCampaignsParamsMode `form:"mode,omitempty" json:"mode,omitempty"`
 
-	// Search Only campaigns whose name contains this text.
+	// Search Only campaigns whose name contains this text, or whose ID is exactly this text.
 	Search *string `form:"search,omitempty" json:"search,omitempty"`
 
 	// Cursor Used for fetching next page. Cursor is returned in the response.
@@ -58118,6 +58151,9 @@ type GetSpeechHistoryParams struct {
 	// Source Source of the generated history item
 	Source *GetSpeechHistoryParamsSource `form:"source,omitempty" json:"source,omitempty"`
 
+	// Sources Sources of the generated history items, matching any of them. Cannot be combined with source.
+	Sources *[]GetSpeechHistoryParamsSources `form:"sources,omitempty" json:"sources,omitempty"`
+
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -58127,6 +58163,9 @@ type GetSpeechHistoryParamsSortDirection string
 
 // GetSpeechHistoryParamsSource defines parameters for GetSpeechHistory.
 type GetSpeechHistoryParamsSource string
+
+// GetSpeechHistoryParamsSources defines parameters for GetSpeechHistory.
+type GetSpeechHistoryParamsSources string
 
 // DownloadSpeechHistoryItemsParams defines parameters for DownloadSpeechHistoryItems.
 type DownloadSpeechHistoryItemsParams struct {
@@ -139511,6 +139550,18 @@ func NewGetSpeechHistoryRequest(server string, params *GetSpeechHistoryParams) (
 		if params.Source != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "source", *params.Source, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Sources != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "sources", *params.Sources, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
