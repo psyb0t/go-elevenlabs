@@ -2,6 +2,15 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.21.0, 2026-11-25
+
+- Breaking: renames the rebase operation from `RebaseBranchOntoMain` to `RebaseBranchRoute`. The endpoint is unchanged. The old `(*Client).RebaseBranchOntoMain`, `RebaseBranchOntoMainWithBody`, `(*ClientWithResponses).RebaseBranchOntoMainWithResponse`, `RebaseBranchOntoMainWithBodyWithResponse`, `NewRebaseBranchOntoMainRequest`, `NewRebaseBranchOntoMainRequestWithBody`, `ParseRebaseBranchOntoMainResponse`, `RebaseBranchOntoMainParams`, `RebaseBranchOntoMainJSONRequestBody` and `RebaseBranchOntoMainResponse` are removed. Use the matching `RebaseBranchRoute` names.
+- Adds `SmbResellerUpdateWorkspace` and `SmbResellerUpdateWorkspaceWithBody` on `Client` and `ClientWithResponses`, with `SmbResellerUpdateWorkspaceParams`, `SmbResellerUpdateWorkspaceJSONRequestBody`, `SmbResellerUpdateWorkspaceResponse` and the new `UpdateResellerWorkspaceRequest`. They send PATCH to `/v1/reception/reseller/workspaces/{workspace_id}`.
+- Adds `Metadata` (`*map[string]string`) to `ReceptionProvisionResellerWorkspaceRequest`, `ProvisionResellerWorkspaceResponse` and `ResellerWorkspaceSummary`. On update it replaces the whole map, and `{}` clears it.
+- Adds `SyncBranchId` to `BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch` to keep a branch in sync with a branch other than main. Adds `BranchId` to `BranchSyncStatus`.
+- Adds 17 text fields to `WidgetTextContents`, including `EndChat`, `EndCallConfirm`, `CarouselNext`, `CarouselPrevious`, `ExpandWidget`, `CollapseWidget`, `NewMessage`, `ThinkingStatus` and `ReconnectingStatus`.
+- Adds `AuditActivityNameAgentsUserDeleted` and `AuditActivityNameAgentsUserExported`, and accepts them in `Valid`.
+
 ## v0.20.2, 2026-11-24
 
 - Adds `Sources` (`*[]GetSpeechHistoryParamsSources`) to `GetSpeechHistoryParams`. The client sends it as the `sources` query parameter and it cannot be combined with `Source`.

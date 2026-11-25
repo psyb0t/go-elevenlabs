@@ -1943,6 +1943,8 @@ const (
 	AuditActivityNameAPIKeyManagement                               AuditActivityName = "API Key Management"
 	AuditActivityNameAPIKeyUpdate                                   AuditActivityName = "API Key Update"
 	AuditActivityNameAccountSecurityChange                          AuditActivityName = "Account Security Change"
+	AuditActivityNameAgentsUserDeleted                              AuditActivityName = "Agents User Deleted"
+	AuditActivityNameAgentsUserExported                             AuditActivityName = "Agents User Exported"
 	AuditActivityNameAgentsUserMemoryEntityDeleted                  AuditActivityName = "Agents User Memory Entity Deleted"
 	AuditActivityNameAgentsUserMemoryErased                         AuditActivityName = "Agents User Memory Erased"
 	AuditActivityNameAgentsUserMemoryExported                       AuditActivityName = "Agents User Memory Exported"
@@ -2093,6 +2095,10 @@ func (e AuditActivityName) Valid() bool {
 	case AuditActivityNameAPIKeyUpdate:
 		return true
 	case AuditActivityNameAccountSecurityChange:
+		return true
+	case AuditActivityNameAgentsUserDeleted:
+		return true
+	case AuditActivityNameAgentsUserExported:
 		return true
 	case AuditActivityNameAgentsUserMemoryEntityDeleted:
 		return true
@@ -24605,7 +24611,7 @@ type AgentBranchResponse struct {
 	ParentBranch     *AgentBranchBasicInfo   `json:"parent_branch,omitempty"`
 	ProtectionStatus *BranchProtectionStatus `json:"protection_status,omitempty"`
 
-	// SyncStatus Set while the branch is kept in sync with another branch (Main today), pulling in its new versions automatically. Null when it is not synced.
+	// SyncStatus Set while the branch is kept in sync with another branch: automatically (`auto_rebase`), or with a chosen branch other than main. Null otherwise.
 	SyncStatus *BranchSyncStatus `json:"sync_status,omitempty"`
 }
 
@@ -24650,7 +24656,7 @@ type AgentBranchSummary struct {
 	ParentBranchId   *string                 `json:"parent_branch_id,omitempty"`
 	ProtectionStatus *BranchProtectionStatus `json:"protection_status,omitempty"`
 
-	// SyncStatus Set while the branch is kept in sync with another branch (Main today), pulling in its new versions automatically. Null when it is not synced.
+	// SyncStatus Set while the branch is kept in sync with another branch: automatically (`auto_rebase`), or with a chosen branch other than main. Null otherwise.
 	SyncStatus *BranchSyncStatus `json:"sync_status,omitempty"`
 }
 
@@ -29498,7 +29504,7 @@ type BodyUpdateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdP
 
 // BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch defines model for Body_Update_agent_branch_v1_convai_agents__agent_id__branches__branch_id__patch.
 type BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch struct {
-	// AutoRebase When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch.
+	// AutoRebase When true, rebase this branch automatically after each new version of the branch it is kept in sync with (`sync_branch_id`, main by default). Cannot be enabled on the main branch, or while this branch is more protected than a non-main branch it is kept in sync with.
 	AutoRebase *bool `json:"auto_rebase,omitempty"`
 
 	// Description New description for the branch. Pass an empty string to clear it.
@@ -29512,6 +29518,9 @@ type BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch struct {
 
 	// ProtectionStatus The protection level for the branch
 	ProtectionStatus *BranchProtectionStatus `json:"protection_status,omitempty"`
+
+	// SyncBranchId ID of the branch to keep this branch in sync with: its new versions are pulled in automatically while `auto_rebase` is on. Pass the main branch's ID to sync with main again. Must be the main branch or the active branch this branch was created from (`parent_branch_id`). At most 10 branches can be kept in sync with one another in a row. Cannot be set on the main branch.
+	SyncBranchId *string `json:"sync_branch_id,omitempty"`
 }
 
 // BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch defines model for Body_Update_agent_test_folder_v1_convai_agent_testing_folders__folder_id__patch.
@@ -30467,6 +30476,9 @@ type BranchProtectionStatus string
 
 // BranchSyncStatus defines model for BranchSyncStatus.
 type BranchSyncStatus struct {
+	// BranchId ID of the branch this branch is kept in sync with: its new versions are pulled in automatically while `auto_rebase` is on. The main branch unless another was chosen. While the chosen branch is archived this still names it, and main is used in its place.
+	BranchId string `json:"branch_id"`
+
 	// LastAttempt Latest automatic attempt to pull the synced branch's new versions in, run after each of them. Null when none has run since sync was turned on.
 	LastAttempt *AutoRebaseAttempt `json:"last_attempt,omitempty"`
 }
@@ -43851,6 +43863,9 @@ type ProvisionResellerWorkspaceResponse struct {
 	HasPaymentIssue *bool               `json:"has_payment_issue,omitempty"`
 	MemberResults   *[]TeamInviteResult `json:"member_results,omitempty"`
 
+	// Metadata Your own key-value pairs for the workspace.
+	Metadata *map[string]string `json:"metadata,omitempty"`
+
 	// OnboardingCompletedAtUnix When onboarding finished. Until then the onboarding wizard may replace or remove the workspace's business data.
 	OnboardingCompletedAtUnix *int `json:"onboarding_completed_at_unix,omitempty"`
 	ReceptionistCount         int  `json:"receptionist_count"`
@@ -45393,6 +45408,9 @@ type ReceptionProvisionResellerWorkspaceRequest struct {
 	// Members People to invite once the workspace exists, capped by the tier's team size. Best-effort: each outcome is in `member_results`.
 	Members *[]TeamInviteRequest `json:"members,omitempty"`
 
+	// Metadata Your own key-value pairs for the workspace, such as your customer or contract id. Up to 20 keys of up to 40 characters, without `.` or `$`, and values of up to 500 characters. Not shown to the workspace's members.
+	Metadata *map[string]string `json:"metadata,omitempty"`
+
 	// PhoneNumber A free number from the reseller's phone pool, reserved for the workspace until onboarding binds it to the receptionist.
 	PhoneNumber *string `json:"phone_number,omitempty"`
 
@@ -46571,6 +46589,9 @@ type ResellerWorkspaceSummary struct {
 
 	// HasPaymentIssue A charge for this workspace is unpaid. Assigning or changing a tier is refused until it clears, so surface it rather than letting it fail.
 	HasPaymentIssue *bool `json:"has_payment_issue,omitempty"`
+
+	// Metadata Your own key-value pairs for the workspace.
+	Metadata *map[string]string `json:"metadata,omitempty"`
 
 	// OnboardingCompletedAtUnix When onboarding finished. Until then the onboarding wizard may replace or remove the workspace's business data.
 	OnboardingCompletedAtUnix *int `json:"onboarding_completed_at_unix,omitempty"`
@@ -51148,6 +51169,12 @@ type UpdateRealtimeConversationGroupRequestModel struct {
 	Title *string `json:"title,omitempty"`
 }
 
+// UpdateResellerWorkspaceRequest defines model for UpdateResellerWorkspaceRequest.
+type UpdateResellerWorkspaceRequest struct {
+	// Metadata Replaces the workspace's whole metadata map; send `{}` to clear it. Omitted leaves it unchanged.
+	Metadata *map[string]string `json:"metadata,omitempty"`
+}
+
 // UpdateResponseUnitTestRequest defines model for UpdateResponseUnitTestRequest.
 type UpdateResponseUnitTestRequest struct {
 	ChatHistory *[]ConversationHistoryTranscriptCommonModelInput `json:"chat_history,omitempty"`
@@ -53774,6 +53801,15 @@ type WidgetTextContents struct {
 	// AttachFile Text and ARIA label for the attach file button.
 	AttachFile *string `json:"attach_file,omitempty"`
 
+	// CancelEndConfirmation Text and ARIA label for the button that cancels ending a chat or call.
+	CancelEndConfirmation *string `json:"cancel_end_confirmation,omitempty"`
+
+	// CarouselNext ARIA label for the next button in a rich content carousel.
+	CarouselNext *string `json:"carousel_next,omitempty"`
+
+	// CarouselPrevious ARIA label for the previous button in a rich content carousel.
+	CarouselPrevious *string `json:"carousel_previous,omitempty"`
+
 	// ChangeLanguage ARIA label for the change language dropdown.
 	ChangeLanguage *string `json:"change_language,omitempty"`
 
@@ -53782,6 +53818,9 @@ type WidgetTextContents struct {
 
 	// Collapse ARIA label for the collapse button.
 	Collapse *string `json:"collapse,omitempty"`
+
+	// CollapseWidget ARIA label for the header button that collapses the widget back to its compact size.
+	CollapseWidget *string `json:"collapse_widget,omitempty"`
 
 	// ConnectingStatus Status displayed when the agent is connecting.
 	ConnectingStatus *string `json:"connecting_status,omitempty"`
@@ -53798,6 +53837,9 @@ type WidgetTextContents struct {
 	// CopyId Text and ARIA label used for the copy ID button.
 	CopyId *string `json:"copy_id,omitempty"`
 
+	// Dismiss ARIA label for the button that hides a dismissible widget.
+	Dismiss *string `json:"dismiss,omitempty"`
+
 	// DismissTerms Text and ARIA label for the cancel terms button.
 	DismissTerms *string `json:"dismiss_terms,omitempty"`
 
@@ -53807,11 +53849,32 @@ type WidgetTextContents struct {
 	// EndCall Text and ARIA label for the end call button.
 	EndCall *string `json:"end_call,omitempty"`
 
+	// EndCallConfirm Text and ARIA label for the button that confirms ending a call.
+	EndCallConfirm *string `json:"end_call_confirm,omitempty"`
+
+	// EndCallConfirmationDescription Description displayed in the confirmation dialog before ending a call.
+	EndCallConfirmationDescription *string `json:"end_call_confirmation_description,omitempty"`
+
+	// EndCallConfirmationTitle Title displayed in the confirmation dialog before ending a call.
+	EndCallConfirmationTitle *string `json:"end_call_confirmation_title,omitempty"`
+
+	// EndChat Text and ARIA label for the end chat button.
+	EndChat *string `json:"end_chat,omitempty"`
+
+	// EndChatConfirmationDescription Description displayed in the confirmation dialog before ending a chat.
+	EndChatConfirmationDescription *string `json:"end_chat_confirmation_description,omitempty"`
+
+	// EndChatConfirmationTitle Title displayed in the confirmation dialog before ending a chat.
+	EndChatConfirmationTitle *string `json:"end_chat_confirmation_title,omitempty"`
+
 	// ErrorOccurred Text label used when an error occurs.
 	ErrorOccurred *string `json:"error_occurred,omitempty"`
 
 	// Expand ARIA label for the expand button.
 	Expand *string `json:"expand,omitempty"`
+
+	// ExpandWidget ARIA label for the header button that expands the widget.
+	ExpandWidget *string `json:"expand_widget,omitempty"`
 
 	// FileLimitReached Error message displayed when the maximum number of files for a conversation is reached.
 	FileLimitReached *string `json:"file_limit_reached,omitempty"`
@@ -53858,6 +53921,15 @@ type WidgetTextContents struct {
 	// NewCall Text and ARIA label for the new call button. Displayed when the caller already finished at least one call in order ot start the next one.
 	NewCall *string `json:"new_call,omitempty"`
 
+	// NewMessage Label for the button that scrolls to one new message.
+	NewMessage *string `json:"new_message,omitempty"`
+
+	// NewMessages Label for the button that scrolls to new messages. Keep the count placeholder from the default, which is replaced with the number of messages.
+	NewMessages *string `json:"new_messages,omitempty"`
+
+	// OpenChat ARIA label for the launcher button that reopens a dismissed widget.
+	OpenChat *string `json:"open_chat,omitempty"`
+
 	// QueueTimedOut Error message displayed when the queue wait times out.
 	QueueTimedOut *string `json:"queue_timed_out,omitempty"`
 
@@ -53867,11 +53939,17 @@ type WidgetTextContents struct {
 	// QueueWaitingStatusShort Short status displayed while waiting for an available agent.
 	QueueWaitingStatusShort *string `json:"queue_waiting_status_short,omitempty"`
 
+	// ReconnectingStatus Status displayed when the agent is reconnecting.
+	ReconnectingStatus *string `json:"reconnecting_status,omitempty"`
+
 	// RemoveFile ARIA label for the remove file button.
 	RemoveFile *string `json:"remove_file,omitempty"`
 
 	// RequestFollowUpFeedback Text displayed to request additional feedback details.
 	RequestFollowUpFeedback *string `json:"request_follow_up_feedback,omitempty"`
+
+	// ResumeCall Text and ARIA label for the button that resumes the conversation.
+	ResumeCall *string `json:"resume_call,omitempty"`
 
 	// RichContentUnavailable Fallback message displayed when rich content cannot be rendered.
 	RichContentUnavailable *string `json:"rich_content_unavailable,omitempty"`
@@ -53900,11 +53978,17 @@ type WidgetTextContents struct {
 	// TextMode Text and ARIA label for the switch to text mode button.
 	TextMode *string `json:"text_mode,omitempty"`
 
+	// TextModeLabel Label for the text option in the conversation mode toggle.
+	TextModeLabel *string `json:"text_mode_label,omitempty"`
+
 	// ThanksForFeedback Text displayed to thank the user for providing feedback.
 	ThanksForFeedback *string `json:"thanks_for_feedback,omitempty"`
 
 	// ThanksForFeedbackDetails Additional text displayed explaining the value of user feedback.
 	ThanksForFeedbackDetails *string `json:"thanks_for_feedback_details,omitempty"`
+
+	// ThinkingStatus Status text displayed while the agent is thinking.
+	ThinkingStatus *string `json:"thinking_status,omitempty"`
 
 	// TypingIndicator Status text displayed while the agent is typing.
 	TypingIndicator *string `json:"typing_indicator,omitempty"`
@@ -53914,6 +53998,9 @@ type WidgetTextContents struct {
 
 	// VoiceMode Text and ARIA label for the switch to voice mode button.
 	VoiceMode *string `json:"voice_mode,omitempty"`
+
+	// VoiceModeLabel Label for the voice option in the conversation mode toggle.
+	VoiceModeLabel *string `json:"voice_mode_label,omitempty"`
 
 	// Wrap Text and ARIA label for the wrap toggle button.
 	Wrap *string `json:"wrap,omitempty"`
@@ -55369,8 +55456,8 @@ type UpdateProcedureDraftRouteParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
-// RebaseBranchOntoMainParams defines parameters for RebaseBranchOntoMain.
-type RebaseBranchOntoMainParams struct {
+// RebaseBranchRouteParams defines parameters for RebaseBranchRoute.
+type RebaseBranchRouteParams struct {
 	// SourceBranchId The ID of the branch to pull changes from. Defaults to the agent's main branch.
 	SourceBranchId *string `form:"source_branch_id,omitempty" json:"source_branch_id,omitempty"`
 
@@ -58994,6 +59081,12 @@ type SmbResellerProvisionWorkspaceParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// SmbResellerUpdateWorkspaceParams defines parameters for SmbResellerUpdateWorkspace.
+type SmbResellerUpdateWorkspaceParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // SmbResellerCompleteWorkspaceOnboardingParams defines parameters for SmbResellerCompleteWorkspaceOnboarding.
 type SmbResellerCompleteWorkspaceOnboardingParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -60439,8 +60532,8 @@ type CreateProcedureRouteJSONRequestBody = CreateProcedureRouteJSONBody
 // UpdateProcedureDraftRouteJSONRequestBody defines body for UpdateProcedureDraftRoute for application/json ContentType.
 type UpdateProcedureDraftRouteJSONRequestBody = UpdateProcedureDraftRequestModel
 
-// RebaseBranchOntoMainJSONRequestBody defines body for RebaseBranchOntoMain for application/json ContentType.
-type RebaseBranchOntoMainJSONRequestBody = BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost
+// RebaseBranchRouteJSONRequestBody defines body for RebaseBranchRoute for application/json ContentType.
+type RebaseBranchRouteJSONRequestBody = BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost
 
 // MergeBranchIntoTargetJSONRequestBody defines body for MergeBranchIntoTarget for application/json ContentType.
 type MergeBranchIntoTargetJSONRequestBody = BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost
@@ -60918,6 +61011,9 @@ type SmbAdjustProductStockJSONRequestBody = ReceptionAdjustProductStockRequest
 
 // SmbResellerProvisionWorkspaceJSONRequestBody defines body for SmbResellerProvisionWorkspace for application/json ContentType.
 type SmbResellerProvisionWorkspaceJSONRequestBody = ReceptionProvisionResellerWorkspaceRequest
+
+// SmbResellerUpdateWorkspaceJSONRequestBody defines body for SmbResellerUpdateWorkspace for application/json ContentType.
+type SmbResellerUpdateWorkspaceJSONRequestBody = UpdateResellerWorkspaceRequest
 
 // SmbChangeResellerTierJSONRequestBody defines body for SmbChangeResellerTier for application/json ContentType.
 type SmbChangeResellerTierJSONRequestBody = ChangeResellerTierRequest
@@ -97349,7 +97445,7 @@ type ClientInterface interface {
 
 	// UpdateBranchRouteWithBody Update Agent Branch
 	//
-	// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+	// Update agent branch properties such as name, description, archiving status, protection level, auto-rebase, and the branch it is kept in sync with
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -97358,7 +97454,7 @@ type ClientInterface interface {
 
 	// UpdateBranchRoute Update Agent Branch
 	//
-	// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+	// Update agent branch properties such as name, description, archiving status, protection level, auto-rebase, and the branch it is kept in sync with
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -97443,23 +97539,23 @@ type ClientInterface interface {
 	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/draft (the `UpdateProcedureDraftRoute` operationId).
 	UpdateProcedureDraftRoute(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureDraftRouteParams, body UpdateProcedureDraftRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// RebaseBranchOntoMainWithBody Rebase A Branch Onto Main
+	// RebaseBranchRouteWithBody Rebase A Branch Onto Main
 	//
-	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
 	//
 	// Takes any type of body and a specified content type.
 	//
-	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-	RebaseBranchOntoMainWithBody(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchRoute` operationId).
+	RebaseBranchRouteWithBody(ctx context.Context, agentId string, branchId string, params *RebaseBranchRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// RebaseBranchOntoMain Rebase A Branch Onto Main
+	// RebaseBranchRoute Rebase A Branch Onto Main
 	//
-	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
 	//
 	// Takes a body of the `application/json` content type.
 	//
-	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-	RebaseBranchOntoMain(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchRoute` operationId).
+	RebaseBranchRoute(ctx context.Context, agentId string, branchId string, params *RebaseBranchRouteParams, body RebaseBranchRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// RebasePreviewRoute Preview Rebased Configuration
 	//
@@ -97611,7 +97707,7 @@ type ClientInterface interface {
 
 	// CreateMergeProposalRouteWithBody Create A Merge Proposal
 	//
-	// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+	// Create a request to merge a source branch into a target branch. Callers with only propose access can open a proposal from a branch they own into its parent. Merging requires write access to the target branch.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -97620,7 +97716,7 @@ type ClientInterface interface {
 
 	// CreateMergeProposalRoute Create A Merge Proposal
 	//
-	// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+	// Create a request to merge a source branch into a target branch. Callers with only propose access can open a proposal from a branch they own into its parent. Merging requires write access to the target branch.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -101516,6 +101612,24 @@ type ClientInterface interface {
 	// Corresponds with POST /v1/reception/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
 	SmbResellerProvisionWorkspace(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, body SmbResellerProvisionWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// SmbResellerUpdateWorkspaceWithBody Update Reseller Workspace
+	//
+	// Update a customer workspace. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/reception/reseller/workspaces/{workspace_id} (the `SmbResellerUpdateWorkspace` operationId).
+	SmbResellerUpdateWorkspaceWithBody(ctx context.Context, workspaceId string, params *SmbResellerUpdateWorkspaceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbResellerUpdateWorkspace Update Reseller Workspace
+	//
+	// Update a customer workspace. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/reception/reseller/workspaces/{workspace_id} (the `SmbResellerUpdateWorkspace` operationId).
+	SmbResellerUpdateWorkspace(ctx context.Context, workspaceId string, params *SmbResellerUpdateWorkspaceParams, body SmbResellerUpdateWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// SmbResellerCompleteWorkspaceOnboarding Complete Reseller Workspace Onboarding
 	//
 	// Finish setting up the workspace: create its receptionist and assistant from the business profile, reusing a receptionist from a setup already started, and connect your phone number, if you supply one. Safe to retry.
@@ -102903,7 +103017,7 @@ type ClientInterface interface {
 
 	// WorkspaceUsageWithBody Get Workspace Cost Usage
 	//
-	// Returns the cost of the workspace's usage over time, for workspaces billed by cost. Usage is bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the cost in the workspace's currency and `total_charge_count` the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns. Workspaces billed in credits should use /v1/workspace/analytics/query/usage-by-product-over-time.
+	// Returns the base cost of the workspace's usage over time, bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the base cost in the workspace's currency (excluding overage surcharges) and `total_charge_count` is the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -102912,7 +103026,7 @@ type ClientInterface interface {
 
 	// WorkspaceUsage Get Workspace Cost Usage
 	//
-	// Returns the cost of the workspace's usage over time, for workspaces billed by cost. Usage is bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the cost in the workspace's currency and `total_charge_count` the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns. Workspaces billed in credits should use /v1/workspace/analytics/query/usage-by-product-over-time.
+	// Returns the base cost of the workspace's usage over time, bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the base cost in the workspace's currency (excluding overage surcharges) and `total_charge_count` is the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -104165,7 +104279,7 @@ func (c *Client) GetBranchRoute(ctx context.Context, agentId string, branchId st
 
 // UpdateBranchRouteWithBody Update Agent Branch
 //
-// # Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+// # Update agent branch properties such as name, description, archiving status, protection level, auto-rebase, and the branch it is kept in sync with
 //
 // Takes any type of body and a specified content type.
 //
@@ -104184,7 +104298,7 @@ func (c *Client) UpdateBranchRouteWithBody(ctx context.Context, agentId string, 
 
 // UpdateBranchRoute Update Agent Branch
 //
-// # Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+// # Update agent branch properties such as name, description, archiving status, protection level, auto-rebase, and the branch it is kept in sync with
 //
 // Takes a body of the `application/json` content type.
 //
@@ -104379,15 +104493,15 @@ func (c *Client) UpdateProcedureDraftRoute(ctx context.Context, agentId string, 
 	return c.Client.Do(req)
 }
 
-// RebaseBranchOntoMainWithBody Rebase A Branch Onto Main
+// RebaseBranchRouteWithBody Rebase A Branch Onto Main
 //
-// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
+// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
 //
 // Takes any type of body and a specified content type.
 //
-// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-func (c *Client) RebaseBranchOntoMainWithBody(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewRebaseBranchOntoMainRequestWithBody(c.Server, agentId, branchId, params, contentType, body)
+// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchRoute` operationId).
+func (c *Client) RebaseBranchRouteWithBody(ctx context.Context, agentId string, branchId string, params *RebaseBranchRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewRebaseBranchRouteRequestWithBody(c.Server, agentId, branchId, params, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -104398,15 +104512,15 @@ func (c *Client) RebaseBranchOntoMainWithBody(ctx context.Context, agentId strin
 	return c.Client.Do(req)
 }
 
-// RebaseBranchOntoMain Rebase A Branch Onto Main
+// RebaseBranchRoute Rebase A Branch Onto Main
 //
-// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
+// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
 //
 // Takes a body of the `application/json` content type.
 //
-// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-func (c *Client) RebaseBranchOntoMain(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewRebaseBranchOntoMainRequest(c.Server, agentId, branchId, params, body)
+// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchRoute` operationId).
+func (c *Client) RebaseBranchRoute(ctx context.Context, agentId string, branchId string, params *RebaseBranchRouteParams, body RebaseBranchRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewRebaseBranchRouteRequest(c.Server, agentId, branchId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -104747,7 +104861,7 @@ func (c *Client) ListMergeProposalsRoute(ctx context.Context, agentId string, pa
 
 // CreateMergeProposalRouteWithBody Create A Merge Proposal
 //
-// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+// Create a request to merge a source branch into a target branch. Callers with only propose access can open a proposal from a branch they own into its parent. Merging requires write access to the target branch.
 //
 // Takes any type of body and a specified content type.
 //
@@ -104766,7 +104880,7 @@ func (c *Client) CreateMergeProposalRouteWithBody(ctx context.Context, agentId s
 
 // CreateMergeProposalRoute Create A Merge Proposal
 //
-// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+// Create a request to merge a source branch into a target branch. Callers with only propose access can open a proposal from a branch they own into its parent. Merging requires write access to the target branch.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -113284,6 +113398,44 @@ func (c *Client) SmbResellerProvisionWorkspace(ctx context.Context, params *SmbR
 	return c.Client.Do(req)
 }
 
+// SmbResellerUpdateWorkspaceWithBody Update Reseller Workspace
+//
+// Update a customer workspace. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/reception/reseller/workspaces/{workspace_id} (the `SmbResellerUpdateWorkspace` operationId).
+func (c *Client) SmbResellerUpdateWorkspaceWithBody(ctx context.Context, workspaceId string, params *SmbResellerUpdateWorkspaceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbResellerUpdateWorkspaceRequestWithBody(c.Server, workspaceId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbResellerUpdateWorkspace Update Reseller Workspace
+//
+// Update a customer workspace. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/reception/reseller/workspaces/{workspace_id} (the `SmbResellerUpdateWorkspace` operationId).
+func (c *Client) SmbResellerUpdateWorkspace(ctx context.Context, workspaceId string, params *SmbResellerUpdateWorkspaceParams, body SmbResellerUpdateWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbResellerUpdateWorkspaceRequest(c.Server, workspaceId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // SmbResellerCompleteWorkspaceOnboarding Complete Reseller Workspace Onboarding
 //
 // Finish setting up the workspace: create its receptionist and assistant from the business profile, reusing a receptionist from a setup already started, and connect your phone number, if you supply one. Safe to retry.
@@ -116338,7 +116490,7 @@ func (c *Client) RequestsList(ctx context.Context, params *RequestsListParams, b
 
 // WorkspaceUsageWithBody Get Workspace Cost Usage
 //
-// Returns the cost of the workspace's usage over time, for workspaces billed by cost. Usage is bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the cost in the workspace's currency and `total_charge_count` the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns. Workspaces billed in credits should use /v1/workspace/analytics/query/usage-by-product-over-time.
+// Returns the base cost of the workspace's usage over time, bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the base cost in the workspace's currency (excluding overage surcharges) and `total_charge_count` is the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns.
 //
 // Takes any type of body and a specified content type.
 //
@@ -116357,7 +116509,7 @@ func (c *Client) WorkspaceUsageWithBody(ctx context.Context, params *WorkspaceUs
 
 // WorkspaceUsage Get Workspace Cost Usage
 //
-// Returns the cost of the workspace's usage over time, for workspaces billed by cost. Usage is bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the cost in the workspace's currency and `total_charge_count` the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns. Workspaces billed in credits should use /v1/workspace/analytics/query/usage-by-product-over-time.
+// Returns the base cost of the workspace's usage over time, bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the base cost in the workspace's currency (excluding overage surcharges) and `total_charge_count` is the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -120286,19 +120438,19 @@ func NewUpdateProcedureDraftRouteRequestWithBody(server string, agentId string, 
 	return req, nil
 }
 
-// NewRebaseBranchOntoMainRequest calls the generic RebaseBranchOntoMain builder with application/json body
-func NewRebaseBranchOntoMainRequest(server string, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody) (*http.Request, error) {
+// NewRebaseBranchRouteRequest calls the generic RebaseBranchRoute builder with application/json body
+func NewRebaseBranchRouteRequest(server string, agentId string, branchId string, params *RebaseBranchRouteParams, body RebaseBranchRouteJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewRebaseBranchOntoMainRequestWithBody(server, agentId, branchId, params, "application/json", bodyReader)
+	return NewRebaseBranchRouteRequestWithBody(server, agentId, branchId, params, "application/json", bodyReader)
 }
 
-// NewRebaseBranchOntoMainRequestWithBody constructs an http.Request for the RebaseBranchOntoMain method, with any body, and a specified content type
-func NewRebaseBranchOntoMainRequestWithBody(server string, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader) (*http.Request, error) {
+// NewRebaseBranchRouteRequestWithBody constructs an http.Request for the RebaseBranchRoute method, with any body, and a specified content type
+func NewRebaseBranchRouteRequestWithBody(server string, agentId string, branchId string, params *RebaseBranchRouteParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -145406,6 +145558,68 @@ func NewSmbResellerProvisionWorkspaceRequestWithBody(server string, params *SmbR
 	return req, nil
 }
 
+// NewSmbResellerUpdateWorkspaceRequest calls the generic SmbResellerUpdateWorkspace builder with application/json body
+func NewSmbResellerUpdateWorkspaceRequest(server string, workspaceId string, params *SmbResellerUpdateWorkspaceParams, body SmbResellerUpdateWorkspaceJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbResellerUpdateWorkspaceRequestWithBody(server, workspaceId, params, "application/json", bodyReader)
+}
+
+// NewSmbResellerUpdateWorkspaceRequestWithBody constructs an http.Request for the SmbResellerUpdateWorkspace method, with any body, and a specified content type
+func NewSmbResellerUpdateWorkspaceRequestWithBody(server string, workspaceId string, params *SmbResellerUpdateWorkspaceParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "workspace_id", workspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/reception/reseller/workspaces/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewSmbResellerCompleteWorkspaceOnboardingRequest constructs an http.Request for the SmbResellerCompleteWorkspaceOnboarding method
 func NewSmbResellerCompleteWorkspaceOnboardingRequest(server string, workspaceId string, params *SmbResellerCompleteWorkspaceOnboardingParams) (*http.Request, error) {
 	var err error
@@ -155801,7 +156015,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateBranchRouteWithBodyWithResponse Update Agent Branch
 	//
-	// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+	// Update agent branch properties such as name, description, archiving status, protection level, auto-rebase, and the branch it is kept in sync with
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -155810,7 +156024,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateBranchRouteWithResponse Update Agent Branch
 	//
-	// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+	// Update agent branch properties such as name, description, archiving status, protection level, auto-rebase, and the branch it is kept in sync with
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -155907,23 +156121,23 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/draft (the `UpdateProcedureDraftRoute` operationId).
 	UpdateProcedureDraftRouteWithResponse(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureDraftRouteParams, body UpdateProcedureDraftRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateProcedureDraftRouteResponse, error)
 
-	// RebaseBranchOntoMainWithBodyWithResponse Rebase A Branch Onto Main
+	// RebaseBranchRouteWithBodyWithResponse Rebase A Branch Onto Main
 	//
-	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
-	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-	RebaseBranchOntoMainWithBodyWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error)
+	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchRoute` operationId).
+	RebaseBranchRouteWithBodyWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*RebaseBranchRouteResponse, error)
 
-	// RebaseBranchOntoMainWithResponse Rebase A Branch Onto Main
+	// RebaseBranchRouteWithResponse Rebase A Branch Onto Main
 	//
-	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
+	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
-	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-	RebaseBranchOntoMainWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error)
+	// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchRoute` operationId).
+	RebaseBranchRouteWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchRouteParams, body RebaseBranchRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*RebaseBranchRouteResponse, error)
 
 	// RebasePreviewRouteWithResponse Preview Rebased Configuration
 	//
@@ -156089,7 +156303,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateMergeProposalRouteWithBodyWithResponse Create A Merge Proposal
 	//
-	// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+	// Create a request to merge a source branch into a target branch. Callers with only propose access can open a proposal from a branch they own into its parent. Merging requires write access to the target branch.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -156098,7 +156312,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateMergeProposalRouteWithResponse Create A Merge Proposal
 	//
-	// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+	// Create a request to merge a source branch into a target branch. Callers with only propose access can open a proposal from a branch they own into its parent. Merging requires write access to the target branch.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -160384,6 +160598,24 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /v1/reception/reseller/workspaces (the `SmbResellerProvisionWorkspace` operationId).
 	SmbResellerProvisionWorkspaceWithResponse(ctx context.Context, params *SmbResellerProvisionWorkspaceParams, body SmbResellerProvisionWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbResellerProvisionWorkspaceResponse, error)
 
+	// SmbResellerUpdateWorkspaceWithBodyWithResponse Update Reseller Workspace
+	//
+	// Update a customer workspace. Only the fields sent are changed.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/reception/reseller/workspaces/{workspace_id} (the `SmbResellerUpdateWorkspace` operationId).
+	SmbResellerUpdateWorkspaceWithBodyWithResponse(ctx context.Context, workspaceId string, params *SmbResellerUpdateWorkspaceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbResellerUpdateWorkspaceResponse, error)
+
+	// SmbResellerUpdateWorkspaceWithResponse Update Reseller Workspace
+	//
+	// Update a customer workspace. Only the fields sent are changed.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/reception/reseller/workspaces/{workspace_id} (the `SmbResellerUpdateWorkspace` operationId).
+	SmbResellerUpdateWorkspaceWithResponse(ctx context.Context, workspaceId string, params *SmbResellerUpdateWorkspaceParams, body SmbResellerUpdateWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbResellerUpdateWorkspaceResponse, error)
+
 	// SmbResellerCompleteWorkspaceOnboardingWithResponse Complete Reseller Workspace Onboarding
 	//
 	// Finish setting up the workspace: create its receptionist and assistant from the business profile, reusing a receptionist from a setup already started, and connect your phone number, if you supply one. Safe to retry.
@@ -161895,7 +162127,7 @@ type ClientWithResponsesInterface interface {
 
 	// WorkspaceUsageWithBodyWithResponse Get Workspace Cost Usage
 	//
-	// Returns the cost of the workspace's usage over time, for workspaces billed by cost. Usage is bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the cost in the workspace's currency and `total_charge_count` the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns. Workspaces billed in credits should use /v1/workspace/analytics/query/usage-by-product-over-time.
+	// Returns the base cost of the workspace's usage over time, bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the base cost in the workspace's currency (excluding overage surcharges) and `total_charge_count` is the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -161904,7 +162136,7 @@ type ClientWithResponsesInterface interface {
 
 	// WorkspaceUsageWithResponse Get Workspace Cost Usage
 	//
-	// Returns the cost of the workspace's usage over time, for workspaces billed by cost. Usage is bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the cost in the workspace's currency and `total_charge_count` the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns. Workspaces billed in credits should use /v1/workspace/analytics/query/usage-by-product-over-time.
+	// Returns the base cost of the workspace's usage over time, bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the base cost in the workspace's currency (excluding overage surcharges) and `total_charge_count` is the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -164504,7 +164736,7 @@ func (r UpdateProcedureDraftRouteResponse) ContentType() string {
 	return ""
 }
 
-type RebaseBranchOntoMainResponse struct {
+type RebaseBranchRouteResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
@@ -164514,22 +164746,22 @@ type RebaseBranchOntoMainResponse struct {
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r RebaseBranchOntoMainResponse) GetJSON200() *interface{} {
+func (r RebaseBranchRouteResponse) GetJSON200() *interface{} {
 	return r.JSON200
 }
 
 // GetJSON422 returns the response for an HTTP 422 `application/json` response
-func (r RebaseBranchOntoMainResponse) GetJSON422() *HTTPValidationError {
+func (r RebaseBranchRouteResponse) GetJSON422() *HTTPValidationError {
 	return r.JSON422
 }
 
 // GetBody returns the raw response body bytes
-func (r RebaseBranchOntoMainResponse) GetBody() []byte {
+func (r RebaseBranchRouteResponse) GetBody() []byte {
 	return r.Body
 }
 
 // Status returns HTTPResponse.Status
-func (r RebaseBranchOntoMainResponse) Status() string {
+func (r RebaseBranchRouteResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -164537,7 +164769,7 @@ func (r RebaseBranchOntoMainResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r RebaseBranchOntoMainResponse) StatusCode() int {
+func (r RebaseBranchRouteResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -164545,7 +164777,7 @@ func (r RebaseBranchOntoMainResponse) StatusCode() int {
 }
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
-func (r RebaseBranchOntoMainResponse) ContentType() string {
+func (r RebaseBranchRouteResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -181252,6 +181484,54 @@ func (r SmbResellerProvisionWorkspaceResponse) ContentType() string {
 	return ""
 }
 
+type SmbResellerUpdateWorkspaceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResellerWorkspaceSummary
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbResellerUpdateWorkspaceResponse) GetJSON200() *ResellerWorkspaceSummary {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbResellerUpdateWorkspaceResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbResellerUpdateWorkspaceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbResellerUpdateWorkspaceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbResellerUpdateWorkspaceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbResellerUpdateWorkspaceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type SmbResellerCompleteWorkspaceOnboardingResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -188993,7 +189273,7 @@ func (c *ClientWithResponses) GetBranchRouteWithResponse(ctx context.Context, ag
 
 // UpdateBranchRouteWithBodyWithResponse Update Agent Branch
 //
-// # Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+// # Update agent branch properties such as name, description, archiving status, protection level, auto-rebase, and the branch it is kept in sync with
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -189008,7 +189288,7 @@ func (c *ClientWithResponses) UpdateBranchRouteWithBodyWithResponse(ctx context.
 
 // UpdateBranchRouteWithResponse Update Agent Branch
 //
-// # Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+// # Update agent branch properties such as name, description, archiving status, protection level, auto-rebase, and the branch it is kept in sync with
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -189171,34 +189451,34 @@ func (c *ClientWithResponses) UpdateProcedureDraftRouteWithResponse(ctx context.
 	return ParseUpdateProcedureDraftRouteResponse(rsp)
 }
 
-// RebaseBranchOntoMainWithBodyWithResponse Rebase A Branch Onto Main
+// RebaseBranchRouteWithBodyWithResponse Rebase A Branch Onto Main
 //
-// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
+// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
-// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-func (c *ClientWithResponses) RebaseBranchOntoMainWithBodyWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error) {
-	rsp, err := c.RebaseBranchOntoMainWithBody(ctx, agentId, branchId, params, contentType, body, reqEditors...)
+// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchRoute` operationId).
+func (c *ClientWithResponses) RebaseBranchRouteWithBodyWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*RebaseBranchRouteResponse, error) {
+	rsp, err := c.RebaseBranchRouteWithBody(ctx, agentId, branchId, params, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseRebaseBranchOntoMainResponse(rsp)
+	return ParseRebaseBranchRouteResponse(rsp)
 }
 
-// RebaseBranchOntoMainWithResponse Rebase A Branch Onto Main
+// RebaseBranchRouteWithResponse Rebase A Branch Onto Main
 //
-// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports.
+// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
-// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchOntoMain` operationId).
-func (c *ClientWithResponses) RebaseBranchOntoMainWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchOntoMainParams, body RebaseBranchOntoMainJSONRequestBody, reqEditors ...RequestEditorFn) (*RebaseBranchOntoMainResponse, error) {
-	rsp, err := c.RebaseBranchOntoMain(ctx, agentId, branchId, params, body, reqEditors...)
+// Corresponds with POST /v1/convai/agents/{agent_id}/branches/{branch_id}/rebase (the `RebaseBranchRoute` operationId).
+func (c *ClientWithResponses) RebaseBranchRouteWithResponse(ctx context.Context, agentId string, branchId string, params *RebaseBranchRouteParams, body RebaseBranchRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*RebaseBranchRouteResponse, error) {
+	rsp, err := c.RebaseBranchRoute(ctx, agentId, branchId, params, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseRebaseBranchOntoMainResponse(rsp)
+	return ParseRebaseBranchRouteResponse(rsp)
 }
 
 // RebasePreviewRouteWithResponse Preview Rebased Configuration
@@ -189473,7 +189753,7 @@ func (c *ClientWithResponses) ListMergeProposalsRouteWithResponse(ctx context.Co
 
 // CreateMergeProposalRouteWithBodyWithResponse Create A Merge Proposal
 //
-// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+// Create a request to merge a source branch into a target branch. Callers with only propose access can open a proposal from a branch they own into its parent. Merging requires write access to the target branch.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -189488,7 +189768,7 @@ func (c *ClientWithResponses) CreateMergeProposalRouteWithBodyWithResponse(ctx c
 
 // CreateMergeProposalRouteWithResponse Create A Merge Proposal
 //
-// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+// Create a request to merge a source branch into a target branch. Callers with only propose access can open a proposal from a branch they own into its parent. Merging requires write access to the target branch.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -196557,6 +196837,36 @@ func (c *ClientWithResponses) SmbResellerProvisionWorkspaceWithResponse(ctx cont
 	return ParseSmbResellerProvisionWorkspaceResponse(rsp)
 }
 
+// SmbResellerUpdateWorkspaceWithBodyWithResponse Update Reseller Workspace
+//
+// Update a customer workspace. Only the fields sent are changed.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/reception/reseller/workspaces/{workspace_id} (the `SmbResellerUpdateWorkspace` operationId).
+func (c *ClientWithResponses) SmbResellerUpdateWorkspaceWithBodyWithResponse(ctx context.Context, workspaceId string, params *SmbResellerUpdateWorkspaceParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbResellerUpdateWorkspaceResponse, error) {
+	rsp, err := c.SmbResellerUpdateWorkspaceWithBody(ctx, workspaceId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbResellerUpdateWorkspaceResponse(rsp)
+}
+
+// SmbResellerUpdateWorkspaceWithResponse Update Reseller Workspace
+//
+// Update a customer workspace. Only the fields sent are changed.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/reception/reseller/workspaces/{workspace_id} (the `SmbResellerUpdateWorkspace` operationId).
+func (c *ClientWithResponses) SmbResellerUpdateWorkspaceWithResponse(ctx context.Context, workspaceId string, params *SmbResellerUpdateWorkspaceParams, body SmbResellerUpdateWorkspaceJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbResellerUpdateWorkspaceResponse, error) {
+	rsp, err := c.SmbResellerUpdateWorkspace(ctx, workspaceId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbResellerUpdateWorkspaceResponse(rsp)
+}
+
 // SmbResellerCompleteWorkspaceOnboardingWithResponse Complete Reseller Workspace Onboarding
 //
 // Finish setting up the workspace: create its receptionist and assistant from the business profile, reusing a receptionist from a setup already started, and connect your phone number, if you supply one. Safe to retry.
@@ -199069,7 +199379,7 @@ func (c *ClientWithResponses) RequestsListWithResponse(ctx context.Context, para
 
 // WorkspaceUsageWithBodyWithResponse Get Workspace Cost Usage
 //
-// Returns the cost of the workspace's usage over time, for workspaces billed by cost. Usage is bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the cost in the workspace's currency and `total_charge_count` the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns. Workspaces billed in credits should use /v1/workspace/analytics/query/usage-by-product-over-time.
+// Returns the base cost of the workspace's usage over time, bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the base cost in the workspace's currency (excluding overage surcharges) and `total_charge_count` is the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -199084,7 +199394,7 @@ func (c *ClientWithResponses) WorkspaceUsageWithBodyWithResponse(ctx context.Con
 
 // WorkspaceUsageWithResponse Get Workspace Cost Usage
 //
-// Returns the cost of the workspace's usage over time, for workspaces billed by cost. Usage is bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the cost in the workspace's currency and `total_charge_count` the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns. Workspaces billed in credits should use /v1/workspace/analytics/query/usage-by-product-over-time.
+// Returns the base cost of the workspace's usage over time, bucketed by UTC day. The response is a tabular structure with columns, column_types, column_units, and rows, with one row per group and bucket. `total_cost` is the base cost in the workspace's currency (excluding overage surcharges) and `total_charge_count` is the billed quantity. Usage can be grouped or filtered by at most two of `user_id`, `hashed_xi_api_key`, `region`, `reporting_workspace_id`, `billing_group_id`, `product_type`, `surface` and `actor`, and grouping by two of them requires an `eq` or `in` filter on one. `model`, `request_source`, `fiat_charge_type` and `fiat_currency` can always be added. Some id columns also get a display-name column, such as user_label, appended after the existing columns.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -201251,15 +201561,15 @@ func ParseUpdateProcedureDraftRouteResponse(rsp *http.Response) (*UpdateProcedur
 	return response, nil
 }
 
-// ParseRebaseBranchOntoMainResponse parses an HTTP response from a RebaseBranchOntoMainWithResponse call
-func ParseRebaseBranchOntoMainResponse(rsp *http.Response) (*RebaseBranchOntoMainResponse, error) {
+// ParseRebaseBranchRouteResponse parses an HTTP response from a RebaseBranchRouteWithResponse call
+func ParseRebaseBranchRouteResponse(rsp *http.Response) (*RebaseBranchRouteResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &RebaseBranchOntoMainResponse{
+	response := &RebaseBranchRouteResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -212861,6 +213171,39 @@ func ParseSmbResellerProvisionWorkspaceResponse(rsp *http.Response) (*SmbReselle
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest ProvisionResellerWorkspaceResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbResellerUpdateWorkspaceResponse parses an HTTP response from a SmbResellerUpdateWorkspaceWithResponse call
+func ParseSmbResellerUpdateWorkspaceResponse(rsp *http.Response) (*SmbResellerUpdateWorkspaceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbResellerUpdateWorkspaceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResellerWorkspaceSummary
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
