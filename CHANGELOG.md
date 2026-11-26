@@ -2,6 +2,17 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.22.0, 2026-11-26
+
+- Adds a ticketing API on `Client` and `ClientWithResponses`: `ListTickets`, `CreateTicket`, `GetTicket`, `UpdateTicket`, `DeleteTicket` and `CreateTicketMessage`, each with the `WithBody` and `WithResponse` variants where the spec has a body, plus the matching params, request, response and parse types.
+- Adds ticket tag and SLA policy operations: `ListTicketTags`, `CreateTicketTag`, `UpdateTicketTag`, `ListTicketSlaPolicies`, `CreateTicketSlaPolicy`, `GetTicketSlaPolicy` and `UpdateTicketSlaPolicy`. Adds the `SLAMetric` enum with `SLAMetricFirstResponse`, `SLAMetricNextResponse` and `SLAMetricResolution`.
+- Adds `ListRequesters` and `SyncSlackRequesters` (with `SyncSlackRequestersRequest` and `SyncSlackRequestersResponse`) for ticket requesters.
+- Adds `StopConversationTurnRoute` and `StopConversationTurnRouteWithBody`, with `StopConversationTurnRouteParams` and `StopConversationTurnRouteJSONRequestBody`.
+- Adds `AgentOutputStatusInterrupted` to `AgentOutputStatus` and accepts it in `Valid`.
+- Adds say and update-state workflow nodes: `AsWorkflowSayNodeModelInput`, `FromWorkflowSayNodeModelInput`, `MergeWorkflowSayNodeModelInput`, `AsWorkflowUpdateStateNodeModelInput` and the matching `Output` and `Merge` variants on the workflow node union types.
+- Adds the ticket event, assignee and author response types such as `TicketCreatedEventResponse`, `TicketMessageEventResponse` and `TicketListItemResponse`.
+- Adds methods to the `ClientInterface` and `ClientWithResponsesInterface` interfaces for every new operation. Custom implementations of these interfaces, such as mocks, must add them.
+
 ## v0.21.0, 2026-11-25
 
 - Breaking: renames the rebase operation from `RebaseBranchOntoMain` to `RebaseBranchRoute`. The endpoint is unchanged. The old `(*Client).RebaseBranchOntoMain`, `RebaseBranchOntoMainWithBody`, `(*ClientWithResponses).RebaseBranchOntoMainWithResponse`, `RebaseBranchOntoMainWithBodyWithResponse`, `NewRebaseBranchOntoMainRequest`, `NewRebaseBranchOntoMainRequestWithBody`, `ParseRebaseBranchOntoMainResponse`, `RebaseBranchOntoMainParams`, `RebaseBranchOntoMainJSONRequestBody` and `RebaseBranchOntoMainResponse` are removed. Use the matching `RebaseBranchRoute` names.

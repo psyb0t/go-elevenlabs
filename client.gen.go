@@ -990,6 +990,7 @@ const (
 	AgentOutputStatusCompleted      AgentOutputStatus = "completed"
 	AgentOutputStatusFailed         AgentOutputStatus = "failed"
 	AgentOutputStatusInProgress     AgentOutputStatus = "in_progress"
+	AgentOutputStatusInterrupted    AgentOutputStatus = "interrupted"
 	AgentOutputStatusRequiresAction AgentOutputStatus = "requires_action"
 	AgentOutputStatusTimedOut       AgentOutputStatus = "timed_out"
 )
@@ -1002,6 +1003,8 @@ func (e AgentOutputStatus) Valid() bool {
 	case AgentOutputStatusFailed:
 		return true
 	case AgentOutputStatusInProgress:
+		return true
+	case AgentOutputStatusInterrupted:
 		return true
 	case AgentOutputStatusRequiresAction:
 		return true
@@ -16414,6 +16417,27 @@ func (e SIPUriTransferDestinationType) Valid() bool {
 	}
 }
 
+// Defines values for SLAMetric.
+const (
+	SLAMetricFirstResponse SLAMetric = "first_response"
+	SLAMetricNextResponse  SLAMetric = "next_response"
+	SLAMetricResolution    SLAMetric = "resolution"
+)
+
+// Valid indicates whether the value is a known member of the SLAMetric enum.
+func (e SLAMetric) Valid() bool {
+	switch e {
+	case SLAMetricFirstResponse:
+		return true
+	case SLAMetricNextResponse:
+		return true
+	case SLAMetricResolution:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for SMBToolConfigType.
 const (
 	SMBToolConfigTypeSmb SMBToolConfigType = "smb"
@@ -16459,6 +16483,66 @@ func (e SampleConfigDBModelParentType) Valid() bool {
 	case SampleConfigDBModelParentTypeCollection:
 		return true
 	case SampleConfigDBModelParentTypeRead:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SayNodeLiteralMessageInputType.
+const (
+	SayNodeLiteralMessageInputTypeLiteral SayNodeLiteralMessageInputType = "literal"
+)
+
+// Valid indicates whether the value is a known member of the SayNodeLiteralMessageInputType enum.
+func (e SayNodeLiteralMessageInputType) Valid() bool {
+	switch e {
+	case SayNodeLiteralMessageInputTypeLiteral:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SayNodeLiteralMessageOutputType.
+const (
+	SayNodeLiteralMessageOutputTypeLiteral SayNodeLiteralMessageOutputType = "literal"
+)
+
+// Valid indicates whether the value is a known member of the SayNodeLiteralMessageOutputType enum.
+func (e SayNodeLiteralMessageOutputType) Valid() bool {
+	switch e {
+	case SayNodeLiteralMessageOutputTypeLiteral:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SayNodePromptMessageInputType.
+const (
+	SayNodePromptMessageInputTypePrompt SayNodePromptMessageInputType = "prompt"
+)
+
+// Valid indicates whether the value is a known member of the SayNodePromptMessageInputType enum.
+func (e SayNodePromptMessageInputType) Valid() bool {
+	switch e {
+	case SayNodePromptMessageInputTypePrompt:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SayNodePromptMessageOutputType.
+const (
+	SayNodePromptMessageOutputTypePrompt SayNodePromptMessageOutputType = "prompt"
+)
+
+// Valid indicates whether the value is a known member of the SayNodePromptMessageOutputType enum.
+func (e SayNodePromptMessageOutputType) Valid() bool {
+	switch e {
+	case SayNodePromptMessageOutputTypePrompt:
 		return true
 	default:
 		return false
@@ -17194,6 +17278,36 @@ const (
 func (e StartProcedureToolResultSuccessModelStatus) Valid() bool {
 	switch e {
 	case StartProcedureToolResultSuccessModelStatusSuccess:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for StateUpdateInputType.
+const (
+	StateUpdateInputTypeDynamicVariable StateUpdateInputType = "dynamic_variable"
+)
+
+// Valid indicates whether the value is a known member of the StateUpdateInputType enum.
+func (e StateUpdateInputType) Valid() bool {
+	switch e {
+	case StateUpdateInputTypeDynamicVariable:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for StateUpdateOutputType.
+const (
+	StateUpdateOutputTypeDynamicVariable StateUpdateOutputType = "dynamic_variable"
+)
+
+// Valid indicates whether the value is a known member of the StateUpdateOutputType enum.
+func (e StateUpdateOutputType) Valid() bool {
+	switch e {
+	case StateUpdateOutputTypeDynamicVariable:
 		return true
 	default:
 		return false
@@ -18394,6 +18508,354 @@ func (e TextOutputItemType) Valid() bool {
 	}
 }
 
+// Defines values for TicketAIAgentAssigneeRequestType.
+const (
+	TicketAIAgentAssigneeRequestTypeAiAgent TicketAIAgentAssigneeRequestType = "ai_agent"
+)
+
+// Valid indicates whether the value is a known member of the TicketAIAgentAssigneeRequestType enum.
+func (e TicketAIAgentAssigneeRequestType) Valid() bool {
+	switch e {
+	case TicketAIAgentAssigneeRequestTypeAiAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketAIAgentAssigneeResponseType.
+const (
+	TicketAIAgentAssigneeResponseTypeAiAgent TicketAIAgentAssigneeResponseType = "ai_agent"
+)
+
+// Valid indicates whether the value is a known member of the TicketAIAgentAssigneeResponseType enum.
+func (e TicketAIAgentAssigneeResponseType) Valid() bool {
+	switch e {
+	case TicketAIAgentAssigneeResponseTypeAiAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketAssigneeChangedEventResponseType.
+const (
+	TicketAssigneeChangedEventResponseTypeAssigneeChanged TicketAssigneeChangedEventResponseType = "assignee_changed"
+)
+
+// Valid indicates whether the value is a known member of the TicketAssigneeChangedEventResponseType enum.
+func (e TicketAssigneeChangedEventResponseType) Valid() bool {
+	switch e {
+	case TicketAssigneeChangedEventResponseTypeAssigneeChanged:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketCreatedEventResponseType.
+const (
+	TicketCreatedEventResponseTypeTicketCreated TicketCreatedEventResponseType = "ticket_created"
+)
+
+// Valid indicates whether the value is a known member of the TicketCreatedEventResponseType enum.
+func (e TicketCreatedEventResponseType) Valid() bool {
+	switch e {
+	case TicketCreatedEventResponseTypeTicketCreated:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketDeadlineChangedEventResponseType.
+const (
+	TicketDeadlineChangedEventResponseTypeDeadlineChanged TicketDeadlineChangedEventResponseType = "deadline_changed"
+)
+
+// Valid indicates whether the value is a known member of the TicketDeadlineChangedEventResponseType enum.
+func (e TicketDeadlineChangedEventResponseType) Valid() bool {
+	switch e {
+	case TicketDeadlineChangedEventResponseTypeDeadlineChanged:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketDeadlineStatus.
+const (
+	TicketDeadlineStatusOnTrack TicketDeadlineStatus = "on_track"
+	TicketDeadlineStatusOverdue TicketDeadlineStatus = "overdue"
+)
+
+// Valid indicates whether the value is a known member of the TicketDeadlineStatus enum.
+func (e TicketDeadlineStatus) Valid() bool {
+	switch e {
+	case TicketDeadlineStatusOnTrack:
+		return true
+	case TicketDeadlineStatusOverdue:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketDeletedEventResponseType.
+const (
+	TicketDeletedEventResponseTypeTicketDeleted TicketDeletedEventResponseType = "ticket_deleted"
+)
+
+// Valid indicates whether the value is a known member of the TicketDeletedEventResponseType enum.
+func (e TicketDeletedEventResponseType) Valid() bool {
+	switch e {
+	case TicketDeletedEventResponseTypeTicketDeleted:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketEventAIAgentAuthorResponseType.
+const (
+	TicketEventAIAgentAuthorResponseTypeAiAgent TicketEventAIAgentAuthorResponseType = "ai_agent"
+)
+
+// Valid indicates whether the value is a known member of the TicketEventAIAgentAuthorResponseType enum.
+func (e TicketEventAIAgentAuthorResponseType) Valid() bool {
+	switch e {
+	case TicketEventAIAgentAuthorResponseTypeAiAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketEventHumanAgentAuthorResponseType.
+const (
+	TicketEventHumanAgentAuthorResponseTypeHumanAgent TicketEventHumanAgentAuthorResponseType = "human_agent"
+)
+
+// Valid indicates whether the value is a known member of the TicketEventHumanAgentAuthorResponseType enum.
+func (e TicketEventHumanAgentAuthorResponseType) Valid() bool {
+	switch e {
+	case TicketEventHumanAgentAuthorResponseTypeHumanAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketEventRequesterAuthorResponseType.
+const (
+	TicketEventRequesterAuthorResponseTypeRequester TicketEventRequesterAuthorResponseType = "requester"
+)
+
+// Valid indicates whether the value is a known member of the TicketEventRequesterAuthorResponseType enum.
+func (e TicketEventRequesterAuthorResponseType) Valid() bool {
+	switch e {
+	case TicketEventRequesterAuthorResponseTypeRequester:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketEventVisibility.
+const (
+	TicketEventVisibilityInternal TicketEventVisibility = "internal"
+	TicketEventVisibilityPublic   TicketEventVisibility = "public"
+)
+
+// Valid indicates whether the value is a known member of the TicketEventVisibility enum.
+func (e TicketEventVisibility) Valid() bool {
+	switch e {
+	case TicketEventVisibilityInternal:
+		return true
+	case TicketEventVisibilityPublic:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketHumanAgentAssigneeRequestType.
+const (
+	TicketHumanAgentAssigneeRequestTypeHumanAgent TicketHumanAgentAssigneeRequestType = "human_agent"
+)
+
+// Valid indicates whether the value is a known member of the TicketHumanAgentAssigneeRequestType enum.
+func (e TicketHumanAgentAssigneeRequestType) Valid() bool {
+	switch e {
+	case TicketHumanAgentAssigneeRequestTypeHumanAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketHumanAgentAssigneeResponseType.
+const (
+	TicketHumanAgentAssigneeResponseTypeHumanAgent TicketHumanAgentAssigneeResponseType = "human_agent"
+)
+
+// Valid indicates whether the value is a known member of the TicketHumanAgentAssigneeResponseType enum.
+func (e TicketHumanAgentAssigneeResponseType) Valid() bool {
+	switch e {
+	case TicketHumanAgentAssigneeResponseTypeHumanAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketHumanAgentAuthorRequestType.
+const (
+	TicketHumanAgentAuthorRequestTypeHumanAgent TicketHumanAgentAuthorRequestType = "human_agent"
+)
+
+// Valid indicates whether the value is a known member of the TicketHumanAgentAuthorRequestType enum.
+func (e TicketHumanAgentAuthorRequestType) Valid() bool {
+	switch e {
+	case TicketHumanAgentAuthorRequestTypeHumanAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketMessageEventResponseType.
+const (
+	TicketMessageEventResponseTypeMessage TicketMessageEventResponseType = "message"
+)
+
+// Valid indicates whether the value is a known member of the TicketMessageEventResponseType enum.
+func (e TicketMessageEventResponseType) Valid() bool {
+	switch e {
+	case TicketMessageEventResponseTypeMessage:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketPriority.
+const (
+	TicketPriorityHigh   TicketPriority = "high"
+	TicketPriorityLow    TicketPriority = "low"
+	TicketPriorityMedium TicketPriority = "medium"
+	TicketPriorityUrgent TicketPriority = "urgent"
+)
+
+// Valid indicates whether the value is a known member of the TicketPriority enum.
+func (e TicketPriority) Valid() bool {
+	switch e {
+	case TicketPriorityHigh:
+		return true
+	case TicketPriorityLow:
+		return true
+	case TicketPriorityMedium:
+		return true
+	case TicketPriorityUrgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketPriorityChangedEventResponseType.
+const (
+	TicketPriorityChangedEventResponseTypePriorityChanged TicketPriorityChangedEventResponseType = "priority_changed"
+)
+
+// Valid indicates whether the value is a known member of the TicketPriorityChangedEventResponseType enum.
+func (e TicketPriorityChangedEventResponseType) Valid() bool {
+	switch e {
+	case TicketPriorityChangedEventResponseTypePriorityChanged:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketRequesterAuthorRequestType.
+const (
+	TicketRequesterAuthorRequestTypeRequester TicketRequesterAuthorRequestType = "requester"
+)
+
+// Valid indicates whether the value is a known member of the TicketRequesterAuthorRequestType enum.
+func (e TicketRequesterAuthorRequestType) Valid() bool {
+	switch e {
+	case TicketRequesterAuthorRequestTypeRequester:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketRequesterByEmailRequestType.
+const (
+	TicketRequesterByEmailRequestTypeEmail TicketRequesterByEmailRequestType = "email"
+)
+
+// Valid indicates whether the value is a known member of the TicketRequesterByEmailRequestType enum.
+func (e TicketRequesterByEmailRequestType) Valid() bool {
+	switch e {
+	case TicketRequesterByEmailRequestTypeEmail:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketRequesterBySlackRequestType.
+const (
+	TicketRequesterBySlackRequestTypeSlack TicketRequesterBySlackRequestType = "slack"
+)
+
+// Valid indicates whether the value is a known member of the TicketRequesterBySlackRequestType enum.
+func (e TicketRequesterBySlackRequestType) Valid() bool {
+	switch e {
+	case TicketRequesterBySlackRequestTypeSlack:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketRequesterByUserIdRequestType.
+const (
+	TicketRequesterByUserIdRequestTypeUserId TicketRequesterByUserIdRequestType = "user_id"
+)
+
+// Valid indicates whether the value is a known member of the TicketRequesterByUserIdRequestType enum.
+func (e TicketRequesterByUserIdRequestType) Valid() bool {
+	switch e {
+	case TicketRequesterByUserIdRequestTypeUserId:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketSLAStatus.
+const (
+	TicketSLAStatusOnTrack TicketSLAStatus = "on_track"
+	TicketSLAStatusOverdue TicketSLAStatus = "overdue"
+)
+
+// Valid indicates whether the value is a known member of the TicketSLAStatus enum.
+func (e TicketSLAStatus) Valid() bool {
+	switch e {
+	case TicketSLAStatusOnTrack:
+		return true
+	case TicketSLAStatusOverdue:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for TicketSearchMatchField.
 const (
 	TicketSearchMatchFieldComment     TicketSearchMatchField = "comment"
@@ -18412,6 +18874,150 @@ func (e TicketSearchMatchField) Valid() bool {
 	case TicketSearchMatchFieldTitle:
 		return true
 	case TicketSearchMatchFieldTurnComment:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketSecondaryAssigneeChangedEventResponseType.
+const (
+	TicketSecondaryAssigneeChangedEventResponseTypeSecondaryAssigneeChanged TicketSecondaryAssigneeChangedEventResponseType = "secondary_assignee_changed"
+)
+
+// Valid indicates whether the value is a known member of the TicketSecondaryAssigneeChangedEventResponseType enum.
+func (e TicketSecondaryAssigneeChangedEventResponseType) Valid() bool {
+	switch e {
+	case TicketSecondaryAssigneeChangedEventResponseTypeSecondaryAssigneeChanged:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketSortBy.
+const (
+	TicketSortByUpdatedAt TicketSortBy = "updated_at"
+)
+
+// Valid indicates whether the value is a known member of the TicketSortBy enum.
+func (e TicketSortBy) Valid() bool {
+	switch e {
+	case TicketSortByUpdatedAt:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketStatus.
+const (
+	TicketStatusOpen     TicketStatus = "open"
+	TicketStatusPending  TicketStatus = "pending"
+	TicketStatusResolved TicketStatus = "resolved"
+	TicketStatusWaiting  TicketStatus = "waiting"
+)
+
+// Valid indicates whether the value is a known member of the TicketStatus enum.
+func (e TicketStatus) Valid() bool {
+	switch e {
+	case TicketStatusOpen:
+		return true
+	case TicketStatusPending:
+		return true
+	case TicketStatusResolved:
+		return true
+	case TicketStatusWaiting:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketStatusChangedEventResponseType.
+const (
+	TicketStatusChangedEventResponseTypeStatusChanged TicketStatusChangedEventResponseType = "status_changed"
+)
+
+// Valid indicates whether the value is a known member of the TicketStatusChangedEventResponseType enum.
+func (e TicketStatusChangedEventResponseType) Valid() bool {
+	switch e {
+	case TicketStatusChangedEventResponseTypeStatusChanged:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketSubjectChangedEventResponseType.
+const (
+	TicketSubjectChangedEventResponseTypeSubjectChanged TicketSubjectChangedEventResponseType = "subject_changed"
+)
+
+// Valid indicates whether the value is a known member of the TicketSubjectChangedEventResponseType enum.
+func (e TicketSubjectChangedEventResponseType) Valid() bool {
+	switch e {
+	case TicketSubjectChangedEventResponseTypeSubjectChanged:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketSubscriberRequestType.
+const (
+	TicketSubscriberRequestTypeHumanAgent TicketSubscriberRequestType = "human_agent"
+)
+
+// Valid indicates whether the value is a known member of the TicketSubscriberRequestType enum.
+func (e TicketSubscriberRequestType) Valid() bool {
+	switch e {
+	case TicketSubscriberRequestTypeHumanAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketSubscriberResponseType.
+const (
+	TicketSubscriberResponseTypeHumanAgent TicketSubscriberResponseType = "human_agent"
+)
+
+// Valid indicates whether the value is a known member of the TicketSubscriberResponseType enum.
+func (e TicketSubscriberResponseType) Valid() bool {
+	switch e {
+	case TicketSubscriberResponseTypeHumanAgent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketSubscribersChangedEventResponseType.
+const (
+	TicketSubscribersChangedEventResponseTypeSubscribersChanged TicketSubscribersChangedEventResponseType = "subscribers_changed"
+)
+
+// Valid indicates whether the value is a known member of the TicketSubscribersChangedEventResponseType enum.
+func (e TicketSubscribersChangedEventResponseType) Valid() bool {
+	switch e {
+	case TicketSubscribersChangedEventResponseTypeSubscribersChanged:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TicketTagIdsChangedEventResponseType.
+const (
+	TicketTagIdsChangedEventResponseTypeTagIdsChanged TicketTagIdsChangedEventResponseType = "tag_ids_changed"
+)
+
+// Valid indicates whether the value is a known member of the TicketTagIdsChangedEventResponseType enum.
+func (e TicketTagIdsChangedEventResponseType) Valid() bool {
+	switch e {
+	case TicketTagIdsChangedEventResponseTypeTagIdsChanged:
 		return true
 	default:
 		return false
@@ -18715,6 +19321,7 @@ func (e TranscriptEditErrorKind) Valid() bool {
 // Defines values for TranscriptPlatformEvent.
 const (
 	TranscriptPlatformEventSkipTurnWaitElapsed TranscriptPlatformEvent = "skip_turn_wait_elapsed"
+	TranscriptPlatformEventTurnStopped         TranscriptPlatformEvent = "turn_stopped"
 	TranscriptPlatformEventUserTurnTimeout     TranscriptPlatformEvent = "user_turn_timeout"
 )
 
@@ -18722,6 +19329,8 @@ const (
 func (e TranscriptPlatformEvent) Valid() bool {
 	switch e {
 	case TranscriptPlatformEventSkipTurnWaitElapsed:
+		return true
+	case TranscriptPlatformEventTurnStopped:
 		return true
 	case TranscriptPlatformEventUserTurnTimeout:
 		return true
@@ -21145,6 +21754,7 @@ const (
 	WebhookUsageTypeDubbing                    WebhookUsageType = "Dubbing"
 	WebhookUsageTypeFlows                      WebhookUsageType = "Flows"
 	WebhookUsageTypeSpeechToText               WebhookUsageType = "Speech to Text"
+	WebhookUsageTypeSupportTickets             WebhookUsageType = "Support Tickets"
 	WebhookUsageTypeVoiceLibraryRemovalNotices WebhookUsageType = "Voice Library Removal Notices"
 )
 
@@ -21164,6 +21774,8 @@ func (e WebhookUsageType) Valid() bool {
 	case WebhookUsageTypeFlows:
 		return true
 	case WebhookUsageTypeSpeechToText:
+		return true
+	case WebhookUsageTypeSupportTickets:
 		return true
 	case WebhookUsageTypeVoiceLibraryRemovalNotices:
 		return true
@@ -21547,6 +22159,24 @@ func (e WidgetFeedbackMode) Valid() bool {
 	}
 }
 
+// Defines values for WidgetLayout.
+const (
+	WidgetLayoutDefault   WidgetLayout = "default"
+	WidgetLayoutSidePanel WidgetLayout = "side-panel"
+)
+
+// Valid indicates whether the value is a known member of the WidgetLayout enum.
+func (e WidgetLayout) Valid() bool {
+	switch e {
+	case WidgetLayoutDefault:
+		return true
+	case WidgetLayoutSidePanel:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WidgetPlacement.
 const (
 	WidgetPlacementBottom      WidgetPlacement = "bottom"
@@ -21775,6 +22405,36 @@ func (e WorkflowResultConditionModelOutputType) Valid() bool {
 	}
 }
 
+// Defines values for WorkflowSayNodeModelInputType.
+const (
+	WorkflowSayNodeModelInputTypeSay WorkflowSayNodeModelInputType = "say"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowSayNodeModelInputType enum.
+func (e WorkflowSayNodeModelInputType) Valid() bool {
+	switch e {
+	case WorkflowSayNodeModelInputTypeSay:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WorkflowSayNodeModelOutputType.
+const (
+	WorkflowSayNodeModelOutputTypeSay WorkflowSayNodeModelOutputType = "say"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowSayNodeModelOutputType enum.
+func (e WorkflowSayNodeModelOutputType) Valid() bool {
+	switch e {
+	case WorkflowSayNodeModelOutputTypeSay:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WorkflowStandaloneAgentNodeModelInputType.
 const (
 	WorkflowStandaloneAgentNodeModelInputTypeStandaloneAgent WorkflowStandaloneAgentNodeModelInputType = "standalone_agent"
@@ -21979,6 +22639,36 @@ const (
 func (e WorkflowUnconditionalModelOutputType) Valid() bool {
 	switch e {
 	case WorkflowUnconditionalModelOutputTypeUnconditional:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WorkflowUpdateStateNodeModelInputType.
+const (
+	WorkflowUpdateStateNodeModelInputTypeUpdateState WorkflowUpdateStateNodeModelInputType = "update_state"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowUpdateStateNodeModelInputType enum.
+func (e WorkflowUpdateStateNodeModelInputType) Valid() bool {
+	switch e {
+	case WorkflowUpdateStateNodeModelInputTypeUpdateState:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WorkflowUpdateStateNodeModelOutputType.
+const (
+	WorkflowUpdateStateNodeModelOutputTypeUpdateState WorkflowUpdateStateNodeModelOutputType = "update_state"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowUpdateStateNodeModelOutputType enum.
+func (e WorkflowUpdateStateNodeModelOutputType) Valid() bool {
+	switch e {
+	case WorkflowUpdateStateNodeModelOutputTypeUpdateState:
 		return true
 	default:
 		return false
@@ -22380,6 +23070,7 @@ const (
 	WorkspaceWebhookEventTypeAgentQa                   WorkspaceWebhookEventType = "agent_qa"
 	WorkspaceWebhookEventTypeFlows                     WorkspaceWebhookEventType = "flows"
 	WorkspaceWebhookEventTypeSpeechToText              WorkspaceWebhookEventType = "speech_to_text"
+	WorkspaceWebhookEventTypeSupportTicket             WorkspaceWebhookEventType = "support_ticket"
 	WorkspaceWebhookEventTypeVoiceLibraryRemovalNotice WorkspaceWebhookEventType = "voice_library_removal_notice"
 )
 
@@ -22391,6 +23082,8 @@ func (e WorkspaceWebhookEventType) Valid() bool {
 	case WorkspaceWebhookEventTypeFlows:
 		return true
 	case WorkspaceWebhookEventTypeSpeechToText:
+		return true
+	case WorkspaceWebhookEventTypeSupportTicket:
 		return true
 	case WorkspaceWebhookEventTypeVoiceLibraryRemovalNotice:
 		return true
@@ -34083,6 +34776,65 @@ type CreateTeamInviteRequest struct {
 // CreateTeamInviteRequestRole The role the invitee joins with: 'workspace_admin' or 'workspace_member'.
 type CreateTeamInviteRequestRole string
 
+// CreateTicketMessageRequest defines model for CreateTicketMessageRequest.
+type CreateTicketMessageRequest struct {
+	Author     CreateTicketMessageRequest_Author `json:"author"`
+	Body       string                            `json:"body"`
+	Status     *TicketStatus                     `json:"status,omitempty"`
+	Visibility TicketEventVisibility             `json:"visibility"`
+}
+
+// CreateTicketMessageRequest_Author defines model for CreateTicketMessageRequest.Author.
+type CreateTicketMessageRequest_Author struct {
+	union json.RawMessage
+}
+
+// CreateTicketMessageResponse defines model for CreateTicketMessageResponse.
+type CreateTicketMessageResponse struct {
+	Event    TicketMessageEventResponse `json:"event"`
+	TicketId string                     `json:"ticket_id"`
+}
+
+// CreateTicketRequest defines model for CreateTicketRequest.
+type CreateTicketRequest struct {
+	Assignee *struct {
+		union json.RawMessage
+	} `json:"assignee,omitempty"`
+	Author             CreateTicketRequest_Author    `json:"author"`
+	DeadlineAtUnixSecs *int                          `json:"deadline_at_unix_secs,omitempty"`
+	Description        *string                       `json:"description,omitempty"`
+	Priority           *TicketPriority               `json:"priority,omitempty"`
+	Requester          CreateTicketRequest_Requester `json:"requester"`
+	SecondaryAssignee  *struct {
+		union json.RawMessage
+	} `json:"secondary_assignee,omitempty"`
+	Subject     string                     `json:"subject"`
+	Subscribers *[]TicketSubscriberRequest `json:"subscribers,omitempty"`
+	TagIds      *[]string                  `json:"tag_ids,omitempty"`
+}
+
+// CreateTicketRequest_Author defines model for CreateTicketRequest.Author.
+type CreateTicketRequest_Author struct {
+	union json.RawMessage
+}
+
+// CreateTicketRequest_Requester defines model for CreateTicketRequest.Requester.
+type CreateTicketRequest_Requester struct {
+	union json.RawMessage
+}
+
+// CreateTicketSLAPolicyRequest defines model for CreateTicketSLAPolicyRequest.
+type CreateTicketSLAPolicyRequest struct {
+	Description *string                      `json:"description,omitempty"`
+	Name        string                       `json:"name"`
+	Targets     []TicketSLAPolicyTargetInput `json:"targets"`
+}
+
+// CreateTicketTagRequest defines model for CreateTicketTagRequest.
+type CreateTicketTagRequest struct {
+	Name string `json:"name"`
+}
+
 // CreateToolCallUnitTestRequest defines model for CreateToolCallUnitTestRequest.
 type CreateToolCallUnitTestRequest struct {
 	ChatHistory *[]ConversationHistoryTranscriptCommonModelInput `json:"chat_history,omitempty"`
@@ -38157,6 +38909,34 @@ type GetTestsSummariesByIdsResponseModel struct {
 	Tests map[string]UnitTestSummaryResponseModel `json:"tests"`
 }
 
+// GetTicketResponse defines model for GetTicketResponse.
+type GetTicketResponse struct {
+	Assignee *struct {
+		union json.RawMessage
+	} `json:"assignee"`
+	CreatedAtUnixSecs  int                             `json:"created_at_unix_secs"`
+	DeadlineAtUnixSecs *int                            `json:"deadline_at_unix_secs"`
+	Description        *string                         `json:"description"`
+	Events             []GetTicketResponse_Events_Item `json:"events"`
+	Id                 string                          `json:"id"`
+	Priority           *TicketPriority                 `json:"priority"`
+	Requester          TicketRequesterResponse         `json:"requester"`
+	SecondaryAssignee  *struct {
+		union json.RawMessage
+	} `json:"secondary_assignee"`
+	Sla               *TicketSLASummaryResponse  `json:"sla"`
+	Status            TicketStatus               `json:"status"`
+	Subject           string                     `json:"subject"`
+	Subscribers       []TicketSubscriberResponse `json:"subscribers"`
+	TagIds            []string                   `json:"tag_ids"`
+	UpdatedAtUnixSecs int                        `json:"updated_at_unix_secs"`
+}
+
+// GetTicketResponse_Events_Item defines model for GetTicketResponse.events.Item.
+type GetTicketResponse_Events_Item struct {
+	union json.RawMessage
+}
+
 // GetToolCallUnitTestResponseModel defines model for GetToolCallUnitTestResponseModel.
 type GetToolCallUnitTestResponseModel struct {
 	// AccessInfo The access information for the requesting user on this test.
@@ -41269,6 +42049,11 @@ type OAuth2JWTResponseTokenResponseField string
 
 // ObjectJsonSchemaPropertyInput defines model for ObjectJsonSchemaProperty-Input.
 type ObjectJsonSchemaPropertyInput struct {
+	// AdditionalProperties Makes the object a map: the LLM may add keys beyond `properties`, and each of their values follows this schema, which the LLM must fill. Only for an LLM-provided nested object; ignored on a tool's top-level schema.
+	AdditionalProperties *struct {
+		union json.RawMessage
+	} `json:"additional_properties,omitempty"`
+
 	// ConstantValue When set, the entire object uses this constant JSON value at runtime. Mutually exclusive with description (LLM-provided object), dynamic_variable, and is_omitted.
 	ConstantValue *map[string]interface{} `json:"constant_value,omitempty"`
 	Description   *string                 `json:"description,omitempty"`
@@ -41298,6 +42083,11 @@ type ObjectJsonSchemaPropertyInputType string
 
 // ObjectJsonSchemaPropertyOutput defines model for ObjectJsonSchemaProperty-Output.
 type ObjectJsonSchemaPropertyOutput struct {
+	// AdditionalProperties Makes the object a map: the LLM may add keys beyond `properties`, and each of their values follows this schema, which the LLM must fill. Only for an LLM-provided nested object; ignored on a tool's top-level schema.
+	AdditionalProperties *struct {
+		union json.RawMessage
+	} `json:"additional_properties,omitempty"`
+
 	// ConstantValue When set, the entire object uses this constant JSON value at runtime. Mutually exclusive with description (LLM-provided object), dynamic_variable, and is_omitted.
 	ConstantValue *map[string]interface{} `json:"constant_value,omitempty"`
 	Description   *string                 `json:"description,omitempty"`
@@ -41873,6 +42663,34 @@ type PaginatedResultAgentMergeProposalResponse struct {
 	HasMore    *bool                        `json:"has_more,omitempty"`
 	NextCursor *string                      `json:"next_cursor"`
 	Results    []AgentMergeProposalResponse `json:"results"`
+}
+
+// PaginatedResultTicketListItemResponse defines model for PaginatedResult_TicketListItemResponse_.
+type PaginatedResultTicketListItemResponse struct {
+	HasMore    *bool                    `json:"has_more,omitempty"`
+	NextCursor *string                  `json:"next_cursor"`
+	Results    []TicketListItemResponse `json:"results"`
+}
+
+// PaginatedResultTicketRequesterResponse defines model for PaginatedResult_TicketRequesterResponse_.
+type PaginatedResultTicketRequesterResponse struct {
+	HasMore    *bool                     `json:"has_more,omitempty"`
+	NextCursor *string                   `json:"next_cursor"`
+	Results    []TicketRequesterResponse `json:"results"`
+}
+
+// PaginatedResultTicketSLAPolicyResponse defines model for PaginatedResult_TicketSLAPolicyResponse_.
+type PaginatedResultTicketSLAPolicyResponse struct {
+	HasMore    *bool                     `json:"has_more,omitempty"`
+	NextCursor *string                   `json:"next_cursor"`
+	Results    []TicketSLAPolicyResponse `json:"results"`
+}
+
+// PaginatedResultTicketTagResponse defines model for PaginatedResult_TicketTagResponse_.
+type PaginatedResultTicketTagResponse struct {
+	HasMore    *bool               `json:"has_more,omitempty"`
+	NextCursor *string             `json:"next_cursor"`
+	Results    []TicketTagResponse `json:"results"`
 }
 
 // PairedLanguagesResponse defines model for PairedLanguagesResponse.
@@ -44886,7 +45704,7 @@ type ReceptionCustomerFacingConfigOutput struct {
 	// EnableSkipTurnTool Allow the skip_turn system tool during conversations.
 	EnableSkipTurnTool *bool `json:"enable_skip_turn_tool,omitempty"`
 
-	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.
+	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected. Forwarded calls often fail verification, so a failed forwarded call is challenged instead of rejected.
 	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
 
 	// FirstMessage The first message the agent says when starting a conversation
@@ -44959,7 +45777,7 @@ type ReceptionCustomerFacingConfigPatch struct {
 	// EnableSkipTurnTool Allow the skip_turn system tool during conversations.
 	EnableSkipTurnTool *bool `json:"enable_skip_turn_tool,omitempty"`
 
-	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.
+	// EnableSpamProtection When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected. Forwarded calls often fail verification, so a failed forwarded call is challenged instead of rejected.
 	EnableSpamProtection *bool `json:"enable_spam_protection,omitempty"`
 
 	// FirstMessage The first message the agent says when starting a conversation
@@ -46995,6 +47813,9 @@ type SIPUriTransferDestination struct {
 // SIPUriTransferDestinationType defines model for SIPUriTransferDestination.Type.
 type SIPUriTransferDestinationType string
 
+// SLAMetric defines model for SLAMetric.
+type SLAMetric string
+
 // SMBToolConfig SMB tool configuration that wraps SMB tool parameters.
 //
 // Examples: {"description":"","enabled":true,"name":"search_clients","params":{"smb_tool_type":"search_clients"},"type":"smb"}
@@ -47105,6 +47926,52 @@ type SampleResponseModel struct {
 	TrimEnd           *int                            `json:"trim_end,omitempty"`
 	TrimStart         *int                            `json:"trim_start,omitempty"`
 }
+
+// SayNodeLiteralMessageInput defines model for SayNodeLiteralMessage-Input.
+type SayNodeLiteralMessageInput struct {
+	// Text Literal text message to be spoken by the agent.
+	Text string `json:"text"`
+
+	// TextTranslations Translations for the text field
+	TextTranslations *map[string]TranslatedString    `json:"text_translations,omitempty"`
+	Type             *SayNodeLiteralMessageInputType `json:"type,omitempty"`
+}
+
+// SayNodeLiteralMessageInputType defines model for SayNodeLiteralMessageInput.Type.
+type SayNodeLiteralMessageInputType string
+
+// SayNodeLiteralMessageOutput defines model for SayNodeLiteralMessage-Output.
+type SayNodeLiteralMessageOutput struct {
+	// Text Literal text message to be spoken by the agent.
+	Text string `json:"text"`
+
+	// TextTranslations Translations for the text field
+	TextTranslations map[string]TranslatedString     `json:"text_translations"`
+	Type             SayNodeLiteralMessageOutputType `json:"type"`
+}
+
+// SayNodeLiteralMessageOutputType defines model for SayNodeLiteralMessageOutput.Type.
+type SayNodeLiteralMessageOutputType string
+
+// SayNodePromptMessageInput defines model for SayNodePromptMessage-Input.
+type SayNodePromptMessageInput struct {
+	// Prompt LLM prompt describing what message should be generated.
+	Prompt string                         `json:"prompt"`
+	Type   *SayNodePromptMessageInputType `json:"type,omitempty"`
+}
+
+// SayNodePromptMessageInputType defines model for SayNodePromptMessageInput.Type.
+type SayNodePromptMessageInputType string
+
+// SayNodePromptMessageOutput defines model for SayNodePromptMessage-Output.
+type SayNodePromptMessageOutput struct {
+	// Prompt LLM prompt describing what message should be generated.
+	Prompt string                         `json:"prompt"`
+	Type   SayNodePromptMessageOutputType `json:"type"`
+}
+
+// SayNodePromptMessageOutputType defines model for SayNodePromptMessageOutput.Type.
+type SayNodePromptMessageOutputType string
 
 // ScheduleGroupSessionParams Schedule a single instance of a group service.
 //
@@ -48108,6 +48975,32 @@ type StartSpeakerSeparationResponseModel struct {
 	Status string `json:"status"`
 }
 
+// StateUpdateInput defines model for StateUpdate-Input.
+type StateUpdateInput struct {
+	Expression ASTNodeInput `json:"expression"`
+
+	// Required When false, the LLM may omit the values this update relies on. The update is then skipped, leaving the existing state untouched.
+	Required     *bool                 `json:"required,omitempty"`
+	Type         *StateUpdateInputType `json:"type,omitempty"`
+	VariableName string                `json:"variable_name"`
+}
+
+// StateUpdateInputType defines model for StateUpdateInput.Type.
+type StateUpdateInputType string
+
+// StateUpdateOutput defines model for StateUpdate-Output.
+type StateUpdateOutput struct {
+	Expression ASTNodeOutput `json:"expression"`
+
+	// Required When false, the LLM may omit the values this update relies on. The update is then skipped, leaving the existing state untouched.
+	Required     bool                  `json:"required"`
+	Type         StateUpdateOutputType `json:"type"`
+	VariableName string                `json:"variable_name"`
+}
+
+// StateUpdateOutputType defines model for StateUpdateOutput.Type.
+type StateUpdateOutputType string
+
 // StaticAssetReference An asset uploaded via the assets API.
 type StaticAssetReference struct {
 	// AssetId The ID of an asset uploaded via the assets API (`POST /v1/assets`), as returned in that response's `asset_id`.
@@ -48131,6 +49024,12 @@ type StopAllCampaignsResponse struct {
 
 	// StoppingCampaignIds Campaigns whose calls already placed are still finishing.
 	StoppingCampaignIds []string `json:"stopping_campaign_ids"`
+}
+
+// StopConversationTurnRequest defines model for StopConversationTurnRequest.
+type StopConversationTurnRequest struct {
+	// TurnId The turn to stop. If you omit it, the endpoint stops the latest turn of the conversation. Send it so that a late stop cannot stop a newer turn.
+	TurnId *string `json:"turn_id,omitempty"`
 }
 
 // StoredUsagePlatformLimit Platform limit with usage stored in Firestore. Example: credit usage tracked in Firestore.
@@ -48597,6 +49496,18 @@ type SuppressLeadResponse struct {
 	// HasCallsInFlight Whether a call already handed off for dialing may still go through.
 	HasCallsInFlight bool   `json:"has_calls_in_flight"`
 	LeadId           string `json:"lead_id"`
+}
+
+// SyncSlackRequestersRequest defines model for SyncSlackRequestersRequest.
+type SyncSlackRequestersRequest struct {
+	IntegrationConnectionId string `json:"integration_connection_id"`
+}
+
+// SyncSlackRequestersResponse defines model for SyncSlackRequestersResponse.
+type SyncSlackRequestersResponse struct {
+	CreatedCount  int `json:"created_count"`
+	ExistingCount int `json:"existing_count"`
+	SkippedCount  int `json:"skipped_count"`
 }
 
 // SystemDataCollectionId defines model for SystemDataCollectionId.
@@ -49719,6 +50630,48 @@ type ThresholdGuardrail struct {
 	Threshold *float32 `json:"threshold,omitempty"`
 }
 
+// TicketAIAgentAssigneeRequest defines model for TicketAIAgentAssigneeRequest.
+type TicketAIAgentAssigneeRequest struct {
+	Id   string                            `json:"id"`
+	Type *TicketAIAgentAssigneeRequestType `json:"type,omitempty"`
+}
+
+// TicketAIAgentAssigneeRequestType defines model for TicketAIAgentAssigneeRequest.Type.
+type TicketAIAgentAssigneeRequestType string
+
+// TicketAIAgentAssigneeResponse defines model for TicketAIAgentAssigneeResponse.
+type TicketAIAgentAssigneeResponse struct {
+	Id   string                            `json:"id"`
+	Name *string                           `json:"name"`
+	Type TicketAIAgentAssigneeResponseType `json:"type"`
+}
+
+// TicketAIAgentAssigneeResponseType defines model for TicketAIAgentAssigneeResponse.Type.
+type TicketAIAgentAssigneeResponseType string
+
+// TicketAssigneeChangedEventResponse defines model for TicketAssigneeChangedEventResponse.
+type TicketAssigneeChangedEventResponse struct {
+	After *struct {
+		union json.RawMessage
+	} `json:"after"`
+	Author TicketAssigneeChangedEventResponse_Author `json:"author"`
+	Before *struct {
+		union json.RawMessage
+	} `json:"before"`
+	CreatedAtUnixSecs int                                    `json:"created_at_unix_secs"`
+	Id                string                                 `json:"id"`
+	Type              TicketAssigneeChangedEventResponseType `json:"type"`
+	Visibility        TicketEventVisibility                  `json:"visibility"`
+}
+
+// TicketAssigneeChangedEventResponse_Author defines model for TicketAssigneeChangedEventResponse.Author.
+type TicketAssigneeChangedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketAssigneeChangedEventResponseType defines model for TicketAssigneeChangedEventResponse.Type.
+type TicketAssigneeChangedEventResponseType string
+
 // TicketCommentResponseModel defines model for TicketCommentResponseModel.
 type TicketCommentResponseModel struct {
 	Comment           string  `json:"comment"`
@@ -49726,11 +50679,277 @@ type TicketCommentResponseModel struct {
 	OwnerUserId       *string `json:"owner_user_id"`
 }
 
+// TicketCreatedEventResponse defines model for TicketCreatedEventResponse.
+type TicketCreatedEventResponse struct {
+	Author            TicketCreatedEventResponse_Author `json:"author"`
+	CreatedAtUnixSecs int                               `json:"created_at_unix_secs"`
+	Id                string                            `json:"id"`
+	Priority          *TicketPriority                   `json:"priority"`
+	Type              TicketCreatedEventResponseType    `json:"type"`
+	Visibility        TicketEventVisibility             `json:"visibility"`
+}
+
+// TicketCreatedEventResponse_Author defines model for TicketCreatedEventResponse.Author.
+type TicketCreatedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketCreatedEventResponseType defines model for TicketCreatedEventResponse.Type.
+type TicketCreatedEventResponseType string
+
+// TicketDeadlineChangedEventResponse defines model for TicketDeadlineChangedEventResponse.
+type TicketDeadlineChangedEventResponse struct {
+	After             *int                                      `json:"after"`
+	Author            TicketDeadlineChangedEventResponse_Author `json:"author"`
+	Before            *int                                      `json:"before"`
+	CreatedAtUnixSecs int                                       `json:"created_at_unix_secs"`
+	Id                string                                    `json:"id"`
+	Type              TicketDeadlineChangedEventResponseType    `json:"type"`
+	Visibility        TicketEventVisibility                     `json:"visibility"`
+}
+
+// TicketDeadlineChangedEventResponse_Author defines model for TicketDeadlineChangedEventResponse.Author.
+type TicketDeadlineChangedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketDeadlineChangedEventResponseType defines model for TicketDeadlineChangedEventResponse.Type.
+type TicketDeadlineChangedEventResponseType string
+
+// TicketDeadlineStatus defines model for TicketDeadlineStatus.
+type TicketDeadlineStatus string
+
+// TicketDeletedEventResponse defines model for TicketDeletedEventResponse.
+type TicketDeletedEventResponse struct {
+	Author            TicketDeletedEventResponse_Author `json:"author"`
+	CreatedAtUnixSecs int                               `json:"created_at_unix_secs"`
+	Id                string                            `json:"id"`
+	Type              TicketDeletedEventResponseType    `json:"type"`
+	Visibility        TicketEventVisibility             `json:"visibility"`
+}
+
+// TicketDeletedEventResponse_Author defines model for TicketDeletedEventResponse.Author.
+type TicketDeletedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketDeletedEventResponseType defines model for TicketDeletedEventResponse.Type.
+type TicketDeletedEventResponseType string
+
+// TicketEventAIAgentAuthorResponse defines model for TicketEventAIAgentAuthorResponse.
+type TicketEventAIAgentAuthorResponse struct {
+	Id   string                               `json:"id"`
+	Name *string                              `json:"name"`
+	Type TicketEventAIAgentAuthorResponseType `json:"type"`
+}
+
+// TicketEventAIAgentAuthorResponseType defines model for TicketEventAIAgentAuthorResponse.Type.
+type TicketEventAIAgentAuthorResponseType string
+
+// TicketEventHumanAgentAuthorResponse defines model for TicketEventHumanAgentAuthorResponse.
+type TicketEventHumanAgentAuthorResponse struct {
+	Email *string                                 `json:"email"`
+	Id    string                                  `json:"id"`
+	Name  *string                                 `json:"name"`
+	Type  TicketEventHumanAgentAuthorResponseType `json:"type"`
+}
+
+// TicketEventHumanAgentAuthorResponseType defines model for TicketEventHumanAgentAuthorResponse.Type.
+type TicketEventHumanAgentAuthorResponseType string
+
+// TicketEventRequesterAuthorResponse defines model for TicketEventRequesterAuthorResponse.
+type TicketEventRequesterAuthorResponse struct {
+	Email     *string                                `json:"email"`
+	FirstName *string                                `json:"first_name"`
+	FullName  *string                                `json:"full_name"`
+	Id        string                                 `json:"id"`
+	LastName  *string                                `json:"last_name"`
+	Type      TicketEventRequesterAuthorResponseType `json:"type"`
+}
+
+// TicketEventRequesterAuthorResponseType defines model for TicketEventRequesterAuthorResponse.Type.
+type TicketEventRequesterAuthorResponseType string
+
+// TicketEventVisibility defines model for TicketEventVisibility.
+type TicketEventVisibility string
+
+// TicketHumanAgentAssigneeRequest defines model for TicketHumanAgentAssigneeRequest.
+type TicketHumanAgentAssigneeRequest struct {
+	Id   string                               `json:"id"`
+	Type *TicketHumanAgentAssigneeRequestType `json:"type,omitempty"`
+}
+
+// TicketHumanAgentAssigneeRequestType defines model for TicketHumanAgentAssigneeRequest.Type.
+type TicketHumanAgentAssigneeRequestType string
+
+// TicketHumanAgentAssigneeResponse defines model for TicketHumanAgentAssigneeResponse.
+type TicketHumanAgentAssigneeResponse struct {
+	Email *string                              `json:"email"`
+	Id    string                               `json:"id"`
+	Name  *string                              `json:"name"`
+	Type  TicketHumanAgentAssigneeResponseType `json:"type"`
+}
+
+// TicketHumanAgentAssigneeResponseType defines model for TicketHumanAgentAssigneeResponse.Type.
+type TicketHumanAgentAssigneeResponseType string
+
+// TicketHumanAgentAuthorRequest defines model for TicketHumanAgentAuthorRequest.
+type TicketHumanAgentAuthorRequest struct {
+	Type *TicketHumanAgentAuthorRequestType `json:"type,omitempty"`
+}
+
+// TicketHumanAgentAuthorRequestType defines model for TicketHumanAgentAuthorRequest.Type.
+type TicketHumanAgentAuthorRequestType string
+
+// TicketListItemResponse defines model for TicketListItemResponse.
+type TicketListItemResponse struct {
+	Assignee *struct {
+		union json.RawMessage
+	} `json:"assignee"`
+	CreatedAtUnixSecs  int                     `json:"created_at_unix_secs"`
+	DeadlineAtUnixSecs *int                    `json:"deadline_at_unix_secs"`
+	Id                 string                  `json:"id"`
+	Priority           *TicketPriority         `json:"priority"`
+	Requester          TicketRequesterResponse `json:"requester"`
+	SecondaryAssignee  *struct {
+		union json.RawMessage
+	} `json:"secondary_assignee"`
+	Sla               *TicketSLASummaryResponse  `json:"sla"`
+	Status            TicketStatus               `json:"status"`
+	Subject           string                     `json:"subject"`
+	Subscribers       []TicketSubscriberResponse `json:"subscribers"`
+	TagIds            []string                   `json:"tag_ids"`
+	UpdatedAtUnixSecs int                        `json:"updated_at_unix_secs"`
+}
+
+// TicketMessageEventResponse defines model for TicketMessageEventResponse.
+type TicketMessageEventResponse struct {
+	Author            TicketMessageEventResponse_Author `json:"author"`
+	Body              string                            `json:"body"`
+	CreatedAtUnixSecs int                               `json:"created_at_unix_secs"`
+	Id                string                            `json:"id"`
+	Type              TicketMessageEventResponseType    `json:"type"`
+	Visibility        TicketEventVisibility             `json:"visibility"`
+}
+
+// TicketMessageEventResponse_Author defines model for TicketMessageEventResponse.Author.
+type TicketMessageEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketMessageEventResponseType defines model for TicketMessageEventResponse.Type.
+type TicketMessageEventResponseType string
+
+// TicketPriority defines model for TicketPriority.
+type TicketPriority string
+
 // TicketPriorityChangeResponseModel defines model for TicketPriorityChangeResponseModel.
 type TicketPriorityChangeResponseModel struct {
 	ChangedAtUnixSecs int                              `json:"changed_at_unix_secs"`
 	ChangedByUserId   string                           `json:"changed_by_user_id"`
 	Priority          *AgentConversationTicketPriority `json:"priority"`
+}
+
+// TicketPriorityChangedEventResponse defines model for TicketPriorityChangedEventResponse.
+type TicketPriorityChangedEventResponse struct {
+	After             *TicketPriority                           `json:"after"`
+	Author            TicketPriorityChangedEventResponse_Author `json:"author"`
+	Before            *TicketPriority                           `json:"before"`
+	CreatedAtUnixSecs int                                       `json:"created_at_unix_secs"`
+	Id                string                                    `json:"id"`
+	Type              TicketPriorityChangedEventResponseType    `json:"type"`
+	Visibility        TicketEventVisibility                     `json:"visibility"`
+}
+
+// TicketPriorityChangedEventResponse_Author defines model for TicketPriorityChangedEventResponse.Author.
+type TicketPriorityChangedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketPriorityChangedEventResponseType defines model for TicketPriorityChangedEventResponse.Type.
+type TicketPriorityChangedEventResponseType string
+
+// TicketRequesterAuthorRequest defines model for TicketRequesterAuthorRequest.
+type TicketRequesterAuthorRequest struct {
+	Type *TicketRequesterAuthorRequestType `json:"type,omitempty"`
+}
+
+// TicketRequesterAuthorRequestType defines model for TicketRequesterAuthorRequest.Type.
+type TicketRequesterAuthorRequestType string
+
+// TicketRequesterByEmailRequest defines model for TicketRequesterByEmailRequest.
+type TicketRequesterByEmailRequest struct {
+	FullName *string                            `json:"full_name,omitempty"`
+	Type     *TicketRequesterByEmailRequestType `json:"type,omitempty"`
+	Value    string                             `json:"value"`
+}
+
+// TicketRequesterByEmailRequestType defines model for TicketRequesterByEmailRequest.Type.
+type TicketRequesterByEmailRequestType string
+
+// TicketRequesterBySlackRequest defines model for TicketRequesterBySlackRequest.
+type TicketRequesterBySlackRequest struct {
+	FullName *string                            `json:"full_name,omitempty"`
+	TeamId   string                             `json:"team_id"`
+	Type     *TicketRequesterBySlackRequestType `json:"type,omitempty"`
+	UserId   string                             `json:"user_id"`
+}
+
+// TicketRequesterBySlackRequestType defines model for TicketRequesterBySlackRequest.Type.
+type TicketRequesterBySlackRequestType string
+
+// TicketRequesterByUserIdRequest defines model for TicketRequesterByUserIdRequest.
+type TicketRequesterByUserIdRequest struct {
+	Type  *TicketRequesterByUserIdRequestType `json:"type,omitempty"`
+	Value string                              `json:"value"`
+}
+
+// TicketRequesterByUserIdRequestType defines model for TicketRequesterByUserIdRequest.Type.
+type TicketRequesterByUserIdRequestType string
+
+// TicketRequesterResponse defines model for TicketRequesterResponse.
+type TicketRequesterResponse struct {
+	Email     *string `json:"email"`
+	FirstName *string `json:"first_name"`
+	FullName  *string `json:"full_name"`
+	Id        string  `json:"id"`
+	LastName  *string `json:"last_name"`
+}
+
+// TicketSLAPolicyResponse defines model for TicketSLAPolicyResponse.
+type TicketSLAPolicyResponse struct {
+	Archived          bool                          `json:"archived"`
+	CreatedAtUnixSecs int                           `json:"created_at_unix_secs"`
+	Description       *string                       `json:"description"`
+	Id                string                        `json:"id"`
+	Name              string                        `json:"name"`
+	Targets           []TicketSLAPolicyTargetOutput `json:"targets"`
+	UpdatedAtUnixSecs int                           `json:"updated_at_unix_secs"`
+}
+
+// TicketSLAPolicyTargetInput defines model for TicketSLAPolicyTarget-Input.
+type TicketSLAPolicyTargetInput struct {
+	DurationSecs int             `json:"duration_secs"`
+	Metric       SLAMetric       `json:"metric"`
+	Priority     *TicketPriority `json:"priority,omitempty"`
+}
+
+// TicketSLAPolicyTargetOutput defines model for TicketSLAPolicyTarget-Output.
+type TicketSLAPolicyTargetOutput struct {
+	DurationSecs int             `json:"duration_secs"`
+	Metric       SLAMetric       `json:"metric"`
+	Priority     *TicketPriority `json:"priority"`
+}
+
+// TicketSLAStatus defines model for TicketSLAStatus.
+type TicketSLAStatus string
+
+// TicketSLASummaryResponse defines model for TicketSLASummaryResponse.
+type TicketSLASummaryResponse struct {
+	DueAtUnixSecs     int       `json:"due_at_unix_secs"`
+	DurationSecs      int       `json:"duration_secs"`
+	Metric            SLAMetric `json:"metric"`
+	StartedAtUnixSecs int       `json:"started_at_unix_secs"`
 }
 
 // TicketSearchMatchField defines model for TicketSearchMatchField.
@@ -49754,11 +50973,143 @@ type TicketSearchMatchResponseModel struct {
 	TurnIndex *int `json:"turn_index,omitempty"`
 }
 
+// TicketSecondaryAssigneeChangedEventResponse defines model for TicketSecondaryAssigneeChangedEventResponse.
+type TicketSecondaryAssigneeChangedEventResponse struct {
+	After *struct {
+		union json.RawMessage
+	} `json:"after"`
+	Author TicketSecondaryAssigneeChangedEventResponse_Author `json:"author"`
+	Before *struct {
+		union json.RawMessage
+	} `json:"before"`
+	CreatedAtUnixSecs int                                             `json:"created_at_unix_secs"`
+	Id                string                                          `json:"id"`
+	Type              TicketSecondaryAssigneeChangedEventResponseType `json:"type"`
+	Visibility        TicketEventVisibility                           `json:"visibility"`
+}
+
+// TicketSecondaryAssigneeChangedEventResponse_Author defines model for TicketSecondaryAssigneeChangedEventResponse.Author.
+type TicketSecondaryAssigneeChangedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketSecondaryAssigneeChangedEventResponseType defines model for TicketSecondaryAssigneeChangedEventResponse.Type.
+type TicketSecondaryAssigneeChangedEventResponseType string
+
+// TicketSortBy defines model for TicketSortBy.
+type TicketSortBy string
+
+// TicketStatus defines model for TicketStatus.
+type TicketStatus string
+
 // TicketStatusChangeResponseModel defines model for TicketStatusChangeResponseModel.
 type TicketStatusChangeResponseModel struct {
 	ChangedAtUnixSecs int                           `json:"changed_at_unix_secs"`
 	ChangedByUserId   *string                       `json:"changed_by_user_id"`
 	Status            AgentConversationTicketStatus `json:"status"`
+}
+
+// TicketStatusChangedEventResponse defines model for TicketStatusChangedEventResponse.
+type TicketStatusChangedEventResponse struct {
+	After             TicketStatus                            `json:"after"`
+	Author            TicketStatusChangedEventResponse_Author `json:"author"`
+	Before            TicketStatus                            `json:"before"`
+	CreatedAtUnixSecs int                                     `json:"created_at_unix_secs"`
+	Id                string                                  `json:"id"`
+	Type              TicketStatusChangedEventResponseType    `json:"type"`
+	Visibility        TicketEventVisibility                   `json:"visibility"`
+}
+
+// TicketStatusChangedEventResponse_Author defines model for TicketStatusChangedEventResponse.Author.
+type TicketStatusChangedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketStatusChangedEventResponseType defines model for TicketStatusChangedEventResponse.Type.
+type TicketStatusChangedEventResponseType string
+
+// TicketSubjectChangedEventResponse defines model for TicketSubjectChangedEventResponse.
+type TicketSubjectChangedEventResponse struct {
+	After             string                                   `json:"after"`
+	Author            TicketSubjectChangedEventResponse_Author `json:"author"`
+	Before            string                                   `json:"before"`
+	CreatedAtUnixSecs int                                      `json:"created_at_unix_secs"`
+	Id                string                                   `json:"id"`
+	Type              TicketSubjectChangedEventResponseType    `json:"type"`
+	Visibility        TicketEventVisibility                    `json:"visibility"`
+}
+
+// TicketSubjectChangedEventResponse_Author defines model for TicketSubjectChangedEventResponse.Author.
+type TicketSubjectChangedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketSubjectChangedEventResponseType defines model for TicketSubjectChangedEventResponse.Type.
+type TicketSubjectChangedEventResponseType string
+
+// TicketSubscriberRequest defines model for TicketSubscriberRequest.
+type TicketSubscriberRequest struct {
+	Id   string                       `json:"id"`
+	Type *TicketSubscriberRequestType `json:"type,omitempty"`
+}
+
+// TicketSubscriberRequestType defines model for TicketSubscriberRequest.Type.
+type TicketSubscriberRequestType string
+
+// TicketSubscriberResponse defines model for TicketSubscriberResponse.
+type TicketSubscriberResponse struct {
+	Email *string                      `json:"email"`
+	Id    string                       `json:"id"`
+	Name  *string                      `json:"name"`
+	Type  TicketSubscriberResponseType `json:"type"`
+}
+
+// TicketSubscriberResponseType defines model for TicketSubscriberResponse.Type.
+type TicketSubscriberResponseType string
+
+// TicketSubscribersChangedEventResponse defines model for TicketSubscribersChangedEventResponse.
+type TicketSubscribersChangedEventResponse struct {
+	After             []TicketSubscriberResponse                   `json:"after"`
+	Author            TicketSubscribersChangedEventResponse_Author `json:"author"`
+	Before            []TicketSubscriberResponse                   `json:"before"`
+	CreatedAtUnixSecs int                                          `json:"created_at_unix_secs"`
+	Id                string                                       `json:"id"`
+	Type              TicketSubscribersChangedEventResponseType    `json:"type"`
+	Visibility        TicketEventVisibility                        `json:"visibility"`
+}
+
+// TicketSubscribersChangedEventResponse_Author defines model for TicketSubscribersChangedEventResponse.Author.
+type TicketSubscribersChangedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketSubscribersChangedEventResponseType defines model for TicketSubscribersChangedEventResponse.Type.
+type TicketSubscribersChangedEventResponseType string
+
+// TicketTagIdsChangedEventResponse defines model for TicketTagIdsChangedEventResponse.
+type TicketTagIdsChangedEventResponse struct {
+	After             []string                                `json:"after"`
+	Author            TicketTagIdsChangedEventResponse_Author `json:"author"`
+	Before            []string                                `json:"before"`
+	CreatedAtUnixSecs int                                     `json:"created_at_unix_secs"`
+	Id                string                                  `json:"id"`
+	Type              TicketTagIdsChangedEventResponseType    `json:"type"`
+	Visibility        TicketEventVisibility                   `json:"visibility"`
+}
+
+// TicketTagIdsChangedEventResponse_Author defines model for TicketTagIdsChangedEventResponse.Author.
+type TicketTagIdsChangedEventResponse_Author struct {
+	union json.RawMessage
+}
+
+// TicketTagIdsChangedEventResponseType defines model for TicketTagIdsChangedEventResponse.Type.
+type TicketTagIdsChangedEventResponseType string
+
+// TicketTagResponse defines model for TicketTagResponse.
+type TicketTagResponse struct {
+	Archived bool   `json:"archived"`
+	Id       string `json:"id"`
+	Name     string `json:"name"`
 }
 
 // TimeOffType What a time-off entry blocks: a staff member, an asset, or a location.
@@ -50341,6 +51692,11 @@ type TransferToNumberToolConfigOutputSystemToolType string
 
 // TransferTypeEnum defines model for TransferTypeEnum.
 type TransferTypeEnum string
+
+// TranslatedString defines model for TranslatedString.
+type TranslatedString struct {
+	Value string `json:"value"`
+}
 
 // TriggerUserVerificationParams defines model for TriggerUserVerificationParams.
 type TriggerUserVerificationParams struct {
@@ -51306,6 +52662,36 @@ type UpdateStaffParamsSmbToolType string
 type UpdateTestSuiteInvocationRequestModel struct {
 	// Name New name for the test invocation. Set to null to restore the generated title.
 	Name *string `json:"name"`
+}
+
+// UpdateTicketRequest defines model for UpdateTicketRequest.
+type UpdateTicketRequest struct {
+	Assignee *struct {
+		union json.RawMessage
+	} `json:"assignee,omitempty"`
+	DeadlineAtUnixSecs *int            `json:"deadline_at_unix_secs,omitempty"`
+	Priority           *TicketPriority `json:"priority,omitempty"`
+	SecondaryAssignee  *struct {
+		union json.RawMessage
+	} `json:"secondary_assignee,omitempty"`
+	Status      *TicketStatus              `json:"status,omitempty"`
+	Subject     *string                    `json:"subject,omitempty"`
+	Subscribers *[]TicketSubscriberRequest `json:"subscribers,omitempty"`
+	TagIds      *[]string                  `json:"tag_ids,omitempty"`
+}
+
+// UpdateTicketSLAPolicyRequest defines model for UpdateTicketSLAPolicyRequest.
+type UpdateTicketSLAPolicyRequest struct {
+	Archived    *bool                         `json:"archived,omitempty"`
+	Description *string                       `json:"description,omitempty"`
+	Name        *string                       `json:"name,omitempty"`
+	Targets     *[]TicketSLAPolicyTargetInput `json:"targets,omitempty"`
+}
+
+// UpdateTicketTagRequest defines model for UpdateTicketTagRequest.
+type UpdateTicketTagRequest struct {
+	Archived *bool   `json:"archived,omitempty"`
+	Name     *string `json:"name,omitempty"`
 }
 
 // UpdateToolCallUnitTestRequest defines model for UpdateToolCallUnitTestRequest.
@@ -53220,6 +54606,9 @@ type WidgetConfigInput struct {
 	// LanguageSelector Whether to show the language selector
 	LanguageSelector *bool `json:"language_selector,omitempty"`
 
+	// Layout Whether the widget floats over a corner of the page or opens as a full-height side panel
+	Layout *WidgetLayout `json:"layout,omitempty"`
+
 	// ListeningText The text to display when the agent is listening
 	ListeningText *string `json:"listening_text,omitempty"`
 
@@ -53387,6 +54776,9 @@ type WidgetConfigOutput struct {
 	// LanguageSelector Whether to show the language selector
 	LanguageSelector *bool `json:"language_selector,omitempty"`
 
+	// Layout Whether the widget floats over a corner of the page or opens as a full-height side panel
+	Layout *WidgetLayout `json:"layout,omitempty"`
+
 	// ListeningText The text to display when the agent is listening
 	ListeningText *string `json:"listening_text,omitempty"`
 
@@ -53553,6 +54945,9 @@ type WidgetConfigResponseModel struct {
 	// LanguagePresets Language presets for the widget
 	LanguagePresets *map[string]WidgetLanguagePresetResponse `json:"language_presets,omitempty"`
 
+	// Layout Whether the widget floats over a corner of the page or opens as a full-height side panel
+	Layout *WidgetLayout `json:"layout,omitempty"`
+
 	// ListeningText The text to display when the agent is listening
 	ListeningText *string `json:"listening_text,omitempty"`
 
@@ -53708,6 +55103,9 @@ type WidgetLanguagePresetResponse struct {
 	// TextContents The text contents for the selected language
 	TextContents *WidgetTextContents `json:"text_contents,omitempty"`
 }
+
+// WidgetLayout defines model for WidgetLayout.
+type WidgetLayout string
 
 // WidgetPlacement defines model for WidgetPlacement.
 type WidgetPlacement string
@@ -54355,6 +55753,90 @@ type WorkflowResultConditionModelOutput struct {
 // WorkflowResultConditionModelOutputType defines model for WorkflowResultConditionModelOutput.Type.
 type WorkflowResultConditionModelOutputType string
 
+// WorkflowSayNodeModelInput defines model for WorkflowSayNodeModel-Input.
+type WorkflowSayNodeModelInput struct {
+	// AdditionalKnowledgeBase Additional knowledge base documents that the subagent has access to. These will be used in addition to the main agent's documents.
+	AdditionalKnowledgeBase *[]KnowledgeBaseLocator `json:"additional_knowledge_base,omitempty"`
+
+	// AdditionalPrompt Specific goal for this subagent. It will be added to the system prompt and can be used to further refine the agent's behavior in this specific context.
+	AdditionalPrompt *string `json:"additional_prompt,omitempty"`
+
+	// AdditionalToolIds IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools.
+	AdditionalToolIds *[]string `json:"additional_tool_ids,omitempty"`
+
+	// ConversationConfig Configuration overrides applied while the subagent is conducting the conversation.
+	ConversationConfig *ConversationalConfigAPIModelWorkflowOverrideInput `json:"conversation_config,omitempty"`
+
+	// EdgeOrder The ids of outgoing edges in the order they should be evaluated.
+	EdgeOrder *[]string `json:"edge_order,omitempty"`
+
+	// Label Human-readable label for the node used throughout the UI.
+	Label string `json:"label"`
+
+	// Message Message to be said by this node.
+	Message WorkflowSayNodeModelInput_Message `json:"message"`
+
+	// Position Position of the node in the workflow.
+	Position *PositionInput                 `json:"position,omitempty"`
+	Type     *WorkflowSayNodeModelInputType `json:"type,omitempty"`
+
+	// WaitForSpeechCompletion When enabled, the say node will wait for the speech output to be fully delivered before progressing to the next node in the workflow.
+	WaitForSpeechCompletion *bool `json:"wait_for_speech_completion,omitempty"`
+
+	// WaitForUserResponse When enabled, the say node speaks its message and then waits for the user to respond before evaluating outgoing edges and progressing. On silence, advances after the conversation turn timeout.
+	WaitForUserResponse *bool `json:"wait_for_user_response,omitempty"`
+}
+
+// WorkflowSayNodeModelInput_Message Message to be said by this node.
+type WorkflowSayNodeModelInput_Message struct {
+	union json.RawMessage
+}
+
+// WorkflowSayNodeModelInputType defines model for WorkflowSayNodeModelInput.Type.
+type WorkflowSayNodeModelInputType string
+
+// WorkflowSayNodeModelOutput defines model for WorkflowSayNodeModel-Output.
+type WorkflowSayNodeModelOutput struct {
+	// AdditionalKnowledgeBase Additional knowledge base documents that the subagent has access to. These will be used in addition to the main agent's documents.
+	AdditionalKnowledgeBase []KnowledgeBaseLocator `json:"additional_knowledge_base"`
+
+	// AdditionalPrompt Specific goal for this subagent. It will be added to the system prompt and can be used to further refine the agent's behavior in this specific context.
+	AdditionalPrompt string `json:"additional_prompt"`
+
+	// AdditionalToolIds IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools.
+	AdditionalToolIds []string `json:"additional_tool_ids"`
+
+	// ConversationConfig Configuration overrides applied while the subagent is conducting the conversation.
+	ConversationConfig ConversationalConfigAPIModelWorkflowOverrideOutput `json:"conversation_config"`
+
+	// EdgeOrder The ids of outgoing edges in the order they should be evaluated.
+	EdgeOrder []string `json:"edge_order"`
+
+	// Label Human-readable label for the node used throughout the UI.
+	Label string `json:"label"`
+
+	// Message Message to be said by this node.
+	Message WorkflowSayNodeModelOutput_Message `json:"message"`
+
+	// Position Position of the node in the workflow.
+	Position PositionOutput                 `json:"position"`
+	Type     WorkflowSayNodeModelOutputType `json:"type"`
+
+	// WaitForSpeechCompletion When enabled, the say node will wait for the speech output to be fully delivered before progressing to the next node in the workflow.
+	WaitForSpeechCompletion bool `json:"wait_for_speech_completion"`
+
+	// WaitForUserResponse When enabled, the say node speaks its message and then waits for the user to respond before evaluating outgoing edges and progressing. On silence, advances after the conversation turn timeout.
+	WaitForUserResponse bool `json:"wait_for_user_response"`
+}
+
+// WorkflowSayNodeModelOutput_Message Message to be said by this node.
+type WorkflowSayNodeModelOutput_Message struct {
+	union json.RawMessage
+}
+
+// WorkflowSayNodeModelOutputType defines model for WorkflowSayNodeModelOutput.Type.
+type WorkflowSayNodeModelOutputType string
+
 // WorkflowStandaloneAgentNodeModelInput defines model for WorkflowStandaloneAgentNodeModel-Input.
 type WorkflowStandaloneAgentNodeModelInput struct {
 	// AgentId The ID of the agent to transfer the conversation to. None means transfer within the current agent.
@@ -54637,6 +56119,44 @@ type WorkflowUnconditionalModelOutput struct {
 
 // WorkflowUnconditionalModelOutputType defines model for WorkflowUnconditionalModelOutput.Type.
 type WorkflowUnconditionalModelOutputType string
+
+// WorkflowUpdateStateNodeModelInput defines model for WorkflowUpdateStateNodeModel-Input.
+type WorkflowUpdateStateNodeModelInput struct {
+	// EdgeOrder The ids of outgoing edges in the order they should be evaluated.
+	EdgeOrder *[]string `json:"edge_order,omitempty"`
+
+	// Label Human-readable label for the node used throughout the UI.
+	Label string `json:"label"`
+
+	// Position Position of the node in the workflow.
+	Position *PositionInput                         `json:"position,omitempty"`
+	Type     *WorkflowUpdateStateNodeModelInputType `json:"type,omitempty"`
+
+	// Updates List of state updates to apply.
+	Updates []StateUpdateInput `json:"updates"`
+}
+
+// WorkflowUpdateStateNodeModelInputType defines model for WorkflowUpdateStateNodeModelInput.Type.
+type WorkflowUpdateStateNodeModelInputType string
+
+// WorkflowUpdateStateNodeModelOutput defines model for WorkflowUpdateStateNodeModel-Output.
+type WorkflowUpdateStateNodeModelOutput struct {
+	// EdgeOrder The ids of outgoing edges in the order they should be evaluated.
+	EdgeOrder []string `json:"edge_order"`
+
+	// Label Human-readable label for the node used throughout the UI.
+	Label string `json:"label"`
+
+	// Position Position of the node in the workflow.
+	Position PositionOutput                         `json:"position"`
+	Type     WorkflowUpdateStateNodeModelOutputType `json:"type"`
+
+	// Updates List of state updates to apply.
+	Updates []StateUpdateOutput `json:"updates"`
+}
+
+// WorkflowUpdateStateNodeModelOutputType defines model for WorkflowUpdateStateNodeModelOutput.Type.
+type WorkflowUpdateStateNodeModelOutputType string
 
 // WorkingHours defines model for WorkingHours.
 type WorkingHours struct {
@@ -55370,6 +56890,9 @@ type GetBranchesRouteParams struct {
 
 	// Limit How many results at most should be returned
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Page Page number, starting at 1. Each page holds up to `limit` branches, and `meta.total` in the response is the number of branches across all pages.
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
 
 	// IncludeCommitStatus Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.
 	IncludeCommitStatus *bool `form:"include_commit_status,omitempty" json:"include_commit_status,omitempty"`
@@ -56385,6 +57908,15 @@ type GetConversationSipMessagesParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// StopConversationTurnRouteJSONBody defines parameters for StopConversationTurnRoute.
+type StopConversationTurnRouteJSONBody = StopConversationTurnRequest
+
+// StopConversationTurnRouteParams defines parameters for StopConversationTurnRoute.
+type StopConversationTurnRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // GetConversationSummaryRouteParams defines parameters for GetConversationSummaryRoute.
 type GetConversationSummaryRouteParams struct {
 	// MaxMessages Maximum number of chat message turns to include inline. When the conversation has more than this, the messages are omitted and messages_omitted is set.
@@ -57256,6 +58788,9 @@ type GetSecretsRouteParams struct {
 
 	// Search If specified, returns only secrets whose names start with this string.
 	Search *string `form:"search,omitempty" json:"search,omitempty"`
+
+	// IncludeDependencies Whether to return the resources that use each secret. If false, used_by is empty and the list returns much faster for workspaces with many secrets.
+	IncludeDependencies *bool `form:"include_dependencies,omitempty" json:"include_dependencies,omitempty"`
 
 	// Cursor Used for fetching next page. Cursor is returned in the response.
 	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
@@ -59676,6 +61211,148 @@ type StreamProjectSnapshotAudioEndpointParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// ListRequestersParams defines parameters for ListRequesters.
+type ListRequestersParams struct {
+	// Ids Only return requesters with these IDs.
+	Ids *[]string `form:"ids,omitempty" json:"ids,omitempty"`
+
+	// PageSize Number of requesters to return.
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// Cursor Used for fetching next page. Cursor is returned in the response.
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// SyncSlackRequestersParams defines parameters for SyncSlackRequesters.
+type SyncSlackRequestersParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListTicketSlaPoliciesParams defines parameters for ListTicketSlaPolicies.
+type ListTicketSlaPoliciesParams struct {
+	// IncludeArchived Whether to include archived SLA policies.
+	IncludeArchived *bool `form:"include_archived,omitempty" json:"include_archived,omitempty"`
+
+	// PageSize Number of ticket SLA policies to return.
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// Cursor Used for fetching next page. Cursor is returned in the response.
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// CreateTicketSlaPolicyParams defines parameters for CreateTicketSlaPolicy.
+type CreateTicketSlaPolicyParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetTicketSlaPolicyParams defines parameters for GetTicketSlaPolicy.
+type GetTicketSlaPolicyParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// UpdateTicketSlaPolicyParams defines parameters for UpdateTicketSlaPolicy.
+type UpdateTicketSlaPolicyParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListTicketTagsParams defines parameters for ListTicketTags.
+type ListTicketTagsParams struct {
+	// Ids Only return ticket tags with these IDs.
+	Ids *[]string `form:"ids,omitempty" json:"ids,omitempty"`
+
+	// IncludeArchived Whether to include archived ticket tags.
+	IncludeArchived *bool `form:"include_archived,omitempty" json:"include_archived,omitempty"`
+
+	// PageSize Number of ticket tags to return.
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// Cursor Used for fetching next page. Cursor is returned in the response.
+	Cursor *string `form:"cursor,omitempty" json:"cursor,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// CreateTicketTagParams defines parameters for CreateTicketTag.
+type CreateTicketTagParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// UpdateTicketTagParams defines parameters for UpdateTicketTag.
+type UpdateTicketTagParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ListTicketsParams defines parameters for ListTickets.
+type ListTicketsParams struct {
+	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// Cursor Used for fetching next page. Cursor is returned in the response.
+	Cursor          *string                 `form:"cursor,omitempty" json:"cursor,omitempty"`
+	Search          *string                 `form:"search,omitempty" json:"search,omitempty"`
+	Status          *[]TicketStatus         `form:"status,omitempty" json:"status,omitempty"`
+	Priority        *[]TicketPriority       `form:"priority,omitempty" json:"priority,omitempty"`
+	SlaStatus       *[]TicketSLAStatus      `form:"sla_status,omitempty" json:"sla_status,omitempty"`
+	DeadlineStatus  *[]TicketDeadlineStatus `form:"deadline_status,omitempty" json:"deadline_status,omitempty"`
+	RequesterUserId *[]string               `form:"requester_user_id,omitempty" json:"requester_user_id,omitempty"`
+	AssigneeId      *[]string               `form:"assignee_id,omitempty" json:"assignee_id,omitempty"`
+
+	// TagIds Only return tickets with any of these tag IDs.
+	TagIds     *[]string `form:"tag_ids,omitempty" json:"tag_ids,omitempty"`
+	Unassigned *bool     `form:"unassigned,omitempty" json:"unassigned,omitempty"`
+
+	// SortBy The field to sort the results by
+	SortBy *TicketSortBy `form:"sort_by,omitempty" json:"sort_by,omitempty"`
+
+	// SortDirection The direction to sort the results
+	SortDirection *SortDirection `form:"sort_direction,omitempty" json:"sort_direction,omitempty"`
+
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// CreateTicketParams defines parameters for CreateTicket.
+type CreateTicketParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// DeleteTicketParams defines parameters for DeleteTicket.
+type DeleteTicketParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// GetTicketParams defines parameters for GetTicket.
+type GetTicketParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// UpdateTicketParams defines parameters for UpdateTicket.
+type UpdateTicketParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// CreateTicketMessageParams defines parameters for CreateTicketMessage.
+type CreateTicketMessageParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // TextToDialogueParams defines parameters for TextToDialogue.
 type TextToDialogueParams struct {
 	// OutputFormat Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
@@ -60614,6 +62291,9 @@ type SendConversationMessageRouteJSONRequestBody = SendConversationMessageReques
 // SendConversationMessageStreamRouteJSONRequestBody defines body for SendConversationMessageStreamRoute for application/json ContentType.
 type SendConversationMessageStreamRouteJSONRequestBody = SendConversationMessageStreamRequest
 
+// StopConversationTurnRouteJSONRequestBody defines body for StopConversationTurnRoute for application/json ContentType.
+type StopConversationTurnRouteJSONRequestBody = StopConversationTurnRouteJSONBody
+
 // AssignConversationTagsRouteJSONRequestBody defines body for AssignConversationTagsRoute for application/json ContentType.
 type AssignConversationTagsRouteJSONRequestBody = AssignConversationTagsRequestModel
 
@@ -61098,6 +62778,30 @@ type UpdatePronunciationDictionariesJSONRequestBody = BodyCreatePronunciationDic
 
 // StreamProjectSnapshotAudioEndpointJSONRequestBody defines body for StreamProjectSnapshotAudioEndpoint for application/json ContentType.
 type StreamProjectSnapshotAudioEndpointJSONRequestBody = BodyStreamStudioProjectAudioV1StudioProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost
+
+// SyncSlackRequestersJSONRequestBody defines body for SyncSlackRequesters for application/json ContentType.
+type SyncSlackRequestersJSONRequestBody = SyncSlackRequestersRequest
+
+// CreateTicketSlaPolicyJSONRequestBody defines body for CreateTicketSlaPolicy for application/json ContentType.
+type CreateTicketSlaPolicyJSONRequestBody = CreateTicketSLAPolicyRequest
+
+// UpdateTicketSlaPolicyJSONRequestBody defines body for UpdateTicketSlaPolicy for application/json ContentType.
+type UpdateTicketSlaPolicyJSONRequestBody = UpdateTicketSLAPolicyRequest
+
+// CreateTicketTagJSONRequestBody defines body for CreateTicketTag for application/json ContentType.
+type CreateTicketTagJSONRequestBody = CreateTicketTagRequest
+
+// UpdateTicketTagJSONRequestBody defines body for UpdateTicketTag for application/json ContentType.
+type UpdateTicketTagJSONRequestBody = UpdateTicketTagRequest
+
+// CreateTicketJSONRequestBody defines body for CreateTicket for application/json ContentType.
+type CreateTicketJSONRequestBody = CreateTicketRequest
+
+// UpdateTicketJSONRequestBody defines body for UpdateTicket for application/json ContentType.
+type UpdateTicketJSONRequestBody = UpdateTicketRequest
+
+// CreateTicketMessageJSONRequestBody defines body for CreateTicketMessage for application/json ContentType.
+type CreateTicketMessageJSONRequestBody = CreateTicketMessageRequest
 
 // TextToDialogueJSONRequestBody defines body for TextToDialogue for application/json ContentType.
 type TextToDialogueJSONRequestBody = BodyTextToDialogueMultiVoiceV1TextToDialoguePost
@@ -63562,6 +65266,40 @@ func (t *AgentWorkflowRequestModel_Nodes_AdditionalProperties) MergeWorkflowStan
 	return err
 }
 
+// AsWorkflowSayNodeModelInput returns the union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties as a WorkflowSayNodeModelInput
+func (t AgentWorkflowRequestModel_Nodes_AdditionalProperties) AsWorkflowSayNodeModelInput() (WorkflowSayNodeModelInput, error) {
+	var body WorkflowSayNodeModelInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWorkflowSayNodeModelInput overwrites any union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties as the provided WorkflowSayNodeModelInput
+func (t *AgentWorkflowRequestModel_Nodes_AdditionalProperties) FromWorkflowSayNodeModelInput(v WorkflowSayNodeModelInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"say"}`))
+	t.union = b
+	return err
+}
+
+// MergeWorkflowSayNodeModelInput performs a merge with any union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties, using the provided WorkflowSayNodeModelInput
+func (t *AgentWorkflowRequestModel_Nodes_AdditionalProperties) MergeWorkflowSayNodeModelInput(v WorkflowSayNodeModelInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"say"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsWorkflowToolNodeModelInput returns the union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties as a WorkflowToolNodeModelInput
 func (t AgentWorkflowRequestModel_Nodes_AdditionalProperties) AsWorkflowToolNodeModelInput() (WorkflowToolNodeModelInput, error) {
 	var body WorkflowToolNodeModelInput
@@ -63587,6 +65325,40 @@ func (t *AgentWorkflowRequestModel_Nodes_AdditionalProperties) MergeWorkflowTool
 		return err
 	}
 	b, err = runtime.JSONMerge(b, []byte(`{"type":"tool"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsWorkflowUpdateStateNodeModelInput returns the union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties as a WorkflowUpdateStateNodeModelInput
+func (t AgentWorkflowRequestModel_Nodes_AdditionalProperties) AsWorkflowUpdateStateNodeModelInput() (WorkflowUpdateStateNodeModelInput, error) {
+	var body WorkflowUpdateStateNodeModelInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWorkflowUpdateStateNodeModelInput overwrites any union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties as the provided WorkflowUpdateStateNodeModelInput
+func (t *AgentWorkflowRequestModel_Nodes_AdditionalProperties) FromWorkflowUpdateStateNodeModelInput(v WorkflowUpdateStateNodeModelInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"update_state"}`))
+	t.union = b
+	return err
+}
+
+// MergeWorkflowUpdateStateNodeModelInput performs a merge with any union data inside the AgentWorkflowRequestModel_Nodes_AdditionalProperties, using the provided WorkflowUpdateStateNodeModelInput
+func (t *AgentWorkflowRequestModel_Nodes_AdditionalProperties) MergeWorkflowUpdateStateNodeModelInput(v WorkflowUpdateStateNodeModelInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"update_state"}`))
 	if err != nil {
 		return err
 	}
@@ -63650,6 +65422,8 @@ func (t AgentWorkflowRequestModel_Nodes_AdditionalProperties) ValueByDiscriminat
 		return t.AsWorkflowOverrideAgentNodeModelInput()
 	case "phone_number":
 		return t.AsWorkflowPhoneNumberNodeModelInput()
+	case "say":
+		return t.AsWorkflowSayNodeModelInput()
 	case "standalone_agent":
 		return t.AsWorkflowStandaloneAgentNodeModelInput()
 	case "start":
@@ -63658,6 +65432,8 @@ func (t AgentWorkflowRequestModel_Nodes_AdditionalProperties) ValueByDiscriminat
 		return t.AsWorkflowStartProcedureNodeModelInput()
 	case "tool":
 		return t.AsWorkflowToolNodeModelInput()
+	case "update_state":
+		return t.AsWorkflowUpdateStateNodeModelInput()
 	default:
 		return nil, errors.New("unknown discriminator value: " + discriminator)
 	}
@@ -63843,6 +65619,40 @@ func (t *AgentWorkflowResponseModel_Nodes_AdditionalProperties) MergeWorkflowSta
 	return err
 }
 
+// AsWorkflowSayNodeModelOutput returns the union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties as a WorkflowSayNodeModelOutput
+func (t AgentWorkflowResponseModel_Nodes_AdditionalProperties) AsWorkflowSayNodeModelOutput() (WorkflowSayNodeModelOutput, error) {
+	var body WorkflowSayNodeModelOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWorkflowSayNodeModelOutput overwrites any union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties as the provided WorkflowSayNodeModelOutput
+func (t *AgentWorkflowResponseModel_Nodes_AdditionalProperties) FromWorkflowSayNodeModelOutput(v WorkflowSayNodeModelOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"say"}`))
+	t.union = b
+	return err
+}
+
+// MergeWorkflowSayNodeModelOutput performs a merge with any union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties, using the provided WorkflowSayNodeModelOutput
+func (t *AgentWorkflowResponseModel_Nodes_AdditionalProperties) MergeWorkflowSayNodeModelOutput(v WorkflowSayNodeModelOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"say"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsWorkflowToolNodeModelOutput returns the union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties as a WorkflowToolNodeModelOutput
 func (t AgentWorkflowResponseModel_Nodes_AdditionalProperties) AsWorkflowToolNodeModelOutput() (WorkflowToolNodeModelOutput, error) {
 	var body WorkflowToolNodeModelOutput
@@ -63868,6 +65678,40 @@ func (t *AgentWorkflowResponseModel_Nodes_AdditionalProperties) MergeWorkflowToo
 		return err
 	}
 	b, err = runtime.JSONMerge(b, []byte(`{"type":"tool"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsWorkflowUpdateStateNodeModelOutput returns the union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties as a WorkflowUpdateStateNodeModelOutput
+func (t AgentWorkflowResponseModel_Nodes_AdditionalProperties) AsWorkflowUpdateStateNodeModelOutput() (WorkflowUpdateStateNodeModelOutput, error) {
+	var body WorkflowUpdateStateNodeModelOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromWorkflowUpdateStateNodeModelOutput overwrites any union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties as the provided WorkflowUpdateStateNodeModelOutput
+func (t *AgentWorkflowResponseModel_Nodes_AdditionalProperties) FromWorkflowUpdateStateNodeModelOutput(v WorkflowUpdateStateNodeModelOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"update_state"}`))
+	t.union = b
+	return err
+}
+
+// MergeWorkflowUpdateStateNodeModelOutput performs a merge with any union data inside the AgentWorkflowResponseModel_Nodes_AdditionalProperties, using the provided WorkflowUpdateStateNodeModelOutput
+func (t *AgentWorkflowResponseModel_Nodes_AdditionalProperties) MergeWorkflowUpdateStateNodeModelOutput(v WorkflowUpdateStateNodeModelOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"update_state"}`))
 	if err != nil {
 		return err
 	}
@@ -63931,6 +65775,8 @@ func (t AgentWorkflowResponseModel_Nodes_AdditionalProperties) ValueByDiscrimina
 		return t.AsWorkflowOverrideAgentNodeModelOutput()
 	case "phone_number":
 		return t.AsWorkflowPhoneNumberNodeModelOutput()
+	case "say":
+		return t.AsWorkflowSayNodeModelOutput()
 	case "standalone_agent":
 		return t.AsWorkflowStandaloneAgentNodeModelOutput()
 	case "start":
@@ -63939,6 +65785,8 @@ func (t AgentWorkflowResponseModel_Nodes_AdditionalProperties) ValueByDiscrimina
 		return t.AsWorkflowStartProcedureNodeModelOutput()
 	case "tool":
 		return t.AsWorkflowToolNodeModelOutput()
+	case "update_state":
+		return t.AsWorkflowUpdateStateNodeModelOutput()
 	default:
 		return nil, errors.New("unknown discriminator value: " + discriminator)
 	}
@@ -68816,6 +70664,345 @@ func (t *ConversationInitiationClientDataWebhook_RequestHeaders_AdditionalProper
 	return err
 }
 
+// AsTicketRequesterAuthorRequest returns the union data inside the CreateTicketMessageRequest_Author as a TicketRequesterAuthorRequest
+func (t CreateTicketMessageRequest_Author) AsTicketRequesterAuthorRequest() (TicketRequesterAuthorRequest, error) {
+	var body TicketRequesterAuthorRequest
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketRequesterAuthorRequest overwrites any union data inside the CreateTicketMessageRequest_Author as the provided TicketRequesterAuthorRequest
+func (t *CreateTicketMessageRequest_Author) FromTicketRequesterAuthorRequest(v TicketRequesterAuthorRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketRequesterAuthorRequest performs a merge with any union data inside the CreateTicketMessageRequest_Author, using the provided TicketRequesterAuthorRequest
+func (t *CreateTicketMessageRequest_Author) MergeTicketRequesterAuthorRequest(v TicketRequesterAuthorRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketHumanAgentAuthorRequest returns the union data inside the CreateTicketMessageRequest_Author as a TicketHumanAgentAuthorRequest
+func (t CreateTicketMessageRequest_Author) AsTicketHumanAgentAuthorRequest() (TicketHumanAgentAuthorRequest, error) {
+	var body TicketHumanAgentAuthorRequest
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketHumanAgentAuthorRequest overwrites any union data inside the CreateTicketMessageRequest_Author as the provided TicketHumanAgentAuthorRequest
+func (t *CreateTicketMessageRequest_Author) FromTicketHumanAgentAuthorRequest(v TicketHumanAgentAuthorRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketHumanAgentAuthorRequest performs a merge with any union data inside the CreateTicketMessageRequest_Author, using the provided TicketHumanAgentAuthorRequest
+func (t *CreateTicketMessageRequest_Author) MergeTicketHumanAgentAuthorRequest(v TicketHumanAgentAuthorRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t CreateTicketMessageRequest_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t CreateTicketMessageRequest_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "human_agent":
+		return t.AsTicketHumanAgentAuthorRequest()
+	case "requester":
+		return t.AsTicketRequesterAuthorRequest()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t CreateTicketMessageRequest_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *CreateTicketMessageRequest_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketRequesterAuthorRequest returns the union data inside the CreateTicketRequest_Author as a TicketRequesterAuthorRequest
+func (t CreateTicketRequest_Author) AsTicketRequesterAuthorRequest() (TicketRequesterAuthorRequest, error) {
+	var body TicketRequesterAuthorRequest
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketRequesterAuthorRequest overwrites any union data inside the CreateTicketRequest_Author as the provided TicketRequesterAuthorRequest
+func (t *CreateTicketRequest_Author) FromTicketRequesterAuthorRequest(v TicketRequesterAuthorRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketRequesterAuthorRequest performs a merge with any union data inside the CreateTicketRequest_Author, using the provided TicketRequesterAuthorRequest
+func (t *CreateTicketRequest_Author) MergeTicketRequesterAuthorRequest(v TicketRequesterAuthorRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketHumanAgentAuthorRequest returns the union data inside the CreateTicketRequest_Author as a TicketHumanAgentAuthorRequest
+func (t CreateTicketRequest_Author) AsTicketHumanAgentAuthorRequest() (TicketHumanAgentAuthorRequest, error) {
+	var body TicketHumanAgentAuthorRequest
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketHumanAgentAuthorRequest overwrites any union data inside the CreateTicketRequest_Author as the provided TicketHumanAgentAuthorRequest
+func (t *CreateTicketRequest_Author) FromTicketHumanAgentAuthorRequest(v TicketHumanAgentAuthorRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketHumanAgentAuthorRequest performs a merge with any union data inside the CreateTicketRequest_Author, using the provided TicketHumanAgentAuthorRequest
+func (t *CreateTicketRequest_Author) MergeTicketHumanAgentAuthorRequest(v TicketHumanAgentAuthorRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t CreateTicketRequest_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t CreateTicketRequest_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "human_agent":
+		return t.AsTicketHumanAgentAuthorRequest()
+	case "requester":
+		return t.AsTicketRequesterAuthorRequest()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t CreateTicketRequest_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *CreateTicketRequest_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketRequesterByUserIdRequest returns the union data inside the CreateTicketRequest_Requester as a TicketRequesterByUserIdRequest
+func (t CreateTicketRequest_Requester) AsTicketRequesterByUserIdRequest() (TicketRequesterByUserIdRequest, error) {
+	var body TicketRequesterByUserIdRequest
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketRequesterByUserIdRequest overwrites any union data inside the CreateTicketRequest_Requester as the provided TicketRequesterByUserIdRequest
+func (t *CreateTicketRequest_Requester) FromTicketRequesterByUserIdRequest(v TicketRequesterByUserIdRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"user_id"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketRequesterByUserIdRequest performs a merge with any union data inside the CreateTicketRequest_Requester, using the provided TicketRequesterByUserIdRequest
+func (t *CreateTicketRequest_Requester) MergeTicketRequesterByUserIdRequest(v TicketRequesterByUserIdRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"user_id"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketRequesterByEmailRequest returns the union data inside the CreateTicketRequest_Requester as a TicketRequesterByEmailRequest
+func (t CreateTicketRequest_Requester) AsTicketRequesterByEmailRequest() (TicketRequesterByEmailRequest, error) {
+	var body TicketRequesterByEmailRequest
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketRequesterByEmailRequest overwrites any union data inside the CreateTicketRequest_Requester as the provided TicketRequesterByEmailRequest
+func (t *CreateTicketRequest_Requester) FromTicketRequesterByEmailRequest(v TicketRequesterByEmailRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"email"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketRequesterByEmailRequest performs a merge with any union data inside the CreateTicketRequest_Requester, using the provided TicketRequesterByEmailRequest
+func (t *CreateTicketRequest_Requester) MergeTicketRequesterByEmailRequest(v TicketRequesterByEmailRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"email"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketRequesterBySlackRequest returns the union data inside the CreateTicketRequest_Requester as a TicketRequesterBySlackRequest
+func (t CreateTicketRequest_Requester) AsTicketRequesterBySlackRequest() (TicketRequesterBySlackRequest, error) {
+	var body TicketRequesterBySlackRequest
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketRequesterBySlackRequest overwrites any union data inside the CreateTicketRequest_Requester as the provided TicketRequesterBySlackRequest
+func (t *CreateTicketRequest_Requester) FromTicketRequesterBySlackRequest(v TicketRequesterBySlackRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"slack"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketRequesterBySlackRequest performs a merge with any union data inside the CreateTicketRequest_Requester, using the provided TicketRequesterBySlackRequest
+func (t *CreateTicketRequest_Requester) MergeTicketRequesterBySlackRequest(v TicketRequesterBySlackRequest) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"slack"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t CreateTicketRequest_Requester) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t CreateTicketRequest_Requester) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "email":
+		return t.AsTicketRequesterByEmailRequest()
+	case "slack":
+		return t.AsTicketRequesterBySlackRequest()
+	case "user_id":
+		return t.AsTicketRequesterByUserIdRequest()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t CreateTicketRequest_Requester) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *CreateTicketRequest_Requester) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsEndCallTriggerAction returns the union data inside the CustomGuardrailConfig_TriggerAction as a EndCallTriggerAction
 func (t CustomGuardrailConfig_TriggerAction) AsEndCallTriggerAction() (EndCallTriggerAction, error) {
 	var body EndCallTriggerAction
@@ -72258,6 +74445,431 @@ func (t GetSecretDependenciesResponseModel_Dependencies) MarshalJSON() ([]byte, 
 }
 
 func (t *GetSecretDependenciesResponseModel_Dependencies) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketMessageEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketMessageEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketMessageEventResponse() (TicketMessageEventResponse, error) {
+	var body TicketMessageEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketMessageEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketMessageEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketMessageEventResponse(v TicketMessageEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"message"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketMessageEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketMessageEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketMessageEventResponse(v TicketMessageEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"message"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketCreatedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketCreatedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketCreatedEventResponse() (TicketCreatedEventResponse, error) {
+	var body TicketCreatedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketCreatedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketCreatedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketCreatedEventResponse(v TicketCreatedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ticket_created"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketCreatedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketCreatedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketCreatedEventResponse(v TicketCreatedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ticket_created"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketDeletedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketDeletedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketDeletedEventResponse() (TicketDeletedEventResponse, error) {
+	var body TicketDeletedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketDeletedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketDeletedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketDeletedEventResponse(v TicketDeletedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ticket_deleted"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketDeletedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketDeletedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketDeletedEventResponse(v TicketDeletedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ticket_deleted"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketAssigneeChangedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketAssigneeChangedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketAssigneeChangedEventResponse() (TicketAssigneeChangedEventResponse, error) {
+	var body TicketAssigneeChangedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketAssigneeChangedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketAssigneeChangedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketAssigneeChangedEventResponse(v TicketAssigneeChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"assignee_changed"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketAssigneeChangedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketAssigneeChangedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketAssigneeChangedEventResponse(v TicketAssigneeChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"assignee_changed"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketSecondaryAssigneeChangedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketSecondaryAssigneeChangedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketSecondaryAssigneeChangedEventResponse() (TicketSecondaryAssigneeChangedEventResponse, error) {
+	var body TicketSecondaryAssigneeChangedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketSecondaryAssigneeChangedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketSecondaryAssigneeChangedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketSecondaryAssigneeChangedEventResponse(v TicketSecondaryAssigneeChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"secondary_assignee_changed"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketSecondaryAssigneeChangedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketSecondaryAssigneeChangedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketSecondaryAssigneeChangedEventResponse(v TicketSecondaryAssigneeChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"secondary_assignee_changed"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketSubscribersChangedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketSubscribersChangedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketSubscribersChangedEventResponse() (TicketSubscribersChangedEventResponse, error) {
+	var body TicketSubscribersChangedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketSubscribersChangedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketSubscribersChangedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketSubscribersChangedEventResponse(v TicketSubscribersChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"subscribers_changed"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketSubscribersChangedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketSubscribersChangedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketSubscribersChangedEventResponse(v TicketSubscribersChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"subscribers_changed"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketSubjectChangedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketSubjectChangedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketSubjectChangedEventResponse() (TicketSubjectChangedEventResponse, error) {
+	var body TicketSubjectChangedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketSubjectChangedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketSubjectChangedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketSubjectChangedEventResponse(v TicketSubjectChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"subject_changed"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketSubjectChangedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketSubjectChangedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketSubjectChangedEventResponse(v TicketSubjectChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"subject_changed"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketPriorityChangedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketPriorityChangedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketPriorityChangedEventResponse() (TicketPriorityChangedEventResponse, error) {
+	var body TicketPriorityChangedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketPriorityChangedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketPriorityChangedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketPriorityChangedEventResponse(v TicketPriorityChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"priority_changed"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketPriorityChangedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketPriorityChangedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketPriorityChangedEventResponse(v TicketPriorityChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"priority_changed"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketStatusChangedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketStatusChangedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketStatusChangedEventResponse() (TicketStatusChangedEventResponse, error) {
+	var body TicketStatusChangedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketStatusChangedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketStatusChangedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketStatusChangedEventResponse(v TicketStatusChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"status_changed"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketStatusChangedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketStatusChangedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketStatusChangedEventResponse(v TicketStatusChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"status_changed"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketDeadlineChangedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketDeadlineChangedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketDeadlineChangedEventResponse() (TicketDeadlineChangedEventResponse, error) {
+	var body TicketDeadlineChangedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketDeadlineChangedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketDeadlineChangedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketDeadlineChangedEventResponse(v TicketDeadlineChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"deadline_changed"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketDeadlineChangedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketDeadlineChangedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketDeadlineChangedEventResponse(v TicketDeadlineChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"deadline_changed"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketTagIdsChangedEventResponse returns the union data inside the GetTicketResponse_Events_Item as a TicketTagIdsChangedEventResponse
+func (t GetTicketResponse_Events_Item) AsTicketTagIdsChangedEventResponse() (TicketTagIdsChangedEventResponse, error) {
+	var body TicketTagIdsChangedEventResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketTagIdsChangedEventResponse overwrites any union data inside the GetTicketResponse_Events_Item as the provided TicketTagIdsChangedEventResponse
+func (t *GetTicketResponse_Events_Item) FromTicketTagIdsChangedEventResponse(v TicketTagIdsChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"tag_ids_changed"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketTagIdsChangedEventResponse performs a merge with any union data inside the GetTicketResponse_Events_Item, using the provided TicketTagIdsChangedEventResponse
+func (t *GetTicketResponse_Events_Item) MergeTicketTagIdsChangedEventResponse(v TicketTagIdsChangedEventResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"tag_ids_changed"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t GetTicketResponse_Events_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t GetTicketResponse_Events_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "assignee_changed":
+		return t.AsTicketAssigneeChangedEventResponse()
+	case "deadline_changed":
+		return t.AsTicketDeadlineChangedEventResponse()
+	case "message":
+		return t.AsTicketMessageEventResponse()
+	case "priority_changed":
+		return t.AsTicketPriorityChangedEventResponse()
+	case "secondary_assignee_changed":
+		return t.AsTicketSecondaryAssigneeChangedEventResponse()
+	case "status_changed":
+		return t.AsTicketStatusChangedEventResponse()
+	case "subject_changed":
+		return t.AsTicketSubjectChangedEventResponse()
+	case "subscribers_changed":
+		return t.AsTicketSubscribersChangedEventResponse()
+	case "tag_ids_changed":
+		return t.AsTicketTagIdsChangedEventResponse()
+	case "ticket_created":
+		return t.AsTicketCreatedEventResponse()
+	case "ticket_deleted":
+		return t.AsTicketDeletedEventResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t GetTicketResponse_Events_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *GetTicketResponse_Events_Item) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -87742,6 +90354,1513 @@ func (t *TextToSpeechGenerationRequest) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketAssigneeChangedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketAssigneeChangedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketAssigneeChangedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketAssigneeChangedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketAssigneeChangedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketAssigneeChangedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketAssigneeChangedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketAssigneeChangedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketAssigneeChangedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketAssigneeChangedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketAssigneeChangedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketAssigneeChangedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketAssigneeChangedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketAssigneeChangedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketAssigneeChangedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketAssigneeChangedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketAssigneeChangedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketAssigneeChangedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketAssigneeChangedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketAssigneeChangedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketAssigneeChangedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketAssigneeChangedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketCreatedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketCreatedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketCreatedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketCreatedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketCreatedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketCreatedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketCreatedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketCreatedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketCreatedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketCreatedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketCreatedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketCreatedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketCreatedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketCreatedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketCreatedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketCreatedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketCreatedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketCreatedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketCreatedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketCreatedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketCreatedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketCreatedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketDeadlineChangedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketDeadlineChangedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketDeadlineChangedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketDeadlineChangedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketDeadlineChangedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketDeadlineChangedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketDeadlineChangedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketDeadlineChangedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketDeadlineChangedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketDeadlineChangedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketDeadlineChangedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketDeadlineChangedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketDeadlineChangedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketDeadlineChangedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketDeadlineChangedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketDeadlineChangedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketDeadlineChangedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketDeadlineChangedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketDeadlineChangedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketDeadlineChangedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketDeadlineChangedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketDeadlineChangedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketDeletedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketDeletedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketDeletedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketDeletedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketDeletedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketDeletedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketDeletedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketDeletedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketDeletedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketDeletedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketDeletedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketDeletedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketDeletedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketDeletedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketDeletedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketDeletedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketDeletedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketDeletedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketDeletedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketDeletedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketDeletedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketDeletedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketMessageEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketMessageEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketMessageEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketMessageEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketMessageEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketMessageEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketMessageEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketMessageEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketMessageEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketMessageEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketMessageEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketMessageEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketMessageEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketMessageEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketMessageEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketMessageEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketMessageEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketMessageEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketMessageEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketMessageEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketMessageEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketMessageEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketPriorityChangedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketPriorityChangedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketPriorityChangedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketPriorityChangedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketPriorityChangedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketPriorityChangedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketPriorityChangedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketPriorityChangedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketPriorityChangedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketPriorityChangedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketPriorityChangedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketPriorityChangedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketPriorityChangedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketPriorityChangedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketPriorityChangedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketPriorityChangedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketPriorityChangedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketPriorityChangedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketPriorityChangedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketPriorityChangedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketPriorityChangedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketPriorityChangedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketSecondaryAssigneeChangedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketSecondaryAssigneeChangedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketSecondaryAssigneeChangedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketSecondaryAssigneeChangedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketSecondaryAssigneeChangedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketSecondaryAssigneeChangedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketSecondaryAssigneeChangedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketSecondaryAssigneeChangedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketSecondaryAssigneeChangedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketSecondaryAssigneeChangedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketSecondaryAssigneeChangedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketSecondaryAssigneeChangedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketSecondaryAssigneeChangedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketSecondaryAssigneeChangedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketSecondaryAssigneeChangedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketSecondaryAssigneeChangedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketSecondaryAssigneeChangedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketSecondaryAssigneeChangedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketSecondaryAssigneeChangedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketSecondaryAssigneeChangedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketSecondaryAssigneeChangedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketSecondaryAssigneeChangedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketStatusChangedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketStatusChangedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketStatusChangedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketStatusChangedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketStatusChangedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketStatusChangedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketStatusChangedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketStatusChangedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketStatusChangedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketStatusChangedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketStatusChangedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketStatusChangedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketStatusChangedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketStatusChangedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketStatusChangedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketStatusChangedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketStatusChangedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketStatusChangedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketStatusChangedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketStatusChangedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketStatusChangedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketStatusChangedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketSubjectChangedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketSubjectChangedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketSubjectChangedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketSubjectChangedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketSubjectChangedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketSubjectChangedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketSubjectChangedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketSubjectChangedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketSubjectChangedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketSubjectChangedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketSubjectChangedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketSubjectChangedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketSubjectChangedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketSubjectChangedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketSubjectChangedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketSubjectChangedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketSubjectChangedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketSubjectChangedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketSubjectChangedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketSubjectChangedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketSubjectChangedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketSubjectChangedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketSubscribersChangedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketSubscribersChangedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketSubscribersChangedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketSubscribersChangedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketSubscribersChangedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketSubscribersChangedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketSubscribersChangedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketSubscribersChangedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketSubscribersChangedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketSubscribersChangedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketSubscribersChangedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketSubscribersChangedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketSubscribersChangedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketSubscribersChangedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketSubscribersChangedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketSubscribersChangedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketSubscribersChangedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketSubscribersChangedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketSubscribersChangedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketSubscribersChangedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketSubscribersChangedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketSubscribersChangedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTicketEventRequesterAuthorResponse returns the union data inside the TicketTagIdsChangedEventResponse_Author as a TicketEventRequesterAuthorResponse
+func (t TicketTagIdsChangedEventResponse_Author) AsTicketEventRequesterAuthorResponse() (TicketEventRequesterAuthorResponse, error) {
+	var body TicketEventRequesterAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventRequesterAuthorResponse overwrites any union data inside the TicketTagIdsChangedEventResponse_Author as the provided TicketEventRequesterAuthorResponse
+func (t *TicketTagIdsChangedEventResponse_Author) FromTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventRequesterAuthorResponse performs a merge with any union data inside the TicketTagIdsChangedEventResponse_Author, using the provided TicketEventRequesterAuthorResponse
+func (t *TicketTagIdsChangedEventResponse_Author) MergeTicketEventRequesterAuthorResponse(v TicketEventRequesterAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"requester"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventAIAgentAuthorResponse returns the union data inside the TicketTagIdsChangedEventResponse_Author as a TicketEventAIAgentAuthorResponse
+func (t TicketTagIdsChangedEventResponse_Author) AsTicketEventAIAgentAuthorResponse() (TicketEventAIAgentAuthorResponse, error) {
+	var body TicketEventAIAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventAIAgentAuthorResponse overwrites any union data inside the TicketTagIdsChangedEventResponse_Author as the provided TicketEventAIAgentAuthorResponse
+func (t *TicketTagIdsChangedEventResponse_Author) FromTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventAIAgentAuthorResponse performs a merge with any union data inside the TicketTagIdsChangedEventResponse_Author, using the provided TicketEventAIAgentAuthorResponse
+func (t *TicketTagIdsChangedEventResponse_Author) MergeTicketEventAIAgentAuthorResponse(v TicketEventAIAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"ai_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTicketEventHumanAgentAuthorResponse returns the union data inside the TicketTagIdsChangedEventResponse_Author as a TicketEventHumanAgentAuthorResponse
+func (t TicketTagIdsChangedEventResponse_Author) AsTicketEventHumanAgentAuthorResponse() (TicketEventHumanAgentAuthorResponse, error) {
+	var body TicketEventHumanAgentAuthorResponse
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTicketEventHumanAgentAuthorResponse overwrites any union data inside the TicketTagIdsChangedEventResponse_Author as the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketTagIdsChangedEventResponse_Author) FromTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	t.union = b
+	return err
+}
+
+// MergeTicketEventHumanAgentAuthorResponse performs a merge with any union data inside the TicketTagIdsChangedEventResponse_Author, using the provided TicketEventHumanAgentAuthorResponse
+func (t *TicketTagIdsChangedEventResponse_Author) MergeTicketEventHumanAgentAuthorResponse(v TicketEventHumanAgentAuthorResponse) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"human_agent"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TicketTagIdsChangedEventResponse_Author) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t TicketTagIdsChangedEventResponse_Author) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "ai_agent":
+		return t.AsTicketEventAIAgentAuthorResponse()
+	case "human_agent":
+		return t.AsTicketEventHumanAgentAuthorResponse()
+	case "requester":
+		return t.AsTicketEventRequesterAuthorResponse()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t TicketTagIdsChangedEventResponse_Author) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TicketTagIdsChangedEventResponse_Author) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsWebhookToolConfigInput returns the union data inside the ToolRequestModel_ToolConfig as a WebhookToolConfigInput
 func (t ToolRequestModel_ToolConfig) AsWebhookToolConfigInput() (WebhookToolConfigInput, error) {
 	var body WebhookToolConfigInput
@@ -91821,6 +95940,208 @@ func (t WorkflowPhoneNumberNodeModelOutput_TransferDestination) MarshalJSON() ([
 }
 
 func (t *WorkflowPhoneNumberNodeModelOutput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsSayNodeLiteralMessageInput returns the union data inside the WorkflowSayNodeModelInput_Message as a SayNodeLiteralMessageInput
+func (t WorkflowSayNodeModelInput_Message) AsSayNodeLiteralMessageInput() (SayNodeLiteralMessageInput, error) {
+	var body SayNodeLiteralMessageInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSayNodeLiteralMessageInput overwrites any union data inside the WorkflowSayNodeModelInput_Message as the provided SayNodeLiteralMessageInput
+func (t *WorkflowSayNodeModelInput_Message) FromSayNodeLiteralMessageInput(v SayNodeLiteralMessageInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"literal"}`))
+	t.union = b
+	return err
+}
+
+// MergeSayNodeLiteralMessageInput performs a merge with any union data inside the WorkflowSayNodeModelInput_Message, using the provided SayNodeLiteralMessageInput
+func (t *WorkflowSayNodeModelInput_Message) MergeSayNodeLiteralMessageInput(v SayNodeLiteralMessageInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"literal"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSayNodePromptMessageInput returns the union data inside the WorkflowSayNodeModelInput_Message as a SayNodePromptMessageInput
+func (t WorkflowSayNodeModelInput_Message) AsSayNodePromptMessageInput() (SayNodePromptMessageInput, error) {
+	var body SayNodePromptMessageInput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSayNodePromptMessageInput overwrites any union data inside the WorkflowSayNodeModelInput_Message as the provided SayNodePromptMessageInput
+func (t *WorkflowSayNodeModelInput_Message) FromSayNodePromptMessageInput(v SayNodePromptMessageInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"prompt"}`))
+	t.union = b
+	return err
+}
+
+// MergeSayNodePromptMessageInput performs a merge with any union data inside the WorkflowSayNodeModelInput_Message, using the provided SayNodePromptMessageInput
+func (t *WorkflowSayNodeModelInput_Message) MergeSayNodePromptMessageInput(v SayNodePromptMessageInput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"prompt"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t WorkflowSayNodeModelInput_Message) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t WorkflowSayNodeModelInput_Message) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "literal":
+		return t.AsSayNodeLiteralMessageInput()
+	case "prompt":
+		return t.AsSayNodePromptMessageInput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t WorkflowSayNodeModelInput_Message) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *WorkflowSayNodeModelInput_Message) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsSayNodeLiteralMessageOutput returns the union data inside the WorkflowSayNodeModelOutput_Message as a SayNodeLiteralMessageOutput
+func (t WorkflowSayNodeModelOutput_Message) AsSayNodeLiteralMessageOutput() (SayNodeLiteralMessageOutput, error) {
+	var body SayNodeLiteralMessageOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSayNodeLiteralMessageOutput overwrites any union data inside the WorkflowSayNodeModelOutput_Message as the provided SayNodeLiteralMessageOutput
+func (t *WorkflowSayNodeModelOutput_Message) FromSayNodeLiteralMessageOutput(v SayNodeLiteralMessageOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"literal"}`))
+	t.union = b
+	return err
+}
+
+// MergeSayNodeLiteralMessageOutput performs a merge with any union data inside the WorkflowSayNodeModelOutput_Message, using the provided SayNodeLiteralMessageOutput
+func (t *WorkflowSayNodeModelOutput_Message) MergeSayNodeLiteralMessageOutput(v SayNodeLiteralMessageOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"literal"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSayNodePromptMessageOutput returns the union data inside the WorkflowSayNodeModelOutput_Message as a SayNodePromptMessageOutput
+func (t WorkflowSayNodeModelOutput_Message) AsSayNodePromptMessageOutput() (SayNodePromptMessageOutput, error) {
+	var body SayNodePromptMessageOutput
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSayNodePromptMessageOutput overwrites any union data inside the WorkflowSayNodeModelOutput_Message as the provided SayNodePromptMessageOutput
+func (t *WorkflowSayNodeModelOutput_Message) FromSayNodePromptMessageOutput(v SayNodePromptMessageOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"prompt"}`))
+	t.union = b
+	return err
+}
+
+// MergeSayNodePromptMessageOutput performs a merge with any union data inside the WorkflowSayNodeModelOutput_Message, using the provided SayNodePromptMessageOutput
+func (t *WorkflowSayNodeModelOutput_Message) MergeSayNodePromptMessageOutput(v SayNodePromptMessageOutput) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"prompt"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t WorkflowSayNodeModelOutput_Message) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t WorkflowSayNodeModelOutput_Message) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "literal":
+		return t.AsSayNodeLiteralMessageOutput()
+	case "prompt":
+		return t.AsSayNodePromptMessageOutput()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t WorkflowSayNodeModelOutput_Message) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *WorkflowSayNodeModelOutput_Message) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -98286,6 +102607,24 @@ type ClientInterface interface {
 	// Corresponds with GET /v1/convai/conversations/{conversation_id}/sip-messages (the `GetConversationSipMessages` operationId).
 	GetConversationSipMessages(ctx context.Context, conversationId string, params *GetConversationSipMessagesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// StopConversationTurnRouteWithBody Stop Conversation Turn
+	//
+	// Stop the latest turn of a conversation, and wait until it ends. The turn then has the `interrupted` status, or its own status if it ended before the stop. If the turn does not end in time, the endpoint returns 202 and `in_progress`. This endpoint is in alpha and may change.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/stop (the `StopConversationTurnRoute` operationId).
+	StopConversationTurnRouteWithBody(ctx context.Context, conversationId string, params *StopConversationTurnRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// StopConversationTurnRoute Stop Conversation Turn
+	//
+	// Stop the latest turn of a conversation, and wait until it ends. The turn then has the `interrupted` status, or its own status if it ended before the stop. If the turn does not end in time, the endpoint returns 202 and `in_progress`. This endpoint is in alpha and may change.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/stop (the `StopConversationTurnRoute` operationId).
+	StopConversationTurnRoute(ctx context.Context, conversationId string, params *StopConversationTurnRouteParams, body StopConversationTurnRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetConversationSummaryRoute Get Conversation Summary
 	//
 	// Get a lightweight summary of a conversation: its title, the generated transcript summary, whether the call was successful, and — only when the conversation is short — the plain chat messages. Tool calls, tool results, and contextual updates are omitted so the response stays small. Use this instead of the full conversation endpoint when you only need the gist (e.g. an agent reading many conversations); use GET /v1/convai/conversations/{conversation_id} when you need the full transcript with tool calls and contextual updates.
@@ -102364,6 +106703,199 @@ type ClientInterface interface {
 	// Corresponds with POST /v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/stream (the `StreamProjectSnapshotAudioEndpoint` operationId).
 	StreamProjectSnapshotAudioEndpoint(ctx context.Context, projectId string, projectSnapshotId string, params *StreamProjectSnapshotAudioEndpointParams, body StreamProjectSnapshotAudioEndpointJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// ListRequesters List Support Requesters
+	//
+	// List active Agents Users for the workspace as support requesters. Requires support read permission.
+	//
+	// Corresponds with GET /v1/support/requesters (the `ListRequesters` operationId).
+	ListRequesters(ctx context.Context, params *ListRequestersParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SyncSlackRequestersWithBody Sync Slack Requesters
+	//
+	// Import the members of a connected Slack workspace as support requesters. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/support/requesters/sync/slack (the `SyncSlackRequesters` operationId).
+	SyncSlackRequestersWithBody(ctx context.Context, params *SyncSlackRequestersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SyncSlackRequesters Sync Slack Requesters
+	//
+	// Import the members of a connected Slack workspace as support requesters. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/support/requesters/sync/slack (the `SyncSlackRequesters` operationId).
+	SyncSlackRequesters(ctx context.Context, params *SyncSlackRequestersParams, body SyncSlackRequestersJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListTicketSlaPolicies List Ticket Sla Policies
+	//
+	// List ticket SLA policies for the workspace, newest first.
+	//
+	// Corresponds with GET /v1/support/sla-policies (the `ListTicketSlaPolicies` operationId).
+	ListTicketSlaPolicies(ctx context.Context, params *ListTicketSlaPoliciesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTicketSlaPolicyWithBody Create Ticket Sla Policy
+	//
+	// Create a ticket SLA policy for the workspace. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/support/sla-policies (the `CreateTicketSlaPolicy` operationId).
+	CreateTicketSlaPolicyWithBody(ctx context.Context, params *CreateTicketSlaPolicyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTicketSlaPolicy Create Ticket Sla Policy
+	//
+	// Create a ticket SLA policy for the workspace. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/support/sla-policies (the `CreateTicketSlaPolicy` operationId).
+	CreateTicketSlaPolicy(ctx context.Context, params *CreateTicketSlaPolicyParams, body CreateTicketSlaPolicyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetTicketSlaPolicy Get Ticket Sla Policy
+	//
+	// Get a ticket SLA policy for the workspace.
+	//
+	// Corresponds with GET /v1/support/sla-policies/{policy_id} (the `GetTicketSlaPolicy` operationId).
+	GetTicketSlaPolicy(ctx context.Context, policyId string, params *GetTicketSlaPolicyParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTicketSlaPolicyWithBody Update Ticket Sla Policy
+	//
+	// Update a ticket SLA policy, including archiving or restoring it. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/support/sla-policies/{policy_id} (the `UpdateTicketSlaPolicy` operationId).
+	UpdateTicketSlaPolicyWithBody(ctx context.Context, policyId string, params *UpdateTicketSlaPolicyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTicketSlaPolicy Update Ticket Sla Policy
+	//
+	// Update a ticket SLA policy, including archiving or restoring it. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/support/sla-policies/{policy_id} (the `UpdateTicketSlaPolicy` operationId).
+	UpdateTicketSlaPolicy(ctx context.Context, policyId string, params *UpdateTicketSlaPolicyParams, body UpdateTicketSlaPolicyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListTicketTags List Ticket Tags
+	//
+	// List active ticket tags for the workspace, newest first. Requires support read permission.
+	//
+	// Corresponds with GET /v1/support/tags (the `ListTicketTags` operationId).
+	ListTicketTags(ctx context.Context, params *ListTicketTagsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTicketTagWithBody Create Ticket Tag
+	//
+	// Create a ticket tag for the workspace. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/support/tags (the `CreateTicketTag` operationId).
+	CreateTicketTagWithBody(ctx context.Context, params *CreateTicketTagParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTicketTag Create Ticket Tag
+	//
+	// Create a ticket tag for the workspace. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/support/tags (the `CreateTicketTag` operationId).
+	CreateTicketTag(ctx context.Context, params *CreateTicketTagParams, body CreateTicketTagJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTicketTagWithBody Update Ticket Tag
+	//
+	// Update a ticket tag. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/support/tags/{tag_id} (the `UpdateTicketTag` operationId).
+	UpdateTicketTagWithBody(ctx context.Context, tagId string, params *UpdateTicketTagParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTicketTag Update Ticket Tag
+	//
+	// Update a ticket tag. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/support/tags/{tag_id} (the `UpdateTicketTag` operationId).
+	UpdateTicketTag(ctx context.Context, tagId string, params *UpdateTicketTagParams, body UpdateTicketTagJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListTickets List Tickets
+	//
+	// List tickets.
+	//
+	// Corresponds with GET /v1/support/tickets (the `ListTickets` operationId).
+	ListTickets(ctx context.Context, params *ListTicketsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTicketWithBody Create Ticket
+	//
+	// Create ticket.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/support/tickets (the `CreateTicket` operationId).
+	CreateTicketWithBody(ctx context.Context, params *CreateTicketParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTicket Create Ticket
+	//
+	// Create ticket.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/support/tickets (the `CreateTicket` operationId).
+	CreateTicket(ctx context.Context, params *CreateTicketParams, body CreateTicketJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// DeleteTicket Delete Ticket
+	//
+	// Delete ticket.
+	//
+	// Corresponds with DELETE /v1/support/tickets/{ticket_id} (the `DeleteTicket` operationId).
+	DeleteTicket(ctx context.Context, ticketId string, params *DeleteTicketParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetTicket Get Ticket
+	//
+	// Get ticket.
+	//
+	// Corresponds with GET /v1/support/tickets/{ticket_id} (the `GetTicket` operationId).
+	GetTicket(ctx context.Context, ticketId string, params *GetTicketParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTicketWithBody Update Ticket
+	//
+	// Update ticket.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/support/tickets/{ticket_id} (the `UpdateTicket` operationId).
+	UpdateTicketWithBody(ctx context.Context, ticketId string, params *UpdateTicketParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTicket Update Ticket
+	//
+	// Update ticket.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/support/tickets/{ticket_id} (the `UpdateTicket` operationId).
+	UpdateTicket(ctx context.Context, ticketId string, params *UpdateTicketParams, body UpdateTicketJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTicketMessageWithBody Create Ticket Message
+	//
+	// Create ticket message.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/support/tickets/{ticket_id}/messages (the `CreateTicketMessage` operationId).
+	CreateTicketMessageWithBody(ctx context.Context, ticketId string, params *CreateTicketMessageParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTicketMessage Create Ticket Message
+	//
+	// Create ticket message.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/support/tickets/{ticket_id}/messages (the `CreateTicketMessage` operationId).
+	CreateTicketMessage(ctx context.Context, ticketId string, params *CreateTicketMessageParams, body CreateTicketMessageJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// TextToDialogueWithBody Text To Dialogue (Multi-Voice)
 	//
 	// Converts a list of text and voice ID pairs into speech (dialogue) and returns audio.
@@ -106135,6 +110667,44 @@ func (c *Client) SendConversationMessageStreamRoute(ctx context.Context, convers
 // Corresponds with GET /v1/convai/conversations/{conversation_id}/sip-messages (the `GetConversationSipMessages` operationId).
 func (c *Client) GetConversationSipMessages(ctx context.Context, conversationId string, params *GetConversationSipMessagesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetConversationSipMessagesRequest(c.Server, conversationId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// StopConversationTurnRouteWithBody Stop Conversation Turn
+//
+// Stop the latest turn of a conversation, and wait until it ends. The turn then has the `interrupted` status, or its own status if it ended before the stop. If the turn does not end in time, the endpoint returns 202 and `in_progress`. This endpoint is in alpha and may change.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/stop (the `StopConversationTurnRoute` operationId).
+func (c *Client) StopConversationTurnRouteWithBody(ctx context.Context, conversationId string, params *StopConversationTurnRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewStopConversationTurnRouteRequestWithBody(c.Server, conversationId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// StopConversationTurnRoute Stop Conversation Turn
+//
+// Stop the latest turn of a conversation, and wait until it ends. The turn then has the `interrupted` status, or its own status if it ended before the stop. If the turn does not end in time, the endpoint returns 202 and `in_progress`. This endpoint is in alpha and may change.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/stop (the `StopConversationTurnRoute` operationId).
+func (c *Client) StopConversationTurnRoute(ctx context.Context, conversationId string, params *StopConversationTurnRouteParams, body StopConversationTurnRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewStopConversationTurnRouteRequest(c.Server, conversationId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -115070,6 +119640,429 @@ func (c *Client) StreamProjectSnapshotAudioEndpoint(ctx context.Context, project
 	return c.Client.Do(req)
 }
 
+// ListRequesters List Support Requesters
+//
+// List active Agents Users for the workspace as support requesters. Requires support read permission.
+//
+// Corresponds with GET /v1/support/requesters (the `ListRequesters` operationId).
+func (c *Client) ListRequesters(ctx context.Context, params *ListRequestersParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListRequestersRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SyncSlackRequestersWithBody Sync Slack Requesters
+//
+// Import the members of a connected Slack workspace as support requesters. Requires support write permission.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/support/requesters/sync/slack (the `SyncSlackRequesters` operationId).
+func (c *Client) SyncSlackRequestersWithBody(ctx context.Context, params *SyncSlackRequestersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSyncSlackRequestersRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SyncSlackRequesters Sync Slack Requesters
+//
+// Import the members of a connected Slack workspace as support requesters. Requires support write permission.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/support/requesters/sync/slack (the `SyncSlackRequesters` operationId).
+func (c *Client) SyncSlackRequesters(ctx context.Context, params *SyncSlackRequestersParams, body SyncSlackRequestersJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSyncSlackRequestersRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListTicketSlaPolicies List Ticket Sla Policies
+//
+// List ticket SLA policies for the workspace, newest first.
+//
+// Corresponds with GET /v1/support/sla-policies (the `ListTicketSlaPolicies` operationId).
+func (c *Client) ListTicketSlaPolicies(ctx context.Context, params *ListTicketSlaPoliciesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListTicketSlaPoliciesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTicketSlaPolicyWithBody Create Ticket Sla Policy
+//
+// Create a ticket SLA policy for the workspace. Requires support write permission.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/support/sla-policies (the `CreateTicketSlaPolicy` operationId).
+func (c *Client) CreateTicketSlaPolicyWithBody(ctx context.Context, params *CreateTicketSlaPolicyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTicketSlaPolicyRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTicketSlaPolicy Create Ticket Sla Policy
+//
+// Create a ticket SLA policy for the workspace. Requires support write permission.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/support/sla-policies (the `CreateTicketSlaPolicy` operationId).
+func (c *Client) CreateTicketSlaPolicy(ctx context.Context, params *CreateTicketSlaPolicyParams, body CreateTicketSlaPolicyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTicketSlaPolicyRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetTicketSlaPolicy Get Ticket Sla Policy
+//
+// Get a ticket SLA policy for the workspace.
+//
+// Corresponds with GET /v1/support/sla-policies/{policy_id} (the `GetTicketSlaPolicy` operationId).
+func (c *Client) GetTicketSlaPolicy(ctx context.Context, policyId string, params *GetTicketSlaPolicyParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetTicketSlaPolicyRequest(c.Server, policyId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTicketSlaPolicyWithBody Update Ticket Sla Policy
+//
+// Update a ticket SLA policy, including archiving or restoring it. Requires support write permission.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/support/sla-policies/{policy_id} (the `UpdateTicketSlaPolicy` operationId).
+func (c *Client) UpdateTicketSlaPolicyWithBody(ctx context.Context, policyId string, params *UpdateTicketSlaPolicyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTicketSlaPolicyRequestWithBody(c.Server, policyId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTicketSlaPolicy Update Ticket Sla Policy
+//
+// Update a ticket SLA policy, including archiving or restoring it. Requires support write permission.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/support/sla-policies/{policy_id} (the `UpdateTicketSlaPolicy` operationId).
+func (c *Client) UpdateTicketSlaPolicy(ctx context.Context, policyId string, params *UpdateTicketSlaPolicyParams, body UpdateTicketSlaPolicyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTicketSlaPolicyRequest(c.Server, policyId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListTicketTags List Ticket Tags
+//
+// List active ticket tags for the workspace, newest first. Requires support read permission.
+//
+// Corresponds with GET /v1/support/tags (the `ListTicketTags` operationId).
+func (c *Client) ListTicketTags(ctx context.Context, params *ListTicketTagsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListTicketTagsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTicketTagWithBody Create Ticket Tag
+//
+// Create a ticket tag for the workspace. Requires support write permission.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/support/tags (the `CreateTicketTag` operationId).
+func (c *Client) CreateTicketTagWithBody(ctx context.Context, params *CreateTicketTagParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTicketTagRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTicketTag Create Ticket Tag
+//
+// Create a ticket tag for the workspace. Requires support write permission.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/support/tags (the `CreateTicketTag` operationId).
+func (c *Client) CreateTicketTag(ctx context.Context, params *CreateTicketTagParams, body CreateTicketTagJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTicketTagRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTicketTagWithBody Update Ticket Tag
+//
+// Update a ticket tag. Requires support write permission.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/support/tags/{tag_id} (the `UpdateTicketTag` operationId).
+func (c *Client) UpdateTicketTagWithBody(ctx context.Context, tagId string, params *UpdateTicketTagParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTicketTagRequestWithBody(c.Server, tagId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTicketTag Update Ticket Tag
+//
+// Update a ticket tag. Requires support write permission.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/support/tags/{tag_id} (the `UpdateTicketTag` operationId).
+func (c *Client) UpdateTicketTag(ctx context.Context, tagId string, params *UpdateTicketTagParams, body UpdateTicketTagJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTicketTagRequest(c.Server, tagId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListTickets List Tickets
+//
+// List tickets.
+//
+// Corresponds with GET /v1/support/tickets (the `ListTickets` operationId).
+func (c *Client) ListTickets(ctx context.Context, params *ListTicketsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListTicketsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTicketWithBody Create Ticket
+//
+// Create ticket.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/support/tickets (the `CreateTicket` operationId).
+func (c *Client) CreateTicketWithBody(ctx context.Context, params *CreateTicketParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTicketRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTicket Create Ticket
+//
+// Create ticket.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/support/tickets (the `CreateTicket` operationId).
+func (c *Client) CreateTicket(ctx context.Context, params *CreateTicketParams, body CreateTicketJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTicketRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// DeleteTicket Delete Ticket
+//
+// Delete ticket.
+//
+// Corresponds with DELETE /v1/support/tickets/{ticket_id} (the `DeleteTicket` operationId).
+func (c *Client) DeleteTicket(ctx context.Context, ticketId string, params *DeleteTicketParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteTicketRequest(c.Server, ticketId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetTicket Get Ticket
+//
+// Get ticket.
+//
+// Corresponds with GET /v1/support/tickets/{ticket_id} (the `GetTicket` operationId).
+func (c *Client) GetTicket(ctx context.Context, ticketId string, params *GetTicketParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetTicketRequest(c.Server, ticketId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTicketWithBody Update Ticket
+//
+// Update ticket.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/support/tickets/{ticket_id} (the `UpdateTicket` operationId).
+func (c *Client) UpdateTicketWithBody(ctx context.Context, ticketId string, params *UpdateTicketParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTicketRequestWithBody(c.Server, ticketId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTicket Update Ticket
+//
+// Update ticket.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/support/tickets/{ticket_id} (the `UpdateTicket` operationId).
+func (c *Client) UpdateTicket(ctx context.Context, ticketId string, params *UpdateTicketParams, body UpdateTicketJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTicketRequest(c.Server, ticketId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTicketMessageWithBody Create Ticket Message
+//
+// Create ticket message.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/support/tickets/{ticket_id}/messages (the `CreateTicketMessage` operationId).
+func (c *Client) CreateTicketMessageWithBody(ctx context.Context, ticketId string, params *CreateTicketMessageParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTicketMessageRequestWithBody(c.Server, ticketId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTicketMessage Create Ticket Message
+//
+// Create ticket message.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/support/tickets/{ticket_id}/messages (the `CreateTicketMessage` operationId).
+func (c *Client) CreateTicketMessage(ctx context.Context, ticketId string, params *CreateTicketMessageParams, body CreateTicketMessageJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTicketMessageRequest(c.Server, ticketId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // TextToDialogueWithBody Text To Dialogue (Multi-Voice)
 //
 // Converts a list of text and voice ID pairs into speech (dialogue) and returns audio.
@@ -119626,6 +124619,18 @@ func NewGetBranchesRouteRequest(server string, agentId string, params *GetBranch
 		if params.Limit != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "limit", *params.Limit, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page", *params.Page, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -126482,6 +131487,68 @@ func NewGetConversationSipMessagesRequest(server string, conversationId string, 
 	return req, nil
 }
 
+// NewStopConversationTurnRouteRequest calls the generic StopConversationTurnRoute builder with application/json body
+func NewStopConversationTurnRouteRequest(server string, conversationId string, params *StopConversationTurnRouteParams, body StopConversationTurnRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewStopConversationTurnRouteRequestWithBody(server, conversationId, params, "application/json", bodyReader)
+}
+
+// NewStopConversationTurnRouteRequestWithBody constructs an http.Request for the StopConversationTurnRoute method, with any body, and a specified content type
+func NewStopConversationTurnRouteRequestWithBody(server string, conversationId string, params *StopConversationTurnRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "conversation_id", conversationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/conversations/%s/stop", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewGetConversationSummaryRouteRequest constructs an http.Request for the GetConversationSummaryRoute method
 func NewGetConversationSummaryRouteRequest(server string, conversationId string, params *GetConversationSummaryRouteParams) (*http.Request, error) {
 	var err error
@@ -132713,6 +137780,18 @@ func NewGetSecretsRouteRequest(server string, params *GetSecretsRouteParams) (*h
 		if params.Search != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeDependencies != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_dependencies", *params.IncludeDependencies, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -149949,6 +155028,1125 @@ func NewStreamProjectSnapshotAudioEndpointRequestWithBody(server string, project
 	return req, nil
 }
 
+// NewListRequestersRequest constructs an http.Request for the ListRequesters method
+func NewListRequestersRequest(server string, params *ListRequestersParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/requesters")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Ids != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "ids", *params.Ids, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewSyncSlackRequestersRequest calls the generic SyncSlackRequesters builder with application/json body
+func NewSyncSlackRequestersRequest(server string, params *SyncSlackRequestersParams, body SyncSlackRequestersJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSyncSlackRequestersRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSyncSlackRequestersRequestWithBody constructs an http.Request for the SyncSlackRequesters method, with any body, and a specified content type
+func NewSyncSlackRequestersRequestWithBody(server string, params *SyncSlackRequestersParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/requesters/sync/slack")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewListTicketSlaPoliciesRequest constructs an http.Request for the ListTicketSlaPolicies method
+func NewListTicketSlaPoliciesRequest(server string, params *ListTicketSlaPoliciesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/sla-policies")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.IncludeArchived != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_archived", *params.IncludeArchived, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewCreateTicketSlaPolicyRequest calls the generic CreateTicketSlaPolicy builder with application/json body
+func NewCreateTicketSlaPolicyRequest(server string, params *CreateTicketSlaPolicyParams, body CreateTicketSlaPolicyJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateTicketSlaPolicyRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewCreateTicketSlaPolicyRequestWithBody constructs an http.Request for the CreateTicketSlaPolicy method, with any body, and a specified content type
+func NewCreateTicketSlaPolicyRequestWithBody(server string, params *CreateTicketSlaPolicyParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/sla-policies")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetTicketSlaPolicyRequest constructs an http.Request for the GetTicketSlaPolicy method
+func NewGetTicketSlaPolicyRequest(server string, policyId string, params *GetTicketSlaPolicyParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "policy_id", policyId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/sla-policies/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewUpdateTicketSlaPolicyRequest calls the generic UpdateTicketSlaPolicy builder with application/json body
+func NewUpdateTicketSlaPolicyRequest(server string, policyId string, params *UpdateTicketSlaPolicyParams, body UpdateTicketSlaPolicyJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateTicketSlaPolicyRequestWithBody(server, policyId, params, "application/json", bodyReader)
+}
+
+// NewUpdateTicketSlaPolicyRequestWithBody constructs an http.Request for the UpdateTicketSlaPolicy method, with any body, and a specified content type
+func NewUpdateTicketSlaPolicyRequestWithBody(server string, policyId string, params *UpdateTicketSlaPolicyParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "policy_id", policyId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/sla-policies/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewListTicketTagsRequest constructs an http.Request for the ListTicketTags method
+func NewListTicketTagsRequest(server string, params *ListTicketTagsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/tags")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Ids != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "ids", *params.Ids, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.IncludeArchived != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_archived", *params.IncludeArchived, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewCreateTicketTagRequest calls the generic CreateTicketTag builder with application/json body
+func NewCreateTicketTagRequest(server string, params *CreateTicketTagParams, body CreateTicketTagJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateTicketTagRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewCreateTicketTagRequestWithBody constructs an http.Request for the CreateTicketTag method, with any body, and a specified content type
+func NewCreateTicketTagRequestWithBody(server string, params *CreateTicketTagParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/tags")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewUpdateTicketTagRequest calls the generic UpdateTicketTag builder with application/json body
+func NewUpdateTicketTagRequest(server string, tagId string, params *UpdateTicketTagParams, body UpdateTicketTagJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateTicketTagRequestWithBody(server, tagId, params, "application/json", bodyReader)
+}
+
+// NewUpdateTicketTagRequestWithBody constructs an http.Request for the UpdateTicketTag method, with any body, and a specified content type
+func NewUpdateTicketTagRequestWithBody(server string, tagId string, params *UpdateTicketTagParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "tag_id", tagId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/tags/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewListTicketsRequest constructs an http.Request for the ListTickets method
+func NewListTicketsRequest(server string, params *ListTicketsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/tickets")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Cursor != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cursor", *params.Cursor, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Search != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Priority != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "priority", *params.Priority, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.SlaStatus != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "sla_status", *params.SlaStatus, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DeadlineStatus != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "deadline_status", *params.DeadlineStatus, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.RequesterUserId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "requester_user_id", *params.RequesterUserId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.AssigneeId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "assignee_id", *params.AssigneeId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.TagIds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "tag_ids", *params.TagIds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Unassigned != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "unassigned", *params.Unassigned, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.SortBy != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "sort_by", *params.SortBy, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.SortDirection != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "sort_direction", *params.SortDirection, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewCreateTicketRequest calls the generic CreateTicket builder with application/json body
+func NewCreateTicketRequest(server string, params *CreateTicketParams, body CreateTicketJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateTicketRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewCreateTicketRequestWithBody constructs an http.Request for the CreateTicket method, with any body, and a specified content type
+func NewCreateTicketRequestWithBody(server string, params *CreateTicketParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/tickets")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewDeleteTicketRequest constructs an http.Request for the DeleteTicket method
+func NewDeleteTicketRequest(server string, ticketId string, params *DeleteTicketParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "ticket_id", ticketId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/tickets/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewGetTicketRequest constructs an http.Request for the GetTicket method
+func NewGetTicketRequest(server string, ticketId string, params *GetTicketParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "ticket_id", ticketId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/tickets/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewUpdateTicketRequest calls the generic UpdateTicket builder with application/json body
+func NewUpdateTicketRequest(server string, ticketId string, params *UpdateTicketParams, body UpdateTicketJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateTicketRequestWithBody(server, ticketId, params, "application/json", bodyReader)
+}
+
+// NewUpdateTicketRequestWithBody constructs an http.Request for the UpdateTicket method, with any body, and a specified content type
+func NewUpdateTicketRequestWithBody(server string, ticketId string, params *UpdateTicketParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "ticket_id", ticketId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/tickets/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewCreateTicketMessageRequest calls the generic CreateTicketMessage builder with application/json body
+func NewCreateTicketMessageRequest(server string, ticketId string, params *CreateTicketMessageParams, body CreateTicketMessageJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateTicketMessageRequestWithBody(server, ticketId, params, "application/json", bodyReader)
+}
+
+// NewCreateTicketMessageRequestWithBody constructs an http.Request for the CreateTicketMessage method, with any body, and a specified content type
+func NewCreateTicketMessageRequestWithBody(server string, ticketId string, params *CreateTicketMessageParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "ticket_id", ticketId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/support/tickets/%s/messages", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewTextToDialogueRequest calls the generic TextToDialogue builder with application/json body
 func NewTextToDialogueRequest(server string, params *TextToDialogueParams, body TextToDialogueJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -156950,6 +163148,24 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /v1/convai/conversations/{conversation_id}/sip-messages (the `GetConversationSipMessages` operationId).
 	GetConversationSipMessagesWithResponse(ctx context.Context, conversationId string, params *GetConversationSipMessagesParams, reqEditors ...RequestEditorFn) (*GetConversationSipMessagesResponse, error)
 
+	// StopConversationTurnRouteWithBodyWithResponse Stop Conversation Turn
+	//
+	// Stop the latest turn of a conversation, and wait until it ends. The turn then has the `interrupted` status, or its own status if it ended before the stop. If the turn does not end in time, the endpoint returns 202 and `in_progress`. This endpoint is in alpha and may change.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/stop (the `StopConversationTurnRoute` operationId).
+	StopConversationTurnRouteWithBodyWithResponse(ctx context.Context, conversationId string, params *StopConversationTurnRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StopConversationTurnRouteResponse, error)
+
+	// StopConversationTurnRouteWithResponse Stop Conversation Turn
+	//
+	// Stop the latest turn of a conversation, and wait until it ends. The turn then has the `interrupted` status, or its own status if it ended before the stop. If the turn does not end in time, the endpoint returns 202 and `in_progress`. This endpoint is in alpha and may change.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/conversations/{conversation_id}/stop (the `StopConversationTurnRoute` operationId).
+	StopConversationTurnRouteWithResponse(ctx context.Context, conversationId string, params *StopConversationTurnRouteParams, body StopConversationTurnRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*StopConversationTurnRouteResponse, error)
+
 	// GetConversationSummaryRouteWithResponse Get Conversation Summary
 	//
 	// Get a lightweight summary of a conversation: its title, the generated transcript summary, whether the call was successful, and — only when the conversation is short — the plain chat messages. Tool calls, tool results, and contextual updates are omitted so the response stays small. Use this instead of the full conversation endpoint when you only need the gist (e.g. an agent reading many conversations); use GET /v1/convai/conversations/{conversation_id} when you need the full transcript with tool calls and contextual updates.
@@ -161425,6 +167641,213 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with POST /v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/stream (the `StreamProjectSnapshotAudioEndpoint` operationId).
 	StreamProjectSnapshotAudioEndpointWithResponse(ctx context.Context, projectId string, projectSnapshotId string, params *StreamProjectSnapshotAudioEndpointParams, body StreamProjectSnapshotAudioEndpointJSONRequestBody, reqEditors ...RequestEditorFn) (*StreamProjectSnapshotAudioEndpointResponse, error)
+
+	// ListRequestersWithResponse List Support Requesters
+	//
+	// List active Agents Users for the workspace as support requesters. Requires support read permission.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/support/requesters (the `ListRequesters` operationId).
+	ListRequestersWithResponse(ctx context.Context, params *ListRequestersParams, reqEditors ...RequestEditorFn) (*ListRequestersResponse, error)
+
+	// SyncSlackRequestersWithBodyWithResponse Sync Slack Requesters
+	//
+	// Import the members of a connected Slack workspace as support requesters. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/requesters/sync/slack (the `SyncSlackRequesters` operationId).
+	SyncSlackRequestersWithBodyWithResponse(ctx context.Context, params *SyncSlackRequestersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SyncSlackRequestersResponse2, error)
+
+	// SyncSlackRequestersWithResponse Sync Slack Requesters
+	//
+	// Import the members of a connected Slack workspace as support requesters. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/requesters/sync/slack (the `SyncSlackRequesters` operationId).
+	SyncSlackRequestersWithResponse(ctx context.Context, params *SyncSlackRequestersParams, body SyncSlackRequestersJSONRequestBody, reqEditors ...RequestEditorFn) (*SyncSlackRequestersResponse2, error)
+
+	// ListTicketSlaPoliciesWithResponse List Ticket Sla Policies
+	//
+	// List ticket SLA policies for the workspace, newest first.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/support/sla-policies (the `ListTicketSlaPolicies` operationId).
+	ListTicketSlaPoliciesWithResponse(ctx context.Context, params *ListTicketSlaPoliciesParams, reqEditors ...RequestEditorFn) (*ListTicketSlaPoliciesResponse, error)
+
+	// CreateTicketSlaPolicyWithBodyWithResponse Create Ticket Sla Policy
+	//
+	// Create a ticket SLA policy for the workspace. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/sla-policies (the `CreateTicketSlaPolicy` operationId).
+	CreateTicketSlaPolicyWithBodyWithResponse(ctx context.Context, params *CreateTicketSlaPolicyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTicketSlaPolicyResponse, error)
+
+	// CreateTicketSlaPolicyWithResponse Create Ticket Sla Policy
+	//
+	// Create a ticket SLA policy for the workspace. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/sla-policies (the `CreateTicketSlaPolicy` operationId).
+	CreateTicketSlaPolicyWithResponse(ctx context.Context, params *CreateTicketSlaPolicyParams, body CreateTicketSlaPolicyJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTicketSlaPolicyResponse, error)
+
+	// GetTicketSlaPolicyWithResponse Get Ticket Sla Policy
+	//
+	// Get a ticket SLA policy for the workspace.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/support/sla-policies/{policy_id} (the `GetTicketSlaPolicy` operationId).
+	GetTicketSlaPolicyWithResponse(ctx context.Context, policyId string, params *GetTicketSlaPolicyParams, reqEditors ...RequestEditorFn) (*GetTicketSlaPolicyResponse, error)
+
+	// UpdateTicketSlaPolicyWithBodyWithResponse Update Ticket Sla Policy
+	//
+	// Update a ticket SLA policy, including archiving or restoring it. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/support/sla-policies/{policy_id} (the `UpdateTicketSlaPolicy` operationId).
+	UpdateTicketSlaPolicyWithBodyWithResponse(ctx context.Context, policyId string, params *UpdateTicketSlaPolicyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTicketSlaPolicyResponse, error)
+
+	// UpdateTicketSlaPolicyWithResponse Update Ticket Sla Policy
+	//
+	// Update a ticket SLA policy, including archiving or restoring it. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/support/sla-policies/{policy_id} (the `UpdateTicketSlaPolicy` operationId).
+	UpdateTicketSlaPolicyWithResponse(ctx context.Context, policyId string, params *UpdateTicketSlaPolicyParams, body UpdateTicketSlaPolicyJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTicketSlaPolicyResponse, error)
+
+	// ListTicketTagsWithResponse List Ticket Tags
+	//
+	// List active ticket tags for the workspace, newest first. Requires support read permission.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/support/tags (the `ListTicketTags` operationId).
+	ListTicketTagsWithResponse(ctx context.Context, params *ListTicketTagsParams, reqEditors ...RequestEditorFn) (*ListTicketTagsResponse, error)
+
+	// CreateTicketTagWithBodyWithResponse Create Ticket Tag
+	//
+	// Create a ticket tag for the workspace. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/tags (the `CreateTicketTag` operationId).
+	CreateTicketTagWithBodyWithResponse(ctx context.Context, params *CreateTicketTagParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTicketTagResponse, error)
+
+	// CreateTicketTagWithResponse Create Ticket Tag
+	//
+	// Create a ticket tag for the workspace. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/tags (the `CreateTicketTag` operationId).
+	CreateTicketTagWithResponse(ctx context.Context, params *CreateTicketTagParams, body CreateTicketTagJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTicketTagResponse, error)
+
+	// UpdateTicketTagWithBodyWithResponse Update Ticket Tag
+	//
+	// Update a ticket tag. Requires support write permission.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/support/tags/{tag_id} (the `UpdateTicketTag` operationId).
+	UpdateTicketTagWithBodyWithResponse(ctx context.Context, tagId string, params *UpdateTicketTagParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTicketTagResponse, error)
+
+	// UpdateTicketTagWithResponse Update Ticket Tag
+	//
+	// Update a ticket tag. Requires support write permission.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/support/tags/{tag_id} (the `UpdateTicketTag` operationId).
+	UpdateTicketTagWithResponse(ctx context.Context, tagId string, params *UpdateTicketTagParams, body UpdateTicketTagJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTicketTagResponse, error)
+
+	// ListTicketsWithResponse List Tickets
+	//
+	// List tickets.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/support/tickets (the `ListTickets` operationId).
+	ListTicketsWithResponse(ctx context.Context, params *ListTicketsParams, reqEditors ...RequestEditorFn) (*ListTicketsResponse, error)
+
+	// CreateTicketWithBodyWithResponse Create Ticket
+	//
+	// Create ticket.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/tickets (the `CreateTicket` operationId).
+	CreateTicketWithBodyWithResponse(ctx context.Context, params *CreateTicketParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTicketResponse, error)
+
+	// CreateTicketWithResponse Create Ticket
+	//
+	// Create ticket.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/tickets (the `CreateTicket` operationId).
+	CreateTicketWithResponse(ctx context.Context, params *CreateTicketParams, body CreateTicketJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTicketResponse, error)
+
+	// DeleteTicketWithResponse Delete Ticket
+	//
+	// Delete ticket.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/support/tickets/{ticket_id} (the `DeleteTicket` operationId).
+	DeleteTicketWithResponse(ctx context.Context, ticketId string, params *DeleteTicketParams, reqEditors ...RequestEditorFn) (*DeleteTicketResponse, error)
+
+	// GetTicketWithResponse Get Ticket
+	//
+	// Get ticket.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/support/tickets/{ticket_id} (the `GetTicket` operationId).
+	GetTicketWithResponse(ctx context.Context, ticketId string, params *GetTicketParams, reqEditors ...RequestEditorFn) (*GetTicketResponse2, error)
+
+	// UpdateTicketWithBodyWithResponse Update Ticket
+	//
+	// Update ticket.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/support/tickets/{ticket_id} (the `UpdateTicket` operationId).
+	UpdateTicketWithBodyWithResponse(ctx context.Context, ticketId string, params *UpdateTicketParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTicketResponse, error)
+
+	// UpdateTicketWithResponse Update Ticket
+	//
+	// Update ticket.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/support/tickets/{ticket_id} (the `UpdateTicket` operationId).
+	UpdateTicketWithResponse(ctx context.Context, ticketId string, params *UpdateTicketParams, body UpdateTicketJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTicketResponse, error)
+
+	// CreateTicketMessageWithBodyWithResponse Create Ticket Message
+	//
+	// Create ticket message.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/tickets/{ticket_id}/messages (the `CreateTicketMessage` operationId).
+	CreateTicketMessageWithBodyWithResponse(ctx context.Context, ticketId string, params *CreateTicketMessageParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTicketMessageResponse2, error)
+
+	// CreateTicketMessageWithResponse Create Ticket Message
+	//
+	// Create ticket message.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/support/tickets/{ticket_id}/messages (the `CreateTicketMessage` operationId).
+	CreateTicketMessageWithResponse(ctx context.Context, ticketId string, params *CreateTicketMessageParams, body CreateTicketMessageJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTicketMessageResponse2, error)
 
 	// TextToDialogueWithBodyWithResponse Text To Dialogue (Multi-Voice)
 	//
@@ -167925,6 +174348,68 @@ func (r GetConversationSipMessagesResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r GetConversationSipMessagesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+// StopConversationTurnRouteResponse202Headers the declared response headers of an HTTP 202 response for StopConversationTurnRoute
+type StopConversationTurnRouteResponse202Headers struct {
+	Location *string
+}
+
+type StopConversationTurnRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ConversationTurn
+	// JSON202 the response for an HTTP 202 `application/json` response
+	JSON202 *ConversationTurn
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+	// Headers202 the parsed response headers for an HTTP 202 response
+	Headers202 *StopConversationTurnRouteResponse202Headers
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r StopConversationTurnRouteResponse) GetJSON200() *ConversationTurn {
+	return r.JSON200
+}
+
+// GetJSON202 returns the response for an HTTP 202 `application/json` response
+func (r StopConversationTurnRouteResponse) GetJSON202() *ConversationTurn {
+	return r.JSON202
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r StopConversationTurnRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r StopConversationTurnRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r StopConversationTurnRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StopConversationTurnRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r StopConversationTurnRouteResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -184672,6 +191157,719 @@ func (r StreamProjectSnapshotAudioEndpointResponse) ContentType() string {
 	return ""
 }
 
+type ListRequestersResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *PaginatedResultTicketRequesterResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListRequestersResponse) GetJSON200() *PaginatedResultTicketRequesterResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ListRequestersResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ListRequestersResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListRequestersResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListRequestersResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListRequestersResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SyncSlackRequestersResponse2 struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SyncSlackRequestersResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SyncSlackRequestersResponse2) GetJSON200() *SyncSlackRequestersResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SyncSlackRequestersResponse2) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SyncSlackRequestersResponse2) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SyncSlackRequestersResponse2) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SyncSlackRequestersResponse2) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SyncSlackRequestersResponse2) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListTicketSlaPoliciesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *PaginatedResultTicketSLAPolicyResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListTicketSlaPoliciesResponse) GetJSON200() *PaginatedResultTicketSLAPolicyResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ListTicketSlaPoliciesResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ListTicketSlaPoliciesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListTicketSlaPoliciesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListTicketSlaPoliciesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListTicketSlaPoliciesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreateTicketSlaPolicyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *TicketSLAPolicyResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r CreateTicketSlaPolicyResponse) GetJSON200() *TicketSLAPolicyResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CreateTicketSlaPolicyResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateTicketSlaPolicyResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateTicketSlaPolicyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateTicketSlaPolicyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateTicketSlaPolicyResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetTicketSlaPolicyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *TicketSLAPolicyResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetTicketSlaPolicyResponse) GetJSON200() *TicketSLAPolicyResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetTicketSlaPolicyResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetTicketSlaPolicyResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetTicketSlaPolicyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetTicketSlaPolicyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetTicketSlaPolicyResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type UpdateTicketSlaPolicyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *TicketSLAPolicyResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r UpdateTicketSlaPolicyResponse) GetJSON200() *TicketSLAPolicyResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r UpdateTicketSlaPolicyResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateTicketSlaPolicyResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateTicketSlaPolicyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateTicketSlaPolicyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateTicketSlaPolicyResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListTicketTagsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *PaginatedResultTicketTagResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListTicketTagsResponse) GetJSON200() *PaginatedResultTicketTagResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ListTicketTagsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ListTicketTagsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListTicketTagsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListTicketTagsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListTicketTagsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreateTicketTagResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *TicketTagResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r CreateTicketTagResponse) GetJSON200() *TicketTagResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CreateTicketTagResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateTicketTagResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateTicketTagResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateTicketTagResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateTicketTagResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type UpdateTicketTagResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *TicketTagResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r UpdateTicketTagResponse) GetJSON200() *TicketTagResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r UpdateTicketTagResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateTicketTagResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateTicketTagResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateTicketTagResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateTicketTagResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListTicketsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *PaginatedResultTicketListItemResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListTicketsResponse) GetJSON200() *PaginatedResultTicketListItemResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ListTicketsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ListTicketsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListTicketsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListTicketsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListTicketsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreateTicketResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *GetTicketResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r CreateTicketResponse) GetJSON201() *GetTicketResponse {
+	return r.JSON201
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CreateTicketResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateTicketResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateTicketResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateTicketResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateTicketResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type DeleteTicketResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r DeleteTicketResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r DeleteTicketResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r DeleteTicketResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeleteTicketResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r DeleteTicketResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetTicketResponse2 struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *GetTicketResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetTicketResponse2) GetJSON200() *GetTicketResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetTicketResponse2) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetTicketResponse2) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetTicketResponse2) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetTicketResponse2) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetTicketResponse2) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type UpdateTicketResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *GetTicketResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r UpdateTicketResponse) GetJSON200() *GetTicketResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r UpdateTicketResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateTicketResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateTicketResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateTicketResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateTicketResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreateTicketMessageResponse2 struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *CreateTicketMessageResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r CreateTicketMessageResponse2) GetJSON201() *CreateTicketMessageResponse {
+	return r.JSON201
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CreateTicketMessageResponse2) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateTicketMessageResponse2) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateTicketMessageResponse2) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateTicketMessageResponse2) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateTicketMessageResponse2) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type TextToDialogueResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -190822,6 +198020,36 @@ func (c *ClientWithResponses) GetConversationSipMessagesWithResponse(ctx context
 		return nil, err
 	}
 	return ParseGetConversationSipMessagesResponse(rsp)
+}
+
+// StopConversationTurnRouteWithBodyWithResponse Stop Conversation Turn
+//
+// Stop the latest turn of a conversation, and wait until it ends. The turn then has the `interrupted` status, or its own status if it ended before the stop. If the turn does not end in time, the endpoint returns 202 and `in_progress`. This endpoint is in alpha and may change.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/stop (the `StopConversationTurnRoute` operationId).
+func (c *ClientWithResponses) StopConversationTurnRouteWithBodyWithResponse(ctx context.Context, conversationId string, params *StopConversationTurnRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StopConversationTurnRouteResponse, error) {
+	rsp, err := c.StopConversationTurnRouteWithBody(ctx, conversationId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseStopConversationTurnRouteResponse(rsp)
+}
+
+// StopConversationTurnRouteWithResponse Stop Conversation Turn
+//
+// Stop the latest turn of a conversation, and wait until it ends. The turn then has the `interrupted` status, or its own status if it ended before the stop. If the turn does not end in time, the endpoint returns 202 and `in_progress`. This endpoint is in alpha and may change.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/conversations/{conversation_id}/stop (the `StopConversationTurnRoute` operationId).
+func (c *ClientWithResponses) StopConversationTurnRouteWithResponse(ctx context.Context, conversationId string, params *StopConversationTurnRouteParams, body StopConversationTurnRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*StopConversationTurnRouteResponse, error) {
+	rsp, err := c.StopConversationTurnRoute(ctx, conversationId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseStopConversationTurnRouteResponse(rsp)
 }
 
 // GetConversationSummaryRouteWithResponse Get Conversation Summary
@@ -198217,6 +205445,351 @@ func (c *ClientWithResponses) StreamProjectSnapshotAudioEndpointWithResponse(ctx
 	return ParseStreamProjectSnapshotAudioEndpointResponse(rsp)
 }
 
+// ListRequestersWithResponse List Support Requesters
+//
+// List active Agents Users for the workspace as support requesters. Requires support read permission.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/support/requesters (the `ListRequesters` operationId).
+func (c *ClientWithResponses) ListRequestersWithResponse(ctx context.Context, params *ListRequestersParams, reqEditors ...RequestEditorFn) (*ListRequestersResponse, error) {
+	rsp, err := c.ListRequesters(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListRequestersResponse(rsp)
+}
+
+// SyncSlackRequestersWithBodyWithResponse Sync Slack Requesters
+//
+// Import the members of a connected Slack workspace as support requesters. Requires support write permission.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/requesters/sync/slack (the `SyncSlackRequesters` operationId).
+func (c *ClientWithResponses) SyncSlackRequestersWithBodyWithResponse(ctx context.Context, params *SyncSlackRequestersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SyncSlackRequestersResponse2, error) {
+	rsp, err := c.SyncSlackRequestersWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSyncSlackRequestersResponse2(rsp)
+}
+
+// SyncSlackRequestersWithResponse Sync Slack Requesters
+//
+// Import the members of a connected Slack workspace as support requesters. Requires support write permission.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/requesters/sync/slack (the `SyncSlackRequesters` operationId).
+func (c *ClientWithResponses) SyncSlackRequestersWithResponse(ctx context.Context, params *SyncSlackRequestersParams, body SyncSlackRequestersJSONRequestBody, reqEditors ...RequestEditorFn) (*SyncSlackRequestersResponse2, error) {
+	rsp, err := c.SyncSlackRequesters(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSyncSlackRequestersResponse2(rsp)
+}
+
+// ListTicketSlaPoliciesWithResponse List Ticket Sla Policies
+//
+// List ticket SLA policies for the workspace, newest first.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/support/sla-policies (the `ListTicketSlaPolicies` operationId).
+func (c *ClientWithResponses) ListTicketSlaPoliciesWithResponse(ctx context.Context, params *ListTicketSlaPoliciesParams, reqEditors ...RequestEditorFn) (*ListTicketSlaPoliciesResponse, error) {
+	rsp, err := c.ListTicketSlaPolicies(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListTicketSlaPoliciesResponse(rsp)
+}
+
+// CreateTicketSlaPolicyWithBodyWithResponse Create Ticket Sla Policy
+//
+// Create a ticket SLA policy for the workspace. Requires support write permission.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/sla-policies (the `CreateTicketSlaPolicy` operationId).
+func (c *ClientWithResponses) CreateTicketSlaPolicyWithBodyWithResponse(ctx context.Context, params *CreateTicketSlaPolicyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTicketSlaPolicyResponse, error) {
+	rsp, err := c.CreateTicketSlaPolicyWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTicketSlaPolicyResponse(rsp)
+}
+
+// CreateTicketSlaPolicyWithResponse Create Ticket Sla Policy
+//
+// Create a ticket SLA policy for the workspace. Requires support write permission.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/sla-policies (the `CreateTicketSlaPolicy` operationId).
+func (c *ClientWithResponses) CreateTicketSlaPolicyWithResponse(ctx context.Context, params *CreateTicketSlaPolicyParams, body CreateTicketSlaPolicyJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTicketSlaPolicyResponse, error) {
+	rsp, err := c.CreateTicketSlaPolicy(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTicketSlaPolicyResponse(rsp)
+}
+
+// GetTicketSlaPolicyWithResponse Get Ticket Sla Policy
+//
+// Get a ticket SLA policy for the workspace.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/support/sla-policies/{policy_id} (the `GetTicketSlaPolicy` operationId).
+func (c *ClientWithResponses) GetTicketSlaPolicyWithResponse(ctx context.Context, policyId string, params *GetTicketSlaPolicyParams, reqEditors ...RequestEditorFn) (*GetTicketSlaPolicyResponse, error) {
+	rsp, err := c.GetTicketSlaPolicy(ctx, policyId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetTicketSlaPolicyResponse(rsp)
+}
+
+// UpdateTicketSlaPolicyWithBodyWithResponse Update Ticket Sla Policy
+//
+// Update a ticket SLA policy, including archiving or restoring it. Requires support write permission.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/support/sla-policies/{policy_id} (the `UpdateTicketSlaPolicy` operationId).
+func (c *ClientWithResponses) UpdateTicketSlaPolicyWithBodyWithResponse(ctx context.Context, policyId string, params *UpdateTicketSlaPolicyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTicketSlaPolicyResponse, error) {
+	rsp, err := c.UpdateTicketSlaPolicyWithBody(ctx, policyId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTicketSlaPolicyResponse(rsp)
+}
+
+// UpdateTicketSlaPolicyWithResponse Update Ticket Sla Policy
+//
+// Update a ticket SLA policy, including archiving or restoring it. Requires support write permission.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/support/sla-policies/{policy_id} (the `UpdateTicketSlaPolicy` operationId).
+func (c *ClientWithResponses) UpdateTicketSlaPolicyWithResponse(ctx context.Context, policyId string, params *UpdateTicketSlaPolicyParams, body UpdateTicketSlaPolicyJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTicketSlaPolicyResponse, error) {
+	rsp, err := c.UpdateTicketSlaPolicy(ctx, policyId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTicketSlaPolicyResponse(rsp)
+}
+
+// ListTicketTagsWithResponse List Ticket Tags
+//
+// List active ticket tags for the workspace, newest first. Requires support read permission.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/support/tags (the `ListTicketTags` operationId).
+func (c *ClientWithResponses) ListTicketTagsWithResponse(ctx context.Context, params *ListTicketTagsParams, reqEditors ...RequestEditorFn) (*ListTicketTagsResponse, error) {
+	rsp, err := c.ListTicketTags(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListTicketTagsResponse(rsp)
+}
+
+// CreateTicketTagWithBodyWithResponse Create Ticket Tag
+//
+// Create a ticket tag for the workspace. Requires support write permission.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/tags (the `CreateTicketTag` operationId).
+func (c *ClientWithResponses) CreateTicketTagWithBodyWithResponse(ctx context.Context, params *CreateTicketTagParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTicketTagResponse, error) {
+	rsp, err := c.CreateTicketTagWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTicketTagResponse(rsp)
+}
+
+// CreateTicketTagWithResponse Create Ticket Tag
+//
+// Create a ticket tag for the workspace. Requires support write permission.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/tags (the `CreateTicketTag` operationId).
+func (c *ClientWithResponses) CreateTicketTagWithResponse(ctx context.Context, params *CreateTicketTagParams, body CreateTicketTagJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTicketTagResponse, error) {
+	rsp, err := c.CreateTicketTag(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTicketTagResponse(rsp)
+}
+
+// UpdateTicketTagWithBodyWithResponse Update Ticket Tag
+//
+// Update a ticket tag. Requires support write permission.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/support/tags/{tag_id} (the `UpdateTicketTag` operationId).
+func (c *ClientWithResponses) UpdateTicketTagWithBodyWithResponse(ctx context.Context, tagId string, params *UpdateTicketTagParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTicketTagResponse, error) {
+	rsp, err := c.UpdateTicketTagWithBody(ctx, tagId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTicketTagResponse(rsp)
+}
+
+// UpdateTicketTagWithResponse Update Ticket Tag
+//
+// Update a ticket tag. Requires support write permission.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/support/tags/{tag_id} (the `UpdateTicketTag` operationId).
+func (c *ClientWithResponses) UpdateTicketTagWithResponse(ctx context.Context, tagId string, params *UpdateTicketTagParams, body UpdateTicketTagJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTicketTagResponse, error) {
+	rsp, err := c.UpdateTicketTag(ctx, tagId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTicketTagResponse(rsp)
+}
+
+// ListTicketsWithResponse List Tickets
+//
+// List tickets.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/support/tickets (the `ListTickets` operationId).
+func (c *ClientWithResponses) ListTicketsWithResponse(ctx context.Context, params *ListTicketsParams, reqEditors ...RequestEditorFn) (*ListTicketsResponse, error) {
+	rsp, err := c.ListTickets(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListTicketsResponse(rsp)
+}
+
+// CreateTicketWithBodyWithResponse Create Ticket
+//
+// Create ticket.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/tickets (the `CreateTicket` operationId).
+func (c *ClientWithResponses) CreateTicketWithBodyWithResponse(ctx context.Context, params *CreateTicketParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTicketResponse, error) {
+	rsp, err := c.CreateTicketWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTicketResponse(rsp)
+}
+
+// CreateTicketWithResponse Create Ticket
+//
+// Create ticket.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/tickets (the `CreateTicket` operationId).
+func (c *ClientWithResponses) CreateTicketWithResponse(ctx context.Context, params *CreateTicketParams, body CreateTicketJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTicketResponse, error) {
+	rsp, err := c.CreateTicket(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTicketResponse(rsp)
+}
+
+// DeleteTicketWithResponse Delete Ticket
+//
+// Delete ticket.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/support/tickets/{ticket_id} (the `DeleteTicket` operationId).
+func (c *ClientWithResponses) DeleteTicketWithResponse(ctx context.Context, ticketId string, params *DeleteTicketParams, reqEditors ...RequestEditorFn) (*DeleteTicketResponse, error) {
+	rsp, err := c.DeleteTicket(ctx, ticketId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteTicketResponse(rsp)
+}
+
+// GetTicketWithResponse Get Ticket
+//
+// Get ticket.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/support/tickets/{ticket_id} (the `GetTicket` operationId).
+func (c *ClientWithResponses) GetTicketWithResponse(ctx context.Context, ticketId string, params *GetTicketParams, reqEditors ...RequestEditorFn) (*GetTicketResponse2, error) {
+	rsp, err := c.GetTicket(ctx, ticketId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetTicketResponse2(rsp)
+}
+
+// UpdateTicketWithBodyWithResponse Update Ticket
+//
+// Update ticket.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/support/tickets/{ticket_id} (the `UpdateTicket` operationId).
+func (c *ClientWithResponses) UpdateTicketWithBodyWithResponse(ctx context.Context, ticketId string, params *UpdateTicketParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTicketResponse, error) {
+	rsp, err := c.UpdateTicketWithBody(ctx, ticketId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTicketResponse(rsp)
+}
+
+// UpdateTicketWithResponse Update Ticket
+//
+// Update ticket.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/support/tickets/{ticket_id} (the `UpdateTicket` operationId).
+func (c *ClientWithResponses) UpdateTicketWithResponse(ctx context.Context, ticketId string, params *UpdateTicketParams, body UpdateTicketJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTicketResponse, error) {
+	rsp, err := c.UpdateTicket(ctx, ticketId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTicketResponse(rsp)
+}
+
+// CreateTicketMessageWithBodyWithResponse Create Ticket Message
+//
+// Create ticket message.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/tickets/{ticket_id}/messages (the `CreateTicketMessage` operationId).
+func (c *ClientWithResponses) CreateTicketMessageWithBodyWithResponse(ctx context.Context, ticketId string, params *CreateTicketMessageParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTicketMessageResponse2, error) {
+	rsp, err := c.CreateTicketMessageWithBody(ctx, ticketId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTicketMessageResponse2(rsp)
+}
+
+// CreateTicketMessageWithResponse Create Ticket Message
+//
+// Create ticket message.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/support/tickets/{ticket_id}/messages (the `CreateTicketMessage` operationId).
+func (c *ClientWithResponses) CreateTicketMessageWithResponse(ctx context.Context, ticketId string, params *CreateTicketMessageParams, body CreateTicketMessageJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTicketMessageResponse2, error) {
+	rsp, err := c.CreateTicketMessage(ctx, ticketId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTicketMessageResponse2(rsp)
+}
+
 // TextToDialogueWithBodyWithResponse Text To Dialogue (Multi-Voice)
 //
 // Converts a list of text and voice ID pairs into speech (dialogue) and returns audio.
@@ -203758,6 +211331,59 @@ func ParseGetConversationSipMessagesResponse(rsp *http.Response) (*GetConversati
 		}
 		response.JSON422 = &dest
 
+	}
+
+	return response, nil
+}
+
+// ParseStopConversationTurnRouteResponse parses an HTTP response from a StopConversationTurnRouteWithResponse call
+func ParseStopConversationTurnRouteResponse(rsp *http.Response) (*StopConversationTurnRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StopConversationTurnRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ConversationTurn
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 202:
+		var dest ConversationTurn
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON202 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	switch {
+	case rsp.StatusCode == 202:
+		var headers StopConversationTurnRouteResponse202Headers
+		if values := rsp.Header.Values("Location"); len(values) > 0 {
+			var value string
+			if err := runtime.BindStyledParameterWithOptions("simple", "Location", values[0], &value, runtime.BindStyledParameterOptions{ParamLocation: runtime.ParamLocationHeader, Explode: false, Required: false, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			}
+			headers.Location = &value
+		}
+		response.Headers202 = &headers
 	}
 
 	return response, nil
@@ -215370,6 +222996,503 @@ func ParseStreamProjectSnapshotAudioEndpointResponse(rsp *http.Response) (*Strea
 	switch {
 	case rsp.StatusCode == 200:
 		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListRequestersResponse parses an HTTP response from a ListRequestersWithResponse call
+func ParseListRequestersResponse(rsp *http.Response) (*ListRequestersResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListRequestersResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PaginatedResultTicketRequesterResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSyncSlackRequestersResponse2 parses an HTTP response from a SyncSlackRequestersWithResponse call
+func ParseSyncSlackRequestersResponse2(rsp *http.Response) (*SyncSlackRequestersResponse2, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SyncSlackRequestersResponse2{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SyncSlackRequestersResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListTicketSlaPoliciesResponse parses an HTTP response from a ListTicketSlaPoliciesWithResponse call
+func ParseListTicketSlaPoliciesResponse(rsp *http.Response) (*ListTicketSlaPoliciesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListTicketSlaPoliciesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PaginatedResultTicketSLAPolicyResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateTicketSlaPolicyResponse parses an HTTP response from a CreateTicketSlaPolicyWithResponse call
+func ParseCreateTicketSlaPolicyResponse(rsp *http.Response) (*CreateTicketSlaPolicyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateTicketSlaPolicyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TicketSLAPolicyResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetTicketSlaPolicyResponse parses an HTTP response from a GetTicketSlaPolicyWithResponse call
+func ParseGetTicketSlaPolicyResponse(rsp *http.Response) (*GetTicketSlaPolicyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetTicketSlaPolicyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TicketSLAPolicyResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateTicketSlaPolicyResponse parses an HTTP response from a UpdateTicketSlaPolicyWithResponse call
+func ParseUpdateTicketSlaPolicyResponse(rsp *http.Response) (*UpdateTicketSlaPolicyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateTicketSlaPolicyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TicketSLAPolicyResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListTicketTagsResponse parses an HTTP response from a ListTicketTagsWithResponse call
+func ParseListTicketTagsResponse(rsp *http.Response) (*ListTicketTagsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListTicketTagsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PaginatedResultTicketTagResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateTicketTagResponse parses an HTTP response from a CreateTicketTagWithResponse call
+func ParseCreateTicketTagResponse(rsp *http.Response) (*CreateTicketTagResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateTicketTagResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TicketTagResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case rsp.StatusCode == 409:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateTicketTagResponse parses an HTTP response from a UpdateTicketTagWithResponse call
+func ParseUpdateTicketTagResponse(rsp *http.Response) (*UpdateTicketTagResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateTicketTagResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TicketTagResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case rsp.StatusCode == 409:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListTicketsResponse parses an HTTP response from a ListTicketsWithResponse call
+func ParseListTicketsResponse(rsp *http.Response) (*ListTicketsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListTicketsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PaginatedResultTicketListItemResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateTicketResponse parses an HTTP response from a CreateTicketWithResponse call
+func ParseCreateTicketResponse(rsp *http.Response) (*CreateTicketResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateTicketResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest GetTicketResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDeleteTicketResponse parses an HTTP response from a DeleteTicketWithResponse call
+func ParseDeleteTicketResponse(rsp *http.Response) (*DeleteTicketResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeleteTicketResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 204:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetTicketResponse2 parses an HTTP response from a GetTicketWithResponse call
+func ParseGetTicketResponse2(rsp *http.Response) (*GetTicketResponse2, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetTicketResponse2{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetTicketResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateTicketResponse parses an HTTP response from a UpdateTicketWithResponse call
+func ParseUpdateTicketResponse(rsp *http.Response) (*UpdateTicketResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateTicketResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetTicketResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateTicketMessageResponse2 parses an HTTP response from a CreateTicketMessageWithResponse call
+func ParseCreateTicketMessageResponse2(rsp *http.Response) (*CreateTicketMessageResponse2, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateTicketMessageResponse2{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest CreateTicketMessageResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
 		var dest HTTPValidationError
