@@ -2,6 +2,18 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.22.1, 2026-11-27
+
+- Adds user memory operations on `Client` and `ClientWithResponses`: `ExportUserMemoryRoute`, `EraseUserMemoryRoute`, `DeleteUserMemoryFactRoute`, `DeleteUserMemoryEntityRoute` and `FindAgentsUserByIdentityRoute`, with the `WithBody` and `WithResponse` variants, params, request, response and parse types.
+- Adds `UserMemory` to `GetConvAISettingsResponseModel`, `PatchConvAISettingsRequest`, `PrivacyConfigInput` and `PrivacyConfigOutput`, with `UserMemorySettingsInput`, `UserMemorySettingsOutput`, `WorkspaceUserMemorySettings` and the `UserMemoryScale` enum.
+- Adds `UpdateProcedureVisibilityRoute` and `UpdateProcedureVisibilityRouteWithBody`, and a `Visibility` field on `CreateProcedureRequestModel` and the procedure response models.
+- Adds `SmbGetPronunciationRules` and `SmbSetPronunciationRules` (with `WithBody` and `WithResponse` variants), plus `ReceptionPronunciationRule`, `ReceptionPronunciationRulesResponse` and `ReceptionSetPronunciationRulesRequest`.
+- Adds `Search` and `Sort` to `SmbListResellerWorkspacesParams`, the `ResellerWorkspaceSort` enum, `Total` on `ResellerWorkspacesResponse` and `OwnerEmail` on `ResellerWorkspaceSummary` and `ProvisionResellerWorkspaceResponse`.
+- Adds `CreatifyAurora2Request` and its `AsCreatifyAurora2Request`, `FromCreatifyAurora2Request` and `MergeCreatifyAurora2Request` methods on `VideoGenerationRequest`.
+- Adds `CustomSipHeaders` to `SIPColdConferenceTransferConfigInput` and `SIPColdConferenceTransferConfigOutput`.
+- Adds enum values `ClientEventAgentSpeaker`, `ConversationInitiationSourceWebsocketApi` and `ExternalSyncProviderSharepoint`, accepted by `Valid`. Adds the `IdentityVerificationMethod` enum and the `IdentityPolicyInput`, `IdentityPolicyOutput` and `IdentityPolicyRule` types.
+- Adds methods to the `ClientInterface` and `ClientWithResponsesInterface` interfaces for every new operation. Custom implementations of these interfaces, such as mocks, must add them.
+
 ## v0.22.0, 2026-11-26
 
 - Adds a ticketing API on `Client` and `ClientWithResponses`: `ListTickets`, `CreateTicket`, `GetTicket`, `UpdateTicket`, `DeleteTicket` and `CreateTicketMessage`, each with the `WithBody` and `WithResponse` variants where the spec has a body, plus the matching params, request, response and parse types.

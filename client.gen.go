@@ -5039,6 +5039,7 @@ const (
 	ClientEventAgentResponseComplete          ClientEvent = "agent_response_complete"
 	ClientEventAgentResponseCorrection        ClientEvent = "agent_response_correction"
 	ClientEventAgentResponseMetadata          ClientEvent = "agent_response_metadata"
+	ClientEventAgentSpeaker                   ClientEvent = "agent_speaker"
 	ClientEventAgentToolRequest               ClientEvent = "agent_tool_request"
 	ClientEventAgentToolResponse              ClientEvent = "agent_tool_response"
 	ClientEventAgentToolResponseFullPayload   ClientEvent = "agent_tool_response_full_payload"
@@ -5073,6 +5074,8 @@ func (e ClientEvent) Valid() bool {
 	case ClientEventAgentResponseCorrection:
 		return true
 	case ClientEventAgentResponseMetadata:
+		return true
+	case ClientEventAgentSpeaker:
 		return true
 	case ClientEventAgentToolRequest:
 		return true
@@ -6132,6 +6135,7 @@ const (
 	ConversationInitiationSourceTwilioSms             ConversationInitiationSource = "twilio_sms"
 	ConversationInitiationSourceUnitySdk              ConversationInitiationSource = "unity_sdk"
 	ConversationInitiationSourceUnknown               ConversationInitiationSource = "unknown"
+	ConversationInitiationSourceWebsocketApi          ConversationInitiationSource = "websocket_api"
 	ConversationInitiationSourceWhatsapp              ConversationInitiationSource = "whatsapp"
 	ConversationInitiationSourceWidget                ConversationInitiationSource = "widget"
 	ConversationInitiationSourceZendeskIntegration    ConversationInitiationSource = "zendesk_integration"
@@ -6193,6 +6197,8 @@ func (e ConversationInitiationSource) Valid() bool {
 	case ConversationInitiationSourceUnitySdk:
 		return true
 	case ConversationInitiationSourceUnknown:
+		return true
+	case ConversationInitiationSourceWebsocketApi:
 		return true
 	case ConversationInitiationSourceWhatsapp:
 		return true
@@ -6946,6 +6952,45 @@ const (
 func (e CreateTwilioPhoneNumberRequestProvider) Valid() bool {
 	switch e {
 	case CreateTwilioPhoneNumberRequestProviderTwilio:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreatifyAurora2RequestModelId.
+const (
+	CreatifyAurora2RequestModelIdCreatifyAurora2 CreatifyAurora2RequestModelId = "creatify-aurora-2"
+)
+
+// Valid indicates whether the value is a known member of the CreatifyAurora2RequestModelId enum.
+func (e CreatifyAurora2RequestModelId) Valid() bool {
+	switch e {
+	case CreatifyAurora2RequestModelIdCreatifyAurora2:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreatifyAurora2RequestResolution.
+const (
+	CreatifyAurora2RequestResolutionN1080p CreatifyAurora2RequestResolution = "1080p"
+	CreatifyAurora2RequestResolutionN2K    CreatifyAurora2RequestResolution = "2K"
+	CreatifyAurora2RequestResolutionN480p  CreatifyAurora2RequestResolution = "480p"
+	CreatifyAurora2RequestResolutionN720p  CreatifyAurora2RequestResolution = "720p"
+)
+
+// Valid indicates whether the value is a known member of the CreatifyAurora2RequestResolution enum.
+func (e CreatifyAurora2RequestResolution) Valid() bool {
+	switch e {
+	case CreatifyAurora2RequestResolutionN1080p:
+		return true
+	case CreatifyAurora2RequestResolutionN2K:
+		return true
+	case CreatifyAurora2RequestResolutionN480p:
+		return true
+	case CreatifyAurora2RequestResolutionN720p:
 		return true
 	default:
 		return false
@@ -8731,12 +8776,15 @@ func (e ExternalSyncJobType) Valid() bool {
 // Defines values for ExternalSyncProvider.
 const (
 	ExternalSyncProviderGoogleDrive ExternalSyncProvider = "google_drive"
+	ExternalSyncProviderSharepoint  ExternalSyncProvider = "sharepoint"
 )
 
 // Valid indicates whether the value is a known member of the ExternalSyncProvider enum.
 func (e ExternalSyncProvider) Valid() bool {
 	switch e {
 	case ExternalSyncProviderGoogleDrive:
+		return true
+	case ExternalSyncProviderSharepoint:
 		return true
 	default:
 		return false
@@ -10513,6 +10561,30 @@ func (e IconTheme) Valid() bool {
 	case IconThemeDark:
 		return true
 	case IconThemeLight:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IdentityVerificationMethod.
+const (
+	IdentityVerificationMethodChallengeVerified IdentityVerificationMethod = "challenge_verified"
+	IdentityVerificationMethodProviderAsserted  IdentityVerificationMethod = "provider_asserted"
+	IdentityVerificationMethodUnverified        IdentityVerificationMethod = "unverified"
+	IdentityVerificationMethodWorkspaceAsserted IdentityVerificationMethod = "workspace_asserted"
+)
+
+// Valid indicates whether the value is a known member of the IdentityVerificationMethod enum.
+func (e IdentityVerificationMethod) Valid() bool {
+	switch e {
+	case IdentityVerificationMethodChallengeVerified:
+		return true
+	case IdentityVerificationMethodProviderAsserted:
+		return true
+	case IdentityVerificationMethodUnverified:
+		return true
+	case IdentityVerificationMethodWorkspaceAsserted:
 		return true
 	default:
 		return false
@@ -15916,6 +15988,27 @@ func (e ResellerTierResponseCurrency) Valid() bool {
 	}
 }
 
+// Defines values for ResellerWorkspaceSort.
+const (
+	ResellerWorkspaceSortName   ResellerWorkspaceSort = "name"
+	ResellerWorkspaceSortNewest ResellerWorkspaceSort = "newest"
+	ResellerWorkspaceSortOldest ResellerWorkspaceSort = "oldest"
+)
+
+// Valid indicates whether the value is a known member of the ResellerWorkspaceSort enum.
+func (e ResellerWorkspaceSort) Valid() bool {
+	switch e {
+	case ResellerWorkspaceSortName:
+		return true
+	case ResellerWorkspaceSortNewest:
+		return true
+	case ResellerWorkspaceSortOldest:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ResellerWorkspaceSubscriptionBillingPeriod.
 const (
 	ResellerWorkspaceSubscriptionBillingPeriodAnnualPeriod  ResellerWorkspaceSubscriptionBillingPeriod = "annual_period"
@@ -20725,6 +20818,27 @@ func (e UserFeedbackScore) Valid() bool {
 	case UserFeedbackScoreDislike:
 		return true
 	case UserFeedbackScoreLike:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for UserMemoryScale.
+const (
+	UserMemoryScaleBalanced UserMemoryScale = "balanced"
+	UserMemoryScaleMaximum  UserMemoryScale = "maximum"
+	UserMemoryScaleMinimal  UserMemoryScale = "minimal"
+)
+
+// Valid indicates whether the value is a known member of the UserMemoryScale enum.
+func (e UserMemoryScale) Valid() bool {
+	switch e {
+	case UserMemoryScaleBalanced:
+		return true
+	case UserMemoryScaleMaximum:
+		return true
+	case UserMemoryScaleMinimal:
 		return true
 	default:
 		return false
@@ -34513,6 +34627,9 @@ type CreateProcedureRequestModel struct {
 
 	// Type Procedure type
 	Type *ProcedureType `json:"type,omitempty"`
+
+	// Visibility The condition that controls if the procedure is visible to the agent in its procedure menu. None means always visible.
+	Visibility *ProcedureVisibilityInput `json:"visibility,omitempty"`
 }
 
 // CreateProcedureResponseModel defines model for CreateProcedureResponseModel.
@@ -34914,6 +35031,32 @@ type CreateTwilioPhoneNumberRequest struct {
 
 // CreateTwilioPhoneNumberRequestProvider defines model for CreateTwilioPhoneNumberRequest.Provider.
 type CreateTwilioPhoneNumberRequestProvider string
+
+// CreatifyAurora2Request Request body for the Creatify Aurora 2.0 lipsync video model.
+type CreatifyAurora2Request struct {
+	// Audio The speech audio to drive the character's lip movements. At most 59.7 seconds, or 14.375 seconds at `2K`.
+	Audio AudioReference `json:"audio"`
+
+	// Image The image of the character to animate.
+	Image ImageReference `json:"image"`
+
+	// ModelId The model to use for the generation.
+	ModelId CreatifyAurora2RequestModelId `json:"model_id"`
+
+	// Resolution The resolution of the output video.
+	Resolution *CreatifyAurora2RequestResolution `json:"resolution,omitempty"`
+
+	// Webhook Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.
+	//
+	// Examples: {"type":"all"}, {"ids":["Q8mVr2LpXcT4nB6yJdKw"],"type":"ids"}
+	Webhook *WebhookTarget `json:"webhook,omitempty"`
+}
+
+// CreatifyAurora2RequestModelId The model to use for the generation.
+type CreatifyAurora2RequestModelId string
+
+// CreatifyAurora2RequestResolution The resolution of the output video.
+type CreatifyAurora2RequestResolution string
 
 // CreatifyAuroraRequest Request body for the Creatify Aurora lipsync video model.
 type CreatifyAuroraRequest struct {
@@ -36747,6 +36890,24 @@ type EnvironmentsListResponse struct {
 	Environments []EnvironmentResponse `json:"environments"`
 }
 
+// EraseUserMemoryRequestModel defines model for EraseUserMemoryRequestModel.
+type EraseUserMemoryRequestModel struct {
+	// OptOut True turns the agent's memory off for this user in future conversations, false turns it back on. Left out, the user's current setting is kept.
+	OptOut *bool `json:"opt_out,omitempty"`
+
+	// UserId ID of the end user whose memory the agent is to erase. Find it from the `user_id` your conversation initiation data sent with Find Agents User By Identity.
+	UserId string `json:"user_id"`
+}
+
+// EraseUserMemoryResponseModel defines model for EraseUserMemoryResponseModel.
+type EraseUserMemoryResponseModel struct {
+	// ErasedAtUnixSecs The agent remembers nothing about the user from before this time.
+	ErasedAtUnixSecs int `json:"erased_at_unix_secs"`
+
+	// OptedOut Whether the agent's memory is off for this user in future conversations.
+	OptedOut bool `json:"opted_out"`
+}
+
 // EvaluationCriteriaSummaryResult defines model for EvaluationCriteriaSummaryResult.
 type EvaluationCriteriaSummaryResult struct {
 	MaxScore *int                    `json:"max_score,omitempty"`
@@ -36892,6 +37053,27 @@ type ExpiresAfterAnchor string
 // ExportOptions defines model for ExportOptions.
 type ExportOptions struct {
 	union json.RawMessage
+}
+
+// ExportUserMemoryRequestModel defines model for ExportUserMemoryRequestModel.
+type ExportUserMemoryRequestModel struct {
+	// UserId ID of the end user whose memory the agent is to export. Find it from the `user_id` your conversation initiation data sent with Find Agents User By Identity.
+	UserId string `json:"user_id"`
+}
+
+// ExportUserMemoryResponseModel defines model for ExportUserMemoryResponseModel.
+type ExportUserMemoryResponseModel struct {
+	// AgentId ID of the agent whose memory was exported.
+	AgentId string `json:"agent_id"`
+
+	// Entities Everything the agent remembers about the user, by who or what it is about, the user first. Includes what is no longer believed.
+	Entities []RenderedUserMemoryEntity `json:"entities"`
+
+	// ExportedAtUnixSecs When the export was taken.
+	ExportedAtUnixSecs int `json:"exported_at_unix_secs"`
+
+	// UserId ID of the end user the export is about.
+	UserId string `json:"user_id"`
 }
 
 // ExtendedSubscriptionResponseModel defines model for ExtendedSubscriptionResponseModel.
@@ -37171,6 +37353,24 @@ type FileRefreshStatus struct {
 	LastSyncedAt *int         `json:"last_synced_at,omitempty"`
 	StartedAt    *int         `json:"started_at,omitempty"`
 	Status       *CrawlStatus `json:"status,omitempty"`
+}
+
+// FindAgentsUserByIdentityRequestModel defines model for FindAgentsUserByIdentityRequestModel.
+type FindAgentsUserByIdentityRequestModel struct {
+	// Namespace Namespace of the identity, e.g. `external` for the `user_id` a conversation initiation webhook or API request gave, or `email`.
+	Namespace *string `json:"namespace,omitempty"`
+
+	// Value Value of the identity.
+	Value string `json:"value"`
+}
+
+// FindAgentsUserByIdentityResponseModel defines model for FindAgentsUserByIdentityResponseModel.
+type FindAgentsUserByIdentityResponseModel struct {
+	// IdentityId ID of the identity.
+	IdentityId string `json:"identity_id"`
+
+	// UserId ID of the end user the identity belongs to.
+	UserId string `json:"user_id"`
 }
 
 // FineTuningResponseModel defines model for FineTuningResponseModel.
@@ -37994,7 +38194,10 @@ type GetConvAISettingsResponseModel struct {
 	ConversationInitiationClientDataWebhook *ConversationInitiationClientDataWebhook `json:"conversation_initiation_client_data_webhook,omitempty"`
 	DefaultLivekitStack                     *LivekitStackType                        `json:"default_livekit_stack,omitempty"`
 	RagRetentionPeriodDays                  *int                                     `json:"rag_retention_period_days,omitempty"`
-	Webhooks                                *ConvAIWebhooks                          `json:"webhooks,omitempty"`
+
+	// UserMemory User memory policy applied to the memory of every agent in the workspace with user memories on.
+	UserMemory *WorkspaceUserMemorySettings `json:"user_memory,omitempty"`
+	Webhooks   *ConvAIWebhooks              `json:"webhooks,omitempty"`
 }
 
 // GetConversationResponseModel defines model for GetConversationResponseModel.
@@ -39263,6 +39466,32 @@ type Icon struct {
 
 // IconTheme defines model for Icon.Theme.
 type IconTheme string
+
+// IdentityPolicyInput Which end users an agent feature recognizes. Each feature that acts for an end
+// user embeds its own, with its own default.
+type IdentityPolicyInput struct {
+	// Rules The end user is recognized when any rule matches. `workspace_asserted`: ids your backend sends through the API, your webhooks or your own app. `challenge_verified`: identities the user proved through a challenge. `provider_asserted`: platform-provided ids, the account a user messages from as the platform (Slack, WhatsApp, Telegram) reports it; ElevenLabs does not verify who uses the account. `unverified`: identities nobody verified, such as a caller's phone number, which can be spoofed.
+	Rules []IdentityPolicyRule `json:"rules"`
+}
+
+// IdentityPolicyOutput Which end users an agent feature recognizes. Each feature that acts for an end
+// user embeds its own, with its own default.
+type IdentityPolicyOutput struct {
+	// Rules The end user is recognized when any rule matches. `workspace_asserted`: ids your backend sends through the API, your webhooks or your own app. `challenge_verified`: identities the user proved through a challenge. `provider_asserted`: platform-provided ids, the account a user messages from as the platform (Slack, WhatsApp, Telegram) reports it; ElevenLabs does not verify who uses the account. `unverified`: identities nobody verified, such as a caller's phone number, which can be spoofed.
+	Rules []IdentityPolicyRule `json:"rules"`
+}
+
+// IdentityPolicyRule Recognizes an end user the conversation established by `verification_method`.
+//
+// Fields a rule gains later narrow what it matches and default to matching
+// anything, so a stored rule keeps its meaning.
+type IdentityPolicyRule struct {
+	// VerificationMethod How the conversation established who the end user is.
+	VerificationMethod IdentityVerificationMethod `json:"verification_method"`
+}
+
+// IdentityVerificationMethod defines model for IdentityVerificationMethod.
+type IdentityVerificationMethod string
 
 // ImageAnalysis defines model for ImageAnalysis.
 type ImageAnalysis struct {
@@ -42743,7 +42972,10 @@ type PatchConvAISettingsRequest struct {
 	ConversationInitiationClientDataWebhook *ConversationInitiationClientDataWebhook `json:"conversation_initiation_client_data_webhook,omitempty"`
 	DefaultLivekitStack                     *LivekitStackType                        `json:"default_livekit_stack,omitempty"`
 	RagRetentionPeriodDays                  *int                                     `json:"rag_retention_period_days,omitempty"`
-	Webhooks                                *ConvAIWebhooks                          `json:"webhooks,omitempty"`
+
+	// UserMemory User memory policy applied to the memory of every agent in the workspace with user memories on.
+	UserMemory *WorkspaceUserMemorySettings `json:"user_memory,omitempty"`
+	Webhooks   *ConvAIWebhooks              `json:"webhooks,omitempty"`
 }
 
 // PatchConversationTagRequestModel defines model for PatchConversationTagRequestModel.
@@ -43337,6 +43569,9 @@ type PrivacyConfigInput struct {
 	// RetentionDays The number of days to retain the conversation. -1 indicates there is no retention limit
 	RetentionDays *int `json:"retention_days,omitempty"`
 
+	// UserMemory Whether this agent remembers returning end users, and how much. Only workspace admins can change these settings, though anyone can turn memories off. Not available in zero retention mode.
+	UserMemory *UserMemorySettingsInput `json:"user_memory,omitempty"`
+
 	// ZeroRetentionMode Whether to enable zero retention mode - no PII data is stored
 	ZeroRetentionMode *bool `json:"zero_retention_mode,omitempty"`
 }
@@ -43360,6 +43595,9 @@ type PrivacyConfigOutput struct {
 
 	// RetentionDays The number of days to retain the conversation. -1 indicates there is no retention limit
 	RetentionDays *int `json:"retention_days,omitempty"`
+
+	// UserMemory Whether this agent remembers returning end users, and how much. Only workspace admins can change these settings, though anyone can turn memories off. Not available in zero retention mode.
+	UserMemory *UserMemorySettingsOutput `json:"user_memory,omitempty"`
 
 	// ZeroRetentionMode Whether to enable zero retention mode - no PII data is stored
 	ZeroRetentionMode *bool `json:"zero_retention_mode,omitempty"`
@@ -43435,6 +43673,9 @@ type ProcedureAtVersionResponseModel struct {
 
 	// VersionId Version ID of a version of the procedure. None for a procedure never versioned.
 	VersionId *string `json:"version_id,omitempty"`
+
+	// Visibility The condition that controls if the procedure is visible to the agent in its procedure menu. None means always visible.
+	Visibility *ProcedureVisibilityOutput `json:"visibility,omitempty"`
 }
 
 // ProcedureDraftRef defines model for ProcedureDraftRef.
@@ -43463,6 +43704,9 @@ type ProcedureDraftResponseModel struct {
 
 	// Type Procedure type
 	Type *ProcedureType `json:"type,omitempty"`
+
+	// Visibility The condition that controls if the procedure is visible to the agent in its procedure menu. None means always visible.
+	Visibility *ProcedureVisibilityOutput `json:"visibility,omitempty"`
 }
 
 // ProcedureListItemResponseModel defines model for ProcedureListItemResponseModel.
@@ -43500,6 +43744,9 @@ type ProcedureListItemResponseModel struct {
 	// VersionId Version ID of a version of the procedure. None for a procedure never versioned.
 	VersionId *string `json:"version_id,omitempty"`
 
+	// Visibility The condition that controls if the procedure is visible to the agent in its procedure menu. None means always visible.
+	Visibility *ProcedureVisibilityOutput `json:"visibility,omitempty"`
+
 	// WrittenDynamicVariables Dynamic variable names written by Update state steps
 	WrittenDynamicVariables *[]string `json:"written_dynamic_variables,omitempty"`
 }
@@ -43536,6 +43783,9 @@ type ProcedureRefResponseModel struct {
 	// VersionId Version ID of a version of the procedure. None for a procedure never versioned.
 	VersionId *string `json:"version_id,omitempty"`
 
+	// Visibility The condition that controls if the procedure is visible to the agent in its procedure menu. None means always visible.
+	Visibility *ProcedureVisibilityOutput `json:"visibility,omitempty"`
+
 	// WrittenDynamicVariables Dynamic variable names written by Update state steps
 	WrittenDynamicVariables *[]string `json:"written_dynamic_variables,omitempty"`
 }
@@ -43559,6 +43809,18 @@ type ProcedureVersionRef struct {
 
 	// VersionId Version ID of the procedure version.
 	VersionId string `json:"version_id"`
+}
+
+// ProcedureVisibilityInput defines model for ProcedureVisibility-Input.
+type ProcedureVisibilityInput struct {
+	// Expression Condition on dynamic variables. The procedure is visible to the agent in its procedure menu only while this evaluates to true.
+	Expression ASTNodeInput `json:"expression"`
+}
+
+// ProcedureVisibilityOutput defines model for ProcedureVisibility-Output.
+type ProcedureVisibilityOutput struct {
+	// Expression Condition on dynamic variables. The procedure is visible to the agent in its procedure menu only while this evaluates to true.
+	Expression ASTNodeOutput `json:"expression"`
 }
 
 // ProjectCreationMetaResponseModel defines model for ProjectCreationMetaResponseModel.
@@ -44686,7 +44948,10 @@ type ProvisionResellerWorkspaceResponse struct {
 
 	// OnboardingCompletedAtUnix When onboarding finished. Until then the onboarding wizard may replace or remove the workspace's business data.
 	OnboardingCompletedAtUnix *int `json:"onboarding_completed_at_unix,omitempty"`
-	ReceptionistCount         int  `json:"receptionist_count"`
+
+	// OwnerEmail The customer's main contact: the email of the workspace's earliest admin that is a person. None until someone invited as admin joins.
+	OwnerEmail        *string `json:"owner_email,omitempty"`
+	ReceptionistCount int     `json:"receptionist_count"`
 
 	// Subscription The reseller-managed subscription, when this workspace has one. None means the reseller sells nothing here: no tier is assigned yet, or the workspace pays for its own subscription (see charge_customer).
 	Subscription *ResellerWorkspaceSubscription `json:"subscription,omitempty"`
@@ -46208,6 +46473,24 @@ type ReceptionProduct struct {
 	UpdatedAtUnix *UnixTimestamp `json:"updated_at_unix,omitempty"`
 }
 
+// ReceptionPronunciationRule How the receptionist should say one word (or phrase) on calls.
+//
+// The rule rewrites only what the receptionist *says* — transcripts, messages
+// and everything written keep the original spelling.
+type ReceptionPronunciationRule struct {
+	// Pronunciation Spelled-out text the receptionist should say instead, e.g. "fry design".
+	Pronunciation StrippedStr `json:"pronunciation"`
+
+	// Word The word or phrase to rewrite, as the receptionist would spell it (e.g. "Frey Design").
+	Word StrippedStr `json:"word"`
+}
+
+// ReceptionPronunciationRulesResponse The workspace's pronunciation rules, shared by every receptionist and the assistant.
+type ReceptionPronunciationRulesResponse struct {
+	// Rules The full list of pronunciation rules; sending it replaces the stored list.
+	Rules *[]ReceptionPronunciationRule `json:"rules,omitempty"`
+}
+
 // ReceptionProvisionResellerWorkspaceRequest defines model for ReceptionProvisionResellerWorkspaceRequest.
 type ReceptionProvisionResellerWorkspaceRequest struct {
 	BusinessName string `json:"business_name"`
@@ -46439,6 +46722,12 @@ type ReceptionServiceVariant struct {
 	//
 	// Examples: 45
 	Price *float32 `json:"price,omitempty"`
+}
+
+// ReceptionSetPronunciationRulesRequest Request model for replacing the workspace's pronunciation rules.
+type ReceptionSetPronunciationRulesRequest struct {
+	// Rules The full list of pronunciation rules; sending it replaces the stored list.
+	Rules []ReceptionPronunciationRule `json:"rules"`
 }
 
 // ReceptionStaffResource Represents a staff member who can provide services.
@@ -47153,6 +47442,60 @@ type RenderStatus string
 // RenderType defines model for RenderType.
 type RenderType string
 
+// RenderedUserMemoryEntity defines model for RenderedUserMemoryEntity.
+type RenderedUserMemoryEntity struct {
+	// Events Things that happened once.
+	Events []RenderedUserMemoryFact `json:"events"`
+
+	// Facts What holds about it until something replaces it.
+	Facts []RenderedUserMemoryFact `json:"facts"`
+
+	// Id ID of the entity, to delete it with everything known about it.
+	Id string `json:"id"`
+
+	// IsUser Whether this is the user themselves.
+	IsUser bool `json:"is_user"`
+
+	// Name e.g. `Piotr N`. The user themselves is `user`.
+	Name string `json:"name"`
+
+	// Relations How the user relates to it, e.g. `colleague`.
+	Relations []RenderedUserMemoryFact `json:"relations"`
+
+	// Type e.g. `person`, `company`, `dog`.
+	Type string `json:"type"`
+}
+
+// RenderedUserMemoryFact defines model for RenderedUserMemoryFact.
+type RenderedUserMemoryFact struct {
+	// Attribute What the fact is about, e.g. `diet`.
+	Attribute string `json:"attribute"`
+
+	// Id ID of the fact, to delete it on its own.
+	Id string `json:"id"`
+
+	// InvalidatedAtUnixSecs When agents stopped believing it. Unset while still believed.
+	InvalidatedAtUnixSecs *int `json:"invalidated_at_unix_secs,omitempty"`
+
+	// LastSeenConversationId The latest conversation in which the user said it.
+	LastSeenConversationId string `json:"last_seen_conversation_id"`
+
+	// LearnedAtUnixSecs When agents learned it.
+	LearnedAtUnixSecs int `json:"learned_at_unix_secs"`
+
+	// ReferenceCount How many times the user has said it.
+	ReferenceCount int `json:"reference_count"`
+
+	// Text The fact itself, e.g. `Is vegetarian.`
+	Text string `json:"text"`
+
+	// ValidFrom When it became true, or for an event when it happened.
+	ValidFrom *openapi_types.Date `json:"valid_from,omitempty"`
+
+	// ValidTo When it stopped being true.
+	ValidTo *openapi_types.Date `json:"valid_to,omitempty"`
+}
+
 // ReplaceWorkspaceConfigRequest defines model for ReplaceWorkspaceConfigRequest.
 type ReplaceWorkspaceConfigRequest struct {
 	Config CampaignConfigInput `json:"config"`
@@ -47369,6 +47712,9 @@ type ResellerWorkspaceOnboardingResponse struct {
 	OnboardingCompletedAtUnix *int   `json:"onboarding_completed_at_unix"`
 }
 
+// ResellerWorkspaceSort defines model for ResellerWorkspaceSort.
+type ResellerWorkspaceSort string
+
 // ResellerWorkspaceSubscription A reseller-managed paid subscription, as the reseller can act on it.
 //
 // Present only for a workspace the reseller actually sells to: untiered and
@@ -47413,7 +47759,10 @@ type ResellerWorkspaceSummary struct {
 
 	// OnboardingCompletedAtUnix When onboarding finished. Until then the onboarding wizard may replace or remove the workspace's business data.
 	OnboardingCompletedAtUnix *int `json:"onboarding_completed_at_unix,omitempty"`
-	ReceptionistCount         int  `json:"receptionist_count"`
+
+	// OwnerEmail The customer's main contact: the email of the workspace's earliest admin that is a person. None until someone invited as admin joins.
+	OwnerEmail        *string `json:"owner_email,omitempty"`
+	ReceptionistCount int     `json:"receptionist_count"`
 
 	// Subscription The reseller-managed subscription, when this workspace has one. None means the reseller sells nothing here: no tier is assigned yet, or the workspace pays for its own subscription (see charge_customer).
 	Subscription *ResellerWorkspaceSubscription `json:"subscription,omitempty"`
@@ -47422,8 +47771,11 @@ type ResellerWorkspaceSummary struct {
 
 // ResellerWorkspacesResponse defines model for ResellerWorkspacesResponse.
 type ResellerWorkspacesResponse struct {
-	HasMore    *bool                      `json:"has_more,omitempty"`
-	NextCursor *string                    `json:"next_cursor,omitempty"`
+	HasMore    *bool   `json:"has_more,omitempty"`
+	NextCursor *string `json:"next_cursor,omitempty"`
+
+	// Total Workspaces matching the search, across every page.
+	Total      int                        `json:"total"`
 	Workspaces []ResellerWorkspaceSummary `json:"workspaces"`
 }
 
@@ -47648,8 +48000,15 @@ type SFXModelId string
 
 // SIPColdConferenceTransferConfigInput defines model for SIPColdConferenceTransferConfig-Input.
 type SIPColdConferenceTransferConfigInput struct {
-	TransferDestination SIPColdConferenceTransferConfigInput_TransferDestination `json:"transfer_destination"`
-	Type                *SIPColdConferenceTransferConfigInputType                `json:"type,omitempty"`
+	// CustomSipHeaders Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference.
+	CustomSipHeaders    *[]SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item `json:"custom_sip_headers,omitempty"`
+	TransferDestination SIPColdConferenceTransferConfigInput_TransferDestination      `json:"transfer_destination"`
+	Type                *SIPColdConferenceTransferConfigInputType                     `json:"type,omitempty"`
+}
+
+// SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item defines model for SIPColdConferenceTransferConfig-Input.custom_sip_headers.Item.
+type SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item struct {
+	union json.RawMessage
 }
 
 // SIPColdConferenceTransferConfigInput_TransferDestination defines model for SIPColdConferenceTransferConfigInput.TransferDestination.
@@ -47662,8 +48021,15 @@ type SIPColdConferenceTransferConfigInputType string
 
 // SIPColdConferenceTransferConfigOutput defines model for SIPColdConferenceTransferConfig-Output.
 type SIPColdConferenceTransferConfigOutput struct {
-	TransferDestination SIPColdConferenceTransferConfigOutput_TransferDestination `json:"transfer_destination"`
-	Type                SIPColdConferenceTransferConfigOutputType                 `json:"type"`
+	// CustomSipHeaders Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference.
+	CustomSipHeaders    []SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item `json:"custom_sip_headers"`
+	TransferDestination SIPColdConferenceTransferConfigOutput_TransferDestination     `json:"transfer_destination"`
+	Type                SIPColdConferenceTransferConfigOutputType                     `json:"type"`
+}
+
+// SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item defines model for SIPColdConferenceTransferConfig-Output.custom_sip_headers.Item.
+type SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item struct {
+	union json.RawMessage
 }
 
 // SIPColdConferenceTransferConfigOutput_TransferDestination defines model for SIPColdConferenceTransferConfigOutput.TransferDestination.
@@ -52508,6 +52874,12 @@ type UpdateProcedureDraftRequestModel struct {
 	Type ProcedureType `json:"type"`
 }
 
+// UpdateProcedureVisibilityRequestModel defines model for UpdateProcedureVisibilityRequestModel.
+type UpdateProcedureVisibilityRequestModel struct {
+	// Visibility The condition that controls if the procedure is visible to the agent in its procedure menu. Null clears it, so the procedure is always visible.
+	Visibility *ProcedureVisibilityInput `json:"visibility"`
+}
+
 // UpdateProductParams defines model for UpdateProductParams.
 type UpdateProductParams struct {
 	SmbToolType *UpdateProductParamsSmbToolType `json:"smb_tool_type,omitempty"`
@@ -52904,6 +53276,33 @@ type UserFeedback struct {
 
 // UserFeedbackScore defines model for UserFeedbackScore.
 type UserFeedbackScore string
+
+// UserMemoryScale How much of a user's history an agent carries into the prompt.
+type UserMemoryScale string
+
+// UserMemorySettingsInput Whether an agent remembers its end users, and how much of it it carries.
+type UserMemorySettingsInput struct {
+	// Enabled Whether this agent reads and writes what it remembers about its users. User memories are for business or professional use only, and their use is covered by the ElevenLabs Data Processing Addendum. Each agent remembers its users apart: no agent reads what another learned. Memories are built from the agent's stored conversations, so a value its conversation history redaction removes is never remembered. Keeping special category data in memories requires a lawful basis and the notices and consents the DPA and the ElevenAgent Terms require; health data also requires a HIPAA BAA that permits processing it. Tell end users that the agent remembers them across conversations and give them a way to opt out; erase a user's memories with the Erase User Memory endpoint.
+	Enabled *bool `json:"enabled,omitempty"`
+
+	// IdentityPolicy Which end users memories recognize. By default only ids your backend sends; `provider_asserted` (platform-provided ids, matched only within the workspace) can be added. `unverified` and `challenge_verified` are not accepted. Whoever is recognized as a user hears what the agent remembers about them, so check identity as strongly as those memories require.
+	IdentityPolicy *IdentityPolicyInput `json:"identity_policy,omitempty"`
+
+	// Scale How much of the user's history the agent carries into the prompt: remembered facts plus verbatim transcript from earlier conversations. `minimal` keeps the facts and a short window of recent conversation, for high-volume short conversations. `balanced` suits most agents. `maximum` carries as much recent conversation as fits. Larger scales cost more prompt tokens per turn, but tend to remember intricate details better.
+	Scale *UserMemoryScale `json:"scale,omitempty"`
+}
+
+// UserMemorySettingsOutput Whether an agent remembers its end users, and how much of it it carries.
+type UserMemorySettingsOutput struct {
+	// Enabled Whether this agent reads and writes what it remembers about its users. User memories are for business or professional use only, and their use is covered by the ElevenLabs Data Processing Addendum. Each agent remembers its users apart: no agent reads what another learned. Memories are built from the agent's stored conversations, so a value its conversation history redaction removes is never remembered. Keeping special category data in memories requires a lawful basis and the notices and consents the DPA and the ElevenAgent Terms require; health data also requires a HIPAA BAA that permits processing it. Tell end users that the agent remembers them across conversations and give them a way to opt out; erase a user's memories with the Erase User Memory endpoint.
+	Enabled *bool `json:"enabled,omitempty"`
+
+	// IdentityPolicy Which end users memories recognize. By default only ids your backend sends; `provider_asserted` (platform-provided ids, matched only within the workspace) can be added. `unverified` and `challenge_verified` are not accepted. Whoever is recognized as a user hears what the agent remembers about them, so check identity as strongly as those memories require.
+	IdentityPolicy *IdentityPolicyOutput `json:"identity_policy,omitempty"`
+
+	// Scale How much of the user's history the agent carries into the prompt: remembered facts plus verbatim transcript from earlier conversations. `minimal` keeps the facts and a short window of recent conversation, for high-volume short conversations. `balanced` suits most agents. `maximum` carries as much recent conversation as fits. Larger scales cost more prompt tokens per turn, but tend to remember intricate details better.
+	Scale *UserMemoryScale `json:"scale,omitempty"`
+}
 
 // UserMessageInputItem defines model for UserMessageInputItem.
 type UserMessageInputItem struct {
@@ -56486,6 +56885,12 @@ type WorkspaceServiceAccountResponseModel struct {
 	ServiceAccountUserId string                              `json:"service_account_user_id"`
 }
 
+// WorkspaceUserMemorySettings Workspace-wide user memory policy, applied to the memory of every agent in it.
+type WorkspaceUserMemorySettings struct {
+	// RetentionDays Days to retain a user's memories after their last conversation with an agent that has user memory on. None means the system default (365). A change applies to each user from their next such conversation. Unlimited retention is not expressible. Only a workspace admin can change it.
+	RetentionDays *int `json:"retention_days,omitempty"`
+}
+
 // WorkspaceWebhookEventType defines model for WorkspaceWebhookEventType.
 type WorkspaceWebhookEventType string
 
@@ -56979,6 +57384,12 @@ type UpdateProcedureDraftRouteParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// UpdateProcedureVisibilityRouteParams defines parameters for UpdateProcedureVisibilityRoute.
+type UpdateProcedureVisibilityRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // RebaseBranchRouteParams defines parameters for RebaseBranchRoute.
 type RebaseBranchRouteParams struct {
 	// SourceBranchId The ID of the branch to pull changes from. Defaults to the agent's main branch.
@@ -57260,6 +57671,30 @@ type CreateManualAgentTicketRouteParams struct {
 
 // GetAssignableUsersRouteParams defines parameters for GetAssignableUsersRoute.
 type GetAssignableUsersRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// DeleteUserMemoryEntityRouteParams defines parameters for DeleteUserMemoryEntityRoute.
+type DeleteUserMemoryEntityRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// EraseUserMemoryRouteParams defines parameters for EraseUserMemoryRoute.
+type EraseUserMemoryRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// ExportUserMemoryRouteParams defines parameters for ExportUserMemoryRoute.
+type ExportUserMemoryRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
+// DeleteUserMemoryFactRouteParams defines parameters for DeleteUserMemoryFactRoute.
+type DeleteUserMemoryFactRouteParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
@@ -59193,6 +59628,12 @@ type GetConversationUsersRouteParams struct {
 	XiApiKey *string `json:"xi-api-key,omitempty"`
 }
 
+// FindAgentsUserByIdentityRouteParams defines parameters for FindAgentsUserByIdentityRoute.
+type FindAgentsUserByIdentityRouteParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // ListPhoneNumbersPageRouteParams defines parameters for ListPhoneNumbersPageRoute.
 type ListPhoneNumbersPageRouteParams struct {
 	// PageSize Number of phone numbers per page
@@ -60568,6 +61009,24 @@ type SmbAdjustProductStockParams struct {
 	XiWorkspaceId string `json:"xi-workspace-id"`
 }
 
+// SmbGetPronunciationRulesParams defines parameters for SmbGetPronunciationRules.
+type SmbGetPronunciationRulesParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId string `json:"xi-workspace-id"`
+}
+
+// SmbSetPronunciationRulesParams defines parameters for SmbSetPronunciationRules.
+type SmbSetPronunciationRulesParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+
+	// XiWorkspaceId The customer workspace a reseller's API key acts on.
+	XiWorkspaceId string `json:"xi-workspace-id"`
+}
+
 // SmbListResellerInvoicesParams defines parameters for SmbListResellerInvoices.
 type SmbListResellerInvoicesParams struct {
 	// Cursor Pagination cursor from previous response
@@ -60605,6 +61064,12 @@ type SmbListResellerWorkspacesParams struct {
 
 	// PageSize Number of workspaces per page
 	PageSize *int `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// Search Case-insensitive substring of the business name
+	Search *string `form:"search,omitempty" json:"search,omitempty"`
+
+	// Sort Order of the workspaces, newest first by default
+	Sort *ResellerWorkspaceSort `form:"sort,omitempty" json:"sort,omitempty"`
 
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
 	XiApiKey *string `json:"xi-api-key,omitempty"`
@@ -62209,6 +62674,9 @@ type CreateProcedureRouteJSONRequestBody = CreateProcedureRouteJSONBody
 // UpdateProcedureDraftRouteJSONRequestBody defines body for UpdateProcedureDraftRoute for application/json ContentType.
 type UpdateProcedureDraftRouteJSONRequestBody = UpdateProcedureDraftRequestModel
 
+// UpdateProcedureVisibilityRouteJSONRequestBody defines body for UpdateProcedureVisibilityRoute for application/json ContentType.
+type UpdateProcedureVisibilityRouteJSONRequestBody = UpdateProcedureVisibilityRequestModel
+
 // RebaseBranchRouteJSONRequestBody defines body for RebaseBranchRoute for application/json ContentType.
 type RebaseBranchRouteJSONRequestBody = BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost
 
@@ -62260,6 +62728,12 @@ type RunConversationSimulationRouteStreamJSONRequestBody = BodySimulatesAConvers
 
 // CreateManualAgentTicketRouteJSONRequestBody defines body for CreateManualAgentTicketRoute for application/json ContentType.
 type CreateManualAgentTicketRouteJSONRequestBody = CreateManualTicketRequestModel
+
+// EraseUserMemoryRouteJSONRequestBody defines body for EraseUserMemoryRoute for application/json ContentType.
+type EraseUserMemoryRouteJSONRequestBody = EraseUserMemoryRequestModel
+
+// ExportUserMemoryRouteJSONRequestBody defines body for ExportUserMemoryRoute for application/json ContentType.
+type ExportUserMemoryRouteJSONRequestBody = ExportUserMemoryRequestModel
 
 // CreateAnalysisItemRouteJSONRequestBody defines body for CreateAnalysisItemRoute for application/json ContentType.
 type CreateAnalysisItemRouteJSONRequestBody CreateAnalysisItemRouteJSONBody
@@ -62459,6 +62933,9 @@ type HandleTwilioOutboundCallJSONRequestBody = BodyHandleAnOutboundCallViaTwilio
 
 // RegisterTwilioCallJSONRequestBody defines body for RegisterTwilioCall for application/json ContentType.
 type RegisterTwilioCallJSONRequestBody = BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPost
+
+// FindAgentsUserByIdentityRouteJSONRequestBody defines body for FindAgentsUserByIdentityRoute for application/json ContentType.
+type FindAgentsUserByIdentityRouteJSONRequestBody = FindAgentsUserByIdentityRequestModel
 
 // UpdateWhatsappAccountJSONRequestBody defines body for UpdateWhatsappAccount for application/json ContentType.
 type UpdateWhatsappAccountJSONRequestBody = UpdateWhatsAppAccountRequest
@@ -62688,6 +63165,9 @@ type SmbUpdateProductStockJSONRequestBody = ReceptionUpdateProductStockRequest
 
 // SmbAdjustProductStockJSONRequestBody defines body for SmbAdjustProductStock for application/json ContentType.
 type SmbAdjustProductStockJSONRequestBody = ReceptionAdjustProductStockRequest
+
+// SmbSetPronunciationRulesJSONRequestBody defines body for SmbSetPronunciationRules for application/json ContentType.
+type SmbSetPronunciationRulesJSONRequestBody = ReceptionSetPronunciationRulesRequest
 
 // SmbResellerProvisionWorkspaceJSONRequestBody defines body for SmbResellerProvisionWorkspace for application/json ContentType.
 type SmbResellerProvisionWorkspaceJSONRequestBody = ReceptionProvisionResellerWorkspaceRequest
@@ -83269,6 +83749,107 @@ func (t *QueryParamsJsonSchemaOutput_Properties_AdditionalProperties) UnmarshalJ
 	return err
 }
 
+// AsCustomSIPHeader returns the union data inside the SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item as a CustomSIPHeader
+func (t SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) AsCustomSIPHeader() (CustomSIPHeader, error) {
+	var body CustomSIPHeader
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCustomSIPHeader overwrites any union data inside the SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item as the provided CustomSIPHeader
+func (t *SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) FromCustomSIPHeader(v CustomSIPHeader) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"static"}`))
+	t.union = b
+	return err
+}
+
+// MergeCustomSIPHeader performs a merge with any union data inside the SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item, using the provided CustomSIPHeader
+func (t *SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) MergeCustomSIPHeader(v CustomSIPHeader) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"static"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsCustomSIPHeaderWithDynamicVariable returns the union data inside the SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item as a CustomSIPHeaderWithDynamicVariable
+func (t SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) AsCustomSIPHeaderWithDynamicVariable() (CustomSIPHeaderWithDynamicVariable, error) {
+	var body CustomSIPHeaderWithDynamicVariable
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCustomSIPHeaderWithDynamicVariable overwrites any union data inside the SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item as the provided CustomSIPHeaderWithDynamicVariable
+func (t *SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) FromCustomSIPHeaderWithDynamicVariable(v CustomSIPHeaderWithDynamicVariable) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"dynamic"}`))
+	t.union = b
+	return err
+}
+
+// MergeCustomSIPHeaderWithDynamicVariable performs a merge with any union data inside the SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item, using the provided CustomSIPHeaderWithDynamicVariable
+func (t *SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) MergeCustomSIPHeaderWithDynamicVariable(v CustomSIPHeaderWithDynamicVariable) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"dynamic"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "dynamic":
+		return t.AsCustomSIPHeaderWithDynamicVariable()
+	case "static":
+		return t.AsCustomSIPHeader()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPColdConferenceTransferConfigInput_CustomSipHeaders_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsPhoneDestinationInput returns the union data inside the SIPColdConferenceTransferConfigInput_TransferDestination as a PhoneDestinationInput
 func (t SIPColdConferenceTransferConfigInput_TransferDestination) AsPhoneDestinationInput() (PhoneDestinationInput, error) {
 	var body PhoneDestinationInput
@@ -83366,6 +83947,107 @@ func (t SIPColdConferenceTransferConfigInput_TransferDestination) MarshalJSON() 
 }
 
 func (t *SIPColdConferenceTransferConfigInput_TransferDestination) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsCustomSIPHeader returns the union data inside the SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item as a CustomSIPHeader
+func (t SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) AsCustomSIPHeader() (CustomSIPHeader, error) {
+	var body CustomSIPHeader
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCustomSIPHeader overwrites any union data inside the SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item as the provided CustomSIPHeader
+func (t *SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) FromCustomSIPHeader(v CustomSIPHeader) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"static"}`))
+	t.union = b
+	return err
+}
+
+// MergeCustomSIPHeader performs a merge with any union data inside the SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item, using the provided CustomSIPHeader
+func (t *SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) MergeCustomSIPHeader(v CustomSIPHeader) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"static"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsCustomSIPHeaderWithDynamicVariable returns the union data inside the SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item as a CustomSIPHeaderWithDynamicVariable
+func (t SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) AsCustomSIPHeaderWithDynamicVariable() (CustomSIPHeaderWithDynamicVariable, error) {
+	var body CustomSIPHeaderWithDynamicVariable
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCustomSIPHeaderWithDynamicVariable overwrites any union data inside the SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item as the provided CustomSIPHeaderWithDynamicVariable
+func (t *SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) FromCustomSIPHeaderWithDynamicVariable(v CustomSIPHeaderWithDynamicVariable) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"dynamic"}`))
+	t.union = b
+	return err
+}
+
+// MergeCustomSIPHeaderWithDynamicVariable performs a merge with any union data inside the SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item, using the provided CustomSIPHeaderWithDynamicVariable
+func (t *SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) MergeCustomSIPHeaderWithDynamicVariable(v CustomSIPHeaderWithDynamicVariable) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"type":"dynamic"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "dynamic":
+		return t.AsCustomSIPHeaderWithDynamicVariable()
+	case "static":
+		return t.AsCustomSIPHeader()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *SIPColdConferenceTransferConfigOutput_CustomSipHeaders_Item) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -93747,6 +94429,40 @@ func (t *VideoGenerationRequest) MergeCreatifyAuroraRequest(v CreatifyAuroraRequ
 	return err
 }
 
+// AsCreatifyAurora2Request returns the union data inside the VideoGenerationRequest as a CreatifyAurora2Request
+func (t VideoGenerationRequest) AsCreatifyAurora2Request() (CreatifyAurora2Request, error) {
+	var body CreatifyAurora2Request
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCreatifyAurora2Request overwrites any union data inside the VideoGenerationRequest as the provided CreatifyAurora2Request
+func (t *VideoGenerationRequest) FromCreatifyAurora2Request(v CreatifyAurora2Request) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"model_id":"creatify-aurora-2"}`))
+	t.union = b
+	return err
+}
+
+// MergeCreatifyAurora2Request performs a merge with any union data inside the VideoGenerationRequest, using the provided CreatifyAurora2Request
+func (t *VideoGenerationRequest) MergeCreatifyAurora2Request(v CreatifyAurora2Request) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+	b, err = runtime.JSONMerge(b, []byte(`{"model_id":"creatify-aurora-2"}`))
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsVeo31Request returns the union data inside the VideoGenerationRequest as a Veo31Request
 func (t VideoGenerationRequest) AsVeo31Request() (Veo31Request, error) {
 	var body Veo31Request
@@ -93975,6 +94691,8 @@ func (t VideoGenerationRequest) ValueByDiscriminator() (interface{}, error) {
 		return t.AsBytedanceSeedance25Request()
 	case "creatify-aurora":
 		return t.AsCreatifyAuroraRequest()
+	case "creatify-aurora-2":
+		return t.AsCreatifyAurora2Request()
 	case "veo-3.1-fast-generate-001":
 		return t.AsVeo31FastRequest()
 	case "veo-3.1-generate-001":
@@ -101860,6 +102578,24 @@ type ClientInterface interface {
 	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/draft (the `UpdateProcedureDraftRoute` operationId).
 	UpdateProcedureDraftRoute(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureDraftRouteParams, body UpdateProcedureDraftRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// UpdateProcedureVisibilityRouteWithBody Update Procedure Visibility
+	//
+	// Update or clear the visibility of a procedure draft. This is the condition that controls if a procedure is visible to the agent in its procedure menu.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/visibility (the `UpdateProcedureVisibilityRoute` operationId).
+	UpdateProcedureVisibilityRouteWithBody(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateProcedureVisibilityRoute Update Procedure Visibility
+	//
+	// Update or clear the visibility of a procedure draft. This is the condition that controls if a procedure is visible to the agent in its procedure menu.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/visibility (the `UpdateProcedureVisibilityRoute` operationId).
+	UpdateProcedureVisibilityRoute(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, body UpdateProcedureVisibilityRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// RebaseBranchRouteWithBody Rebase A Branch Onto Main
 	//
 	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
@@ -102230,6 +102966,56 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /v1/convai/agents/{agent_id}/triage-tickets/assignable-users (the `GetAssignableUsersRoute` operationId).
 	GetAssignableUsersRoute(ctx context.Context, agentId string, params *GetAssignableUsersRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// DeleteUserMemoryEntityRoute Delete User Memory Entity
+	//
+	// Delete a person, place or thing this agent remembers from an end user's conversations, together with everything it remembers about it. The agent may learn about it again from later conversations. It still reads the user's recent conversations verbatim, so it can come across it there until those conversations are erased with Erase User Memory or deleted with Delete Conversation.
+	//
+	// Corresponds with DELETE /v1/convai/agents/{agent_id}/user-memory/entities/{entity_id} (the `DeleteUserMemoryEntityRoute` operationId).
+	DeleteUserMemoryEntityRoute(ctx context.Context, agentId string, entityId string, params *DeleteUserMemoryEntityRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// EraseUserMemoryRouteWithBody Erase User Memory
+	//
+	// Erase what this agent remembers about an end user: it stops drawing on their earlier conversations, and what it learned from them is deleted. With `opt_out`, it also stops remembering them in future ones. Other agents' memories of the user are kept. The conversations themselves are not deleted; use the Delete Conversation endpoint for that.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/erase (the `EraseUserMemoryRoute` operationId).
+	EraseUserMemoryRouteWithBody(ctx context.Context, agentId string, params *EraseUserMemoryRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// EraseUserMemoryRoute Erase User Memory
+	//
+	// Erase what this agent remembers about an end user: it stops drawing on their earlier conversations, and what it learned from them is deleted. With `opt_out`, it also stops remembering them in future ones. Other agents' memories of the user are kept. The conversations themselves are not deleted; use the Delete Conversation endpoint for that.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/erase (the `EraseUserMemoryRoute` operationId).
+	EraseUserMemoryRoute(ctx context.Context, agentId string, params *EraseUserMemoryRouteParams, body EraseUserMemoryRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ExportUserMemoryRouteWithBody Export User Memory
+	//
+	// Get a copy of everything this agent remembers about an end user, to answer their request to access or take their data; each agent remembers its users separately. Conversations are not included; use the Get Conversation Details endpoint for those. Someone who reached you under identities that were never linked is a separate user for each.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/export (the `ExportUserMemoryRoute` operationId).
+	ExportUserMemoryRouteWithBody(ctx context.Context, agentId string, params *ExportUserMemoryRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ExportUserMemoryRoute Export User Memory
+	//
+	// Get a copy of everything this agent remembers about an end user, to answer their request to access or take their data; each agent remembers its users separately. Conversations are not included; use the Get Conversation Details endpoint for those. Someone who reached you under identities that were never linked is a separate user for each.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/export (the `ExportUserMemoryRoute` operationId).
+	ExportUserMemoryRoute(ctx context.Context, agentId string, params *ExportUserMemoryRouteParams, body ExportUserMemoryRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// DeleteUserMemoryFactRoute Delete User Memory Fact
+	//
+	// Delete one thing this agent remembers about an end user, e.g. because it is wrong. Earlier and later values of the same fact are kept and listed separately in Export User Memory. The agent still reads the user's recent conversations verbatim, so it can come across it there until those conversations are erased with Erase User Memory or deleted with Delete Conversation.
+	//
+	// Corresponds with DELETE /v1/convai/agents/{agent_id}/user-memory/facts/{fact_id} (the `DeleteUserMemoryFactRoute` operationId).
+	DeleteUserMemoryFactRoute(ctx context.Context, agentId string, factId string, params *DeleteUserMemoryFactRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetVersionMetadataRoute Get Agent Version Metadata
 	//
@@ -104143,6 +104929,24 @@ type ClientInterface interface {
 	// Corresponds with GET /v1/convai/users (the `GetConversationUsersRoute` operationId).
 	GetConversationUsersRoute(ctx context.Context, params *GetConversationUsersRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// FindAgentsUserByIdentityRouteWithBody Find Agents User By Identity
+	//
+	// The end user an active identity belongs to in the caller's workspace, e.g. the `user_id` your conversation initiation data sent for them. Use the returned `user_id` with Erase User Memory or Export User Memory. Never creates a user or identity.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/users/find-by-identity (the `FindAgentsUserByIdentityRoute` operationId).
+	FindAgentsUserByIdentityRouteWithBody(ctx context.Context, params *FindAgentsUserByIdentityRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// FindAgentsUserByIdentityRoute Find Agents User By Identity
+	//
+	// The end user an active identity belongs to in the caller's workspace, e.g. the `user_id` your conversation initiation data sent for them. Use the returned `user_id` with Erase User Memory or Export User Memory. Never creates a user or identity.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/users/find-by-identity (the `FindAgentsUserByIdentityRoute` operationId).
+	FindAgentsUserByIdentityRoute(ctx context.Context, params *FindAgentsUserByIdentityRouteParams, body FindAgentsUserByIdentityRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ListPhoneNumbersPageRoute List Phone Numbers Page
 	//
 	// Retrieve a page of Phone Numbers.
@@ -105897,6 +106701,31 @@ type ClientInterface interface {
 	//
 	// Corresponds with POST /v1/reception/products/{product_id}/stock/adjust (the `SmbAdjustProductStock` operationId).
 	SmbAdjustProductStock(ctx context.Context, productId string, params *SmbAdjustProductStockParams, body SmbAdjustProductStockJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbGetPronunciationRules Get Pronunciation Rules
+	//
+	// Get how the receptionists say this business's words on calls.
+	//
+	// Corresponds with GET /v1/reception/pronunciation-rules (the `SmbGetPronunciationRules` operationId).
+	SmbGetPronunciationRules(ctx context.Context, params *SmbGetPronunciationRulesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbSetPronunciationRulesWithBody Set Pronunciation Rules
+	//
+	// Replace how the receptionists say this business's words on calls. Send the full list; an empty list clears the rules.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PUT /v1/reception/pronunciation-rules (the `SmbSetPronunciationRules` operationId).
+	SmbSetPronunciationRulesWithBody(ctx context.Context, params *SmbSetPronunciationRulesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SmbSetPronunciationRules Set Pronunciation Rules
+	//
+	// Replace how the receptionists say this business's words on calls. Send the full list; an empty list clears the rules.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PUT /v1/reception/pronunciation-rules (the `SmbSetPronunciationRules` operationId).
+	SmbSetPronunciationRules(ctx context.Context, params *SmbSetPronunciationRulesParams, body SmbSetPronunciationRulesJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// SmbListResellerInvoices List Reseller Invoices
 	//
@@ -109025,6 +109854,44 @@ func (c *Client) UpdateProcedureDraftRoute(ctx context.Context, agentId string, 
 	return c.Client.Do(req)
 }
 
+// UpdateProcedureVisibilityRouteWithBody Update Procedure Visibility
+//
+// Update or clear the visibility of a procedure draft. This is the condition that controls if a procedure is visible to the agent in its procedure menu.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/visibility (the `UpdateProcedureVisibilityRoute` operationId).
+func (c *Client) UpdateProcedureVisibilityRouteWithBody(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateProcedureVisibilityRouteRequestWithBody(c.Server, agentId, branchId, procedureId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateProcedureVisibilityRoute Update Procedure Visibility
+//
+// Update or clear the visibility of a procedure draft. This is the condition that controls if a procedure is visible to the agent in its procedure menu.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/visibility (the `UpdateProcedureVisibilityRoute` operationId).
+func (c *Client) UpdateProcedureVisibilityRoute(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, body UpdateProcedureVisibilityRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateProcedureVisibilityRouteRequest(c.Server, agentId, branchId, procedureId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // RebaseBranchRouteWithBody Rebase A Branch Onto Main
 //
 // Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
@@ -109812,6 +110679,116 @@ func (c *Client) CreateManualAgentTicketRoute(ctx context.Context, agentId strin
 // Corresponds with GET /v1/convai/agents/{agent_id}/triage-tickets/assignable-users (the `GetAssignableUsersRoute` operationId).
 func (c *Client) GetAssignableUsersRoute(ctx context.Context, agentId string, params *GetAssignableUsersRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetAssignableUsersRouteRequest(c.Server, agentId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// DeleteUserMemoryEntityRoute Delete User Memory Entity
+//
+// Delete a person, place or thing this agent remembers from an end user's conversations, together with everything it remembers about it. The agent may learn about it again from later conversations. It still reads the user's recent conversations verbatim, so it can come across it there until those conversations are erased with Erase User Memory or deleted with Delete Conversation.
+//
+// Corresponds with DELETE /v1/convai/agents/{agent_id}/user-memory/entities/{entity_id} (the `DeleteUserMemoryEntityRoute` operationId).
+func (c *Client) DeleteUserMemoryEntityRoute(ctx context.Context, agentId string, entityId string, params *DeleteUserMemoryEntityRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteUserMemoryEntityRouteRequest(c.Server, agentId, entityId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// EraseUserMemoryRouteWithBody Erase User Memory
+//
+// Erase what this agent remembers about an end user: it stops drawing on their earlier conversations, and what it learned from them is deleted. With `opt_out`, it also stops remembering them in future ones. Other agents' memories of the user are kept. The conversations themselves are not deleted; use the Delete Conversation endpoint for that.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/erase (the `EraseUserMemoryRoute` operationId).
+func (c *Client) EraseUserMemoryRouteWithBody(ctx context.Context, agentId string, params *EraseUserMemoryRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEraseUserMemoryRouteRequestWithBody(c.Server, agentId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// EraseUserMemoryRoute Erase User Memory
+//
+// Erase what this agent remembers about an end user: it stops drawing on their earlier conversations, and what it learned from them is deleted. With `opt_out`, it also stops remembering them in future ones. Other agents' memories of the user are kept. The conversations themselves are not deleted; use the Delete Conversation endpoint for that.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/erase (the `EraseUserMemoryRoute` operationId).
+func (c *Client) EraseUserMemoryRoute(ctx context.Context, agentId string, params *EraseUserMemoryRouteParams, body EraseUserMemoryRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEraseUserMemoryRouteRequest(c.Server, agentId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ExportUserMemoryRouteWithBody Export User Memory
+//
+// Get a copy of everything this agent remembers about an end user, to answer their request to access or take their data; each agent remembers its users separately. Conversations are not included; use the Get Conversation Details endpoint for those. Someone who reached you under identities that were never linked is a separate user for each.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/export (the `ExportUserMemoryRoute` operationId).
+func (c *Client) ExportUserMemoryRouteWithBody(ctx context.Context, agentId string, params *ExportUserMemoryRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewExportUserMemoryRouteRequestWithBody(c.Server, agentId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ExportUserMemoryRoute Export User Memory
+//
+// Get a copy of everything this agent remembers about an end user, to answer their request to access or take their data; each agent remembers its users separately. Conversations are not included; use the Get Conversation Details endpoint for those. Someone who reached you under identities that were never linked is a separate user for each.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/export (the `ExportUserMemoryRoute` operationId).
+func (c *Client) ExportUserMemoryRoute(ctx context.Context, agentId string, params *ExportUserMemoryRouteParams, body ExportUserMemoryRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewExportUserMemoryRouteRequest(c.Server, agentId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// DeleteUserMemoryFactRoute Delete User Memory Fact
+//
+// Delete one thing this agent remembers about an end user, e.g. because it is wrong. Earlier and later values of the same fact are kept and listed separately in Export User Memory. The agent still reads the user's recent conversations verbatim, so it can come across it there until those conversations are erased with Erase User Memory or deleted with Delete Conversation.
+//
+// Corresponds with DELETE /v1/convai/agents/{agent_id}/user-memory/facts/{fact_id} (the `DeleteUserMemoryFactRoute` operationId).
+func (c *Client) DeleteUserMemoryFactRoute(ctx context.Context, agentId string, factId string, params *DeleteUserMemoryFactRouteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteUserMemoryFactRouteRequest(c.Server, agentId, factId, params)
 	if err != nil {
 		return nil, err
 	}
@@ -114090,6 +115067,44 @@ func (c *Client) GetConversationUsersRoute(ctx context.Context, params *GetConve
 	return c.Client.Do(req)
 }
 
+// FindAgentsUserByIdentityRouteWithBody Find Agents User By Identity
+//
+// The end user an active identity belongs to in the caller's workspace, e.g. the `user_id` your conversation initiation data sent for them. Use the returned `user_id` with Erase User Memory or Export User Memory. Never creates a user or identity.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/users/find-by-identity (the `FindAgentsUserByIdentityRoute` operationId).
+func (c *Client) FindAgentsUserByIdentityRouteWithBody(ctx context.Context, params *FindAgentsUserByIdentityRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewFindAgentsUserByIdentityRouteRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// FindAgentsUserByIdentityRoute Find Agents User By Identity
+//
+// The end user an active identity belongs to in the caller's workspace, e.g. the `user_id` your conversation initiation data sent for them. Use the returned `user_id` with Erase User Memory or Export User Memory. Never creates a user or identity.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/users/find-by-identity (the `FindAgentsUserByIdentityRoute` operationId).
+func (c *Client) FindAgentsUserByIdentityRoute(ctx context.Context, params *FindAgentsUserByIdentityRouteParams, body FindAgentsUserByIdentityRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewFindAgentsUserByIdentityRouteRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // ListPhoneNumbersPageRoute List Phone Numbers Page
 //
 // Retrieve a page of Phone Numbers.
@@ -117835,6 +118850,61 @@ func (c *Client) SmbAdjustProductStockWithBody(ctx context.Context, productId st
 // Corresponds with POST /v1/reception/products/{product_id}/stock/adjust (the `SmbAdjustProductStock` operationId).
 func (c *Client) SmbAdjustProductStock(ctx context.Context, productId string, params *SmbAdjustProductStockParams, body SmbAdjustProductStockJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewSmbAdjustProductStockRequest(c.Server, productId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbGetPronunciationRules Get Pronunciation Rules
+//
+// Get how the receptionists say this business's words on calls.
+//
+// Corresponds with GET /v1/reception/pronunciation-rules (the `SmbGetPronunciationRules` operationId).
+func (c *Client) SmbGetPronunciationRules(ctx context.Context, params *SmbGetPronunciationRulesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbGetPronunciationRulesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbSetPronunciationRulesWithBody Set Pronunciation Rules
+//
+// Replace how the receptionists say this business's words on calls. Send the full list; an empty list clears the rules.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PUT /v1/reception/pronunciation-rules (the `SmbSetPronunciationRules` operationId).
+func (c *Client) SmbSetPronunciationRulesWithBody(ctx context.Context, params *SmbSetPronunciationRulesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbSetPronunciationRulesRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SmbSetPronunciationRules Set Pronunciation Rules
+//
+// Replace how the receptionists say this business's words on calls. Send the full list; an empty list clears the rules.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PUT /v1/reception/pronunciation-rules (the `SmbSetPronunciationRules` operationId).
+func (c *Client) SmbSetPronunciationRules(ctx context.Context, params *SmbSetPronunciationRulesParams, body SmbSetPronunciationRulesJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSmbSetPronunciationRulesRequest(c.Server, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -125443,6 +126513,82 @@ func NewUpdateProcedureDraftRouteRequestWithBody(server string, agentId string, 
 	return req, nil
 }
 
+// NewUpdateProcedureVisibilityRouteRequest calls the generic UpdateProcedureVisibilityRoute builder with application/json body
+func NewUpdateProcedureVisibilityRouteRequest(server string, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, body UpdateProcedureVisibilityRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateProcedureVisibilityRouteRequestWithBody(server, agentId, branchId, procedureId, params, "application/json", bodyReader)
+}
+
+// NewUpdateProcedureVisibilityRouteRequestWithBody constructs an http.Request for the UpdateProcedureVisibilityRoute method, with any body, and a specified content type
+func NewUpdateProcedureVisibilityRouteRequestWithBody(server string, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "branch_id", branchId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam2 string
+
+	pathParam2, err = runtime.StyleParamWithOptions("simple", false, "procedure_id", procedureId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/agents/%s/branches/%s/procedures/%s/visibility", pathParam0, pathParam1, pathParam2)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewRebaseBranchRouteRequest calls the generic RebaseBranchRoute builder with application/json body
 func NewRebaseBranchRouteRequest(server string, agentId string, branchId string, params *RebaseBranchRouteParams, body RebaseBranchRouteJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -127685,6 +128831,242 @@ func NewGetAssignableUsersRouteRequest(server string, agentId string, params *Ge
 	}
 
 	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewDeleteUserMemoryEntityRouteRequest constructs an http.Request for the DeleteUserMemoryEntityRoute method
+func NewDeleteUserMemoryEntityRouteRequest(server string, agentId string, entityId string, params *DeleteUserMemoryEntityRouteParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "entity_id", entityId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/agents/%s/user-memory/entities/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewEraseUserMemoryRouteRequest calls the generic EraseUserMemoryRoute builder with application/json body
+func NewEraseUserMemoryRouteRequest(server string, agentId string, params *EraseUserMemoryRouteParams, body EraseUserMemoryRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewEraseUserMemoryRouteRequestWithBody(server, agentId, params, "application/json", bodyReader)
+}
+
+// NewEraseUserMemoryRouteRequestWithBody constructs an http.Request for the EraseUserMemoryRoute method, with any body, and a specified content type
+func NewEraseUserMemoryRouteRequestWithBody(server string, agentId string, params *EraseUserMemoryRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/agents/%s/user-memory/erase", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewExportUserMemoryRouteRequest calls the generic ExportUserMemoryRoute builder with application/json body
+func NewExportUserMemoryRouteRequest(server string, agentId string, params *ExportUserMemoryRouteParams, body ExportUserMemoryRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewExportUserMemoryRouteRequestWithBody(server, agentId, params, "application/json", bodyReader)
+}
+
+// NewExportUserMemoryRouteRequestWithBody constructs an http.Request for the ExportUserMemoryRoute method, with any body, and a specified content type
+func NewExportUserMemoryRouteRequestWithBody(server string, agentId string, params *ExportUserMemoryRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/agents/%s/user-memory/export", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewDeleteUserMemoryFactRouteRequest constructs an http.Request for the DeleteUserMemoryFactRoute method
+func NewDeleteUserMemoryFactRouteRequest(server string, agentId string, factId string, params *DeleteUserMemoryFactRouteParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "agent_id", agentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "fact_id", factId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/agents/%s/user-memory/facts/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -140643,6 +142025,61 @@ func NewGetConversationUsersRouteRequest(server string, params *GetConversationU
 	return req, nil
 }
 
+// NewFindAgentsUserByIdentityRouteRequest calls the generic FindAgentsUserByIdentityRoute builder with application/json body
+func NewFindAgentsUserByIdentityRouteRequest(server string, params *FindAgentsUserByIdentityRouteParams, body FindAgentsUserByIdentityRouteJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewFindAgentsUserByIdentityRouteRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewFindAgentsUserByIdentityRouteRequestWithBody constructs an http.Request for the FindAgentsUserByIdentityRoute method, with any body, and a specified content type
+func NewFindAgentsUserByIdentityRouteRequestWithBody(server string, params *FindAgentsUserByIdentityRouteParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/users/find-by-identity")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
 // NewListPhoneNumbersPageRouteRequest constructs an http.Request for the ListPhoneNumbersPageRoute method
 func NewListPhoneNumbersPageRouteRequest(server string, params *ListPhoneNumbersPageRouteParams) (*http.Request, error) {
 	var err error
@@ -150287,6 +151724,121 @@ func NewSmbAdjustProductStockRequestWithBody(server string, productId string, pa
 	return req, nil
 }
 
+// NewSmbGetPronunciationRulesRequest constructs an http.Request for the SmbGetPronunciationRules method
+func NewSmbGetPronunciationRulesRequest(server string, params *SmbGetPronunciationRulesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/reception/pronunciation-rules")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		var headerParam1 string
+
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
+		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
+
+	}
+
+	return req, nil
+}
+
+// NewSmbSetPronunciationRulesRequest calls the generic SmbSetPronunciationRules builder with application/json body
+func NewSmbSetPronunciationRulesRequest(server string, params *SmbSetPronunciationRulesParams, body SmbSetPronunciationRulesJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSmbSetPronunciationRulesRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewSmbSetPronunciationRulesRequestWithBody constructs an http.Request for the SmbSetPronunciationRules method, with any body, and a specified content type
+func NewSmbSetPronunciationRulesRequestWithBody(server string, params *SmbSetPronunciationRulesParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/reception/pronunciation-rules")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+		var headerParam1 string
+
+		headerParam1, err = runtime.StyleParamWithOptions("simple", false, "xi-workspace-id", params.XiWorkspaceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "string", Format: ""})
+		if err != nil {
+			return nil, err
+		}
+
+		req.Header.Set("xi-workspace-id", headerParam1)
+
+	}
+
+	return req, nil
+}
+
 // NewSmbListResellerInvoicesRequest constructs an http.Request for the SmbListResellerInvoices method
 func NewSmbListResellerInvoicesRequest(server string, params *SmbListResellerInvoicesParams) (*http.Request, error) {
 	var err error
@@ -150544,6 +152096,30 @@ func NewSmbListResellerWorkspacesRequest(server string, params *SmbListResellerW
 		if params.PageSize != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Search != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "sort", *params.Sort, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -162319,6 +163895,24 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/draft (the `UpdateProcedureDraftRoute` operationId).
 	UpdateProcedureDraftRouteWithResponse(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureDraftRouteParams, body UpdateProcedureDraftRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateProcedureDraftRouteResponse, error)
 
+	// UpdateProcedureVisibilityRouteWithBodyWithResponse Update Procedure Visibility
+	//
+	// Update or clear the visibility of a procedure draft. This is the condition that controls if a procedure is visible to the agent in its procedure menu.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/visibility (the `UpdateProcedureVisibilityRoute` operationId).
+	UpdateProcedureVisibilityRouteWithBodyWithResponse(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateProcedureVisibilityRouteResponse, error)
+
+	// UpdateProcedureVisibilityRouteWithResponse Update Procedure Visibility
+	//
+	// Update or clear the visibility of a procedure draft. This is the condition that controls if a procedure is visible to the agent in its procedure menu.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/visibility (the `UpdateProcedureVisibilityRoute` operationId).
+	UpdateProcedureVisibilityRouteWithResponse(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, body UpdateProcedureVisibilityRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateProcedureVisibilityRouteResponse, error)
+
 	// RebaseBranchRouteWithBodyWithResponse Rebase A Branch Onto Main
 	//
 	// Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
@@ -162713,6 +164307,60 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /v1/convai/agents/{agent_id}/triage-tickets/assignable-users (the `GetAssignableUsersRoute` operationId).
 	GetAssignableUsersRouteWithResponse(ctx context.Context, agentId string, params *GetAssignableUsersRouteParams, reqEditors ...RequestEditorFn) (*GetAssignableUsersRouteResponse, error)
+
+	// DeleteUserMemoryEntityRouteWithResponse Delete User Memory Entity
+	//
+	// Delete a person, place or thing this agent remembers from an end user's conversations, together with everything it remembers about it. The agent may learn about it again from later conversations. It still reads the user's recent conversations verbatim, so it can come across it there until those conversations are erased with Erase User Memory or deleted with Delete Conversation.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/convai/agents/{agent_id}/user-memory/entities/{entity_id} (the `DeleteUserMemoryEntityRoute` operationId).
+	DeleteUserMemoryEntityRouteWithResponse(ctx context.Context, agentId string, entityId string, params *DeleteUserMemoryEntityRouteParams, reqEditors ...RequestEditorFn) (*DeleteUserMemoryEntityRouteResponse, error)
+
+	// EraseUserMemoryRouteWithBodyWithResponse Erase User Memory
+	//
+	// Erase what this agent remembers about an end user: it stops drawing on their earlier conversations, and what it learned from them is deleted. With `opt_out`, it also stops remembering them in future ones. Other agents' memories of the user are kept. The conversations themselves are not deleted; use the Delete Conversation endpoint for that.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/erase (the `EraseUserMemoryRoute` operationId).
+	EraseUserMemoryRouteWithBodyWithResponse(ctx context.Context, agentId string, params *EraseUserMemoryRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EraseUserMemoryRouteResponse, error)
+
+	// EraseUserMemoryRouteWithResponse Erase User Memory
+	//
+	// Erase what this agent remembers about an end user: it stops drawing on their earlier conversations, and what it learned from them is deleted. With `opt_out`, it also stops remembering them in future ones. Other agents' memories of the user are kept. The conversations themselves are not deleted; use the Delete Conversation endpoint for that.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/erase (the `EraseUserMemoryRoute` operationId).
+	EraseUserMemoryRouteWithResponse(ctx context.Context, agentId string, params *EraseUserMemoryRouteParams, body EraseUserMemoryRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*EraseUserMemoryRouteResponse, error)
+
+	// ExportUserMemoryRouteWithBodyWithResponse Export User Memory
+	//
+	// Get a copy of everything this agent remembers about an end user, to answer their request to access or take their data; each agent remembers its users separately. Conversations are not included; use the Get Conversation Details endpoint for those. Someone who reached you under identities that were never linked is a separate user for each.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/export (the `ExportUserMemoryRoute` operationId).
+	ExportUserMemoryRouteWithBodyWithResponse(ctx context.Context, agentId string, params *ExportUserMemoryRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ExportUserMemoryRouteResponse, error)
+
+	// ExportUserMemoryRouteWithResponse Export User Memory
+	//
+	// Get a copy of everything this agent remembers about an end user, to answer their request to access or take their data; each agent remembers its users separately. Conversations are not included; use the Get Conversation Details endpoint for those. Someone who reached you under identities that were never linked is a separate user for each.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/export (the `ExportUserMemoryRoute` operationId).
+	ExportUserMemoryRouteWithResponse(ctx context.Context, agentId string, params *ExportUserMemoryRouteParams, body ExportUserMemoryRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*ExportUserMemoryRouteResponse, error)
+
+	// DeleteUserMemoryFactRouteWithResponse Delete User Memory Fact
+	//
+	// Delete one thing this agent remembers about an end user, e.g. because it is wrong. Earlier and later values of the same fact are kept and listed separately in Export User Memory. The agent still reads the user's recent conversations verbatim, so it can come across it there until those conversations are erased with Erase User Memory or deleted with Delete Conversation.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /v1/convai/agents/{agent_id}/user-memory/facts/{fact_id} (the `DeleteUserMemoryFactRoute` operationId).
+	DeleteUserMemoryFactRouteWithResponse(ctx context.Context, agentId string, factId string, params *DeleteUserMemoryFactRouteParams, reqEditors ...RequestEditorFn) (*DeleteUserMemoryFactRouteResponse, error)
 
 	// GetVersionMetadataRouteWithResponse Get Agent Version Metadata
 	//
@@ -164846,6 +166494,24 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /v1/convai/users (the `GetConversationUsersRoute` operationId).
 	GetConversationUsersRouteWithResponse(ctx context.Context, params *GetConversationUsersRouteParams, reqEditors ...RequestEditorFn) (*GetConversationUsersRouteResponse, error)
 
+	// FindAgentsUserByIdentityRouteWithBodyWithResponse Find Agents User By Identity
+	//
+	// The end user an active identity belongs to in the caller's workspace, e.g. the `user_id` your conversation initiation data sent for them. Use the returned `user_id` with Erase User Memory or Export User Memory. Never creates a user or identity.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/users/find-by-identity (the `FindAgentsUserByIdentityRoute` operationId).
+	FindAgentsUserByIdentityRouteWithBodyWithResponse(ctx context.Context, params *FindAgentsUserByIdentityRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FindAgentsUserByIdentityRouteResponse, error)
+
+	// FindAgentsUserByIdentityRouteWithResponse Find Agents User By Identity
+	//
+	// The end user an active identity belongs to in the caller's workspace, e.g. the `user_id` your conversation initiation data sent for them. Use the returned `user_id` with Erase User Memory or Export User Memory. Never creates a user or identity.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/users/find-by-identity (the `FindAgentsUserByIdentityRoute` operationId).
+	FindAgentsUserByIdentityRouteWithResponse(ctx context.Context, params *FindAgentsUserByIdentityRouteParams, body FindAgentsUserByIdentityRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*FindAgentsUserByIdentityRouteResponse, error)
+
 	// ListPhoneNumbersPageRouteWithResponse List Phone Numbers Page
 	//
 	// Retrieve a page of Phone Numbers.
@@ -166750,6 +168416,33 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with POST /v1/reception/products/{product_id}/stock/adjust (the `SmbAdjustProductStock` operationId).
 	SmbAdjustProductStockWithResponse(ctx context.Context, productId string, params *SmbAdjustProductStockParams, body SmbAdjustProductStockJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbAdjustProductStockResponse, error)
+
+	// SmbGetPronunciationRulesWithResponse Get Pronunciation Rules
+	//
+	// Get how the receptionists say this business's words on calls.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /v1/reception/pronunciation-rules (the `SmbGetPronunciationRules` operationId).
+	SmbGetPronunciationRulesWithResponse(ctx context.Context, params *SmbGetPronunciationRulesParams, reqEditors ...RequestEditorFn) (*SmbGetPronunciationRulesResponse, error)
+
+	// SmbSetPronunciationRulesWithBodyWithResponse Set Pronunciation Rules
+	//
+	// Replace how the receptionists say this business's words on calls. Send the full list; an empty list clears the rules.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/reception/pronunciation-rules (the `SmbSetPronunciationRules` operationId).
+	SmbSetPronunciationRulesWithBodyWithResponse(ctx context.Context, params *SmbSetPronunciationRulesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbSetPronunciationRulesResponse, error)
+
+	// SmbSetPronunciationRulesWithResponse Set Pronunciation Rules
+	//
+	// Replace how the receptionists say this business's words on calls. Send the full list; an empty list clears the rules.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PUT /v1/reception/pronunciation-rules (the `SmbSetPronunciationRules` operationId).
+	SmbSetPronunciationRulesWithResponse(ctx context.Context, params *SmbSetPronunciationRulesParams, body SmbSetPronunciationRulesJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbSetPronunciationRulesResponse, error)
 
 	// SmbListResellerInvoicesWithResponse List Reseller Invoices
 	//
@@ -171159,6 +172852,54 @@ func (r UpdateProcedureDraftRouteResponse) ContentType() string {
 	return ""
 }
 
+type UpdateProcedureVisibilityRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ProcedureDraftResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r UpdateProcedureVisibilityRouteResponse) GetJSON200() *ProcedureDraftResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r UpdateProcedureVisibilityRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateProcedureVisibilityRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateProcedureVisibilityRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateProcedureVisibilityRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateProcedureVisibilityRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type RebaseBranchRouteResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -172490,6 +174231,184 @@ func (r GetAssignableUsersRouteResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r GetAssignableUsersRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type DeleteUserMemoryEntityRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r DeleteUserMemoryEntityRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r DeleteUserMemoryEntityRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r DeleteUserMemoryEntityRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeleteUserMemoryEntityRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r DeleteUserMemoryEntityRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type EraseUserMemoryRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *EraseUserMemoryResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r EraseUserMemoryRouteResponse) GetJSON200() *EraseUserMemoryResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r EraseUserMemoryRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r EraseUserMemoryRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r EraseUserMemoryRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r EraseUserMemoryRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r EraseUserMemoryRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ExportUserMemoryRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ExportUserMemoryResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ExportUserMemoryRouteResponse) GetJSON200() *ExportUserMemoryResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ExportUserMemoryRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ExportUserMemoryRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ExportUserMemoryRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ExportUserMemoryRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ExportUserMemoryRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type DeleteUserMemoryFactRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r DeleteUserMemoryFactRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r DeleteUserMemoryFactRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r DeleteUserMemoryFactRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeleteUserMemoryFactRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r DeleteUserMemoryFactRouteResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -180805,6 +182724,54 @@ func (r GetConversationUsersRouteResponse) ContentType() string {
 	return ""
 }
 
+type FindAgentsUserByIdentityRouteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *FindAgentsUserByIdentityResponseModel
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r FindAgentsUserByIdentityRouteResponse) GetJSON200() *FindAgentsUserByIdentityResponseModel {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r FindAgentsUserByIdentityRouteResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r FindAgentsUserByIdentityRouteResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r FindAgentsUserByIdentityRouteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r FindAgentsUserByIdentityRouteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r FindAgentsUserByIdentityRouteResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type ListPhoneNumbersPageRouteResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -187675,6 +189642,102 @@ func (r SmbAdjustProductStockResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r SmbAdjustProductStockResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbGetPronunciationRulesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ReceptionPronunciationRulesResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbGetPronunciationRulesResponse) GetJSON200() *ReceptionPronunciationRulesResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbGetPronunciationRulesResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbGetPronunciationRulesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbGetPronunciationRulesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbGetPronunciationRulesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbGetPronunciationRulesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SmbSetPronunciationRulesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ReceptionPronunciationRulesResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SmbSetPronunciationRulesResponse) GetJSON200() *ReceptionPronunciationRulesResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SmbSetPronunciationRulesResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SmbSetPronunciationRulesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SmbSetPronunciationRulesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SmbSetPronunciationRulesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SmbSetPronunciationRulesResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -196649,6 +198712,36 @@ func (c *ClientWithResponses) UpdateProcedureDraftRouteWithResponse(ctx context.
 	return ParseUpdateProcedureDraftRouteResponse(rsp)
 }
 
+// UpdateProcedureVisibilityRouteWithBodyWithResponse Update Procedure Visibility
+//
+// Update or clear the visibility of a procedure draft. This is the condition that controls if a procedure is visible to the agent in its procedure menu.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/visibility (the `UpdateProcedureVisibilityRoute` operationId).
+func (c *ClientWithResponses) UpdateProcedureVisibilityRouteWithBodyWithResponse(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateProcedureVisibilityRouteResponse, error) {
+	rsp, err := c.UpdateProcedureVisibilityRouteWithBody(ctx, agentId, branchId, procedureId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateProcedureVisibilityRouteResponse(rsp)
+}
+
+// UpdateProcedureVisibilityRouteWithResponse Update Procedure Visibility
+//
+// Update or clear the visibility of a procedure draft. This is the condition that controls if a procedure is visible to the agent in its procedure menu.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/visibility (the `UpdateProcedureVisibilityRoute` operationId).
+func (c *ClientWithResponses) UpdateProcedureVisibilityRouteWithResponse(ctx context.Context, agentId string, branchId string, procedureId string, params *UpdateProcedureVisibilityRouteParams, body UpdateProcedureVisibilityRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateProcedureVisibilityRouteResponse, error) {
+	rsp, err := c.UpdateProcedureVisibilityRoute(ctx, agentId, branchId, procedureId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateProcedureVisibilityRouteResponse(rsp)
+}
+
 // RebaseBranchRouteWithBodyWithResponse Rebase A Branch Onto Main
 //
 // Pull changes from a source branch (defaults to main) into this branch as a new version. If both branches changed the same field, the rebase returns 409 unless `conflict_resolutions` settles every conflict the rebase preview reports. Callers with only propose access can pull into their own branch from its parent branch (their default source).
@@ -197298,6 +199391,96 @@ func (c *ClientWithResponses) GetAssignableUsersRouteWithResponse(ctx context.Co
 		return nil, err
 	}
 	return ParseGetAssignableUsersRouteResponse(rsp)
+}
+
+// DeleteUserMemoryEntityRouteWithResponse Delete User Memory Entity
+//
+// Delete a person, place or thing this agent remembers from an end user's conversations, together with everything it remembers about it. The agent may learn about it again from later conversations. It still reads the user's recent conversations verbatim, so it can come across it there until those conversations are erased with Erase User Memory or deleted with Delete Conversation.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/convai/agents/{agent_id}/user-memory/entities/{entity_id} (the `DeleteUserMemoryEntityRoute` operationId).
+func (c *ClientWithResponses) DeleteUserMemoryEntityRouteWithResponse(ctx context.Context, agentId string, entityId string, params *DeleteUserMemoryEntityRouteParams, reqEditors ...RequestEditorFn) (*DeleteUserMemoryEntityRouteResponse, error) {
+	rsp, err := c.DeleteUserMemoryEntityRoute(ctx, agentId, entityId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteUserMemoryEntityRouteResponse(rsp)
+}
+
+// EraseUserMemoryRouteWithBodyWithResponse Erase User Memory
+//
+// Erase what this agent remembers about an end user: it stops drawing on their earlier conversations, and what it learned from them is deleted. With `opt_out`, it also stops remembering them in future ones. Other agents' memories of the user are kept. The conversations themselves are not deleted; use the Delete Conversation endpoint for that.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/erase (the `EraseUserMemoryRoute` operationId).
+func (c *ClientWithResponses) EraseUserMemoryRouteWithBodyWithResponse(ctx context.Context, agentId string, params *EraseUserMemoryRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EraseUserMemoryRouteResponse, error) {
+	rsp, err := c.EraseUserMemoryRouteWithBody(ctx, agentId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseEraseUserMemoryRouteResponse(rsp)
+}
+
+// EraseUserMemoryRouteWithResponse Erase User Memory
+//
+// Erase what this agent remembers about an end user: it stops drawing on their earlier conversations, and what it learned from them is deleted. With `opt_out`, it also stops remembering them in future ones. Other agents' memories of the user are kept. The conversations themselves are not deleted; use the Delete Conversation endpoint for that.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/erase (the `EraseUserMemoryRoute` operationId).
+func (c *ClientWithResponses) EraseUserMemoryRouteWithResponse(ctx context.Context, agentId string, params *EraseUserMemoryRouteParams, body EraseUserMemoryRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*EraseUserMemoryRouteResponse, error) {
+	rsp, err := c.EraseUserMemoryRoute(ctx, agentId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseEraseUserMemoryRouteResponse(rsp)
+}
+
+// ExportUserMemoryRouteWithBodyWithResponse Export User Memory
+//
+// Get a copy of everything this agent remembers about an end user, to answer their request to access or take their data; each agent remembers its users separately. Conversations are not included; use the Get Conversation Details endpoint for those. Someone who reached you under identities that were never linked is a separate user for each.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/export (the `ExportUserMemoryRoute` operationId).
+func (c *ClientWithResponses) ExportUserMemoryRouteWithBodyWithResponse(ctx context.Context, agentId string, params *ExportUserMemoryRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ExportUserMemoryRouteResponse, error) {
+	rsp, err := c.ExportUserMemoryRouteWithBody(ctx, agentId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseExportUserMemoryRouteResponse(rsp)
+}
+
+// ExportUserMemoryRouteWithResponse Export User Memory
+//
+// Get a copy of everything this agent remembers about an end user, to answer their request to access or take their data; each agent remembers its users separately. Conversations are not included; use the Get Conversation Details endpoint for those. Someone who reached you under identities that were never linked is a separate user for each.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/agents/{agent_id}/user-memory/export (the `ExportUserMemoryRoute` operationId).
+func (c *ClientWithResponses) ExportUserMemoryRouteWithResponse(ctx context.Context, agentId string, params *ExportUserMemoryRouteParams, body ExportUserMemoryRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*ExportUserMemoryRouteResponse, error) {
+	rsp, err := c.ExportUserMemoryRoute(ctx, agentId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseExportUserMemoryRouteResponse(rsp)
+}
+
+// DeleteUserMemoryFactRouteWithResponse Delete User Memory Fact
+//
+// Delete one thing this agent remembers about an end user, e.g. because it is wrong. Earlier and later values of the same fact are kept and listed separately in Export User Memory. The agent still reads the user's recent conversations verbatim, so it can come across it there until those conversations are erased with Erase User Memory or deleted with Delete Conversation.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /v1/convai/agents/{agent_id}/user-memory/facts/{fact_id} (the `DeleteUserMemoryFactRoute` operationId).
+func (c *ClientWithResponses) DeleteUserMemoryFactRouteWithResponse(ctx context.Context, agentId string, factId string, params *DeleteUserMemoryFactRouteParams, reqEditors ...RequestEditorFn) (*DeleteUserMemoryFactRouteResponse, error) {
+	rsp, err := c.DeleteUserMemoryFactRoute(ctx, agentId, factId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteUserMemoryFactRouteResponse(rsp)
 }
 
 // GetVersionMetadataRouteWithResponse Get Agent Version Metadata
@@ -200847,6 +203030,36 @@ func (c *ClientWithResponses) GetConversationUsersRouteWithResponse(ctx context.
 	return ParseGetConversationUsersRouteResponse(rsp)
 }
 
+// FindAgentsUserByIdentityRouteWithBodyWithResponse Find Agents User By Identity
+//
+// The end user an active identity belongs to in the caller's workspace, e.g. the `user_id` your conversation initiation data sent for them. Use the returned `user_id` with Erase User Memory or Export User Memory. Never creates a user or identity.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/users/find-by-identity (the `FindAgentsUserByIdentityRoute` operationId).
+func (c *ClientWithResponses) FindAgentsUserByIdentityRouteWithBodyWithResponse(ctx context.Context, params *FindAgentsUserByIdentityRouteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FindAgentsUserByIdentityRouteResponse, error) {
+	rsp, err := c.FindAgentsUserByIdentityRouteWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseFindAgentsUserByIdentityRouteResponse(rsp)
+}
+
+// FindAgentsUserByIdentityRouteWithResponse Find Agents User By Identity
+//
+// The end user an active identity belongs to in the caller's workspace, e.g. the `user_id` your conversation initiation data sent for them. Use the returned `user_id` with Erase User Memory or Export User Memory. Never creates a user or identity.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/users/find-by-identity (the `FindAgentsUserByIdentityRoute` operationId).
+func (c *ClientWithResponses) FindAgentsUserByIdentityRouteWithResponse(ctx context.Context, params *FindAgentsUserByIdentityRouteParams, body FindAgentsUserByIdentityRouteJSONRequestBody, reqEditors ...RequestEditorFn) (*FindAgentsUserByIdentityRouteResponse, error) {
+	rsp, err := c.FindAgentsUserByIdentityRoute(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseFindAgentsUserByIdentityRouteResponse(rsp)
+}
+
 // ListPhoneNumbersPageRouteWithResponse List Phone Numbers Page
 //
 // Retrieve a page of Phone Numbers.
@@ -203958,6 +206171,51 @@ func (c *ClientWithResponses) SmbAdjustProductStockWithResponse(ctx context.Cont
 		return nil, err
 	}
 	return ParseSmbAdjustProductStockResponse(rsp)
+}
+
+// SmbGetPronunciationRulesWithResponse Get Pronunciation Rules
+//
+// Get how the receptionists say this business's words on calls.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /v1/reception/pronunciation-rules (the `SmbGetPronunciationRules` operationId).
+func (c *ClientWithResponses) SmbGetPronunciationRulesWithResponse(ctx context.Context, params *SmbGetPronunciationRulesParams, reqEditors ...RequestEditorFn) (*SmbGetPronunciationRulesResponse, error) {
+	rsp, err := c.SmbGetPronunciationRules(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbGetPronunciationRulesResponse(rsp)
+}
+
+// SmbSetPronunciationRulesWithBodyWithResponse Set Pronunciation Rules
+//
+// Replace how the receptionists say this business's words on calls. Send the full list; an empty list clears the rules.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/reception/pronunciation-rules (the `SmbSetPronunciationRules` operationId).
+func (c *ClientWithResponses) SmbSetPronunciationRulesWithBodyWithResponse(ctx context.Context, params *SmbSetPronunciationRulesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SmbSetPronunciationRulesResponse, error) {
+	rsp, err := c.SmbSetPronunciationRulesWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbSetPronunciationRulesResponse(rsp)
+}
+
+// SmbSetPronunciationRulesWithResponse Set Pronunciation Rules
+//
+// Replace how the receptionists say this business's words on calls. Send the full list; an empty list clears the rules.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PUT /v1/reception/pronunciation-rules (the `SmbSetPronunciationRules` operationId).
+func (c *ClientWithResponses) SmbSetPronunciationRulesWithResponse(ctx context.Context, params *SmbSetPronunciationRulesParams, body SmbSetPronunciationRulesJSONRequestBody, reqEditors ...RequestEditorFn) (*SmbSetPronunciationRulesResponse, error) {
+	rsp, err := c.SmbSetPronunciationRules(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSmbSetPronunciationRulesResponse(rsp)
 }
 
 // SmbListResellerInvoicesWithResponse List Reseller Invoices
@@ -209134,6 +211392,39 @@ func ParseUpdateProcedureDraftRouteResponse(rsp *http.Response) (*UpdateProcedur
 	return response, nil
 }
 
+// ParseUpdateProcedureVisibilityRouteResponse parses an HTTP response from a UpdateProcedureVisibilityRouteWithResponse call
+func ParseUpdateProcedureVisibilityRouteResponse(rsp *http.Response) (*UpdateProcedureVisibilityRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateProcedureVisibilityRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ProcedureDraftResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseRebaseBranchRouteResponse parses an HTTP response from a RebaseBranchRouteWithResponse call
 func ParseRebaseBranchRouteResponse(rsp *http.Response) (*RebaseBranchRouteResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -210041,6 +212332,130 @@ func ParseGetAssignableUsersRouteResponse(rsp *http.Response) (*GetAssignableUse
 			return nil, err
 		}
 		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDeleteUserMemoryEntityRouteResponse parses an HTTP response from a DeleteUserMemoryEntityRouteWithResponse call
+func ParseDeleteUserMemoryEntityRouteResponse(rsp *http.Response) (*DeleteUserMemoryEntityRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeleteUserMemoryEntityRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 204:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseEraseUserMemoryRouteResponse parses an HTTP response from a EraseUserMemoryRouteWithResponse call
+func ParseEraseUserMemoryRouteResponse(rsp *http.Response) (*EraseUserMemoryRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &EraseUserMemoryRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest EraseUserMemoryResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseExportUserMemoryRouteResponse parses an HTTP response from a ExportUserMemoryRouteWithResponse call
+func ParseExportUserMemoryRouteResponse(rsp *http.Response) (*ExportUserMemoryRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ExportUserMemoryRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ExportUserMemoryResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDeleteUserMemoryFactRouteResponse parses an HTTP response from a DeleteUserMemoryFactRouteWithResponse call
+func ParseDeleteUserMemoryFactRouteResponse(rsp *http.Response) (*DeleteUserMemoryFactRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeleteUserMemoryFactRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
 		var dest HTTPValidationError
@@ -215828,6 +218243,39 @@ func ParseGetConversationUsersRouteResponse(rsp *http.Response) (*GetConversatio
 	return response, nil
 }
 
+// ParseFindAgentsUserByIdentityRouteResponse parses an HTTP response from a FindAgentsUserByIdentityRouteWithResponse call
+func ParseFindAgentsUserByIdentityRouteResponse(rsp *http.Response) (*FindAgentsUserByIdentityRouteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &FindAgentsUserByIdentityRouteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest FindAgentsUserByIdentityResponseModel
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseListPhoneNumbersPageRouteResponse parses an HTTP response from a ListPhoneNumbersPageRouteWithResponse call
 func ParseListPhoneNumbersPageRouteResponse(rsp *http.Response) (*ListPhoneNumbersPageRouteResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -220599,6 +223047,72 @@ func ParseSmbAdjustProductStockResponse(rsp *http.Response) (*SmbAdjustProductSt
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest ReceptionProduct
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbGetPronunciationRulesResponse parses an HTTP response from a SmbGetPronunciationRulesWithResponse call
+func ParseSmbGetPronunciationRulesResponse(rsp *http.Response) (*SmbGetPronunciationRulesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbGetPronunciationRulesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ReceptionPronunciationRulesResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSmbSetPronunciationRulesResponse parses an HTTP response from a SmbSetPronunciationRulesWithResponse call
+func ParseSmbSetPronunciationRulesResponse(rsp *http.Response) (*SmbSetPronunciationRulesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SmbSetPronunciationRulesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ReceptionPronunciationRulesResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
