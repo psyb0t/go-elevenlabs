@@ -2,6 +2,14 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.22.2, 2026-11-28
+
+- Adds `AddCampaignLeads` and `AddCampaignLeadsWithBody` on `Client`, and `AddCampaignLeadsWithResponse` and `AddCampaignLeadsWithBodyWithResponse` on `ClientWithResponses`, for POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads. Adds `AddCampaignLeadsParams`, `AddCampaignLeadsJSONRequestBody`, `AddCampaignLeadsResponse`, `NewAddCampaignLeadsRequest`, `NewAddCampaignLeadsRequestWithBody` and `ParseAddCampaignLeadsResponse`.
+- Adds the `AddLeadsRequest` and `AddLeadsResponse` types for the new operation.
+- Adds `ConferenceTransferSipCallId` to `ConversationHistorySIPTrunkingPhoneCallModel`, `TransferToNumberResultErrorModel` and `TransferToNumberResultSipSuccessModel`.
+- Adds `SubscriptionPriceUsd` to `ResellerWorkspaceSubscription`.
+- Adds the new methods to the `ClientInterface` and `ClientWithResponsesInterface` interfaces. Custom implementations of these interfaces, such as mocks, must add them.
+
 ## v0.22.1, 2026-11-27
 
 - Adds user memory operations on `Client` and `ClientWithResponses`: `ExportUserMemoryRoute`, `EraseUserMemoryRoute`, `DeleteUserMemoryFactRoute`, `DeleteUserMemoryEntityRoute` and `FindAgentsUserByIdentityRoute`, with the `WithBody` and `WithResponse` variants, params, request, response and parse types.

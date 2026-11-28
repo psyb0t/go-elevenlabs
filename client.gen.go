@@ -25224,6 +25224,19 @@ type AddKnowledgeBaseResponseModel struct {
 	Name       string                                                `json:"name"`
 }
 
+// AddLeadsRequest defines model for AddLeadsRequest.
+type AddLeadsRequest struct {
+	// Recipients Who to add. A recipient whose `id` the campaign already has is skipped, so retrying a request with ids is safe. Recipients without an `id` are always added.
+	Recipients []SubmitCampaignRecipient `json:"recipients"`
+}
+
+// AddLeadsResponse defines model for AddLeadsResponse.
+type AddLeadsResponse struct {
+	// Added Recipients the campaign didn't have yet.
+	Added    int              `json:"added"`
+	Campaign CampaignResponse `json:"campaign"`
+}
+
 // AddProjectResponseModel defines model for AddProjectResponseModel.
 type AddProjectResponseModel struct {
 	Project ProjectResponseModel `json:"project"`
@@ -33279,15 +33292,16 @@ type ConversationHistoryRedactionConfig struct {
 
 // ConversationHistorySIPTrunkingPhoneCallModel defines model for ConversationHistorySIPTrunkingPhoneCallModel.
 type ConversationHistorySIPTrunkingPhoneCallModel struct {
-	AgentNumber               string                                           `json:"agent_number"`
-	CallId                    *string                                          `json:"call_id,omitempty"`
-	CallResult                *CallResult                                      `json:"call_result,omitempty"`
-	CallSid                   string                                           `json:"call_sid"`
-	Direction                 TelephonyDirection                               `json:"direction"`
-	ExternalNumber            string                                           `json:"external_number"`
-	PhoneNumberId             string                                           `json:"phone_number_id"`
-	SipHeaderDynamicVariables *map[string]string                               `json:"sip_header_dynamic_variables,omitempty"`
-	Type                      ConversationHistorySIPTrunkingPhoneCallModelType `json:"type"`
+	AgentNumber                 string                                           `json:"agent_number"`
+	CallId                      *string                                          `json:"call_id,omitempty"`
+	CallResult                  *CallResult                                      `json:"call_result,omitempty"`
+	CallSid                     string                                           `json:"call_sid"`
+	ConferenceTransferSipCallId *string                                          `json:"conference_transfer_sip_call_id,omitempty"`
+	Direction                   TelephonyDirection                               `json:"direction"`
+	ExternalNumber              string                                           `json:"external_number"`
+	PhoneNumberId               string                                           `json:"phone_number_id"`
+	SipHeaderDynamicVariables   *map[string]string                               `json:"sip_header_dynamic_variables,omitempty"`
+	Type                        ConversationHistorySIPTrunkingPhoneCallModelType `json:"type"`
 }
 
 // ConversationHistorySIPTrunkingPhoneCallModelType defines model for ConversationHistorySIPTrunkingPhoneCallModel.Type.
@@ -47735,7 +47749,10 @@ type ResellerWorkspaceSubscription struct {
 
 	// PendingDowngradeTier Tier this workspace drops to at the period boundary, if a downgrade is already scheduled.
 	PendingDowngradeTier *string `json:"pending_downgrade_tier,omitempty"`
-	TierId               string  `json:"tier_id"`
+
+	// SubscriptionPriceUsd Price frozen at grant for the current billing cadence, not the live catalog price.
+	SubscriptionPriceUsd *float32 `json:"subscription_price_usd,omitempty"`
+	TierId               string   `json:"tier_id"`
 }
 
 // ResellerWorkspaceSubscriptionBillingPeriod defines model for ResellerWorkspaceSubscription.BillingPeriod.
@@ -51966,10 +51983,11 @@ type TransferToNumberResultAmazonConnectSuccessModelStatus string
 
 // TransferToNumberResultErrorModel defines model for TransferToNumberResultErrorModel.
 type TransferToNumberResultErrorModel struct {
-	Details    *string                                     `json:"details,omitempty"`
-	Error      string                                      `json:"error"`
-	ResultType *TransferToNumberResultErrorModelResultType `json:"result_type,omitempty"`
-	Status     *TransferToNumberResultErrorModelStatus     `json:"status,omitempty"`
+	ConferenceTransferSipCallId *string                                     `json:"conference_transfer_sip_call_id,omitempty"`
+	Details                     *string                                     `json:"details,omitempty"`
+	Error                       string                                      `json:"error"`
+	ResultType                  *TransferToNumberResultErrorModelResultType `json:"result_type,omitempty"`
+	Status                      *TransferToNumberResultErrorModelStatus     `json:"status,omitempty"`
 }
 
 // TransferToNumberResultErrorModelResultType defines model for TransferToNumberResultErrorModel.ResultType.
@@ -51996,11 +52014,12 @@ type TransferToNumberResultExotelSuccessModelStatus string
 
 // TransferToNumberResultSipSuccessModel defines model for TransferToNumberResultSipSuccessModel.
 type TransferToNumberResultSipSuccessModel struct {
-	Note           *string                                          `json:"note,omitempty"`
-	Reason         *string                                          `json:"reason,omitempty"`
-	ResultType     *TransferToNumberResultSipSuccessModelResultType `json:"result_type,omitempty"`
-	Status         *TransferToNumberResultSipSuccessModelStatus     `json:"status,omitempty"`
-	TransferNumber string                                           `json:"transfer_number"`
+	ConferenceTransferSipCallId *string                                          `json:"conference_transfer_sip_call_id,omitempty"`
+	Note                        *string                                          `json:"note,omitempty"`
+	Reason                      *string                                          `json:"reason,omitempty"`
+	ResultType                  *TransferToNumberResultSipSuccessModelResultType `json:"result_type,omitempty"`
+	Status                      *TransferToNumberResultSipSuccessModelStatus     `json:"status,omitempty"`
+	TransferNumber              string                                           `json:"transfer_number"`
 }
 
 // TransferToNumberResultSipSuccessModelResultType defines model for TransferToNumberResultSipSuccessModel.ResultType.
@@ -59035,6 +59054,12 @@ type ListCampaignLeadsParams struct {
 // ListCampaignLeadsParamsStatus defines parameters for ListCampaignLeads.
 type ListCampaignLeadsParamsStatus string
 
+// AddCampaignLeadsParams defines parameters for AddCampaignLeads.
+type AddCampaignLeadsParams struct {
+	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+	XiApiKey *string `json:"xi-api-key,omitempty"`
+}
+
 // SuppressLeadParams defines parameters for SuppressLead.
 type SuppressLeadParams struct {
 	// XiApiKey Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -62858,6 +62883,9 @@ type ResolveAttentionJSONRequestBody = AttentionResolutionRequest
 
 // SubmitCampaignJSONRequestBody defines body for SubmitCampaign for application/json ContentType.
 type SubmitCampaignJSONRequestBody = SubmitCampaignRequest
+
+// AddCampaignLeadsJSONRequestBody defines body for AddCampaignLeads for application/json ContentType.
+type AddCampaignLeadsJSONRequestBody = AddLeadsRequest
 
 // ReplaceWorkspaceConfigJSONRequestBody defines body for ReplaceWorkspaceConfig for application/json ContentType.
 type ReplaceWorkspaceConfigJSONRequestBody = ReplaceWorkspaceConfigRequest
@@ -104227,6 +104255,24 @@ type ClientInterface interface {
 	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `ListCampaignLeads` operationId).
 	ListCampaignLeads(ctx context.Context, campaignId string, params *ListCampaignLeadsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// AddCampaignLeadsWithBody Add Leads To An Outbound Campaign
+	//
+	// Add recipients to an outbound campaign that isn't stopping, stopped or failed. Recipients whose `id` the campaign already has are skipped, and a `completed` campaign becomes `active` again.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `AddCampaignLeads` operationId).
+	AddCampaignLeadsWithBody(ctx context.Context, campaignId string, params *AddCampaignLeadsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AddCampaignLeads Add Leads To An Outbound Campaign
+	//
+	// Add recipients to an outbound campaign that isn't stopping, stopped or failed. Recipients whose `id` the campaign already has are skipped, and a `completed` campaign becomes `active` again.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `AddCampaignLeads` operationId).
+	AddCampaignLeads(ctx context.Context, campaignId string, params *AddCampaignLeadsParams, body AddCampaignLeadsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// SuppressLead Remove An Outbound Campaign Lead
 	//
 	// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
@@ -113495,6 +113541,44 @@ func (c *Client) GetCampaignFollowUpRequests(ctx context.Context, campaignId str
 // Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `ListCampaignLeads` operationId).
 func (c *Client) ListCampaignLeads(ctx context.Context, campaignId string, params *ListCampaignLeadsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewListCampaignLeadsRequest(c.Server, campaignId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// AddCampaignLeadsWithBody Add Leads To An Outbound Campaign
+//
+// Add recipients to an outbound campaign that isn't stopping, stopped or failed. Recipients whose `id` the campaign already has are skipped, and a `completed` campaign becomes `active` again.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `AddCampaignLeads` operationId).
+func (c *Client) AddCampaignLeadsWithBody(ctx context.Context, campaignId string, params *AddCampaignLeadsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewAddCampaignLeadsRequestWithBody(c.Server, campaignId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// AddCampaignLeads Add Leads To An Outbound Campaign
+//
+// Add recipients to an outbound campaign that isn't stopping, stopped or failed. Recipients whose `id` the campaign already has are skipped, and a `completed` campaign becomes `active` again.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `AddCampaignLeads` operationId).
+func (c *Client) AddCampaignLeads(ctx context.Context, campaignId string, params *AddCampaignLeadsParams, body AddCampaignLeadsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewAddCampaignLeadsRequest(c.Server, campaignId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -137813,6 +137897,68 @@ func NewListCampaignLeadsRequest(server string, campaignId string, params *ListC
 	if err != nil {
 		return nil, err
 	}
+
+	if params != nil {
+
+		if params.XiApiKey != nil {
+			var headerParam0 string
+
+			headerParam0, err = runtime.StyleParamWithOptions("simple", false, "xi-api-key", *params.XiApiKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationHeader, Type: "", Format: ""})
+			if err != nil {
+				return nil, err
+			}
+
+			req.Header.Set("xi-api-key", headerParam0)
+		}
+
+	}
+
+	return req, nil
+}
+
+// NewAddCampaignLeadsRequest calls the generic AddCampaignLeads builder with application/json body
+func NewAddCampaignLeadsRequest(server string, campaignId string, params *AddCampaignLeadsParams, body AddCampaignLeadsJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewAddCampaignLeadsRequestWithBody(server, campaignId, params, "application/json", bodyReader)
+}
+
+// NewAddCampaignLeadsRequestWithBody constructs an http.Request for the AddCampaignLeads method, with any body, and a specified content type
+func NewAddCampaignLeadsRequestWithBody(server string, campaignId string, params *AddCampaignLeadsParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/convai/outbound-campaigns/campaigns/%s/leads", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	if params != nil {
 
@@ -165720,6 +165866,24 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `ListCampaignLeads` operationId).
 	ListCampaignLeadsWithResponse(ctx context.Context, campaignId string, params *ListCampaignLeadsParams, reqEditors ...RequestEditorFn) (*ListCampaignLeadsResponse, error)
 
+	// AddCampaignLeadsWithBodyWithResponse Add Leads To An Outbound Campaign
+	//
+	// Add recipients to an outbound campaign that isn't stopping, stopped or failed. Recipients whose `id` the campaign already has are skipped, and a `completed` campaign becomes `active` again.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `AddCampaignLeads` operationId).
+	AddCampaignLeadsWithBodyWithResponse(ctx context.Context, campaignId string, params *AddCampaignLeadsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AddCampaignLeadsResponse, error)
+
+	// AddCampaignLeadsWithResponse Add Leads To An Outbound Campaign
+	//
+	// Add recipients to an outbound campaign that isn't stopping, stopped or failed. Recipients whose `id` the campaign already has are skipped, and a `completed` campaign becomes `active` again.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `AddCampaignLeads` operationId).
+	AddCampaignLeadsWithResponse(ctx context.Context, campaignId string, params *AddCampaignLeadsParams, body AddCampaignLeadsJSONRequestBody, reqEditors ...RequestEditorFn) (*AddCampaignLeadsResponse, error)
+
 	// SuppressLeadWithResponse Remove An Outbound Campaign Lead
 	//
 	// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
@@ -179825,6 +179989,54 @@ func (r ListCampaignLeadsResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r ListCampaignLeadsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type AddCampaignLeadsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *AddLeadsResponse
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *HTTPValidationError
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r AddCampaignLeadsResponse) GetJSON200() *AddLeadsResponse {
+	return r.JSON200
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r AddCampaignLeadsResponse) GetJSON422() *HTTPValidationError {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r AddCampaignLeadsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r AddCampaignLeadsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AddCampaignLeadsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r AddCampaignLeadsResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -201740,6 +201952,36 @@ func (c *ClientWithResponses) ListCampaignLeadsWithResponse(ctx context.Context,
 	return ParseListCampaignLeadsResponse(rsp)
 }
 
+// AddCampaignLeadsWithBodyWithResponse Add Leads To An Outbound Campaign
+//
+// Add recipients to an outbound campaign that isn't stopping, stopped or failed. Recipients whose `id` the campaign already has are skipped, and a `completed` campaign becomes `active` again.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `AddCampaignLeads` operationId).
+func (c *ClientWithResponses) AddCampaignLeadsWithBodyWithResponse(ctx context.Context, campaignId string, params *AddCampaignLeadsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AddCampaignLeadsResponse, error) {
+	rsp, err := c.AddCampaignLeadsWithBody(ctx, campaignId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseAddCampaignLeadsResponse(rsp)
+}
+
+// AddCampaignLeadsWithResponse Add Leads To An Outbound Campaign
+//
+// Add recipients to an outbound campaign that isn't stopping, stopped or failed. Recipients whose `id` the campaign already has are skipped, and a `completed` campaign becomes `active` again.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /v1/convai/outbound-campaigns/campaigns/{campaign_id}/leads (the `AddCampaignLeads` operationId).
+func (c *ClientWithResponses) AddCampaignLeadsWithResponse(ctx context.Context, campaignId string, params *AddCampaignLeadsParams, body AddCampaignLeadsJSONRequestBody, reqEditors ...RequestEditorFn) (*AddCampaignLeadsResponse, error) {
+	rsp, err := c.AddCampaignLeads(ctx, campaignId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseAddCampaignLeadsResponse(rsp)
+}
+
 // SuppressLeadWithResponse Remove An Outbound Campaign Lead
 //
 // Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
@@ -216236,6 +216478,39 @@ func ParseListCampaignLeadsResponse(rsp *http.Response) (*ListCampaignLeadsRespo
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest CampaignLeadsResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest HTTPValidationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAddCampaignLeadsResponse parses an HTTP response from a AddCampaignLeadsWithResponse call
+func ParseAddCampaignLeadsResponse(rsp *http.Response) (*AddCampaignLeadsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AddCampaignLeadsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AddLeadsResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
